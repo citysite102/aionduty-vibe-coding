@@ -10,9 +10,13 @@ export function SectionDivider({
   title: string;
   subtitle: string;
   number: string;
-  /** 較長的段落可以給一條路線圖，讓學員知道這一段分幾塊、還要走多久 */
-  roadmap?: { label: string; range: string }[];
+  /**
+   * 較長的段落可以給一條路線圖。用 pages 撐出每一塊的寬度，
+   * 讓「哪一塊最長、還要撐多久」直接用比例看出來，而不是四個一樣大的方塊。
+   */
+  roadmap?: { label: string; range: string; pages: number }[];
 }) {
+  const totalPages = roadmap?.reduce((sum, r) => sum + r.pages, 0) ?? 0;
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-slate-950 relative overflow-hidden">
       {/* Background decoration */}
@@ -33,16 +37,31 @@ export function SectionDivider({
         <div className="w-24 h-1.5 bg-gradient-to-r from-sky-500 to-indigo-500 mx-auto mt-12 rounded-full"></div>
 
         {roadmap && (
-          <div className="mt-12 flex flex-wrap justify-center items-center gap-3">
-            {roadmap.map((r, i) => (
-              <div key={r.label} className="flex items-center gap-3">
-                {i > 0 && <span className="text-slate-700 text-lg">→</span>}
-                <div className="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-800 text-left">
-                  <div className="text-slate-200 text-base font-bold leading-tight">{r.label}</div>
-                  <div className="text-slate-500 text-xs font-mono mt-1">{r.range}</div>
+          <div className="mt-14 w-full max-w-3xl mx-auto">
+            <div className="text-slate-500 text-sm mb-3 text-center">
+              這一段共 {totalPages} 頁，分成 {roadmap.length} 塊
+            </div>
+
+            {/* 寬度＝頁數，讓「哪一塊最長」用看的就知道。深淺交錯區分相鄰區塊。 */}
+            <div className="flex gap-2">
+              {roadmap.map((r, i) => (
+                <div
+                  key={r.label}
+                  style={{ flex: r.pages }}
+                  className={`rounded-2xl px-5 py-4 text-left border ${
+                    i % 2 === 0
+                      ? 'bg-sky-500/15 border-sky-500/30'
+                      : 'bg-sky-500/[0.06] border-sky-500/15'
+                  }`}
+                >
+                  <div className="text-slate-100 text-base font-bold leading-tight whitespace-nowrap">
+                    {r.label}
+                  </div>
+                  <div className="text-sky-400/80 text-xs font-mono mt-1.5">{r.range}</div>
+                  <div className="text-slate-500 text-xs mt-0.5">{r.pages} 頁</div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </motion.div>
