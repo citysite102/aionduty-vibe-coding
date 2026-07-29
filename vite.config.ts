@@ -5,6 +5,10 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages 的 project site 服務在 https://<帳號>.github.io/<repo>/ 底下，
+    // 不設 base 的話所有 JS/CSS/favicon 都會指到網域根目錄而 404。
+    // 之後若改綁自訂網域，把這行改回 '/'。
+    base: '/aionduty-vibe-coding/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

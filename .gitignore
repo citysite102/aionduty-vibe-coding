@@ -6,3 +6,13 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# 課程籌備用的內部文件，留在本機、不對外公開
+審稿報告.md
+報名問卷_*.md
+邀請文_*.md
+Banner_Prompts_*.md
+
+# AI Studio / Codex 的本機專案設定
+.openai/
+.claude/settings.local.json
