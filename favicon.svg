@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient: Deep blue to dark slate navy -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1931" />
+      <stop offset="50%" stop-color="#15305b" />
+      <stop offset="100%" stop-color="#050c18" />
+    </linearGradient>
+    
+    <!-- Subtle Inner Bevel Shadow -->
+    <filter id="inset-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feOffset dx="0" dy="8"/>
+      <feGaussianBlur stdDeviation="8" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="black" flood-opacity="0.6" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+
+    <!-- Drop Shadow for Checkmark Badge -->
+    <filter id="badge-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Main Card Body with Rounded Corners -->
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#bg-grad)" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Subtle top highlight for depth -->
+  <rect x="26" y="26" width="460" height="460" rx="110" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-opacity="0.1" />
+
+  <!-- "AI" Bold Italic Text in the Center/Left -->
+  <text 
+    x="230" 
+    y="275" 
+    font-family="system-ui, -apple-system, 'SF Pro Display', 'Inter', sans-serif" 
+    font-size="190" 
+    font-weight="900" 
+    font-style="italic" 
+    fill="#ffffff" 
+    letter-spacing="-6"
+    text-anchor="middle"
+    dominant-baseline="middle"
+  >AI</text>
+
+  <!-- Checkmark Badge on Bottom Right -->
+  <g filter="url(#badge-shadow)">
+    <!-- Dark Badge Border/Base -->
+    <circle cx="392" cy="392" r="76" fill="#050c18" stroke="#101a2d" stroke-width="6" />
+    
+    <!-- Green Check Circle -->
+    <circle cx="392" cy="392" r="60" fill="#10b981" />
+    
+    <!-- Pristine Checkmark -->
+    <path 
+      d="M 354 394 L 382 422 L 434 366" 
+      stroke="#ffffff" 
+      stroke-width="15" 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      fill="none" 
+    />
+  </g>
+</svg>

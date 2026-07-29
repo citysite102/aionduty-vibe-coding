@@ -1,0 +1,8 @@
+{
+  "name": "AI On Duty Vibe Coding 補充單元教材（Version 3.0）",
+  "description": "",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

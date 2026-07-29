@@ -1,0 +1,105 @@
+import { Rocket, FolderPlus, FileText, ListChecks, LifeBuoy } from 'lucide-react';
+import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+
+const STEPS = [
+  {
+    icon: FolderPlus,
+    title: '1. 開一個資料夾，把它叫起來',
+    body: '不用先想清楚要做什麼。開資料夾、cd 進去、輸入 claude，先讓它跑起來再說。',
+    code: ['$ mkdir my-project && cd my-project', '$ claude']
+  },
+  {
+    icon: FileText,
+    title: '2. 第一件事不是寫功能，是寫規矩',
+    body: '跟它說「請幫我建一份 CLAUDE.md」，內容三行就夠。之後每次進來它都會先讀。',
+    code: ['- 一律用繁體中文回覆', '- 改任何檔案前先說你要改什麼', '- 每次改完跑一次 npm run lint']
+  },
+  {
+    icon: ListChecks,
+    title: '3. 一次只交代一件事',
+    body: '做完先看它改了哪幾行（問它，或打開 VS Code 左側的原始檔控制），確認沒問題再交代下一件。',
+    code: null
+  }
+];
+
+const STUCK = [
+  { k: '它跑歪了', v: '按 Esc 停下來。想退回更早的狀態，輸入框空著時連按兩次 Esc。' },
+  { k: '出現紅字', v: '整段複製貼回去，加一句「用白話解釋這在說什麼，我不看程式碼」。' },
+  { k: '一直卡同一個問題', v: '不是它笨，是範圍太大。跟它說「先停，這輪只做某某一件事」。' }
+];
+
+export default function SlideFirstDay() {
+  return (
+    <SlideLayout
+      title="回去之後，第一天做什麼"
+      subtitle="Your First Day After This Course"
+      icon={Rocket}
+    >
+      <div className="max-w-6xl mx-auto text-left">
+
+        <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4 mb-5">
+          <p className="text-slate-300 text-base leading-relaxed">
+            這堂課講了很多東西，但明天要用的其實只有這幾件。
+            <strong className="text-slate-100">把這一頁截圖起來就夠了。</strong>
+          </p>
+        </AnimatedBlock>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
+
+          <div className="grid grid-cols-1 gap-4">
+            {STEPS.map((step, idx) => {
+              const Icon = step.icon;
+              return (
+                <AnimatedBlock
+                  key={step.title}
+                  stepIndex={idx + 2}
+                  className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex gap-4 items-start"
+                >
+                  <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl shrink-0">
+                    <Icon size={20} />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-base font-bold text-slate-100 mb-1.5">{step.title}</h4>
+                    <p className="text-sm text-slate-400 leading-relaxed">{step.body}</p>
+                    {step.code && (
+                      <div className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 mt-3 font-mono text-sm text-emerald-300 space-y-1 break-all">
+                        {step.code.map((line) => (
+                          <div key={line}>{line}</div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </AnimatedBlock>
+              );
+            })}
+          </div>
+
+          <AnimatedBlock stepIndex={5} className="bg-gradient-to-b from-slate-900 to-amber-950/20 border border-slate-800 rounded-2xl p-5">
+            <h4 className="text-base font-bold text-amber-400 mb-4 flex items-center gap-2">
+              <LifeBuoy size={18} />
+              卡住的時候，三招
+            </h4>
+            <div className="space-y-3.5">
+              {STUCK.map((s) => (
+                <div key={s.k}>
+                  <div className="text-sm font-bold text-slate-200 mb-0.5">{s.k}</div>
+                  <div className="text-sm text-slate-400 leading-relaxed">{s.v}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 pt-4 border-t border-slate-800 space-y-2">
+              <p className="text-sm text-slate-400 leading-relaxed">
+                <strong className="text-slate-200">想再往前一步：</strong>把每週都要重複做的那件事，整理成一份 <code className="text-sky-300 font-mono">SKILL.md</code>，交給它跑一次看看。
+              </p>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                想知道額度用到哪了，輸入 <code className="text-slate-400 font-mono">/usage</code>。
+              </p>
+            </div>
+          </AnimatedBlock>
+
+        </div>
+      </div>
+    </SlideLayout>
+  );
+}

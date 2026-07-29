@@ -1,0 +1,172 @@
+import { BookOpen, Lock, KeyRound, ListChecks, FileCode2, MousePointerClick } from 'lucide-react';
+import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+
+const STEPS = [
+  {
+    num: '1',
+    icon: MousePointerClick,
+    title: '找端點與方法',
+    desc: '先看「要打去哪、用什麼動作」。POST 代表送資料出去，網址就是這支 API 的門牌。',
+    color: 'sky',
+  },
+  {
+    num: '2',
+    icon: KeyRound,
+    title: '看認證方式',
+    desc: '幾乎每支 API 都要「證明你是誰」。通常是在 Header 夾帶一把金鑰（API Key）。',
+    color: 'amber',
+  },
+  {
+    num: '3',
+    icon: ListChecks,
+    title: '掌握必填參數',
+    desc: '文件會標示哪些欄位是 required。少一個必填，請求就會被打回來。',
+    color: 'emerald',
+  },
+  {
+    num: '4',
+    icon: FileCode2,
+    title: '抄範例回應',
+    desc: '直接看官方給的 Example，就知道回傳長什麼樣、該從哪個欄位取值。',
+    color: 'indigo',
+  },
+];
+
+const COLOR_MAP: Record<string, string> = {
+  sky: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
+  amber: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
+  emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30',
+  indigo: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/30',
+};
+
+export default function Slide10b3() {
+  return (
+    <SlideLayout title="如何閱讀 API 文件" subtitle="How to Read API Docs" icon={BookOpen}>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-2 items-stretch max-w-6xl mx-auto pb-8">
+
+        {/* LEFT: Annotated faux documentation browser */}
+        <AnimatedBlock stepIndex={1} className="lg:col-span-7 flex flex-col">
+          <div className="bg-slate-900 border border-slate-800 rounded-3xl shadow-xl overflow-hidden h-full flex flex-col">
+
+            {/* Faux Browser Bar */}
+            <div className="bg-[#101015] px-4 py-2.5 flex items-center gap-3 border-b border-slate-800 shrink-0">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 block" />
+              </div>
+              <div className="flex-1 bg-slate-950 border border-slate-800 rounded-md px-3 py-1 text-[11px] font-mono text-slate-400 flex items-center gap-1.5 truncate">
+                <Lock size={10} className="text-emerald-500 shrink-0" />
+                <span className="truncate">platform.claude.com/docs/en/api/messages</span>
+              </div>
+            </div>
+
+            {/* Doc Content */}
+            <div className="p-5 space-y-4 font-mono text-xs text-left flex-1 overflow-y-auto custom-scrollbar">
+
+              <div className="text-slate-500 font-sans text-[11px]">Messages API</div>
+
+              {/* 1. Endpoint + Method */}
+              <div className="border-l-2 border-sky-500 pl-3 py-1 relative">
+                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-sky-500 text-slate-950 text-[11px] font-black flex items-center justify-center">1</span>
+                <div className="flex items-center gap-2">
+                  <span className="px-1.5 py-0.5 bg-sky-500/15 text-sky-300 rounded text-[11px] font-black border border-sky-500/30">POST</span>
+                  <span className="text-slate-200">/v1/messages</span>
+                </div>
+                <div className="text-[11px] text-sky-400/80 font-sans mt-1">端點＋方法：打去哪、用什麼動作</div>
+              </div>
+
+              {/* 2. Authentication */}
+              <div className="border-l-2 border-amber-500 pl-3 py-1 relative">
+                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-amber-500 text-slate-950 text-[11px] font-black flex items-center justify-center">2</span>
+                <div className="text-slate-400 font-sans text-[11px] mb-1 uppercase tracking-wider">Headers</div>
+                <div className="text-slate-300"><span className="text-slate-500">x-api-key:</span> <span className="text-amber-300">&lt;YOUR_API_KEY&gt;</span></div>
+                <div className="text-slate-300"><span className="text-slate-500">content-type:</span> application/json</div>
+                <div className="text-[11px] text-amber-400/80 font-sans mt-1">認證：夾帶金鑰證明你是誰</div>
+              </div>
+
+              {/* 3. Body Parameters */}
+              <div className="border-l-2 border-emerald-500 pl-3 py-1 relative">
+                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-emerald-500 text-slate-950 text-[11px] font-black flex items-center justify-center">3</span>
+                <div className="text-slate-400 font-sans text-[11px] mb-1.5 uppercase tracking-wider">Body Parameters</div>
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-200">model</span>
+                    <span className="px-1 py-0.5 bg-rose-500/15 text-rose-300 rounded text-[11px] font-bold border border-rose-500/30 font-sans">required</span>
+                    <span className="text-slate-500 text-[11px] font-sans">要用哪個模型</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-200">messages</span>
+                    <span className="px-1 py-0.5 bg-rose-500/15 text-rose-300 rounded text-[11px] font-bold border border-rose-500/30 font-sans">required</span>
+                    <span className="text-slate-500 text-[11px] font-sans">對話內容陣列</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-slate-200">max_tokens</span>
+                    <span className="px-1 py-0.5 bg-rose-500/15 text-rose-300 rounded text-[11px] font-bold border border-rose-500/30 font-sans">required</span>
+                    <span className="text-slate-500 text-[11px] font-sans">最多回幾個字</span>
+                  </div>
+                  <div className="flex items-center gap-2 opacity-60">
+                    <span className="text-slate-300">temperature</span>
+                    <span className="px-1 py-0.5 bg-slate-700/40 text-slate-400 rounded text-[11px] font-bold border border-slate-700 font-sans">optional</span>
+                    <span className="text-slate-500 text-[11px] font-sans">回答的發散程度</span>
+                  </div>
+                </div>
+                <div className="text-[11px] text-emerald-400/80 font-sans mt-1.5">必填參數：紅色標籤少一個就會被打回</div>
+              </div>
+
+              {/* 4. Example Response */}
+              <div className="border-l-2 border-indigo-500 pl-3 py-1 relative">
+                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-indigo-500 text-slate-950 text-[11px] font-black flex items-center justify-center">4</span>
+                <div className="text-slate-400 font-sans text-[11px] mb-1.5 uppercase tracking-wider">Example Response</div>
+                <pre className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-[11px] text-indigo-300 leading-relaxed overflow-x-auto">{`{
+  "id": "msg_01...",
+  "role": "assistant",
+  "content": [{ "type": "text",
+    "text": "Hello!" }]
+}`}</pre>
+                <div className="text-[11px] text-indigo-400/80 font-sans mt-1">範例回應：知道從 content 取值</div>
+              </div>
+
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* RIGHT: The 4-step reading recipe */}
+        <div className="lg:col-span-5 flex flex-col gap-4">
+
+          <AnimatedBlock stepIndex={2}>
+            <p className="text-slate-400 text-sm leading-relaxed text-left">
+              API 文件第一眼看下去常常完全看不懂，但每一份其實都在回答同樣四個問題。抓住這四塊，任何文件都讀得動。
+            </p>
+          </AnimatedBlock>
+
+          {STEPS.map((step, idx) => {
+            const Icon = step.icon;
+            return (
+              <AnimatedBlock key={step.num} stepIndex={3 + idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-left flex items-start gap-3.5">
+                <div className={`w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 ${COLOR_MAP[step.color]}`}>
+                  <Icon size={18} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <span className="text-[11px] font-mono font-bold text-slate-600">STEP {step.num}</span>
+                    <h4 className="text-sm font-bold text-slate-100">{step.title}</h4>
+                  </div>
+                  <p className="text-slate-400 text-[11px] leading-relaxed">{step.desc}</p>
+                </div>
+              </AnimatedBlock>
+            );
+          })}
+
+          <AnimatedBlock stepIndex={7} className="bg-indigo-500/5 border border-indigo-500/20 rounded-2xl p-4 text-left mt-auto">
+            <p className="text-[11px] text-slate-300 leading-relaxed">
+              💡 看懂這四塊，你甚至不用自己讀完整份文件。把網址丟給 Claude Code，它會照同樣邏輯幫你讀懂並寫出串接程式碼，而你有能力驗收它對不對。
+            </p>
+          </AnimatedBlock>
+
+        </div>
+
+      </div>
+    </SlideLayout>
+  );
+}
