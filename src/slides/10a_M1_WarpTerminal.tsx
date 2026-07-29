@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Terminal, Cpu, Share2, Award, AlertCircle, ArrowRight, CheckCircle2, Circle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 import { motion } from 'motion/react';
 
 export default function SlideWarpTerminal() {
@@ -8,6 +9,7 @@ export default function SlideWarpTerminal() {
 
   return (
     <SlideLayout title="推薦現代 AI 終端機 Warp" subtitle="Modern Terminal with Warp AI" icon={Terminal}>
+      <LiveDemo kind="terminal" note="打開 Warp 看實際操作" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
         {/* Left column: Warp Intro */}

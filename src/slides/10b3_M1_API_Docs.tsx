@@ -1,5 +1,6 @@
 import { BookOpen, Lock, KeyRound, ListChecks, FileCode2, MousePointerClick } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 
 const STEPS = [
   {
@@ -42,6 +43,7 @@ const COLOR_MAP: Record<string, string> = {
 export default function Slide10b3() {
   return (
     <SlideLayout title="如何閱讀 API 文件" subtitle="How to Read API Docs" icon={BookOpen}>
+      <LiveDemo kind="browser" note="打開一份官方文件" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-2 items-stretch max-w-6xl mx-auto pb-8">
 
         {/* LEFT: Annotated faux documentation browser */}

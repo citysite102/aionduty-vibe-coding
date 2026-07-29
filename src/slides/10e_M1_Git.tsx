@@ -1,10 +1,12 @@
 import { GitCommit, GitPullRequest, GitBranch, FolderGit2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 import { motion } from 'motion/react';
 
 export default function Slide10e() {
   return (
     <SlideLayout title="Git 版本控制：為程式碼存檔" subtitle="Version Control" icon={FolderGit2}>
+      <LiveDemo kind="terminal" note="做一次 commit" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pt-4 max-w-6xl mx-auto items-center h-full">
         
         <div className="space-y-6">

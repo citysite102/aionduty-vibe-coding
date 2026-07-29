@@ -1,9 +1,11 @@
 import { Rocket, Home, Store, Globe, Database, TerminalSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 
 export default function Slide10c3Deploy() {
   return (
     <SlideLayout title="從本機到上線：交給託管平台" subtitle="Deploy: From Localhost to the World" icon={Rocket}>
+      <LiveDemo kind="browser" note="看 Vercel 的實際畫面" />
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
 
         {/* 1. 心智模型：本機能跑 ≠ 別人看得到 */}

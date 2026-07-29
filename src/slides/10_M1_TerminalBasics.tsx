@@ -16,6 +16,7 @@ import {
   Activity
 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface FileTreeNode {
@@ -222,6 +223,7 @@ export default function SlideTerminalBasics() {
 
   return (
     <SlideLayout title="終端機指令互動 Playground" subtitle="Terminal Interactive Practice" icon={TerminalSquare}>
+      <LiveDemo kind="terminal" note="每個指令跟著打一次" />
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
         
         {/* Intro Banner */}

@@ -131,8 +131,6 @@ const SLIDE_TITLES = [
   "Claude Code 新手友善內建功能",
   "Claude Code 對話與會話控制命令",
   "Claude Code 指令的四種類型",
-  "兩大類 AI 程式工具付費與登入模式",
-  "為什麼你該花錢買 AI 算力？",
   "做出你的第一個作品",
   "叫它寫個小工具，幫你做雜事",
   "能力邊界與判斷",
@@ -142,6 +140,8 @@ const SLIDE_TITLES = [
   "邁向代理工程的橋樑：上下文工程",
   "完整的運作框架有哪些零件",
   "Token 經濟學：資本支出與營運成本",
+  "兩大類 AI 程式工具付費與登入模式",
+  "為什麼你該花錢買 AI 算力？",
   "這堂課要搭的三根支柱",
   "讓 AI 有手可用：MCP 與 Skills",
   "監督與邊界",
@@ -154,12 +154,12 @@ const SLIDE_TITLES = [
   "這幾樣實際怎麼用？（二）防線與調查",
   "這跟你的專案有什麼關係？",
   "這份簡報就是這樣做出來的",
+  "怎麼把話講對：白名單與探索空間",
   "專屬知識庫與分身",
   "Claude Projects 實戰設定範例",
   "Cowork 本機工作區",
   "Claude Projects 與 Claude Code 怎麼搭",
   "跨工具思維對照表",
-  "怎麼把話講對：白名單與探索空間",
   "Agent 團隊與開發循環架構",
   "讓團隊為你工作",
   "協作角色拆解",
@@ -169,6 +169,7 @@ const SLIDE_TITLES = [
   "循環工程",
   "自動化之後，最容易累積的三件事",
   "Loop Engineering 的關鍵零件",
+  "熱門 Skills 精選",
   "設定目標，讓它自己跑到完成",
   "Goal 五步驟操作",
   "省下的時間，用來擴大搜尋",
@@ -178,7 +179,6 @@ const SLIDE_TITLES = [
   "畫面一片空白，終端機又沒報錯",
   "紅字在跟你說三件事",
   "先說清楚，再讓它自己驗",
-  "熱門 Skills 精選",
   "幫計時器加上航行日誌",
   "上線之後才發現的問題",
   "放手之前，先設好四道邊界",
@@ -221,8 +221,6 @@ const SLIDES = [
   Slide18,
   Slide11d2,
   Slide11e,
-  Slide11c,
-  Slide11c2,
   Slide12,
   Slide13,
   Slide14,
@@ -232,6 +230,8 @@ const SLIDES = [
   Slide19b,
   Slide19c,
   Slide19d,
+  Slide11c,
+  Slide11c2,
   Slide21,
   Slide21a,
   Slide31,
@@ -244,12 +244,12 @@ const SLIDES = [
   Slide21e2,
   Slide21f,
   Slide21f2,
+  Slide32b,
   Slide21g,
   Slide21h,
   Slide21i,
   Slide21j,
   Slide32,
-  Slide32b,
   Slide22,
   Slide23,
   Slide24,
@@ -259,6 +259,7 @@ const SLIDES = [
   Slide27,
   Slide27b4,
   Slide27b,
+  Slide27b7,
   Slide27b2,
   Slide27b3,
   Slide27c,
@@ -268,7 +269,6 @@ const SLIDES = [
   Slide27b5b,
   Slide27b5c,
   Slide27b6,
-  Slide27b7,
   Slide27b8,
   Slide27b9,
   Slide28,
@@ -429,16 +429,16 @@ export default function App() {
             ))}
           </optgroup>
           <optgroup label="Agent 的心智模型與 Claude Code 終端機實作">
-            {SLIDES.slice(12, 40).map((_, idx) => (
+            {SLIDES.slice(12, 38).map((_, idx) => (
               <option key={idx + 12} value={idx + 12} className="bg-slate-900 text-slate-300">
                 Slide {idx + 13} - {SLIDE_TITLES[idx + 12]}
               </option>
             ))}
           </optgroup>
           <optgroup label="Agent 運作框架與成本分析">
-            {SLIDES.slice(40, 63).map((_, idx) => (
-              <option key={idx + 40} value={idx + 40} className="bg-slate-900 text-slate-300">
-                Slide {idx + 41} - {SLIDE_TITLES[idx + 40]}
+            {SLIDES.slice(38, 63).map((_, idx) => (
+              <option key={idx + 38} value={idx + 38} className="bg-slate-900 text-slate-300">
+                Slide {idx + 39} - {SLIDE_TITLES[idx + 38]}
               </option>
             ))}
           </optgroup>

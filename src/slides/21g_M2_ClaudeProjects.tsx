@@ -9,13 +9,15 @@ export default function SlideClaudeProjects() {
       subtitle="Knowledge Base & Custom Instructions" 
       icon={Briefcase}
     >
-      <AnimatedBlock stepIndex={1} className="mb-3 bg-amber-500/5 border border-amber-500/20 rounded-2xl px-5 py-3.5 flex flex-col md:flex-row md:items-center gap-3">
-        <div className="px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/20 rounded-full text-xs font-bold shrink-0 self-start md:self-center">
-          這頁講的不是終端機
+      {/* 這裡是段落轉場：從終端機切到網頁端工具。用主動的問句開場，
+          不要寫成「這頁講的不是終端機」那種道歉式的免責聲明。 */}
+      <AnimatedBlock stepIndex={1} className="mb-3 bg-sky-950/20 border border-sky-900/40 rounded-2xl px-5 py-3.5 flex flex-col md:flex-row md:items-center gap-3">
+        <div className="px-3 py-1 bg-sky-500/10 text-sky-300 border border-sky-500/25 rounded-full text-xs font-bold shrink-0 self-start md:self-center">
+          不開終端機的時候呢？
         </div>
         <p className="text-slate-300 text-sm leading-relaxed">
-          Projects 是 <strong className="text-slate-100">claude.ai 網頁版與桌面 App</strong> 才有的功能，
-          在 Claude Code 終端機裡沒有這個東西。終端機那邊對應的角色是 CLAUDE.md。
+          你不會每天都開終端機。<strong className="text-slate-100">同一套心法換個載體也成立</strong>：在 claude.ai 網頁版叫 Projects，在桌面版叫 Cowork。
+          規範放的位置不同，道理一樣，終端機那邊叫 CLAUDE.md，這邊叫專案知識庫與自訂指示。接下來四頁講這個。
         </p>
       </AnimatedBlock>
 

@@ -72,14 +72,14 @@
 4. 在 `SLIDE_TITLES` 的**完全相同位置**加標題。兩個陣列是靠 index 對齊的，長度必須一致。
 5. **檢查是否跨越分節頁，若是則調整下拉選單的 `optgroup` 切點。**
 
-分節頁（`*_Div_*.tsx`）目前落在 index `3` / `12` / `40` / `63`，對應的 `optgroup` 切點必須完全吻合：
+分節頁（`*_Div_*.tsx`）目前落在 index `3` / `12` / `38` / `63`，對應的 `optgroup` 切點必須完全吻合：
 
 | optgroup | slice 範圍 |
 |---|---|
 | 課前導讀 | `slice(0, 3)` |
 | 解構 Vibe Coding | `slice(3, 12)` |
-| Agent 的心智模型與 Claude Code 終端機實作 | `slice(12, 40)` |
-| Agent 運作框架與成本分析 | `slice(40, 63)` |
+| Agent 的心智模型與 Claude Code 終端機實作 | `slice(12, 38)` |
+| Agent 運作框架與成本分析 | `slice(38, 63)` |
 | Agent 團隊與開發循環架構 | `slice(63, SLIDES.length - 1)` |
 | 結語 | 最後一張 |
 
