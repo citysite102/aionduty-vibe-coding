@@ -65,7 +65,7 @@ export default function Slide10c3Deploy() {
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed mb-3">
-              <strong className="text-slate-100">Supabase 是什麼？</strong> 一個「開箱即用的雲端資料庫 ＋ 會員登入」服務。你<strong className="text-emerald-300">不用自己架資料庫伺服器、不用管備份與維運</strong>。這正是繞過「資料庫很複雜」的方法：別自己架，用託管的。
+              <strong className="text-slate-100">Supabase 是什麼？</strong> 一個「現成可用的雲端資料庫 ＋ 會員登入」服務。你<strong className="text-emerald-300">不用自己架資料庫伺服器、不用管備份與維運</strong>。這正是繞過「資料庫很複雜」的方法：別自己架，用託管的。
             </p>
             <div className="mt-auto text-[11px] text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
               適合：需要帳號登入、儲存貼文 / 訂單等長期資料的網站

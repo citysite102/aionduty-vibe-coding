@@ -86,7 +86,7 @@ export default function SlideClaudeProjects() {
             
             <div className="space-y-3">
               <div className="bg-slate-950/50 p-4 rounded-xl border-l-4 border-rose-500">
-                <div className="text-base font-bold text-rose-400 mb-2">一般對話的痛點</div>
+                <div className="text-base font-bold text-rose-400 mb-2">一般對話會遇到的問題</div>
                 <p className="text-base text-slate-300 leading-relaxed">每次都要重新貼上 API 規格、重新解釋品牌語氣（Tone）、重新要求「請不要寫註解」。對話一長，前面交代的設定容易被後面的內容洗掉。</p>
               </div>
               

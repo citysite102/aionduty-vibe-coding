@@ -9,7 +9,7 @@ export default function SlideM2ExtensionsCases() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
             <Briefcase size={20} />
-            場景一：專案架構與防呆 (CLAUDE.md + Rules)
+            情境一：專案架構與防呆 (CLAUDE.md + Rules)
           </h3>
           <p className="text-slate-300 text-sm mb-4">
             你希望整個專案有統一的風格，但在特定危險區域要有更嚴格的限制。
@@ -29,7 +29,7 @@ export default function SlideM2ExtensionsCases() {
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-emerald-400 mb-4 border-b border-slate-800 pb-3">
             <Rocket size={20} />
-            場景二：例行公事標準化 (Skill)
+            情境二：例行公事標準化 (Skill)
           </h3>
           <p className="text-slate-300 text-sm mb-4">
             準備發布新版本，這是一套有順序的 SOP，不希望每次都要重新交代。

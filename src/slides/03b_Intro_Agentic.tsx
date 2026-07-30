@@ -24,7 +24,7 @@ export default function SlideIntroAgentic() {
           <AnimatedBlock stepIndex={2} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
             <div className="text-lg font-bold text-sky-400 font-mono mb-2">「Agentic」</div>
             <p className="text-slate-300 text-base leading-relaxed">
-              你 99% 的時間不是自己在寫程式碼，而是在指揮、調度一群 Agent，並扮演核心監督者的角色。
+              你多數時間不是自己在寫程式碼，而是在指揮、調度一群 Agent，並扮演核心監督者的角色。
             </p>
           </AnimatedBlock>
           <AnimatedBlock stepIndex={3} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">

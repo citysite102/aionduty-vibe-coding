@@ -15,7 +15,7 @@ export default function Slide04() {
             </div>
             <div className="text-sky-500/20 text-6xl font-black">A</div>
           </div>
-          <p className="text-slate-400 mb-6 font-medium">重點不只是「寫一個檔案」，而是把專案的知識與規範，整理成一份可以長期重複使用的資產（以 <span className="text-sky-400 font-bold font-mono">CLAUDE.md</span> 為載體），讓 AI 每次啟動都自動讀到、遵循你的專案脈絡。</p>
+          <p className="text-slate-400 mb-6 font-medium">重點不在於「寫一個檔案」。真正的用途是把專案的知識與規範，整理成一份可以長期重複使用的資產（以 <span className="text-sky-400 font-bold font-mono">CLAUDE.md</span> 為載體），讓 AI 每次啟動都自動讀到、遵循你的專案脈絡。</p>
           
           <ul className="space-y-4 text-sm mt-8">
             <li className="flex gap-4 items-center">

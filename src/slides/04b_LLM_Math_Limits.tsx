@@ -48,7 +48,7 @@ export default function SlideLLMMathLimits() {
             運作原理解析：
           </span>
           <span className="text-2xl md:text-[38px] font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 shrink-0">
-            LLM 運行的是數學，而不是常識
+            LLM 跑的是數學，而不是常識
           </span>
         </div>
       }

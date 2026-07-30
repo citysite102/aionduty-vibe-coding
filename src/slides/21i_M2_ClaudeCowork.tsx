@@ -73,7 +73,7 @@ export default function SlideClaudeCowork() {
                 <div className="w-8 h-8 rounded-full bg-emerald-900/30 flex items-center justify-center text-emerald-400 shrink-0 border border-emerald-800 font-bold">2</div>
                 <div>
                   <h4 className="text-base font-bold text-slate-200 mb-1">圖形化介面優勢</h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">保有網頁版直覺的聊天體驗，又能直接存取本地檔案。對不熟悉純文字終端機（CLI）操作的設計師或企劃人員來說，門檻大幅降低。</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">保有網頁版直覺的聊天體驗，又能直接存取本機檔案。對不熟悉純文字終端機（CLI）操作的設計師或企劃人員來說，門檻大幅降低。</p>
                 </div>
               </div>
             </div>

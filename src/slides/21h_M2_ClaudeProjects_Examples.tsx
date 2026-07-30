@@ -8,7 +8,7 @@ export default function SlideClaudeProjectsExamples() {
       {
         title: "前端 React 元件開發",
         desc: "上傳公司 UI Library 說明檔",
-        prompt: "你是一個資深前端，請完全使用 Tailwind CSS 與 Lucide Icons。不要使用任何額外的 CSS 檔，回覆時直接給出完整可運行的程式碼，不需要解釋原理。"
+        prompt: "你是一個資深前端，請完全使用 Tailwind CSS 與 Lucide Icons。不要使用任何額外的 CSS 檔，回覆時直接給出完整可執行的程式碼，不需要解釋原理。"
       },
       {
         title: "行銷文案與社群貼文",

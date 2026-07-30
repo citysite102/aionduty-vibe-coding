@@ -9,7 +9,7 @@ export default function SlideM2ExtensionsCases2() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-red-400 mb-4 border-b border-slate-800 pb-3">
             <FileWarning size={20} />
-            場景三：絕對不能跨越的紅線 (Hook)
+            情境三：絕對不能跨越的紅線 (Hook)
           </h3>
           <p className="text-slate-300 text-sm mb-4">
             保護正式環境資料庫，或是攔截可能會破壞系統的危險指令。
@@ -28,7 +28,7 @@ export default function SlideM2ExtensionsCases2() {
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-amber-400 mb-4 border-b border-slate-800 pb-3">
             <Search size={20} />
-            場景四：跨系統除錯調查 (MCP + Subagent)
+            情境四：跨系統除錯調查 (MCP + Subagent)
           </h3>
           <p className="text-slate-300 text-sm mb-4">
             收到一個線上報錯，需要查明原因並提出修復方案。

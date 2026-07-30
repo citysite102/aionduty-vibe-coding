@@ -230,7 +230,7 @@ export default function Slide16() {
 
             {/* Quick Presets (The 3 original scenarios) */}
             <div className="mt-5 pt-4 border-t border-slate-800">
-              <span className="text-xs text-slate-500 font-mono block mb-2">快速載入實戰場景</span>
+              <span className="text-xs text-slate-500 font-mono block mb-2">快速載入實戰情境</span>
               <div className="flex flex-col gap-1.5">
                 <button 
                   onClick={() => applyPreset(0, 0)}

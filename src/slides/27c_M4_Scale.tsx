@@ -26,7 +26,7 @@ export default function SlideScale() {
                  <Zap className="text-indigo-400" size={32} />
                </div>
                <div>
-                 <h4 className="text-xl font-bold text-slate-200">質變來自於量變</h4>
+                 <h4 className="text-xl font-bold text-slate-200">數量夠多，結論才會不一樣</h4>
                  <p className="text-slate-400 text-sm mt-1">從「挑兩個看看」變成「過濾三百個再做決定」</p>
                </div>
              </div>

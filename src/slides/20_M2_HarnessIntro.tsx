@@ -227,7 +227,7 @@ export default function SlideHarnessIntro() {
                       <span className="text-sky-400 font-bold flex items-center gap-1">
                         🚀 軌道引導 (Rails)
                       </span>
-                      <span className="text-slate-400">注入 CLAUDE.md 規範、搭配本地 MCP 工具、自動核對型別與程式碼。</span>
+                      <span className="text-slate-400">注入 CLAUDE.md 規範、搭配本機 MCP 工具、自動核對型別與程式碼。</span>
                     </>
                   )}
                 </div>

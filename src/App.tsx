@@ -105,7 +105,7 @@ const SLIDE_TITLES = [
   "從 Vibe Coding 到 Agentic Engineering",
   "Vibe Coding 與 Agentic Engineering 的演進",
   "依據目標選擇工具",
-  "運作原理解析：LLM 運行的是數學",
+  "運作原理解析：LLM 跑的是數學",
   "如何寫出精準的 Prompt",
   "從對話框走向真實環境",
   "兩條學習主線",

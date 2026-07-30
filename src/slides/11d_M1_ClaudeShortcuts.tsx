@@ -76,7 +76,7 @@ export default function SlideClaudeShortcuts() {
                   <span className="text-[11px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Shift + Tab</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  <strong>權限管制：</strong>在「每次都問」與「自動接受編輯」之間切換，輸入框下方會顯示目前模式（default ➔ acceptEdits ➔ plan 循環），你隨時可以收放 AI 對本地專案的修改權限。
+                  <strong>權限管制：</strong>在「每次都問」與「自動接受編輯」之間切換，輸入框下方會顯示目前模式（default ➔ acceptEdits ➔ plan 循環），你隨時可以收放 AI 對本機專案的修改權限。
                   <span className="block mt-1.5 text-slate-500">💡 其中的 <strong className="text-slate-400">plan</strong> 模式，做的就是工作循環第 2 步「計畫」那件事：先講怎麼做，不動手。</span>
                 </p>
               </div>

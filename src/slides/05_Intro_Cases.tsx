@@ -15,14 +15,14 @@ export default function SlideIntroCases() {
                  <div>
                    <strong className="text-slate-100 block mb-1">情境一：視覺化元件、單一腳本 (網頁版 Artifacts)</strong>
                    <span className="text-slate-500 text-xs italic block mb-1">Artifacts＝Claude／ChatGPT 對話視窗右側那塊能即時預覽的產出面板。</span>
-                   適合需要即時預覽、且與現有專案「無關」的獨立產出。缺點是無法讀取本地檔案。
+                   適合需要即時預覽、且與現有專案「無關」的獨立產出。缺點是無法讀取本機檔案。
                  </div>
                </li>
                <li className="bg-slate-950 p-4 rounded-lg border border-slate-800 flex gap-3 items-start">
                  <Copy className="text-amber-400 shrink-0 mt-0.5" size={18} />
                  <div>
                    <strong className="text-slate-100 block mb-1">情境二：小幅度修改 (對話後複製貼上)</strong>
-                   適合單次任務。但當專案變複雜時，來回複製貼上容易失去脈絡、覆蓋錯誤，或者忘記安裝依賴套件。
+                   適合單次任務。但當專案變複雜時，來回複製貼上容易失去脈絡、覆蓋錯誤，或者忘記安裝相依套件。
                  </div>
                </li>
                <li className="bg-slate-950 p-4 rounded-lg border border-slate-800 border-l-4 border-l-indigo-500 flex gap-3 items-start">
@@ -53,13 +53,13 @@ export default function SlideIntroCases() {
               <div className="w-8 h-8 rounded bg-slate-800 flex items-center justify-center font-bold text-slate-400">2</div>
               <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
                 <strong className="text-slate-200 block mb-1">重複需求：每個月初都要做</strong>
-                <span className="text-slate-400">在對話框請 AI 寫一支 Python 程式，你<span className="text-amber-400">複製貼上</span>到本地端執行。如果出錯，你再把 Error 貼回對話框。</span>
+                <span className="text-slate-400">在對話框請 AI 寫一支 Python 程式，你<span className="text-amber-400">複製貼上</span>到本機執行。如果出錯，你再把 Error 貼回對話框。</span>
               </div>
 
               <div className="w-8 h-8 rounded bg-indigo-900/30 flex items-center justify-center font-bold text-indigo-400 border border-indigo-500/20">3</div>
               <div className="bg-slate-950 p-3 rounded-lg border border-indigo-500/30">
                 <strong className="text-slate-200 block mb-1">系統化需求：結合專案與工作流</strong>
-                <span className="text-slate-400">在本地終端機開啟 <span className="text-indigo-400 font-mono">Claude Code</span>，直接讓 Agent 在專案裡工作。<br/><br/><span className="text-emerald-400 block">Agent 會自己寫程式、自己安裝相依套件 (pip install)、自己除錯、自己 commit。</span></span>
+                <span className="text-slate-400">在本機終端機開啟 <span className="text-indigo-400 font-mono">Claude Code</span>，直接讓 Agent 在專案裡工作。<br/><br/><span className="text-emerald-400 block">Agent 會自己寫程式、自己安裝相依套件 (pip install)、自己除錯、自己 commit。</span></span>
                 
                 <details className="mt-3 group" onClick={(e) => e.stopPropagation()}>
                   <summary className="text-xs text-indigo-400 cursor-pointer hover:text-indigo-300 list-none flex items-center gap-1 font-bold">

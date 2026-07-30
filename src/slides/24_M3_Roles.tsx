@@ -225,7 +225,7 @@ export default function Slide11() {
               <span className="text-[11px] font-mono text-slate-500">適合：探索與動態決策</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              就像專案經理。負責將任務切分為細項、委派出去並做最終審核。🎯 <strong>選型準則</strong>：適合<strong>任務具有高度不確定性、需要隨時根據中間產出微調計畫與多級審查</strong>的場景。
+              就像專案經理。負責將任務切分為細項、委派出去並做最終審核。🎯 <strong>選型準則</strong>：適合<strong>任務具有高度不確定性、需要隨時根據中間產出微調計畫與多級審查</strong>的情境。
             </p>
           </AnimatedBlock>
           

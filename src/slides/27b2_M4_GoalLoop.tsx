@@ -103,7 +103,7 @@ export default function SlideGoalLoop() {
               <TrendingUp className="text-emerald-400" size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-100">官方把社群自己土炮出來的做法，收進了正式功能</h4>
+              <h4 className="text-sm font-bold text-slate-100">官方把社群自己摸索出來的做法，收進了正式功能</h4>
               <p className="text-xs text-slate-400 leading-relaxed mt-1">
                 原本是社群自己寫迴圈餵錯誤訊息，現在 OpenAI 與 Anthropic 都把它做成內建功能。共通的形狀都一樣：<strong>給它一個目標、一個預算，再留一道檢查關卡</strong>，然後讓它自己跑。
               </p>

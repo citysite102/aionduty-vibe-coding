@@ -16,7 +16,7 @@ export default function SlideExample2() {
               情境：批次整理混亂的檔案
             </h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
-              處理枯燥的資料清理，例如：將一堆命名混亂的圖片檔，重新命名成流水號，並分類進不同的資料夾。這種工作不需要麻煩工程師，Claude Code 寫個小腳本幾秒鐘就搞定。
+              處理枯燥的資料清理，例如：將一堆命名混亂的圖片檔，重新命名成流水號，並分類進不同的資料夾。這種工作不需要麻煩工程師，Claude Code 寫個小腳本就能處理完。
             </p>
           </AnimatedBlock>
           
