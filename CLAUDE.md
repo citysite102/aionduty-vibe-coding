@@ -72,16 +72,27 @@
 4. 在 `SLIDE_TITLES` 的**完全相同位置**加標題。兩個陣列是靠 index 對齊的，長度必須一致。
 5. **檢查是否跨越分節頁，若是則調整下拉選單的 `optgroup` 切點。**
 
-分節頁（`*_Div_*.tsx`）目前落在 index `3` / `12` / `38` / `63`，對應的 `optgroup` 切點必須完全吻合：
+分節頁（`*_Div_*.tsx`）目前落在 index `3` / `12` / `38` / `66`，對應的 `optgroup` 切點必須完全吻合：
 
 | optgroup | slice 範圍 |
 |---|---|
 | 課前導讀 | `slice(0, 3)` |
 | 解構 Vibe Coding | `slice(3, 12)` |
 | Agent 的心智模型與 Claude Code 終端機實作 | `slice(12, 38)` |
-| Agent 運作框架與成本分析 | `slice(38, 63)` |
-| Agent 團隊與開發循環架構 | `slice(63, SLIDES.length - 1)` |
+| Agent 運作框架與成本分析 | `slice(38, 66)` |
+| Agent 團隊與開發循環架構 | `slice(66, SLIDES.length - 1)` |
 | 結語 | 最後一張 |
+
+改完切點後跑這段確認，不要靠肉眼數：
+
+```bash
+node -e "
+const s=require('fs').readFileSync('src/App.tsx','utf8');
+const a=s.match(/const SLIDES = \[([\s\S]*?)\n\];/)[1].split(',').map(x=>x.trim()).filter(Boolean);
+const t=s.match(/const SLIDE_TITLES = \[([\s\S]*?)\n\];/)[1].split('\n').map(x=>x.trim()).filter(Boolean);
+console.log(a.length, t.length, a.length===t.length?'OK':'MISMATCH');
+[3,12,38,66].forEach(i=>console.log(i, a[i], t[i]));"
+```
 
 每組 `optgroup` 內的 `key`、`value`、`SLIDE_TITLES[]` 索引、以及顯示用的 `Slide {n}` 都帶有同一個偏移量，改切點時四個數字要一起改。**在某一節中間插一頁，該節之後的每一組切點都要往後推**，這是最常漏的一步。
 

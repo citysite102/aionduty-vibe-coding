@@ -65,6 +65,9 @@ import Slide21e from './slides/21e_M2_Extensions_Cases';
 import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
 import Slide21f from './slides/21f_M2_ClaudeMdRealWorld';
 import Slide21f2 from './slides/21f2_M2_ThisDeck';
+import Slide21f3 from './slides/21f3_M2_RuleFailure';
+import Slide21f4 from './slides/21f4_M2_RuleRouting';
+import Slide21f5 from './slides/21f5_M2_ClaudeMdHealth';
 import Slide21g from './slides/21g_M2_ClaudeProjects';
 import Slide21h from './slides/21h_M2_ClaudeProjects_Examples';
 import Slide21i from './slides/21i_M2_ClaudeCowork';
@@ -154,6 +157,9 @@ const SLIDE_TITLES = [
   "這幾樣實際怎麼用？（二）防線與調查",
   "這跟你的專案有什麼關係？",
   "這份簡報就是這樣做出來的",
+  "規則明明寫了，它卻沒照做",
+  "這條規則該放哪",
+  "手冊越寫越肥，怎麼整理",
   "怎麼把話講對：白名單與探索空間",
   "專屬知識庫與分身",
   "Claude Projects 實戰設定範例",
@@ -244,6 +250,9 @@ const SLIDES = [
   Slide21e2,
   Slide21f,
   Slide21f2,
+  Slide21f3,
+  Slide21f4,
+  Slide21f5,
   Slide32b,
   Slide21g,
   Slide21h,
@@ -436,16 +445,16 @@ export default function App() {
             ))}
           </optgroup>
           <optgroup label="Agent 運作框架與成本分析">
-            {SLIDES.slice(38, 63).map((_, idx) => (
+            {SLIDES.slice(38, 66).map((_, idx) => (
               <option key={idx + 38} value={idx + 38} className="bg-slate-900 text-slate-300">
                 Slide {idx + 39} - {SLIDE_TITLES[idx + 38]}
               </option>
             ))}
           </optgroup>
           <optgroup label="Agent 團隊與開發循環架構">
-            {SLIDES.slice(63, SLIDES.length - 1).map((_, idx) => (
-              <option key={idx + 63} value={idx + 63} className="bg-slate-900 text-slate-300">
-                Slide {idx + 64} - {SLIDE_TITLES[idx + 63]}
+            {SLIDES.slice(66, SLIDES.length - 1).map((_, idx) => (
+              <option key={idx + 66} value={idx + 66} className="bg-slate-900 text-slate-300">
+                Slide {idx + 67} - {SLIDE_TITLES[idx + 66]}
               </option>
             ))}
           </optgroup>
