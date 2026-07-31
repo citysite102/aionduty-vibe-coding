@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工作坊講義｜CLAUDE.md 三件組</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 24px 80px;
+    background: #020617;
+    color: #f1f5f9;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.7;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  .label {
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #38bdf8;
+    margin-bottom: 10px;
+  }
+  h1 { font-size: 30px; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lede { color: #94a3b8; font-size: 15px; margin: 0 0 36px; }
+  a.card {
+    display: block;
+    text-decoration: none;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    transition: border-color 0.15s ease;
+  }
+  a.card:hover { border-color: #38bdf8; }
+  a.card .t { color: #f1f5f9; font-size: 17px; font-weight: 700; margin-bottom: 5px; }
+  a.card .d { color: #94a3b8; font-size: 13.5px; line-height: 1.65; }
+  a.card .m {
+    color: #64748b;
+    font-size: 11.5px;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    margin-top: 10px;
+  }
+  .primary { border-left: 4px solid #0ea5e9; }
+  .note {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 13px;
+  }
+  .note strong { color: #94a3b8; }
+  @media (max-width: 600px) {
+    body { padding: 32px 18px 60px; }
+    h1 { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label">Workshop Handouts</div>
+  <h1>CLAUDE.md 三件組</h1>
+  <p class="lede">
+    這三份是搭配「Agent 運作框架」那一段用的。順序是：先用模板寫出第一份手冊，
+    卡住的時候查判斷卡，過一陣子用檢查表整理一次。
+  </p>
+
+  <a class="card primary" href="./print.html">
+    <div class="t">列印版（三份合一）</div>
+    <div class="d">A4 三頁，開啟後直接列印或另存 PDF。填寫欄位是底線，印出來可以手寫。</div>
+    <div class="m">print.html</div>
+  </a>
+
+  <a class="card" href="./claude-md-template.md">
+    <div class="t">1. CLAUDE.md 模板</div>
+    <div class="d">複製到你的專案根目錄，改名為 CLAUDE.md。每一區塊都附使用說明，填完刪掉即可。</div>
+    <div class="m">claude-md-template.md</div>
+  </a>
+
+  <a class="card" href="./routing-card.md">
+    <div class="t">2. 規則分流判斷卡</div>
+    <div class="d">一條規則該放 CLAUDE.md、Skill、Hook 還是 CI。附「它沒照做時先查這五件事」。</div>
+    <div class="m">routing-card.md</div>
+  </a>
+
+  <a class="card" href="./health-check.md">
+    <div class="t">3. 五步健檢檢查表</div>
+    <div class="d">手冊越寫越長的時候用。盤點、減法、分流、加法、修剪，含刪除規則的三種證據。</div>
+    <div class="m">health-check.md</div>
+  </a>
+
+  <p class="note">
+    <strong>回去之後的第一件事：</strong>把模板複製到你手上真正在跑的專案，填完之後開一個新對話，
+    輸入 <code>/context</code>，確認 CLAUDE.md 出現在 Memory files 清單裡。沒被載入的規則，寫得再好都沒有用。
+  </p>
+</div>
+</body>
+</html>

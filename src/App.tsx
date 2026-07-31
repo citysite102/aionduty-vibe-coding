@@ -49,6 +49,7 @@ import Slide17 from './slides/17_M1_Error';
 import Slide18 from './slides/18_M1_Features';
 import Slide18b from './slides/18b_M1_Quiz';
 import Slide19 from './slides/19_Div_Harness';
+import Slide19a from './slides/19a_M2_SectionGoal';
 import Slide19b from './slides/19b_Harness_Context';
 import Slide19c from './slides/19c_Harness_Architecture';
 import Slide19d from './slides/19d_Harness_Economics';
@@ -59,8 +60,11 @@ import Slide21 from './slides/21_M2_Pillars';
 import Slide21a from './slides/21a_M2_MCPSkills';
 import Slide21b from './slides/21b_M2_HandsOn';
 import Slide21b2 from './slides/21b2_M2_HandsOnPrompt';
+import Slide21b3 from './slides/21b3_M2_ContextCheck';
 import Slide21c from './slides/21c_M2_ClaudeMdLayers';
-import Slide21d from './slides/21d_M2_Extensions';
+import Slide21d1 from './slides/21d1_M2_LoadAlways';
+import Slide21d2 from './slides/21d2_M2_LoadOnDemand';
+import Slide21d3 from './slides/21d3_M2_OutsideContext';
 import Slide21e from './slides/21e_M2_Extensions_Cases';
 import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
 import Slide21f from './slides/21f_M2_ClaudeMdRealWorld';
@@ -69,10 +73,11 @@ import Slide21f3 from './slides/21f3_M2_RuleFailure';
 import Slide21f4 from './slides/21f4_M2_RuleRouting';
 import Slide21f5 from './slides/21f5_M2_ClaudeMdHealth';
 import Slide21g from './slides/21g_M2_ClaudeProjects';
-import Slide21h from './slides/21h_M2_ClaudeProjects_Examples';
-import Slide21i from './slides/21i_M2_ClaudeCowork';
+import Slide21h2 from './slides/21h2_M2_ProjectsInPractice';
 import Slide21j from './slides/21j_M2_ClaudeCodeIntegration';
 import Slide32 from './slides/32_Cheat_Tools';
+import Slide32c from './slides/32c_M2_TransferQuiz';
+import Slide32d from './slides/32d_M2_Recap';
 import Slide32b from './slides/32b_MentalModels';
 import Slide22 from './slides/22_Div_MultiAgent';
 import Slide23 from './slides/23_M3_MultiAgent';
@@ -139,6 +144,7 @@ const SLIDE_TITLES = [
   "能力邊界與判斷",
   "該用什麼工具？",
   "Agent 運作框架與成本分析",
+  "每次開新對話，你都要重講一次規矩",
   "什麼是運作框架？",
   "邁向代理工程的橋樑：上下文工程",
   "完整的運作框架有哪些零件",
@@ -151,8 +157,11 @@ const SLIDE_TITLES = [
   "Claude Code 的四種權限模式",
   "動手搭建運作框架",
   "跟著做：寫出第一份 CLAUDE.md",
+  "怎麼確認它真的讀到了",
   "CLAUDE.md 的分層",
-  "除了手冊還能給什麼？",
+  "常駐的東西越少，它越專心",
+  "用到才展開，平常只佔一行",
+  "真要擋住，就不要放進 context",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
   "這跟你的專案有什麼關係？",
@@ -162,10 +171,11 @@ const SLIDE_TITLES = [
   "手冊越寫越肥，怎麼整理",
   "怎麼把話講對：白名單與探索空間",
   "專屬知識庫與分身",
-  "Claude Projects 實戰設定範例",
-  "Cowork 本機工作區",
+  "同一套手冊，換個地方用",
   "Claude Projects 與 Claude Code 怎麼搭",
   "跨工具思維對照表",
+  "換成你的工作，手冊該寫什麼",
+  "這一段你完成了三件事",
   "Agent 團隊與開發循環架構",
   "讓團隊為你工作",
   "協作角色拆解",
@@ -232,6 +242,7 @@ const SLIDES = [
   Slide14,
   Slide18b,
   Slide19,
+  Slide19a,
   Slide20,
   Slide19b,
   Slide19c,
@@ -244,8 +255,11 @@ const SLIDES = [
   Slide30,
   Slide21b,
   Slide21b2,
+  Slide21b3,
   Slide21c,
-  Slide21d,
+  Slide21d1,
+  Slide21d2,
+  Slide21d3,
   Slide21e,
   Slide21e2,
   Slide21f,
@@ -255,10 +269,11 @@ const SLIDES = [
   Slide21f5,
   Slide32b,
   Slide21g,
-  Slide21h,
-  Slide21i,
+  Slide21h2,
   Slide21j,
   Slide32,
+  Slide32c,
+  Slide32d,
   Slide22,
   Slide23,
   Slide24,
@@ -445,16 +460,16 @@ export default function App() {
             ))}
           </optgroup>
           <optgroup label="Agent 運作框架與成本分析">
-            {SLIDES.slice(38, 66).map((_, idx) => (
+            {SLIDES.slice(38, 71).map((_, idx) => (
               <option key={idx + 38} value={idx + 38} className="bg-slate-900 text-slate-300">
                 Slide {idx + 39} - {SLIDE_TITLES[idx + 38]}
               </option>
             ))}
           </optgroup>
           <optgroup label="Agent 團隊與開發循環架構">
-            {SLIDES.slice(66, SLIDES.length - 1).map((_, idx) => (
-              <option key={idx + 66} value={idx + 66} className="bg-slate-900 text-slate-300">
-                Slide {idx + 67} - {SLIDE_TITLES[idx + 66]}
+            {SLIDES.slice(71, SLIDES.length - 1).map((_, idx) => (
+              <option key={idx + 71} value={idx + 71} className="bg-slate-900 text-slate-300">
+                Slide {idx + 72} - {SLIDE_TITLES[idx + 71]}
               </option>
             ))}
           </optgroup>
