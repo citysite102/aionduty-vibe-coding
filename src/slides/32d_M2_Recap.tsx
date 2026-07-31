@@ -56,7 +56,7 @@ export default function SlideM2Recap() {
           <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4">
             <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">下一段要解決什麼</div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              手冊管得到「怎麼做」，管不到「做多少、誰來檢查」。到目前為止都是你一個人指揮一個 Agent，<span className="text-slate-200">下一段講的是工作量超過一個 Agent 的時候，怎麼安排。</span>
+              手冊管得到「怎麼做」，管不到「什麼時候算做完」。到目前為止，每一輪都要你按下開始、你來看結果。<span className="text-slate-200">下一段講的是怎麼設一個目標，讓它自己跑完一輪再回來找你。</span>
             </p>
           </AnimatedBlock>
 

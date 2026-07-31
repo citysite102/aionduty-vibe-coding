@@ -28,7 +28,7 @@ export default function SlideM2LoadOnDemand() {
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          這三個的共通點是<strong className="text-slate-200">延後</strong>。名稱先進來，內容等到真的要用才進來。所以你可以準備很多個，不用擔心把空間吃光。
+          這三個都不是一開始就整包載入。<strong className="text-slate-200">它先知道有這個東西，等你真的用到，才把內容讀進來。</strong>所以你可以準備很多個，不會把空間吃光。
         </AnimatedBlock>
 
         {PARTS.map((p, i) => (

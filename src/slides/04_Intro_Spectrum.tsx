@@ -111,10 +111,14 @@ export default function SlideIntroSpectrum() {
         </div>
 
         <AnimatedBlock stepIndex={7} className="mt-6">
-          <div className="flex items-start gap-3 max-w-4xl mx-auto bg-sky-950/20 border border-sky-900/40 border-l-4 border-l-sky-500 rounded-xl px-5 py-4 text-left">
-            <span className="text-xl leading-none mt-0.5 shrink-0">💡</span>
+          <div className="max-w-4xl mx-auto bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4 text-left">
             <p className="text-slate-300 text-sm leading-relaxed">
-              <strong className="text-sky-300">關於資料庫：</strong>低程式碼平台（Base44／Lovable）通常<strong className="text-white">內建託管資料庫</strong>，這是它們方便的原因；而 Claude Code 這類本機 Agent 要自己接資料庫服務，但換來完全的掌控權，這也是「方便」與「掌控」的取捨。
+              <strong className="text-sky-300">這門課從第 5 格開始。</strong>
+              前面四種你之後都還會用到，但只有這一格能讓你<strong className="text-slate-100">把規矩寫下來，然後它每次都照著做</strong>。
+              因為程式碼在你自己的電腦裡，不在別人的平台上。
+            </p>
+            <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
+              代價是有些事要自己接。例如低程式碼平台通常內建託管資料庫，這是它們方便的原因；第 5 格要自己選一個資料庫服務接上去。這就是「方便」與「掌控」的取捨，我們在後面會處理它。
             </p>
           </div>
         </AnimatedBlock>

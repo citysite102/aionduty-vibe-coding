@@ -18,6 +18,7 @@ import Slide04 from './slides/04_Intro_Spectrum';
 import Slide04c from './slides/04c_Intro_VibeVsAgentic';
 import Slide04b from './slides/04b_LLM_Math_Limits';
 import Slide04b2 from './slides/04b2_LLM_Prompt';
+import Slide04b3 from './slides/04b3_LLM_PromptDrill';
 import Slide05 from './slides/05_Intro_Cases';
 import Slide06 from './slides/06_Threads';
 import Slide07 from './slides/07_Div_Terminal';
@@ -61,6 +62,7 @@ import Slide21a from './slides/21a_M2_MCPSkills';
 import Slide21b from './slides/21b_M2_HandsOn';
 import Slide21b2 from './slides/21b2_M2_HandsOnPrompt';
 import Slide21b3 from './slides/21b3_M2_ContextCheck';
+import Slide21b4 from './slides/21b4_M2_BadRules';
 import Slide21c from './slides/21c_M2_ClaudeMdLayers';
 import Slide21d1 from './slides/21d1_M2_LoadAlways';
 import Slide21d2 from './slides/21d2_M2_LoadOnDemand';
@@ -79,7 +81,6 @@ import Slide32 from './slides/32_Cheat_Tools';
 import Slide32c from './slides/32c_M2_TransferQuiz';
 import Slide32d from './slides/32d_M2_Recap';
 import Slide32b from './slides/32b_MentalModels';
-import Slide22 from './slides/22_Div_MultiAgent';
 import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
 import Slide25 from './slides/25_M3_Quality';
@@ -113,8 +114,9 @@ const SLIDE_TITLES = [
   "從 Vibe Coding 到 Agentic Engineering",
   "Vibe Coding 與 Agentic Engineering 的演進",
   "依據目標選擇工具",
-  "運作原理解析：LLM 跑的是數學",
-  "如何寫出精準的 Prompt",
+  "它不是在理解，是在算哪個答案離你最近",
+  "講不清楚的，直接給它看",
+  "換你把這三句話改清楚",
   "從對話框走向真實環境",
   "兩條學習主線",
   "終端機與 Claude Code 入門",
@@ -158,12 +160,17 @@ const SLIDE_TITLES = [
   "動手搭建運作框架",
   "跟著做：寫出第一份 CLAUDE.md",
   "怎麼確認它真的讀到了",
+  "這三種寫法，寫了等於沒寫",
   "CLAUDE.md 的分層",
   "常駐的東西越少，它越專心",
   "用到才展開，平常只佔一行",
   "真要擋住，就不要放進 context",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
+  "讓團隊為你工作",
+  "協作角色拆解",
+  "設立品質防線 (Anti-Slop)",
+  "養一個小幫手",
   "這跟你的專案有什麼關係？",
   "這份簡報就是這樣做出來的",
   "規則明明寫了，它卻沒照做",
@@ -176,11 +183,6 @@ const SLIDE_TITLES = [
   "跨工具思維對照表",
   "換成你的工作，手冊該寫什麼",
   "這一段你完成了三件事",
-  "Agent 團隊與開發循環架構",
-  "讓團隊為你工作",
-  "協作角色拆解",
-  "設立品質防線 (Anti-Slop)",
-  "養一個小幫手",
   "Agent 循環開發流程",
   "循環工程",
   "自動化之後，最容易累積的三件事",
@@ -213,6 +215,7 @@ const SLIDES = [
   Slide04,
   Slide04b,
   Slide04b2,
+  Slide04b3,
   Slide05,
   Slide06,
   Slide07,
@@ -256,12 +259,17 @@ const SLIDES = [
   Slide21b,
   Slide21b2,
   Slide21b3,
+  Slide21b4,
   Slide21c,
   Slide21d1,
   Slide21d2,
   Slide21d3,
   Slide21e,
   Slide21e2,
+  Slide23,
+  Slide24,
+  Slide25,
+  Slide25b,
   Slide21f,
   Slide21f2,
   Slide21f3,
@@ -274,11 +282,6 @@ const SLIDES = [
   Slide32,
   Slide32c,
   Slide32d,
-  Slide22,
-  Slide23,
-  Slide24,
-  Slide25,
-  Slide25b,
   Slide26,
   Slide27,
   Slide27b4,
@@ -446,30 +449,30 @@ export default function App() {
             ))}
           </optgroup>
           <optgroup label="解構 Vibe Coding：跳脫對話框的開發新典範">
-            {SLIDES.slice(3, 12).map((_, idx) => (
+            {SLIDES.slice(3, 13).map((_, idx) => (
               <option key={idx + 3} value={idx + 3} className="bg-slate-900 text-slate-300">
                 Slide {idx + 4} - {SLIDE_TITLES[idx + 3]}
               </option>
             ))}
           </optgroup>
           <optgroup label="Agent 的心智模型與 Claude Code 終端機實作">
-            {SLIDES.slice(12, 38).map((_, idx) => (
-              <option key={idx + 12} value={idx + 12} className="bg-slate-900 text-slate-300">
-                Slide {idx + 13} - {SLIDE_TITLES[idx + 12]}
+            {SLIDES.slice(13, 39).map((_, idx) => (
+              <option key={idx + 13} value={idx + 13} className="bg-slate-900 text-slate-300">
+                Slide {idx + 14} - {SLIDE_TITLES[idx + 13]}
               </option>
             ))}
           </optgroup>
           <optgroup label="Agent 運作框架與成本分析">
-            {SLIDES.slice(38, 71).map((_, idx) => (
-              <option key={idx + 38} value={idx + 38} className="bg-slate-900 text-slate-300">
-                Slide {idx + 39} - {SLIDE_TITLES[idx + 38]}
+            {SLIDES.slice(39, 77).map((_, idx) => (
+              <option key={idx + 39} value={idx + 39} className="bg-slate-900 text-slate-300">
+                Slide {idx + 40} - {SLIDE_TITLES[idx + 39]}
               </option>
             ))}
           </optgroup>
-          <optgroup label="Agent 團隊與開發循環架構">
-            {SLIDES.slice(71, SLIDES.length - 1).map((_, idx) => (
-              <option key={idx + 71} value={idx + 71} className="bg-slate-900 text-slate-300">
-                Slide {idx + 72} - {SLIDE_TITLES[idx + 71]}
+          <optgroup label="Agent 循環開發流程">
+            {SLIDES.slice(77, SLIDES.length - 1).map((_, idx) => (
+              <option key={idx + 77} value={idx + 77} className="bg-slate-900 text-slate-300">
+                Slide {idx + 78} - {SLIDE_TITLES[idx + 77]}
               </option>
             ))}
           </optgroup>
