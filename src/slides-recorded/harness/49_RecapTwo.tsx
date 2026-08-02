@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,7 +15,7 @@ export const meta: RecordedMeta = {
 export default function RecRecapTwo() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={Search}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-3">第 2 件，共 3 件</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">知道它沒照做時要先查哪裡</p>
@@ -34,7 +35,7 @@ export default function RecRecapTwo() {
             不要一發現沒照做就急著再加一條。手冊越長，遵循度越低。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

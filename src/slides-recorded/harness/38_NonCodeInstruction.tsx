@@ -1,5 +1,6 @@
 import { PenLine } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,9 +15,13 @@ export const meta: RecordedMeta = {
 export default function RecNonCodeInstruction() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Structure, Any Job" icon={PenLine}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-300 text-2xl leading-snug">同一個專案裡的「指令」欄要寫什麼</p>
+          <p className="text-slate-300 text-2xl leading-snug mb-3">同一個專案裡的「指令」欄要寫什麼</p>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">這一格就是你的 CLAUDE.md</p>
+          <p className="text-slate-400 text-xl leading-relaxed mt-4">
+            先給角色，再講規矩，最後講輸出格式。結構跟寫程式規範一樣。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock
@@ -25,14 +30,7 @@ export default function RecNonCodeInstruction() {
         >
           你是行銷總監。語氣幽默但專業，不要用誇飾的形容詞，每篇貼文最後附三個相關 Hashtag。
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">這一格就是你的 CLAUDE.md</p>
-          <p className="text-slate-400 text-xl leading-relaxed mt-4">
-            先給角色，再講規矩，最後講輸出格式。結構跟寫程式規範一樣。
-          </p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

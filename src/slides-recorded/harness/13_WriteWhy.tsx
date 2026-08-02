@@ -1,6 +1,7 @@
 import { Lightbulb } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite3() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={Lightbulb}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 3 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">寫下理由，它才能推論你沒寫到的情況</p>
@@ -28,7 +29,7 @@ export default function RecWrite3() {
           good="「按鈕文案使用航太語彙，因為這是太空任務主題的計時器。例如發射、待機、返航。」"
           goodNote="知道理由，它遇到新按鈕就能自己延伸。"
         />
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

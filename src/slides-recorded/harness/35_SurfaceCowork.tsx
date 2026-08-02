@@ -1,6 +1,7 @@
 import { FolderOpen } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { SurfaceRail } from './_SurfaceRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecSurfaceCowork() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={FolderOpen}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <SurfaceRail active={2} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -36,7 +37,7 @@ export default function RecSurfaceCowork() {
             權限就是你綁的那個資料夾。可以只綁一個子目錄，不必交出整個專案。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

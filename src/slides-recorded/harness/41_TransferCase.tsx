@@ -1,5 +1,6 @@
 import { HelpCircle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const TRAITS = ['重複發生', '有你自己的規矩', '每次都要重講一遍'];
@@ -16,7 +17,7 @@ export const meta: RecordedMeta = {
 export default function RecTransferCase() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={HelpCircle}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
           <div className="text-slate-500 text-base font-mono mb-3">情境</div>
           <p className="text-slate-300 text-2xl leading-snug">
@@ -24,7 +25,12 @@ export default function RecTransferCase() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="flex flex-wrap gap-3">
+        <AnimatedBlock stepIndex={2}>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">交給 Claude 做，你的手冊會寫什麼？</p>
+          <p className="text-slate-500 text-lg leading-relaxed mt-4">先自己想三十秒，再往下看。</p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="flex flex-wrap gap-3">
           {TRAITS.map((t) => (
             <span
               key={t}
@@ -34,12 +40,7 @@ export default function RecTransferCase() {
             </span>
           ))}
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">交給 Claude 做，你的手冊會寫什麼？</p>
-          <p className="text-slate-500 text-lg leading-relaxed mt-4">先自己想三十秒，再看下一頁。</p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

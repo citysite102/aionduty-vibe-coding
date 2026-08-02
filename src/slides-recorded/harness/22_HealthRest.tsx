@@ -1,6 +1,7 @@
 import { Sparkles } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HealthRail } from './_HealthRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthRest() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Sparkles}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <HealthRail active={[3, 4, 5]} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -34,7 +35,7 @@ export default function RecHealthRest() {
             </div>
           ))}
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

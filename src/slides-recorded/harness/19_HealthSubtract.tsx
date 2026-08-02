@@ -1,6 +1,7 @@
 import { Minus } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HealthRail } from './_HealthRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthSubtract() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Minus}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <HealthRail active={2} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -33,7 +34,7 @@ export default function RecHealthSubtract() {
             如果先分流再減法，你會把本來該刪的規則搬到子目錄，然後在那裡繼續佔著空間，下次健檢又要處理一次。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

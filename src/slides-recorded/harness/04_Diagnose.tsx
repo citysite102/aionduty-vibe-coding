@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const STEPS = [
@@ -21,7 +22,7 @@ export const meta: RecordedMeta = {
 export default function RecDiagnose() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Search}>
-      <div className="max-w-4xl mx-auto space-y-4 pt-4">
+      <RecPage className="space-y-4">
         {STEPS.map((s, i) => (
           <AnimatedBlock
             key={s.n}
@@ -43,7 +44,7 @@ export default function RecDiagnose() {
             跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

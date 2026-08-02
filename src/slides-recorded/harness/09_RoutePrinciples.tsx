@@ -1,5 +1,6 @@
 import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -21,7 +22,7 @@ const LAYERS = [
 export default function RecRoutePrinciples() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={Layers}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-5">
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="space-y-2.5">
           {LAYERS.map((l, i) => (
             <div
@@ -40,7 +41,7 @@ export default function RecRoutePrinciples() {
             上面兩層是程式在擋，一定會執行。最下面那層是寫給它看的，不保證會被照做。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

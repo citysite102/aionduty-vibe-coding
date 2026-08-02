@@ -1,6 +1,7 @@
 import { Library } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { SurfaceRail } from './_SurfaceRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecSurfaceProjects() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Library}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <SurfaceRail active={1} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -36,7 +37,7 @@ export default function RecSurfaceProjects() {
             不會在你的電腦裡建立檔案，也不會執行指令。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

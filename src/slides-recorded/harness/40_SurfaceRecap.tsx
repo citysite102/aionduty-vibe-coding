@@ -1,6 +1,7 @@
 import { Repeat } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { SurfaceRail } from './_SurfaceRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecSurfaceRecap() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Repeat}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <SurfaceRail active={0} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -34,7 +35,7 @@ export default function RecSurfaceRecap() {
             把你寫好的 CLAUDE.md 貼進 Claude Projects 的指令欄，丟同一句需求，看它會不會照做。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

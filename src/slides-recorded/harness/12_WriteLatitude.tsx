@@ -1,6 +1,7 @@
 import { ArrowRightLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite2() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={ArrowRightLeft}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 2 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">還在摸索就放開，已經確定就釘死</p>
@@ -28,7 +29,7 @@ export default function RecWrite2() {
           good="探索期：「幫我試幾種做法，各寫一個簡單版本讓我看。」　確定期：「照這份規格實作，不要改動現有架構。」"
           goodNote="同一件事，講法要跟著你的確定程度換。"
         />
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

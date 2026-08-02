@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,17 @@ export const meta: RecordedMeta = {
 export default function RecRecapNext() {
   return (
     <SlideLayout title={meta.title} subtitle="What Comes Next" icon={ArrowRight}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-4">
+      <RecPage className="space-y-6">
+        <AnimatedBlock stepIndex={1}>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">
+            下一段：設一個目標，讓它自己跑完一輪
+          </p>
+          <p className="text-slate-400 text-xl leading-relaxed mt-4">
+            到目前為止，每一輪都還是你按開始、你看結果、你決定要不要再跑。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-4">
           <div className="flex items-baseline gap-5">
             <span className="text-sky-400 text-lg font-bold shrink-0 w-32">手冊管得到</span>
             <span className="text-slate-300 text-xl">怎麼做</span>
@@ -25,19 +35,7 @@ export default function RecRecapNext() {
             <span className="text-slate-400 text-xl">什麼時候算做完</span>
           </div>
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2} className="px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">
-            到目前為止，每一輪都還是你按開始、你看結果、你決定要不要再跑。
-          </p>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">
-            下一段：設一個目標，讓它自己跑完一輪
-          </p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

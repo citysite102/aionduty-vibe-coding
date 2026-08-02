@@ -1,6 +1,7 @@
 import { FileText } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { RouteRail } from './_RouteRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecRouteQ4() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={FileText}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <RouteRail active={4} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -36,7 +37,7 @@ export default function RecRouteQ4() {
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">按鈕文案的用字習慣、檔案怎麼命名</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

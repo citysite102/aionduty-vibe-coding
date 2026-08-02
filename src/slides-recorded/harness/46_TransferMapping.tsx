@@ -1,5 +1,6 @@
 import { CornerDownRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const MAP = [
@@ -20,11 +21,18 @@ export const meta: RecordedMeta = {
 export default function RecTransferMapping() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={CornerDownRight}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-5">
+      <RecPage className="space-y-5">
+        <AnimatedBlock stepIndex={1}>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">每一行都追得到一個問題</p>
+          <p className="text-slate-400 text-xl leading-relaxed mt-4">
+            而且順便決定了那條規矩該用什麼方式擋。
+          </p>
+        </AnimatedBlock>
+
         {MAP.map(([line, q, note], i) => (
           <AnimatedBlock
             key={line}
-            stepIndex={i + 1}
+            stepIndex={i + 2}
             className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-5"
           >
             <div className="flex items-baseline gap-5 mb-2">
@@ -34,11 +42,7 @@ export default function RecTransferMapping() {
             <p className="text-slate-400 text-xl leading-relaxed">{note}</p>
           </AnimatedBlock>
         ))}
-
-        <AnimatedBlock stepIndex={4} className="px-1">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">三題也決定了要用什麼方式擋</p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

@@ -1,5 +1,6 @@
 import { FileX2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,7 +15,7 @@ export const meta: RecordedMeta = {
 export default function RecFailNotLoaded() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={FileX2}>
-      <div className="max-w-4xl mx-auto space-y-5 pt-2">
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={0} className="mb-6">
           <div className="text-slate-500 text-base font-mono mb-2">原因 1 / 3</div>
           <p className="text-slate-100 text-3xl font-bold leading-snug">因為那份手冊，根本沒進到這一輪的對話裡。</p>
@@ -41,7 +42,7 @@ export default function RecFailNotLoaded() {
             規則寫在子目錄，這一輪它卻在改別的地方，那條規則就不在對話裡。這跟規則寫得好不好無關。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

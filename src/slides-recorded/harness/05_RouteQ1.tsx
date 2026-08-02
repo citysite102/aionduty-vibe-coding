@@ -1,6 +1,7 @@
 import { ShieldX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { RouteRail } from './_RouteRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecRouteQ1() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={ShieldX}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <RouteRail active={1} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -36,7 +37,7 @@ export default function RecRouteQ1() {
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">不能把密碼或金鑰寫進程式碼裡</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

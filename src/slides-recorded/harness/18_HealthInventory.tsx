@@ -1,6 +1,7 @@
 import { ListTodo } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HealthRail } from './_HealthRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthInventory() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ListTodo}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <HealthRail active={1} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -36,7 +37,7 @@ export default function RecHealthInventory() {
         <AnimatedBlock stepIndex={3} className="mt-5 text-slate-400 text-xl leading-relaxed px-1">
           想不起來的先打問號。這些就是下一步要處理的對象。
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

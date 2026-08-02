@@ -1,5 +1,6 @@
 import { ShieldAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,7 +15,7 @@ export const meta: RecordedMeta = {
 export default function RecTransferQ2() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={ShieldAlert}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
           <div className="text-slate-500 text-base font-mono mb-3">第 2 題，共 3 題</div>
 
@@ -33,7 +34,7 @@ export default function RecTransferQ2() {
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">不能把電話、地址這類個資寫進去</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

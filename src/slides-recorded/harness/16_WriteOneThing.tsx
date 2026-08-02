@@ -1,6 +1,7 @@
 import { Scissors } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite6() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={Scissors}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 6 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">一條規則只講一件事</p>
@@ -34,7 +35,7 @@ export default function RecWrite6() {
             這六個技巧不只適用 CLAUDE.md。任何你要交代給 AI 的規範都一樣，包括接下來要看的網頁版工具。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

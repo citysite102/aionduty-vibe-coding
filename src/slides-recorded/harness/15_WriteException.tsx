@@ -1,6 +1,7 @@
 import { GitBranch } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite5() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={GitBranch}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 5 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">寫出例外，它才不會硬套</p>
@@ -28,7 +29,7 @@ export default function RecWrite5() {
           good="「禁止常駐的無限動畫。例外：真的要表達系統正在運轉時，全頁最多留一組，且必須慢速、低對比。」"
           goodNote="把邊界講完整，它才知道分寸在哪。"
         />
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

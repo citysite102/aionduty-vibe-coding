@@ -1,5 +1,6 @@
 import { Download } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const FILES = ['CLAUDE.md 模板', '規則分流判斷卡', '五步健檢檢查表', '錯誤訊息判讀對照表'];
@@ -16,14 +17,22 @@ export const meta: RecordedMeta = {
 export default function RecRecapHandouts() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={Download}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
-        <AnimatedBlock stepIndex={1} className="bg-slate-950 border border-slate-800 rounded-2xl px-7 py-5">
+      <RecPage className="space-y-6">
+        <AnimatedBlock stepIndex={1}>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">回去先做這件事</p>
+          <p className="text-slate-300 text-xl leading-relaxed mt-4">
+            把模板複製到你真正在跑的專案，填完跑一次{' '}
+            <code className="text-sky-300 font-mono">/context</code> 確認它在。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-950 border border-slate-800 rounded-2xl px-7 py-5">
           <div className="text-sky-300 font-mono text-xl break-all">
             citysite102.github.io/aionduty-vibe-coding/handouts/
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="flex flex-wrap gap-3">
+        <AnimatedBlock stepIndex={3} className="flex flex-wrap gap-3">
           {FILES.map((f) => (
             <span
               key={f}
@@ -33,18 +42,7 @@ export default function RecRecapHandouts() {
             </span>
           ))}
         </AnimatedBlock>
-
-        <AnimatedBlock
-          stepIndex={3}
-          className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-5"
-        >
-          <p className="text-slate-100 text-4xl font-bold leading-snug mb-4">回去先做這件事</p>
-          <p className="text-slate-300 text-xl leading-relaxed">
-            把模板複製到你真正在跑的專案，填完跑一次{' '}
-            <code className="text-sky-300 font-mono">/context</code> 確認它在。
-          </p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

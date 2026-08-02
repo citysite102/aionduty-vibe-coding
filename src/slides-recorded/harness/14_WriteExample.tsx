@@ -1,6 +1,7 @@
 import { ClipboardList } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite4() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={ClipboardList}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 4 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">給一個範例，勝過三行描述</p>
@@ -28,7 +29,7 @@ export default function RecWrite4() {
           good="附一張對照表：一鍵改成依實際操作描述、上手改成熟悉、技術棧改成技術堆疊。"
           goodNote="有具體樣本可以比對，它就不用猜你的標準。"
         />
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

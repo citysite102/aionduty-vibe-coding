@@ -1,5 +1,6 @@
 import { PencilRuler } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const STEPS = [
@@ -20,11 +21,12 @@ export const meta: RecordedMeta = {
 export default function RecTransferNextStep() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={PencilRuler}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-300 text-2xl leading-snug">
+          <p className="text-slate-300 text-2xl leading-snug mb-3">
             換別的 AI、換完全不同的工作，要問的還是這三題。
           </p>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">第一份三行就可以上場</p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-4">
@@ -35,11 +37,7 @@ export default function RecTransferNextStep() {
             </div>
           ))}
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">第一份三行就可以上場</p>
-        </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

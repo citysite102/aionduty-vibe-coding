@@ -1,6 +1,7 @@
 import { ToggleLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite1() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={ToggleLeft}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">技巧 1 / 6</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">講清楚只能做什麼，不要列一串不能做什麼</p>
@@ -28,7 +29,7 @@ export default function RecWrite1() {
           good="「一律使用 React Functional Components 與 Hooks，CSS 僅限修改 Tailwind classes。」"
           goodNote="把範圍框起來，範圍以外的它都不會去碰。"
         />
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

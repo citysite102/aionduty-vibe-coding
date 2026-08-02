@@ -1,6 +1,7 @@
 import { FolderCog } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { SurfaceRail } from './_SurfaceRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -15,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecSurfaceIntro() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={FolderCog}>
-      <div className="max-w-4xl mx-auto pt-2">
+      <RecPage>
         <SurfaceRail active={0} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -36,7 +37,7 @@ export default function RecSurfaceIntro() {
         <AnimatedBlock stepIndex={3} className="mt-5 text-slate-500 text-lg leading-relaxed px-1">
           接下來三頁，用這兩個問題看三個地方。
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

@@ -1,5 +1,6 @@
 import { Layers2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,7 +15,7 @@ export const meta: RecordedMeta = {
 export default function RecFailBuried() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Layers2}>
-      <div className="max-w-4xl mx-auto space-y-5 pt-2">
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={0} className="mb-6">
           <div className="text-slate-500 text-base font-mono mb-2">原因 2 / 3</div>
           <p className="text-slate-100 text-3xl font-bold leading-snug">因為它排在三百行的後面，份量不夠。</p>
@@ -39,7 +40,7 @@ export default function RecFailBuried() {
             如果沒照做的都是後面那幾條，多半就是這個問題。一般建議一份控制在 200 行以內。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

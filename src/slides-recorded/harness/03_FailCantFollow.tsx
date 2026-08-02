@@ -1,5 +1,6 @@
 import { ShieldAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const CASES = [
@@ -32,7 +33,7 @@ export const meta: RecordedMeta = {
 export default function RecFailCantFollow() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={ShieldAlert}>
-      <div className="max-w-4xl mx-auto space-y-4 pt-2">
+      <RecPage className="space-y-4">
         <AnimatedBlock stepIndex={0} className="mb-6">
           <div className="text-slate-500 text-base font-mono mb-2">原因 3 / 3</div>
           <p className="text-slate-100 text-3xl font-bold leading-snug">因為那條規則本身，沒辦法被照著做。</p>
@@ -51,7 +52,7 @@ export default function RecFailCantFollow() {
             </div>
           </AnimatedBlock>
         ))}
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

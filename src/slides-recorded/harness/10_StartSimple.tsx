@@ -1,5 +1,6 @@
 import { Sprout } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const SIGNALS = [
@@ -20,7 +21,7 @@ export const meta: RecordedMeta = {
 export default function RecStartSimple() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={Sprout}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-100 text-4xl font-bold leading-snug">不用。從一份開始就好。</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">
@@ -43,7 +44,7 @@ export default function RecStartSimple() {
         <AnimatedBlock stepIndex={3} className="text-slate-500 text-lg leading-relaxed px-1">
           分流這件事，在整理手冊的完整流程裡是第 3 步。下一頁看那五個步驟。
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

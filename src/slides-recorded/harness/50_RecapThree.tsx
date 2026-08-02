@@ -1,5 +1,6 @@
 import { Signpost } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const ROUTES = [
@@ -21,7 +22,7 @@ export const meta: RecordedMeta = {
 export default function RecRecapThree() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={Signpost}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-3">第 3 件，共 3 件</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">知道一條規則該送到哪裡</p>
@@ -41,7 +42,7 @@ export default function RecRecapThree() {
             合起來的效果是，根目錄那份會維持在你唸得完的長度。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }
