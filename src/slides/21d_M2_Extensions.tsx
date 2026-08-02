@@ -60,7 +60,7 @@ export default function SlideM2Extensions() {
            <AlertTriangle size={32} className="text-red-400 mb-4" />
            <h3 className="text-lg font-bold text-slate-100 mb-3">最關鍵的區分</h3>
            <p className="text-slate-300 text-sm leading-relaxed">
-             「絕對不要做某事」寫在 CLAUDE.md 只是<strong className="text-sky-400">「拜託」</strong>，長 session 或遇到 prompt injection 時它還是可能犯。<br/><br/>
+             「絕對不要做某事」寫在 CLAUDE.md 裡<strong className="text-sky-400">不保證會被照做</strong>，長 session 或遇到 prompt injection 時它還是可能做下去。<br/><br/>
              真要擋死，請用 <strong className="text-red-400">Hook</strong>。
            </p>
         </AnimatedBlock>

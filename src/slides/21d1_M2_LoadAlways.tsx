@@ -28,7 +28,7 @@ export default function SlideM2LoadAlways() {
           </div>
           <div className="text-slate-200 text-sm font-bold mb-1">只在某一區檔案才適用的限制</div>
           <p className="text-slate-500 text-sm leading-relaxed">
-            用 <code className="text-sky-300 font-mono text-xs">paths:</code> 綁定資料夾，它動到那一區的時候才會被讀進來。平常不佔位。
+            把它放進那一區的資料夾。只有動到那一區的時候才會被讀進來，平常不會佔掉對話的空間。
           </p>
         </AnimatedBlock>
 

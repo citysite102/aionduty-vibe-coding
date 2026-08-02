@@ -104,8 +104,9 @@ import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide33 from './slides/33_Outro';
+import { REPLACEMENTS } from './slides-recorded/registry';
 
-const SLIDE_TITLES = [
+const LIVE_TITLES = [
   "封面",
   "內容大綱",
   "學完帶走的 3 大核心資產",
@@ -204,7 +205,7 @@ const SLIDE_TITLES = [
   "未來的工作者",
 ];
 
-const SLIDES = [
+const LIVE_SLIDES = [
   Slide01,
   Slide02,
   Slide02a,
@@ -302,6 +303,44 @@ const SLIDES = [
   Slide28b,
   Slide33,
 ];
+
+const PARAMS = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);
+/** ?clean=1 隱藏操作列，錄製時用 */
+const IS_CLEAN = PARAMS.get('clean') === '1';
+
+/**
+ * 每一節的起點，寫的是「原始頁」在 LIVE_SLIDES 的 index。
+ * 拆頁之後實際位置會位移，下面會自動換算，不需要手動改數字。
+ */
+const SECTION_DEFS = [
+  { start: 0, label: '課前導讀' },
+  { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
+  { start: 13, label: 'Agent 的心智模型與 Claude Code 終端機實作' },
+  { start: 39, label: 'Agent 運作框架與成本分析' },
+  { start: 77, label: 'Agent 循環開發流程' },
+];
+
+/** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
+const ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
+  const replaced = REPLACEMENTS[i];
+  if (replaced) {
+    return replaced.map((r) => ({ Component: r.Component, title: r.meta.title, liveIndex: i }));
+  }
+  return [{ Component, title: LIVE_TITLES[i], liveIndex: i }];
+});
+
+const SLIDES = ENTRIES.map((e) => e.Component);
+const SLIDE_TITLES = ENTRIES.map((e) => e.title);
+
+/** 分節切點依實際位置換算，最後一頁固定是結語，自成一組 */
+const SECTIONS = SECTION_DEFS.map((def, i) => {
+  const next = SECTION_DEFS[i + 1];
+  return {
+    label: def.label,
+    from: ENTRIES.findIndex((e) => e.liveIndex === def.start),
+    to: next ? ENTRIES.findIndex((e) => e.liveIndex === next.start) : ENTRIES.length - 1,
+  };
+});
 
 export default function App() {
   const [current, setCurrent] = useState(0);
@@ -405,7 +444,7 @@ export default function App() {
       </div>
 
       {/* Floating Controls */}
-      <div className="absolute bottom-6 right-6 flex gap-2 items-center bg-slate-900/80 p-2 rounded-full backdrop-blur-md border border-slate-800 shadow-2xl z-50">
+      {!IS_CLEAN && <div className="absolute bottom-6 right-6 flex gap-2 items-center bg-slate-900/80 p-2 rounded-full backdrop-blur-md border border-slate-800 shadow-2xl z-50">
         
         {/* Font Scale Adjuster */}
         <div className="flex gap-1 items-center px-2.5 py-0.5 border-r border-slate-800 text-slate-400 select-none shrink-0" onClick={e => e.stopPropagation()}>
@@ -441,41 +480,15 @@ export default function App() {
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          <optgroup label="課前導讀">
-            {SLIDES.slice(0, 3).map((_, idx) => (
-              <option key={idx} value={idx} className="bg-slate-900 text-slate-300">
-                Slide {idx + 1} - {SLIDE_TITLES[idx]}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="解構 Vibe Coding：跳脫對話框的開發新典範">
-            {SLIDES.slice(3, 13).map((_, idx) => (
-              <option key={idx + 3} value={idx + 3} className="bg-slate-900 text-slate-300">
-                Slide {idx + 4} - {SLIDE_TITLES[idx + 3]}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="Agent 的心智模型與 Claude Code 終端機實作">
-            {SLIDES.slice(13, 39).map((_, idx) => (
-              <option key={idx + 13} value={idx + 13} className="bg-slate-900 text-slate-300">
-                Slide {idx + 14} - {SLIDE_TITLES[idx + 13]}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="Agent 運作框架與成本分析">
-            {SLIDES.slice(39, 77).map((_, idx) => (
-              <option key={idx + 39} value={idx + 39} className="bg-slate-900 text-slate-300">
-                Slide {idx + 40} - {SLIDE_TITLES[idx + 39]}
-              </option>
-            ))}
-          </optgroup>
-          <optgroup label="Agent 循環開發流程">
-            {SLIDES.slice(77, SLIDES.length - 1).map((_, idx) => (
-              <option key={idx + 77} value={idx + 77} className="bg-slate-900 text-slate-300">
-                Slide {idx + 78} - {SLIDE_TITLES[idx + 77]}
-              </option>
-            ))}
-          </optgroup>
+          {SECTIONS.map((sec) => (
+            <optgroup key={sec.label} label={sec.label}>
+              {Array.from({ length: sec.to - sec.from }, (_, k) => sec.from + k).map((idx) => (
+                <option key={idx} value={idx} className="bg-slate-900 text-slate-300">
+                  Slide {idx + 1} - {SLIDE_TITLES[idx]}
+                </option>
+              ))}
+            </optgroup>
+          ))}
           <optgroup label="結語">
             <option value={SLIDES.length - 1} className="bg-slate-900 text-slate-300">
               Slide {SLIDES.length} - {SLIDE_TITLES[SLIDES.length - 1]}
@@ -503,7 +516,7 @@ export default function App() {
             <ChevronRight size={18}/>
           </button>
         </div>
-      </div>
+      </div>}
 
     </div>
   );

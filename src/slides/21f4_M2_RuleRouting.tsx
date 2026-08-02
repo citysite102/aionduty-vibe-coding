@@ -5,12 +5,12 @@ const BRANCHES = [
   {
     q: '違反了會出事，絕對不能發生？',
     to: 'Hook / CI',
-    desc: 'Hook 擋你的機器，CI 擋整個團隊。在 context 外面跑，不佔 token。',
+    desc: 'Hook 擋你的機器，CI 擋整個團隊。它們在對話外面跑，不吃對話的空間。',
   },
   {
     q: '只在某一區檔案才適用？',
     to: '子目錄 CLAUDE.md / rules',
-    desc: '放進那一區，或用 rules 的 paths 綁定。碰到才載，平常不佔位。',
+    desc: '放進那一區的資料夾。只有動到那一區才會被讀進來，平常不會佔掉對話的空間。',
   },
   {
     q: '有固定步驟，用到才需要？',
@@ -52,7 +52,7 @@ export default function SlideM2RuleRouting() {
 
         <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4 space-y-2">
           <p className="text-slate-400 text-sm leading-relaxed">
-            <strong className="text-slate-200">越往上越確定，改起來也越費事。</strong>Hook 與 CI 是程式在擋，一定會執行，但要動到設定檔；CLAUDE.md 隨時能改，可是它終究只是拜託。
+            <strong className="text-slate-200">越往上越確定，改起來也越費事。</strong>Hook 與 CI 是程式在擋，一定會執行，但要動到設定檔；CLAUDE.md 隨時能改，但它不保證會被照做。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed">
             <strong className="text-slate-200">同一條不要放兩個地方。</strong>這份簡報的「中文不要用破折號」已經有 hook 在擋，文字版就是重複的。已經被機制擋住的事，是修剪時最容易刪的一批。
