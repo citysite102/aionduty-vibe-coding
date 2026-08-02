@@ -39,6 +39,10 @@ export default function RecStartSimple() {
             ))}
           </ul>
         </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="text-slate-500 text-lg leading-relaxed px-1">
+          分流這件事，在整理手冊的完整流程裡是第 3 步。下一頁看那五個步驟。
+        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

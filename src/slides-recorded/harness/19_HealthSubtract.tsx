@@ -1,0 +1,39 @@
+import { Minus } from 'lucide-react';
+import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { HealthRail } from './_HealthRail';
+import type { RecordedMeta } from '../types';
+
+export const meta: RecordedMeta = {
+  id: 'harness-19-health-subtract',
+  title: '手冊越寫越肥，怎麼整理？',
+  script:
+    '第二步是減法。這一步最容易被跳過，因為刪東西比加東西難決定。但順序很重要：一定要先刪再搬。如果你先分流再減法，會把本來該刪掉的規則搬到子目錄，然後它在那裡繼續佔著空間，下次健檢又要再處理一次。打問號的那幾條，用下一頁的三種證據來判斷。',
+  seconds: 40,
+  from: 69,
+};
+
+export default function RecHealthSubtract() {
+  return (
+    <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Minus}>
+      <div className="max-w-4xl mx-auto pt-2">
+        <HealthRail active={2} />
+
+        <AnimatedBlock stepIndex={1} className="mb-6">
+          <p className="text-slate-100 text-4xl font-bold leading-snug">先刪再搬，順序不要反</p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            打問號的那些，用下一頁的三種證據判斷能不能刪。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="mt-5 bg-amber-500/5 border border-amber-500/20 rounded-2xl px-6 py-5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            如果先分流再減法，你會把本來該刪的規則搬到子目錄，然後在那裡繼續佔著空間，下次健檢又要處理一次。
+          </p>
+        </AnimatedBlock>
+      </div>
+    </SlideLayout>
+  );
+}

@@ -10,6 +10,18 @@ import RecRouteQ3, { meta as m07 } from './harness/07_RouteQ3';
 import RecRouteQ4, { meta as m08 } from './harness/08_RouteQ4';
 import RecRoutePrinciples, { meta as m09 } from './harness/09_RoutePrinciples';
 import RecStartSimple, { meta as m10 } from './harness/10_StartSimple';
+import RecWrite1, { meta as m11 } from './harness/11_WriteWhitelist';
+import RecWrite2, { meta as m12 } from './harness/12_WriteLatitude';
+import RecWrite3, { meta as m13 } from './harness/13_WriteWhy';
+import RecWrite4, { meta as m14 } from './harness/14_WriteExample';
+import RecWrite5, { meta as m15 } from './harness/15_WriteException';
+import RecWrite6, { meta as m16 } from './harness/16_WriteOneThing';
+import RecHealthOverview, { meta as m17 } from './harness/17_HealthOverview';
+import RecHealthInventory, { meta as m18 } from './harness/18_HealthInventory';
+import RecHealthSubtract, { meta as m19 } from './harness/19_HealthSubtract';
+import RecHealthEvidence, { meta as m20 } from './harness/20_HealthEvidence';
+import RecHealthWeakEvidence, { meta as m21 } from './harness/21_HealthWeakEvidence';
+import RecHealthRest, { meta as m22 } from './harness/22_HealthRest';
 
 /**
  * 拆頁替換表。
@@ -36,5 +48,23 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m08, Component: RecRouteQ4 },
     { meta: m09, Component: RecRoutePrinciples },
     { meta: m10, Component: RecStartSimple },
+  ],
+  // index 69 = 原 Slide 70「手冊越寫越肥，怎麼整理」
+  69: [
+    { meta: m17, Component: RecHealthOverview },
+    { meta: m18, Component: RecHealthInventory },
+    { meta: m19, Component: RecHealthSubtract },
+    { meta: m20, Component: RecHealthEvidence },
+    { meta: m21, Component: RecHealthWeakEvidence },
+    { meta: m22, Component: RecHealthRest },
+  ],
+  // index 70 = 原 Slide 71「怎麼把話講對：白名單與探索空間」
+  70: [
+    { meta: m11, Component: RecWrite1 },
+    { meta: m12, Component: RecWrite2 },
+    { meta: m13, Component: RecWrite3 },
+    { meta: m14, Component: RecWrite4 },
+    { meta: m15, Component: RecWrite5 },
+    { meta: m16, Component: RecWrite6 },
   ],
 };
