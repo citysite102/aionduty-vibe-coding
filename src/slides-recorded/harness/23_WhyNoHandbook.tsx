@@ -1,5 +1,6 @@
 import { FileX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const MISSES = [
@@ -19,8 +20,8 @@ export const meta: RecordedMeta = {
 
 export default function RecWhyNoHandbook() {
   return (
-    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={FileX}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={FileX} compact>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">對照 1 / 3</div>
           <p className="text-slate-300 text-2xl leading-snug mb-4">同一句需求，丟給兩種專案</p>
@@ -42,10 +43,10 @@ export default function RecWhyNoHandbook() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">開新對話，它一條都不記得</p>
+          <p className="text-slate-100 text-5xl font-bold leading-snug">開新對話，它一條都不記得</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">這三條規矩，你上一輪都交代過了。</p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

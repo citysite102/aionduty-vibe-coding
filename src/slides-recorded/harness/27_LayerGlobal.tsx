@@ -1,6 +1,7 @@
 import { Globe } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { LayerRail } from './_LayerRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,8 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerGlobal() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Globe}>
-      <div className="max-w-4xl mx-auto pt-2">
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Globe} compact>
+      <RecPage>
         <LayerRail active={1} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -25,7 +26,7 @@ export default function RecLayerGlobal() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">~/.claude/CLAUDE.md</p>
           </div>
 
-          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">你跨所有專案的個人偏好</p>
+          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">你跨所有專案的個人偏好</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             換到哪個專案都會帶著。只有這個專案才成立的規矩不要寫在這裡。
@@ -36,7 +37,7 @@ export default function RecLayerGlobal() {
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">回答一律用繁體中文</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

@@ -1,6 +1,7 @@
 import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { LayerRail } from './_LayerRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,8 @@ export const meta: RecordedMeta = {
 
 export default function RecLayersOverview() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Layers}>
-      <div className="max-w-4xl mx-auto pt-2">
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Layers} compact>
+      <RecPage>
         <LayerRail active={0} />
 
         <AnimatedBlock stepIndex={1} className="mb-6">
@@ -23,7 +24,7 @@ export default function RecLayersOverview() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="mb-6">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">越靠近現場的越具體，也越優先</p>
+          <p className="text-slate-100 text-5xl font-bold leading-snug">越靠近現場的越具體，也越優先</p>
         </AnimatedBlock>
 
         <AnimatedBlock
@@ -34,7 +35,7 @@ export default function RecLayersOverview() {
             同一件事講法不同時，子目錄蓋過專案根目錄，專案根目錄蓋過全域。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

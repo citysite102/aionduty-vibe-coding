@@ -1,5 +1,6 @@
 import { Share2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -13,11 +14,11 @@ export const meta: RecordedMeta = {
 
 export default function RecAgentsMd() {
   return (
-    <SlideLayout title={meta.title} subtitle="One File, Many Tools" icon={Share2}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+    <SlideLayout title={meta.title} subtitle="One File, Many Tools" icon={Share2} compact>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-2xl leading-snug">換工具要重寫一份嗎？</p>
-          <p className="text-slate-100 text-4xl font-bold leading-snug mt-3">
+          <p className="text-slate-100 text-5xl font-bold leading-snug mt-3">
             不用，<span className="text-sky-400">AGENTS.md</span> 是跨工具的共通檔名
           </p>
         </AnimatedBlock>
@@ -35,7 +36,7 @@ export default function RecAgentsMd() {
           <span className="text-slate-500 text-base shrink-0">實例</span>
           <span className="text-slate-300 text-xl">這份簡報的專案就是這樣設定的</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

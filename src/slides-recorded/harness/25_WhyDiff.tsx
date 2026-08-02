@@ -1,5 +1,6 @@
 import { ArrowRightLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -13,8 +14,8 @@ export const meta: RecordedMeta = {
 
 export default function RecWhyDiff() {
   return (
-    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={ArrowRightLeft}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={ArrowRightLeft} compact>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">對照 3 / 3</div>
           <p className="text-slate-300 text-2xl leading-snug">差別不在它變聰明，在你的要求存在哪裡</p>
@@ -32,11 +33,11 @@ export default function RecWhyDiff() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">
+          <p className="text-slate-100 text-5xl font-bold leading-snug">
             把你的要求從這次對話，搬到這個專案
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

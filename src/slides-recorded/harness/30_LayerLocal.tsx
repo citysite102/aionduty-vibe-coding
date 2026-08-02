@@ -1,6 +1,7 @@
 import { UserCog } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { LayerRail } from './_LayerRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,8 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerLocal() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={UserCog}>
-      <div className="max-w-4xl mx-auto pt-2">
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={UserCog} compact>
+      <RecPage>
         <LayerRail active={4} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -25,7 +26,7 @@ export default function RecLayerLocal() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">./CLAUDE.local.md</p>
           </div>
 
-          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">只有你這台機器成立的事</p>
+          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">只有你這台機器成立的事</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             放進 gitignore，不進版本控制。例如你的測試環境開在哪個埠。
@@ -40,7 +41,7 @@ export default function RecLayerLocal() {
             判斷方式：這條規矩換一台電腦還成立嗎？不成立的就放這裡。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

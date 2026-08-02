@@ -1,5 +1,6 @@
 import { FileCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const HITS = [
@@ -19,8 +20,8 @@ export const meta: RecordedMeta = {
 
 export default function RecWhyWithHandbook() {
   return (
-    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={FileCheck}>
-      <div className="max-w-4xl mx-auto pt-2 space-y-6">
+    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={FileCheck} compact>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-2">對照 2 / 3</div>
           <p className="text-slate-300 text-2xl leading-snug mb-4">同一句需求，換一個專案</p>
@@ -42,10 +43,10 @@ export default function RecWhyWithHandbook() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">這一輪你一條都沒提</p>
+          <p className="text-slate-100 text-5xl font-bold leading-snug">這一輪你一條都沒提</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">它自己去讀了手冊。</p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

@@ -1,6 +1,7 @@
 import { FolderTree } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { LayerRail } from './_LayerRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,8 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerSubdir() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FolderTree}>
-      <div className="max-w-4xl mx-auto pt-2">
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FolderTree} compact>
+      <RecPage>
         <LayerRail active={3} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -25,7 +26,7 @@ export default function RecLayerSubdir() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">src/remotion/CLAUDE.md</p>
           </div>
 
-          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">碰到才載入，平常不佔空間</p>
+          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">碰到才載入，平常不佔空間</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             只有動到那一區的檔案時才讀進來。只跟某一塊有關的細節放這裡。
@@ -36,7 +37,7 @@ export default function RecLayerSubdir() {
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">動畫元件目錄，規矩跟簡報頁面不同</span>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }

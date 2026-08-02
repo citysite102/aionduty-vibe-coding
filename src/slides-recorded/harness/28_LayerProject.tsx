@@ -1,6 +1,7 @@
 import { FileText } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { LayerRail } from './_LayerRail';
+import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
@@ -14,8 +15,8 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerProject() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FileText}>
-      <div className="max-w-4xl mx-auto pt-2">
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FileText} compact>
+      <RecPage>
         <LayerRail active={2} />
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
@@ -25,7 +26,7 @@ export default function RecLayerProject() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">./CLAUDE.md</p>
           </div>
 
-          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">這個專案的規章，團隊共用</p>
+          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">這個專案的規章，團隊共用</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             跟著進版本控制，每個人拿到的都是同一份。前面你寫的那一份就是它。
@@ -40,7 +41,7 @@ export default function RecLayerProject() {
             對話一開始就載入，整場都在，compaction 之後會自動重讀。
           </p>
         </AnimatedBlock>
-      </div>
+      </RecPage>
     </SlideLayout>
   );
 }
