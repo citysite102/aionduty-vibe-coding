@@ -9,21 +9,38 @@ export default function SlideM2ExtensionsCases() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
             <Briefcase size={20} />
-            情境一：專案架構與防呆 (CLAUDE.md + Rules)
+            情境一：整個專案一套規矩，某一區再加嚴
           </h3>
-          <p className="text-slate-300 text-sm mb-4">
-            你希望整個專案有統一的風格，但在特定危險區域要有更嚴格的限制。
+          <p className="text-slate-300 text-sm mb-3">
+            你希望整個專案有統一的風格，但有一個資料夾特別容易出事，要更嚴的限制。
+            <strong className="text-slate-100">做法是放兩份檔案，位置決定了誰會讀到它。</strong>
           </p>
-          <div className="space-y-3">
-            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
-              <span className="text-sky-300 font-bold text-xs block mb-1">CLAUDE.md (全域規矩)</span>
-              <span className="text-slate-400 text-sm">「全站使用 Tailwind CSS，一律使用 TypeScript 且禁用 any 型別。」</span>
+
+          <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 font-mono text-xs mb-3">
+            <div className="text-slate-300">你的專案/</div>
+            <div className="text-slate-400">
+              ├ CLAUDE.md<span className="text-slate-600 font-sans">　整個專案都會讀</span>
             </div>
-            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
-              <span className="text-indigo-300 font-bold text-xs block mb-1">Rules (指定路徑 /api/*)</span>
-              <span className="text-slate-400 text-sm">「只要動到 API 資料夾的檔案，必須確保每個端點都有檢查使用者驗證 (Auth)。」</span>
+            <div className="text-slate-400">└ src/api/</div>
+            <div className="text-slate-400">
+              　　└ CLAUDE.md<span className="text-slate-600 font-sans">　只有動到這個資料夾才會讀</span>
             </div>
           </div>
+
+          <div className="space-y-2">
+            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
+              <span className="text-sky-300 font-bold text-xs block mb-1 font-mono">CLAUDE.md</span>
+              <span className="text-slate-400 text-sm">「全站使用 Tailwind CSS，一律使用 TypeScript。」</span>
+            </div>
+            <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
+              <span className="text-sky-300 font-bold text-xs block mb-1 font-mono">src/api/CLAUDE.md</span>
+              <span className="text-slate-400 text-sm">「這個資料夾裡的每一支程式，都要先確認使用者已經登入才能繼續。」</span>
+            </div>
+          </div>
+
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            規則就是純文字，跟你交代同事的講法一樣，不用寫成程式。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">

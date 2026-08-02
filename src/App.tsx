@@ -19,6 +19,7 @@ import Slide04c from './slides/04c_Intro_VibeVsAgentic';
 import Slide04b from './slides/04b_LLM_Math_Limits';
 import Slide04b2 from './slides/04b2_LLM_Prompt';
 import Slide04b3 from './slides/04b3_LLM_PromptDrill';
+import Slide04b4 from './slides/04b4_LLM_PromptPractice';
 import Slide05 from './slides/05_Intro_Cases';
 import Slide06 from './slides/06_Threads';
 import Slide07 from './slides/07_Div_Terminal';
@@ -113,11 +114,12 @@ const LIVE_TITLES = [
   "跳脫對話框的開發新典範",
   "什麼是 Vibe Coding？",
   "從 Vibe Coding 到 Agentic Engineering",
-  "Vibe Coding 與 Agentic Engineering 的演進",
+  "Vibe Coding 與 Agentic Engineering",
   "依據目標選擇工具",
   "它不是在理解，是在算哪個答案離你最近",
   "講不清楚的，直接給它看",
-  "換你把這三句話改清楚",
+  "講清楚，先檢查這三件事",
+  "換你改這兩句",
   "從對話框走向真實環境",
   "兩條學習主線",
   "終端機與 Claude Code 入門",
@@ -217,6 +219,7 @@ const LIVE_SLIDES = [
   Slide04b,
   Slide04b2,
   Slide04b3,
+  Slide04b4,
   Slide05,
   Slide06,
   Slide07,
@@ -315,9 +318,9 @@ const IS_CLEAN = PARAMS.get('clean') === '1';
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
-  { start: 13, label: 'Agent 的心智模型與 Claude Code 終端機實作' },
-  { start: 39, label: 'Agent 運作框架與成本分析' },
-  { start: 77, label: 'Agent 循環開發流程' },
+  { start: 14, label: 'Agent 的心智模型與 Claude Code 終端機實作' },
+  { start: 40, label: 'Agent 運作框架與成本分析' },
+  { start: 78, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

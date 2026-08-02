@@ -32,19 +32,13 @@ export default function SlideCoreAssets() {
   return (
     <SlideLayout title="學完帶走的 3 大核心資產" subtitle="What You'll Walk Away With" icon={Package}>
       <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-center">
-        <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-400 text-base text-center mb-10 max-w-3xl mx-auto leading-relaxed">
-            你會帶走一個真的做得出來、也真的上得了線的作品，以及兩樣能一直複用的東西。課後直接套到你自己的專案上。
-          </p>
-        </AnimatedBlock>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {assets.map((a, i) => {
             const Icon = a.icon;
             return (
               <AnimatedBlock
                 key={a.num}
-                stepIndex={i + 2}
+                stepIndex={i + 1}
                 className="relative bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col text-left overflow-hidden hover:border-slate-700 transition-colors"
               >
                 {/* 巨大浮水印編號，填滿垂直空間並凸顯序號 */}

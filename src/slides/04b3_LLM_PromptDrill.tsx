@@ -21,73 +21,45 @@ const CHECKS = [
 
 export default function SlideLLMPromptDrill() {
   return (
-    <SlideLayout title="換你把這三句話改清楚" subtitle="Try It Yourself" icon={PenLine}>
-      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
+    <SlideLayout title="講清楚，先檢查這三件事" subtitle="Three Checks" icon={PenLine}>
+      <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
-        <div className="space-y-3">
-          <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-            這個練習不用開終端機，手機上的 AI 就能做。前面講的原理，落到實際動作就是這三個檢查點。
-          </AnimatedBlock>
+        <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
+          這個練習不用開終端機，手機上的 AI 就能做。前面講的原理，落到實際動作就是這三個檢查點。
+        </AnimatedBlock>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {CHECKS.map((c, i) => (
             <AnimatedBlock
               key={c.n}
               stepIndex={i + 2}
-              className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 flex gap-3 items-start"
+              className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4"
             >
-              <div className="w-6 h-6 shrink-0 rounded bg-slate-950 border border-slate-800 flex items-center justify-center text-sky-400 font-bold font-mono text-xs">
+              <div className="w-7 h-7 mb-3 rounded bg-slate-950 border border-slate-800 flex items-center justify-center text-sky-400 font-bold font-mono text-sm">
                 {c.n}
               </div>
-              <div>
-                <div className="text-slate-200 text-xs font-bold mb-1">{c.q}</div>
-                <div className="text-slate-500 text-xs leading-relaxed">{c.a}</div>
-              </div>
+              <div className="text-slate-200 text-base font-bold mb-2 leading-snug">{c.q}</div>
+              <div className="text-slate-500 text-sm leading-relaxed">{c.a}</div>
             </AnimatedBlock>
           ))}
         </div>
 
-        <div className="space-y-3">
-          <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">示範</div>
-            <div className="space-y-3">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-red-400 font-mono text-xs">✕</span>
-                  <span className="text-red-300 text-sm">「幫我把這份表格整理一下」</span>
-                </div>
-                <p className="text-slate-500 text-xs leading-relaxed pl-5">
-                  「這份」是哪份？「整理」是排序、去重複，還是換格式？它只能猜，猜錯了你還得重講一次。
-                </p>
-              </div>
-              <div className="pt-3 border-t border-slate-800">
-                <div className="flex items-start gap-2">
-                  <span className="text-emerald-400 font-mono text-xs mt-0.5">✓</span>
-                  <span className="text-emerald-300 text-sm leading-relaxed">
-                    「附件這份會員名單，請依照『註冊日期』由新到舊排序，重複的 Email 只留最新那筆，其他欄位不要動。」
-                  </span>
-                </div>
-              </div>
-            </div>
-          </AnimatedBlock>
-
-          <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <div className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-3">換你改這兩句</div>
-            <div className="space-y-3">
-              <div className="bg-slate-950 border border-slate-800 rounded-lg px-4 py-3">
-                <div className="text-slate-300 text-sm mb-2">「這個按鈕怪怪的，修一下」</div>
-                <div className="border-t border-dashed border-slate-700 pt-2 text-slate-600 text-xs">改寫：</div>
-              </div>
-              <div className="bg-slate-950 border border-slate-800 rounded-lg px-4 py-3">
-                <div className="text-slate-300 text-sm mb-2">「幫我寫個活動文案，要好看一點」</div>
-                <div className="border-t border-dashed border-slate-700 pt-2 text-slate-600 text-xs">改寫：</div>
-              </div>
-            </div>
-          </AnimatedBlock>
-
-          <AnimatedBlock stepIndex={7} className="text-slate-500 text-xs leading-relaxed px-1">
-            改完念給旁邊的人聽。<span className="text-slate-300">他如果還要反問你一句，代表 AI 也會猜錯。</span>
-          </AnimatedBlock>
-        </div>
+        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">示範</div>
+          <div className="flex items-center gap-2 mb-1">
+            <span className="text-red-400 font-mono text-sm">✕</span>
+            <span className="text-red-300 text-base">「幫我把這份表格整理一下」</span>
+          </div>
+          <p className="text-slate-500 text-sm leading-relaxed pl-6 mb-4">
+            「這份」是哪份？「整理」是排序、去重複，還是換格式？它只能猜，猜錯了你還得重講一次。
+          </p>
+          <div className="flex items-start gap-2 pt-3 border-t border-slate-800">
+            <span className="text-emerald-400 font-mono text-sm mt-1">✓</span>
+            <span className="text-emerald-300 text-base leading-relaxed">
+              「附件這份會員名單，請依照『註冊日期』由新到舊排序，重複的 Email 只留最新那筆，其他欄位不要動。」
+            </span>
+          </div>
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

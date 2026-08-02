@@ -3,10 +3,10 @@ import { ArrowRight, CheckCircle2, AlertTriangle, FileCode2 } from 'lucide-react
 
 export default function SlideVibeVsAgentic() {
   return (
-    <SlideLayout title="Vibe Coding 與 Agentic Engineering 的演進" subtitle="From Vibe to Agentic" icon={ArrowRight}>
+    <SlideLayout title="Vibe Coding 與 Agentic Engineering" subtitle="From Vibe to Agentic" icon={ArrowRight}>
       <div className="pt-6 max-w-6xl mx-auto h-full flex flex-col">
         <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-          這兩者並非黑白分明的二選一，而是一個連續的漸進過程。<br/>決定開發模式的關鍵，不在於「是否使用 AI」，而是 <strong className="text-sky-300 font-bold">AI 輸出背後有多少結構、驗證與人類的控制</strong>。
+          決定開發模式的關鍵，不在於「是否使用 AI」，而是 <strong className="text-sky-300 font-bold">AI 輸出背後有多少結構、驗證與人類的控制</strong>。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
