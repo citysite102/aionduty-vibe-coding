@@ -4,7 +4,7 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const HITS = [
-  '按鈕自己取名「補給」，照著航太語彙',
+  '按鈕自己叫「補給」，手冊裡的航太語彙',
   '沒有引用任何外部圖片',
   '分鐘數加在最上面的設定區',
 ];
@@ -13,7 +13,7 @@ export const meta: RecordedMeta = {
   id: 'harness-24-why-with-handbook',
   title: '有手冊跟沒手冊，差在哪？',
   script:
-    '同一句話，換成已經寫好 CLAUDE.md 的 mission-timer。這一輪你一樣什麼都沒提，但三條全部照做了：按鈕自己取名「補給」，照著你手冊裡那套航太語彙，沒有寫成「開始休息」；沒有引用任何外部圖片；分鐘數也加在檔案最上面的設定區。這就是你前面驗收那一步應該看到的結果。',
+    '同一句話，換成已經寫好 CLAUDE.md 的 mission-timer。這一輪你一樣什麼都沒提，但三條全部照做了：按鈕自己叫「補給」，那是你手冊裡那套航太語彙的其中一個詞，不是「開始休息」；沒有引用任何外部圖片；分鐘數也加在檔案最上面的設定區。這就是你前面驗收那一步應該看到的結果。',
   seconds: 36,
   from: 55,
 };

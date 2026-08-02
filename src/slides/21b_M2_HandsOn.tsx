@@ -18,7 +18,7 @@ export default function SlideM2HandsOn() {
               # 任務計時器開發規範<br/>
               - 深色星空背景，主色只給要強調的元素<br/>
               - 星球與火箭用 canvas 或 CSS 畫，禁止外部圖片<br/>
-              - 按鈕文案用航太語彙：發射、待機、返航<br/>
+              - 按鈕文案用航太語彙：發射、待機、返航、補給<br/>
               - 倒數分鐘數集中成設定，不要散在程式碼裡
             </div>
           </AnimatedBlock>

@@ -54,7 +54,7 @@ export default function SlideHandsOnPrompt() {
             You: 請把下面這幾條寫成一份 CLAUDE.md，以後每次進來都要遵守。<br/>
             1. 深色星空背景，主色只用在當下要強調的那一個元素。<br/>
             2. 星球與火箭一律用 canvas 或 CSS 畫，不得引用外部圖片。<br/>
-            3. 按鈕文案使用航太語彙：發射、待機、返航。<br/>
+            3. 按鈕文案使用航太語彙：發射、待機、返航、補給。<br/>
             4. 倒數的分鐘數要放在最上面當設定，不要散在程式碼裡。
           </div>
         </AnimatedBlock>

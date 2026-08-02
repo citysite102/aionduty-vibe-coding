@@ -47,7 +47,7 @@ export default function SlideM3HandsOn() {
               name: brand-copywriter<br/>
               description: 確保介面文案符合任務計時器的調性<br/>
               <span className="text-slate-600">---</span><br/>
-              請檢查畫面上的文字有沒有跑掉。按鈕一律用航太語彙：發射、待機、返航，不要出現「開始」「暫停」「重置」。所有錯誤訊息要溫和且具體。
+              請檢查畫面上的文字有沒有跑掉。按鈕一律用航太語彙：發射、待機、返航、補給，不要出現「開始」「暫停」「重置」。所有錯誤訊息要溫和且具體。
             </div>
           </AnimatedBlock>
         </div>
