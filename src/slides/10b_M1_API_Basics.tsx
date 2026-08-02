@@ -4,7 +4,7 @@ import { LiveDemo } from '../components/LiveDemo';
 
 export default function Slide10b() {
   return (
-    <SlideLayout title="理解 API 與資料傳遞" subtitle="API & JSON Fundamentals" icon={Database}>
+    <SlideLayout title="兩個程式要講話，得先講好格式" subtitle="API & JSON Fundamentals" icon={Database}>
       <LiveDemo kind="browser" note="打開真實 API 看回應" />
       <div className="flex flex-col gap-6 max-w-6xl mx-auto w-full pb-8">
         

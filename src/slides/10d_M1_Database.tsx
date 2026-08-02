@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="讓記憶永久保存" subtitle="Database Basics" icon={Database}>
+    <SlideLayout title="關掉瀏覽器，資料就不見了" subtitle="Database Basics" icon={Database}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2 h-full items-start max-w-6xl mx-auto pb-8">
 
         <div className="space-y-6 text-left">

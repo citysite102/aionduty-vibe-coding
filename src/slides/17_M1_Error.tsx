@@ -5,7 +5,7 @@ import { LiveDemo } from '../components/LiveDemo';
 
 export default function SlideError() {
   return (
-    <SlideLayout title="當錯誤發生時 (Errors)" subtitle="Don't Panic" icon={AlertTriangle}>
+    <SlideLayout title="紅字不是壞事，它在告訴你哪裡卡住" subtitle="Don't Panic" icon={AlertTriangle}>
       <LiveDemo kind="terminal" note="故意跑出一個錯誤" />
       
       <div className="max-w-6xl mx-auto mt-2 text-left">

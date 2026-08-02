@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export default function SlideClaudeCodeUI() {
   return (
-    <SlideLayout title="Claude Code 控制台" subtitle="Claude Code Welcome Console" icon={Terminal}>
+    <SlideLayout title="畫面上這幾塊分別在說什麼" subtitle="Claude Code Welcome Console" icon={Terminal}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
         {/* Left column: Explaining sections */}

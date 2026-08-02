@@ -199,7 +199,7 @@ export default function Slide11() {
   }
 
   return (
-    <SlideLayout title="協作角色拆解" subtitle="Roles in Action" icon={Network}>
+    <SlideLayout title="一個人做不完的時候，怎麼分工" subtitle="Roles in Action" icon={Network}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-6 items-stretch">
         
         <AnimatedBlock stepIndex={1} className={`w-full min-h-[400px] bg-slate-950 border ${borderColor} rounded-3xl ${bgGlow} transition-colors duration-1000 flex items-center justify-center relative overflow-hidden`}>

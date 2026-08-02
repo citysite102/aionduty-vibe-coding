@@ -68,7 +68,7 @@ export default function SlideShipIt() {
               <strong className="text-slate-100">那個東西就叫資料庫。</strong>
             </p>
             <p className="text-slate-400 text-xs leading-relaxed">
-              前面「讓記憶永久保存」那一頁講的就是它。差別在於，你現在是<strong className="text-slate-200">先撞到問題，才需要這個答案</strong>。
+              前面講資料庫的那一頁講的就是它。差別在於，你現在是<strong className="text-slate-200">先撞到問題，才需要這個答案</strong>。
               真的要接的話，用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這些設定工。
             </p>
             <div className="mt-3 text-[11px] text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">

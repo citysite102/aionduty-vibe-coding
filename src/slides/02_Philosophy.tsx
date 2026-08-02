@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlidePhilosophy() {
   return (
-    <SlideLayout title="內容大綱" subtitle="Unit Overview" icon={Map}>
+    <SlideLayout title="這一天你會走過的四個關卡" subtitle="Unit Overview" icon={Map}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 max-w-6xl mx-auto h-full items-start">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-center">
           <h3 className="text-2xl font-bold text-sky-400 mb-4">這堂課程在教什麼？</h3>

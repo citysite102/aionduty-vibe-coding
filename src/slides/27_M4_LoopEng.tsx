@@ -196,7 +196,7 @@ const LoopEngineeringAnimation = () => {
 
 export default function SlideLoopEngineering() {
   return (
-    <SlideLayout title="循環工程" subtitle="Loop Engineering" icon={RefreshCw}>
+    <SlideLayout title="做完一次不算完，要能自己跑下一輪" subtitle="Loop Engineering" icon={RefreshCw}>
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_400px] gap-8 mt-6 items-stretch">
 
         <div className="space-y-4 flex flex-col justify-between h-full">

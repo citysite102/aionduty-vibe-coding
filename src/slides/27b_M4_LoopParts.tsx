@@ -66,7 +66,7 @@ const STAGES = [
 
 export default function SlideLoopParts() {
   return (
-    <SlideLayout title="Loop Engineering 的關鍵零件" subtitle="Key Components" icon={Box}>
+    <SlideLayout title="讓它自己跑，需要哪幾個零件" subtitle="Key Components" icon={Box}>
       <div className="flex flex-col gap-5 mt-2 max-w-6xl mx-auto pb-6">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export default function Slide06() {
   return (
-    <SlideLayout title="健康的工作循環" subtitle="A Healthy Workflow" icon={RefreshCcw}>
+    <SlideLayout title="一次改一點，比一次改完安全" subtitle="A Healthy Workflow" icon={RefreshCcw}>
       <div className="w-full max-w-5xl mx-auto mt-4">
         
         <AnimatedBlock stepIndex={1} className="text-center mb-10">
