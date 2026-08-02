@@ -3,22 +3,22 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide09() {
   return (
-    <SlideLayout title="這堂課要搭的三根支柱" subtitle="Three Core Elements of Harness" icon={Layers}>
+    <SlideLayout title="接下來要動手的三件事" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
-        六個零件裡，我們只搭這三根：對應前面的<strong className="text-slate-200">工具</strong>與<strong className="text-slate-200">規則文件</strong>，
-        再加上一件六個零件沒列、但你每天都會用到的事，<strong className="text-slate-200">把大題目切小</strong>。
+        會動手的是<strong className="text-slate-200">規則文件</strong>與<strong className="text-slate-200">工具</strong>這兩塊，
+        再加一件零件表沒列、但你每天都會用到的事：<strong className="text-slate-200">把大題目切小</strong>。
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start">
 
-        {/* Pillar 1 */}
+        {/* 一、工具 */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">1</div>
-            給它能力
+            讓它有工具可用
           </h3>
           <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
-            不要讓它瞎猜，給它真的能查、能動手的工具。
+            查不到的東西它就會用猜的。給它真的能查、能動手的工具。
           </p>
           <ul className="space-y-3">
             <li className="bg-slate-950 p-4 rounded-xl border border-slate-800">
@@ -36,22 +36,22 @@ export default function Slide09() {
           </ul>
         </AnimatedBlock>
 
-        {/* Pillar 2 */}
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition-colors shadow-lg">
+        {/* 二、規則文件與 context */}
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 shrink-0 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-base">2</div>
-            上下文管理
+            <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">2</div>
+            只給它需要的資料
           </h3>
           <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
-            給它必要的資訊，但不要用一堆資料把它淹掉。
+            該給的要給，但塞太多它會抓不到重點。
           </p>
           <div className="space-y-3">
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span className="text-indigo-300 font-bold block mb-1.5">專案手冊 (CLAUDE.md)</span>
+              <span className="text-sky-300 font-bold block mb-1.5">專案手冊 (CLAUDE.md)</span>
               <span className="text-slate-400 text-sm leading-relaxed block">把規矩和命名習慣定下來。</span>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span className="text-indigo-300 font-bold block mb-1.5">壓縮與清理</span>
+              <span className="text-sky-300 font-bold block mb-1.5">壓縮與清理</span>
               <span className="text-slate-400 text-sm leading-relaxed block">
                 對話快滿時系統會把先前內容摘要後重開，也可以手動下 <code className="text-slate-300">/compact</code>。
                 這個過程會掉細節。
@@ -60,16 +60,16 @@ export default function Slide09() {
           </div>
         </AnimatedBlock>
 
-        {/* Pillar 3 */}
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-emerald-500/50 transition-colors shadow-lg">
+        {/* 三、把大題目切小 */}
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 shrink-0 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-base">3</div>
-            任務拆解
+            <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">3</div>
+            把大題目切小
           </h3>
           <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
-            需求一大就容易出錯，把大題目切小。
+            一次交代太大，出錯的機會就變高。
           </p>
-          <div className="bg-slate-950 p-4 rounded-xl border border-emerald-900/30">
+          <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
             <div className="mb-4 text-slate-500 line-through">
               「我想知道自己今天完成幾趟任務」
             </div>
