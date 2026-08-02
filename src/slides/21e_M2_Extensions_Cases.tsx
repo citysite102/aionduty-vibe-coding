@@ -21,9 +21,9 @@ export default function SlideM2ExtensionsCases() {
             <div className="text-slate-400">
               ├ CLAUDE.md<span className="text-slate-600 font-sans">　整個專案都會讀</span>
             </div>
-            <div className="text-slate-400">└ src/api/</div>
+            <div className="text-slate-400">└ .claude/rules/</div>
             <div className="text-slate-400">
-              　　└ CLAUDE.md<span className="text-slate-600 font-sans">　只有動到這個資料夾才會讀</span>
+              　　└ api.md<span className="text-slate-600 font-sans">　碰到符合的檔案才會讀</span>
             </div>
           </div>
 
@@ -33,13 +33,20 @@ export default function SlideM2ExtensionsCases() {
               <span className="text-slate-400 text-sm">「全站使用 Tailwind CSS，一律使用 TypeScript。」</span>
             </div>
             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
-              <span className="text-sky-300 font-bold text-xs block mb-1 font-mono">src/api/CLAUDE.md</span>
+              <span className="text-sky-300 font-bold text-xs block mb-1 font-mono">.claude/rules/api.md</span>
+              <div className="text-slate-600 text-xs font-mono leading-relaxed mb-1.5">
+                ---<br/>
+                paths:<br/>
+                　- &quot;src/api/**&quot;<br/>
+                ---
+              </div>
               <span className="text-slate-400 text-sm">「這個資料夾裡的每一支程式，都要先確認使用者已經登入才能繼續。」</span>
             </div>
           </div>
 
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            規則就是純文字，跟你交代同事的講法一樣，不用寫成程式。
+            上面那段 <code className="text-slate-400">---</code> 夾起來的，就是「這條規則管哪些檔案」。
+            <strong className="text-slate-300">rules 是資料夾名稱，檔名你自己取</strong>，內容就是純文字，不用寫成程式。
           </p>
         </AnimatedBlock>
 

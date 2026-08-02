@@ -34,7 +34,8 @@ const roles = [
 export default function SlideMultiAgent() {
   return (
     <SlideLayout title="讓團隊為你工作" subtitle="Multi-Agent Orchestration" icon={Users}>
-      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center h-full text-center py-4">
+      {/* min-h-full 不是 h-full：內容超過一頁時要往下長，h-full 會讓它上下同時溢出，上緣捲不到 */}
+      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center min-h-full text-center py-1">
         <AnimatedBlock className="w-full">
           <div className="flex flex-wrap justify-center items-stretch gap-4 md:gap-7 mb-4">
             {roles.map((r, i) => {
@@ -72,11 +73,11 @@ export default function SlideMultiAgent() {
             })}
           </div>
 
-          <p className="text-slate-500 text-xs mb-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-slate-500 text-xs mb-4 max-w-2xl mx-auto leading-relaxed">
             這三個角色都在 Claude Code 裡面，不用另外裝東西。審查者也可以換成別家的模型，用不同的眼睛看同一份程式碼，但那是進階選項，不是必要條件。
           </p>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6 leading-relaxed">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-4 leading-snug">
             任務一大，一個 Agent 從頭做到尾就容易出錯。<br/>
             這時候要的是<span className="text-sky-400">分工</span>：有人拆解、有人動手、有人挑錯。
           </h2>

@@ -31,7 +31,7 @@ const assets = [
 export default function SlideCoreAssets() {
   return (
     <SlideLayout title="學完帶走的 3 大核心資產" subtitle="What You'll Walk Away With" icon={Package}>
-      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col justify-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {assets.map((a, i) => {
             const Icon = a.icon;
