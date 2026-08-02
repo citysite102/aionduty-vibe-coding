@@ -15,7 +15,7 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerSubdir() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FolderTree} compact>
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={FolderTree}>
       <RecPage>
         <LayerRail active={3} />
 
@@ -26,7 +26,7 @@ export default function RecLayerSubdir() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">src/remotion/CLAUDE.md</p>
           </div>
 
-          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">碰到才載入，平常不佔空間</p>
+          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">碰到才載入，平常不佔空間</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             只有動到那一區的檔案時才讀進來。只跟某一塊有關的細節放這裡。

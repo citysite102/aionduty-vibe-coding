@@ -15,7 +15,7 @@ export const meta: RecordedMeta = {
 
 export default function RecLayersOverview() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Layers} compact>
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Layers}>
       <RecPage>
         <LayerRail active={0} />
 
@@ -24,7 +24,7 @@ export default function RecLayersOverview() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="mb-6">
-          <p className="text-slate-100 text-5xl font-bold leading-snug">越靠近現場的越具體，也越優先</p>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">越靠近現場的越具體，也越優先</p>
         </AnimatedBlock>
 
         <AnimatedBlock

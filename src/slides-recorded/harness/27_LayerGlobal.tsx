@@ -15,7 +15,7 @@ export const meta: RecordedMeta = {
 
 export default function RecLayerGlobal() {
   return (
-    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Globe} compact>
+    <SlideLayout title={meta.title} subtitle="Multiple Layers of Settings" icon={Globe}>
       <RecPage>
         <LayerRail active={1} />
 
@@ -26,7 +26,7 @@ export default function RecLayerGlobal() {
             <p className="text-sky-300 text-2xl font-mono leading-snug">~/.claude/CLAUDE.md</p>
           </div>
 
-          <p className="text-slate-100 text-5xl font-bold mb-5 leading-snug">你跨所有專案的個人偏好</p>
+          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">你跨所有專案的個人偏好</p>
 
           <p className="text-slate-400 text-xl leading-relaxed">
             換到哪個專案都會帶著。只有這個專案才成立的規矩不要寫在這裡。

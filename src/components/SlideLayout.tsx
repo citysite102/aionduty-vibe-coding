@@ -14,19 +14,12 @@ export function SlideLayout({
   title,
   subtitle,
   children,
-  icon: Icon,
-  compact = false
+  icon: Icon
 }: {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   children: React.ReactNode;
   icon?: React.ElementType;
-  /**
-   * 標題降級成一行 eyebrow。
-   * 用在同一個標題連續出現好幾頁的系列頁：那種情況下標題是重複資訊，
-   * 不該是畫面上最大的字，版面應該讓給那一頁真正的答案。
-   */
-  compact?: boolean;
 }) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
 
@@ -48,24 +41,13 @@ export function SlideLayout({
       transition={{ duration: 0.4, ease: "circOut" }}
       className="h-full w-full flex flex-col pt-12 pb-20 px-8 md:px-16 max-w-6xl mx-auto absolute inset-0"
     >
-      {compact ? (
-        <div className="mb-7 flex-shrink-0 flex items-baseline gap-3">
-          {Icon && <Icon className="w-5 h-5 text-sky-500 shrink-0 self-center" />}
-          {subtitle && (
-            <span className="text-slate-600 font-mono tracking-widest text-xs uppercase shrink-0">{subtitle}</span>
-          )}
-          {subtitle && <span className="text-slate-700 shrink-0">/</span>}
-          <h1 className="text-xl font-medium text-slate-400">{title}</h1>
-        </div>
-      ) : (
-        <div className="mb-8 flex-shrink-0">
-          {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm mb-2.5 uppercase flex items-center gap-2">{subtitle}</h3>}
-          <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">
-            {Icon && <Icon className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
-            {title}
-          </h1>
-        </div>
-      )}
+      <div className="mb-8 flex-shrink-0">
+        {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm mb-2.5 uppercase flex items-center gap-2">{subtitle}</h3>}
+        <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">
+          {Icon && <Icon className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
+          {title}
+        </h1>
+      </div>
       <div ref={scrollRef} className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
         {children}
       </div>
