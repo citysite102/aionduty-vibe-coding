@@ -1,7 +1,7 @@
 import { Pencil } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-const DRILLS = ['「這個按鈕怪怪的，修一下」', '「幫我寫個活動文案，要好看一點」'];
+const DRILLS = ['「這個按鈕怪怪的，修一下」', '「幫我做一頁產品介紹的簡報，要專業一點」'];
 
 export default function SlideLLMPromptPractice() {
   return (
