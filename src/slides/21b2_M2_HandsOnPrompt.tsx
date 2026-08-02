@@ -3,14 +3,15 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideHandsOnPrompt() {
   return (
-    <SlideLayout title="跟著做：寫出第一份 CLAUDE.md" subtitle="Step-by-step Prompt" icon={CheckSquare}>
+    <SlideLayout title="跟著做：寫出真正能用的 CLAUDE.md" subtitle="Step-by-step Prompt" icon={CheckSquare}>
       <div className="max-w-5xl mx-auto mt-1 space-y-4">
 
         <AnimatedBlock stepIndex={1} className="bg-sky-950/20 border border-sky-900/40 rounded-xl px-5 py-3 flex gap-3 items-start">
           <CornerDownRight size={16} className="text-sky-400 shrink-0 mt-0.5" />
           <p className="text-sm text-slate-300 leading-relaxed">
             <strong className="text-slate-100">不要開新資料夾。</strong>
-            這一輪要做的是回到你第一單元做好的那個任務計時器，把口頭上的約定變成它自己的規範。
+            這一輪回到你第一單元做的那個任務計時器。第一單元收尾時它自己總結過一份 CLAUDE.md，
+            那份只是它的摘要，<strong className="text-slate-100">現在要把它改成真正能用的版本</strong>，把口頭上的約定變成寫下來的規範。
           </p>
         </AnimatedBlock>
 
@@ -41,7 +42,7 @@ export default function SlideHandsOnPrompt() {
             這一步整理出來的東西，就是下一步手冊的草稿。
           </p>
           <p className="text-amber-400/80 text-xs mt-2 leading-relaxed">
-            如果資料夾是空的（例如第一單元沒有實際做），這一步就跳過，直接進第 3 步把規範寫下來。空資料夾沒有東西可讀。
+            如果資料夾是空的（例如第一單元沒有實際做），這一步就跳過，直接進第 3 步，把那句「改寫」換成新建一份。空資料夾沒有東西可讀。
           </p>
         </AnimatedBlock>
 
@@ -51,7 +52,7 @@ export default function SlideHandsOnPrompt() {
             <h3 className="text-lg font-bold text-slate-100">把約定寫成 CLAUDE.md</h3>
           </div>
           <div className="bg-black/50 p-4 rounded-lg font-mono text-sm border border-slate-800 text-sky-300 leading-relaxed">
-            You: 請把下面這幾條寫成一份 CLAUDE.md，以後每次進來都要遵守。<br/>
+            You: 請把 CLAUDE.md 改寫成下面這幾條，以後每次進來都要遵守。<br/>
             1. 深色星空背景，主色只用在當下要強調的那一個元素。<br/>
             2. 星球與火箭一律用 canvas 或 CSS 畫，不得引用外部圖片。<br/>
             3. 按鈕文案使用航太語彙：發射、待機、返航、補給。<br/>

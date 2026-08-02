@@ -7,7 +7,7 @@ export default function SlideM2LoadAlways() {
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          手冊只是其中一個零件。接下來三頁把所有零件走一遍，分類的方式是<strong className="text-slate-200">它什麼時候被載進來</strong>，因為那決定了它佔多少空間。先看會一直待在裡面的那兩個。
+          手冊只是其中一個零件。接下來把所有零件走一遍，分類的方式是<strong className="text-slate-200">它什麼時候被載進來</strong>，因為那決定了它佔多少空間。先看會一直待在裡面的那兩個。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">

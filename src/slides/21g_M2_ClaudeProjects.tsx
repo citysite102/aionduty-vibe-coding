@@ -17,7 +17,7 @@ export default function SlideClaudeProjects() {
         </div>
         <p className="text-slate-300 text-sm leading-relaxed">
           你不會每天都開終端機。<strong className="text-slate-100">同一套心法換個載體也成立</strong>：在 claude.ai 網頁版叫 Projects，在桌面版叫 Cowork。
-          規範放的位置不同，道理一樣，終端機那邊叫 CLAUDE.md，這邊叫專案知識庫與自訂指示。接下來四頁講這個。
+          規範放的位置不同，道理一樣，終端機那邊叫 CLAUDE.md，這邊叫專案知識庫與自訂指示。接下來這一段講這個。
         </p>
       </AnimatedBlock>
 

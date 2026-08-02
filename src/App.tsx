@@ -159,7 +159,7 @@ const LIVE_TITLES = [
   "監督與邊界",
   "Claude Code 的四種權限模式",
   "動手搭建運作框架",
-  "跟著做：寫出第一份 CLAUDE.md",
+  "跟著做：寫出真正能用的 CLAUDE.md",
   "怎麼確認它真的讀到了",
   "這三種寫法，寫了等於沒寫",
   "CLAUDE.md 的分層",

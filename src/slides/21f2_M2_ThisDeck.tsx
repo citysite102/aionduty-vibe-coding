@@ -18,20 +18,20 @@ const steps = [
     icon: ShieldAlert,
     title: '最容易犯的錯，交給機器擋',
     body: '例如我不想在中文裡看到破折號。與其每次提醒它，不如寫一個 hook：只要它想把破折號寫進檔案，就會被直接擋下來。',
-    note: '規矩靠人記會忘，靠程式擋不會。',
+    note: '寫完那個 hook 之後，我沒有再提醒過它一次。',
   },
 ];
 
 const reasons = [
   {
     num: '1',
-    title: '一句話改 86 頁',
-    body: '「把所有頁面的強調色收斂成一種」是一次指令，不是 86 次手動操作。統一譯名、改版式、換用詞，都是同一回事。',
+    title: '一句話改整份簡報',
+    body: '「把所有頁面的強調色收斂成一種」是一次指令，不是一頁一頁手動操作。統一譯名、改版式、換用詞，都是同一回事。',
   },
   {
     num: '2',
     title: '規範寫下來才守得住',
-    body: '一個人做 86 頁，做到一半一定會走鐘。規矩寫在 CLAUDE.md 裡，它每次進來都從同一個起點，不會因為我今天心情不同就變樣。',
+    body: '一個人做這麼多頁，做到一半一定會走鐘。規矩寫在 CLAUDE.md 裡，它每次進來都從同一個起點，不會因為我今天心情不同就變樣。',
   },
   {
     num: '3',
@@ -47,7 +47,7 @@ export default function SlideThisDeck() {
 
         <AnimatedBlock stepIndex={1} className="bg-sky-950/20 border border-sky-900/40 rounded-xl px-5 py-4">
           <p className="text-slate-200 text-base leading-relaxed">
-            你現在看到的這 86 頁，<strong className="text-sky-300">沒有用簡報軟體</strong>。
+            你現在看到的這一整份，<strong className="text-sky-300">沒有用簡報軟體</strong>。
             它是一個網頁專案，從第一頁到最後一頁，都是在終端機裡跟 Claude Code 一頁一頁改出來的。
           </p>
         </AnimatedBlock>
