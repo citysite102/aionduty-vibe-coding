@@ -1,12 +1,12 @@
 import { Sparkles } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { HealthRail } from './_HealthRail';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-22-health-rest',
-  title: '手冊越寫越肥，怎麼整理？',
+  title: '手冊健檢：剩下三步',
   script:
     '最後三步很快。第三步分流，就是前面講過的那四個問題，會出事的交給機制，只在某一區適用的分出去。第四步加法，這時候才補新規則，而且要補在正確的位置，不要一律往根目錄堆。第五步修剪，把要優雅這種句子改寫成可以檢查的敘述。修剪的具體做法是下一段的主題，我們會講六個寫規則的技巧。',
   seconds: 42,
@@ -16,11 +16,9 @@ export const meta: RecordedMeta = {
 export default function RecHealthRest() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Sparkles}>
-      <RecPage>
-        <HealthRail active={[3, 4, 5]} />
-
+      <RecPage handbook={2}>
         <AnimatedBlock stepIndex={1} className="mb-6">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">剩下三步，你已經學過兩步</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">剩下三步，<Key>你已經學過兩步</Key></p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="space-y-4">

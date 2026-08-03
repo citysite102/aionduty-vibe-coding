@@ -42,7 +42,7 @@ export default function SlideClaudeCodeIntegration() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
-          <h3 className="text-indigo-400 font-bold mb-5 flex items-center gap-2 text-lg">
+          <h3 className="text-sky-400 font-bold mb-5 flex items-center gap-2 text-lg">
             <ArrowRightLeft size={20} />
             實務建議：工具切換的工作流程
           </h3>

@@ -8,8 +8,8 @@ export default function Slide09b() {
     { id: 2, name: "API 與資料格式", icon: Globe, hands: "瀏覽器" },
     { id: 3, name: "前端與後端", icon: LayoutTemplate, hands: null },
     { id: 4, name: "資料庫", icon: Database, hands: null },
-    { id: 5, name: "Git 版控", icon: GitCommit, hands: "終端機" },
-    { id: 6, name: "Claude Code", icon: Bot, hands: "終端機" },
+    { id: 5, name: "Git 版控", icon: GitCommit, hands: null },
+    { id: 6, name: "Claude Code", icon: Bot, hands: "先桌面版，再終端機" },
   ];
 
   return (
@@ -23,6 +23,7 @@ export default function Slide09b() {
           <strong className="text-sky-300">這一段不是聽講，是動手。</strong>
           底下標了「終端機」和「瀏覽器」的那幾站，我們會離開簡報實際做一次。
           <strong className="text-slate-100">現在可以把電腦打開了。</strong>
+          最後一站的 Claude Code 會先用桌面版，不需要終端機，現在裝不起來也不影響。
         </p>
       </AnimatedBlock>
 

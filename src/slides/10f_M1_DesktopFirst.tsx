@@ -1,5 +1,7 @@
 import { AppWindow, FolderOpen, MessageSquare, Download } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 
 /**
  * 終端機安裝之前的入口頁。
@@ -7,8 +9,25 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 桌面版的 Code 頁籤跟終端機是同一個 Claude Code，不是 Cowork。
  * 所以卡在安裝的人留在這裡也能把後面每一段走完，不必砍任何內容。
  */
-const STEPS = [
-  { icon: Download, label: '下載桌面版', desc: 'claude.ai 首頁就有，Mac 與 Windows 都能裝。' },
+const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
+  {
+    icon: Download,
+    label: '下載桌面版',
+    desc: (
+      <>
+        到{' '}
+        <a
+          href="https://claude.com/download"
+          target="_blank"
+          rel="noreferrer"
+          className="text-sky-400 font-mono hover:underline"
+        >
+          claude.com/download
+        </a>{' '}
+        下載，Mac 與 Windows 都能裝。
+      </>
+    ),
+  },
   { icon: AppWindow, label: '切到 Code 頁籤', desc: '上面有 Chat、Cowork、Code 三個，要開的是最右邊那個。' },
   { icon: FolderOpen, label: '選一個資料夾', desc: '它之後就在這個範圍裡讀寫，不會跑出去。' },
   { icon: MessageSquare, label: '講一句話', desc: '「幫我做一個五分鐘的計時器網頁。」然後看檔案真的長出來。' },
@@ -21,6 +40,7 @@ export default function SlideDesktopFirst() {
       subtitle="Desktop First, Terminal Next"
       icon={AppWindow}
     >
+      <LiveDemo kind="desktop" note="四步做出第一個東西" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">

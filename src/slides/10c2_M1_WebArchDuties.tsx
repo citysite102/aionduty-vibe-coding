@@ -188,7 +188,7 @@ export default function SlideWebArchDuties() {
                   <ArrowRightLeft size={20} />
                 </div>
                 <div>
-                  <h4 className="text-base font-extrabold text-emerald-400 uppercase tracking-wide">API 傳送橋梁</h4>
+                  <h4 className="text-base font-extrabold text-emerald-400 uppercase tracking-wide">API 來回傳什麼</h4>
                   <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Payload Contract</span>
                 </div>
               </div>

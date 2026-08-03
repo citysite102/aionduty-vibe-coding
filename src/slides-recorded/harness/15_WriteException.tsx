@@ -1,12 +1,13 @@
 import { GitBranch } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-15-write-exception',
-  title: '規則要怎麼寫？',
+  title: '規則怎麼寫：寫清楚例外',
   script:
     '第五個技巧：寫出例外。規則寫得越絕對，它套得越死。你寫禁止使用常駐的無限動畫，它可能連該有的載入指示也一起拿掉，然後你要回頭一條一條解釋。正確的寫法是把例外一起寫進去：禁止常駐的無限動畫，例外是真的要表達系統正在運轉的時候，全頁最多留一組，而且必須慢速、低對比。把邊界講完整，它才知道分寸在哪。',
   seconds: 42,
@@ -16,10 +17,9 @@ export const meta: RecordedMeta = {
 export default function RecWrite5() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={GitBranch}>
-      <RecPage className="space-y-6">
+      <RecPage className="space-y-6" handbook={3}>
         <AnimatedBlock stepIndex={1}>
-          <div className="text-slate-500 text-base font-mono mb-2">技巧 5 / 6</div>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">寫出例外，它才不會硬套</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">寫出例外，<Key>它才不會硬套</Key></p>
         </AnimatedBlock>
 
         <DontDo

@@ -1,12 +1,10 @@
 import React from 'react';
 import { AlertTriangle, Terminal, HelpCircle, ArrowRight, MessageSquareCode } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { LiveDemo } from '../components/LiveDemo';
 
 export default function SlideError() {
   return (
     <SlideLayout title="紅字不是壞事，它在告訴你哪裡卡住" subtitle="Don't Panic" icon={AlertTriangle}>
-      <LiveDemo kind="terminal" note="故意跑出一個錯誤" />
       
       <div className="max-w-6xl mx-auto mt-2 text-left">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">

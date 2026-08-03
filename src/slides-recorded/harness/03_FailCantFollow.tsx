@@ -1,12 +1,13 @@
 import { ShieldAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const CASES = [
   {
     tag: '無法判定',
-    title: '規則沒有可以檢查的標準',
+    title: '規則沒生效：沒辦法檢查',
     desc: '「程式碼要優雅」沒有客觀判準，它無法確認自己有沒有做到。',
   },
   {
@@ -33,10 +34,11 @@ export const meta: RecordedMeta = {
 export default function RecFailCantFollow() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={ShieldAlert}>
-      <RecPage className="space-y-4">
-        <AnimatedBlock stepIndex={0} className="mb-6">
-          <div className="text-slate-500 text-base font-mono mb-2">原因 3 / 3</div>
-          <p className="text-slate-100 text-3xl font-bold leading-snug">因為那條規則本身，沒辦法被照著做。</p>
+      <RecPage className="space-y-4" handbook={1}>
+        <AnimatedBlock className="mb-6">
+          <p className="text-slate-300 text-3xl font-bold leading-snug">
+            因為那條規則本身，<Key>沒辦法被照著做</Key>。
+          </p>
         </AnimatedBlock>
 
         {CASES.map((c, i) => (

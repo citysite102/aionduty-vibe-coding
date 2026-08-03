@@ -73,7 +73,7 @@ export default function Slide10d() {
             <div className="relative w-full max-w-sm flex flex-col items-center justify-between gap-3 py-2">
 
               <div className="bg-slate-800 p-3 rounded-xl border border-slate-700 z-10 w-full text-center flex flex-col items-center">
-                <ServerCog className="text-indigo-400 mb-1" size={24} />
+                <ServerCog className="text-sky-400 mb-1" size={24} />
                 <span className="text-slate-200 text-sm font-bold">後端伺服器 (API)</span>
               </div>
 

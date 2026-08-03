@@ -239,7 +239,7 @@ export default function SlideTerminalBasics() {
                 當我們請 AI Agent（例如 Claude Code / Cursor）幫我們寫程式時，AI 其實就是在背景用這些指令<strong>「幫我們點開檔案、搜尋關鍵字、建立資料夾」</strong>。你看得懂 <code>cat</code>（開檔）和 <code>grep</code>（篩選），就知道 AI 在你的電腦裡做什麼，合作起來更有默契！
               </p>
             </div>
-            <span className="text-xs bg-slate-950 text-indigo-400 font-mono px-2.5 py-1.5 rounded border border-indigo-900/50 shrink-0 self-start sm:self-auto">
+            <span className="text-xs bg-slate-950 text-sky-400 font-mono px-2.5 py-1.5 rounded border border-sky-900/50 shrink-0 self-start sm:self-auto">
               Interactive CLI Engine
             </span>
           </div>
@@ -416,7 +416,7 @@ export default function SlideTerminalBasics() {
                       </div>
                       
                       <div className="flex items-center gap-1.5">
-                        <Folder size={13} className="text-indigo-400 shrink-0" />
+                        <Folder size={13} className="text-sky-400 shrink-0" />
                         <span className="text-slate-300">slides/</span>
                       </div>
 
@@ -479,7 +479,7 @@ export default function SlideTerminalBasics() {
                 {terminalLines.map((line, idx) => {
                   // Text Highlight rendering logic for grep examples
                   if (line.includes('guest@vibecoding-macbook')) {
-                    return <div key={idx} className="text-indigo-400 font-bold">{line}</div>;
+                    return <div key={idx} className="text-sky-400 font-bold">{line}</div>;
                   }
                   if (line.includes('[Screen Cleared')) {
                     return <div key={idx} className="text-slate-500 italic">{line}</div>;
@@ -524,7 +524,7 @@ export default function SlideTerminalBasics() {
 
                 {/* CURRENT TYPING PROMPT LINE */}
                 <div className="text-slate-300 flex items-center flex-wrap gap-x-1.5">
-                  <span className="text-indigo-400 font-bold">guest@vibecoding-macbook:~/project$</span>
+                  <span className="text-sky-400 font-bold">guest@vibecoding-macbook:~/project$</span>
                   <span className="text-slate-100 font-bold font-mono">
                     {typedInput}
                   </span>

@@ -58,7 +58,7 @@ export default function SlideClaudeCodeUI() {
           </div>
 
           <AnimatedBlock stepIndex={5} className="bg-amber-950/20 p-4 rounded-xl border border-amber-900/30 text-xs text-amber-300">
-            💡 <strong>免驚指南：</strong>這不是程式語言編譯器！此時的游標 <code>&gt;</code> 正在等待你的口語指示。你可以打中文：「請幫我看看這個專案要怎麼跑起來」或「幫我寫個倒數計時網頁」，它就會立刻動起來！
+            💡 那個 <code>&gt;</code> 不是在等程式碼，是在等你講話。直接打中文就可以：「幫我看看這個專案要怎麼跑起來」「幫我寫一個倒數計時網頁」。
           </AnimatedBlock>
         </div>
 

@@ -1,42 +1,35 @@
 import { Repeat2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { Callout } from './_Callout';
-import { TransferRail } from './_TransferRail';
+import { Key } from './_Key';
+import { AskFirst } from './_AskFirst';
+import { ProposalDraft } from './_ProposalDraft';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-42-transfer-q1',
-  title: '想不出來的話，先問哪三題？',
+  title: '先問哪三題：每次都要重講的',
   script:
-    '想不出來的話，照這三個問題往下問。第一題：哪些事情你每次都要重講一次？這些就是手冊的第一批內容。以會議紀錄來說，就是輸出要分成哪幾段、待辦要不要寫負責人、收件人怎麼稱呼。這一題的來源是最前面那個問題，每次開新對話你都要重講一次規矩，把它寫下來就不用再講。',
-  seconds: 38,
+    '第一題：哪些事情你每次都要重講一次？以提案來說，就是分哪幾段、公司簡介用哪一版、語氣要多正式。這三件事一寫下來，你的手冊就有前三行了。往後不用再講，它每次都看得到。',
+  seconds: 36,
   from: 75,
 };
 
 export default function RecTransferQ1() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={Repeat2}>
-      <RecPage>
-        <TransferRail active={2} />
-
-        <AnimatedBlock stepIndex={1} className="mb-6">
+      <RecPage className="space-y-5">
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
           <div className="text-slate-500 text-base font-mono mb-3">第 1 題，共 3 題</div>
-
-          <div className="border-l-2 border-slate-700 pl-5 mb-5">
-            <p className="text-slate-300 text-2xl leading-snug">哪些事情你每次都要重講一次？</p>
-          </div>
-
-          <p className="text-slate-100 text-4xl font-bold leading-snug">這些是手冊的第一批內容</p>
+          <p className="text-slate-200 text-2xl leading-snug mb-4 border-l-2 border-slate-700 pl-5">哪些事情你每次都要重講一次？</p>
+          <AskFirst />
         </AnimatedBlock>
 
-        <Callout stepIndex={2} label="例如">
-          輸出分成哪幾段、哪些欄位一定要有
-        </Callout>
-
-        <AnimatedBlock stepIndex={3} className="mt-5 px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">寫下來就不用再講，這是手冊最原始的用途。</p>
+        <AnimatedBlock stepIndex={2}>
+          <p className="text-slate-300 text-3xl font-bold leading-snug">這些是<Key>手冊的第一批內容</Key></p>
         </AnimatedBlock>
+
+        <ProposalDraft stage={1} stepIndex={3} />
       </RecPage>
     </SlideLayout>
   );

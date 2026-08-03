@@ -47,7 +47,7 @@ export default function SlideClaudeProjects() {
               </div>
             </div>
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-3">
-              <div className="text-[11px] font-bold text-indigo-400 mb-1.5">自訂指令 (Custom instructions)</div>
+              <div className="text-[11px] font-bold text-sky-400 mb-1.5">自訂指令 (Custom instructions)</div>
               <div className="text-[11px] text-slate-400 leading-relaxed">
                 「你是這個專案的資深工程師。回答一律用繁體中文，先講結論再講理由。」
               </div>

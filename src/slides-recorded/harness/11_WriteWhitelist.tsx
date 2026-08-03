@@ -1,12 +1,13 @@
 import { ToggleLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-11-write-whitelist',
-  title: '規則要怎麼寫？',
+  title: '規則怎麼寫：白名單',
   script:
     '第一個技巧：講清楚只能做什麼，不要列一串不能做什麼。禁止清單有個先天的問題，你能想到的壞寫法有限，擋掉三種，它還有第四種。改成白名單就不一樣了，你把可以用的東西框出來，框以外的它都不會碰。這是全部技巧裡最有效的一個，因為它把無限的可能收斂成有限的選項。',
   seconds: 38,
@@ -16,10 +17,9 @@ export const meta: RecordedMeta = {
 export default function RecWrite1() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={ToggleLeft}>
-      <RecPage className="space-y-6">
+      <RecPage className="space-y-6" handbook={3}>
         <AnimatedBlock stepIndex={1}>
-          <div className="text-slate-500 text-base font-mono mb-2">技巧 1 / 6</div>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">講清楚只能做什麼，不要列一串不能做什麼</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug"><Key>講清楚只能做什麼</Key>，不要列一串不能做什麼</p>
         </AnimatedBlock>
 
         <DontDo

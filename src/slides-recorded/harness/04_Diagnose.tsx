@@ -1,13 +1,14 @@
 import { Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 const STEPS = [
-  { n: '1', t: '跑 /context', d: '那份手冊在載入清單裡嗎？不在，就是位置的問題。' },
-  { n: '2', t: '問它依據哪一條', d: '「你剛才那個決定，是依據 CLAUDE.md 的哪一條？」' },
-  { n: '3', t: '它答不出來', d: '代表規則無法判定，改寫成可以檢查的句子。' },
-  { n: '4', t: '答得出來卻做錯', d: '多半是被埋在後面，或是兩條規則互相矛盾。' },
+  { n: '1', t: '跑 /context', d: '那份手冊在載入清單裡嗎？', key: '不在，就是位置的問題' },
+  { n: '2', t: '問它依據哪一條', d: '「你剛才那個決定，是依據 CLAUDE.md 的哪一條？」', key: '' },
+  { n: '3', t: '它答不出來', d: '改寫成可以檢查的句子。', key: '代表規則無法判定' },
+  { n: '4', t: '答得出來卻做錯', d: '多半是', key: '被埋在後面，或是兩條規則互相矛盾' },
 ];
 
 export const meta: RecordedMeta = {
@@ -22,7 +23,7 @@ export const meta: RecordedMeta = {
 export default function RecDiagnose() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Search}>
-      <RecPage className="space-y-4">
+      <RecPage className="space-y-4" handbook={1}>
         {STEPS.map((s, i) => (
           <AnimatedBlock
             key={s.n}
@@ -34,14 +35,28 @@ export default function RecDiagnose() {
             </div>
             <div>
               <div className="text-slate-100 text-xl font-bold mb-1">{s.t}</div>
-              <p className="text-slate-400 text-lg leading-relaxed">{s.d}</p>
+              <p className="text-slate-400 text-lg leading-relaxed">
+                {s.n === '4' ? (
+                  <>
+                    {s.d}
+                    <Key>{s.key}</Key>。
+                  </>
+                ) : s.key ? (
+                  <>
+                    {s.d}
+                    <Key>{s.key}</Key>。
+                  </>
+                ) : (
+                  s.d
+                )}
+              </p>
             </div>
           </AnimatedBlock>
         ))}
 
         <AnimatedBlock stepIndex={5} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl px-7 py-5">
           <p className="text-slate-300 text-lg leading-relaxed">
-            跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
+            ⚠️ 跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
           </p>
         </AnimatedBlock>
       </RecPage>

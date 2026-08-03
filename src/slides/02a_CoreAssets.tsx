@@ -23,7 +23,7 @@ const assets = [
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
     num: '3',
-    title: '引導 AI 自主修復與排錯的實務直覺',
+    title: '一套讓 AI 自己修錯的做法',
     desc: '學會怎麼引導 AI「自己看報錯、自己修、修到測試過」，你負責的是把關品質，不是動手。',
   },
 ];

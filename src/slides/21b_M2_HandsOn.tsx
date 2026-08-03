@@ -1,113 +1,136 @@
-import { PenTool, Target, Layers } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { PenTool } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
+
+/**
+ * 這一頁是動手頁，所以每一格都要有可以直接貼的東西，不是描述「你應該做什麼」。
+ *
+ * 第三格特別注意：不要把拆解的答案直接印出來。
+ * 學員要看到的是「它反問了什麼」，那些問題必須是這個計時器真的會卡住的地方
+ * （返航算不算一趟、今天怎麼算、關掉瀏覽器還在不在），
+ * 換成通用的「要記哪些欄位、存在哪裡」就沒有教學效果了。
+ */
+function Prompt({ children }: { children: ReactNode }) {
+  return (
+    <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
+      <div className="text-[10px] font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
+      <p className="text-sky-100 text-sm leading-relaxed">{children}</p>
+    </div>
+  );
+}
 
 export default function SlideM2HandsOn() {
   return (
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-6 max-w-6xl mx-auto h-full items-stretch">
-        
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 content-center">
-          <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
-              1. 寫員工手冊 (CLAUDE.md)
-            </h3>
-            <p className="text-slate-300 text-sm mb-4">
-              替第一單元那個任務計時器，把你原本口頭交代的事情變成白紙黑字。
-            </p>
-            <div className="bg-slate-950 p-4 rounded-lg font-mono text-xs border border-slate-800 text-slate-400 leading-relaxed">
-              # 任務計時器開發規範<br/>
-              - 深色星空背景，主色只給要強調的元素<br/>
-              - 星球與火箭用 canvas 或 CSS 畫，禁止外部圖片<br/>
-              - 按鈕文案用航太語彙：發射、待機、返航、補給<br/>
-              - 倒數分鐘數集中成設定，不要散在程式碼裡
+      <LiveDemo kind="terminal" note="四格都做完，產出留著後面還會用" />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8">
+
+        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+          <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
+            <span className="font-mono text-xs text-slate-600">1</span>
+            寫一份手冊給你的計時器
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            把第一單元你一句一句盯出來的東西，變成它每次都會讀到的檔案。
+          </p>
+          <Prompt>
+            「讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。」
+          </Prompt>
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，這四條它猜不到：
+          </p>
+          <div className="mt-2 rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 font-mono text-[11px] text-slate-400 leading-relaxed">
+            - 深色星空背景，主色只給要強調的元素<br />
+            - 星球與火箭用 canvas 或 CSS 畫，禁止外部圖片<br />
+            - 按鈕文案用航太語彙：發射、待機、返航、補給<br />
+            - 倒數分鐘數集中成設定，不要散在程式碼裡
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+          <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
+            <span className="font-mono text-xs text-slate-600">2</span>
+            親眼看 context 被吃掉
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            不要用聽的。做一次前後對照，數字自己會講話。
+          </p>
+          <div className="space-y-2 text-sm">
+            <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
+              <span className="font-mono text-sky-300 font-bold">/context</span>
+              <span className="text-slate-400"> ，記下 Free space 那個百分比。</span>
             </div>
-          </AnimatedBlock>
-
-          <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-indigo-400 mb-4 border-b border-slate-800 pb-3">
-              2. 體檢上下文 (/context)
-            </h3>
-            <p className="text-slate-300 text-sm mb-2">
-              親眼看看 Context 是如何被塞滿的。
-            </p>
-            <ul className="text-slate-400 text-sm list-disc pl-5">
-              <li>輸入 <code className="text-indigo-300">/context</code> 看現在載入了哪些資料。</li>
-              <li>輸入 <code className="text-indigo-300">/compact</code> 壓縮對話記憶。</li>
-            </ul>
-          </AnimatedBlock>
-          
-          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-emerald-400 mb-4 border-b border-slate-800 pb-3">
-              3. 任務切分演練 (Decomposition)
-            </h3>
-            <p className="text-slate-300 text-sm mb-2">
-              丟一個含糊的需求：「我想知道自己今天完成幾趟任務」，請它拆成三步：
-            </p>
-            <ol className="text-slate-400 text-sm list-decimal pl-5">
-              <li>一趟任務要記下哪些欄位</li>
-              <li>這些紀錄存在哪裡</li>
-              <li>畫面上要怎麼呈現</li>
-            </ol>
-            <p className="text-slate-500 text-xs mt-3 italic">對照體驗：沒手冊亂猜 vs 照著清單做。這張清單等一下還會用到。</p>
-          </AnimatedBlock>
-
-          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-amber-400 mb-4 border-b border-slate-800 pb-3">
-              4. 它自己也會記 (auto memory)
-            </h3>
-            <p className="text-slate-300 text-sm mb-3">
-              除了你寫的 CLAUDE.md，Claude Code 還會自己記筆記，這是預設開著的。兩者分工不同：
-            </p>
-            <div className="space-y-2 text-sm">
-              <div className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-2">
-                <span className="text-sky-300 font-bold">CLAUDE.md</span>
-                <span className="text-slate-400"> ：你寫的規矩。「一律用繁體中文」這種。</span>
-              </div>
-              <div className="bg-slate-950 border border-slate-800 rounded-lg px-3 py-2">
-                <span className="text-amber-300 font-bold">auto memory</span>
-                <span className="text-slate-400"> ：它自己學到的。你糾正過它的事、這個專案怎麼跑測試，它會存起來。</span>
-              </div>
-            </div>
-            <p className="text-slate-400 text-sm mt-3 leading-relaxed">
-              輸入 <code className="text-amber-300">/memory</code> 可以看它到底記了什麼，也可以直接改或刪掉。那些筆記就是純文字檔。
-            </p>
-            <p className="text-slate-500 text-xs mt-2 leading-relaxed">
-              判斷原則：你希望團隊每個人都遵守的，寫進 CLAUDE.md；只是講給它聽的一次性偏好，讓它自己記就好。
-            </p>
-          </AnimatedBlock>
-        </div>
-
-        <AnimatedBlock stepIndex={5} className="bg-gradient-to-b from-sky-900/30 to-indigo-900/20 border border-sky-900/50 rounded-2xl p-5 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden h-full">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(148,163,184,0.14)_1px,transparent_0)] bg-[size:6px_6px] opacity-40"></div>
-
-          <div className="relative z-10 space-y-4 w-full">
-            <div className="w-20 h-20 bg-sky-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-sky-400 border border-sky-500/30">
-              <Target size={40} />
-            </div>
-            
-            <h3 className="text-2xl font-black text-slate-100 tracking-tight leading-tight mb-2">
-              完成你的<br/>Harness
-            </h3>
-            <div className="w-16 h-1 bg-sky-500/50 rounded-full mx-auto"></div>
-            
-            <p className="text-slate-300 text-sm mt-6 text-left">
-              你的產出：
-            </p>
-            <div className="space-y-3 text-left bg-slate-900/60 p-4 rounded-xl border border-slate-700 w-full">
-              <div className="flex gap-3 text-xs text-slate-300 items-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                <span>你的計時器有了 CLAUDE.md</span>
-              </div>
-              <div className="flex gap-3 text-xs text-slate-300 items-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                <span>一張拆好的任務清單</span>
-              </div>
-              <div className="flex gap-3 text-xs text-slate-300 items-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
-                <span>了解 Context 的珍貴</span>
-              </div>
+            <Prompt>「把 index.html 整份讀一遍，告訴我它有幾行。」</Prompt>
+            <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
+              <span className="font-mono text-sky-300 font-bold">/context</span>
+              <span className="text-slate-400"> 再打一次，看少了多少。</span>
             </div>
           </div>
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            讀一個檔案就吃掉這麼多，你就知道為什麼手冊不能什麼都寫。
+            想清掉重來是 <code className="text-slate-400">/clear</code>，想留著摘要繼續是{' '}
+            <code className="text-slate-400">/compact</code>。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+          <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
+            <span className="font-mono text-xs text-slate-600">3</span>
+            讓它先問，不要讓它先寫
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            拿一個你自己也還沒想清楚的需求：
+            <span className="text-slate-200">「我想知道自己今天完成幾趟任務」</span>。
+          </p>
+          <Prompt>
+            「這個需求我還沒想清楚。先不要寫程式，把你需要我決定的事情列出來問我。」
+          </Prompt>
+          <p className="text-slate-500 text-xs leading-relaxed mt-3 mb-2">
+            它應該要問回這種等級的問題。你回答之前，自己也答不出來：
+          </p>
+          <ul className="space-y-1.5 text-sm text-slate-300">
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">·</span>按了返航、沒跑完的那次，算不算一趟？
+            </li>
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">·</span>「今天」是算到午夜，還是從你這次打開頁面起算？
+            </li>
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">·</span>關掉瀏覽器再打開，前面的紀錄要還在嗎？
+            </li>
+          </ul>
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            這三題你不回答，它就會自己選，而且不會告訴你它選了什麼。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+          <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
+            <span className="font-mono text-xs text-slate-600">4</span>
+            它自己也在記，去看它記了什麼
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            除了你寫的 CLAUDE.md，Claude Code 還會自己存筆記，預設就開著。兩者分工不同：
+          </p>
+          <div className="space-y-2 text-sm mb-3">
+            <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
+              <span className="text-sky-300 font-bold">CLAUDE.md</span>
+              <span className="text-slate-400">：你寫的規矩。「一律用繁體中文」這種。</span>
+            </div>
+            <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
+              <span className="text-amber-300 font-bold">auto memory</span>
+              <span className="text-slate-400">：它自己學到的。你糾正過它的事、這個專案怎麼跑測試。</span>
+            </div>
+          </div>
+          <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 text-sm">
+            <span className="font-mono text-amber-300 font-bold">/memory</span>
+            <span className="text-slate-400"> ，看它到底記了什麼。那些是純文字檔，可以直接改或刪。</span>
+          </div>
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            判斷原則：你希望團隊每個人都遵守的，寫進 CLAUDE.md；只是講給它聽的一次性偏好，讓它自己記就好。
+          </p>
         </AnimatedBlock>
 
       </div>

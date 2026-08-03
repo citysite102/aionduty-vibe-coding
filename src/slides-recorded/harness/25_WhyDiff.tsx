@@ -5,7 +5,7 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-25-why-diff',
-  title: '有手冊跟沒手冊，差在哪？',
+  title: '兩邊差在哪',
   script:
     '兩邊的差別不在它變聰明了，是那三條規矩換了一個存放的位置。這就是 CLAUDE.md 在做的事，把你的要求從這次對話搬到這個專案。沒有手冊的時候，規矩存在這次對話裡，對話關掉就沒了，下一輪要從頭再講一次。寫進 CLAUDE.md 之後，規矩存在這個專案裡，每一次新對話都從同一個起點開始，你不必再重新交代那三條。',
   seconds: 38,
@@ -17,7 +17,6 @@ export default function RecWhyDiff() {
     <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={ArrowRightLeft}>
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-          <div className="text-slate-500 text-base font-mono mb-3">對照 3 / 3</div>
 
           <div className="border-l-2 border-slate-700 pl-5 mb-5">
             <p className="text-slate-300 text-2xl leading-snug">差別在哪？</p>

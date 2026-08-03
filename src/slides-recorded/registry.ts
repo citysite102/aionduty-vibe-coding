@@ -23,39 +23,31 @@ import RecHealthEvidence, { meta as m20 } from './harness/20_HealthEvidence';
 import RecHealthWeakEvidence, { meta as m21 } from './harness/21_HealthWeakEvidence';
 import RecHealthRest, { meta as m22 } from './harness/22_HealthRest';
 import RecWhyNoHandbook, { meta as m23 } from './harness/23_WhyNoHandbook';
-import RecWhyWithHandbook, { meta as m24 } from './harness/24_WhyWithHandbook';
 import RecWhyDiff, { meta as m25 } from './harness/25_WhyDiff';
 import RecLayersOverview, { meta as m26 } from './harness/26_LayersOverview';
-import RecLayerGlobal, { meta as m27 } from './harness/27_LayerGlobal';
-import RecLayerProject, { meta as m28 } from './harness/28_LayerProject';
-import RecLayerSubdir, { meta as m29 } from './harness/29_LayerSubdir';
-import RecLayerLocal, { meta as m30 } from './harness/30_LayerLocal';
 import RecHandbookLength, { meta as m31 } from './harness/31_HandbookLength';
 import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
-import RecWhereElse, { meta as m32b } from './harness/32b_WhereElse';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
-import RecSurfaceProjects, { meta as m34 } from './harness/34_SurfaceProjects';
 import RecProjectsUI, { meta as m34b } from './harness/34b_ProjectsUI';
-import RecSurfaceCowork, { meta as m35 } from './harness/35_SurfaceCowork';
-import RecSurfaceCode, { meta as m36 } from './harness/36_SurfaceCode';
 import RecNonCodeKnowledge, { meta as m37 } from './harness/37_NonCodeKnowledge';
 import RecNonCodeInstruction, { meta as m38 } from './harness/38_NonCodeInstruction';
 import RecProjectScope, { meta as m39 } from './harness/39_ProjectScope';
 import RecWhyNotNewChat, { meta as m39b } from './harness/39b_WhyNotNewChat';
-import RecSurfaceRecap, { meta as m40 } from './harness/40_SurfaceRecap';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
 import RecTransferQ1, { meta as m42 } from './harness/42_TransferQ1';
 import RecTransferQ2, { meta as m43 } from './harness/43_TransferQ2';
 import RecTransferQ3, { meta as m44 } from './harness/44_TransferQ3';
-import RecTransferAnswer, { meta as m45 } from './harness/45_TransferAnswer';
 import RecTransferMapping, { meta as m46 } from './harness/46_TransferMapping';
 import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep';
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
-import RecRecapTwo, { meta as m49 } from './harness/49_RecapTwo';
-import RecRecapThree, { meta as m50 } from './harness/50_RecapThree';
-import RecRecapArtifact, { meta as m51 } from './harness/51_RecapArtifact';
-import RecRecapHandouts, { meta as m52 } from './harness/52_RecapHandouts';
-import RecRecapNext, { meta as m53 } from './harness/53_RecapNext';
+import RecTransferGrowth, { meta as m60 } from './harness/60_TransferGrowth';
+import RecTransferIntegrate, { meta as m61 } from './harness/61_TransferIntegrate';
+import RecHookHowTo, { meta as m62 } from './harness/62_HookHowTo';
+import RecHandbookV1, { meta as m54 } from './harness/54_HandbookV1';
+import RecHandbookV2, { meta as m55 } from './harness/55_HandbookV2';
+import RecHandbookV3, { meta as m56 } from './harness/56_HandbookV3';
+import RecHandbookV4, { meta as m57 } from './harness/57_HandbookV4';
+import RecHandbookV5, { meta as m58 } from './harness/58_HandbookV5';
 
 /**
  * 拆頁替換表。
@@ -67,86 +59,78 @@ import RecRecapNext, { meta as m53 } from './harness/53_RecapNext';
  * 現場與預錄共用這一份，差別只在錄製時加上 ?clean=1 隱藏操作列。
  */
 export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
-  // index 57 = 原 Slide 57「CLAUDE.md 的分層」
-  57: [
+  // index 58 = 原 Slide 57「CLAUDE.md 的分層」
+  58: [
     { meta: m23, Component: RecWhyNoHandbook },
-    { meta: m24, Component: RecWhyWithHandbook },
     { meta: m25, Component: RecWhyDiff },
     { meta: m26, Component: RecLayersOverview },
-    { meta: m27, Component: RecLayerGlobal },
-    { meta: m28, Component: RecLayerProject },
-    { meta: m29, Component: RecLayerSubdir },
-    { meta: m30, Component: RecLayerLocal },
     { meta: m31, Component: RecHandbookLength },
     { meta: m32, Component: RecAgentsMd },
+    { meta: m54, Component: RecHandbookV1 },
   ],
-  // index 69 = 原 Slide 69「規則明明寫了，它卻沒照做」
-  69: [
+  // index 68 = 原 Slide 69「規則明明寫了，它卻沒照做」
+  68: [
     { meta: m01, Component: RecFailNotLoaded },
     { meta: m02, Component: RecFailBuried },
     { meta: m03, Component: RecFailCantFollow },
     { meta: m04, Component: RecDiagnose },
   ],
-  // index 70 = 原 Slide 70「這條規則該放哪」
-  70: [
+  // index 69 = 原 Slide 70「這條規則該放哪」
+  69: [
     { meta: m05, Component: RecRouteQ1 },
     { meta: m06, Component: RecRouteQ2 },
     { meta: m07, Component: RecRouteQ3 },
     { meta: m08, Component: RecRouteQ4 },
     { meta: m09, Component: RecRoutePrinciples },
     { meta: m10, Component: RecStartSimple },
+    { meta: m55, Component: RecHandbookV2 },
   ],
-  // index 71 = 原 Slide 71「手冊越寫越肥，怎麼整理」
-  71: [
+  // index 70 = 原 Slide 71「手冊越寫越肥，怎麼整理」
+  70: [
     { meta: m17, Component: RecHealthOverview },
     { meta: m18, Component: RecHealthInventory },
     { meta: m19, Component: RecHealthSubtract },
     { meta: m20, Component: RecHealthEvidence },
     { meta: m21, Component: RecHealthWeakEvidence },
     { meta: m22, Component: RecHealthRest },
+    { meta: m56, Component: RecHandbookV3 },
   ],
-  // index 72 = 原 Slide 72「怎麼把話講對：白名單與探索空間」
-  72: [
+  // index 71 = 原 Slide 72「怎麼把話講對：白名單與探索空間」
+  71: [
     { meta: m11, Component: RecWrite1 },
     { meta: m12, Component: RecWrite2 },
     { meta: m13, Component: RecWrite3 },
     { meta: m14, Component: RecWrite4 },
     { meta: m15, Component: RecWrite5 },
     { meta: m16, Component: RecWrite6 },
+    { meta: m57, Component: RecHandbookV4 },
   ],
-  // index 73 = 原「同一套手冊，換個地方用」
+  // index 72 = 原「同一套手冊，換個地方用」
   // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：
   // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
-  73: [
-    { meta: m32b, Component: RecWhereElse },
+  72: [
     { meta: m33, Component: RecSurfaceIntro },
-    { meta: m34, Component: RecSurfaceProjects },
     { meta: m34b, Component: RecProjectsUI },
-    { meta: m35, Component: RecSurfaceCowork },
-    { meta: m36, Component: RecSurfaceCode },
     { meta: m37, Component: RecNonCodeKnowledge },
     { meta: m38, Component: RecNonCodeInstruction },
     { meta: m39, Component: RecProjectScope },
     { meta: m39b, Component: RecWhyNotNewChat },
-    { meta: m40, Component: RecSurfaceRecap },
+    { meta: m58, Component: RecHandbookV5 },
   ],
-  // index 76 = 原「換成你的工作，手冊該寫什麼」
-  76: [
+  // index 75 = 原「換成你的工作，手冊該寫什麼」
+  75: [
     { meta: m41, Component: RecTransferCase },
     { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
     { meta: m44, Component: RecTransferQ3 },
-    { meta: m45, Component: RecTransferAnswer },
     { meta: m46, Component: RecTransferMapping },
+    { meta: m62, Component: RecHookHowTo },
+    { meta: m60, Component: RecTransferGrowth },
+    { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 77 = 原「這一段你完成了三件事」
-  77: [
+  // index 76 = 原「這一段你完成了三件事」
+  76: [
     { meta: m48, Component: RecRecapOne },
-    { meta: m49, Component: RecRecapTwo },
-    { meta: m50, Component: RecRecapThree },
-    { meta: m51, Component: RecRecapArtifact },
-    { meta: m52, Component: RecRecapHandouts },
-    { meta: m53, Component: RecRecapNext },
   ],
 };

@@ -34,11 +34,11 @@ export default function SlideHarnessIntro() {
               <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs space-y-3">
                 <div className="flex gap-2.5">
                   <div className="text-amber-400 font-bold shrink-0">引擎 (LLM)：</div>
-                  <div className="text-slate-400">就像是高馬力的賽車引擎（純模型算力）。若沒有底盤、懸吊與賽道約束，只會在原地空轉或直接失控撞牆。</div>
+                  <div className="text-slate-400">模型提供的是算力。算力本身沒有方向，它不知道你的專案長什麼樣、哪些檔案不能動、你們的命名習慣是什麼。</div>
                 </div>
                 <div className="border-t border-slate-900 pt-2 flex gap-2.5">
                   <div className="text-sky-400 font-bold shrink-0">軌道＝運作框架：</div>
-                  <div className="text-slate-400">就是你準備的環境設定：包含專案規範（CLAUDE.md）、輔助工具（MCP）與限制條件，把引擎的力量約束在正確方向上，才跑得快又不失控。</div>
+                  <div className="text-slate-400">你事先準備好的東西：專案規範（CLAUDE.md）、能呼叫的工具（MCP）、可以動的範圍。同一顆模型，有沒有這一層，產出差很多。</div>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function SlideHarnessIntro() {
                   onClick={() => setTriggerCount(c => c + 1)}
                   className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg text-[11px] font-mono text-slate-400 hover:text-slate-200 flex items-center gap-1 transition-all"
                 >
-                  <RefreshCw size={10} className="animate-spin-slow" />
+                  <RefreshCw size={10} />
                   重新模擬 (Re-simulate)
                 </button>
               </div>
@@ -171,7 +171,7 @@ export default function SlideHarnessIntro() {
 
                       {/* Rail / Pipeline Path */}
                       <div className="absolute inset-x-12 top-1/2 -translate-y-1/2 h-1 bg-slate-800 rounded-full">
-                        <div className="absolute inset-0 bg-gradient-to-r from-sky-500 via-indigo-500 to-emerald-500 opacity-30" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-sky-500 to-emerald-500 opacity-30" />
                       </div>
 
                       {/* Dynamic Pulse along the track */}
@@ -179,7 +179,7 @@ export default function SlideHarnessIntro() {
                         {[0, 1, 2].map((i) => (
                           <motion.div
                             key={`${triggerCount}-${i}`}
-                            className="absolute w-2.5 h-2.5 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400 shadow-lg shadow-sky-500/50"
+                            className="absolute w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg shadow-sky-500/50"
                             style={{ top: 'calc(50% - 5px)' }}
                             animate={{
                               left: ['0%', '50%', '100%'],
@@ -197,8 +197,8 @@ export default function SlideHarnessIntro() {
                       </div>
 
                       {/* Harness constraint node */}
-                      <div className="w-12 h-12 rounded-full bg-slate-950 text-sky-400 flex flex-col items-center justify-center font-bold text-[11px] shrink-0 border-2 border-indigo-500/60 shadow-lg shadow-indigo-500/15 z-10">
-                        <CheckCircle size={14} className="text-emerald-400 mb-0.5 animate-bounce" />
+                      <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 text-sky-400 font-bold text-[11px] whitespace-nowrap shrink-0 border-2 border-sky-500/60 shadow-lg shadow-sky-500/15 z-10">
+                        <CheckCircle size={13} className="text-emerald-400 shrink-0" />
                         <span>SOP 檢查</span>
                       </div>
 

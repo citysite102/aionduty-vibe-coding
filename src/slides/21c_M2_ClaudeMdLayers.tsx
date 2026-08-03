@@ -72,13 +72,13 @@ export default function SlideClaudeMdLayers() {
 
           <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-xl p-5 relative overflow-hidden">
             <h3 className="text-lg font-bold text-slate-100 mb-2 flex items-center gap-2">
-              <FolderTree className="text-indigo-400" size={20} />
+              <FolderTree className="text-sky-400" size={20} />
               子目錄 / feature 底下
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-2">
               某一塊專屬的規矩。
             </p>
-            <div className="text-indigo-400 text-xs bg-indigo-950/30 p-2 rounded border border-indigo-500/20">
+            <div className="text-sky-400 text-xs bg-sky-950/30 p-2 rounded border border-sky-500/20">
               重點是它「碰到才載入」，只有當 Claude 動到那一區的檔案時才讀進來，平常不佔 context。
             </div>
           </AnimatedBlock>
@@ -94,11 +94,11 @@ export default function SlideClaudeMdLayers() {
           </AnimatedBlock>
         </div>
         
-        <AnimatedBlock stepIndex={7} className="mt-4 bg-indigo-950/20 border border-indigo-500/20 p-5 rounded-xl flex items-start gap-4">
-          <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0">💡</div>
+        <AnimatedBlock stepIndex={7} className="mt-4 bg-sky-950/20 border border-sky-500/20 p-5 rounded-xl flex items-start gap-4">
+          <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center shrink-0">💡</div>
           <div>
              <p className="text-slate-300 text-sm leading-relaxed">
-               <strong>小提醒：</strong>一份別超過約 200 行，太長遵循度會掉；<code className="text-indigo-300">/init</code> 可以幫你生第一版。<br/>
+               <strong>小提醒：</strong>一份別超過約 200 行，太長遵循度會掉；<code className="text-sky-300">/init</code> 可以幫你生第一版。<br/>
                跨工具的話 <strong>AGENTS.md</strong> 是共通標準，把 CLAUDE.md symlink 成 AGENTS.md，Codex、Cursor 都能讀同一份。
              </p>
              <p className="text-slate-500 text-xs mt-3">

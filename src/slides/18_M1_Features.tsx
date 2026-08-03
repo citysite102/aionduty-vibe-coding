@@ -46,8 +46,8 @@ export default function SlideM1Features() {
             <div className="text-slate-500 text-xs bg-slate-950 p-3 rounded font-mono">輸入：/clear</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-indigo-500/50 transition-colors">
-            <h3 className="text-xl font-bold text-indigo-400 font-mono mb-2">/init</h3>
+          <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-sky-500/50 transition-colors">
+            <h3 className="text-xl font-bold text-sky-400 font-mono mb-2">/init</h3>
             <div className="text-slate-100 font-bold mb-4">產生基礎專案說明書</div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               自動掃描專案，幫你產生第一版 CLAUDE.md 設定檔（後面章節會教），讓你不用從零開始寫。

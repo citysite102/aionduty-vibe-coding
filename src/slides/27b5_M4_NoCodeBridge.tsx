@@ -40,12 +40,12 @@ export default function SlideNoCodeBridge() {
 
           <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-3xl p-6">
             <div className="flex items-center gap-3 mb-5">
-              <div className="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-xl">
+              <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl">
                 <FileCheck2 size={20} />
               </div>
               <div>
                 <h4 className="text-base font-bold text-slate-100">Type Checking</h4>
-                <span className="text-xs text-indigo-400">像合約的條款審查員</span>
+                <span className="text-xs text-sky-400">像合約的條款審查員</span>
               </div>
             </div>
             <p className="text-sm text-slate-300 leading-relaxed mb-4">

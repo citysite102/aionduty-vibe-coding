@@ -1,14 +1,14 @@
 import { LayoutPanelLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { SurfaceRail } from './_SurfaceRail';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-34b-projects-ui',
-  title: '網頁版的手冊，實際放在哪一格？',
+  title: 'Claude Projects 裡，手冊放在哪一格',
   script:
-    '講到這裡你可能會想，那些規範在網頁版到底填在哪裡。開一個 Project 進去，右邊會看到兩格。上面那格叫專案知識庫，放檔案用的，你上傳的規格書、語氣指南都放這裡，對應到你在專案裡擺的那些參考文件。下面那格叫自訂指令，那一格才是你的 CLAUDE.md，寫角色、寫規矩、寫輸出格式。左邊是專案清單，一個任務一個，這件事後面會再講。',
+    '講到這裡你可能會想，那些規範在 Claude Projects 裡到底填在哪裡。開一個 Project 進去，右邊會看到兩格。上面那格叫專案知識庫，放檔案用的，你上傳的規格書、語氣指南都放這裡，對應到你在專案裡擺的那些參考文件。下面那格叫自訂指令，那一格才是你的 CLAUDE.md，寫角色、寫規矩、寫輸出格式。左邊是專案清單，一個任務一個，這件事後面會再講。',
   seconds: 42,
   from: 72,
 };
@@ -17,10 +17,8 @@ export default function RecProjectsUI() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={LayoutPanelLeft}>
       <RecPage>
-        <SurfaceRail active={1} />
-
         <AnimatedBlock stepIndex={1} className="mb-5">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">兩格：一格放檔案，一格放規矩</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">兩格：<Key>一格放檔案，一格放規矩</Key></p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
@@ -60,7 +58,7 @@ export default function RecProjectsUI() {
 
         <AnimatedBlock stepIndex={3} className="mt-4 bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-3.5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            下面那格就是你的 CLAUDE.md，換了個名字而已。
+            💡 下面那格就是你的 CLAUDE.md，換了個名字而已。
           </p>
         </AnimatedBlock>
       </RecPage>

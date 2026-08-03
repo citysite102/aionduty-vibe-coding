@@ -51,8 +51,8 @@ export default function Slide12() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-indigo-950/30 border border-indigo-900/50 rounded-2xl p-8 text-center max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-indigo-400 mb-4">業界慣例</h3>
+        <AnimatedBlock stepIndex={2} className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+          <h3 className="text-2xl font-bold text-sky-400 mb-4">業界慣例</h3>
           <p className="text-slate-300 text-lg leading-relaxed">
             在成熟的科技團隊裡，程式碼合併請求 (PR) 進入主線前，幾乎都必須先通過 Code Review 與自動化檢查；讓 AI 擔任第一道 Reviewer 也正快速普及中。
           </p>

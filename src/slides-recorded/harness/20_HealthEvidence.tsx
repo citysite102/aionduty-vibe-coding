@@ -1,12 +1,12 @@
 import { Scale } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { HealthRail } from './_HealthRail';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-20-health-evidence',
-  title: '手冊越寫越肥，怎麼整理？',
+  title: '手冊健檢：兩種證據',
   script:
     '憑印象刪會刪錯，所以要有證據。三種：第一種是現場證據，最近的對話裡它真的違反過這條嗎？從來沒違反過的規則，可能是在防一個不存在的問題。第二種是機制證據，這件事是不是已經有 Hook、CI 或 lint 在擋？有的話文字版就是重複的。第三種是時效證據，規則綁的那個資料夾、指令、流程還在嗎？專案改過名字，規則常常沒跟著改。三種裡面至少要有兩種成立，才動手刪。',
   seconds: 45,
@@ -16,11 +16,9 @@ export const meta: RecordedMeta = {
 export default function RecHealthEvidence() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Scale}>
-      <RecPage>
-        <HealthRail active={2} />
-
+      <RecPage handbook={2}>
         <AnimatedBlock stepIndex={1} className="mb-6">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">刪掉之前，至少要有兩種證據</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">刪掉之前，<Key>至少要有兩種證據</Key></p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="space-y-4">

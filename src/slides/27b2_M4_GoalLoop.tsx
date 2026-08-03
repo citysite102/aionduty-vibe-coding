@@ -36,7 +36,7 @@ export default function SlideGoalLoop() {
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="bg-indigo-500/20 text-indigo-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">/loop</span>
+                    <span className="bg-sky-500/20 text-sky-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">/loop</span>
                     <div className="text-xs text-slate-300 font-medium">
                       回答：<strong>「多久做一次」</strong>（排程與監控）。
                     </div>
@@ -51,27 +51,27 @@ export default function SlideGoalLoop() {
             </AnimatedBlock>
 
             {/* Codex OpenAI Card */}
-            <AnimatedBlock stepIndex={2} className="bg-slate-900/80 border border-indigo-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
+            <AnimatedBlock stepIndex={2} className="bg-slate-900/80 border border-sky-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between h-full">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-indigo-500/10 p-2 rounded-xl border border-indigo-500/20">
-                    <Bot className="text-indigo-400" size={24} />
+                  <div className="bg-sky-500/10 p-2 rounded-xl border border-sky-500/20">
+                    <Bot className="text-sky-400" size={24} />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-100 font-mono">Codex (OpenAI)</h3>
-                    <p className="text-[11px] text-indigo-400 font-mono uppercase tracking-wider">OpenAI CLI</p>
+                    <p className="text-[11px] text-sky-400 font-mono uppercase tracking-wider">OpenAI CLI</p>
                   </div>
                 </div>
 
                 <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                  OpenAI 官方推出的 CLI，在 2026 年上線了 <code className="text-indigo-300 bg-slate-950 px-2 py-0.5 rounded text-xs font-mono">/goal</code> 功能。它並非傳統的「一問一答」，而是真正的<strong>自動代理迴圈</strong>。
+                  OpenAI 官方推出的 CLI，在 2026 年上線了 <code className="text-sky-300 bg-slate-950 px-2 py-0.5 rounded text-xs font-mono">/goal</code> 功能。它並非傳統的「一問一答」，而是真正的<strong>自動代理迴圈</strong>。
                 </p>
 
                 {/* Ralph Loop Pipeline */}
                 <div className="bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800">
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-[11px] text-slate-400 tracking-wider">自己回頭修正的流程（Ralph 技巧）：</span>
-                    <span className="text-[11px] px-1.5 py-0.5 bg-indigo-950/80 text-indigo-300 rounded border border-indigo-900/40 whitespace-nowrap">試錯循環</span>
+                    <span className="text-[11px] px-1.5 py-0.5 bg-sky-950/80 text-sky-300 rounded border border-sky-900/40 whitespace-nowrap">試錯循環</span>
                   </div>
                   <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
                     <strong>Ralph Loop</strong> 源自開源社群（由 Geoffrey Huntley 提出的 Ralph 技巧：用一個簡單的迴圈，反覆把錯誤訊息餵回去請 AI 修），現在官方工具已經把它做成內建功能。
@@ -79,7 +79,7 @@ export default function SlideGoalLoop() {
                   <div className="flex items-center justify-between gap-1">
                     {['Plan', 'Act', 'Test', 'Review'].map((step, idx) => (
                       <div key={step} className="flex items-center gap-1">
-                        <span className="text-[11px] font-bold text-indigo-300 bg-indigo-950/50 border border-indigo-500/20 px-1.5 py-1 rounded font-mono">
+                        <span className="text-[11px] font-bold text-sky-300 bg-sky-950/50 border border-sky-500/20 px-1.5 py-1 rounded font-mono">
                           {step}
                         </span>
                         {idx < 3 && <span className="text-[11px] text-slate-600 font-mono">➔</span>}
@@ -113,9 +113,9 @@ export default function SlideGoalLoop() {
 
         {/* Right Side: What this trend means to learners */}
         <div className="xl:col-span-4 flex">
-          <AnimatedBlock stepIndex={4} className="bg-gradient-to-b from-slate-900 to-indigo-950/30 border border-indigo-950/40 rounded-3xl p-6 shadow-xl flex flex-col justify-between h-full w-full">
+          <AnimatedBlock stepIndex={4} className="bg-gradient-to-b from-slate-900 to-sky-950/30 border border-sky-950/40 rounded-3xl p-6 shadow-xl flex flex-col justify-between h-full w-full">
             <div>
-              <h3 className="text-lg font-bold text-indigo-300 mb-4 flex items-center gap-2">
+              <h3 className="text-lg font-bold text-sky-300 mb-4 flex items-center gap-2">
                 <Lightbulb size={20} className="text-amber-400" /> 這個變化的意思是
               </h3>
 
@@ -144,7 +144,7 @@ export default function SlideGoalLoop() {
             </div>
 
             <div className="bg-[#0b0f19] p-4 rounded-2xl border border-slate-800 mt-6 text-center">
-              <span className="text-[11px] text-indigo-400 font-mono block mb-1 uppercase tracking-wider">換個角度看</span>
+              <span className="text-[11px] text-sky-400 font-mono block mb-1 uppercase tracking-wider">換個角度看</span>
               <span className="text-xs text-slate-300 font-bold">從「下提示詞的人」變成「設計迴圈的人」</span>
             </div>
           </AnimatedBlock>

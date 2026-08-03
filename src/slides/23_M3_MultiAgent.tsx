@@ -1,10 +1,15 @@
-import { Users, Bot, Code2, ShieldCheck, Zap } from 'lucide-react';
+import { Users, Bot, Code2, ShieldCheck, ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { motion } from 'motion/react';
 
-// 三個方塊講的是「職能」，不是三套要各自安裝的工具。
-// 指揮者是主 session 自己，另外兩個是它派出去的 subagent，所以只有指揮者給主色。
-const roles = [
+/**
+ * 原本的順序是反的：三張角色卡（答案）先出現，中間夾一段註解，最後才講為什麼需要分工。
+ * 而且卡片用 motion 自己排 delay，講者控不了節奏。
+ *
+ * 改成 問題 → 三個角色 → 這些都內建 → 你要決定的那一件事。
+ * 三個方塊講的是「職能」，不是三套要各自安裝的工具。
+ * 指揮者是主 session 自己，另外兩個是它派出去的 subagent，所以只有指揮者給主色。
+ */
+const ROLES = [
   {
     icon: Bot,
     name: '指揮者',
@@ -26,7 +31,7 @@ const roles = [
     name: '審查者',
     en: 'Subagent',
     duty: '只讀不寫，專門挑錯',
-    impl: '再派一個，換一雙眼睛',
+    impl: '再派一個，只給它讀的權限',
     lead: false,
   },
 ];
@@ -34,61 +39,81 @@ const roles = [
 export default function SlideMultiAgent() {
   return (
     <SlideLayout title="讓團隊為你工作" subtitle="Multi-Agent Orchestration" icon={Users}>
-      {/* min-h-full 不是 h-full：內容超過一頁時要往下長，h-full 會讓它上下同時溢出，上緣捲不到 */}
-      <div className="max-w-5xl mx-auto flex flex-col items-center justify-center min-h-full text-center py-1">
-        <AnimatedBlock className="w-full">
-          <div className="flex flex-wrap justify-center items-stretch gap-4 md:gap-7 mb-4">
-            {roles.map((r, i) => {
-              const Icon = r.icon;
-              return (
-                <motion.div
-                  key={r.en}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 + i * 0.25 }}
-                  className={`relative w-[230px] p-5 rounded-2xl flex flex-col items-center gap-2 border ${
-                    r.lead
-                      ? 'bg-sky-950/30 border-sky-500/40'
-                      : 'bg-slate-900 border-slate-800'
-                  }`}
-                >
-                  {i > 0 && (
-                    <div className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 text-slate-700">
-                      <Zap size={18} />
-                    </div>
-                  )}
-                  <div className={`p-3 rounded-full ${r.lead ? 'bg-sky-500/15 text-sky-400' : 'bg-slate-800 text-slate-400'}`}>
-                    <Icon size={r.lead ? 36 : 28} />
+      <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
+
+        <AnimatedBlock stepIndex={1}>
+          <p className="text-slate-100 text-2xl font-bold leading-snug mb-2">
+            任務一大，一個 Agent 從頭做到尾就容易出錯。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed">
+            它得同時記著整份規格、正在改的那個檔案、還有哪幾項沒驗。
+            東西一多，最先掉的通常是最後那項。所以把它拆成三個角色。
+          </p>
+        </AnimatedBlock>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+          {ROLES.map((r, i) => {
+            const Icon = r.icon;
+            return (
+              <AnimatedBlock
+                key={r.en}
+                stepIndex={i + 2}
+                className={`relative rounded-2xl border p-5 flex flex-col ${
+                  r.lead ? 'bg-sky-950/30 border-sky-500/40' : 'bg-slate-900 border-slate-800'
+                }`}
+              >
+                {i > 0 && (
+                  <ArrowRight
+                    size={16}
+                    className="hidden md:block absolute -left-4 top-1/2 -translate-y-1/2 text-slate-700"
+                  />
+                )}
+
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className={`p-2.5 rounded-xl shrink-0 ${
+                      r.lead ? 'bg-sky-500/15 text-sky-400' : 'bg-slate-800 text-slate-400'
+                    }`}
+                  >
+                    <Icon size={22} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-bold text-slate-100 text-base leading-tight">{r.name}</div>
                     <div className="text-slate-600 text-[11px] font-mono">{r.en}</div>
                   </div>
-                  <p className={`text-xs leading-snug ${r.lead ? 'text-sky-300' : 'text-slate-400'}`}>{r.duty}</p>
-                  <p className="text-slate-600 text-[11px] leading-snug mt-auto pt-2 border-t border-slate-800 w-full">
-                    {r.impl}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
+                </div>
 
-          <p className="text-slate-500 text-xs mb-4 max-w-2xl mx-auto leading-relaxed">
-            這三個角色都在 Claude Code 裡面，不用另外裝東西。審查者也可以換成別家的模型，用不同的眼睛看同一份程式碼，但那是進階選項，不是必要條件。
+                <p className={`text-sm leading-snug ${r.lead ? 'text-sky-300' : 'text-slate-300'}`}>
+                  {r.duty}
+                </p>
+
+                <p className="text-slate-500 text-xs leading-snug mt-auto pt-3 border-t border-slate-800">
+                  {r.impl}
+                </p>
+              </AnimatedBlock>
+            );
+          })}
+        </div>
+
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
+          <p className="text-slate-400 text-sm leading-relaxed">
+            這三個角色都在 Claude Code 裡面，不用另外裝東西。
+            審查者也可以指定別家的模型，這樣它不會沿用執行者的思路，但那是進階選項。
           </p>
-
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-100 mb-4 leading-snug">
-            任務一大，一個 Agent 從頭做到尾就容易出錯。<br/>
-            這時候要的是<span className="text-sky-400">分工</span>：有人拆解、有人動手、有人挑錯。
-          </h2>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={1} className="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl w-full">
-          理解多角色協作，你只需要先決定一件事：<br/>
-          <strong className="text-sky-400 text-xl md:text-2xl mt-4 block tracking-wide">
-            「是由你親自分配任務，還是讓一個 Agent 當指揮者，幫你把工作發包下去？」
-          </strong>
+        <AnimatedBlock
+          stepIndex={6}
+          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-5"
+        >
+          <p className="text-slate-400 text-sm leading-relaxed mb-2">
+            實際要決定的只有一件事：
+          </p>
+          <p className="text-slate-100 text-xl font-bold leading-snug">
+            每一件子任務由你親自派，還是讓主 session 自己決定派給誰？
+          </p>
         </AnimatedBlock>
+
       </div>
     </SlideLayout>
   );

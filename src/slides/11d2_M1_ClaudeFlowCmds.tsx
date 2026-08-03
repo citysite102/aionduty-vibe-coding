@@ -13,11 +13,11 @@ export default function SlideClaudeFlowCmds() {
         
         {/* Left column: Contextual Flow */}
         <div className="lg:col-span-5 flex flex-col justify-between">
-          <AnimatedBlock stepIndex={1} className="bg-gradient-to-b from-slate-900 to-indigo-950/20 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none" />
+          <AnimatedBlock stepIndex={1} className="bg-gradient-to-b from-slate-900 to-sky-950/20 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-between relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-full blur-2xl pointer-events-none" />
             
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-1 text-indigo-400 text-xs font-bold bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-800">
+              <div className="inline-flex items-center gap-1 text-sky-400 text-xs font-bold bg-sky-950/50 px-3 py-1 rounded-full border border-sky-800">
                 <Terminal size={14} /> FLOW CONTROL
               </div>
               
@@ -50,16 +50,16 @@ export default function SlideClaudeFlowCmds() {
             <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-xl">
+                  <div className="p-2 bg-sky-500/10 text-sky-400 rounded-xl">
                     <RefreshCw size={18} />
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-slate-100">歷史壓縮與重啟</h4>
-                    <span className="text-[11px] font-mono text-indigo-300 font-bold bg-indigo-500/10 px-1.5 py-0.5 rounded">/compact & /resume</span>
+                    <span className="text-[11px] font-mono text-sky-300 font-bold bg-sky-500/10 px-1.5 py-0.5 rounded">/compact & /resume</span>
                   </div>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  輸入 <code className="text-indigo-300 font-mono">/compact</code> 會把前面的對話做有損壓縮，清掉重複的程式碼上下文，後續的 Token 消耗會降下來。<code className="text-indigo-300 font-mono">/resume</code> 則是回到前一天的會話狀態繼續。
+                  輸入 <code className="text-sky-300 font-mono">/compact</code> 會把前面的對話做有損壓縮，清掉重複的程式碼上下文，後續的 Token 消耗會降下來。<code className="text-sky-300 font-mono">/resume</code> 則是回到前一天的會話狀態繼續。
                 </p>
               </div>
             </AnimatedBlock>

@@ -37,7 +37,7 @@ const COLOR_MAP: Record<string, string> = {
   sky: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
   amber: 'text-amber-400 bg-amber-500/10 border-amber-500/30',
   emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30',
-  indigo: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/30',
+  indigo: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
 };
 
 export default function Slide10b3() {
@@ -117,16 +117,16 @@ export default function Slide10b3() {
               </div>
 
               {/* 4. Example Response */}
-              <div className="border-l-2 border-indigo-500 pl-3 py-1 relative">
-                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-indigo-500 text-slate-950 text-[11px] font-black flex items-center justify-center">4</span>
+              <div className="border-l-2 border-sky-500 pl-3 py-1 relative">
+                <span className="absolute -left-[9px] -top-1 w-4 h-4 rounded-full bg-sky-500 text-slate-950 text-[11px] font-black flex items-center justify-center">4</span>
                 <div className="text-slate-400 font-sans text-[11px] mb-1.5 uppercase tracking-wider">Example Response</div>
-                <pre className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-[11px] text-indigo-300 leading-relaxed overflow-x-auto">{`{
+                <pre className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 text-[11px] text-sky-300 leading-relaxed overflow-x-auto">{`{
   "id": "msg_01...",
   "role": "assistant",
   "content": [{ "type": "text",
     "text": "Hello!" }]
 }`}</pre>
-                <div className="text-[11px] text-indigo-400/80 font-sans mt-1">範例回應：知道從 content 取值</div>
+                <div className="text-[11px] text-sky-400/80 font-sans mt-1">範例回應：知道從 content 取值</div>
               </div>
 
             </div>
@@ -160,7 +160,7 @@ export default function Slide10b3() {
             );
           })}
 
-          <AnimatedBlock stepIndex={7} className="bg-indigo-500/5 border border-indigo-500/20 rounded-2xl p-4 text-left mt-auto">
+          <AnimatedBlock stepIndex={7} className="bg-sky-500/5 border border-sky-500/20 rounded-2xl p-4 text-left mt-auto">
             <p className="text-[11px] text-slate-300 leading-relaxed">
               💡 看懂這四塊，你甚至不用自己讀完整份文件。把網址丟給 Claude Code，它會照同樣邏輯幫你讀懂並寫出串接程式碼，而你有能力驗收它對不對。
             </p>

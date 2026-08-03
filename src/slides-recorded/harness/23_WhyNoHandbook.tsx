@@ -1,49 +1,70 @@
-import { FileX } from 'lucide-react';
+import { GitCompareArrows } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
-const MISSES = [
-  '按鈕寫成「開始休息」，不是你的航太語彙',
-  '順手塞了一張外部圖片當背景',
-  '分鐘數又寫死在程式碼裡',
-];
+/**
+ * 原本拆成兩頁，一頁沒手冊、一頁有手冊。但這是一組對照，
+ * 前後翻頁看等於要靠記憶去比，比不出來。左右並排才看得到差別。
+ *
+ * 兩欄同時出現（共用 stepIndex 2），因為它們是同一個語意單元。
+ */
+const MISSES = ['按鈕寫成「開始休息」', '塞了一張外部圖片當背景', '分鐘數又寫死在程式碼裡'];
+const HITS = ['按鈕自己叫「補給」', '沒有引用任何外部圖片', '分鐘數加在最上面的設定區'];
 
 export const meta: RecordedMeta = {
-  id: 'harness-23-why-no-handbook',
-  title: '有手冊跟沒手冊，差在哪？',
+  id: 'harness-23-why-handbook',
+  title: '同一句話，有沒有手冊差在哪',
   script:
-    '前面你在 mission-timer 的 CLAUDE.md 裡寫下四條規矩，然後跑了一次驗收。這裡把那個驗收攤開來，兩邊對照著看。先看手冊還沒寫的那一邊：你說「幫我加一個 5 分鐘的休息模式」，這次刻意不提任何規矩。它做出來是這樣：按鈕寫成「開始休息」，不是那套航太語彙；順手塞了一張外部圖片當背景；分鐘數又寫死在程式碼裡。你上一輪交代過的三條，它一條都沒做到。',
+    '把前面那次驗收攤開來，兩邊對照著看。同一句話「幫我加一個 5 分鐘的休息模式」，兩次都沒有提任何規矩。左邊是手冊還沒寫的時候：按鈕寫成開始休息，不是那套航太語彙；順手塞了一張外部圖片當背景；分鐘數又寫死在程式碼裡，三條全沒中。右邊是同一個專案，只多了一份 CLAUDE.md：按鈕自己叫補給，沒有引用外部圖片，分鐘數也加在最上面的設定區。三條全中。',
   seconds: 44,
   from: 55,
 };
 
-export default function RecWhyNoHandbook() {
+export default function RecWhyHandbook() {
   return (
-    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={FileX}>
-      <RecPage className="space-y-5">
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-          <div className="text-slate-500 text-base font-mono mb-3">對照 1 / 3　mission-timer</div>
-
-          <div className="border-l-2 border-slate-700 pl-5 mb-5">
-            <p className="text-sky-300 text-2xl leading-snug">幫我加一個 5 分鐘的休息模式。</p>
-          </div>
-
-          <p className="text-slate-100 text-4xl font-bold mb-4 leading-snug">上一輪交代的三條，它一條都沒做到</p>
-
-          <p className="text-slate-400 text-xl leading-relaxed">這次刻意不提規矩，手冊裡也還沒有那四條。</p>
+    <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={GitCompareArrows}>
+      <RecPage className="space-y-6">
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
+          <div className="text-slate-500 text-base font-mono mb-3">兩次都丟同一句，都沒提任何規矩</div>
+          <p className="text-sky-300 text-2xl leading-snug border-l-2 border-sky-500/50 pl-5">
+            幫我加一個 5 分鐘的休息模式。
+          </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-red-950/20 border border-red-500/20 rounded-2xl p-6">
-          <div className="text-red-400 font-bold text-lg mb-3">✕ 它做出來的東西</div>
-          <ul className="space-y-2.5">
-            {MISSES.map((m) => (
-              <li key={m} className="text-slate-300 text-xl leading-relaxed flex gap-4">
-                <span className="text-slate-600 shrink-0">·</span>
-                {m}
-              </li>
-            ))}
-          </ul>
+        <AnimatedBlock stepIndex={2} className="grid grid-cols-2 gap-5 items-stretch">
+          <div className="rounded-2xl border border-red-500/20 bg-red-950/20 p-6 flex flex-col">
+            <div className="text-slate-500 text-base mb-1">專案裡沒有 CLAUDE.md</div>
+            <div className="text-red-300 text-2xl font-bold mb-5">三條一條都沒中</div>
+            <ul className="space-y-3 mt-auto">
+              {MISSES.map((m) => (
+                <li key={m} className="text-slate-400 text-lg leading-snug flex gap-3">
+                  <span className="text-red-500/70 shrink-0">✕</span>
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-emerald-500/25 bg-emerald-950/20 p-6 flex flex-col">
+            <div className="text-slate-500 text-base mb-1">同一個專案，多了 CLAUDE.md</div>
+            <div className="text-emerald-300 text-2xl font-bold mb-5">三條全中</div>
+            <ul className="space-y-3 mt-auto">
+              {HITS.map((h) => (
+                <li key={h} className="text-slate-200 text-lg leading-snug flex gap-3">
+                  <span className="text-emerald-400 shrink-0">✓</span>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="px-1">
+          <p className="text-slate-300 text-2xl font-bold leading-snug">
+            不是它變聰明，是<Key>那三條換了存放的位置</Key>。
+          </p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

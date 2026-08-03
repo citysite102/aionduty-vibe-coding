@@ -36,7 +36,7 @@ export function SectionDivider({
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-100 tracking-tight leading-tight mx-auto text-balance max-w-4xl">
           {title}
         </h1>
-        <div className="w-24 h-1.5 bg-gradient-to-r from-sky-500 to-indigo-500 mx-auto mt-12 rounded-full"></div>
+        <div className="w-24 h-1.5 bg-sky-500 mx-auto mt-12 rounded-full"></div>
 
         {roadmap && (
           <div className="mt-14 w-full max-w-3xl mx-auto">

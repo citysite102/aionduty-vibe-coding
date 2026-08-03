@@ -14,10 +14,10 @@ export default function SlideIntroVibe() {
           <p className="text-slate-300 text-lg leading-relaxed mb-6">
             「用講的、不用手刻。你描述要什麼，AI 把程式碼寫出來，你看結果對不對，不對就再講一句。」
           </p>
-          <div className="bg-indigo-950/30 p-5 rounded-lg border border-indigo-500/20">
-            <h4 className="text-indigo-400 font-bold mb-2">嚴格的定義：</h4>
+          <div className="bg-sky-950/30 p-5 rounded-lg border border-sky-500/20">
+            <h4 className="text-sky-400 font-bold mb-2">嚴格的定義：</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
-              如果你有親自審查程式碼、寫好測試、講得出它怎麼運作，那不叫 vibe coding，那只是寫程式。嚴格講是<strong className="text-indigo-300">「在不看懂程式碼的情況下用 AI 把軟體做出來」</strong>。<br/>
+              如果你有親自審查程式碼、寫好測試、講得出它怎麼運作，那不叫 vibe coding，那只是寫程式。嚴格講是<strong className="text-sky-300">「在不看懂程式碼的情況下用 AI 把軟體做出來」</strong>。<br/>
               <span className="text-slate-500 text-xs mt-2 block">（Vibe Coding 一詞由 Andrej Karpathy 於 2025 年 2 月在 X 提出，原文是「完全交給感覺，忘記程式碼的存在」；上面這條以「有沒有審查程式碼」劃線的嚴格定義，出自 Simon Willison, 2025/03）</span>
             </p>
           </div>

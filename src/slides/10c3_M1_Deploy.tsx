@@ -19,11 +19,11 @@ export default function Slide10c3Deploy() {
                 <span className="text-slate-400 text-xs leading-relaxed">像在<strong className="text-slate-300">自家廚房</strong>做菜自己吃。只有你這台電腦看得到，關機就沒了。</span>
               </div>
             </div>
-            <div className="bg-slate-950 border border-l-4 border-l-indigo-500 border-slate-800 rounded-xl p-4 flex gap-3 items-start">
-              <Store className="text-indigo-400 shrink-0 mt-0.5" size={20} />
+            <div className="bg-slate-950 border border-l-4 border-l-sky-500 border-slate-800 rounded-xl p-4 flex gap-3 items-start">
+              <Store className="text-sky-400 shrink-0 mt-0.5" size={20} />
               <div>
                 <strong className="text-slate-200 block mb-1 text-sm">上線託管（部署）</strong>
-                <span className="text-slate-400 text-xs leading-relaxed">像<strong className="text-indigo-300">開店營業</strong>，要有一個店面地址（<strong className="text-indigo-300">網址</strong>），別人才找得到、24 小時都能用。</span>
+                <span className="text-slate-400 text-xs leading-relaxed">像<strong className="text-sky-300">開店營業</strong>，要有一個店面地址（<strong className="text-sky-300">網址</strong>），別人才找得到、24 小時都能用。</span>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Slide10c3Deploy() {
         {/* 3. 實際指令：讓 Claude Code 幫你部署 */}
         <AnimatedBlock stepIndex={4} className="bg-slate-950 border border-slate-800 rounded-2xl p-5 text-left">
           <div className="flex items-center gap-2 mb-3">
-            <TerminalSquare className="text-indigo-400" size={18} />
+            <TerminalSquare className="text-sky-400" size={18} />
             <h4 className="text-sm font-bold text-slate-200">實際上怎麼做？一句話發包給 Claude Code</h4>
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-xs md:text-sm text-emerald-300 whitespace-pre-wrap leading-relaxed shadow-inner">

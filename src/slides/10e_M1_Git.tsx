@@ -1,12 +1,10 @@
 import { GitCommit, GitPullRequest, GitBranch, FolderGit2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { LiveDemo } from '../components/LiveDemo';
 import { motion } from 'motion/react';
 
 export default function Slide10e() {
   return (
     <SlideLayout title="改壞了可以回到上一步" subtitle="Version Control" icon={FolderGit2}>
-      <LiveDemo kind="terminal" note="做一次 commit" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pt-4 max-w-6xl mx-auto items-center h-full">
         
         <div className="space-y-6">
@@ -33,7 +31,7 @@ export default function Slide10e() {
               </div>
             </div>
             <div className="flex gap-4 items-start bg-slate-900 p-4 rounded-xl border border-slate-800">
-              <div className="p-2 bg-indigo-900/30 text-indigo-400 rounded-lg shrink-0"><GitPullRequest size={20} /></div>
+              <div className="p-2 bg-sky-900/30 text-sky-400 rounded-lg shrink-0"><GitPullRequest size={20} /></div>
               <div>
                 <strong className="text-slate-200 block mb-1">Push / Pull (推送與拉取)</strong>
                 <p className="text-slate-400 text-sm">與雲端 (如 GitHub) 同步你的存檔，方便備份或與他人協作。<span className="text-slate-500">出貨那一段會實際做一次。</span></p>
@@ -84,14 +82,14 @@ export default function Slide10e() {
 
             {/* AI Agent integration branch */}
             <motion.div 
-              className="absolute top-[50%] left-[50%] w-[50%] h-[40px] border-b-2 border-l-2 border-indigo-500 rounded-bl-xl opacity-0"
+              className="absolute top-[50%] left-[50%] w-[50%] h-[40px] border-b-2 border-l-2 border-sky-500 rounded-bl-xl opacity-0"
               style={{ transformOrigin: "top left" }}
               animate={{ opacity: 1 }}
               transition={{ delay: 4, duration: 0.5 }}
             />
 
             <motion.div 
-              className="absolute -bottom-[50px] right-0 translate-x-[10%] bg-indigo-950/80 border border-indigo-500/50 p-2 rounded-lg text-xs text-indigo-300 flex items-center gap-2 shadow-lg whitespace-nowrap"
+              className="absolute -bottom-[50px] right-0 translate-x-[10%] bg-sky-950/80 border border-sky-500/50 p-2 rounded-lg text-xs text-sky-300 flex items-center gap-2 shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 4.5, duration: 0.5 }}

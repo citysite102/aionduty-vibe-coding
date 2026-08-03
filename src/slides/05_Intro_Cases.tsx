@@ -25,8 +25,8 @@ export default function SlideIntroCases() {
                    適合單次任務。但當專案變複雜時，來回複製貼上容易失去脈絡、覆蓋錯誤，或者忘記安裝相依套件。
                  </div>
                </li>
-               <li className="bg-slate-950 p-4 rounded-lg border border-slate-800 border-l-4 border-l-indigo-500 flex gap-3 items-start">
-                 <TerminalSquare className="text-indigo-400 shrink-0 mt-0.5" size={18} />
+               <li className="bg-slate-950 p-4 rounded-lg border border-slate-800 border-l-4 border-l-sky-500 flex gap-3 items-start">
+                 <TerminalSquare className="text-sky-400 shrink-0 mt-0.5" size={18} />
                  <div>
                    <strong className="text-slate-100 block mb-1">情境三：真實專案應用 (Claude Code 等 Agent)</strong>
                    直接在終端機運作，具備讀取檔案、執行指令的能力。能處理跨檔案邏輯，這才是真正實際執行的樣貌。
@@ -56,13 +56,13 @@ export default function SlideIntroCases() {
                 <span className="text-slate-400">在對話框請 AI 寫一支 Python 程式，你<span className="text-amber-400">複製貼上</span>到本機執行。如果出錯，你再把 Error 貼回對話框。</span>
               </div>
 
-              <div className="w-8 h-8 rounded bg-indigo-900/30 flex items-center justify-center font-bold text-indigo-400 border border-indigo-500/20">3</div>
-              <div className="bg-slate-950 p-3 rounded-lg border border-indigo-500/30">
+              <div className="w-8 h-8 rounded bg-sky-900/30 flex items-center justify-center font-bold text-sky-400 border border-sky-500/20">3</div>
+              <div className="bg-slate-950 p-3 rounded-lg border border-sky-500/30">
                 <strong className="text-slate-200 block mb-1">系統化需求：結合專案與工作流</strong>
-                <span className="text-slate-400">在本機終端機開啟 <span className="text-indigo-400 font-mono">Claude Code</span>，直接讓 Agent 在專案裡工作。<br/><br/><span className="text-emerald-400 block">Agent 會自己寫程式、自己安裝相依套件 (pip install)、自己除錯、自己 commit。</span></span>
+                <span className="text-slate-400">在本機終端機開啟 <span className="text-sky-400 font-mono">Claude Code</span>，直接讓 Agent 在專案裡工作。<br/><br/><span className="text-emerald-400 block">Agent 會自己寫程式、自己安裝相依套件 (pip install)、自己除錯、自己 commit。</span></span>
                 
                 <details className="mt-3 group" onClick={(e) => e.stopPropagation()}>
-                  <summary className="text-xs text-indigo-400 cursor-pointer hover:text-indigo-300 list-none flex items-center gap-1 font-bold">
+                  <summary className="text-xs text-sky-400 cursor-pointer hover:text-sky-300 list-none flex items-center gap-1 font-bold">
                     <span className="group-open:rotate-90 transition-transform text-[11px]">▶</span> 展開查看範例 Prompt
                   </summary>
                   <div className="bg-slate-900 border border-slate-800 rounded p-3 text-xs font-mono text-emerald-300 mt-2 whitespace-pre-wrap leading-relaxed shadow-inner">

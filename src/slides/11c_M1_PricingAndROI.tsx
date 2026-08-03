@@ -22,10 +22,10 @@ export default function SlidePricingAndROI() {
           
           {/* Claude Code (Anthropic API Console) */}
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full blur-xl pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full blur-xl pointer-events-none"></div>
             <div>
               <div className="flex justify-between items-start mb-4">
-                <span className="px-2.5 py-1 bg-orange-500/10 text-orange-400 border border-orange-500/20 rounded-lg text-xs font-mono font-bold">
+                <span className="px-2.5 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-lg text-xs font-mono font-bold">
                   官方終端機工具
                 </span>
                 <span className="text-[11px] text-slate-500 font-mono">Claude Code</span>
@@ -37,7 +37,7 @@ export default function SlidePricingAndROI() {
               
               <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 text-xs font-mono text-slate-300 space-y-4">
                 <div>
-                  <span className="text-orange-400 font-bold block mb-1">❶ 訂閱制（Pro $20 / Max 5x $100 / Max 20x $200 每月）</span>
+                  <span className="text-sky-400 font-bold block mb-1">❶ 訂閱制（Pro $20 / Max 5x $100 / Max 20x $200 每月）</span>
                   <span className="text-slate-400 leading-relaxed block">
                     有網頁版訂閱就直接登入個人帳號，額度共用、不必另外付費。
                     <span className="text-amber-300/90 block mt-1.5">⚠️ 但 Pro 的額度拿來跑 Claude Code 會很快用完（有 5 小時滾動視窗與每週上限）。每天重度使用的話，得升級 Max 或改走 API。</span>
@@ -45,7 +45,7 @@ export default function SlidePricingAndROI() {
                   </span>
                 </div>
                 <div className="border-t border-slate-900 pt-3">
-                  <span className="text-orange-400 font-bold block mb-1">❷ Anthropic API 流量扣款 (計量付費)</span>
+                  <span className="text-sky-400 font-bold block mb-1">❷ Anthropic API 流量扣款 (計量付費)</span>
                   <span className="text-slate-400 leading-relaxed block">
                     免訂閱月租，註冊 Console 並儲值（最低 $5 美金即可開通），按實際 Token 消耗量精確計量。
                   </span>

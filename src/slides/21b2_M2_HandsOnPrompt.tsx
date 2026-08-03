@@ -48,7 +48,7 @@ export default function SlideHandsOnPrompt() {
 
         <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 rounded bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">3</div>
+            <div className="w-8 h-8 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">3</div>
             <h3 className="text-lg font-bold text-slate-100">把約定寫成 CLAUDE.md</h3>
           </div>
           <div className="bg-black/50 p-4 rounded-lg font-mono text-sm border border-slate-800 text-sky-300 leading-relaxed">

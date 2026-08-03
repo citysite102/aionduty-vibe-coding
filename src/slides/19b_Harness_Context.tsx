@@ -4,7 +4,7 @@ import { Database, FileText, Zap, BookOpen } from 'lucide-react';
 export default function SlideHarnessContext() {
   return (
     <SlideLayout title="上下文工程" subtitle="Context Engineering" icon={BookOpen}>
-      <div className="pt-6 max-w-6xl mx-auto h-full flex flex-col">
+      <div className="pt-6 max-w-6xl mx-auto min-h-full flex flex-col">
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
           <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
             <Zap size={24} />
@@ -71,7 +71,7 @@ export default function SlideHarnessContext() {
               <h3 className="text-xl font-bold text-sky-300">Agent Skills<br/><span className="text-sm text-sky-600/80 font-normal">混合式設計</span></h3>
             </div>
             <p className="text-sky-100 text-base leading-relaxed mb-6">
-              平時讓 Agent 保持通用，有需要時才透過工具讀取特定的 Skill 模組。
+              平常只讓它知道「有哪些 Skill 可以用」，各佔一行標題。真的用到那一個的時候，才把整份內容讀進來。
             </p>
             <div className="mt-auto bg-sky-950/50 p-4 rounded-xl border border-sky-900/50">
               <p className="text-sm text-sky-200">
@@ -80,6 +80,17 @@ export default function SlideHarnessContext() {
             </div>
           </AnimatedBlock>
         </div>
+
+        <AnimatedBlock
+          stepIndex={4}
+          className="mt-6 rounded-2xl border border-slate-800 border-l-4 border-l-amber-500 bg-slate-950 px-6 py-4"
+        >
+          <p className="text-slate-300 text-base leading-relaxed">
+            三張卡的差別，最後都落在同一件事上：
+            <strong className="text-slate-100">你每次對話要把多少東西送進去，而那些東西是要付錢的。</strong>
+            所以下一頁先把帳算清楚，你才知道手冊該寫多長、哪些東西不該常駐。
+          </p>
+        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

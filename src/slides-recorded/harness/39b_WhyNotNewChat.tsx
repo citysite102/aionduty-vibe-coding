@@ -1,6 +1,7 @@
 import { MessagesSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Callout } from './_Callout';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -19,7 +20,7 @@ export default function RecWhyNotNewChat() {
       {/* 這一頁跟前面幾頁一樣不掛 SurfaceRail，收尾頁才把三個地方一起收回來 */}
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">貼在對話裡的會被推走，寫在設定裡的不會</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">貼在對話裡的會被推走，<Key>寫在設定裡的不會</Key></p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-5">

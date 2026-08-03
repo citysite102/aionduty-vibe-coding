@@ -1,13 +1,13 @@
 import { ListTodo } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { HealthRail } from './_HealthRail';
 import { PairTable } from './_PairTable';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-18-health-inventory',
-  title: '手冊越寫越肥，怎麼整理？',
+  title: '手冊健檢：盤點來由',
   script:
     '第一步是盤點。把手冊裡每一條規則抄下來，在後面標上它是為了解決哪一次的問題。像是禁用 inline style，是因為上次改版時樣式打架。有些你會想不起來，那就先打一個問號。這些打問號的規則就是下一步要處理的對象。注意這一步不做任何刪除，只是先看清楚手上有什麼。',
   seconds: 40,
@@ -23,11 +23,9 @@ const ROWS: [string, string][] = [
 export default function RecHealthInventory() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ListTodo}>
-      <RecPage>
-        <HealthRail active={1} />
-
+      <RecPage handbook={2}>
         <AnimatedBlock stepIndex={1} className="mb-6">
-          <p className="text-slate-100 text-4xl font-bold leading-snug">每一條規則後面，標上它的來由</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">每一條規則後面，<Key>標上它的來由</Key></p>
         </AnimatedBlock>
 
         <PairTable

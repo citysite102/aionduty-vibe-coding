@@ -38,7 +38,7 @@ export default function Slide18b() {
             <div className="flex-1">
               <h4 className="text-slate-200 font-bold mb-1 text-sm">情境三：舊有系統新增「忘記密碼」</h4>
               <p className="text-slate-400 text-xs mb-2">需讀取舊資料庫結構、整合目前的信件 API。</p>
-              <div className="text-indigo-400 text-xs bg-indigo-950/30 px-2 py-1.5 rounded-lg border border-indigo-900/50 leading-relaxed">
+              <div className="text-sky-400 text-xs bg-sky-950/30 px-2 py-1.5 rounded-lg border border-sky-900/50 leading-relaxed">
                 💡 <strong>建議做法：</strong> 用 Claude Code 讀取現有專案，理解架構直接串接。
               </div>
             </div>
@@ -49,7 +49,7 @@ export default function Slide18b() {
             <div className="flex-1">
               <h4 className="text-slate-200 font-bold mb-1 text-sm">情境四：高度客製化的個人記帳工具</h4>
               <p className="text-slate-400 text-xs mb-2">想自己掌控所有的畫面細節與資料存放方式。</p>
-              <div className="text-indigo-400 text-xs bg-indigo-950/30 px-2 py-1.5 rounded-lg border border-indigo-900/50 leading-relaxed">
+              <div className="text-sky-400 text-xs bg-sky-950/30 px-2 py-1.5 rounded-lg border border-sky-900/50 leading-relaxed">
                 💡 <strong>建議做法：</strong> 先用 Google AI Studio 打草稿，下載後用 Agent 開發。
               </div>
             </div>

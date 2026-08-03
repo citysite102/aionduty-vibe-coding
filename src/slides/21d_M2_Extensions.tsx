@@ -16,7 +16,7 @@ export default function SlideM2Extensions() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-xl p-4 flex gap-4 items-center shadow-md">
-            <div className="w-28 shrink-0 text-indigo-400 font-bold text-lg">Rules</div>
+            <div className="w-28 shrink-0 text-sky-400 font-bold text-lg">Rules</div>
             <div>
               <div className="text-slate-200 text-base font-bold mb-1">只在某一區檔案才適用的限制</div>
               <div className="text-slate-500 text-sm">用 paths: 綁定那一區，碰到才載，省 context</div>

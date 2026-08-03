@@ -76,7 +76,7 @@ export default function SlideVibeVsAgentic() {
               </div>
               <div>
                 <h4 className="text-sm font-bold text-sky-600/80 mb-2 uppercase tracking-wider">驗證方式</h4>
-                <p className="text-sky-100 text-lg font-medium leading-snug">自動化測試與 CI/CD 流程，加上 LLM 評審</p>
+                <p className="text-sky-100 text-lg font-medium leading-snug">每次改動自動跑測試，再讓另一個 AI 審一次</p>
               </div>
               <div>
                 <h4 className="text-sm font-bold text-sky-600/80 mb-2 uppercase tracking-wider">錯誤處理</h4>

@@ -5,14 +5,15 @@ export default function Slide09() {
   return (
     <SlideLayout title="接下來要動手的三件事" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
-        會動手的是<strong className="text-slate-200">規則文件</strong>與<strong className="text-slate-200">工具</strong>這兩塊，
+        錢的部分先講到這裡，回到零件。前面那六個零件裡，這堂課真的會動手的是
+        <strong className="text-slate-200">規則文件</strong>與<strong className="text-slate-200">工具</strong>兩塊，
         再加一件零件表沒列、但你每天都會用到的事：<strong className="text-slate-200">把大題目切小</strong>。
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">
 
         {/* 一、工具 */}
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
+        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">1</div>
             讓它有工具可用
@@ -37,7 +38,7 @@ export default function Slide09() {
         </AnimatedBlock>
 
         {/* 二、規則文件與 context */}
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">2</div>
             只給它需要的資料
@@ -61,7 +62,7 @@ export default function Slide09() {
         </AnimatedBlock>
 
         {/* 三、把大題目切小 */}
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-sky-500/50 transition-colors shadow-lg">
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">3</div>
             把大題目切小

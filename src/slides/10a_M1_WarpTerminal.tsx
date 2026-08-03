@@ -22,7 +22,7 @@ export default function SlideWarpTerminal() {
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-3">
                 別再用內建終端機了！<br/>
-                用 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400">Warp</span> 提升終端機體驗
+                用 <span className="text-sky-400">Warp</span> 提升終端機體驗
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 傳統終端機（如 Mac Terminal、Windows 終端機）是一行行生硬且難以編輯的文字。<strong>Warp</strong> 是一款內建 AI 輔助與現代操作邏輯的終端機工具。
@@ -31,7 +31,7 @@ export default function SlideWarpTerminal() {
 
             <div className="space-y-3">
               <AnimatedBlock stepIndex={2} className="flex gap-3 items-start bg-slate-900/60 p-3.5 rounded-xl border border-slate-800">
-                <div className="p-2 bg-indigo-500/10 text-indigo-400 rounded-lg shrink-0">
+                <div className="p-2 bg-sky-500/10 text-sky-400 rounded-lg shrink-0">
                   <Cpu size={16} />
                 </div>
                 <div>
@@ -125,7 +125,7 @@ export default function SlideWarpTerminal() {
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 shadow-xl space-y-1.5 max-w-[90%] mx-auto mt-2">
                     <div className="text-slate-400 font-bold border-b border-slate-800 pb-1 mb-1 text-[11px] flex justify-between">
                       <span>TASKS RUNNING (4/9)</span>
-                      <span className="text-indigo-400">Warp Agent</span>
+                      <span className="text-sky-400">Warp Agent</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-emerald-400 text-[11px]">
                       <CheckCircle2 size={10} /> <span>Create popularity utility functions</span>
@@ -155,7 +155,7 @@ export default function SlideWarpTerminal() {
               <div className="md:col-span-5 p-4 bg-slate-900/50 overflow-y-auto flex flex-col justify-between">
                 <div>
                   <h4 className="text-slate-200 font-bold border-b border-slate-800 pb-1.5 mb-2 flex items-center gap-1">
-                    <AlertCircle size={12} className="text-indigo-400" />
+                    <AlertCircle size={12} className="text-sky-400" />
                     Problem Statement
                   </h4>
                   <p className="text-slate-400 text-[12px] leading-relaxed mb-4">

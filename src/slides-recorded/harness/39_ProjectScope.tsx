@@ -1,6 +1,7 @@
 import { SplitSquareHorizontal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { DontDo } from './_DontDo';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -18,7 +19,7 @@ export default function RecProjectScope() {
     <SlideLayout title={meta.title} subtitle="One Project, One Job" icon={SplitSquareHorizontal}>
       <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">依任務切開，不相關的不要混在一起</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug"><Key>依任務切開</Key>，不相關的不要混在一起</p>
         </AnimatedBlock>
 
         <DontDo

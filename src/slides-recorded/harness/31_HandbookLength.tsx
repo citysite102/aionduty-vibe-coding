@@ -1,5 +1,6 @@
 import { Ruler } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -17,7 +18,7 @@ export default function RecHandbookLength() {
     <SlideLayout title={meta.title} subtitle="Keep It Short" icon={Ruler}>
       <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-100 text-4xl font-bold leading-snug">一份大約 200 行以內</p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">一份大約 <Key>200 行以內</Key></p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">
             越長被遵守的比例越低。規矩越多，每一條分到的份量就越少。
           </p>

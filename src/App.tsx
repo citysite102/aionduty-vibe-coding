@@ -45,6 +45,7 @@ import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide11c from './slides/11c_M1_PricingAndROI';
 import Slide11c2 from './slides/11c2_M1_ROI';
 import Slide12 from './slides/12_M1_Example1';
+import Slide12b from './slides/12b_M1_Challenge';
 import Slide13 from './slides/13_M1_Example2';
 import Slide14 from './slides/14_M1_Boundaries';
 import Slide15 from './slides/15_M1_Workflow';
@@ -71,8 +72,10 @@ import Slide21d2 from './slides/21d2_M2_LoadOnDemand';
 import Slide21d3 from './slides/21d3_M2_OutsideContext';
 import Slide21e from './slides/21e_M2_Extensions_Cases';
 import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
+import Slide21e3 from './slides/21e3_M2_ProjectTypes';
 import Slide21f from './slides/21f_M2_ClaudeMdRealWorld';
 import Slide21f2 from './slides/21f2_M2_ThisDeck';
+import Slide21f6 from './slides/21f6_M2_ProblemMap';
 import Slide21f3 from './slides/21f3_M2_RuleFailure';
 import Slide21f4 from './slides/21f4_M2_RuleRouting';
 import Slide21f5 from './slides/21f5_M2_ClaudeMdHealth';
@@ -82,6 +85,7 @@ import Slide32 from './slides/32_Cheat_Tools';
 import Slide32c from './slides/32c_M2_TransferQuiz';
 import Slide32d from './slides/32d_M2_Recap';
 import Slide32b from './slides/32b_MentalModels';
+import SlideDivTeam from './slides/22_Div_MultiAgent';
 import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
 import Slide25 from './slides/25_M3_Quality';
@@ -149,14 +153,15 @@ const LIVE_TITLES = [
   "Claude Code 對話與會話控制命令",
   "Claude Code 指令的四種類型",
   "做出你的第一個作品",
+  "換你寫一次",
   "叫它寫個小工具，幫你做雜事",
   "哪些事它做得好，哪些你得自己來",
   "該用什麼工具？",
   "Agent 運作框架與成本分析",
   "每次開新對話，你都要重講一次規矩",
   "什麼是運作框架？",
-  "上下文工程",
   "完整的運作框架有哪些零件",
+  "上下文工程",
   "Token 經濟學：資本支出與營運成本",
   "兩大類 AI 程式工具付費與登入模式",
   "為什麼你該花錢買 AI 算力？",
@@ -174,12 +179,10 @@ const LIVE_TITLES = [
   "真要擋住，就不要放進 context",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
-  "讓團隊為你工作",
-  "一個人做不完的時候，怎麼分工",
-  "設立品質防線 (Anti-Slop)",
-  "養一個小幫手",
+  "「專案」不是只有寫程式",
   "這跟你的專案有什麼關係？",
   "這份簡報就是這樣做出來的",
+  "接下來要解決的四個問題",
   "規則明明寫了，它卻沒照做",
   "這條規則該放哪",
   "手冊越寫越肥，怎麼整理",
@@ -189,6 +192,11 @@ const LIVE_TITLES = [
   "跨工具思維對照表",
   "換成你的工作，手冊該寫什麼",
   "這一段你完成了三件事",
+  "讓 Agent 分工，並守住品質",
+  "讓團隊為你工作",
+  "一個人做不完的時候，怎麼分工",
+  "設立品質防線 (Anti-Slop)",
+  "養一個小幫手",
   "Agent 循環開發流程",
   "做完一次不算完，要能自己跑下一輪",
   "自動化之後，最容易累積的三件事",
@@ -252,14 +260,15 @@ const LIVE_SLIDES = [
   Slide11d2,
   Slide11e,
   Slide12,
+  Slide12b,
   Slide13,
   Slide14,
   Slide18b,
   Slide19,
   Slide19a,
   Slide20,
-  Slide19b,
   Slide19c,
+  Slide19b,
   Slide19d,
   Slide11c,
   Slide11c2,
@@ -277,12 +286,10 @@ const LIVE_SLIDES = [
   Slide21d3,
   Slide21e,
   Slide21e2,
-  Slide23,
-  Slide24,
-  Slide25,
-  Slide25b,
+  Slide21e3,
   Slide21f,
   Slide21f2,
+  Slide21f6,
   Slide21f3,
   Slide21f4,
   Slide21f5,
@@ -292,6 +299,11 @@ const LIVE_SLIDES = [
   Slide32,
   Slide32c,
   Slide32d,
+  SlideDivTeam,
+  Slide23,
+  Slide24,
+  Slide25,
+  Slide25b,
   Slide26,
   Slide27,
   Slide27b4,
@@ -328,8 +340,9 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 41, label: 'Agent 運作框架與成本分析' },
-  { start: 78, label: 'Agent 循環開發流程' },
+  { start: 42, label: 'Agent 運作框架與成本分析' },
+  { start: 77, label: '讓 Agent 分工，並守住品質' },
+  { start: 82, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
@@ -435,12 +448,12 @@ export default function App() {
       {/* Background Grid & Glows */}
       <div className="absolute inset-0 bg-grid-slate-900 [mask-image:radial-gradient(ellipse_at_center,white,transparent_80%)] pointer-events-none" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none" />
       
       {/* Top Progress Bar */}
       <div className="h-1.5 bg-slate-900 w-full z-50">
         <motion.div
-          className="h-full bg-gradient-to-r from-sky-400 to-indigo-500"
+          className="h-full bg-sky-400"
           initial={{ width: 0 }}
           animate={{ width: `${((current + 1) / SLIDES.length) * 100}%` }}
           transition={{ duration: 0.3 }}

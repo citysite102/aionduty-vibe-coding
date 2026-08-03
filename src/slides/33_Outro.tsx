@@ -17,7 +17,7 @@ export default function SlideOutro() {
           <motion.div 
             animate={{ rotate: -360 }}
             transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
-            className="w-[600px] h-[600px] rounded-full border border-indigo-500/10 border-dashed absolute opacity-40"
+            className="w-[600px] h-[600px] rounded-full border border-sky-500/10 border-dashed absolute opacity-40"
           />
           {/* Framer Motion elegant pulsating background glow - positioned slightly lower to avoid clipping */}
           <motion.div 
@@ -27,7 +27,7 @@ export default function SlideOutro() {
               rotate: [0, 90, 0]
             }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[350px] h-[350px] bg-gradient-to-tr from-sky-500/25 via-indigo-500/20 to-emerald-500/25 blur-[90px] rounded-full absolute top-[15%]"
+            className="w-[350px] h-[350px] bg-gradient-to-tr from-sky-500/25 to-emerald-500/25 blur-[90px] rounded-full absolute top-[15%]"
           />
         </div>
 
@@ -48,7 +48,7 @@ export default function SlideOutro() {
           
           <h2 className="text-2xl md:text-4xl font-black text-slate-100 mb-4 leading-tight">
             以前寫下來的東西是給人看的，<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
               現在寫下來的東西，會自己跑起來。
             </span>
           </h2>
@@ -66,7 +66,7 @@ export default function SlideOutro() {
         </AnimatedBlock>
         
         <AnimatedBlock stepIndex={2} className="w-full max-w-4xl relative z-10 mt-2">
-          <div className="bg-gradient-to-r from-sky-950/40 via-indigo-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-r from-sky-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
             <div className="bg-slate-950/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl border border-slate-800">
               <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
                 <Star className="text-amber-400" size={20} />

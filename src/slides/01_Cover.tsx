@@ -14,7 +14,7 @@ export default function Slide01() {
         initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5, duration: 1 }}
         className="absolute top-[20%] left-[15%] hidden md:flex items-center gap-3 bg-slate-900/50 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-2xl"
       >
-        <div className="w-10 h-10 rounded-full border-4 border-indigo-500/30 border-t-indigo-500 animate-spin" style={{ animationDuration: '3s' }} />
+        <div className="w-10 h-10 rounded-full border-4 border-slate-700 border-t-slate-500 animate-spin" style={{ animationDuration: '3s' }} />
         <div className="h-2 w-12 bg-slate-700 rounded-full" />
       </motion.div>
       
@@ -34,8 +34,8 @@ export default function Slide01() {
         initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.9, duration: 1 }}
         className="absolute bottom-[20%] left-[20%] hidden md:flex flex-col gap-2 bg-slate-900/50 backdrop-blur-md border border-slate-700 p-4 rounded-xl"
       >
-        <Activity size={24} className="text-indigo-400" />
-        <div className="h-1.5 w-16 bg-indigo-500/50 rounded-full mt-2" />
+        <Activity size={24} className="text-slate-400" />
+        <div className="h-1.5 w-16 bg-slate-600 rounded-full mt-2" />
         <div className="h-1.5 w-10 bg-slate-700 rounded-full" />
       </motion.div>
       
@@ -47,7 +47,7 @@ export default function Slide01() {
       >
         {/* User Icon Badge */}
         <div className="mb-8 relative">
-          <div className="bg-indigo-200 text-indigo-900 p-3 rounded-xl shadow-[0_0_20px_rgba(99,102,241,0.4)]">
+          <div className="bg-sky-200 text-sky-900 p-3 rounded-xl shadow-[0_0_20px_rgba(14,165,233,0.4)]">
              <User size={32} />
           </div>
           <div className="absolute -bottom-2 -right-2 bg-emerald-500 text-slate-900 rounded-full p-0.5 border-2 border-[#020617]">

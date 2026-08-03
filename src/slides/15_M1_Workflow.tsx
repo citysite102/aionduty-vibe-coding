@@ -44,8 +44,8 @@ export default function Slide06() {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-slate-900 border border-indigo-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
-              <div className="w-12 h-12 bg-indigo-500/20 text-indigo-400 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-slate-900 border border-sky-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
+              <div className="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-full flex items-center justify-center mb-4">
                 <CheckCircle2 size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">4. 驗證</h3>
@@ -69,7 +69,7 @@ export default function Slide06() {
             <span className="text-sky-300 font-bold tracking-wider">探索 → 計畫 → 執行 → 驗證</span>
             <br/><br/>
             以此循環不斷迭代。這正是為什麼我們需要讓 Agent 在終端機工作：<br/>
-            <strong className="text-indigo-400">它能自動幫你完成這個循環中的「執行與驗證」步驟。</strong>
+            <strong className="text-sky-400">它能自動幫你完成這個循環中的「執行與驗證」步驟。</strong>
             <span className="block mt-4 pt-4 border-t border-slate-800 text-sm text-slate-400">
               接下來要教的每一個操作，都會落在這四格的其中一格上。先記住這張圖，後面就不會迷路。
             </span>

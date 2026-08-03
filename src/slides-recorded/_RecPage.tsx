@@ -1,4 +1,5 @@
 import type React from 'react';
+import { HandbookPeek } from './harness/_HandbookPeek';
 
 /**
  * 預錄頁的內容殼。
@@ -16,12 +17,16 @@ import type React from 'react';
 export function RecPage({
   children,
   className = '',
+  handbook,
 }: {
   children: React.ReactNode;
   className?: string;
+  /** 走到這一頁時，手冊已經修到第幾版。給了就在右下角掛一顆可以叫出來看的按鈕。 */
+  handbook?: number;
 }) {
   return (
     <div className="min-h-full max-w-4xl mx-auto flex flex-col">
+      {handbook !== undefined && <HandbookPeek version={handbook} />}
       <div className="grow shrink-0 basis-0" />
       <div className={`shrink-0 ${className}`}>{children}</div>
       <div className="grow-[9] shrink-0 basis-0" />

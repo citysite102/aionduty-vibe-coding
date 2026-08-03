@@ -49,9 +49,9 @@ const CONCEPTS: ConceptDetail[] = [
     title: '專注思考與規劃',
     icon: Sliders,
     description: '在動手大改之前，讓 AI 保持在「只動腦、不動手」的規劃模式，先把問題分析完、把做法寫出來給你看。',
-    whyItMatters: '避免 AI 瞎子摸象、改一行壞十行。先看到它打算怎麼做，你才有機會在動工前喊停。',
-    claudeName: 'Plan Mode (/plan 或 Shift+Tab)',
-    claudeDesc: '終端機指令。切換至此模式後，AI 成為唯讀顧問，只負責做架構思考、問題診斷並提出草稿。',
+    whyItMatters: '避免它還沒看懂就動手，改一行壞十行。先看到它打算怎麼做，你才有機會在動工前喊停。',
+    claudeName: 'Plan Mode (Shift + Tab 切換)',
+    claudeDesc: '連按 Shift + Tab 循環到 plan mode。切換之後它只讀不寫，負責架構思考、問題診斷並提出草稿。',
     claudeBadge: '內建 CLI 快速切換',
     claudeCode: `> /plan
 [Plan Mode Activated]
@@ -82,7 +82,7 @@ Ask me for architectural analysis or plan generation.`
 - 產生 authentication.test.ts
 - 回傳摘要給主對話（過程不佔用主對話空間）`,
     openSourceName: '代理團隊 (Agent Teams)',
-    openSourceDesc: '利用 Swarm 框架、CrewAI 或 Autogen，分配專屬 Role (例如 QA, Backend, PM) 進行接力。',
+    openSourceDesc: 'CrewAI、Autogen 這類框架，分配專屬 Role (例如 QA, Backend, PM) 進行接力。',
     openSourceBadge: '自建或框架多重協同',
     openSourceCode: `team = AgentTeam(
   agents=[auth_coder, test_engineer],
@@ -97,8 +97,8 @@ team.dispatch("Implement auth tests")`
     icon: Play,
     description: 'AI 擁有自組「執行命令、讀取錯誤、自我除錯」的自動化循環（Feedback Loop），不需要人類每一秒按確認。',
     whyItMatters: '省下人力。你去泡杯咖啡的時間，AI 已經跑了五次編譯，修掉幾個拼字錯誤與語法報錯。',
-    claudeName: '自組除錯迴圈 + /goal',
-    claudeDesc: 'Claude Code 預設就會這樣做，不用額外設定：編譯失敗時它讀 stack trace、改檔、重跑。要交代一整段長任務的方向時，用 /goal 把目標講清楚，讓它照著跑。',
+    claudeName: '自組除錯迴圈',
+    claudeDesc: 'Claude Code 預設就會這樣做，不用額外設定：編譯失敗時它讀 stack trace、改檔、重跑。要交代一整段長任務時，把驗收條件一起寫進去，它才知道什麼時候算跑完。',
     claudeBadge: '內建，不用外掛',
     claudeCode: `> /goal 把所有失敗的測試修好
 

@@ -20,10 +20,10 @@ export default function SlideScale() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={3} className="bg-slate-900/50 border border-indigo-900/30 rounded-3xl p-6 relative shadow-lg">
+          <AnimatedBlock stepIndex={3} className="bg-slate-900/50 border border-sky-900/30 rounded-3xl p-6 relative shadow-lg">
              <div className="flex items-center gap-4">
-               <div className="bg-indigo-500/20 p-4 rounded-full">
-                 <Zap className="text-indigo-400" size={32} />
+               <div className="bg-sky-500/20 p-4 rounded-full">
+                 <Zap className="text-sky-400" size={32} />
                </div>
                <div>
                  <h4 className="text-xl font-bold text-slate-200">數量夠多，結論才會不一樣</h4>

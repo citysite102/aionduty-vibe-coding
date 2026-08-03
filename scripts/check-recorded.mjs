@@ -42,8 +42,11 @@ for (const file of walk(ROOT)) {
     }
   }
 
-  // 字數：扣掉 meta 區塊（口白不算在畫面文字裡）
-  const visible = src.replace(metaBlock[0], '');
+  // 字數：扣掉 meta 區塊（口白不算在畫面文字裡），也扣掉註解（註解不會顯示在畫面上）
+  const visible = src
+    .replace(metaBlock[0], '')
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/^\s*\/\/.*$/gm, '');
   const chars = (visible.match(/[一-龥]/g) || []).length;
   if (chars > LIMIT_CHARS) {
     errors.push(`${name}：畫面中文 ${chars} 字，超過 ${LIMIT_CHARS}`);
