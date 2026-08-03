@@ -65,41 +65,54 @@
 
 ## B. 新增或搬動投影片的檢查清單
 
-投影片的順序資訊分散在 `src/App.tsx` 的四個地方，漏改任何一處都會錯位，而且畫面不會報錯。**每次插頁、刪頁、換順序都要從頭走完這五步**：
+### B-0 先看懂兩層結構
+
+畫面上的頁面順序不是手寫的，是推導出來的：
+
+```
+LIVE_SLIDES  ─┐
+LIVE_TITLES  ─┼─→ ENTRIES ─→ SLIDES / SLIDE_TITLES（畫面實際播的）
+REPLACEMENTS ─┘
+```
+
+- **`LIVE_SLIDES` / `LIVE_TITLES`**（`src/App.tsx`）是「未拆頁」的順序，兩個陣列靠 index 對齊，長度必須一致。
+- **`REPLACEMENTS`**（`src/slides-recorded/registry.ts`）的 key 是 **LIVE index**，把那一頁換成一組預錄頁。目前 8 頁被拆成 56 頁。
+- **`SECTION_DEFS`** 的 `start` 也是 **LIVE index**，指向一張分節頁（`*_Div_*.tsx`）。下拉選單的 `optgroup` 由它自動推導，**不需要手動維護 slice 範圍**。
+
+`SLIDES`、`SLIDE_TITLES`、`SECTIONS` 都是衍生值，不要直接改。
+
+### B-1 插一頁 live 頁面
 
 1. 在 `src/slides/` 建檔，檔名沿用 `編號_模組_主題.tsx` 慣例。
 2. 在 `App.tsx` 上方加 `import`。
-3. 加進 `SLIDES` 陣列的正確位置。
-4. 在 `SLIDE_TITLES` 的**完全相同位置**加標題。兩個陣列是靠 index 對齊的，長度必須一致。
-5. **檢查是否跨越分節頁，若是則調整下拉選單的 `optgroup` 切點。**
+3. 插進 `LIVE_SLIDES` 的正確位置。
+4. 在 `LIVE_TITLES` 的**完全相同位置**插標題。
+5. **把所有「大於等於插入位置」的 index 往後推 1**，這是最容易漏的一步：
+   - `SECTION_DEFS` 的每個 `start`
+   - `REPLACEMENTS` 的每個 key（連同它上面的 `// index N = 原「⋯」` 註解）
 
-分節頁（`*_Div_*.tsx`）目前落在 index `3` / `13` / `39` / `77`，對應的 `optgroup` 切點必須完全吻合：
+刪頁就是同樣的事往前推 1。**在陣列尾端加頁、或是往 `REPLACEMENTS` 既有的 key 底下多塞一頁預錄頁，都不會造成位移**，可以跳過第 5 步。
 
-| optgroup | slice 範圍 |
-|---|---|
-| 課前導讀 | `slice(0, 3)` |
-| 解構 Vibe Coding | `slice(3, 13)` |
-| Agent 的心智模型與 Claude Code 終端機實作 | `slice(13, 39)` |
-| Agent 運作框架與成本分析 | `slice(39, 77)` |
-| Agent 循環開發流程 | `slice(77, SLIDES.length - 1)` |
-| 結語 | 最後一張 |
-
-改完切點後跑這段確認，不要靠肉眼數：
+### B-2 跑自檢，不要靠肉眼數
 
 ```bash
-node -e "
-const s=require('fs').readFileSync('src/App.tsx','utf8');
-const a=s.match(/const SLIDES = \[([\s\S]*?)\n\];/)[1].split(',').map(x=>x.trim()).filter(Boolean);
-const t=s.match(/const SLIDE_TITLES = \[([\s\S]*?)\n\];/)[1].split('\n').map(x=>x.trim()).filter(Boolean);
-console.log(a.length, t.length, a.length===t.length?'OK':'MISMATCH');
-[3,13,39,77].forEach(i=>console.log(i, a[i], t[i]));"
+npm run check:slides
 ```
 
-**分節頁的數量必須等於 optgroup 組數減一（結語自成一組）。** 新增或刪除 `*_Div_*.tsx` 時，一定要同步增減 optgroup，否則會出現「有分節頁卻沒有對應群組」的狀況，講者在選單裡找不到那一節。
+它會抓四類「不會報錯、typecheck 也抓不到」的錯：
 
-每組 `optgroup` 內的 `key`、`value`、`SLIDE_TITLES[]` 索引、以及顯示用的 `Slide {n}` 都帶有同一個偏移量，改切點時四個數字要一起改。**在某一節中間插一頁，該節之後的每一組切點都要往後推**，這是最常漏的一步。
+| 檢查 | 抓什麼 |
+|---|---|
+| 兩個陣列長度 | `LIVE_SLIDES` 與 `LIVE_TITLES` 不一致 |
+| `REPLACEMENTS` key | key 指到了別頁（拿註解裡的標題比對 `LIVE_TITLES[key]`） |
+| `SECTION_DEFS` start | start 沒有落在分節頁上 |
+| 分節頁涵蓋率 | 有 `*_Div_*.tsx` 卻沒有對應的 `SECTION_DEFS`，講者在選單裡會找不到那一節 |
 
-### B-1 投影片內文不要寫絕對頁碼或頁數
+**每個 `REPLACEMENTS` 項目上面都要有 `// index N = 原「標題」` 註解。** 那是自檢唯一能核對 key 有沒有指錯的依據，少了它，key 被改錯也看不出來，所以缺註解會直接報錯。
+
+改完順序也跑一次 `npm run lint` 與 `npm run check:rec`。三支都過再提交。
+
+### B-3 投影片內文不要寫絕對頁碼或頁數
 
 `p70 - 73`、「這一段共 14 頁」、「你現在看到的這 86 頁」、「接下來四頁講這個」這類寫法，插頁或拆頁之後全部會失效，而且**畫面右下角一直顯示著正確的「Slide N / 總數」，兩邊對不上比沒寫更糟**。typecheck 也抓不到。
 

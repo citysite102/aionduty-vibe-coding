@@ -9,7 +9,8 @@
     "preview": "vite preview --port=3001 --host=0.0.0.0",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
-    "check:rec": "node scripts/check-recorded.mjs"
+    "check:rec": "node scripts/check-recorded.mjs",
+    "check:slides": "node scripts/check-slides.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
