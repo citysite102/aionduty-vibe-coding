@@ -1,12 +1,16 @@
 import { Terminal, MessageSquare, Code2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * 這一頁論證的是「為什麼要一個能動手的 AI」，不是「為什麼要終端機」。
+ * 終端機只是它的其中一個介面，桌面版的 Code 頁籤同樣成立。
+ */
 export default function SlideCodeIntro() {
   return (
-    <SlideLayout 
-      title="為什麼選擇終端機與 Claude Code？" 
-      subtitle="The Power of Local Agents & Claude Code Introduction" 
-      icon={Terminal}
+    <SlideLayout
+      title="為什麼要一個能動手的 AI？"
+      subtitle="Advisor or Executor"
+      icon={Code2}
     >
       <div className="max-w-6xl mx-auto mt-2 text-left space-y-6">
         
@@ -69,7 +73,7 @@ export default function SlideCodeIntro() {
                 <div className="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
                   <Terminal size={16} />
                 </div>
-                <h3 className="text-base font-bold text-indigo-300">本機終端機模式 (Claude Code)：「執行者」</h3>
+                <h3 className="text-base font-bold text-indigo-300">裝在你電腦裡 (Claude Code)：「執行者」</h3>
               </div>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-5">
@@ -101,7 +105,7 @@ export default function SlideCodeIntro() {
 
         <AnimatedBlock stepIndex={4} className="bg-slate-950/60 border border-slate-800 border-l-4 border-l-slate-600 rounded-xl px-5 py-3.5">
           <p className="text-slate-400 text-xs leading-relaxed">
-            <strong className="text-slate-300">那 Connector／MCP 呢？</strong>網頁版確實能透過它們連到部分工具，但多半是連向<strong className="text-slate-300">雲端服務</strong>（讀某個 API、查某個線上資料庫）；它仍碰不到你電腦裡的<strong className="text-slate-200">真實檔案與終端機</strong>。真正能長在你專案裡動手的，還是本機 Agent。
+            <strong className="text-slate-300">那 Connector／MCP 呢？</strong>網頁版確實能透過它們連到部分工具，但多半是連向<strong className="text-slate-300">雲端服務</strong>（讀某個 API、查某個線上資料庫）；它仍碰不到你電腦裡的<strong className="text-slate-200">真實檔案</strong>。真正能長在你專案裡動手的，還是裝在本機的 Agent。
           </p>
         </AnimatedBlock>
 
