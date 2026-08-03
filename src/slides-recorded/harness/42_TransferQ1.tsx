@@ -1,5 +1,7 @@
 import { Repeat2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { Callout } from './_Callout';
+import { TransferRail } from './_TransferRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -16,23 +18,24 @@ export default function RecTransferQ1() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={Repeat2}>
       <RecPage>
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
+        <TransferRail active={2} />
+
+        <AnimatedBlock stepIndex={1} className="mb-6">
           <div className="text-slate-500 text-base font-mono mb-3">第 1 題，共 3 題</div>
 
-          <div className="border-l-2 border-slate-700 pl-5 mb-7">
+          <div className="border-l-2 border-slate-700 pl-5 mb-5">
             <p className="text-slate-300 text-2xl leading-snug">哪些事情你每次都要重講一次？</p>
           </div>
 
-          <p className="text-slate-100 text-4xl font-bold mb-5 leading-snug">這些是手冊的第一批內容</p>
-
-          <p className="text-slate-400 text-xl leading-relaxed">
-            寫下來就不用再講，這是手冊最原始的用途。
-          </p>
+          <p className="text-slate-100 text-4xl font-bold leading-snug">這些是手冊的第一批內容</p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="mt-5 flex items-baseline gap-4 px-2">
-          <span className="text-slate-500 text-base shrink-0">例如</span>
-          <span className="text-slate-300 text-xl">輸出分成哪幾段、哪些欄位一定要有</span>
+        <Callout stepIndex={2} label="例如">
+          輸出分成哪幾段、哪些欄位一定要有
+        </Callout>
+
+        <AnimatedBlock stepIndex={3} className="mt-5 px-1">
+          <p className="text-slate-400 text-xl leading-relaxed">寫下來就不用再講，這是手冊最原始的用途。</p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

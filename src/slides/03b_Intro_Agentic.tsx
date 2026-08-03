@@ -16,7 +16,7 @@ export default function SlideIntroAgentic() {
             Andrej Karpathy 於 2026 年 2 月宣告：Vibe Coding 已經過時
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">
-            隨著 LLM 的推理與執行能力大幅躍升，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
+            隨著 LLM 的推理與執行能力提升，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
           </p>
         </AnimatedBlock>
 

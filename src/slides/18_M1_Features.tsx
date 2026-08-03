@@ -41,7 +41,7 @@ export default function SlideM1Features() {
             <h3 className="text-xl font-bold text-rose-400 font-mono mb-2">/clear</h3>
             <div className="text-slate-100 font-bold mb-4">重新開始</div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              清除目前的對話紀錄，就像開一個新的聊天視窗一樣，乾淨俐落。
+              清除目前的對話紀錄，等同於開一個新的聊天視窗。
             </p>
             <div className="text-slate-500 text-xs bg-slate-950 p-3 rounded font-mono">輸入：/clear</div>
           </AnimatedBlock>

@@ -25,7 +25,7 @@ interface ConceptDetail {
 const CONCEPTS: ConceptDetail[] = [
   {
     id: 'handbook',
-    title: '專案規矩手冊',
+    title: '專案規則手冊',
     icon: FileText,
     description: '奠定系統對該專案的整體規矩、程式碼風格、命名規範與架構習慣，讓 AI 寫出的程式像你親自寫的一樣。',
     whyItMatters: '避免 AI 在程式中任意發揮、寫出脫離專案慣例的程式碼，能省下大量事後人工修正的時間。',

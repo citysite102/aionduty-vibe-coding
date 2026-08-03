@@ -1,5 +1,7 @@
 import { Signpost } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { PairTable } from './_PairTable';
+import { RecapRail } from './_RecapRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -23,19 +25,21 @@ export default function RecRecapThree() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={Signpost}>
       <RecPage className="space-y-6">
+        <RecapRail active={1} />
+
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-3">第 3 件，共 3 件</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">知道一條規則該送到哪裡</p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-3">
-          {ROUTES.map(([cond, dest]) => (
-            <div key={cond} className="flex items-baseline gap-5">
-              <span className="text-slate-400 text-xl shrink-0 w-44">{cond}</span>
-              <span className="text-sky-300 text-xl font-bold">{dest}</span>
-            </div>
-          ))}
-        </AnimatedBlock>
+        <PairTable
+          stepIndex={2}
+          headers={['什麼樣的規則', '送到哪裡']}
+          rows={ROUTES.map(([cond, dest]) => [
+            cond,
+            <span className="font-bold text-sky-300">{dest}</span>,
+          ])}
+        />
 
         <AnimatedBlock stepIndex={3} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">

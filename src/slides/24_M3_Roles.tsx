@@ -245,7 +245,7 @@ export default function Slide11() {
               <span className="text-[11px] font-mono text-slate-500">適合：多元專業動態協同</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              成員主動認領任務，共同看著一張白板。注意 <strong>Agent 之間並不會直接對話</strong>，而是透過<strong>共享的 JSON 狀態檔或共用目錄</strong>交換進度，白板就是那些檔案。🎯 <strong>選型準則</strong>：適合<strong>需要多種專業接力探討的複雜任務</strong>。但共享狀態要自己設計與維護，協調成本極高（這筆管理摩擦叫「調度稅」，真正的上限往往是你自己能同時審核幾件事），必須在角色職責定義極清晰時才划算。
+              成員主動認領任務，共同看著一張白板。注意 <strong>Agent 之間並不會直接對話</strong>，而是透過<strong>共享的 JSON 狀態檔或共用目錄</strong>交換進度，白板就是那些檔案。🎯 <strong>選型準則</strong>：適合<strong>需要多種專業接力探討的複雜任務</strong>。但共享狀態要自己設計與維護，協調成本很高（這筆管理摩擦叫「調度稅」，上限往往是你自己能同時審核幾件事），要在角色職責定義很清楚時才划算。
             </p>
           </AnimatedBlock>
 

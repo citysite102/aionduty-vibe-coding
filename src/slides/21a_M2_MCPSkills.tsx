@@ -20,7 +20,7 @@ export default function Slide21a() {
             <div className="text-sky-200/70 text-sm mb-6 font-mono">標準化環境擴充 (Infrastructure)</div>
             
             <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-              一個開放標準協議，讓 AI 模型能安全地連線到本機或外部資料源。就像是給 AI 裝上了各種感測器與萬能接頭。
+              一個開放標準協議，讓 AI 模型能安全地連線到本機或外部資料源。有了它，AI 才碰得到你的資料庫、雲端硬碟、專案管理工具。
             </p>
 
             <div className="bg-slate-950 p-5 rounded-xl border border-sky-900/30 mb-6 relative">

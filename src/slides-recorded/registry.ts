@@ -32,13 +32,16 @@ import RecLayerSubdir, { meta as m29 } from './harness/29_LayerSubdir';
 import RecLayerLocal, { meta as m30 } from './harness/30_LayerLocal';
 import RecHandbookLength, { meta as m31 } from './harness/31_HandbookLength';
 import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
+import RecWhereElse, { meta as m32b } from './harness/32b_WhereElse';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
 import RecSurfaceProjects, { meta as m34 } from './harness/34_SurfaceProjects';
+import RecProjectsUI, { meta as m34b } from './harness/34b_ProjectsUI';
 import RecSurfaceCowork, { meta as m35 } from './harness/35_SurfaceCowork';
 import RecSurfaceCode, { meta as m36 } from './harness/36_SurfaceCode';
 import RecNonCodeKnowledge, { meta as m37 } from './harness/37_NonCodeKnowledge';
 import RecNonCodeInstruction, { meta as m38 } from './harness/38_NonCodeInstruction';
 import RecProjectScope, { meta as m39 } from './harness/39_ProjectScope';
+import RecWhyNotNewChat, { meta as m39b } from './harness/39b_WhyNotNewChat';
 import RecSurfaceRecap, { meta as m40 } from './harness/40_SurfaceRecap';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
 import RecTransferQ1, { meta as m42 } from './harness/42_TransferQ1';
@@ -111,19 +114,24 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m15, Component: RecWrite5 },
     { meta: m16, Component: RecWrite6 },
   ],
-  // index 73 = 原 Slide 74「同一套手冊，換個地方用」
-  73: [
+  // index 72 = 原「同一套手冊，換個地方用」
+  // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：
+  // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
+  72: [
+    { meta: m32b, Component: RecWhereElse },
     { meta: m33, Component: RecSurfaceIntro },
     { meta: m34, Component: RecSurfaceProjects },
+    { meta: m34b, Component: RecProjectsUI },
     { meta: m35, Component: RecSurfaceCowork },
     { meta: m36, Component: RecSurfaceCode },
     { meta: m37, Component: RecNonCodeKnowledge },
     { meta: m38, Component: RecNonCodeInstruction },
     { meta: m39, Component: RecProjectScope },
+    { meta: m39b, Component: RecWhyNotNewChat },
     { meta: m40, Component: RecSurfaceRecap },
   ],
-  // index 76 = 原 Slide 77「換成你的工作，手冊該寫什麼」
-  76: [
+  // index 75 = 原「換成你的工作，手冊該寫什麼」
+  75: [
     { meta: m41, Component: RecTransferCase },
     { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
@@ -132,8 +140,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m46, Component: RecTransferMapping },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 77 = 原 Slide 78「這一段你完成了三件事」
-  77: [
+  // index 76 = 原「這一段你完成了三件事」
+  76: [
     { meta: m48, Component: RecRecapOne },
     { meta: m49, Component: RecRecapTwo },
     { meta: m50, Component: RecRecapThree },

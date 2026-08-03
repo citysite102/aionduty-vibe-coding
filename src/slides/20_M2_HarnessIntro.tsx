@@ -239,7 +239,7 @@ export default function SlideHarnessIntro() {
               {activeTab === 'without' ? (
                 <span>在沒有 CLAUDE.md 或 MCP 等 Harness 設定時，AI 只能像一般網頁對話框一樣「盲修」，容易偏離並寫出與專案架構完全衝突的冗餘程式碼。</span>
               ) : (
-                <span>建置乾淨的規範 Harness (包括專案讀寫權、環境依賴與明確規則) 能讓 AI 在對的框架內工作，<strong>大幅提高一次到位、可編譯通過的成功率</strong>！</span>
+                <span>把運作框架架乾淨（專案讀寫權、環境相依套件與明確規則），AI 就在對的範圍裡工作，<strong>比較常一次就寫出能編譯通過的程式碼</strong>。</span>
               )}
             </div>
           </AnimatedBlock>

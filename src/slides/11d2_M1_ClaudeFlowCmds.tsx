@@ -26,16 +26,16 @@ export default function SlideClaudeFlowCmds() {
                 讓 AI 保持專注
               </h3>
               <p className="text-slate-300 text-xs leading-relaxed">
-                在長時間、高難度的開發任務中，AI 的上下文（Context Window）會隨著對話增長而逐漸變得沉重。這不僅會導致<strong> Token 成本飆升</strong>，也會讓 AI 的注意力失焦、出現幻覺。
+                任務一長，AI 的上下文（Context Window）會越積越多。<strong>Token 成本會跟著上去</strong>，注意力也會被稀釋，開始出現幻覺。
               </p>
               <p className="text-slate-400 text-xs leading-relaxed">
-                學會使用這組「進階控制命令」，就像幫 AI 戴上降噪耳機：能精準整理記憶、隔離離題的對話，還能直接貼圖給它看畫面（多模態）。
+                這組「進階控制命令」可以整理記憶、把離題的問題隔開，也可以直接貼圖給它看畫面（多模態）。
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800">
               <p className="text-[11px] text-slate-500 leading-normal italic">
-                💡 貼心提醒：在與 AI 進行長對話時，養成隨手壓縮記憶（/compact）的習慣，是資深 Vibe Coders 的必備基本功。
+                💡 提醒：長對話時養成隨手壓縮記憶（/compact）的習慣，後面比較不會因為上下文太滿而出錯。
               </p>
             </div>
           </AnimatedBlock>
@@ -59,7 +59,7 @@ export default function SlideClaudeFlowCmds() {
                   </div>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  <strong>省錢又提速：</strong>輸入 <code className="text-indigo-300 font-mono">/compact</code> 會將前面的對話歷史進行有損壓縮，大幅清除冗餘的程式碼上下文，直接節省後續 Token 消耗。而 <code className="text-indigo-300 font-mono">/resume</code> 則能讓你一秒找回前一天的會話狀態。
+                  輸入 <code className="text-indigo-300 font-mono">/compact</code> 會把前面的對話做有損壓縮，清掉重複的程式碼上下文，後續的 Token 消耗會降下來。<code className="text-indigo-300 font-mono">/resume</code> 則是回到前一天的會話狀態繼續。
                 </p>
               </div>
             </AnimatedBlock>

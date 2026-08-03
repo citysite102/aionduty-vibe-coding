@@ -63,7 +63,7 @@ export default function SlideWarpTerminal() {
 
           <AnimatedBlock stepIndex={5} className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-2">
             <p>
-              💡 <strong>推薦理由：</strong>非工程師常對全黑的文字畫面感到陌生。Warp 的現代編輯邏輯與 AI 輔助功能，能大幅減輕學習 Terminal 的適應門檻。(支援 Mac / Linux / Windows)
+              💡 <strong>推薦理由：</strong>非工程師常對全黑的文字畫面感到陌生。Warp 的編輯操作跟一般文字編輯器接近，還附 AI 輔助，剛開始比較不會卡住。(支援 Mac / Linux / Windows)
             </p>
             <p className="text-slate-500 border-t border-slate-900 pt-2 text-[11px]">
               ⚠️ <strong>重要提醒：</strong>前面教的指令（如 <code>pwd</code>, <code>ls</code>, <code>mkdir</code>）都是<strong>全平台通用的標準指令</strong>。Warp 只是讓你打字更舒服、提供 AI 輔助的工具，<strong>不裝也完全不影響後面所有課程的進行</strong>！

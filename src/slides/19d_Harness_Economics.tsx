@@ -24,7 +24,7 @@ export default function SlideHarnessEconomics() {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
-                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">Token 燃燒率極高：</strong>因為缺乏邊界與測試，反覆除錯會消耗大量 Token。</span>
+                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">Token 消耗高：</strong>因為缺乏邊界與測試，反覆除錯會消耗大量 Token。</span>
               </li>
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
@@ -55,7 +55,7 @@ export default function SlideHarnessEconomics() {
             <div className="bg-sky-950/20 p-6 rounded-xl border border-sky-900/40 flex items-start gap-5">
               <Factory size={28} className="text-sky-400 shrink-0 mt-1" />
               <p className="text-sky-100 text-base leading-relaxed">
-                但後續每次生成新功能的編輯成本大幅下降，因為 AI 是在一個被良好治理引導的<strong className="text-sky-300 font-bold">「工廠」</strong>裡運作，<strong className="text-sky-300 font-bold">一次到位的成功率極高</strong>。
+                但架好之後，每次生成新功能的成本會降下來。因為架構、測試與規則都在，<strong className="text-sky-300 font-bold">它比較常一次就寫對，來回修改的次數變少</strong>。
               </p>
             </div>
           </AnimatedBlock>

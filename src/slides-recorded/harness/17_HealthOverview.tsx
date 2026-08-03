@@ -1,6 +1,7 @@
 import { ClipboardCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HealthRail } from './_HealthRail';
+import { PairTable } from './_PairTable';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -13,6 +14,14 @@ export const meta: RecordedMeta = {
   from: 69,
 };
 
+const STEPS: [string, string][] = [
+  ['1　盤點', '找出每一條規則的來由'],
+  ['2　減法', '刪掉已經不需要的'],
+  ['3　分流', '把留下來的送到該去的地方'],
+  ['4　加法', '這時候才補新規則'],
+  ['5　修剪', '把句子改成可以檢查的'],
+];
+
 export default function RecHealthOverview() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
@@ -23,20 +32,16 @@ export default function RecHealthOverview() {
           <p className="text-slate-100 text-4xl font-bold leading-snug">五個步驟，順序不能換</p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7 space-y-3">
-          {[
-            ['1　盤點', '找出每一條規則的來由'],
-            ['2　減法', '刪掉已經不需要的'],
-            ['3　分流', '把留下來的送到該去的地方'],
-            ['4　加法', '這時候才補新規則'],
-            ['5　修剪', '把句子改成可以檢查的'],
-          ].map(([n, d]) => (
-            <div key={n} className="flex items-baseline gap-6">
-              <span className="text-sky-400 font-bold text-xl font-mono shrink-0 w-24">{n}</span>
-              <span className="text-slate-300 text-xl">{d}</span>
-            </div>
-          ))}
-        </AnimatedBlock>
+        {/* 上方流程軌已經列出五個步驟，這裡不再加表頭，只補分隔線把配對框起來 */}
+        <PairTable
+          stepIndex={2}
+          ratio="narrow"
+          density="compact"
+          rows={STEPS.map(([n, d]) => [
+            <span className="font-mono font-bold text-sky-400">{n}</span>,
+            d,
+          ])}
+        />
 
         <AnimatedBlock stepIndex={3} className="mt-5 bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-4">
           <p className="text-slate-300 text-xl leading-relaxed">先刪再搬，順序反了就會把該刪的搬到別處，繼續佔著空間。</p>

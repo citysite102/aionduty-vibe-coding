@@ -75,7 +75,6 @@ import Slide21f2 from './slides/21f2_M2_ThisDeck';
 import Slide21f3 from './slides/21f3_M2_RuleFailure';
 import Slide21f4 from './slides/21f4_M2_RuleRouting';
 import Slide21f5 from './slides/21f5_M2_ClaudeMdHealth';
-import Slide21g from './slides/21g_M2_ClaudeProjects';
 import Slide21h2 from './slides/21h2_M2_ProjectsInPractice';
 import Slide21j from './slides/21j_M2_ClaudeCodeIntegration';
 import Slide32 from './slides/32_Cheat_Tools';
@@ -180,7 +179,6 @@ const LIVE_TITLES = [
   "這條規則該放哪",
   "手冊越寫越肥，怎麼整理",
   "怎麼把話講對：白名單與探索空間",
-  "專屬知識庫與分身",
   "同一套手冊，換個地方用",
   "Claude Projects 與 Claude Code 怎麼搭",
   "跨工具思維對照表",
@@ -280,7 +278,6 @@ const LIVE_SLIDES = [
   Slide21f4,
   Slide21f5,
   Slide32b,
-  Slide21g,
   Slide21h2,
   Slide21j,
   Slide32,
@@ -320,7 +317,7 @@ const SECTION_DEFS = [
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 終端機實作' },
   { start: 40, label: 'Agent 運作框架與成本分析' },
-  { start: 78, label: 'Agent 循環開發流程' },
+  { start: 77, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

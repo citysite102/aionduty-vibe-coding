@@ -1,6 +1,7 @@
 import { ListTodo } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HealthRail } from './_HealthRail';
+import { PairTable } from './_PairTable';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -13,6 +14,12 @@ export const meta: RecordedMeta = {
   from: 69,
 };
 
+/** 右欄留空的那一列，畫面上會顯示成問號標記 */
+const ROWS: [string, string][] = [
+  ['禁用 inline style', '上次改版時樣式打架'],
+  ['按鈕用航太語彙', ''],
+];
+
 export default function RecHealthInventory() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ListTodo}>
@@ -23,16 +30,18 @@ export default function RecHealthInventory() {
           <p className="text-slate-100 text-4xl font-bold leading-snug">每一條規則後面，標上它的來由</p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
-          <div className="grid grid-cols-[1fr_1fr] gap-6 text-xl">
-            <div className="text-slate-500 text-base font-mono">規則</div>
-            <div className="text-slate-500 text-base font-mono">為了解決哪一次的問題</div>
-            <div className="text-slate-300">禁用 inline style</div>
-            <div className="text-slate-400">上次改版時樣式打架</div>
-            <div className="text-slate-300">按鈕用航太語彙</div>
-            <div className="text-sky-400">？</div>
-          </div>
-        </AnimatedBlock>
+        <PairTable
+          stepIndex={2}
+          headers={['規則', '為了解決哪一次的問題']}
+          rows={ROWS.map(([rule, why]) => [
+            rule,
+            why || (
+              <span className="inline-flex items-center rounded-md border border-sky-500/40 bg-sky-500/10 px-2.5 py-0.5 font-mono font-bold text-sky-300">
+                ？
+              </span>
+            ),
+          ])}
+        />
 
         <AnimatedBlock stepIndex={3} className="mt-5 text-slate-400 text-xl leading-relaxed px-1">
           想不起來的先打問號。這些就是下一步要處理的對象。

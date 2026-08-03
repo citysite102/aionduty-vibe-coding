@@ -15,7 +15,7 @@ export default function Slide04() {
             </div>
             <div className="text-sky-500/20 text-6xl font-black">A</div>
           </div>
-          <p className="text-slate-400 mb-6 font-medium">重點不在於「寫一個檔案」。真正的用途是把專案的知識與規範，整理成一份可以長期重複使用的資產（以 <span className="text-sky-400 font-bold font-mono">CLAUDE.md</span> 為載體），讓 AI 每次啟動都自動讀到、遵循你的專案脈絡。</p>
+          <p className="text-slate-400 mb-6 font-medium">重點不在於「寫一個檔案」，而是把專案的知識與規範整理成一份可以長期重複使用的資產（以 <span className="text-sky-400 font-bold font-mono">CLAUDE.md</span> 為載體），讓 AI 每次啟動都自動讀到。</p>
           
           <ul className="space-y-4 text-sm mt-8">
             <li className="flex gap-4 items-center">
@@ -28,7 +28,7 @@ export default function Slide04() {
             </li>
             <li className="flex gap-4 items-center">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">3</div>
-              <div><strong className="text-slate-200 block text-base">完善 (隨身帶走方法論)</strong><span className="text-slate-500">將這套 CLAUDE.md 當作專案資產，未來任何新 AI/新成員都能一秒繼承。</span></div>
+              <div><strong className="text-slate-200 block text-base">完善 (隨身帶走方法論)</strong><span className="text-slate-500">把這套 CLAUDE.md 當成專案資產。之後換工具、來新成員，都是從這份檔案接手。</span></div>
             </li>
           </ul>
         </AnimatedBlock>
@@ -47,7 +47,7 @@ export default function Slide04() {
           <div className="space-y-6 mt-8">
             <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
               <strong className="text-indigo-300 block mb-2 text-lg">克服放手焦慮</strong>
-              <span className="text-slate-400 text-sm leading-relaxed">學會從「手動接管」過渡到「適度放手」，進而建立能夠整夜自動執行的信任感。</span>
+              <span className="text-slate-400 text-sm leading-relaxed">從「每一步都自己接管」慢慢過渡到「適度放手」，知道什麼時候可以讓它整夜自己跑。</span>
             </div>
             <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
               <strong className="text-indigo-300 block mb-2 text-lg">最好的實踐習慣</strong>

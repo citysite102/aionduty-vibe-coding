@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecapRail } from './_RecapRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -16,6 +17,8 @@ export default function RecRecapNext() {
   return (
     <SlideLayout title={meta.title} subtitle="What Comes Next" icon={ArrowRight}>
       <RecPage className="space-y-6">
+        <RecapRail active={4} />
+
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-100 text-4xl font-bold leading-snug">
             下一段：設一個目標，讓它自己跑完一輪

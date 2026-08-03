@@ -10,7 +10,7 @@ export default function SlideScale() {
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-3xl p-8 relative shadow-lg">
             <h3 className="text-2xl font-bold text-slate-100 flex items-center gap-3 mb-4">
               <Clock className="text-emerald-400" size={28} />
-              省下時間，但前提是設計得夠精準
+              省下時間，但前提是流程要先設計好
             </h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
               Agent 確實省下了大量時間，但這不代表可以完全放手，你的角色從「執行者」變成「設計流程的人」。

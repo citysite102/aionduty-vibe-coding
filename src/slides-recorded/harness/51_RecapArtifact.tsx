@@ -1,5 +1,6 @@
 import { FolderGit2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecapRail } from './_RecapRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -16,6 +17,8 @@ export default function RecRecapArtifact() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={FolderGit2}>
       <RecPage className="space-y-6">
+        <RecapRail active={2} />
+
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-100 text-4xl font-bold leading-snug">它跟著專案走，不在你的腦子裡</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">

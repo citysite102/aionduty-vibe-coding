@@ -1,5 +1,6 @@
 import { HelpCircle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { TransferRail } from './_TransferRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -18,6 +19,8 @@ export default function RecTransferCase() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={HelpCircle}>
       <RecPage className="space-y-6">
+        <TransferRail active={1} />
+
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
           <div className="text-slate-500 text-base font-mono mb-3">情境</div>
           <p className="text-slate-300 text-2xl leading-snug">

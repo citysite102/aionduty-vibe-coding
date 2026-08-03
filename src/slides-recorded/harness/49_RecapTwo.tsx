@@ -1,5 +1,6 @@
 import { Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { RecapRail } from './_RecapRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -16,6 +17,8 @@ export default function RecRecapTwo() {
   return (
     <SlideLayout title={meta.title} subtitle="Module 2 Recap" icon={Search}>
       <RecPage className="space-y-6">
+        <RecapRail active={1} />
+
         <AnimatedBlock stepIndex={1}>
           <div className="text-slate-500 text-base font-mono mb-3">第 2 件，共 3 件</div>
           <p className="text-slate-100 text-4xl font-bold leading-snug">知道它沒照做時要先查哪裡</p>

@@ -52,7 +52,7 @@ export default function SlideHarnessContext() {
             </p>
             <div className="space-y-3 mt-auto">
               <div className="text-sm text-emerald-400 bg-emerald-950/30 px-4 py-3 rounded-lg border border-emerald-900/50">
-                <strong>好處：</strong>便宜省錢，精準載入
+                <strong>好處：</strong>便宜，用到才載入
               </div>
               <div className="text-sm text-amber-400 bg-amber-950/30 px-4 py-3 rounded-lg border border-amber-900/50">
                 <strong>風險：</strong>Agent 該抓的時候可能漏抓
@@ -75,7 +75,7 @@ export default function SlideHarnessContext() {
             </p>
             <div className="mt-auto bg-sky-950/50 p-4 rounded-xl border border-sky-900/50">
               <p className="text-sm text-sky-200">
-                實現<strong>漸進式揭露 (Progressive Disclosure)</strong>，在確保準確度的同時，大幅降低 Token 成本。
+                這叫<strong>漸進式揭露 (Progressive Disclosure)</strong>：準確度顧到了，Token 成本也不會一直花在用不到的資料上。
               </p>
             </div>
           </AnimatedBlock>

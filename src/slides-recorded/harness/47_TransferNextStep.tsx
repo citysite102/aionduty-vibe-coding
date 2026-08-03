@@ -1,5 +1,6 @@
 import { PencilRuler } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { TransferRail } from './_TransferRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -22,6 +23,8 @@ export default function RecTransferNextStep() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={PencilRuler}>
       <RecPage className="space-y-6">
+        <TransferRail active={4} />
+
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-2xl leading-snug mb-3">
             換別的 AI、換完全不同的工作，要問的還是這三題。

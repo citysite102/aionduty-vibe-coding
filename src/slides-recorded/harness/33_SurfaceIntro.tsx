@@ -8,7 +8,7 @@ export const meta: RecordedMeta = {
   id: 'harness-33-surface-intro',
   title: '換個地方用，觀念要重學嗎？',
   script:
-    '前面講的手冊、分層、規則該放哪，都不是終端機專屬的。換到 Claude 的其他介面，觀念完全一樣，你不需要重學一套。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手。接下來三頁，就用這兩個問題看三個地方，你會發現差別都落在權限，不在你要怎麼寫手冊。',
+    '那換到另外兩個地方，前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，這三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手。接下來就用這兩個問題，一個一個看過去，你會發現差別都落在權限，不在你要怎麼寫手冊。',
   seconds: 38,
   from: 72,
 };
@@ -35,7 +35,7 @@ export default function RecSurfaceIntro() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="mt-5 text-slate-500 text-lg leading-relaxed px-1">
-          接下來三頁，用這兩個問題看三個地方。
+          接下來就用這兩個問題，一個一個看過去。
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

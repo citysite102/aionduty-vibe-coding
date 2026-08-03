@@ -1,5 +1,6 @@
 import { FileCode2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
+import { TransferRail } from './_TransferRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -23,6 +24,8 @@ export default function RecTransferAnswer() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={FileCode2}>
       <RecPage className="space-y-6">
+        <TransferRail active={3} />
+
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-100 text-4xl font-bold leading-snug">四行就夠了</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">

@@ -105,7 +105,7 @@ const STATE_MATRIX: ScenarioState[][] = [
       description: 'AI 擁有全開的權限，並且在執行過程中完全不彈出任何確認提示。它能自主下載依賴、設定系統、啟動服務，並自動分析錯誤日誌。',
       speed: 100,
       risk: 85,
-      advice: '🔥 警告：這就是所謂的 Autonomous Loop。高速度的背後是極高風險，你必須搭配 Docker 容器隔離才能安心使用！'
+      advice: '⚠️ 警告：這就是 Autonomous Loop。速度換來的是風險，一定要搭配 Docker 容器隔離再用。'
     }
   ]
 ];
