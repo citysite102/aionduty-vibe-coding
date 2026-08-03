@@ -36,6 +36,7 @@ import Slide10c2 from './slides/10c2_M1_WebArchDuties';
 import Slide10c3 from './slides/10c3_M1_Deploy';
 import Slide10d from './slides/10d_M1_Database';
 import Slide10e from './slides/10e_M1_Git';
+import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
 import Slide11d from './slides/11d_M1_ClaudeShortcuts';
@@ -98,7 +99,10 @@ import Slide27b5b from './slides/27b5b_M4_WhiteScreen';
 import Slide27b5c from './slides/27b5c_M4_ReadErrors';
 import Slide27b6 from './slides/27b6_M4_FutureEngineering';
 import Slide27b7 from './slides/27b7_M4_PopularSkills';
+import Slide27b7b from './slides/27b7b_M4_GrillMeRouting';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
+import Slide27b8b from './slides/27b8b_M4_PushToGithub';
+import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
@@ -137,6 +141,7 @@ const LIVE_TITLES = [
   "從本機到上線：交給託管平台",
   "改壞了可以回到上一步",
   "一次改一點，比一次改完安全",
+  "先用桌面版做出第一個東西",
   "手把手操作",
   "畫面上這幾塊分別在說什麼",
   "Claude Code 核心按鍵與技巧",
@@ -189,6 +194,7 @@ const LIVE_TITLES = [
   "自動化之後，最容易累積的三件事",
   "讓它自己跑，需要哪幾個零件",
   "熱門 Skills 精選",
+  "想讓它每次都這樣問，寫進手冊就好了嗎",
   "設定目標，讓它自己跑到完成",
   "Goal 五步驟操作",
   "省下的時間，用來擴大搜尋",
@@ -200,6 +206,8 @@ const LIVE_TITLES = [
   "先說清楚，再讓它自己驗",
   "放手之前，先設好四道邊界",
   "幫計時器加上航行日誌",
+  "你的專案現在只活在這台電腦裡",
+  "有些東西不能推上去",
   "上線之後才發現的問題",
   "回去之後，第一天做什麼",
   "未來的工作者",
@@ -236,6 +244,7 @@ const LIVE_SLIDES = [
   Slide10c3,
   Slide10e,
   Slide15,
+  Slide10f,
   Slide11,
   Slide11b,
   Slide11d,
@@ -288,6 +297,7 @@ const LIVE_SLIDES = [
   Slide27b4,
   Slide27b,
   Slide27b7,
+  Slide27b7b,
   Slide27b2,
   Slide27b3,
   Slide27c,
@@ -299,6 +309,8 @@ const LIVE_SLIDES = [
   Slide27b6,
   Slide28,
   Slide27b8,
+  Slide27b8b,
+  Slide27b8c,
   Slide27b9,
   Slide28b,
   Slide33,
@@ -316,8 +328,8 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 終端機實作' },
-  { start: 40, label: 'Agent 運作框架與成本分析' },
-  { start: 77, label: 'Agent 循環開發流程' },
+  { start: 41, label: 'Agent 運作框架與成本分析' },
+  { start: 78, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

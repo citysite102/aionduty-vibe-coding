@@ -36,7 +36,7 @@ export default function Slide10e() {
               <div className="p-2 bg-indigo-900/30 text-indigo-400 rounded-lg shrink-0"><GitPullRequest size={20} /></div>
               <div>
                 <strong className="text-slate-200 block mb-1">Push / Pull (推送與拉取)</strong>
-                <p className="text-slate-400 text-sm">與雲端 (如 GitHub) 同步你的存檔，方便備份或與他人協作。</p>
+                <p className="text-slate-400 text-sm">與雲端 (如 GitHub) 同步你的存檔，方便備份或與他人協作。<span className="text-slate-500">出貨那一段會實際做一次。</span></p>
               </div>
             </div>
           </AnimatedBlock>
