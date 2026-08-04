@@ -72,9 +72,9 @@ Ask me for architectural analysis or plan generation.`
     description: '將龐大且複雜的專案任務切片，派發給多個各自獨立的子代理（Subagents）處理，主對話只做最後審查。',
     whyItMatters: '單一對話越長，先前的重點越容易被稀釋掉。分而治之是開發中大型軟體的必備觀念。',
     claudeName: '子代理 (Subagents)',
-    claudeDesc: '先用 /agents 建立好子代理定義，之後在對話中直接指名請它處理。它有自己獨立的上下文，做完只回傳結果摘要。',
+    claudeDesc: '先建立好子代理定義，之後在對話中直接指名請它處理。它有自己獨立的上下文，做完只回傳結果摘要。',
     claudeBadge: '獨立上下文的子任務',
-    claudeCode: `> /agents        # 建立一個 test-writer 子代理
+    claudeCode: `> 建立一個 test-writer 子代理
 > 請 test-writer 幫 authentication.ts 寫測試
 
 [test-writer] 已在獨立的上下文中執行
@@ -100,7 +100,8 @@ team.dispatch("Implement auth tests")`
     claudeName: '自組除錯迴圈',
     claudeDesc: 'Claude Code 預設就會這樣做，不用額外設定：編譯失敗時它讀 stack trace、改檔、重跑。要交代一整段長任務時，把驗收條件一起寫進去，它才知道什麼時候算跑完。',
     claudeBadge: '內建，不用外掛',
-    claudeCode: `> /goal 把所有失敗的測試修好
+    claudeCode: `> 請修好所有失敗的測試
+> 完成條件：npm test 通過，最多跑 5 輪
 
 $ npm test
 [2 failed]
@@ -234,7 +235,7 @@ export default function Slide32() {
                   <div className="flex flex-col bg-slate-950/60 rounded-xl border border-orange-500/20 overflow-hidden">
                     <div className="bg-[#1c1410] px-3 py-2 flex justify-between items-center border-b border-orange-950/30 shrink-0">
                       <span className="text-[12px] font-bold text-orange-400 flex items-center gap-1.5 font-mono">
-                        <span className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
                         Claude 生態系
                       </span>
                       <span className="text-[11px] text-orange-400/50 font-mono scale-90">{activeConcept.claudeName}</span>
@@ -259,7 +260,7 @@ export default function Slide32() {
                   <div className="flex flex-col bg-slate-950/60 rounded-xl border border-emerald-500/20 overflow-hidden">
                     <div className="bg-[#101c15] px-3 py-2 flex justify-between items-center border-b border-emerald-950/30 shrink-0">
                       <span className="text-[12px] font-bold text-emerald-400 flex items-center gap-1.5 font-mono">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
                         開源通用陣營
                       </span>
                       <span className="text-[11px] text-emerald-400/50 font-mono scale-90">{activeConcept.openSourceName}</span>
@@ -284,9 +285,9 @@ export default function Slide32() {
               </div>
 
               {/* Concluding takeaway */}
-              <div className="mt-4 pt-3.5 border-t border-slate-800 text-xs text-slate-400 text-center flex items-center justify-center gap-1">
+              <div className="mt-2 pt-2 border-t border-slate-800 text-xs text-slate-400 text-center flex items-center justify-center gap-1">
                 <span>🎯</span>
-                <span>這四個結構（<strong>CLAUDE.md、/plan、/agents、Loops</strong>）在任何 Agent 工具上都找得到對應物。</span>
+                <span>這四個結構（<strong>專案手冊、計畫模式、子代理、試錯循環</strong>）在多數 Agent 工具上都找得到對應物。</span>
               </div>
             </motion.div>
           </AnimatePresence>

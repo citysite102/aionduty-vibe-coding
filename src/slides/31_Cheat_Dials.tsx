@@ -7,6 +7,8 @@ import {
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
+const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
+
 interface ScenarioState {
   title: string;
   badge: string;
@@ -23,7 +25,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「安全觀察員」模式',
       badge: '只能讀 • 每步都問你',
-      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: '適合探索不信任的第三方開源庫。AI 只有讀取權，且每次檢索或下指令時，你都必須手動確認。這是最牢固的保險箱。',
       speed: 15,
       risk: 0,
@@ -32,7 +34,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「貼身實習生」模式',
       badge: '能改專案 • 每步都問你',
-      badgeColor: 'bg-sky-500/10 text-sky-400 border-sky-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 可以在目前專案內寫程式，但每一次修改、編譯、或是執行測試，都必須按下 Enter 同意。進度慢一點，但每一步你都看得到，也都可以喊停。',
       speed: 40,
       risk: 10,
@@ -41,7 +43,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「要先報備的系統管理員」模式',
       badge: '能動系統 • 每步都問你',
-      badgeColor: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 擁有安裝全域套件、修改環境、管理 Docker 等容器級操作權限，但每做一個小動作，都得停下來等你批准。',
       speed: 35,
       risk: 25,
@@ -53,7 +55,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「只讀不寫的顧問」模式',
       badge: '只能讀 • 關鍵才問你',
-      badgeColor: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 能大範圍掃描專案並進行全面的關聯分析，不需要一再打擾你。唯有在需要進行特定沙箱操作或外部調研時才跳出提醒。',
       speed: 60,
       risk: 0,
@@ -62,7 +64,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「日常開發助理」模式',
       badge: '能改專案 • 關鍵才問你',
-      badgeColor: 'bg-violet-500/10 text-violet-400 border-violet-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 享有專案資料夾內的完全讀寫權。普通的寫檔、微調不打擾你，只有當它要安裝新套件或執行外部 Bash 命令時，才會跳出二次確認。',
       speed: 75,
       risk: 15,
@@ -71,7 +73,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「連環境一起改的助理」模式',
       badge: '能動系統 • 關鍵才問你',
-      badgeColor: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: '允許 AI 跨系統、跨容器地安裝套件、編譯底層環境。AI 會在背景處理大宗搬移，只在遇到網路衝突或關鍵破壞性操作時向你核備。',
       speed: 85,
       risk: 45,
@@ -83,7 +85,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「自動讀完整個專案」模式',
       badge: '只能讀 • 全程不問你',
-      badgeColor: 'bg-teal-500/10 text-teal-400 border-teal-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 在背景同時分析所有程式碼，自己推敲架構、畫出關聯圖，過程中不需要人守在旁邊確認。',
       speed: 70,
       risk: 5,
@@ -92,7 +94,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「自己改到測試過」模式',
       badge: '能改專案 • 全程不問你',
-      badgeColor: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 在目前專案資料夾內自由行動。它可以「改寫檔案 ➜ 執行測試 ➜ 發現錯誤 ➜ 自我除錯 ➜ 重跑測試」無限循環直到通過。',
       speed: 90,
       risk: 20,
@@ -101,7 +103,7 @@ const STATE_MATRIX: ScenarioState[][] = [
     {
       title: '「全自動 Loop」模式',
       badge: '能動系統 • 全程不問你',
-      badgeColor: 'bg-rose-500/10 text-rose-400 border-rose-500/20',
+      badgeColor: 'bg-slate-800/60 text-slate-300 border-slate-700',
       description: 'AI 擁有全開的權限，並且在執行過程中完全不彈出任何確認提示。它能自主下載依賴、設定系統、啟動服務，並自動分析錯誤日誌。',
       speed: 100,
       risk: 85,
@@ -161,10 +163,10 @@ export default function Slide16() {
               <div className="space-y-3 mb-5">
                 <div className="flex justify-between items-center">
                   <span className="text-xs font-bold text-slate-300 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full"></span>
+                    <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                     旋鈕一：監督程度
                   </span>
-                  <span className="text-xs font-mono text-orange-400 bg-orange-500/5 px-2 py-0.5 rounded border border-orange-500/10">
+                  <span className="text-xs font-mono text-indigo-400 bg-indigo-500/5 px-2 py-0.5 rounded border border-indigo-500/10">
                     {supervision === 0 ? '每步都問' : supervision === 1 ? '關鍵才問' : '完全不問'}
                   </span>
                 </div>
@@ -177,11 +179,14 @@ export default function Slide16() {
                     { label: '完全不問', desc: '全程不打斷你', val: 2 }
                   ].map((btn) => (
                     <button
+                      type="button"
                       key={btn.val}
                       onClick={() => setSupervision(btn.val)}
-                      className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
+                      aria-pressed={supervision === btn.val}
+                      aria-label={`設定監督程度為${btn.label}`}
+                      className={`p-2.5 rounded-xl border text-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                         supervision === btn.val 
-                          ? 'bg-orange-500/10 border-orange-500/40 text-orange-400 shadow-md' 
+                          ? 'bg-indigo-500/10 border-indigo-500/40 text-indigo-400 shadow-md' 
                           : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-500 hover:text-slate-300'
                       }`}
                     >
@@ -212,9 +217,12 @@ export default function Slide16() {
                     { label: '容器全開', desc: '整台機器都能動', val: 2 }
                   ].map((btn) => (
                     <button
+                      type="button"
                       key={btn.val}
                       onClick={() => setSandbox(btn.val)}
-                      className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
+                      aria-pressed={sandbox === btn.val}
+                      aria-label={`設定邊界大小為${btn.label}`}
+                      className={`p-2.5 rounded-xl border text-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                         sandbox === btn.val 
                           ? 'bg-sky-500/10 border-sky-500/40 text-sky-400 shadow-md' 
                           : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-500 hover:text-slate-300'
@@ -233,8 +241,10 @@ export default function Slide16() {
               <span className="text-xs text-slate-500 font-mono block mb-2">快速載入實戰情境</span>
               <div className="flex flex-col gap-1.5">
                 <button 
+                  type="button"
                   onClick={() => applyPreset(0, 0)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-all cursor-pointer ${
+                  aria-pressed={supervision === 0 && sandbox === 0}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 0 && sandbox === 0 
                       ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -244,8 +254,10 @@ export default function Slide16() {
                   <ChevronRight size={12} />
                 </button>
                 <button 
+                  type="button"
                   onClick={() => applyPreset(1, 1)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-all cursor-pointer ${
+                  aria-pressed={supervision === 1 && sandbox === 1}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 1 && sandbox === 1 
                       ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -255,8 +267,10 @@ export default function Slide16() {
                   <ChevronRight size={12} />
                 </button>
                 <button 
+                  type="button"
                   onClick={() => applyPreset(2, 2)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-all cursor-pointer ${
+                  aria-pressed={supervision === 2 && sandbox === 2}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 2 && sandbox === 2 
                       ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -294,7 +308,7 @@ export default function Slide16() {
             
             {/* Ambient subtle background glows */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="flex justify-between items-start border-b border-slate-900 pb-3 z-10 shrink-0">
               <div>
@@ -339,10 +353,13 @@ export default function Slide16() {
               {/* Preset Scenario Reference Dots */}
               {/* Preset 1: 探索陌生 Repo (Strict Supervision + ReadOnly) */}
               <button 
+                type="button"
                 onClick={() => applyPreset(0, 0)}
-                className="absolute left-[20%] top-[20%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer"
+                aria-pressed={supervision === 0 && sandbox === 0}
+                aria-label="選擇探索陌生 Repo 情境"
+                className={`absolute left-[20%] top-[20%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer rounded ${focusRing}`}
               >
-                <div className={`w-3.5 h-3.5 rounded-full border-2 transition-all flex items-center justify-center ${
+                <div className={`w-3.5 h-3.5 rounded-full border-2 transition-colors duration-150 flex items-center justify-center ${
                   supervision === 0 && sandbox === 0 
                     ? 'bg-emerald-400 border-white scale-125 shadow-lg shadow-emerald-500/40' 
                     : 'bg-slate-900 border-slate-700 hover:border-slate-500'
@@ -352,10 +369,13 @@ export default function Slide16() {
 
               {/* Preset 2: 熟專案小改 (Moderate Supervision + Restricted) */}
               <button 
+                type="button"
                 onClick={() => applyPreset(1, 1)}
-                className="absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer"
+                aria-pressed={supervision === 1 && sandbox === 1}
+                aria-label="選擇日常小修小改情境"
+                className={`absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer rounded ${focusRing}`}
               >
-                <div className={`w-3.5 h-3.5 rounded-full border-2 transition-all flex items-center justify-center ${
+                <div className={`w-3.5 h-3.5 rounded-full border-2 transition-colors duration-150 flex items-center justify-center ${
                   supervision === 1 && sandbox === 1 
                     ? 'bg-indigo-400 border-white scale-125 shadow-lg shadow-indigo-500/40' 
                     : 'bg-slate-900 border-slate-700 hover:border-slate-500'
@@ -365,10 +385,13 @@ export default function Slide16() {
 
               {/* Preset 3: 無人值守 Loop (Autonomous + FullContainer) */}
               <button 
+                type="button"
                 onClick={() => applyPreset(2, 2)}
-                className="absolute left-[80%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer"
+                aria-pressed={supervision === 2 && sandbox === 2}
+                aria-label="選擇無人值守 Loop 情境"
+                className={`absolute left-[80%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer rounded ${focusRing}`}
               >
-                <div className={`w-4 h-4 rounded-full border-2 transition-all flex items-center justify-center ${
+                <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-150 flex items-center justify-center ${
                   supervision === 2 && sandbox === 2 
                     ? 'bg-rose-500 border-white scale-125 shadow-lg shadow-rose-500/60' 
                     : 'bg-slate-900 border-slate-700 hover:border-rose-400'
@@ -389,7 +412,7 @@ export default function Slide16() {
               >
                 {/* Double Ring Pulsing Marker */}
                 <div className="relative flex items-center justify-center">
-                  <span className="absolute inline-flex h-10 w-10 rounded-full bg-sky-500/20 animate-ping opacity-75"></span>
+                  <span className="absolute inline-flex h-10 w-10 rounded-full bg-sky-500/20 opacity-75"></span>
                   <div className="w-6 h-6 rounded-full bg-gradient-to-tr from-sky-400 to-indigo-500 flex items-center justify-center border-2 border-slate-900 shadow-xl">
                     <Navigation size={10} className="text-white fill-white transform rotate-45" />
                   </div>

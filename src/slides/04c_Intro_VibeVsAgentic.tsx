@@ -36,7 +36,7 @@ export default function SlideVibeVsAgentic() {
 
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col hover:border-slate-700 transition-colors">
             <div className="flex items-center gap-3 mb-8">
-              <div className="p-3 bg-blue-950/30 rounded-xl text-blue-400 border border-blue-900/50">
+              <div className="p-3 bg-slate-950 rounded-xl text-slate-400 border border-slate-800">
                 <FileCode2 size={24} />
               </div>
               <h3 className="text-xl font-bold text-slate-100">AI 輔助開發</h3>

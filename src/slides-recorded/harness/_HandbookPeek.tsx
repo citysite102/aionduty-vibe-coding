@@ -24,10 +24,10 @@ export function HandbookPeek({ version }: { version: number }) {
           setV(version);
           setOpen(true);
         }}
-        className="fixed bottom-24 right-8 z-40 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2.5 text-slate-400 backdrop-blur-sm transition-colors hover:border-sky-500/50 hover:text-sky-300"
+        className="fixed bottom-24 right-8 z-40 flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/90 px-4 py-2.5 text-slate-400 backdrop-blur-sm transition-colors hover:border-orange-500/50 hover:text-orange-300"
       >
         <FileText size={15} className="shrink-0" />
-        <span className="font-mono text-sm font-bold">CLAUDE.md</span>
+        <span className="font-mono text-sm font-bold text-orange-400">CLAUDE.md</span>
       </button>
     );
   }
@@ -36,7 +36,7 @@ export function HandbookPeek({ version }: { version: number }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-8">
       <div className="w-full max-w-3xl rounded-2xl border border-slate-700 bg-slate-950 shadow-2xl overflow-hidden">
         <div className="flex items-center gap-3 border-b border-slate-800 bg-slate-900 px-6 py-3.5">
-          <span className="font-mono text-base text-slate-300">CLAUDE.md</span>
+          <span className="font-mono text-base text-orange-400">CLAUDE.md</span>
           <span className="text-sm text-slate-500">{cur.label}</span>
           <button
             onClick={() => setOpen(false)}

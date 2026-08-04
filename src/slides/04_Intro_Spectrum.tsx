@@ -29,9 +29,9 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">1. 純對話聊天 (對話式 AI)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="ChatGPT" className="bg-emerald-950/40 border-emerald-800/30 text-emerald-300" icon={Bot} />
-                <ToolBadge name="Claude" className="bg-amber-950/40 border-amber-800/30 text-amber-300" icon={Sparkles} />
-                <ToolBadge name="Gemini" className="bg-blue-950/40 border-blue-800/30 text-sky-300" icon={Sparkles} />
+                <ToolBadge name="ChatGPT" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Claude" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
+                <ToolBadge name="Gemini" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 你問、它答，給你一段程式碼。但它看不到你的專案，貼上去對不對要你自己負責。
@@ -44,8 +44,8 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">2. AI App Builder (低程式碼平台)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Base44" className="bg-blue-950/40 border-blue-800/30 text-blue-300" icon={Code2} />
-                <ToolBadge name="Lovable" className="bg-pink-950/40 border-pink-800/30 text-pink-300" icon={Heart} />
+                <ToolBadge name="Base44" className="bg-slate-950 border-slate-800 text-slate-300" icon={Code2} />
+                <ToolBadge name="Lovable" className="bg-slate-950 border-slate-800 text-slate-300" icon={Heart} />
                 <ToolBadge name="v0" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
@@ -59,7 +59,7 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">3. 瀏覽器原型工具</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Google AI Studio" className="bg-indigo-950/40 border-indigo-800/30 text-indigo-300" icon={Bot} />
+                <ToolBadge name="Google AI Studio" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 一句話生出前後端都有的網頁，可以直接上線，也可以把程式碼匯出帶走。
@@ -68,12 +68,12 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：快速驗證產品點子，準備好接續實踐開發</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-indigo-500/50 transition-colors flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-[210px]">
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">4. 雲端自主 Agent</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Manus" className="bg-cyan-950/40 border-cyan-800/30 text-cyan-300" icon={Sparkles} />
-                <ToolBadge name="Devin" className="bg-teal-950/40 border-teal-800/30 text-teal-300" icon={Bot} />
+                <ToolBadge name="Manus" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
+                <ToolBadge name="Devin" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 給它一個目標，它在雲端一台隔離的虛擬電腦裡自己查、自己寫、自己測，做完交件。
@@ -82,25 +82,25 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：多步驟繁瑣任務、結果導向的背景自動化</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="bg-indigo-950/30 border border-indigo-500/50 rounded-xl p-5 shadow-[0_0_30px_-5px_rgba(99,102,241,0.2)] flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={5} className="bg-sky-950/30 border border-sky-500/50 rounded-xl p-5 shadow-[0_0_30px_-5px_rgba(14,165,233,0.2)] flex flex-col justify-between h-[210px]">
             <div>
-              <h3 className="text-lg font-bold text-indigo-200 mb-1.5">5. 開發級 Agent / CLI (本機執行)</h3>
+              <h3 className="text-lg font-bold text-sky-200 mb-1.5">5. 開發級 Agent / CLI (本機執行)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Claude Code" className="bg-orange-950/40 border-orange-800/30 text-orange-300" icon={Terminal} />
-                <ToolBadge name="Copilot CLI" className="bg-violet-950/40 border-violet-800/30 text-violet-300" icon={Bot} />
+                <ToolBadge name="Claude Code" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
+                <ToolBadge name="Copilot CLI" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">
                 在你自己的電腦上動工。讀得到真實檔案、跑得動指令、管得了 Git。
               </p>
             </div>
-            <div className="text-indigo-300 text-xs bg-indigo-900/30 px-3 py-2 rounded border border-indigo-500/20">適合：真實專案執行開發、自動化除錯、長期維護的系統</div>
+            <div className="text-sky-300 text-xs bg-sky-900/30 px-3 py-2 rounded border border-sky-500/20">適合：真實專案執行開發、自動化除錯、長期維護的系統</div>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={6} className="bg-slate-900/50 border border-slate-800/50 rounded-xl p-5 flex flex-col justify-between h-[210px]">
             <div>
               <h3 className="text-lg font-bold text-slate-400 mb-1.5">6. 自己手寫 (The Baseline)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="純手寫程式" className="bg-slate-800/40 border-slate-700/30 text-slate-400" icon={Keyboard} />
+                <ToolBadge name="純手寫程式" className="bg-slate-950 border-slate-800 text-slate-400" icon={Keyboard} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 不是不能用 AI，而是你決定哪些地方要親自把關。

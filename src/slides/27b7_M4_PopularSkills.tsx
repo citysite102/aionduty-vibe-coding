@@ -26,9 +26,9 @@ const MORE_SKILLS = [
 ];
 
 const COLOR_MAP: Record<string, string> = {
-  sky: 'text-sky-400 bg-sky-500/10 border-sky-500/30',
-  emerald: 'text-emerald-400 bg-emerald-500/10 border-emerald-500/30',
-  indigo: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/30',
+  sky: 'text-slate-400 bg-slate-800/60 border-slate-700',
+  emerald: 'text-slate-400 bg-slate-800/60 border-slate-700',
+  indigo: 'text-slate-400 bg-slate-800/60 border-slate-700',
 };
 
 export default function SlidePopularSkills() {
@@ -50,17 +50,17 @@ export default function SlidePopularSkills() {
 
           {/* HERO: Grill Me */}
           <AnimatedBlock stepIndex={2} className="lg:col-span-5 flex">
-            <div className="bg-gradient-to-b from-amber-950/30 to-slate-900 border border-amber-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden w-full flex flex-col text-left">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-gradient-to-b from-orange-950/30 to-slate-900 border border-orange-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden w-full flex flex-col text-left">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-amber-500/15 border border-amber-500/30 rounded-full text-[11px] font-mono text-amber-400 font-bold tracking-wider uppercase">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-orange-500/15 border border-orange-500/30 rounded-full text-[11px] font-mono text-orange-400 font-bold tracking-wider uppercase">
                   接續規格驅動
                 </span>
               </div>
 
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center shrink-0">
                   <Flame size={26} />
                 </div>
                 <div>
@@ -70,7 +70,7 @@ export default function SlidePopularSkills() {
               </div>
 
               <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                與其自己憋出一份完整規格，不如讓它<strong className="text-amber-300">「烤問」你</strong>。動工前它會把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
+                與其自己憋出一份完整規格，不如讓它<strong className="text-orange-300">「烤問」你</strong>。動工前它會把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
               </p>
 
               <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-3 font-mono text-[11px] text-emerald-400">
@@ -80,7 +80,7 @@ export default function SlidePopularSkills() {
               <div className="bg-slate-950/70 border border-slate-800 rounded-2xl p-4 space-y-2 mb-3">
                 <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">它一次只問一題，而且附上自己的建議</div>
                 <div className="text-xs leading-relaxed space-y-1.5">
-                  <p className="text-slate-300"><span className="text-amber-400 font-mono">Q.</span> 倒數中途按「返航」，這一趟要算完成還是放棄？</p>
+                  <p className="text-slate-300"><span className="text-orange-400 font-mono">Q.</span> 倒數中途按「返航」，這一趟要算完成還是放棄？</p>
                   <p className="text-slate-500 pl-4">我的建議：記成未完成，但仍留下紀錄，這樣你才看得出放棄率。</p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function SlidePopularSkills() {
                 <p>• <strong className="text-slate-300">一次一題，等你答完才問下一題。</strong>一次丟十題只會讓人腦袋當機。</p>
                 <p>• <strong className="text-slate-300">能自己查的它就去查，只把「決定」留給你。</strong>這正是指揮官該做的事。</p>
                 <p>• 你沒說「我們有共識了」之前，它不會動手寫任何東西。</p>
-                <p>• 要自己打 <code className="text-amber-300">/grill-me</code> 才會啟動，它不會自己跳出來煩你。</p>
+                <p>• 要自己打 <code className="text-orange-300">/grill-me</code> 才會啟動，它不會自己跳出來煩你。</p>
               </div>
             </div>
           </AnimatedBlock>
@@ -106,7 +106,7 @@ export default function SlidePopularSkills() {
                   <div>
                     <div className="flex items-baseline gap-2.5 mb-1 flex-wrap">
                       <h4 className="text-base font-bold text-slate-100">{skill.name}</h4>
-                      <code className="text-[11px] font-mono text-slate-500">{skill.tag}</code>
+                      <code className="text-[11px] font-mono text-orange-400/90">{skill.tag}</code>
                     </div>
                     <p className="text-slate-400 text-xs leading-relaxed">{skill.desc}</p>
                   </div>

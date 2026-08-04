@@ -39,7 +39,7 @@ export default function SlideCodeSetup() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="flex gap-4 items-start bg-slate-900 border border-slate-800 p-5 rounded-2xl">
-            <div className="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-lg shrink-0 mt-1">1</div>
+            <div className="w-10 h-10 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-lg shrink-0 mt-1">1</div>
             <div>
               <h3 className="text-xl font-bold text-slate-100 mb-2">安裝與啟動 Claude Code</h3>
               <p className="text-slate-400 text-sm mb-3">官方首選是原生安裝器；若你已有 Node.js 也可用 npm。首次啟動會自動引導登入。</p>

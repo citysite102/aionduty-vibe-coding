@@ -17,8 +17,8 @@ export default function Slide06() {
         <AnimatedBlock stepIndex={2} className="w-full max-w-5xl mx-auto mb-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative">
             {/* Step 1 */}
-            <div className="bg-slate-900 border border-sky-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
-              <div className="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
+              <div className="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mb-4">
                 <Search size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">1. 探索</h3>
@@ -26,8 +26,8 @@ export default function Slide06() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-slate-900 border border-amber-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
-              <div className="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
+              <div className="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mb-4">
                 <FileEdit size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">2. 計畫</h3>
@@ -35,8 +35,8 @@ export default function Slide06() {
             </div>
 
             {/* Step 3 */}
-            <div className="bg-slate-900 border border-emerald-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
-              <div className="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
+              <div className="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mb-4">
                 <PlaySquare size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">3. 執行</h3>
@@ -44,8 +44,8 @@ export default function Slide06() {
             </div>
 
             {/* Step 4 */}
-            <div className="bg-slate-900 border border-sky-900/50 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
-              <div className="w-12 h-12 bg-sky-500/20 text-sky-400 rounded-full flex items-center justify-center mb-4">
+            <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex flex-col items-center text-center relative z-10 shadow-lg">
+              <div className="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-full flex items-center justify-center mb-4">
                 <CheckCircle2 size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">4. 驗證</h3>

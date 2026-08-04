@@ -35,7 +35,7 @@ export default function SlideM2ExtensionsCases2() {
           </p>
           <div className="space-y-3">
             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
-              <span className="text-purple-400 font-bold text-xs block mb-1">MCP (外部連接)</span>
+              <span className="text-sky-400 font-bold text-xs block mb-1">MCP (外部連接)</span>
               <span className="text-slate-400 text-sm">連線到 GitHub 讀取 Issue #123 的錯誤回報。</span>
             </div>
             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">

@@ -3,6 +3,8 @@ import { Key, Terminal, Globe, Shield, ShieldAlert, Check, X, ArrowRight, Refres
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
+const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
+
 export default function SlideCheatPerms() {
   const [activeTab, setActiveTab] = useState<'terminal' | 'web'>('terminal');
   
@@ -67,11 +69,13 @@ export default function SlideCheatPerms() {
               <div className="space-y-3">
                 {/* Default Mode Block */}
                 <button 
+                  type="button"
                   onClick={() => {
                     setTerminalMode('default');
                     applyWebPreset('strict');
                   }}
-                  className={`w-full p-3 rounded-2xl border text-left transition-all ${
+                  aria-pressed={terminalMode === 'default' && !allowWrite}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
                     terminalMode === 'default' && !allowWrite
                       ? 'bg-sky-500/10 border-sky-500/40 shadow' 
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
@@ -88,11 +92,13 @@ export default function SlideCheatPerms() {
 
                 {/* Auto-Accept Mode Block */}
                 <button 
+                  type="button"
                   onClick={() => {
                     setTerminalMode('auto-accept');
                     applyWebPreset('auto');
                   }}
-                  className={`w-full p-3 rounded-2xl border text-left transition-all ${
+                  aria-pressed={terminalMode === 'auto-accept' && allowWrite && !allowCommands}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
                     terminalMode === 'auto-accept' && allowWrite && !allowCommands
                       ? 'bg-emerald-500/10 border-emerald-500/40 shadow' 
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
@@ -109,11 +115,13 @@ export default function SlideCheatPerms() {
 
                 {/* Plan Mode Block */}
                 <button 
+                  type="button"
                   onClick={() => {
                     setTerminalMode('plan');
                     applyWebPreset('strict');
                   }}
-                  className={`w-full p-3 rounded-2xl border text-left transition-all ${
+                  aria-pressed={terminalMode === 'plan'}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
                     terminalMode === 'plan'
                       ? 'bg-amber-500/10 border-amber-500/40 shadow' 
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
@@ -130,11 +138,13 @@ export default function SlideCheatPerms() {
 
                 {/* Bypass Mode Block */}
                 <button 
+                  type="button"
                   onClick={() => {
                     setTerminalMode('bypass');
                     applyWebPreset('bypass');
                   }}
-                  className={`w-full p-3 rounded-2xl border text-left transition-all ${
+                  aria-pressed={terminalMode === 'bypass'}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
                     terminalMode === 'bypass'
                       ? 'bg-red-500/10 border-red-500/40 shadow' 
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
@@ -166,8 +176,10 @@ export default function SlideCheatPerms() {
               {/* Tab Selector */}
               <div className="flex gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 mb-4 shrink-0">
                 <button
+                  type="button"
                   onClick={() => setActiveTab('terminal')}
-                  className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  aria-pressed={activeTab === 'terminal'}
+                  className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-colors duration-150 flex items-center justify-center gap-1.5 ${focusRing} ${
                     activeTab === 'terminal' 
                       ? 'bg-slate-800 text-sky-400 border border-slate-800' 
                       : 'text-slate-400 hover:text-slate-200'
@@ -177,8 +189,10 @@ export default function SlideCheatPerms() {
                   Terminal 版本 (CLI Indicator)
                 </button>
                 <button
+                  type="button"
                   onClick={() => setActiveTab('web')}
-                  className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  aria-pressed={activeTab === 'web'}
+                  className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-colors duration-150 flex items-center justify-center gap-1.5 ${focusRing} ${
                     activeTab === 'web' 
                       ? 'bg-slate-800 text-indigo-400 border border-slate-800' 
                       : 'text-slate-400 hover:text-slate-200'
@@ -206,8 +220,8 @@ export default function SlideCheatPerms() {
                         <div className="flex items-center justify-between border-b border-slate-900 pb-2 mb-3 text-slate-500 text-xs">
                           <span className="flex items-center gap-1.5">
                             <span className="w-2.5 h-2.5 rounded-full bg-red-500/30" />
-                            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
-                            <span className="w-2.5 h-2.5 rounded-full bg-green-500/30" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/30" />
+                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/30" />
                             <span className="ml-1 text-xs">bash - claude</span>
                           </span>
                           <span>UTC-8</span>
@@ -247,10 +261,12 @@ export default function SlideCheatPerms() {
                       {/* Interactive Trigger Row representing bottom status bar of Claude Code */}
                       <div className="border-t border-slate-900 pt-3 mt-4 flex justify-between items-center">
                         <button
+                          type="button"
                           onClick={cycleTerminalMode}
-                          className="px-2.5 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs text-sky-400 font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                          className={`px-2.5 py-1 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs text-sky-400 font-bold flex items-center gap-1 cursor-pointer transition-colors duration-150 active:scale-95 ${focusRing}`}
+                          aria-label="模擬按下 Shift Tab 切換 Claude Code 權限模式"
                         >
-                          <RefreshCw size={10} className="animate-spin-slow" />
+                          <RefreshCw size={10} />
                           按下 [Shift + Tab] 模擬切換
                         </button>
 
@@ -290,20 +306,26 @@ export default function SlideCheatPerms() {
                         {/* Quick web presets */}
                         <div className="flex gap-2 mb-4">
                           <button 
+                            type="button"
                             onClick={() => applyWebPreset('strict')}
-                            className="flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800"
+                            className={`flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800 transition-colors duration-150 ${focusRing}`}
+                            aria-label="套用嚴格安全設定"
                           >
                             🛡️ 嚴格安全
                           </button>
                           <button 
+                            type="button"
                             onClick={() => applyWebPreset('auto')}
-                            className="flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800"
+                            className={`flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800 transition-colors duration-150 ${focusRing}`}
+                            aria-label="套用自動核可設定"
                           >
                             ⚡ 自動核可
                           </button>
                           <button 
+                            type="button"
                             onClick={() => applyWebPreset('bypass')}
-                            className="flex-1 py-1 px-2 bg-red-950/20 hover:bg-red-950/30 text-xs font-bold text-red-400 rounded border border-red-900/30"
+                            className={`flex-1 py-1 px-2 bg-red-950/20 hover:bg-red-950/30 text-xs font-bold text-red-400 rounded border border-red-900/30 transition-colors duration-150 ${focusRing}`}
+                            aria-label="套用全放行示意設定"
                           >
                             ⚠️ Bypassed
                           </button>
@@ -318,8 +340,12 @@ export default function SlideCheatPerms() {
                               <div className="text-xs text-slate-500">Read Files (CLAUDE.md, schema.ts)</div>
                             </div>
                             <button 
+                              type="button"
                               onClick={() => setAllowRead(!allowRead)}
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${allowRead ? 'bg-indigo-500' : 'bg-slate-800'}`}
+                              role="switch"
+                              aria-checked={allowRead}
+                              aria-label="允許 Agent 讀取本機檔案"
+                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowRead ? 'bg-indigo-500' : 'bg-slate-800'}`}
                             >
                               <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowRead ? 'translate-x-4' : 'translate-x-0'}`} />
                             </button>
@@ -332,8 +358,12 @@ export default function SlideCheatPerms() {
                               <div className="text-xs text-slate-500">Write & Overwrite Files Directly</div>
                             </div>
                             <button 
+                              type="button"
                               onClick={() => setAllowWrite(!allowWrite)}
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${allowWrite ? 'bg-indigo-500' : 'bg-slate-800'}`}
+                              role="switch"
+                              aria-checked={allowWrite}
+                              aria-label="允許自動寫入並儲存檔案"
+                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowWrite ? 'bg-indigo-500' : 'bg-slate-800'}`}
                             >
                               <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowWrite ? 'translate-x-4' : 'translate-x-0'}`} />
                             </button>
@@ -346,8 +376,12 @@ export default function SlideCheatPerms() {
                               <div className="text-xs text-slate-500">Run shell execution without approval</div>
                             </div>
                             <button 
+                              type="button"
                               onClick={() => setAllowCommands(!allowCommands)}
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${allowCommands ? 'bg-indigo-500' : 'bg-slate-800'}`}
+                              role="switch"
+                              aria-checked={allowCommands}
+                              aria-label="執行 Bash 終端機指令無需詢問"
+                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowCommands ? 'bg-indigo-500' : 'bg-slate-800'}`}
                             >
                               <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowCommands ? 'translate-x-4' : 'translate-x-0'}`} />
                             </button>

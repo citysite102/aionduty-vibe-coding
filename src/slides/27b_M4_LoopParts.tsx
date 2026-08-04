@@ -6,7 +6,7 @@ const STAGES = [
     stage: '第一步：先讓核心跑起來',
     hint: '沒有這兩塊，迴圈根本轉不起來',
     accent: 'text-sky-400',
-    iconBg: 'bg-sky-500/10 text-sky-400',
+    iconBg: 'bg-slate-800 text-slate-400',
     items: [
       {
         icon: Settings,
@@ -25,8 +25,8 @@ const STAGES = [
   {
     stage: '第二步：再加上防線',
     hint: '開始放手之後才需要，但別拖太久',
-    accent: 'text-emerald-400',
-    iconBg: 'bg-emerald-500/10 text-emerald-400',
+    accent: 'text-sky-400',
+    iconBg: 'bg-slate-800 text-slate-400',
     items: [
       {
         icon: GitBranch,
@@ -45,8 +45,8 @@ const STAGES = [
   {
     stage: '第三步：最後補上手腳與記憶',
     hint: '想讓它跨天、跨專案接力時才會用到',
-    accent: 'text-indigo-400',
-    iconBg: 'bg-indigo-500/10 text-indigo-400',
+    accent: 'text-sky-400',
+    iconBg: 'bg-slate-800 text-slate-400',
     items: [
       {
         icon: Command,

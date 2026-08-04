@@ -59,19 +59,19 @@ export default function SlideM2HandsOn() {
           </p>
           <div className="space-y-2 text-sm">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
-              <span className="font-mono text-sky-300 font-bold">/context</span>
+              <span className="font-mono text-orange-300 font-bold">/context</span>
               <span className="text-slate-400"> ，記下 Free space 那個百分比。</span>
             </div>
             <Prompt>「把 index.html 整份讀一遍，告訴我它有幾行。」</Prompt>
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
-              <span className="font-mono text-sky-300 font-bold">/context</span>
+              <span className="font-mono text-orange-300 font-bold">/context</span>
               <span className="text-slate-400"> 再打一次，看少了多少。</span>
             </div>
           </div>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
             讀一個檔案就吃掉這麼多，你就知道為什麼手冊不能什麼都寫。
-            想清掉重來是 <code className="text-slate-400">/clear</code>，想留著摘要繼續是{' '}
-            <code className="text-slate-400">/compact</code>。
+            想清掉重來是 <code className="text-orange-300">/clear</code>，想留著摘要繼續是{' '}
+            <code className="text-orange-300">/compact</code>。
           </p>
         </AnimatedBlock>
 
@@ -116,16 +116,16 @@ export default function SlideM2HandsOn() {
           </p>
           <div className="space-y-2 text-sm mb-3">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
-              <span className="text-sky-300 font-bold">CLAUDE.md</span>
+              <span className="text-orange-300 font-bold">CLAUDE.md</span>
               <span className="text-slate-400">：你寫的規矩。「一律用繁體中文」這種。</span>
             </div>
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
-              <span className="text-amber-300 font-bold">auto memory</span>
+              <span className="text-orange-300 font-bold">auto memory</span>
               <span className="text-slate-400">：它自己學到的。你糾正過它的事、這個專案怎麼跑測試。</span>
             </div>
           </div>
           <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 text-sm">
-            <span className="font-mono text-amber-300 font-bold">/memory</span>
+            <span className="font-mono text-orange-300 font-bold">/memory</span>
             <span className="text-slate-400"> ，看它到底記了什麼。那些是純文字檔，可以直接改或刪。</span>
           </div>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">

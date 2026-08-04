@@ -26,7 +26,7 @@ export default function SlideM2ContextCheck() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            手冊寫完了，但它這一輪有沒有真的被讀進去？在對話框輸入 <code className="text-sky-300 font-mono">/context</code>，答案在最下面那一段。
+            手冊寫完了，但它這一輪有沒有真的被讀進去？在對話框輸入 <code className="text-orange-300 font-mono">/context</code>，答案在最下面那一段。
           </p>
           <div className="bg-slate-950 border border-slate-800 rounded-2xl p-5 font-mono text-xs shadow-xl">
             <div className="flex gap-2 mb-4">
@@ -73,7 +73,7 @@ export default function SlideM2ContextCheck() {
 
           <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-4 py-3">
             <p className="text-slate-400 text-xs leading-relaxed">
-              寫完手冊的下一步不是繼續加規則，是先跑一次 <code className="text-sky-300 font-mono">/context</code>，確認它真的在清單裡。<span className="text-slate-200">沒被載入的規則，寫得再好都沒有用。</span>
+              寫完手冊的下一步不是繼續加規則，是先跑一次 <code className="text-orange-300 font-mono">/context</code>，確認它真的在清單裡。<span className="text-slate-200">沒被載入的規則，寫得再好都沒有用。</span>
             </p>
           </AnimatedBlock>
         </div>
