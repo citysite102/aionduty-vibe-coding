@@ -131,6 +131,9 @@ grep -rhoE --include="*.tsx" -- \
 - **只用內建色階。** `slate-850`、`sky-350` 這類不存在的色階不會報錯、typecheck 也會過，但邊框會直接不渲染。
 - **只用合法的間距 class。** `py-0.2`、`px-1.7` 等同樣是靜默失效，寫 `py-0.5`。
 - **只用 Tailwind 內建的 animate class。** `animate-spin-slow`、`animate-infinite`、`animate-duration-2000` 都是別的外掛才有的，這個專案沒裝，寫了不會報錯也不會動。要調速度用 `style={{ animationDuration }}`，或直接改用 `motion`。（這三類是同一種病：class 拼錯不會壞，只會安靜地什麼都不做。）
+- **只用內建字級，不要寫 `text-[13px]` 這種。** 內建階之間本來就有節奏，自訂 px 會讓同一頁出現三種只差一兩 px 的大小，看起來像沒對齊。**投影片內文最低到 `text-sm`**，`text-xs` 留給註解、膠囊標籤與圖表註記，不要拿來寫成段的句子。2026-08-04 全片把 `text-[8px]` 到 `text-[10px]` 那九處清乾淨了，不要再長回來。
+- **JSX 裡的反引號是純文字，不是程式碼標記。** 寫 `` <p>`/init` 產出的是⋯</p> `` 畫面上會出現兩個反引號，Markdown 那一套在這裡不會生效。要等寬就寫 `<code className="font-mono text-orange-300">/init</code>`。這個錯犯過兩次，掃描用 `grep -rnoE '>[^<]*\`[^\`]+\`[^<]*<' --include='*.tsx' src`。
+- **`mt-auto` 在等高卡片裡可能等於 0。** 一排卡片用 grid 撐成等高時，如果每張的內容一樣長，就沒有多餘高度可以分配，`mt-auto` 推不動任何東西。想讓頁尾的分隔線跟上面那段保持距離，間距要自己給（上面 `mb-4`、下面 `pt-4`），不能只靠 `mt-auto`。
 - **內容區的外層要用 `min-h-full`，不要用 `h-full`。** `SlideLayout` 的內容區是 `overflow-y-auto`，外層寫 `h-full` 加 `justify-center` 時，內容一旦超過高度就會上下同時溢出，**上緣會被推到捲動範圍外面，捲不到也看不到**。`min-h-full` 是「至少這麼高」，超過就往下長，捲動正常。這種錯不會報錯也不會被 typecheck 抓到。
 - **不引用外部網址資源**（圖片、字型、背景貼圖）。現場離線播放會破圖，一律放 `assets/`。
 - 不要留不可點的裝飾性按鈕，現場真的會有人去點。用 `div` 或加上真實行為。
@@ -270,7 +273,7 @@ npm run check:slides
 
 | 原文 | 統一譯法 | 不要用 |
 |---|---|---|
-| Subagent | 子代理（Subagent） | 子層小幫手、側任務專員、專業側任務專員、Sub Agent |
+| Subagent | 子代理（Subagent） | 小幫手、子層小幫手、側任務專員、專業側任務專員、Sub Agent |
 | Orchestrator | 指揮者 | AI 專案經理 |
 | Harness | 運作框架（Harness） | 安全沙箱（sandbox 才是沙箱） |
 | Agentic Engineering | 代理工程（Agentic Engineering） | Agent Engineering |
