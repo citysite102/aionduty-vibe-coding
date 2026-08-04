@@ -182,8 +182,7 @@ const LoopEngineeringAnimation = () => {
       </div>
 
       {/* Narrative caption */}
-      <div className="text-center text-xs text-slate-400 border-t border-slate-900 pt-4 z-10 flex justify-between items-center px-2">
-        <span>有了系統化的 Loop，AI 才有自己試錯與反覆檢查的空間</span>
+      <div className="text-center text-xs text-slate-400 border-t border-slate-900 pt-4 z-10 flex justify-end items-center px-2">
         <span className="text-sky-400 font-mono text-[11px] font-bold">PROMPT → CODE → TEST → FIX</span>
       </div>
     </div>

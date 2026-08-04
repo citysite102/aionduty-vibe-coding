@@ -76,7 +76,7 @@ export default function SlideM2ProjectsInPractice() {
 
         <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
-            三個地方都吃同一份規範。差別只在權限範圍，不在你要怎麼寫手冊。<strong className="text-slate-200">所以手冊寫一次，三個地方都能用。</strong>
+            三個地方都吃同一份規範，<strong className="text-slate-200">差別只在權限範圍。</strong>
           </p>
         </AnimatedBlock>
 

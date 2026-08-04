@@ -45,7 +45,7 @@ export default function SlideM2OutsideContext() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={5} className="text-slate-500 text-xs leading-relaxed px-1">
-          三頁看完，零件的分類其實只有三種載入時機：整場常駐、用到才展開、根本不進來。下一頁開始看它們實際怎麼用。
+          零件的分類只有三種載入時機：整場常駐、用到才展開、根本不進來。
         </AnimatedBlock>
 
       </div>

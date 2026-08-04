@@ -12,7 +12,7 @@ export default function SlideBenchmarks() {
 
         <AnimatedBlock stepIndex={1} className="text-center">
           <p className="text-slate-300 text-base leading-relaxed">
-            既然本機 Agent 是「有手的執行者」，它到底能做到什麼程度？先看兩個真實案例，再談其中的爭議。
+            它到底能做到什麼程度？
           </p>
         </AnimatedBlock>
 

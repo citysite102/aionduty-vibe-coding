@@ -39,7 +39,7 @@ export default function Slide21f() {
         <div className="flex-1 space-y-6">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              設定檔不是寫完就算了，它是 Agent 的「行為準則」。<br/>回想一下你的日常開發，是不是常常發生這些狀況：
+              設定檔不是寫完就算了，它是 Agent 的「行為準則」。
             </p>
             <ul className="space-y-3">
               <li className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">

@@ -37,13 +37,6 @@ export default function SlideFirstDay() {
     >
       <div className="max-w-6xl mx-auto text-left">
 
-        <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4 mb-5">
-          <p className="text-slate-300 text-base leading-relaxed">
-            這堂課講了很多東西，但明天要用的其實只有這幾件。
-            <strong className="text-slate-100">把這一頁截圖起來就夠了。</strong>
-          </p>
-        </AnimatedBlock>
-
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
 
           <div className="grid grid-cols-1 gap-4">
@@ -52,7 +45,7 @@ export default function SlideFirstDay() {
               return (
                 <AnimatedBlock
                   key={step.title}
-                  stepIndex={idx + 2}
+                  stepIndex={idx + 1}
                   className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex gap-4 items-start"
                 >
                   <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl shrink-0">
@@ -74,7 +67,7 @@ export default function SlideFirstDay() {
             })}
           </div>
 
-          <AnimatedBlock stepIndex={5} className="bg-gradient-to-b from-slate-900 to-amber-950/20 border border-slate-800 rounded-2xl p-5">
+          <AnimatedBlock stepIndex={4} className="bg-gradient-to-b from-slate-900 to-amber-950/20 border border-slate-800 rounded-2xl p-5">
             <h4 className="text-base font-bold text-amber-400 mb-4 flex items-center gap-2">
               <LifeBuoy size={18} />
               卡住的時候，三招

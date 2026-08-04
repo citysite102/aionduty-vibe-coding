@@ -37,7 +37,7 @@ export default function SlideClaudeCodeIntegration() {
           </div>
 
           <p className="text-xs text-slate-500 leading-relaxed mt-3">
-            順帶澄清一個常見誤會：Claude Code 已經不是只有終端機那個黑畫面。桌面版與瀏覽器版看得到視覺化的變更對照，它也能把成果輸出成可以分享的 Artifacts 頁面。
+            桌面版與瀏覽器版看得到視覺化的變更對照，它也能把成果輸出成可以分享的 Artifacts 頁面。
           </p>
         </AnimatedBlock>
 

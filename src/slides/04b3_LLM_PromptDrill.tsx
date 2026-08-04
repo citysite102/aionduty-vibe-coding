@@ -24,15 +24,11 @@ export default function SlideLLMPromptDrill() {
     <SlideLayout title="講清楚，先檢查這三件事" subtitle="Three Checks" icon={PenLine}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
-        <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          這個練習不用開終端機，手機上的 AI 就能做。前面講的原理，落到實際動作就是這三個檢查點。
-        </AnimatedBlock>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {CHECKS.map((c, i) => (
             <AnimatedBlock
               key={c.n}
-              stepIndex={i + 2}
+              stepIndex={i + 1}
               className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4"
             >
               <div className="w-7 h-7 mb-3 rounded bg-slate-950 border border-slate-800 flex items-center justify-center text-sky-400 font-bold font-mono text-sm">
@@ -44,7 +40,7 @@ export default function SlideLLMPromptDrill() {
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">示範</div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-red-400 font-mono text-sm">✕</span>

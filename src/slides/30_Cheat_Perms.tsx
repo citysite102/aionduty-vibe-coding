@@ -161,9 +161,6 @@ export default function SlideCheatPerms() {
               </div>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-500 italic">
-              * 提示：點擊上方卡片，右側的 Terminal 與網頁設定將會同步切換展示！
-            </div>
           </AnimatedBlock>
         </div>
 
@@ -422,7 +419,7 @@ export default function SlideCheatPerms() {
 
       {/* Slide Concluding Takeaway footer statement */}
       <AnimatedBlock stepIndex={3} className="text-center text-slate-500 text-xs mt-3">
-        🔑 沒有哪一種模式永遠正確：陌生專案用 <code>default</code>，摸熟了切 <code>acceptEdits</code>，大改動前先 <code>plan</code>。在安全與速度之間找到你自己的平衡點。
+        🔑 沒有哪一種模式永遠正確：陌生專案用 <code>default</code>，摸熟了切 <code>acceptEdits</code>，大改動前先 <code>plan</code>。
       </AnimatedBlock>
     </SlideLayout>
   );

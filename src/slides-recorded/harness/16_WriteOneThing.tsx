@@ -32,7 +32,7 @@ export default function RecWrite6() {
 
         <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            💡 這六個技巧不只適用 CLAUDE.md。任何你要交代給 AI 的規範都一樣，包括接下來要看的網頁版工具。
+            💡 這六個技巧不只適用 CLAUDE.md，任何你要交代給 AI 的規範都一樣。
           </p>
         </AnimatedBlock>
       </RecPage>

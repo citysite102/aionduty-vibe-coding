@@ -78,12 +78,6 @@ export default function SlideDesktopFirst() {
             同一份 CLAUDE.md、同一組斜線指令、一樣能跑測試與版本控制。旁邊的 Cowork 才是另一回事，那個之後會講。
           </p>
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
-          <p className="text-slate-400 text-sm leading-relaxed">
-            所以等一下裝終端機如果卡住，不用急。留在這個頁籤，後面每一段都跑得動，回家再處理安裝就好。
-          </p>
-        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

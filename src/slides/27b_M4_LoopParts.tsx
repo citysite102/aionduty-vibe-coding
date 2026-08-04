@@ -72,7 +72,7 @@ export default function SlideLoopParts() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-sm leading-relaxed">
             這六塊不是新的清單。前面講的 <strong className="text-slate-100">運作框架 (Harness) 是「你替 AI 準備的工作環境」</strong>：能用哪些工具、看得到哪些資料、權限開到哪。
-            這裡要補的是<strong className="text-slate-100">「讓那個環境自己跑起來」</strong>還缺的零件。不需要一次全部學會，照下面三步慢慢疊上去就好。
+            這裡要補的是<strong className="text-slate-100">「讓那個環境自己跑起來」</strong>還缺的零件。
           </p>
         </AnimatedBlock>
 

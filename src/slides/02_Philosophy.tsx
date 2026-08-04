@@ -3,10 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
  * 這一頁的主角是那四個單元，所以它們佔滿版面排成 2×2，
- * 課程簡介收成上方一條橫幅。
- *
- * 原本是左右兩張卡：左邊只有一段簡介、右邊塞了四個單元，
- * 高度差快一倍，右邊那張還得把每一條壓成小字。
+ * 核心目標收成上方一條橫幅。
  *
  * 單元名稱要跟 App.tsx 的 SECTION_DEFS 對得上，
  * 學員會拿這一頁對照講者選單裡的分節名。
@@ -40,23 +37,15 @@ export default function SlidePhilosophy() {
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock
           stepIndex={1}
-          className="grid grid-cols-1 gap-6 rounded-2xl border border-slate-800 bg-slate-900 p-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] md:items-center"
+          className="flex items-start gap-3 rounded-2xl border border-sky-500/25 bg-sky-500/10 px-5 py-4"
         >
-          <div className="flex items-start gap-3 rounded-xl border border-sky-500/25 bg-sky-500/10 px-4 py-3.5">
-            <Target size={18} className="text-sky-400 shrink-0 mt-0.5" />
-            <div>
-              <div className="text-sky-300 text-xs font-mono uppercase tracking-wider mb-1">核心目標</div>
-              <div className="text-slate-100 text-base font-bold leading-snug">
-                能自己做出工具與網頁，而不只是會挑工具
-              </div>
+          <Target size={18} className="text-sky-400 shrink-0 mt-0.5" />
+          <div>
+            <div className="text-sky-300 text-xs font-mono uppercase tracking-wider mb-1">核心目標</div>
+            <div className="text-slate-100 text-base font-bold leading-snug">
+              能自己做出工具與網頁，而不只是會挑工具
             </div>
           </div>
-
-          <p className="text-slate-300 text-base leading-relaxed">
-            這堂課會帶你跳脫「只在對話框來回複製貼上」的限制，讓你主導整個{' '}
-            <strong className="text-slate-100">AI 開發流程</strong>
-            。你會學到怎麼調度 AI 寫出真正能跑的網頁、自動修好錯誤，把日常的點子親手指揮成好用的小工具與網站。
-          </p>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

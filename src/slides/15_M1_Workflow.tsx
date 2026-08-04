@@ -9,8 +9,7 @@ export default function Slide06() {
         
         <AnimatedBlock stepIndex={1} className="text-center mb-10">
           <p className="text-slate-300 text-lg">
-            許多初學者會犯的錯誤：<strong className="text-rose-400">一開口就要求馬上產出最終結果。</strong><br/>
-            這就像讓設計師「立刻畫出一張海報」而不給參考。正確的做法是：
+            許多初學者會犯的錯誤：<strong className="text-rose-400">一開口就要求馬上產出最終結果。</strong>
           </p>
         </AnimatedBlock>
 
@@ -70,9 +69,6 @@ export default function Slide06() {
             <br/><br/>
             以此循環不斷迭代。這正是為什麼我們需要讓 Agent 在終端機工作：<br/>
             <strong className="text-sky-400">它能自動幫你完成這個循環中的「執行與驗證」步驟。</strong>
-            <span className="block mt-4 pt-4 border-t border-slate-800 text-sm text-slate-400">
-              接下來要教的每一個操作，都會落在這四格的其中一格上。先記住這張圖，後面就不會迷路。
-            </span>
           </p>
         </AnimatedBlock>
       </div>

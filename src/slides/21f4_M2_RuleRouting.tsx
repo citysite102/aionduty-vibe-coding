@@ -30,7 +30,7 @@ export default function SlideM2RuleRouting() {
       <div className="max-w-6xl mx-auto space-y-3.5 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          上一頁的五種失效，有三種的根因是<strong className="text-slate-200">位置放錯</strong>，不是規則寫得不好。照順序問這四個問題，第一個答「是」的就是它該去的地方。
+          照順序問這四個問題，第一個答「是」的就是它該去的地方。
         </AnimatedBlock>
 
         <div className="space-y-2.5">

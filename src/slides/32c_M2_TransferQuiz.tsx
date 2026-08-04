@@ -38,7 +38,7 @@ export default function SlideM2TransferQuiz() {
 
           <div className="flex flex-col gap-2.5">
             <AnimatedBlock stepIndex={2} className="text-slate-500 text-xs leading-relaxed">
-              想不出來的話，照這三個問題往下問。這三題就是前面幾頁的內容，只是換了一個題目。
+              想不出來的話，照這三個問題往下問。
             </AnimatedBlock>
 
             {HINTS.map((h, i) => (

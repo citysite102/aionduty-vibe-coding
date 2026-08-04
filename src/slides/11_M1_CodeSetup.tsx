@@ -1,4 +1,4 @@
-import { Play, Terminal, CheckCircle2, FileText, Blocks } from 'lucide-react';
+import { Play, Terminal, FileText, Blocks } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
 
@@ -103,23 +103,6 @@ export default function SlideCodeSetup() {
             <h3 className="text-3xl font-black text-slate-100 tracking-tight leading-tight">Live<br/>Demonstration</h3>
             
             <div className="w-16 h-1 bg-sky-500/50 rounded-full mx-auto"></div>
-            
-            <p className="text-slate-300 text-lg">現在將切換至終端機，為您示範完整流程。</p>
-            
-            <div className="mt-8 space-y-3 text-left bg-slate-900/60 p-5 rounded-xl border border-slate-700 w-full">
-              <div className="flex gap-3 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
-                <span>實際見證錯誤修正</span>
-              </div>
-              <div className="flex gap-3 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
-                <span>體驗 Agent 思考過程</span>
-              </div>
-              <div className="flex gap-3 text-sm text-slate-300">
-                <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
-                <span>觀察 CLAUDE.md 生成</span>
-              </div>
-            </div>
           </div>
         </AnimatedBlock>
       </div>

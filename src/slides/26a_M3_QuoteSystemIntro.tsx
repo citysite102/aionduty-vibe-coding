@@ -38,13 +38,6 @@ export default function SlideQuoteSystemIntro() {
             );
           })}
         </div>
-
-        <AnimatedBlock stepIndex={6} className="rounded-xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-4">
-          <p className="text-slate-300 text-base leading-relaxed">
-            這段的重點不是「一次把系統做完」，而是先讓 Agent 知道：
-            什麼要做、什麼先不做、資料怎麼長、API 怎麼接、做完交給誰檢查。
-          </p>
-        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

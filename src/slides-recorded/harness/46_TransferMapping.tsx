@@ -24,13 +24,7 @@ export default function RecTransferMapping() {
   return (
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={GitFork}>
       <RecPage className="space-y-5">
-        <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-500 text-xl leading-relaxed">
-            三題問完，手冊已經五行。但寫進手冊只是第一步。
-          </p>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           {MAP.map((m) => (
             <div
               key={m.line}
@@ -48,7 +42,7 @@ export default function RecTransferMapping() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="px-1">
+        <AnimatedBlock stepIndex={2} className="px-1">
           <p className="text-slate-300 text-2xl font-bold leading-snug">
             三個問題不只幫你想內容，也<Key>決定了每一條該用什麼方式擋</Key>
           </p>

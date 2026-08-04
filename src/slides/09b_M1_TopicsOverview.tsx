@@ -18,14 +18,7 @@ export default function Slide09b() {
   return (
     <SlideLayout title="前置基礎觀念導覽" subtitle="Learning Roadmap" icon={Map}>
       <AnimatedBlock stepIndex={1} className="max-w-4xl mx-auto mb-8 text-center">
-        <h2 className="text-2xl text-slate-100 font-bold mb-4">掌握 Agent 所需的基礎地圖</h2>
-        <p className="text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto mb-4">
-          在正式讓 Claude Code 接管專案之前，要先認識 Agent 的工作環境與溝通語言。接下來這幾站會走過現代網頁開發的核心元素。
-        </p>
         <p className="text-slate-200 text-sm leading-relaxed max-w-2xl mx-auto bg-sky-950/20 border border-sky-900/40 rounded-xl px-4 py-3">
-          <strong className="text-sky-300">這一段不是聽講，是動手。</strong>
-          底下標了「終端機」和「瀏覽器」的那幾站，我們會離開簡報實際做一次。
-          <strong className="text-slate-100">現在可以把電腦打開了。</strong>
           最後一站的 Claude Code 會先用桌面版，不需要終端機，現在裝不起來也不影響。
         </p>
       </AnimatedBlock>

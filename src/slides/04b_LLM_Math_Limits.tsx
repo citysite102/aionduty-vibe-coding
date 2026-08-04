@@ -214,7 +214,7 @@ export default function SlideLLMMathLimits() {
             </div>
 
             <p className="text-xs text-slate-500 mt-3">
-              圓點是它記得的幾種做法，實線是你的話落在哪裡。落在中間，代表它誰都不確定。
+              圓點是它記得的幾種做法，實線是你的話落在哪裡。
             </p>
           </AnimatedBlock>
         </div>

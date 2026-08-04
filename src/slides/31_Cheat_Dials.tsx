@@ -140,7 +140,7 @@ export default function Slide16() {
           接續前面
         </div>
         <p className="text-slate-400 text-sm leading-relaxed">
-          先前我們建構了運作框架的<strong>三大支柱</strong>（工具、上下文、任務拆解）。但隨之而來的現實擔憂是：<strong>「如果放任 Agent 隨意讀寫與下指令，會不會把我的專案改壞？」</strong>要安全使用這股力量，就必須理解「監督與邊界」的兩個虛擬調節旋鈕。
+          <strong>「如果放任 Agent 隨意讀寫與下指令，會不會把我的專案改壞？」</strong>要安全使用這股力量，就必須理解「監督與邊界」的兩個虛擬調節旋鈕。
         </p>
       </AnimatedBlock>
 

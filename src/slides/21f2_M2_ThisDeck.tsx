@@ -49,7 +49,7 @@ export default function SlideThisDeck() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
             你現在看到的這一整份<strong className="text-sky-300">沒有用簡報軟體</strong>，
-            它是一個網頁專案。下面是它的 CLAUDE.md，照抄，沒有為了上台好看而改寫。
+            它是一個網頁專案。下面這份照抄，沒有為了上台好看而改寫。
           </p>
         </AnimatedBlock>
 

@@ -13,13 +13,7 @@ export default function SlideGitignoreGuard() {
   return (
     <SlideLayout title="有些東西不能推上去" subtitle="Push It to GitHub" icon={ShieldAlert}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
-        <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-300 text-base leading-relaxed">
-            推上去這件事它會幫你做完。你要自己決定的只有兩件事。
-          </p>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
             <div className="flex items-center gap-2.5 mb-3">
               <Eye size={18} className="text-slate-400" />
@@ -58,7 +52,7 @@ export default function SlideGitignoreGuard() {
         </AnimatedBlock>
 
         <AnimatedBlock
-          stepIndex={3}
+          stepIndex={2}
           className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-5"
         >
           <div className="text-sky-400 font-bold text-sm mb-2">這是你自己設的第一道機制</div>
@@ -70,7 +64,7 @@ export default function SlideGitignoreGuard() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
             推上去之後，Vercel 綁一次 GitHub 就好。之後你只要說「幫我更新上線」，它推完，網站自己跟著換新版。
           </p>

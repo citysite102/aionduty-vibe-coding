@@ -76,7 +76,7 @@ export default function Slide21a() {
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             不管是 MCP 還是 Skills，模型本身都不會直接連網或動你的檔案。它做的事只有一件：
             <strong className="text-slate-200">輸出一段「我要用這個工具、參數長這樣」的請求</strong>，
-            再由外面的程式實際去執行，把結果送回來給它看。理解這一點，下面幾個常見狀況就不會讓你困惑。
+            再由外面的程式實際去執行，把結果送回來給它看。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="bg-slate-950 border border-slate-800 rounded-xl p-3.5">

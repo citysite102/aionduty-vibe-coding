@@ -19,10 +19,6 @@ export default function Slide10b2() {
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-sky-500/10 border border-sky-500/20 rounded-full text-[11px] font-mono text-sky-400 font-bold tracking-wider uppercase mb-3">
                 Agent Workflows
               </div>
-              <h3 className="text-xl font-bold text-slate-100 mb-4 leading-snug">
-                不用再手動翻文件，<br/>
-                讓 AI 幫你讀文件與串接
-              </h3>
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
                 過去串接 API 最花時間的，往往是翻閱厚重的官方英文手冊，搞懂正確的參數名稱與認證機制。
               </p>

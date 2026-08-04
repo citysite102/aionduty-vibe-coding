@@ -39,8 +39,8 @@ export default function SlideIntervene() {
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-base text-slate-300 leading-relaxed">
-            上一頁那三道，是設定好就會自己生效的煞車。這一頁是<strong className="text-slate-100">你人還在現場的時候</strong>，可以動手做的四件事。
-            看 AI 自己改程式很新鮮，最怕的是它卡在迴圈裡出不來，而錢一直在燒。
+            <strong className="text-slate-100">你人還在現場的時候</strong>，可以動手做這四件事。
+            最怕的是它卡在迴圈裡出不來，而錢一直在燒。
           </p>
         </AnimatedBlock>
 

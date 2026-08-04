@@ -92,7 +92,7 @@ export default function SlideLoopWatch() {
           <p className="text-slate-300 text-base leading-relaxed">
             貼下去之後，你會看到它自己重複「改一次、驗一次」。
             <strong className="text-slate-100">綠色是那一題過了，紅色是沒過。</strong>
-            下面是這個題目跑起來的樣子，實際輪數會不一樣，但形狀是一樣的。
+            實際輪數會不一樣，但形狀是一樣的。
           </p>
         </AnimatedBlock>
 

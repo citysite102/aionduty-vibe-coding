@@ -30,7 +30,7 @@ export default function RecHealthRest() {
           {[
             ['3　分流', '就是前面那四個問題。會出事的交給機制，只在某一區的分出去。'],
             ['4　加法', '這時候才補新規則，而且補在正確的位置，不要一律往根目錄堆。'],
-            ['5　修剪', '把「要優雅」這種改寫成可以檢查的句子。下一段專門講怎麼寫。'],
+            ['5　修剪', '把「要優雅」這種改寫成可以檢查的句子。'],
           ].map(([n, d]) => (
             <div key={n} className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-5 flex gap-6 items-baseline">
               <span className="text-sky-400 font-bold text-xl font-mono shrink-0 w-24">{n}</span>

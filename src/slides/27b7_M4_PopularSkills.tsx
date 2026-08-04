@@ -41,7 +41,7 @@ export default function SlidePopularSkills() {
           <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 text-left">
             <p className="text-slate-300 text-sm leading-relaxed">
               <strong className="text-sky-400">Skill 就是「把一套做法打包好，裝上就能用」。</strong>
-              需要時才載入，讓 Agent 在特定任務上直接照著高手的做法走。以下挑幾個高頻好用的來看。
+              需要時才載入，讓 Agent 在特定任務上直接照著高手的做法走。
             </p>
           </div>
         </AnimatedBlock>

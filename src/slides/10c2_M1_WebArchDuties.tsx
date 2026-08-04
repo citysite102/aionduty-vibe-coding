@@ -119,9 +119,6 @@ export default function SlideWebArchDuties() {
                 <ArrowRightLeft className="text-sky-400 w-5 h-5" />
                 <span>請點選切換不同商業情境，觀察前後端的分工：</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                不同的商業功能，在網頁前端與後端都有完全不同的任務，需要精密的 API 與資料庫合約。
-              </p>
             </div>
             
             {/* Tab Selectors */}

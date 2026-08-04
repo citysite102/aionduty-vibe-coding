@@ -45,8 +45,7 @@ export default function SlideProjectTypes() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            前面的例子都是程式，容易讓人以為這一套只有工程師用得到。
-            其實只要一件事<strong className="text-slate-100">會重複做、你有自己的規矩、而且產出要一致</strong>，
+            只要一件事<strong className="text-slate-100">會重複做、你有自己的規矩、而且產出要一致</strong>，
             它就可以是一個專案，寫法完全一樣。
           </p>
         </AnimatedBlock>
@@ -105,7 +104,6 @@ export default function SlideProjectTypes() {
         <AnimatedBlock stepIndex={7} className="px-1">
           <p className="text-slate-400 text-sm leading-relaxed">
             四種的寫法一樣，難的是「第一條該寫什麼」。
-            接下來看兩份真的在用的手冊，一份是大型專案的，一份是你眼前這份簡報的。
           </p>
         </AnimatedBlock>
 

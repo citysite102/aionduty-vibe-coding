@@ -62,7 +62,6 @@ export default function SlideM2SectionGoal() {
           <p className="text-slate-400 text-sm leading-relaxed">
             最後那一項先講個數字：找人外包寫一支自動抓資料的小腳本，報價大約一萬元、五個工作天。
             你自己指揮 AI 做，token 費用約四十元、一小時。
-            <span className="text-slate-200">錢跟時間的差距都很大，所以值得花一點功夫，把環境準備好。</span>
           </p>
         </AnimatedBlock>
 

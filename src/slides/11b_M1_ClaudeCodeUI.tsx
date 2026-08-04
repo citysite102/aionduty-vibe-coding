@@ -20,7 +20,7 @@ export default function SlideClaudeCodeUI() {
                 教你一眼看懂這個畫面
               </h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                在專案目錄下輸入 <code>claude</code> 啟動後，很多人會對著黑畫面發愣。其實畫面上每一區都有它的用途：
+                在專案目錄下輸入 <code>claude</code> 啟動後：
               </p>
             </AnimatedBlock>
 

@@ -16,7 +16,7 @@ export default function SlideHarnessContext() {
         </div>
 
         <p className="text-slate-300 text-lg mb-8">
-          驗證負責「把關輸出」；而要讓輸出一開始就夠好，得先把「輸入」餵對，這就是本頁的主角：<strong>上下文工程</strong>。它像為新員工做「入職簡報」，你給 AI 什麼上下文，就決定它寫出的程式碼品質。要把 AI 開發用在真正上線的專案上，這是第一件該投資的事。
+          <strong>上下文工程</strong>像為新員工做「入職簡報」，你給 AI 什麼上下文，就決定它寫出的程式碼品質。要把 AI 開發用在真正上線的專案上，這是第一件該投資的事。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">

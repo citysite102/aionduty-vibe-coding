@@ -28,9 +28,6 @@ export default function SlideIntroVibe() {
             <Zap className="text-sky-400" size={28} />
             <h3 className="text-2xl font-bold text-slate-100">Vibe Coding 不是不用打磨產品</h3>
           </div>
-          <p className="text-slate-400 text-sm leading-relaxed mb-6">
-            Vibe Coding 讓做出產品的門檻大幅下降，但不代表技術架構不再重要：
-          </p>
           <ul className="space-y-4">
             <li className="flex gap-3">
               <ShieldCheck className="text-emerald-400 shrink-0 mt-0.5" size={18} />

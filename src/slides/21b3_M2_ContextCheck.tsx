@@ -49,9 +49,6 @@ export default function SlideM2ContextCheck() {
               </div>
             </div>
           </div>
-          <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            上半部是空間佔用，翻課本時可以略過。<span className="text-slate-300">要看的是最下面的 Memory files。</span>
-          </p>
         </AnimatedBlock>
 
         <div className="space-y-3">

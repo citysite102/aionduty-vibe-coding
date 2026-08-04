@@ -50,7 +50,7 @@ export default function SlideQuoteSystemStandards() {
           <AnimatedBlock stepIndex={9} className="rounded-xl border border-slate-800 bg-slate-950 p-5">
             <div className="flex items-center gap-2.5 text-slate-100 font-bold mb-3">
               <ShieldCheck aria-hidden="true" size={20} className="text-sky-400" />
-              三條先放進 CLAUDE.md
+              四條先放進 CLAUDE.md
             </div>
             <div className="space-y-2">
               {RULES.map((rule) => (

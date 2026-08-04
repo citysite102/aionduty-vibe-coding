@@ -93,13 +93,9 @@ export default function SlideHarnessArchitecture() {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center mb-6 space-y-2">
+        <div className="max-w-4xl mx-auto text-center mb-6">
           <p className="text-slate-300 text-base">
-            前面那條軌道，拆開來就是這六個零件。這是<strong className="text-slate-100">業界完整版</strong>，先看全景，不用記。
-          </p>
-          <p className="text-slate-500 text-sm leading-relaxed">
-            這堂課實際會動手的是<strong className="text-sky-400">規則文件</strong>與<strong className="text-sky-400">工具</strong>這兩塊，指揮分工留到第三單元。
-            其餘三個是團隊規模才需要的工程配套，知道有這回事就好，等你的專案長大再回來看。
+            這是<strong className="text-slate-100">業界完整版</strong>的六個零件。
           </p>
         </div>
 

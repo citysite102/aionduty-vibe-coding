@@ -142,11 +142,6 @@ export default function SlideGoalLoop() {
                 </div>
               </div>
             </div>
-
-            <div className="bg-[#0b0f19] p-4 rounded-2xl border border-slate-800 mt-6 text-center">
-              <span className="text-[11px] text-sky-400 font-mono block mb-1 uppercase tracking-wider">換個角度看</span>
-              <span className="text-xs text-slate-300 font-bold">從「下提示詞的人」變成「設計迴圈的人」</span>
-            </div>
           </AnimatedBlock>
         </div>
 

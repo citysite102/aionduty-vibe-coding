@@ -35,9 +35,8 @@ export default function SlideVocabulary() {
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
-            接下來這一段會一直提到這三個詞。它們的共通點是：
+            這三件事的共通點：
             <strong className="text-slate-100">當下都不痛，會拖到後面才一次還。</strong>
-            先認得它們，後面講風險與防線時會比較有感覺。
           </p>
         </AnimatedBlock>
 

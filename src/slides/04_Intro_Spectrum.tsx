@@ -21,7 +21,7 @@ export default function SlideIntroSpectrum() {
     <SlideLayout title="依據目標選擇工具" subtitle="Choosing the Right Tool" icon={Layers}>
       <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
         <p className="text-slate-400 text-sm mb-6 text-center">
-          「用 AI 寫程式」不只一種做法。愈往右，AI 能碰到的東西愈多，我們要負的責任也愈重。
+          愈往右，AI 能碰到的東西愈多，我們要負的責任也愈重。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">

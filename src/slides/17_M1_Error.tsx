@@ -26,7 +26,7 @@ export default function SlideError() {
                 </h3>
                 
                 <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
-                  在終端機開發中，出現紅色錯誤訊息（Error Logs）是<strong>極其正常且健康的日常</strong>。錯誤不是懲罰，而是系統正在用最精確的語言告訴你：它在第幾行、因為什麼原因卡住了。
+                  在終端機開發中，出現紅色錯誤訊息（Error Logs）是<strong>極其正常且健康的日常</strong>。
                 </p>
 
                 <div className="space-y-3 pt-2">
@@ -59,7 +59,7 @@ export default function SlideError() {
                   <span>重點不在於盲目排除，而在於知道發生了什麼事。</span>
                 </div>
                 <p className="text-[11px] text-slate-500 leading-relaxed">
-                  這一頁講的是<strong className="text-slate-400">終端機裡的紅字</strong>。還有另一種狀況是終端機安安靜靜，畫面卻壞掉，那種錯要去瀏覽器裡撈，課程後面會單獨講。
+                  另一種狀況是終端機安安靜靜，畫面卻壞掉，那種錯要去瀏覽器裡撈。
                 </p>
               </div>
             </AnimatedBlock>

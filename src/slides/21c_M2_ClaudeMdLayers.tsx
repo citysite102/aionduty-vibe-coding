@@ -9,7 +9,7 @@ export default function SlideClaudeMdLayers() {
         {/* 先講價值：同一句話，有沒有手冊的差別 */}
         <AnimatedBlock stepIndex={1} className="mb-3">
           <p className="text-slate-300 text-base mb-4">
-            先看它解決什麼問題，再談檔案放哪。<strong className="text-slate-100">同一句需求，分別丟給有手冊和沒有手冊的專案：</strong>
+            <strong className="text-slate-100">同一句需求，分別丟給有手冊和沒有手冊的專案：</strong>
           </p>
           <div className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 mb-4 text-sky-300 text-sm font-medium">
             「幫我加一個 5 分鐘的休息模式。」

@@ -20,10 +20,6 @@ export default function SlideWarpTerminal() {
               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-sky-500/10 border border-sky-500/20 rounded-full text-xs text-sky-400 font-mono mb-3">
                 <Award size={12} /> RECOMMENDED TOOL
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-3">
-                別再用內建終端機了！<br/>
-                用 <span className="text-sky-400">Warp</span> 提升終端機體驗
-              </h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-4">
                 傳統終端機（如 Mac Terminal、Windows 終端機）是一行行生硬且難以編輯的文字。<strong>Warp</strong> 是一款內建 AI 輔助與現代操作邏輯的終端機工具。
               </p>

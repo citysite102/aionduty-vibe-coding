@@ -51,8 +51,7 @@ export default function SlideProblemMap() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            你剛才看到一份真的在用的手冊。等你自己寫一份，
-            <strong className="text-sky-300">這四件事會依序發生</strong>，而這一段就是照這個順序走的。
+            等你自己寫一份，<strong className="text-sky-300">這四件事會依序發生</strong>。
           </p>
         </AnimatedBlock>
 
@@ -124,7 +123,6 @@ export default function SlideProblemMap() {
         <AnimatedBlock stepIndex={6} className="px-1">
           <p className="text-slate-400 text-sm leading-relaxed">
             四題都是同一份檔案的問題，所以每一塊講完會回頭看那份檔案變成什麼樣子。
-            <strong className="text-slate-200">右下角那顆按鈕隨時可以叫出來</strong>，想確認現在改到哪一版就點開。
           </p>
         </AnimatedBlock>
 

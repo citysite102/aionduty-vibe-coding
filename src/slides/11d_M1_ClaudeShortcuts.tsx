@@ -32,15 +32,6 @@ export default function SlideClaudeShortcuts() {
               </p>
             </div>
 
-            <div className="mt-6 p-4 bg-slate-950/80 rounded-2xl border border-slate-800">
-              <div className="text-[11px] font-bold text-slate-400 mb-2 flex items-center gap-1.5">
-                <Terminal size={12} className="text-amber-500" /> 
-                <span>盲打心法</span>
-              </div>
-              <p className="text-[11px] text-slate-500 leading-normal">
-                手不離開鍵盤，就能載入檔案、切換權限、下系統指令。
-              </p>
-            </div>
           </AnimatedBlock>
         </div>
 
@@ -127,7 +118,6 @@ export default function SlideClaudeShortcuts() {
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   <strong>不用形容，直接給看：</strong>把壞掉的畫面或設計稿截圖起來，在輸入框按 <code className="text-orange-300 font-bold">Ctrl+V</code> 貼上，它會照著圖改。
-                  講不清楚的東西直接給它看，這件事前面提過，這裡是實際的操作方式。
                 </p>
               </div>
             </AnimatedBlock>

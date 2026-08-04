@@ -19,7 +19,7 @@ export default function SlideShipIt() {
             </p>
           </div>
           <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
-            這一步就是前面「從本機到上線」那一頁講的事。你不用碰伺服器，平台負責維運，Agent 負責跑步驟。
+            你不用碰伺服器，平台負責維運，Agent 負責跑步驟。
           </p>
         </AnimatedBlock>
 
@@ -68,19 +68,12 @@ export default function SlideShipIt() {
               <strong className="text-slate-100">那個東西就叫資料庫。</strong>
             </p>
             <p className="text-slate-400 text-xs leading-relaxed">
-              前面講資料庫的那一頁講的就是它。差別在於，你現在是<strong className="text-slate-200">先撞到問題，才需要這個答案</strong>。
               真的要接的話，用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這些設定工。
             </p>
             <div className="mt-3 text-[11px] text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
-              課堂上我們停在這裡。<strong className="text-slate-400">你的計時器已經上線，而且你知道下一步該往哪走。</strong>接資料庫留作課後延伸。
+              接資料庫留作課後延伸。
             </div>
           </div>
-        </AnimatedBlock>
-
-        {/* 四、收線 */}
-        <AnimatedBlock stepIndex={4} className="text-center text-slate-400 text-sm border-t border-slate-800 pt-4">
-          從一個 25 分鐘的倒數，到一個有紀錄、有規範、有人審查、掛在網路上的東西。
-          <strong className="text-slate-100">這一路你沒有寫過一行程式，但每一個決定都是你下的。</strong>
         </AnimatedBlock>
 
       </div>

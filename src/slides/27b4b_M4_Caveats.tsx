@@ -1,4 +1,4 @@
-import { ShieldAlert, AlertTriangle, ShieldCheck, Heart } from 'lucide-react';
+import { ShieldAlert, AlertTriangle, ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideLoopCaveats() {
@@ -95,11 +95,6 @@ export default function SlideLoopCaveats() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-5 pt-3 border-t border-slate-800 text-[11px] text-slate-500 italic flex items-center gap-1">
-              <Heart size={10} className="text-emerald-500 shrink-0" />
-              <span>跑得快之前，先確定煞車是好的。</span>
             </div>
           </AnimatedBlock>
         </div>

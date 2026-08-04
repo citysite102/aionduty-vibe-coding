@@ -12,11 +12,8 @@ export default function Slide12() {
               <ShieldCheck aria-hidden="true" size={48} />
             </div>
             <div className="flex-1 w-full">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-100 mb-4">獨立的審查小幫手 (Reviewer)</h3>
-              <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-6 font-medium">
-                品質防線不只看程式碼，也可以看報價、文案、課程內容或營運流程。
-              </p>
-              
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6">獨立的審查小幫手 (Reviewer)</h3>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-[#0f111a] p-5 rounded-2xl border border-slate-800 shadow-inner">
                   <h4 className="text-lg font-bold text-slate-300 mb-3 border-b border-slate-700 pb-2">簡單的 Review</h4>

@@ -28,7 +28,7 @@ export default function SlideM2BadRules() {
       <div className="max-w-6xl mx-auto space-y-3 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          手冊寫完了，先自己檢查一遍。這三種是最常見的無效寫法，它們的共通點是<strong className="text-slate-200">看起來很像規矩，但沒有任何一句能被驗證。</strong>
+          這三種的共通點是：<strong className="text-slate-200">看起來很像規矩，但沒有任何一句能被驗證。</strong>
         </AnimatedBlock>
 
         {CASES.map((c, i) => (

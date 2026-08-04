@@ -16,7 +16,7 @@ export default function Slide10b() {
               <span>API 與 JSON 就是「餐廳的點單系統」</span>
             </h3>
             <p className="text-xs text-slate-300 leading-relaxed">
-              遇到複雜的 <code>{"{ }"}</code> 大括號和引號別怕！用餐廳吃飯的情境想像：你填「點單紙」（Request）送進廚房，廚房做好後端出「餐點＋明細單」（Response）。下面兩張卡會拆解這一來一回。
+              用餐廳吃飯的情境想像：你填「點單紙」（Request）送進廚房，廚房做好後端出「餐點＋明細單」（Response）。
             </p>
           </div>
         </AnimatedBlock>
@@ -74,7 +74,6 @@ export default function Slide10b() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs md:text-sm mb-4">
                 JSON 是一種<strong>「格式規格標準化的點單明細」</strong>。
-                為了不讓大腦發熱，我們可以直接看下方牛肉麵點單的真實程式碼翻譯：
               </p>
               
               <div className="grid grid-cols-2 gap-4">
@@ -111,7 +110,7 @@ export default function Slide10b() {
             </div>
 
             <div className="mt-5 text-[11px] text-slate-400 leading-relaxed">
-              💡 <strong>大白話：</strong> 其實不難對吧！<code>"欄位鍵" : "欄位值"</code> 只是把事情列得清清楚楚，這樣電腦就不用去猜人類模糊的對話了。
+              💡 <strong>大白話：</strong> <code>"欄位鍵" : "欄位值"</code> 只是把事情列得清清楚楚，這樣電腦就不用去猜人類模糊的對話了。
             </div>
           </AnimatedBlock>
           

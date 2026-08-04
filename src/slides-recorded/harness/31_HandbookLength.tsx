@@ -28,7 +28,6 @@ export default function RecHandbookLength() {
           <p className="text-slate-300 text-xl leading-relaxed">
             所以變長的時候，動作不是往下加，是回頭整理。
           </p>
-          <p className="text-slate-500 text-lg leading-relaxed mt-3">怎麼整理，後面有一整段在講。</p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="flex items-baseline gap-4 px-2">

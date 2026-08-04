@@ -77,17 +77,9 @@ export default function SlideLoopPractice() {
       <LiveDemo kind="terminal" note="貼上這段，然後放著看它跑" />
 
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
-        <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-300 text-base leading-relaxed">
-            前面講完了循環是什麼、需要哪些零件、放手之前要設哪些邊界。
-            <strong className="text-slate-100">這一頁把那些東西合成一段話</strong>，
-            題目還是你手上那個計時器。左邊整段可以直接照抄，右邊是它為什麼要這樣寫。
-          </p>
-        </AnimatedBlock>
-
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-5 items-start">
           <AnimatedBlock
-            stepIndex={2}
+            stepIndex={1}
             className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden"
           >
             <div className="flex items-baseline gap-3 border-b border-slate-800 bg-slate-900 px-5 py-2.5">
@@ -105,7 +97,7 @@ export default function SlideLoopPractice() {
               return (
                 <AnimatedBlock
                   key={b.tag}
-                  stepIndex={i + 3}
+                  stepIndex={i + 2}
                   className="rounded-2xl border border-slate-800 bg-slate-900 p-4"
                 >
                   <div className="flex items-center gap-2.5 mb-2">
@@ -122,7 +114,7 @@ export default function SlideLoopPractice() {
         </div>
 
         <AnimatedBlock
-          stepIndex={7}
+          stepIndex={6}
           className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-4"
         >
           <p className="text-slate-300 text-base leading-relaxed">

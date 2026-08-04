@@ -23,7 +23,7 @@ export default function SlideFutureEngineering() {
                 讓 AI 跑完最後一哩路
               </h3>
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
-                在 Agent 時代，這兩個經典術語有了新的意義，它們是幫你少操心的工具，不必害怕：
+                這兩個經典術語，在 Agent 時代有了新的意義：
               </p>
 
               <div className="space-y-4 mt-2">
@@ -47,10 +47,6 @@ export default function SlideFutureEngineering() {
                   </p>
                 </div>
               </div>
-            </div>
-
-            <div className="mt-4 text-[11px] text-slate-500 italic">
-              * 這些思維幫助我們把有限的精力專注在「想解決什麼問題」上，而非陷在語法泥淖裡。
             </div>
           </AnimatedBlock>
         </div>

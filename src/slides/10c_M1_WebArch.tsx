@@ -224,9 +224,6 @@ export default function Slide10c() {
                 <ArrowRightLeft className="text-sky-400 w-5 h-5" />
                 <span>請選擇要模擬的商業情境（即時切換）：</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
-                選擇不同情境，下方即時連線模擬器將傳送對應的 Request 與 Response Payload 資料封包。
-              </p>
             </div>
             
             {/* Tab Selectors */}
@@ -491,20 +488,6 @@ export default function Slide10c() {
                 <span className="text-slate-500 font-sans font-semibold">🍜 Response (出菜):</span> <code className="ml-1">{activeData.respDetail}</code>
               </div>
             </div>
-          </div>
-        </AnimatedBlock>
-
-        {/* BOTTOM HELPER BOX */}
-        <AnimatedBlock stepIndex={4} className="bg-slate-900/30 border border-slate-800/60 rounded-2xl p-5 text-left text-xs md:text-sm text-slate-400 leading-relaxed flex items-start gap-3">
-          <span className="text-xl shrink-0 mt-0.5">💡</span>
-          <div>
-            <strong className="text-slate-200">重點整理：</strong>
-            <p className="mt-1">
-              當我們從前端點擊「{activeData.title}」時，一包 Request 請求資料會通過網際網路送到後端伺服器；後端伺服器在安全驗證或與資料庫串接後，再將 Response 回應資料傳回給前端渲染。
-            </p>
-            <p className="mt-2 text-sky-400 font-bold">
-              👉 請按下一頁，看前端與後端在各商業情境下的「具體分工職責與 SQL/資料庫 設計對比」！
-            </p>
           </div>
         </AnimatedBlock>
 

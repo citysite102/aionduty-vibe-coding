@@ -26,11 +26,8 @@ export default function SlideQuoteSystemRequirements() {
     <SlideLayout title="先把需求說成一頁" subtitle="Project Brief" icon={ClipboardList}>
       <div className="max-w-5xl mx-auto w-full pb-8 space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-6">
-          <p className="text-slate-100 text-xl font-bold leading-snug mb-2">
+          <p className="text-slate-100 text-xl font-bold leading-snug">
             第一份材料不是技術文件，是一頁需求說明。
-          </p>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            這一頁讓 Agent 知道自己正在幫誰、哪一段流程最重要、哪些東西不要現在做。
           </p>
         </AnimatedBlock>
 

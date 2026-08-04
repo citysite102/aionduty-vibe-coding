@@ -97,7 +97,7 @@ export default function SlideM2ClaudeMdHealth() {
           className="lg:col-span-2 bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4"
         >
           <p className="text-slate-400 text-sm leading-relaxed">
-            <strong className="text-slate-200">第 5 步的「修剪」是下一頁的主題。</strong>把「要優雅」改寫成可以檢查的敘述，不用寫得更長，換個方向講就好：與其列一串不要做什麼，不如講清楚只能做什麼。
+            把「要優雅」改寫成可以檢查的敘述，不用寫得更長，換個方向講就好：與其列一串不要做什麼，不如講清楚只能做什麼。
           </p>
         </AnimatedBlock>
 

@@ -138,7 +138,7 @@ export default function Slide10b3() {
 
           <AnimatedBlock stepIndex={2}>
             <p className="text-slate-400 text-sm leading-relaxed text-left">
-              API 文件第一眼看下去常常完全看不懂，但每一份其實都在回答同樣四個問題。抓住這四塊，任何文件都讀得動。
+              每一份 API 文件其實都在回答同樣四個問題。
             </p>
           </AnimatedBlock>
 

@@ -9,7 +9,7 @@ export default function SlideLLMPromptPractice() {
       <div className="max-w-4xl mx-auto space-y-5 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">
-          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。寫在紙上或手機上都可以。
+          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。
         </AnimatedBlock>
 
         {DRILLS.map((d, i) => (

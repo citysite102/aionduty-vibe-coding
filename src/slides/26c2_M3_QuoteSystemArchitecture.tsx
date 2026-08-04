@@ -39,9 +39,6 @@ export default function SlideQuoteSystemArchitecture() {
     <SlideLayout title="先畫出產品由哪幾層組成" subtitle="Product Architecture" icon={Boxes}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-          <p className="text-slate-100 text-xl font-bold leading-snug mb-2">
-            前面學過 API、前端、後端與資料庫，現在把它們放回同一張圖。
-          </p>
           <p className="text-slate-400 text-sm leading-relaxed">
             你不是只叫 AI「做一個報價系統」，而是要先說清楚這個產品由哪些層組成。
           </p>

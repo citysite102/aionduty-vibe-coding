@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   BookCopy, FileText, Layers, Bot, Play, Check, 
-  ArrowRight, ChevronRight, Terminal, Info, Cpu, Sliders, ShieldAlert
+  ArrowRight, ChevronRight, Terminal, Cpu, Sliders, ShieldAlert
 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
@@ -184,11 +184,6 @@ export default function Slide32() {
               </button>
             );
           })}
-
-          <div className="bg-slate-950/80 border border-slate-800/80 rounded-xl p-3.5 mt-2 flex gap-3 items-start text-xs text-slate-500">
-            <Info size={14} className="text-slate-400 shrink-0 mt-0.5" />
-            <span><strong>給學生的建議：</strong>工具會換、API 會改版，但「怎麼佈置環境」和「怎麼設防線」這兩件事不會失效。</span>
-          </div>
         </div>
 
         {/* Right Side: Animated Comparison Canvas */}
@@ -284,11 +279,6 @@ export default function Slide32() {
                 </div>
               </div>
 
-              {/* Concluding takeaway */}
-              <div className="mt-2 pt-2 border-t border-slate-800 text-xs text-slate-400 text-center flex items-center justify-center gap-1">
-                <span>🎯</span>
-                <span>這四個結構（<strong>專案手冊、計畫模式、子代理、試錯循環</strong>）在多數 Agent 工具上都找得到對應物。</span>
-              </div>
             </motion.div>
           </AnimatePresence>
         </div>

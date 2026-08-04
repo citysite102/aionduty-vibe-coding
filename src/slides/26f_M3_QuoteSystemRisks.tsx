@@ -18,7 +18,7 @@ export default function SlideQuoteSystemRisks() {
             這些問題不是意外，是中型專案一定會遇到的摩擦。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed">
-            你不用一次解完。先知道它們會在哪裡發生，就能把它們放進下一段 Loop 裡處理。
+            先知道它們會在哪裡發生，就能把它們放進下一段 Loop 裡處理。
           </p>
         </AnimatedBlock>
 
@@ -36,7 +36,6 @@ export default function SlideQuoteSystemRisks() {
           <div className="flex items-start gap-3">
             <CheckCircle2 aria-hidden="true" size={20} className="text-sky-400 shrink-0 mt-0.5" />
             <p className="text-slate-300 text-sm leading-relaxed">
-              到這裡你看過的是一份可以交給 Agent 的專案規格該長什麼樣。
               下一段把它接進循環：讓它自己跑、自己驗、自己修，但仍然受你設的邊界控制。
             </p>
           </div>

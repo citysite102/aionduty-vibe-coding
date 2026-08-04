@@ -19,7 +19,7 @@ export default function SlideSafety() {
               愈熟練的人愈容易停在對 AI <strong className="text-slate-100">現階段可靠性的既有判斷</strong>上：「反正它做不好，不如我自己來」。但模型持續在進步，真正該問的不是「它夠不夠好」，而是<strong className="text-white mx-1">「我有沒有設計出容錯的流程」</strong>。
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
-              而容錯流程的前提是：<strong className="text-slate-200">先知道哪裡會出事</strong>。以下四項是放手讓 AI 自主執行前，一定要先設好的邊界。
+              而容錯流程的前提是：<strong className="text-slate-200">先知道哪裡會出事</strong>。
             </p>
           </div>
         </AnimatedBlock>

@@ -6,7 +6,6 @@ export default function Slide18b() {
     <SlideLayout title="該用什麼工具？" subtitle="Scenario Quiz" icon={HelpCircle}>
       <div className="max-w-5xl mx-auto min-h-full flex flex-col justify-center">
         <p className="text-slate-400 text-lg mb-6 text-center">
-          在進入下一個單元前，我們先來思考這 5 個常見的職場情境。<br/>
           <span className="text-sky-300">你覺得該用「純對話 (Chat)」、「無程式碼工具 (No-Code)」還是「Agent (Claude Code)」？</span>
         </p>
 

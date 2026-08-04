@@ -24,7 +24,6 @@ export default function SlideMissionLog() {
             循環講完了，回頭收作品
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            <strong className="text-slate-200">剛才那一輪是讓它自己跑，接下來這一段回到你自己決定要什麼。</strong>
             計時器用了幾天之後，你會開始想知道「我這禮拜到底做了幾趟」。這個念頭一冒出來，作品就從一個玩具變成一個會累積東西的工具。
             這裡會回收前面資料庫那一頁講的東西，但先別急著架資料庫。
           </p>
@@ -101,9 +100,6 @@ export default function SlideMissionLog() {
                 <p className="text-slate-400 text-[11px] leading-relaxed">
                   你不用會寫這段程式。你要會問這句：
                   <span className="text-sky-300 font-bold">「我昨天沒做，今天打開，連續天數應該要歸零。你有處理嗎？寫個例子給我看。」</span>
-                </p>
-                <p className="text-slate-500 text-[11px] leading-relaxed mt-2">
-                  這就是整堂課想給你的視角。你不是工程師，你是那個知道該問什麼的人。
                 </p>
               </div>
             </AnimatedBlock>
