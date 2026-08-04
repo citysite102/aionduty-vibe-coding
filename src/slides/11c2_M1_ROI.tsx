@@ -153,7 +153,7 @@ export default function SlideROI() {
                 <div className="text-amber-400/80 text-[11px] mb-0.5">你自己做</div>
                 <div className="text-amber-300 text-2xl font-bold font-mono">{c.yourHours}</div>
               </div>
-              <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
+              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
                 自己做並沒有讓你的時間變成零，只是換成花在你自己的東西上。
               </p>
             </div>
@@ -172,6 +172,14 @@ export default function SlideROI() {
               上面的外包報價是市場上常見的區間，實際依需求規模與廠商差異很大，這裡只是拿來對照數量級。
             </p>
           </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
+          <p className="text-slate-300 text-base leading-relaxed">
+            所以問題不是要不要花這筆錢，是<strong className="text-slate-100">怎麼讓它花在刀口上</strong>。
+            token 最容易被浪費的地方有三個：它手上沒有對的工具、你丟了一堆它用不到的資料給它、
+            或是一個題目一次交代太大。
+          </p>
         </AnimatedBlock>
 
       </div>

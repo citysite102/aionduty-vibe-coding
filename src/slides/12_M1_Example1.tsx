@@ -13,9 +13,9 @@ export default function SlideExample1() {
 
   return (
     <SlideLayout title="做出你的第一個作品" subtitle="Example 1: Mission Timer" icon={Layout}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-stretch h-full">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-start min-h-full">
 
-        <div className="flex flex-col justify-center space-y-6">
+        <div className="flex flex-col space-y-6">
           <AnimatedBlock stepIndex={1}>
             <h3 className="text-2xl font-bold text-sky-400 mb-4 flex items-center gap-3">
               <Lightbulb size={24} className="text-sky-400" />
@@ -27,6 +27,10 @@ export default function SlideExample1() {
             <p className="text-slate-500 text-sm leading-relaxed">
               這個作品不是做完就丟。接下來整堂課我們都會回頭改它，最後把它放上網路，你會拿到一個可以傳給別人的網址。
             </p>
+            <p className="text-slate-500 text-sm leading-relaxed mt-3">
+              剛才桌面版那個五分鐘計時器只是試跑，可以放著不管。正式的作品做在安裝時建的{' '}
+              <code className="font-mono text-slate-400">mission-timer</code> 資料夾裡，也就是這一頁要做的這一個。
+            </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-700 p-6 rounded-2xl shadow-xl relative mt-4">
@@ -35,7 +39,7 @@ export default function SlideExample1() {
             </div>
 
             <p className="text-slate-100 leading-relaxed font-medium text-sm mb-3">
-              「請在這個目錄下建立一個單頁的任務計時器，一個 index.html 就好。」
+              「請在 mission-timer 這個資料夾下建立一個單頁的任務計時器，一個 index.html 就好。」
             </p>
 
             <div className="space-y-2.5 text-[13px] leading-relaxed">
@@ -60,7 +64,7 @@ export default function SlideExample1() {
             </div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
+          <AnimatedBlock stepIndex={5} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
             <p className="text-slate-400 text-xs leading-relaxed">
               <strong className="text-slate-200">別期待一次就長成右邊那樣。</strong>
               右邊那張圖是改了四輪才到位的：第一版星球太亮蓋住按鈕，第二版粒子排太密，疊出一圈一圈的干擾波紋，第三版才換成經緯排列。
@@ -73,10 +77,10 @@ export default function SlideExample1() {
           </AnimatedBlock>
         </div>
 
-        <div className="flex justify-center items-center h-full pt-8 lg:pt-0">
+        <div className="flex flex-col gap-6 pt-8 lg:pt-0">
           <AnimatedBlock
             stepIndex={3}
-            className="relative w-full h-full max-h-[450px] rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#04060C]"
+            className="relative w-full h-[420px] shrink-0 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl bg-[#04060C]"
           >
             {/* 星塵與粒子星球 */}
             <SpaceCanvas planet={planet} />
@@ -146,14 +150,26 @@ export default function SlideExample1() {
             </div>
 
             {/* 產出確認 */}
-            <div className="absolute bottom-0 left-0 w-full bg-slate-950/85 backdrop-blur-sm border-t border-slate-800 p-4 space-y-2 z-30">
-              <div className="flex items-center gap-3 text-emerald-400 text-sm font-bold">
+            <div className="absolute bottom-0 left-0 w-full bg-slate-950/85 backdrop-blur-sm border-t border-slate-800 p-4 z-30">
+              <div className="flex items-center gap-3 text-slate-300 text-sm font-bold">
                 <Check size={16} /> <span>檔案已生成：index.html</span>
               </div>
-              <div className="flex items-center gap-3 text-emerald-400 text-sm font-bold">
-                <Check size={16} /> <span>瀏覽器開啟即可觀看！</span>
-              </div>
             </div>
+          </AnimatedBlock>
+
+          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
+            <p className="text-slate-200 text-sm font-bold">做完之後，打開來看</p>
+            <ul className="text-slate-300 text-sm leading-relaxed space-y-1 list-disc pl-4 marker:text-slate-600">
+              <li>
+                Mac：在 Finder 裡找到 <code className="font-mono text-slate-400">mission-timer</code> 資料夾，
+                對裡面的 <code className="font-mono text-slate-400">index.html</code> 按兩下
+              </li>
+              <li>Windows：在檔案總管找到同一個資料夾，一樣對 <code className="font-mono text-slate-400">index.html</code> 按兩下</li>
+            </ul>
+            <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-800 pt-2.5">
+              它會用你平常的瀏覽器打開，網址列是一串本機路徑，不是網站網址。這就是前面說的「在本機跑」，
+              只有你這台電腦看得到。要變成可以傳給別人的網址還差一步，那一步在後面。
+            </p>
           </AnimatedBlock>
         </div>
 

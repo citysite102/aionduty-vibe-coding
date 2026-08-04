@@ -278,8 +278,9 @@ export default function SlideWebArchDuties() {
         {/* BOTTOM: AI Mindset Shift Block */}
         <AnimatedBlock stepIndex={5} className="bg-slate-950 border border-slate-900 rounded-2xl p-5 text-center mt-2 shadow-lg">
           <p className="text-slate-300 text-sm leading-relaxed">
-            💡 <strong>有了 AI Coding Agent 後：</strong>你不用再切換大腦一下寫前端、一下寫後端，而是當<span className="text-sky-300 font-bold">全端架構師</span>，直接下令：
-            <span className="text-indigo-300 font-mono ml-1 font-bold">「幫我實作 {activeData.title} 情境的前端介面，並開好對應的 API 與資料庫欄位」</span>。
+            💡 <strong>這一頁對你的用處：</strong>你不用自己去寫這三層，但你要知道<span className="text-sky-300 font-bold">一件事會牽動到哪幾層</span>，才發得出完整的指令，也才驗收得了。
+            所以可以一次講完：<span className="text-indigo-300 font-mono ml-1 font-bold">「幫我實作 {activeData.title} 情境的前端介面，並開好對應的 API 與資料庫欄位」</span>，
+            而不是分三次講、每次都要自己想辦法接回去。
           </p>
         </AnimatedBlock>
 

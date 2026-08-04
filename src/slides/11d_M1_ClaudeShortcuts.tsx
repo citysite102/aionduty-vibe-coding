@@ -27,8 +27,14 @@ export default function SlideClaudeShortcuts() {
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
                 在使用 Claude Code 時，這五個按鍵能幫你<strong>省下大部分的路徑輸入與操作切換時間</strong>，其中一個還能救回做壞的東西。
               </p>
-              <p className="text-slate-400 text-xs leading-relaxed">
+              <p className="text-slate-400 text-xs leading-relaxed mb-3">
                 這幾個都是 Claude Code 才有的操作，一般的聊天對話框做不到。
+              </p>
+              <p className="text-slate-400 text-xs leading-relaxed border-t border-slate-800 pt-3">
+                用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人：
+                <code className="text-orange-300 font-bold">!</code> 這個直通終端機的用法是終端機版才有的。
+                其餘幾個在 Code 頁籤裡也找得到，但提示的位置不一樣，找不到就打{' '}
+                <code className="text-orange-300 font-mono">/help</code> 看一次。
               </p>
             </div>
 

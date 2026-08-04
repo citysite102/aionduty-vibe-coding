@@ -81,12 +81,24 @@ export default function Slide10c3Deploy() {
             <h4 className="text-sm font-bold text-slate-200">實際上怎麼做？一句話發包給 Claude Code</h4>
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-xs md:text-sm text-emerald-300 whitespace-pre-wrap leading-relaxed shadow-inner">
-            {`幫我把 mission-timer 部署到 Vercel：\n1. 先確認本機打開沒有錯誤\n2. 建立 Git repository 並推上 GitHub\n3. 連結 Vercel 完成部署，最後把上線網址給我`}
+            {`幫我把 mission-timer 這個資料夾部署到 Vercel：
+
+1. 先在本機開一次，確認畫面正常、沒有錯誤訊息
+2. 檢查資料夾裡有沒有不該公開的東西（金鑰、個人資料），有的話加進 .gitignore
+3. 建立 Git repository，做第一次 commit，推上我的 GitHub
+4. 連結 Vercel 完成部署
+
+需要我登入 GitHub 或 Vercel 授權的時候，停下來告訴我要點哪裡。
+完成後把上線網址給我，並確認那個網址真的打得開。
+中間任何一步失敗，用白話說明卡在哪，先不要自己重試。`}
           </div>
-          <p className="text-slate-500 text-[11px] mt-2">上線也是一種「發包」：你當指揮官下達目標，平台負責維運，Agent 負責執行步驟。</p>
-          <p className="text-slate-500 text-[11px] mt-2 leading-relaxed border-t border-slate-800/60 pt-2">
+          <p className="text-slate-500 text-xs mt-2 leading-relaxed">
+            這段指令長，是因為它把<strong className="text-slate-400">要做什麼、做完給我什麼、什麼時候該停下來</strong>都講完了。
+            指令寫得完整，來回就少。
+          </p>
+          <p className="text-slate-500 text-xs mt-2 leading-relaxed border-t border-slate-800/60 pt-2">
             <strong className="text-slate-400">不是按一個鍵就好。</strong>
-            Agent 能幫你跑完上面三步，但中間你要自己登入 GitHub 和 Vercel 授權，
+            Agent 能幫你跑完上面四步，但中間你要自己登入 GitHub 和 Vercel 授權，
             那是你的帳號，它沒有辦法代你點同意。真正省下來的是「不用學那些指令」，不是「完全不用動手」。
           </p>
         </AnimatedBlock>

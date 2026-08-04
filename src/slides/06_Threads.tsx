@@ -18,17 +18,17 @@ export default function Slide04() {
           <p className="text-slate-400 mb-6 font-medium">重點不在於「寫一個檔案」，而是把專案的知識與規範整理成一份可以長期重複使用的資產（以 <span className="text-sky-400 font-bold font-mono">CLAUDE.md</span> 為載體），讓 AI 每次啟動都自動讀到。</p>
           
           <ul className="space-y-4 text-sm mt-8">
-            <li className="flex gap-4 items-center">
+            <li className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">1</div>
-              <div><strong className="text-slate-200 block text-base">雛形 (CLAUDE.md 基礎)</strong><span className="text-slate-500">在專案根目錄建立第一版指導手冊，記錄基本指令與架構。</span></div>
+              <div><strong className="text-slate-200 block text-base">雛形：先有一份，然後確認它真的被讀到</strong><span className="text-slate-500 leading-relaxed">第一單元收尾就會有第一版，請它把剛才的開發重點總結出來。內容不用多，但要親眼確認它出現在載入清單裡。</span></div>
             </li>
-            <li className="flex gap-4 items-center">
+            <li className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">2</div>
-              <div><strong className="text-slate-200 block text-base">成長 (疊加開發規範)</strong><span className="text-slate-500">隨著開發疊加專業技術規則、防錯除錯機制與程式碼風格。</span></div>
+              <div><strong className="text-slate-200 block text-base">成長：學會分流，而不是一直往裡面加</strong><span className="text-slate-500 leading-relaxed">會出事的交給程式攔截，只在某一區適用的分出去，有固定步驟的包成可呼叫的流程，其餘才進根目錄。</span></div>
             </li>
-            <li className="flex gap-4 items-center">
+            <li className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">3</div>
-              <div><strong className="text-slate-200 block text-base">完善 (隨身帶走方法論)</strong><span className="text-slate-500">把這套 CLAUDE.md 當成專案資產。之後換工具、來新成員，都是從這份檔案接手。</span></div>
+              <div><strong className="text-slate-200 block text-base">完善：定期健檢，該刪的刪掉</strong><span className="text-slate-500 leading-relaxed">已經有程式在擋的事，文字版就是重複的。它跟著專案走，換一台電腦、隔三個月回來都還在。</span></div>
             </li>
           </ul>
         </AnimatedBlock>

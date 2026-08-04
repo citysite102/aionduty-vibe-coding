@@ -1,8 +1,12 @@
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Settings, FileCode, Wrench, Shield, GitMerge, Link, Activity } from 'lucide-react';
 
-// 六大元件只有前兩塊是這堂課會動手的，指揮分工留到第三單元，其餘三個屬於團隊級配套。
-// 用 scope 控制視覺層級：本課主色、後續單元灰、僅供認識最淡。
+// 六大元件只有前兩塊是這堂課會動手的，指揮分工留到第三單元，其餘屬於團隊級配套。
+// 用 scope 控制視覺層級：本課主色、後續會回來講的灰、僅供認識最淡。
+//
+// Hooks 是 later 不是 aware：這一段接下來有八頁把它當成建議做法在用
+// （P56 擋刪除指令、P60 真的不能發生的事、P68 規則分流的第一個去處），
+// 而且分流那一組裡就有一頁在示範怎麼寫。標成「先認識就好」跟後面對不上。
 const parts = [
   {
     icon: FileCode,
@@ -41,8 +45,8 @@ const parts = [
     name: '生命週期掛鉤',
     en: 'Hooks',
     desc: '在固定生命週期執行的確定性程式碼 (例如：提交前阻擋密碼寫入)。',
-    scope: 'aware' as const,
-    tag: '先認識就好',
+    scope: 'later' as const,
+    tag: '本段稍後示範',
   },
   {
     icon: Activity,

@@ -58,10 +58,15 @@ export default function SlideM2SectionGoal() {
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
+        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4 space-y-2">
           <p className="text-slate-400 text-sm leading-relaxed">
-            最後那一項先講個數字：找人外包寫一支自動抓資料的小腳本，報價大約一萬元、五個工作天。
-            你自己指揮 AI 做，token 費用約四十元、一小時。
+            最後那一項最難有體感，先給一個對照的錨點：找人外包寫一支自動抓資料的小腳本，
+            報價大約一萬元、五個工作天；你自己指揮 AI 做，token 費用大約四十元、一小時。
+            <span className="text-slate-500">兩個數字都會因為需求規模差很多，這裡只拿來對照量級。</span>
+          </p>
+          <p className="text-slate-300 text-sm leading-relaxed border-t border-slate-800 pt-2.5">
+            這一段不會教你精算帳單，但會讓你知道<strong className="text-slate-100">自己大概落在哪個量級</strong>，
+            以及<strong className="text-slate-100">哪些做法會讓它暴增</strong>。
           </p>
         </AnimatedBlock>
 

@@ -20,14 +20,23 @@ export default function SlideIntroAgentic() {
           </p>
         </AnimatedBlock>
 
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <div className="text-base font-bold text-slate-100 mb-2">那 Agent 是什麼？</div>
+          <p className="text-slate-300 text-base leading-relaxed">
+            你現在用的對話框，是你問一句、它回一段字，真正要照著做的還是你自己。
+            <strong className="text-slate-100">Agent 是你交代一件事，它自己去開檔案、跑指令、改東西，做完回報結果給你。</strong>
+            差別只有一個：它有沒有手。今天整天都會用到這個詞，指的都是這件事。
+          </p>
+        </AnimatedBlock>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <AnimatedBlock stepIndex={2} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
+          <AnimatedBlock stepIndex={3} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
             <div className="text-lg font-bold text-sky-400 font-mono mb-2">「Agentic」</div>
             <p className="text-slate-300 text-base leading-relaxed">
               你多數時間不是自己在寫程式碼，而是在指揮、調度一群 Agent，並扮演核心監督者的角色。
             </p>
           </AnimatedBlock>
-          <AnimatedBlock stepIndex={3} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
+          <AnimatedBlock stepIndex={4} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
             <div className="text-lg font-bold text-amber-400 font-mono mb-2">「Engineering」</div>
             <p className="text-slate-300 text-base leading-relaxed">
               強調這依然是一門需要高度專業的學問，著重在規格定義、架構設計與邊界測試的把關。

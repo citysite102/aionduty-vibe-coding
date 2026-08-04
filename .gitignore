@@ -13,6 +13,15 @@ coverage/
 邀請文_*.md
 Banner_Prompts_*.md
 設計規範稽核報告.md
+教學模擬報告_*.md
+
+# 教學模擬的產出。每次跑都會重生，而且裡面是模擬學員的逐頁反應，
+# 屬於上面那一類的內部文件。sim/README.md 與 sim/personas/ 是設定，要進版控。
+sim/transcript/
+sim/reactions/
+sim/state/
+sim/findings/
+sim/handoff.md
 
 # AI Studio / Codex 的本機專案設定
 .openai/

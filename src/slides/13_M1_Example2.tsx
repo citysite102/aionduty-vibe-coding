@@ -33,7 +33,7 @@ export default function SlideExample2() {
             <p className="text-indigo-300 text-sm font-bold mb-2">💡 執行腳本的小提示</p>
             <p className="text-slate-400 text-xs leading-relaxed mb-2">腳本通常使用 Node.js 或 Python 執行，確保你已經安裝對應環境：</p>
             <div className="bg-black/40 p-2 rounded text-xs font-mono text-slate-300 border border-indigo-900/50 space-y-1">
-               <span className="text-emerald-400"># 執行 Node.js (先前已安裝)</span><br/>
+               <span className="text-emerald-400"># 執行 Node.js（安裝時裝過的人才有，桌面版跳過的話請它幫你裝）</span><br/>
                $ node script.js<br/><br/>
                <span className="text-sky-400"># 執行 Python (請至 python.org 下載安裝)</span><br/>
                $ python script.py

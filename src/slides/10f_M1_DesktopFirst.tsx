@@ -1,4 +1,4 @@
-import { AppWindow, FolderOpen, MessageSquare, Download } from 'lucide-react';
+import { AppWindow, FolderOpen, MessageSquare, Download, LogIn } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
@@ -28,9 +28,29 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
       </>
     ),
   },
+  {
+    icon: LogIn,
+    label: '登入並選方案',
+    desc: (
+      <>
+        Claude Code 要有付費方案才能跑：Claude Pro（月費 $20）直接登入，
+        或到 Console 儲值（最低 $5）走用量計費。
+        <strong className="text-slate-300">今天兩種都可以，選一個先進去</strong>，差別在後面的成本那一段會展開。
+      </>
+    ),
+  },
   { icon: AppWindow, label: '切到 Code 頁籤', desc: '上面有 Chat、Cowork、Code 三個，要開的是最右邊那個。' },
   { icon: FolderOpen, label: '選一個資料夾', desc: '它之後就在這個範圍裡讀寫，不會跑出去。' },
-  { icon: MessageSquare, label: '講一句話', desc: '「幫我做一個五分鐘的計時器網頁。」然後看檔案真的長出來。' },
+  {
+    icon: MessageSquare,
+    label: '講一句話',
+    desc: (
+      <>
+        「幫我做一個五分鐘的計時器網頁。」然後看檔案真的長出來。
+        <strong className="text-slate-300">這一個是試跑</strong>，正式的作品等一下會另外開一個資料夾重做。
+      </>
+    ),
+  },
 ];
 
 export default function SlideDesktopFirst() {

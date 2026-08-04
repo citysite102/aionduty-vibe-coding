@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 
 export default function Slide10e() {
   return (
-    <SlideLayout title="改壞了可以回到上一步" subtitle="Version Control" icon={FolderGit2}>
+    <SlideLayout title="用 Git 存檔，改壞了可以回去" subtitle="Version Control" icon={FolderGit2}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pt-4 max-w-6xl mx-auto items-center h-full">
         
         <div className="space-y-6">

@@ -3,6 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import refTypePoster from '../../assets/design-refs/ref-type-poster.png';
 import refEditorialSite from '../../assets/design-refs/ref-editorial-site.png';
 import refDeckTemplate from '../../assets/design-refs/ref-deck-template.png';
+import refParticlePlanet from '../../assets/design-refs/ref-particle-planet.png';
 
 const DESIGN_REFS = [
   {
@@ -41,7 +42,7 @@ export default function SlideLLMPrompt() {
             <strong className="text-slate-100">貼一張參考圖進去，它拿到的不只是外觀，還有做法。</strong>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
             <div className="bg-slate-950 border border-slate-800 rounded-xl p-4">
               <div className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider font-mono">只有文字</div>
               <p className="text-slate-300 text-sm font-medium mb-2">「星球做得更擬真一點，加上陰影」</p>
@@ -49,12 +50,20 @@ export default function SlideLLMPrompt() {
                 它會把漸層調得更細緻，但骨子裡還是同一顆漸層球。方向對，層級不對。
               </p>
             </div>
-            <div className="bg-slate-950 border border-sky-500/30 rounded-xl p-4">
-              <div className="text-xs font-bold text-sky-400 mb-2 uppercase tracking-wider font-mono">附上參考圖</div>
-              <p className="text-slate-300 text-sm font-medium mb-2">同一句話，外加一張點陣星球的圖</p>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                它看懂那是粒子渲染，直接換一種畫法。<strong className="text-slate-300">這個決定從形容詞裡推不出來。</strong>
-              </p>
+            <div className="bg-slate-950 border border-sky-500/30 rounded-xl overflow-hidden">
+              <img
+                src={refParticlePlanet}
+                alt="黑底上由密集白色小點構成的星系，中央最亮、往外逐漸稀疏"
+                className="w-full h-32 object-cover"
+              />
+              <div className="p-4 border-t border-sky-500/20">
+                <div className="text-xs font-bold text-sky-400 mb-2 uppercase tracking-wider font-mono">附上參考圖</div>
+                <p className="text-slate-300 text-sm font-medium mb-2">同一句話，外加上面這張點陣星球的圖</p>
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  它看懂那不是一顆球加陰影，是幾千個點各自算亮度，直接換一種畫法。
+                  <strong className="text-slate-300">這個決定從形容詞裡推不出來。</strong>
+                </p>
+              </div>
             </div>
           </div>
         </AnimatedBlock>

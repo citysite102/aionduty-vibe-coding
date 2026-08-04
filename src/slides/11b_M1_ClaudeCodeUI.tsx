@@ -60,6 +60,11 @@ export default function SlideClaudeCodeUI() {
           <AnimatedBlock stepIndex={5} className="bg-amber-950/20 p-4 rounded-xl border border-amber-900/30 text-xs text-amber-300">
             💡 那個 <code>&gt;</code> 不是在等程式碼，是在等你講話。直接打中文就可以：「幫我看看這個專案要怎麼跑起來」「幫我寫一個倒數計時網頁」。
           </AnimatedBlock>
+
+          <AnimatedBlock stepIndex={6} className="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 leading-relaxed">
+            用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人，你的畫面不長這樣，但三塊東西都在：
+            目前狀態在上方、對話在中間、輸入框在最下面。旁邊那個等你講話的位置就是同一個 <code>&gt;</code>。
+          </AnimatedBlock>
         </div>
 
         {/* Right column: Claude Code High-Fidelity UI Mockup (Image 1) */}

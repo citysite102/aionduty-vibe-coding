@@ -50,6 +50,7 @@ import Slide14 from './slides/14_M1_Boundaries';
 import Slide15 from './slides/15_M1_Workflow';
 import Slide17 from './slides/17_M1_Error';
 import Slide18b from './slides/18b_M1_Quiz';
+import Slide18c from './slides/18c_M1_Harvest';
 import Slide19 from './slides/19_Div_Harness';
 import Slide19a from './slides/19a_M2_SectionGoal';
 import Slide19b from './slides/19b_Harness_Context';
@@ -88,6 +89,7 @@ import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
 import Slide25 from './slides/25_M3_Quality';
 import Slide25b from './slides/25b_M3_HandsOn';
+import Slide25c from './slides/25c_M3_TeachingSim';
 import Slide26a from './slides/26a_M3_QuoteSystemIntro';
 import Slide26b from './slides/26b_M3_QuoteSystemRequirements';
 import Slide26c2 from './slides/26c2_M3_QuoteSystemArchitecture';
@@ -150,7 +152,7 @@ const LIVE_TITLES = [
   "你按下按鈕之後，發生了什麼事",
   "前端與後端各自負責什麼",
   "從本機到上線：交給託管平台",
-  "改壞了可以回到上一步",
+  "用 Git 存檔，改壞了可以回去",
   "一次改一點，比一次改完安全",
   "先用桌面版做出第一個東西",
   "手把手操作",
@@ -162,6 +164,7 @@ const LIVE_TITLES = [
   "叫它寫個小工具，幫你做雜事",
   "哪些事它做得好，哪些你得自己來",
   "該用什麼工具？",
+  "先確認你手上有什麼",
   "Agent 運作框架與成本分析",
   "每次開新對話，你都要重講一次規矩",
   "什麼是運作框架？",
@@ -202,6 +205,7 @@ const LIVE_TITLES = [
   "一個人做不完的時候，怎麼分工",
   "設立品質防線 (Anti-Slop)",
   "動手做一個審查子代理",
+  "三個角色跑一次，找出自己看不到的洞",
   "把分工放進一個中型專案",
   "先把需求說成一頁",
   "先畫出產品由哪幾層組成",
@@ -276,6 +280,7 @@ const LIVE_SLIDES = [
   Slide13,
   Slide14,
   Slide18b,
+  Slide18c,
   Slide19,
   Slide19a,
   Slide20,
@@ -316,6 +321,7 @@ const LIVE_SLIDES = [
   Slide24,
   Slide25,
   Slide25b,
+  Slide25c,
   Slide26a,
   Slide26b,
   Slide26c2,
@@ -361,9 +367,9 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 40, label: 'Agent 運作框架與成本分析' },
-  { start: 75, label: '讓 Agent 分工，並守住品質' },
-  { start: 87, label: 'Agent 循環開發流程' },
+  { start: 41, label: 'Agent 運作框架與成本分析' },
+  { start: 76, label: '讓 Agent 分工，並守住品質' },
+  { start: 89, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

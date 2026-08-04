@@ -41,12 +41,17 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
             它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，這四條它猜不到：
           </p>
-          <div className="mt-2 rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 font-mono text-[11px] text-slate-400 leading-relaxed">
+          <div className="mt-2 rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 font-mono text-xs text-slate-400 leading-relaxed">
             - 深色星空背景，主色只給要強調的元素<br />
             - 星球與火箭用 canvas 或 CSS 畫，禁止外部圖片<br />
             - 按鈕文案用航太語彙：發射、待機、返航、補給<br />
             - 倒數分鐘數集中成設定，不要散在程式碼裡
           </div>
+          <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
+            <strong className="text-slate-300">做完這格：</strong>
+            把這四條補進去，再加上你自己想到的，然後讓它存成 <code className="font-mono text-orange-300">CLAUDE.md</code>。
+            下面三格都是在改這同一份檔案。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
@@ -72,6 +77,10 @@ export default function SlideM2HandsOn() {
             讀一個檔案就吃掉這麼多，你就知道為什麼手冊不能什麼都寫。
             想清掉重來是 <code className="text-orange-300">/clear</code>，想留著摘要繼續是{' '}
             <code className="text-orange-300">/compact</code>。
+          </p>
+          <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
+            <strong className="text-slate-300">做完這格：</strong>
+            回頭看你剛存的手冊，有沒有哪幾條它光讀程式碼就知道？那幾條刪掉。
           </p>
         </AnimatedBlock>
 
@@ -104,6 +113,10 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
             這三題你不回答，它就會自己選，而且不會告訴你它選了什麼。
           </p>
+          <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
+            <strong className="text-slate-300">做完這格：</strong>
+            你剛剛做的那三個決定，就是三條新規矩。補進手冊，下次它不用再問一遍。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
@@ -128,8 +141,10 @@ export default function SlideM2HandsOn() {
             <span className="font-mono text-orange-300 font-bold">/memory</span>
             <span className="text-slate-400"> ，看它到底記了什麼。那些是純文字檔，可以直接改或刪。</span>
           </div>
-          <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            判斷原則：你希望團隊每個人都遵守的，寫進 CLAUDE.md；只是講給它聽的一次性偏好，讓它自己記就好。
+          <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
+            <strong className="text-slate-300">做完這格：</strong>
+            它記的東西裡，如果有你希望每個人都遵守的，搬進手冊。
+            先照這個粗略的分界走就好，一條規則到底該放哪，這一段後面會給你一套完整的判斷方式。
           </p>
         </AnimatedBlock>
 
