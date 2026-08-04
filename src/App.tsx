@@ -40,7 +40,6 @@ import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
 import Slide11d from './slides/11d_M1_ClaudeShortcuts';
-import Slide11d2 from './slides/11d2_M1_ClaudeFlowCmds';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide11c from './slides/11c_M1_PricingAndROI';
 import Slide11c2 from './slides/11c2_M1_ROI';
@@ -50,7 +49,6 @@ import Slide13 from './slides/13_M1_Example2';
 import Slide14 from './slides/14_M1_Boundaries';
 import Slide15 from './slides/15_M1_Workflow';
 import Slide17 from './slides/17_M1_Error';
-import Slide18 from './slides/18_M1_Features';
 import Slide18b from './slides/18b_M1_Quiz';
 import Slide19 from './slides/19_Div_Harness';
 import Slide19a from './slides/19a_M2_SectionGoal';
@@ -90,6 +88,13 @@ import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
 import Slide25 from './slides/25_M3_Quality';
 import Slide25b from './slides/25b_M3_HandsOn';
+import Slide26a from './slides/26a_M3_QuoteSystemIntro';
+import Slide26b from './slides/26b_M3_QuoteSystemRequirements';
+import Slide26c2 from './slides/26c2_M3_QuoteSystemArchitecture';
+import Slide26c from './slides/26c_M3_QuoteSystemData';
+import Slide26d from './slides/26d_M3_QuoteSystemStandards';
+import Slide26e from './slides/26e_M3_QuoteSystemPrompts';
+import Slide26f from './slides/26f_M3_QuoteSystemRisks';
 import Slide26 from './slides/26_Div_Loop';
 import Slide27 from './slides/27_M4_LoopEng';
 import Slide27b from './slides/27b_M4_LoopParts';
@@ -110,6 +115,8 @@ import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
+import Slide28a from './slides/28a_M4_LoopPractice';
+import Slide28a2 from './slides/28a2_M4_LoopWatch';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
@@ -149,8 +156,6 @@ const LIVE_TITLES = [
   "手把手操作",
   "畫面上這幾塊分別在說什麼",
   "Claude Code 核心按鍵與技巧",
-  "Claude Code 新手友善內建功能",
-  "Claude Code 對話與會話控制命令",
   "Claude Code 指令的四種類型",
   "做出你的第一個作品",
   "換你寫一次",
@@ -197,6 +202,13 @@ const LIVE_TITLES = [
   "一個人做不完的時候，怎麼分工",
   "設立品質防線 (Anti-Slop)",
   "養一個小幫手",
+  "把分工放進一個中型專案",
+  "先把需求說成一頁",
+  "先畫出產品由哪幾層組成",
+  "資料庫先只講四張表",
+  "把規範放進對的位置",
+  "用五個指令推進",
+  "中型專案最常卡在這五件事",
   "Agent 循環開發流程",
   "做完一次不算完，要能自己跑下一輪",
   "自動化之後，最容易累積的三件事",
@@ -213,6 +225,8 @@ const LIVE_TITLES = [
   "紅字在跟你說三件事",
   "先說清楚，再讓它自己驗",
   "放手之前，先設好四道邊界",
+  "讓計時器自己跑完一輪",
+  "它自己跑的時候，你在旁邊看什麼",
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
   "有些東西不能推上去",
@@ -256,8 +270,6 @@ const LIVE_SLIDES = [
   Slide11,
   Slide11b,
   Slide11d,
-  Slide18,
-  Slide11d2,
   Slide11e,
   Slide12,
   Slide12b,
@@ -304,6 +316,13 @@ const LIVE_SLIDES = [
   Slide24,
   Slide25,
   Slide25b,
+  Slide26a,
+  Slide26b,
+  Slide26c2,
+  Slide26c,
+  Slide26d,
+  Slide26e,
+  Slide26f,
   Slide26,
   Slide27,
   Slide27b4,
@@ -320,6 +339,8 @@ const LIVE_SLIDES = [
   Slide27b5c,
   Slide27b6,
   Slide28,
+  Slide28a,
+  Slide28a2,
   Slide27b8,
   Slide27b8b,
   Slide27b8c,
@@ -340,9 +361,9 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 42, label: 'Agent 運作框架與成本分析' },
-  { start: 77, label: '讓 Agent 分工，並守住品質' },
-  { start: 82, label: 'Agent 循環開發流程' },
+  { start: 40, label: 'Agent 運作框架與成本分析' },
+  { start: 75, label: '讓 Agent 分工，並守住品質' },
+  { start: 87, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
@@ -356,6 +377,12 @@ const ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
 
 const SLIDES = ENTRIES.map((e) => e.Component);
 const SLIDE_TITLES = ENTRIES.map((e) => e.title);
+const REQUESTED_SLIDE = Number(PARAMS.get('slide'));
+const INITIAL_SLIDE = Number.isFinite(REQUESTED_SLIDE)
+  ? Math.min(Math.max(Math.trunc(REQUESTED_SLIDE) - 1, 0), SLIDES.length - 1)
+  : 0;
+const REQUESTED_STEP = Number(PARAMS.get('step'));
+const INITIAL_STEP = Number.isFinite(REQUESTED_STEP) ? Math.max(Math.trunc(REQUESTED_STEP), 0) : 0;
 
 /** 分節切點依實際位置換算，最後一頁固定是結語，自成一組 */
 const SECTIONS = SECTION_DEFS.map((def, i) => {
@@ -368,10 +395,11 @@ const SECTIONS = SECTION_DEFS.map((def, i) => {
 });
 
 export default function App() {
-  const [current, setCurrent] = useState(0);
-  const [currentStep, setCurrentStep] = useState(0);
+  const [current, setCurrent] = useState(INITIAL_SLIDE);
+  const [currentStep, setCurrentStep] = useState(INITIAL_STEP);
   const [fontScale, setFontScale] = useState<number>(100); // default 100%
   const maxStepRef = useRef(0);
+  const controlFocusClass = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 
   useEffect(() => {
     document.documentElement.style.fontSize = `${(fontScale / 100) * 16}px`;
@@ -475,10 +503,12 @@ export default function App() {
         <div className="flex gap-1 items-center px-2.5 py-0.5 border-r border-slate-800 text-slate-400 select-none shrink-0" onClick={e => e.stopPropagation()}>
           <Type size={12} className="text-slate-500 mr-1" />
           <button
+            type="button"
             onClick={() => setFontScale(p => Math.max(85, p - 5))}
             disabled={fontScale <= 85}
-            className="w-5 h-5 flex items-center justify-center text-[10px] font-bold hover:bg-slate-800 hover:text-slate-200 rounded transition-colors disabled:opacity-20 disabled:hover:bg-transparent"
+            className={`w-5 h-5 flex items-center justify-center text-[10px] font-bold hover:bg-slate-800 hover:text-slate-200 rounded transition-colors disabled:opacity-20 disabled:hover:bg-transparent disabled:cursor-not-allowed ${controlFocusClass}`}
             title="A- (縮小)"
+            aria-label="縮小投影片文字"
           >
             －
           </button>
@@ -486,18 +516,21 @@ export default function App() {
             {fontScale}%
           </span>
           <button
+            type="button"
             onClick={() => setFontScale(p => Math.min(150, p + 5))}
             disabled={fontScale >= 150}
-            className="w-5 h-5 flex items-center justify-center text-[10px] font-bold hover:bg-slate-800 hover:text-slate-200 rounded transition-colors disabled:opacity-20 disabled:hover:bg-transparent"
+            className={`w-5 h-5 flex items-center justify-center text-[10px] font-bold hover:bg-slate-800 hover:text-slate-200 rounded transition-colors disabled:opacity-20 disabled:hover:bg-transparent disabled:cursor-not-allowed ${controlFocusClass}`}
             title="A+ (放大)"
+            aria-label="放大投影片文字"
           >
             ＋
           </button>
         </div>
 
         <select 
-          className="bg-transparent text-xs font-mono text-slate-400 px-3 py-1 outline-none cursor-pointer hover:text-slate-200 transition-colors appearance-none text-center max-w-[120px] truncate"
+          className={`bg-transparent text-xs font-mono text-slate-400 px-3 py-1 cursor-pointer hover:text-slate-200 transition-colors appearance-none text-center max-w-[120px] truncate rounded ${controlFocusClass}`}
           value={current}
+          aria-label="選擇投影片"
           onChange={(e) => {
             setCurrent(Number(e.target.value));
             setCurrentStep(0);
@@ -527,16 +560,20 @@ export default function App() {
         
         <div className="flex gap-1 pl-1">
           <button 
+            type="button"
             onClick={(e) => { e.stopPropagation(); prev(); }} 
             disabled={current === 0 && currentStep === 0} 
-            className="p-1.5 hover:bg-slate-800 rounded-full disabled:opacity-30 transition-colors text-slate-300"
+            className={`p-1.5 hover:bg-slate-800 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-slate-300 ${controlFocusClass}`}
+            aria-label="上一個步驟或上一張投影片"
           >
             <ChevronLeft size={18}/>
           </button>
           <button 
+            type="button"
             onClick={(e) => { e.stopPropagation(); next(); }} 
             disabled={current === SLIDES.length - 1 && currentStep === maxStepRef.current} 
-            className="p-1.5 hover:bg-slate-800 rounded-full disabled:opacity-30 transition-colors text-slate-300"
+            className={`p-1.5 hover:bg-slate-800 rounded-full disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-slate-300 ${controlFocusClass}`}
+            aria-label="下一個步驟或下一張投影片"
           >
             <ChevronRight size={18}/>
           </button>

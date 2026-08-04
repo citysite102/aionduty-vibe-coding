@@ -7,8 +7,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 原本用分頁做，一次只看得到四分之一，主張反而看不出來。
  * 改成 2x2 一次攤開，四類並排，那句話才成立。
  *
- * 分類本身沒有語意差別，所以四張卡一律灰階，
- * 只有底下那句「先記兩個」提到的 /help 與 /clear 用 sky 標出來。
+ * 分類本身沒有語意差別，所以四張卡一律灰階。
+ * 指令 token 一律用 orange，那是 A-1 的「Claude 專有名詞」色，標的是身分不是重點；
+ * 「先記兩個」靠底下那句話本身講，不要再用顏色去強調，否則橘色就變成第三種強調色了。
+ *
+ * 這一頁是全片唯一的斜線指令清單。原本前面還有「新手友善內建功能」與
+ * 「對話與會話控制命令」兩頁，三頁講的是同一批指令，已經併進這裡。
+ * 之後要補指令就加進對應的那一格，不要再另開一頁。
  */
 const GROUPS = [
   {
@@ -17,8 +22,8 @@ const GROUPS = [
     when: '搞不清楚狀況時',
     items: [
       { cmd: '/help', desc: '列出所有可用指令', key: true },
-      { cmd: '/status', desc: '目前登入的帳號與模型' },
-      { cmd: '/context', desc: '對話還剩多少空間' },
+      { cmd: '/context', desc: '對話還剩多少空間、手冊有沒有被讀到' },
+      { cmd: '/usage', desc: '這次花了多少、額度何時重置' },
     ],
   },
   {
@@ -39,16 +44,17 @@ const GROUPS = [
       { cmd: '/clear', desc: '開一段全新對話', key: true },
       { cmd: '/compact', desc: '壓縮成摘要繼續，有損，細節會掉' },
       { cmd: '/resume', desc: '把先前的對話接回來' },
+      { cmd: '/btw', desc: '問題外話，這一來一往不進上下文' },
     ],
   },
   {
     icon: Sliders,
-    title: '自訂指令',
+    title: '自訂與擴充',
     when: '同一段話講第三次時',
     items: [
+      { cmd: '/init', desc: '掃過專案，產出第一版 CLAUDE.md' },
       { cmd: '.claude/commands/', desc: '一個 .md 檔就是一個自訂指令' },
       { cmd: '/agents', desc: '建立專責的子代理' },
-      { cmd: '跟著進版控', desc: '團隊 clone 下來就能共用' },
     ],
   },
 ];
@@ -88,7 +94,7 @@ export default function SlideClaudeMenuTabs() {
                     <div key={it.cmd} className="contents">
                       <code
                         className={`font-mono text-sm font-bold whitespace-nowrap ${
-                          it.key ? 'text-sky-300' : 'text-slate-300'
+                          it.key ? 'text-orange-300' : 'text-orange-400/80'
                         }`}
                       >
                         {it.cmd}
@@ -108,10 +114,16 @@ export default function SlideClaudeMenuTabs() {
         >
           <p className="text-slate-300 text-base leading-relaxed">
             真的只需要先記兩個：
-            <code className="font-mono font-bold text-sky-300 mx-1">/help</code>
+            <code className="font-mono font-bold text-orange-300 mx-1">/help</code>
             忘記指令時查，
-            <code className="font-mono font-bold text-sky-300 mx-1">/clear</code>
+            <code className="font-mono font-bold text-orange-300 mx-1">/clear</code>
             想重來時用。其他等遇到再說。
+          </p>
+          <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+            只有一件事現在就要知道：
+            <code className="font-mono text-orange-300">/compact</code>
+            的壓縮是有損的，細節會掉。所以重要的約定不要靠對話記憶撐著，要寫進檔案裡。
+            那個檔案叫 <code className="font-mono text-orange-300">CLAUDE.md</code>，是下一個單元整段的主題。
           </p>
         </AnimatedBlock>
       </div>

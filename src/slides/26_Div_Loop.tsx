@@ -11,8 +11,9 @@ export default function SlideDivLoop() {
       title="Agent 循環開發流程"
       roadmap={[
         { label: '它是什麼', weight: 4, note: '循環、零件、現成 Skills' },
-        { label: '怎麼設定目標', weight: 3, note: '讓它自己跑完一輪' },
+        { label: '怎麼設定目標', weight: 3, note: '目標、完成條件、邊界' },
         { label: '出事怎麼辦、放手前設邊界', weight: 7, note: '踩煞車、守品質、讀錯誤' },
+        { label: '實際跑一輪', weight: 2, note: '把前面合成一段指令' },
         { label: '回頭收作品', weight: 3, note: '加日誌、送上線' },
       ]}
     />

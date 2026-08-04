@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, FolderOpen, Terminal, ClipboardCheck, Undo2 } from 'lucide-react';
+import { Keyboard, FolderOpen, Terminal, ClipboardCheck, Undo2, Image as ImageIcon } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideClaudeShortcuts() {
@@ -25,7 +25,7 @@ export default function SlideClaudeShortcuts() {
                 像工程師一樣流暢協作
               </h3>
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
-                在使用 Claude Code 時，這四個按鍵能幫你<strong>省下大部分的路徑輸入與操作切換時間</strong>，最後那個還能救回做壞的東西。
+                在使用 Claude Code 時，這五個按鍵能幫你<strong>省下大部分的路徑輸入與操作切換時間</strong>，其中一個還能救回做壞的東西。
               </p>
               <p className="text-slate-400 text-xs leading-relaxed">
                 這幾個都是 Claude Code 才有的操作，一般的聊天對話框做不到。
@@ -51,29 +51,29 @@ export default function SlideClaudeShortcuts() {
             
             {/* Shortcut 1: @ for File Paths */}
             <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
-              <div className="p-3 bg-sky-500/10 text-sky-400 rounded-2xl shrink-0">
+              <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <FolderOpen size={24} />
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <h4 className="text-sm font-bold text-slate-100">檔案自動補全</h4>
-                  <span className="text-[11px] font-mono text-sky-400 font-bold bg-sky-500/10 px-1.5 py-0.5 rounded">按 @ 鍵</span>
+                  <span className="text-[11px] font-mono text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">按 @ 鍵</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  <strong>快速載入：</strong>不必輸入完整路徑如 <code className="text-sky-300">src/components/Button.tsx</code>。只要打上 <code className="text-sky-300 font-bold">@</code> 加上檔名，就會跳出自動完成選單讓你挑。
+                  <strong>快速載入：</strong>不必輸入完整路徑如 <code className="text-slate-300">src/components/Button.tsx</code>。只要打上 <code className="text-orange-300 font-bold">@</code> 加上檔名，就會跳出自動完成選單讓你挑。
                 </p>
               </div>
             </AnimatedBlock>
 
             {/* Shortcut 2: Shift + Tab */}
             <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
-              <div className="p-3 bg-emerald-500/10 text-emerald-400 rounded-2xl shrink-0">
+              <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <ClipboardCheck size={24} />
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <h4 className="text-sm font-bold text-slate-100">執行模式切換器</h4>
-                  <span className="text-[11px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded">Shift + Tab</span>
+                  <span className="text-[11px] font-mono text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">Shift + Tab</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   <strong>權限管制：</strong>在「每次都問」與「自動接受編輯」之間切換，輸入框下方會顯示目前模式（default ➔ acceptEdits ➔ plan 循環），你隨時可以收放 AI 對本機專案的修改權限。
@@ -100,17 +100,34 @@ export default function SlideClaudeShortcuts() {
 
             {/* Shortcut 4: Esc / rewind */}
             <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
-              <div className="p-3 bg-rose-500/10 text-rose-400 rounded-2xl shrink-0">
+              <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <Undo2 size={24} />
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <h4 className="text-sm font-bold text-slate-100">喊停與時光機</h4>
-                  <span className="text-[11px] font-mono text-rose-400 font-bold bg-rose-500/10 px-1.5 py-0.5 rounded">Esc ／ Esc Esc</span>
+                  <span className="text-[11px] font-mono text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">Esc ／ Esc Esc</span>
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  <strong>做壞了可以退回去：</strong>覺得方向不對，按一次 <code className="text-rose-300 font-bold">Esc</code> 就中斷它手上的動作，做到一半的東西會留著。輸入框空著時連按兩次 <code className="text-rose-300 font-bold">Esc</code>（或輸入 <code className="text-rose-300 font-mono">/rewind</code>），會跳出一張清單，列出你這次對話送出過的每一句話，選一個時間點就能把程式碼、對話、或兩者一起退回去。
+                  <strong>做壞了可以退回去：</strong>覺得方向不對，按一次 <code className="text-orange-300 font-bold">Esc</code> 就中斷它手上的動作，做到一半的東西會留著。輸入框空著時連按兩次 <code className="text-orange-300 font-bold">Esc</code>（或輸入 <code className="text-orange-300 font-mono">/rewind</code>），會跳出一張清單，列出你這次對話送出過的每一句話，選一個時間點就能把程式碼、對話、或兩者一起退回去。
                   <span className="block mt-1.5 text-slate-500">💡 但它只管得到 Claude 自己改的檔案。用指令刪掉、搬走的東西救不回來，所以動工前先 <code className="text-slate-400 font-mono">git commit</code> 一次還是最保險。</span>
+                </p>
+              </div>
+            </AnimatedBlock>
+
+            {/* Shortcut 5: Ctrl + V 貼圖 */}
+            <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+              <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
+                <ImageIcon size={24} />
+              </div>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <h4 className="text-sm font-bold text-slate-100">直接把畫面貼給它看</h4>
+                  <span className="text-[11px] font-mono text-orange-400 font-bold bg-orange-500/10 px-1.5 py-0.5 rounded">Ctrl + V</span>
+                </div>
+                <p className="text-xs text-slate-400 leading-relaxed">
+                  <strong>不用形容，直接給看：</strong>把壞掉的畫面或設計稿截圖起來，在輸入框按 <code className="text-orange-300 font-bold">Ctrl+V</code> 貼上，它會照著圖改。
+                  講不清楚的東西直接給它看，這件事前面提過，這裡是實際的操作方式。
                 </p>
               </div>
             </AnimatedBlock>
