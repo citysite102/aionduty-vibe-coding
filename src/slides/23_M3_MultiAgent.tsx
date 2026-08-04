@@ -83,11 +83,16 @@ export default function SlideMultiAgent() {
                   </div>
                 </div>
 
-                <p className={`text-sm leading-snug ${r.lead ? 'text-sky-300' : 'text-slate-300'}`}>
+                <p className={`text-sm leading-snug mb-4 ${r.lead ? 'text-sky-300' : 'text-slate-300'}`}>
                   {r.duty}
                 </p>
 
-                <p className="text-slate-500 text-xs leading-snug mt-auto pt-3 border-t border-slate-800">
+                {/*
+                  分隔線靠 mt-auto 推到卡片底部，但三張卡的 duty 都只有一行，
+                  沒有多餘高度可以分配，mt-auto 就等於 0，線會貼在 duty 底下。
+                  所以上下的間距要自己給，不能只靠 mt-auto。
+                */}
+                <p className="text-slate-500 text-xs leading-snug mt-auto pt-4 border-t border-slate-800">
                   {r.impl}
                 </p>
               </AnimatedBlock>

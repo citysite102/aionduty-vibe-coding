@@ -5,7 +5,7 @@ const RISKS = [
   { title: '需求一直長出新功能', fix: '把「這一輪先不做」寫進 brief，新增需求先進下一輪。' },
   { title: '資料表被改到看不懂', fix: '每次改資料結構前，先更新 docs/data-model.md。' },
   { title: '金額計算前後不一致', fix: '先決定整數分、稅金、折扣順序，再讓它實作。' },
-  { title: '小幫手只會說看起來可以', fix: '給它明確退回條件：缺欄位就列出缺口，不准腦補。' },
+  { title: '子代理只會說看起來可以', fix: '給它明確退回條件：缺欄位就列出缺口，不准腦補。' },
   { title: '畫面變成展示頁，不像工具', fix: '規範寫成列表、表單、狀態與操作，不寫抽象風格詞。' },
 ];
 
@@ -18,7 +18,7 @@ export default function SlideQuoteSystemRisks() {
             這些問題不是意外，是中型專案一定會遇到的摩擦。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed">
-            先知道它們會在哪裡發生，就能把它們放進下一段 Loop 裡處理。
+            先知道它們會在哪裡發生，真的遇到的時候你認得出來，也知道該退回哪一步。
           </p>
         </AnimatedBlock>
 

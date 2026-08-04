@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideM3HandsOn() {
   return (
-    <SlideLayout title="養一個小幫手" subtitle="Hands-on Reviewer" icon={Wrench}>
+    <SlideLayout title="動手做一個審查子代理" subtitle="Hands-on Reviewer" icon={Wrench}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-stretch h-full">
         
         <div className="flex flex-col justify-center space-y-4">
@@ -59,20 +59,20 @@ export default function SlideM3HandsOn() {
               <Lightbulb aria-hidden="true" size={64} className="text-sky-400" />
             </div>
             <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
-              同一種檔案，可以養不同角色
+              同一種檔案，可以定義不同角色
             </h3>
             <p className="text-slate-300 text-base leading-relaxed mb-4">
               檔案格式一樣，差別在角色、標準與工具權限：
             </p>
             <ul className="text-slate-400 text-sm space-y-3 list-disc pl-5">
               <li>
-                工程團隊可以養 <strong className="text-slate-200">code-reviewer</strong>，檢查 PR 與測試缺口。
+                工程團隊可以建 <strong className="text-slate-200">code-reviewer</strong>，檢查 PR 與測試缺口。
               </li>
               <li>
-                業務團隊可以養 <strong className="text-slate-200">quote-reviewer</strong>，檢查價格、條款與缺漏欄位。
+                業務團隊可以建 <strong className="text-slate-200">quote-reviewer</strong>，檢查價格、條款與缺漏欄位。
               </li>
               <li>
-                行銷或教學團隊可以養 <strong className="text-slate-200">brand-reviewer</strong> 或 <strong className="text-slate-200">lesson-reviewer</strong>，檢查用字與教材完整性。
+                行銷或教學團隊可以建 <strong className="text-slate-200">brand-reviewer</strong> 或 <strong className="text-slate-200">lesson-reviewer</strong>，檢查用字與教材完整性。
               </li>
             </ul>
             <p className="text-slate-500 text-sm italic mt-6 border-t border-slate-800 pt-4">

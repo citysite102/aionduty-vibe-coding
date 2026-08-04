@@ -215,40 +215,45 @@ export default function Slide11() {
           <AnimatedBlock stepIndex={2} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 2 || currentStep === 1 ? 'border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.15)] bg-sky-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-sky-400 mb-1 flex justify-between items-center">
               <span>指揮者 (Orchestrator)</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：探索與動態決策</span>
+              <span className="text-[11px] font-mono text-slate-500">適合：邊做邊決定</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              就像專案經理。負責將任務切分為細項、委派出去並做最終審核。🎯 <strong>選型準則</strong>：適合<strong>任務具有高度不確定性、需要隨時根據中間產出微調計畫與多級審查</strong>的情境。
+              像專案經理。它把大任務切成小塊、決定誰做、最後驗收。
+              <strong>你還不確定該怎麼做的時候用它</strong>，它會看著中間產出隨時調整計畫。
             </p>
           </AnimatedBlock>
           
           <AnimatedBlock stepIndex={3} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 3 ? 'border-indigo-500/50 shadow-[0_0_20px_rgba(129,140,248,0.15)] bg-indigo-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-indigo-400 mb-1 flex justify-between items-center">
               <span>執行者 (Subagent)</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：特定功能單點爆破</span>
+              <span className="text-[11px] font-mono text-slate-500">適合：範圍明確的一件事</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              專精特定工具的小幫手。<strong>它有自己獨立的上下文，做完只把結果摘要回傳</strong>，主 Agent 看不到它的完整過程，這也是它不會佔用主對話空間的原因。🎯 <strong>選型準則</strong>：適合<strong>重複性、獨立性高、不需理解整體架構的特定任務</strong>（如跑 Linter 語法檢查、特定 API 的單元測試或多語系翻譯）。
+              派出去做一件事的分身。<strong>它有自己的一份記憶，做完只回報結果</strong>，過程不佔主對話的空間。
+              <strong>規則清楚、不需要懂整體的活交給它</strong>，例如翻譯、跑語法檢查、改一批檔名。
             </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={4} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 4 ? 'border-emerald-500/50 shadow-[0_0_20px_rgba(52,211,153,0.15)] bg-emerald-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-emerald-400 mb-1 flex justify-between items-center">
               <span>自治團隊 (Agent Swarm)</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：多元專業動態協同</span>
+              <span className="text-[11px] font-mono text-slate-500">進階，知道有這回事就好</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              成員主動認領任務，共同看著一張白板。注意 <strong>Agent 之間並不會直接對話</strong>，而是透過<strong>共享的 JSON 狀態檔或共用目錄</strong>交換進度，白板就是那些檔案。🎯 <strong>選型準則</strong>：適合<strong>需要多種專業接力探討的複雜任務</strong>。但共享狀態要自己設計與維護，協調成本很高（這筆管理摩擦叫「調度稅」，上限往往是你自己能同時審核幾件事），要在角色職責定義很清楚時才划算。
+              好幾個分身同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，
+              把進度寫在上面給彼此看，那批檔案就是它們的白板。
+              <strong>這一種個人專案幾乎用不到</strong>：白板要你自己設計和維護，而且你同時審核得了幾件事，就是它的上限。
             </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={5} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep >= 5 ? 'border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.15)] bg-amber-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-amber-400 mb-1 flex justify-between items-center">
               <span>流程腳本 (Workflow)</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：高頻且可預測的 SOP</span>
+              <span className="text-[11px] font-mono text-slate-500">適合：每次都一樣的流程</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              將分工寫成白紙黑字的 SOP（程式腳本）。🎯 <strong>選型準則</strong>：適合<strong>任務難度高、但步驟高度可預測且有一致流程</strong>的任務。雖然缺乏動態調整的彈性，但執行效率與穩定度最高，適合大規模量產。
+              把分工寫成固定的步驟腳本，每次都照同一套跑。
+              <strong>不能臨機應變，但每次跑出來都一樣</strong>，步驟已經確定、要重複很多次的時候用它。
             </p>
           </AnimatedBlock>
         </div>

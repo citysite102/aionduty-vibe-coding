@@ -1,12 +1,18 @@
 import { BookOpen, FileText, GitCompare, Brain } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/*
+ * 三個不是平等的項目，所以不走「一律灰階」那條。
+ * 前兩個是還得掉的債（amber），第三個是不還了（rose），顏色講的是這個差別。
+ * 兩色剛好用滿一頁的額度，不要再加第三種。
+ */
 const DEBTS = [
   {
     icon: FileText,
     zh: '意圖債',
     en: 'Intent Debt',
-    accent: 'text-slate-400 bg-slate-800/60 border-slate-700',
+    accent: 'text-amber-400 bg-amber-500/10 border-amber-500/25',
+    title: 'text-amber-300',
     desc: '每次開一個新對話，AI 都要重新了解你要什麼。你交代得不夠清楚，它就會用自己的猜測把空白填滿，做出來的東西越走越偏。',
     fix: '把工作慣例與規則寫進 CLAUDE.md 或 SKILL.md，讓它不必每次重猜。'
   },
@@ -14,7 +20,8 @@ const DEBTS = [
     icon: GitCompare,
     zh: '理解債',
     en: 'Comprehension Debt',
-    accent: 'text-slate-400 bg-slate-800/60 border-slate-700',
+    accent: 'text-amber-400 bg-amber-500/10 border-amber-500/25',
+    title: 'text-amber-300',
     desc: '迴圈跑得越順，產出的程式碼與資料就越多。你沒讀過的部分等於沒掌握，久了會變成自己專案的陌生人。',
     fix: '定期看它到底改了什麼（git diff），每次抽查幾個檔案就好，不要等到全部看不懂。'
   },
@@ -22,7 +29,8 @@ const DEBTS = [
     icon: Brain,
     zh: '認知投降',
     en: 'Cognitive Surrender',
-    accent: 'text-slate-400 bg-slate-800/60 border-slate-700',
+    accent: 'text-rose-400 bg-rose-500/10 border-rose-500/25',
+    title: 'text-rose-300',
     desc: '太依賴自動迴圈之後，人就完全不再主動思考，也說不出自己的判斷標準是什麼。',
     fix: '帶著判斷力去設計與驗證迴圈，是把腦力挪去更值得的地方；用迴圈來逃避思考，才是退步的開始。'
   }
@@ -53,7 +61,7 @@ export default function SlideVocabulary() {
               </div>
               <div>
                 <div className="flex items-baseline gap-2.5 mb-2">
-                  <h3 className="text-lg font-bold text-slate-100">{debt.zh}</h3>
+                  <h3 className={`text-lg font-bold ${debt.title}`}>{debt.zh}</h3>
                   <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">{debt.en}</span>
                 </div>
                 <p className="text-sm text-slate-300 leading-relaxed">{debt.desc}</p>

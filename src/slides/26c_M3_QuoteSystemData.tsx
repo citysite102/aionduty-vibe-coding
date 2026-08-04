@@ -16,8 +16,14 @@ export default function SlideQuoteSystemData() {
           <p className="text-slate-100 text-xl font-bold leading-snug mb-2">
             資料模型先求穩，不要一開始就把所有情境塞進去。
           </p>
-          <p className="text-slate-400 text-sm leading-relaxed">
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
             對初學者來說，先看懂「主檔」與「明細」的關係，比先學完整資料庫設計重要。
+          </p>
+          {/* 沒碰過資料庫的人看到「表」會卡住，但他們每天都在用 Excel，這是同一個東西。 */}
+          <p className="text-slate-400 text-sm leading-relaxed">
+            <strong className="text-slate-200">一張表就是一個 Excel 分頁。</strong>
+            最上面那列是欄位名稱，底下每一列是一筆資料。差別在於資料庫會幫你擋掉填錯的格式，
+            而且能讓兩張表互相對應，例如報價明細那一列知道自己屬於哪一張報價單。
           </p>
         </AnimatedBlock>
 
@@ -45,7 +51,8 @@ export default function SlideQuoteSystemData() {
             </div>
             <ArrowRight aria-hidden="true" size={16} className="hidden md:block text-slate-700" />
             <div className="text-slate-400 leading-relaxed">
-              `quotes` 記錄「這份報價屬於誰、幣別、付款條件、稅金與總額」；`quote_items` 記錄「每一列賣什麼、賣幾個、單列小計」。
+              <code className="font-mono text-sky-300">quotes</code> 記錄「這份報價屬於誰、幣別、付款條件、稅金與總額」；
+              <code className="font-mono text-sky-300">quote_items</code> 記錄「每一列賣什麼、賣幾個、單列小計」。
             </div>
           </div>
         </AnimatedBlock>
