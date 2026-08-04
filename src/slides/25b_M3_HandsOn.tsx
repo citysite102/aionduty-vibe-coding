@@ -9,11 +9,12 @@ export default function SlideM3HandsOn() {
         <div className="flex flex-col justify-center space-y-4">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 relative group">
             <h3 className="text-lg font-bold flex items-center gap-3 text-sky-400 mb-3 border-b border-slate-800 pb-2">
-              <UserPlus size={18} />
+              <UserPlus aria-hidden="true" size={18} />
               案例一：嚴格的 Code Reviewer
             </h3>
             <p className="text-slate-300 text-xs mb-3">
               在 <code className="text-sky-300">.claude/agents/</code> 放一個 <code className="text-sky-300">code-reviewer.md</code>。
+              不用自己開資料夾，打 <code className="text-sky-300">/agents</code> 它會帶你建，或是直接說「幫我建一個 code-reviewer 子代理，內容照下面這段」。
             </p>
             <div className="bg-slate-950 p-3 rounded-lg font-mono text-xs border border-slate-800 text-slate-400 leading-relaxed overflow-x-auto">
               <span className="text-slate-600">---</span><br/>
@@ -35,43 +36,46 @@ export default function SlideM3HandsOn() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-pink-400 mb-3 border-b border-slate-800 pb-2">
-              <UserPlus size={18} />
-              案例二：文案與品牌規範警察
+            <h3 className="text-lg font-bold flex items-center gap-3 text-sky-400 mb-3 border-b border-slate-800 pb-2">
+              <UserPlus aria-hidden="true" size={18} />
+              案例二：報價單審查員
             </h3>
             <p className="text-slate-300 text-xs mb-3">
-              建立一個 <code className="text-pink-300">copywriter.md</code>，專門盯著你計時器上的文案。
+              建立一個 <code className="text-sky-300">quote-reviewer.md</code>，專門檢查客戶報價是否完整。
             </p>
             <div className="bg-slate-950 p-3 rounded-lg font-mono text-xs border border-slate-800 text-slate-400 leading-relaxed overflow-x-auto">
               <span className="text-slate-600">---</span><br/>
-              name: brand-copywriter<br/>
-              description: 確保介面文案符合任務計時器的調性<br/>
+              name: quote-reviewer<br/>
+              description: 檢查客戶報價單是否缺欄位、價格規則或風險提醒<br/>
               <span className="text-slate-600">---</span><br/>
-              請檢查畫面上的文字有沒有跑掉。按鈕一律用航太語彙：發射、待機、返航、補給，不要出現「開始」「暫停」「重置」。所有錯誤訊息要溫和且具體。
+              請用業務助理的角度檢查報價草稿。每一份都要有客戶名稱、有效期限、品項、數量、幣別、稅金、折扣理由與付款條件。缺任何一項就退回，不能自行補資料。
             </div>
           </AnimatedBlock>
         </div>
 
         <div className="flex flex-col justify-center space-y-6">
-          <AnimatedBlock stepIndex={3} className="bg-amber-950/20 border border-amber-500/30 rounded-2xl p-8 h-full flex flex-col justify-center relative overflow-hidden shadow-lg group hover:border-amber-500/50 transition-colors">
-            <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
-              <Lightbulb size={64} className="text-amber-400" />
+          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 h-full flex flex-col justify-center relative overflow-hidden shadow-lg">
+            <div className="absolute top-0 right-0 p-4 opacity-20">
+              <Lightbulb aria-hidden="true" size={64} className="text-sky-400" />
             </div>
-            <h3 className="text-xl font-bold flex items-center gap-3 text-amber-400 mb-4 border-b border-amber-500/20 pb-3">
-              冷知識：檔案不變，角色百變
+            <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
+              同一種檔案，可以養不同角色
             </h3>
             <p className="text-slate-300 text-base leading-relaxed mb-4">
-              同一份 <code className="text-amber-300">code-reviewer.md</code> 檔案：
+              檔案格式一樣，差別在角色、標準與工具權限：
             </p>
             <ul className="text-slate-400 text-sm space-y-3 list-disc pl-5">
               <li>
-                可以當作<strong className="text-slate-200">一次性小幫手</strong>，你在聊天時叫它出來幫忙看一下，看完就結束。
+                工程團隊可以養 <strong className="text-slate-200">code-reviewer</strong>，檢查 PR 與測試缺口。
               </li>
               <li>
-                也可以寫進 <strong className="text-slate-200">CLAUDE.md 的固定流程</strong>，讓它每次交付前都被叫出來檢查一輪。
+                業務團隊可以養 <strong className="text-slate-200">quote-reviewer</strong>，檢查價格、條款與缺漏欄位。
+              </li>
+              <li>
+                行銷或教學團隊可以養 <strong className="text-slate-200">brand-reviewer</strong> 或 <strong className="text-slate-200">lesson-reviewer</strong>，檢查用字與教材完整性。
               </li>
             </ul>
-            <p className="text-slate-500 text-sm italic mt-6 border-t border-amber-500/20 pt-4">
+            <p className="text-slate-500 text-sm italic mt-6 border-t border-slate-800 pt-4">
               差別不在檔案寫了什麼，而在你什麼時候叫它、以及有沒有規定一定要叫它。
             </p>
           </AnimatedBlock>

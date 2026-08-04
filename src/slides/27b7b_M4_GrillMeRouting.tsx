@@ -26,7 +26,7 @@ export default function SlideGrillMeRouting() {
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這個問題你已經有答案了。把 Grill Me 當成一條規則，拿前面那組分流四問跑一遍。
+            Grill Me 也是一條規則，拿前面那組分流四問跑一遍就知道它該放哪。
           </p>
         </AnimatedBlock>
 

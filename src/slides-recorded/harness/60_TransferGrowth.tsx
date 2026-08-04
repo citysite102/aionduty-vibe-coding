@@ -72,7 +72,7 @@ export default function RecTransferGrowth() {
 
         <AnimatedBlock stepIndex={3} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
-            💡 複雜的時候你已經知道每一塊該去哪，不用重學。
+            💡 每一格都是被同一件事絆到第二次才加的，不是第一天規劃出來的。
           </p>
         </AnimatedBlock>
       </RecPage>
