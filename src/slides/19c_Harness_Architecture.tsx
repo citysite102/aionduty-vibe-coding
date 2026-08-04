@@ -117,7 +117,7 @@ export default function SlideHarnessArchitecture() {
                     <h4 className={`font-bold text-lg leading-tight ${s.name}`}>{p.name}</h4>
                     <p className="text-slate-600 text-sm font-mono">{p.en}</p>
                   </div>
-                  <span className={`ml-auto shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full border ${s.tag}`}>
+                  <span className={`ml-auto shrink-0 text-xs font-bold px-2 py-0.5 rounded-full border ${s.tag}`}>
                     {p.tag}
                   </span>
                 </div>

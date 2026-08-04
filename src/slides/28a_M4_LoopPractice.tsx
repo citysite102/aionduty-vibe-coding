@@ -103,7 +103,7 @@ export default function SlideLoopPractice() {
                   <div className="flex items-center gap-2.5 mb-2">
                     <Icon size={16} className="text-sky-400 shrink-0" />
                     <span className="font-mono text-sm font-bold text-sky-300">【{b.tag}】</span>
-                    <span className="ml-auto shrink-0 text-[10px] text-slate-600">{b.from}</span>
+                    <span className="ml-auto shrink-0 text-xs text-slate-600">{b.from}</span>
                   </div>
                   <div className="text-slate-100 text-sm font-bold leading-snug mb-1.5">{b.title}</div>
                   <p className="text-slate-400 text-sm leading-relaxed">{b.body}</p>

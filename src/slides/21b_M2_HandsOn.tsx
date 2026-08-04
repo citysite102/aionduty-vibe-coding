@@ -14,7 +14,7 @@ import { LiveDemo } from '../components/LiveDemo';
 function Prompt({ children }: { children: ReactNode }) {
   return (
     <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
-      <div className="text-[10px] font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
+      <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
       <p className="text-sky-100 text-sm leading-relaxed">{children}</p>
     </div>
   );

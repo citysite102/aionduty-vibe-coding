@@ -108,7 +108,7 @@ export default function SlideLoopWatch() {
                   <span className="font-mono text-xs text-slate-600">第 {r.n} 輪</span>
                   <p className="text-slate-100 text-sm font-bold leading-snug">{r.what}</p>
                   <span
-                    className={`ml-auto shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-bold ${
+                    className={`ml-auto shrink-0 rounded-full border px-2.5 py-0.5 text-xs font-bold ${
                       r.fail.length === 0
                         ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-300'
                         : 'border-slate-800 bg-slate-950 text-slate-500'

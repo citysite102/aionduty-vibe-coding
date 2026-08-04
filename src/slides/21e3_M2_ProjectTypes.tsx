@@ -63,13 +63,13 @@ export default function SlideProjectTypes() {
                 <h3 className="text-base font-bold text-slate-100">{c.kind}</h3>
                 <span className="text-xs text-slate-500">{c.subject}</span>
                 {c.mine && (
-                  <span className="ml-auto shrink-0 rounded-full border border-sky-900/60 bg-sky-500/10 px-2 py-0.5 text-[10px] font-bold text-sky-400">
+                  <span className="ml-auto shrink-0 rounded-full border border-sky-900/60 bg-sky-500/10 px-2 py-0.5 text-xs font-bold text-sky-400">
                     你手上這個
                   </span>
                 )}
               </div>
 
-              <div className="text-[10px] font-mono uppercase tracking-widest text-slate-600 mt-3 mb-2">
+              <div className="text-xs font-mono uppercase tracking-widest text-slate-600 mt-3 mb-2">
                 手冊寫什麼
               </div>
               <ul className="space-y-1 mb-4">
@@ -82,7 +82,7 @@ export default function SlideProjectTypes() {
               </ul>
 
               <div className="mt-auto rounded-lg border border-slate-800 bg-slate-950 px-3.5 py-2.5">
-                <div className="text-[10px] font-mono uppercase tracking-widest text-sky-600 mb-1">產出</div>
+                <div className="text-xs font-mono uppercase tracking-widest text-sky-600 mb-1">產出</div>
                 <p className="text-slate-200 text-sm leading-snug">{c.output}</p>
               </div>
             </AnimatedBlock>

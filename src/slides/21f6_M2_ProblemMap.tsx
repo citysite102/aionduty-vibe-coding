@@ -74,7 +74,7 @@ export default function SlideProblemMap() {
                 </span>
                 <h3 className="text-lg font-bold text-slate-100 leading-snug">{p.q}</h3>
                 {p.next && (
-                  <span className="ml-auto shrink-0 rounded-full bg-sky-500/15 px-2.5 py-0.5 text-[10px] font-bold text-sky-300">
+                  <span className="ml-auto shrink-0 rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-bold text-sky-300">
                     下一頁開始
                   </span>
                 )}
