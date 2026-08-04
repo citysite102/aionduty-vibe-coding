@@ -66,7 +66,7 @@ export default function SlideGrillMeRouting() {
 
         <AnimatedBlock
           stepIndex={3}
-          className="flex items-center gap-4 rounded-2xl border border-slate-800 border-l-4 border-l-emerald-500 bg-slate-900 px-6 py-4"
+          className="flex items-center gap-4 rounded-2xl border px-6 py-4 bg-emerald-500/5 border-emerald-500/25 shadow-[0_0_32px_-12px_rgba(16,185,129,0.45)]"
         >
           <Check size={20} className="text-emerald-400 shrink-0" strokeWidth={3} />
           <p className="text-slate-200 text-base leading-relaxed">
@@ -83,26 +83,26 @@ export default function SlideGrillMeRouting() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <AnimatedBlock
             stepIndex={5}
-            className="rounded-2xl border border-slate-800 border-l-4 border-l-rose-500 bg-slate-900 p-5"
+            className="rounded-2xl border p-5 bg-rose-500/5 border-rose-500/25"
           >
-            <div className="text-rose-400 font-bold text-sm mb-3">✕ 寫成一律</div>
+            <div className="text-rose-400 font-bold text-base mb-3">✕ 寫成一律</div>
             <p className="text-slate-300 text-base leading-relaxed mb-3">
               「盡可能都用 Grill Me 引導我把需求講清楚。」
             </p>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-base leading-relaxed">
               它會套用在「幫我把這個變數改名」上。你開始無視它的提問，接著整條規則就失效了，而且它每一輪都佔著 context。
             </p>
           </AnimatedBlock>
 
           <AnimatedBlock
             stepIndex={6}
-            className="rounded-2xl border border-slate-800 border-l-4 border-l-emerald-500 bg-slate-900 p-5"
+            className="rounded-2xl border p-5 bg-emerald-500/5 border-emerald-500/25 shadow-[0_0_32px_-12px_rgba(16,185,129,0.45)]"
           >
-            <div className="text-emerald-400 font-bold text-sm mb-3">✓ 加上觸發條件</div>
+            <div className="text-emerald-400 font-bold text-base mb-3">✓ 加上觸發條件</div>
             <p className="text-slate-300 text-base leading-relaxed mb-3">
               「需求沒指明改哪個檔案或怎樣算做完，先問我最多三個問題再開始，一次一題，附上你的建議。」
             </p>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-slate-500 text-base leading-relaxed">
               有觸發條件、指得出它該問卻沒問、最多三題不會沒完沒了。這三點就是前面六個技巧裡的其中三個。
             </p>
           </AnimatedBlock>

@@ -74,8 +74,8 @@ export default function SlideM2ProjectsInPractice() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4">
-          <p className="text-slate-400 text-sm leading-relaxed">
+        <AnimatedBlock stepIndex={6} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+          <p className="text-slate-400 text-base leading-relaxed">
             三個地方都吃同一份規範，<strong className="text-slate-200">差別只在權限範圍。</strong>
           </p>
         </AnimatedBlock>

@@ -118,9 +118,9 @@ export default function SlideThisDeck() {
 
         <AnimatedBlock
           stepIndex={4}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-950 px-6 py-4"
+          className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <p className="text-slate-300 text-sm leading-relaxed">
+          <p className="text-slate-300 text-base leading-relaxed">
             <strong className="text-slate-100">`/init` 產出的是它從檔案裡推得出來的東西。</strong>
             你腦裡那些「為什麼要這樣」「什麼絕對不能做」，它一個都看不到。
             上面那三條的橘字，就是它猜不到、只有你寫得出來的部分。

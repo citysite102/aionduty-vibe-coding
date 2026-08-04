@@ -41,7 +41,7 @@ export default function RecHealthOverview() {
           ])}
         />
 
-        <AnimatedBlock stepIndex={3} className="mt-5 bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-4">
+        <AnimatedBlock stepIndex={3} className="mt-5 border rounded-2xl px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-xl leading-relaxed">先刪再搬，順序反了就會把該刪的搬到別處，繼續佔著空間。</p>
         </AnimatedBlock>
       </RecPage>

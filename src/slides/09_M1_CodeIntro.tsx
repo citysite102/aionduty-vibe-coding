@@ -103,8 +103,8 @@ export default function SlideCodeIntro() {
 
         </div>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-950/60 border border-slate-800 border-l-4 border-l-slate-600 rounded-xl px-5 py-3.5">
-          <p className="text-slate-400 text-xs leading-relaxed">
+        <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-3.5 bg-slate-900 border-slate-800">
+          <p className="text-slate-400 text-sm leading-relaxed">
             <strong className="text-slate-300">那 Connector／MCP 呢？</strong>網頁版確實能透過它們連到部分工具，但多半是連向<strong className="text-slate-300">雲端服務</strong>（讀某個 API、查某個線上資料庫）；它仍碰不到你電腦裡的<strong className="text-slate-200">真實檔案</strong>。真正能長在你專案裡動手的，還是裝在本機的 Agent。
           </p>
         </AnimatedBlock>

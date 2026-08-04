@@ -83,7 +83,7 @@ export default function SlideHarnessContext() {
 
         <AnimatedBlock
           stepIndex={4}
-          className="mt-6 rounded-2xl border border-slate-800 border-l-4 border-l-amber-500 bg-slate-950 px-6 py-4"
+          className="mt-6 rounded-2xl border px-6 py-4 bg-amber-500/5 border-amber-500/25"
         >
           <p className="text-slate-300 text-base leading-relaxed">
             三張卡的差別，最後都落在同一件事上：

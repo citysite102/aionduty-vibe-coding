@@ -58,8 +58,8 @@ export default function SlideQuoteSystemArchitecture() {
           })}
         </div>
 
-        <AnimatedBlock stepIndex={7} className="rounded-xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-4">
-          <p className="text-slate-300 text-sm leading-relaxed">
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+          <p className="text-slate-300 text-base leading-relaxed">
             這張圖會直接變成後面的任務切分：先做前端骨架與資料結構，再開 API 合約，最後補後端邏輯。
             外部服務先保留介面，避免第一輪就失控。
           </p>

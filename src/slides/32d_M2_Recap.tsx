@@ -40,15 +40,15 @@ export default function SlideM2Recap() {
         </div>
 
         <div className="space-y-4">
-          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-2xl px-5 py-4">
-            <div className="text-xs font-mono uppercase tracking-widest text-sky-400 mb-3">你的專案裡多了什麼</div>
-            <div className="bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 font-mono text-xs text-slate-300 leading-relaxed">
+          <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+            <div className="text-sm font-mono uppercase tracking-widest text-sky-400 mb-3">你的專案裡多了什麼</div>
+            <div className="bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 font-mono text-sm text-slate-300 leading-relaxed">
               <div>mission-timer/</div>
               <div className="text-slate-500">├ index.html</div>
               <div className="text-slate-500">├ src/</div>
               <div className="text-sky-300">└ CLAUDE.md　←　這一段的產出</div>
             </div>
-            <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            <p className="text-slate-500 text-sm leading-relaxed mt-3">
               這個檔案跟著專案走。之後不管你隔多久回來、換哪一台電腦，它都在。
             </p>
           </AnimatedBlock>

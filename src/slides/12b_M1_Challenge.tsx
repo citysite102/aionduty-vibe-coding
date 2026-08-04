@@ -88,13 +88,13 @@ export default function SlideChallenge() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-950 px-6 py-4">
-          <div className="text-sky-400 text-sm font-bold mb-2">怎麼知道它真的照做了</div>
-          <p className="text-slate-300 text-sm leading-relaxed mb-2">
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+          <div className="text-sky-400 text-base font-bold mb-2">怎麼知道它真的照做了</div>
+          <p className="text-slate-300 text-base leading-relaxed mb-2">
             改完之後，請它把倒數改成從 65 秒開始跑，然後盯著看第 5 秒有沒有變。
             等 25 分鐘才驗收一次，你今天只驗得了一次。
           </p>
-          <p className="text-slate-400 text-sm leading-relaxed">
+          <p className="text-slate-400 text-base leading-relaxed">
             接著做兩件事：在警示狀態下按待機，再按發射；然後按返航。
             <strong className="text-slate-200">壞掉通常是壞在這兩下，不是壞在倒數。</strong>
           </p>

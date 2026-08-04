@@ -57,8 +57,8 @@ export default function SlideM2BadRules() {
           </AnimatedBlock>
         ))}
 
-        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 border-l-4 border-l-slate-600 rounded-xl px-5 py-4">
-          <p className="text-slate-400 text-sm leading-relaxed">
+        <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-slate-900 border-slate-800">
+          <p className="text-slate-400 text-base leading-relaxed">
             檢查方法只有一個：把那句話拿給旁邊的人看，<strong className="text-slate-200">他能不能只看程式碼就回答「有」或「沒有」。</strong>答不出來的，它也答不出來。
           </p>
         </AnimatedBlock>

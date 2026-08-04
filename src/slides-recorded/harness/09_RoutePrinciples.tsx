@@ -44,7 +44,7 @@ export default function RecRoutePrinciples() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-6 py-5">
+        <AnimatedBlock stepIndex={2} className="border rounded-2xl px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-xl leading-relaxed">
             💡 不是越硬越好，是<Key>那條規矩值不值得付那個改動成本</Key>。同一條也不要放兩個地方。
           </p>

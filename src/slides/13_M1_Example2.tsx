@@ -40,9 +40,9 @@ export default function SlideExample2() {
             </div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="bg-slate-950/60 border border-slate-800 border-l-4 border-l-slate-700 p-4 rounded-xl mt-4">
-            <p className="text-slate-300 text-sm font-bold mb-1.5">「這個用 Cowork 不是也可以？」</p>
-            <p className="text-slate-400 text-xs leading-relaxed">
+          <AnimatedBlock stepIndex={5} className="border p-4 rounded-2xl mt-4 bg-slate-900 border-slate-800">
+            <p className="text-slate-300 text-base font-bold mb-1.5">「這個用 Cowork 不是也可以？」</p>
+            <p className="text-slate-400 text-sm leading-relaxed">
               可以。Cowork 綁上 <code className="text-slate-300">imgs</code> 那個資料夾就能改。
               差別在產出物：腳本留得下來，下次換一百張圖再跑一次就好；Cowork 是這一次幫你做完，下次還要再講一遍。
               這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 那條路後面會單獨講。

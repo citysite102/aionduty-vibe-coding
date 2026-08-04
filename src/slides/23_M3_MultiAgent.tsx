@@ -104,9 +104,9 @@ export default function SlideMultiAgent() {
 
         <AnimatedBlock
           stepIndex={6}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-5"
+          className="rounded-2xl border px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <p className="text-slate-400 text-sm leading-relaxed mb-2">
+          <p className="text-slate-400 text-base leading-relaxed mb-2">
             實際要決定的只有一件事：
           </p>
           <p className="text-slate-100 text-xl font-bold leading-snug">

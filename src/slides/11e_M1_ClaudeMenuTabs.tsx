@@ -110,7 +110,7 @@ export default function SlideClaudeMenuTabs() {
 
         <AnimatedBlock
           stepIndex={6}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-950 px-6 py-4"
+          className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
             真的只需要先記兩個：
@@ -119,7 +119,7 @@ export default function SlideClaudeMenuTabs() {
             <code className="font-mono font-bold text-orange-300 mx-1">/clear</code>
             想重來時用。其他等遇到再說。
           </p>
-          <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+          <p className="text-slate-400 text-base leading-relaxed mt-3 pt-3 border-t border-slate-800">
             只有一件事現在就要知道：
             <code className="font-mono text-orange-300">/compact</code>
             的壓縮是有損的，細節會掉。所以重要的約定不要靠對話記憶撐著，要寫進檔案裡。

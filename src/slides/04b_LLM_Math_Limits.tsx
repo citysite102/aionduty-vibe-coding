@@ -53,7 +53,7 @@ export default function SlideLLMMathLimits() {
       title={
         <div className="flex flex-col md:flex-row md:items-baseline gap-x-2.5 gap-y-1 leading-tight flex-wrap">
           <span className="text-3xl md:text-5xl font-black tracking-tight text-white shrink-0">
-            它不是在理解，
+            AI 不是在理解，
           </span>
           <span className="text-2xl md:text-[38px] font-black tracking-tight text-sky-400 shrink-0">
             是在算哪個答案離你最近

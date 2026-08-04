@@ -161,14 +161,14 @@ export default function SlideROI() {
         </AnimatedBlock>
 
         {/* 但書 */}
-        <AnimatedBlock stepIndex={5} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl px-5 py-4 flex gap-3 items-start">
+        <AnimatedBlock stepIndex={5} className="bg-amber-500/5 border border-amber-500/25 rounded-2xl px-5 py-4 flex gap-3 items-start">
           <Info size={16} className="text-amber-400 shrink-0 mt-0.5" />
           <div className="space-y-1.5">
-            <p className="text-slate-200 text-sm leading-relaxed">
+            <p className="text-slate-200 text-base leading-relaxed">
               <strong className="text-amber-300">這筆帳裡有一項不是零：你的時間和判斷力。</strong>
               token 很便宜，但你得看得懂它做了什麼、抓得出它哪裡做錯。那個能力不會自己長出來。
             </p>
-            <p className="text-slate-500 text-xs leading-relaxed">
+            <p className="text-slate-500 text-sm leading-relaxed">
               上面的外包報價是市場上常見的區間，實際依需求規模與廠商差異很大，這裡只是拿來對照數量級。
             </p>
           </div>

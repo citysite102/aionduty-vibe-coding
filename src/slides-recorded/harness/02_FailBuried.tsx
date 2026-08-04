@@ -36,7 +36,7 @@ export default function RecFailBuried() {
 
         <AnimatedBlock
           stepIndex={2}
-          className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-2xl p-6"
+          className="border rounded-2xl p-6 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-xl leading-relaxed">
             💡 如果沒照做的都是後面那幾條，多半就是這個問題。一般建議一份控制在 200 行以內。

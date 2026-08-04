@@ -91,9 +91,9 @@ export default function SlideProjectTypes() {
 
         <AnimatedBlock
           stepIndex={6}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-950 px-6 py-4"
+          className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <p className="text-slate-300 text-sm leading-relaxed">
+          <p className="text-slate-300 text-base leading-relaxed">
             <strong className="text-slate-100">知識庫那一格跟其他三格不一樣。</strong>
             另外三格是產出，它是產出的來源。你要做課程簡報、要準備一份策略報告，
             用到的其實是同一批底層知識，但那會是<strong className="text-slate-100">兩個專案</strong>，

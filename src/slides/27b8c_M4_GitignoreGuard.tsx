@@ -32,20 +32,20 @@ export default function SlideGitignoreGuard() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 border-l-4 border-l-rose-500 bg-slate-900 p-5">
+          <div className="rounded-2xl border p-5 bg-rose-500/5 border-rose-500/25">
             <div className="flex items-center gap-2.5 mb-3">
               <Lock size={18} className="text-rose-400" />
               <h3 className="text-base font-bold text-slate-100">判斷二：哪些檔案不跟著走</h3>
             </div>
             <ul className="space-y-2">
               {NEVER_PUSH.map((n) => (
-                <li key={n} className="flex gap-3 text-slate-300 text-sm leading-relaxed">
+                <li key={n} className="flex gap-3 text-slate-300 text-base leading-relaxed">
                   <span className="text-rose-400 shrink-0">✕</span>
                   {n}
                 </li>
               ))}
             </ul>
-            <p className="text-slate-500 text-sm leading-relaxed mt-3">
+            <p className="text-slate-500 text-base leading-relaxed mt-3">
               推上 public 之後才發現，刪掉也來不及，紀錄裡還留著。
             </p>
           </div>
@@ -53,9 +53,9 @@ export default function SlideGitignoreGuard() {
 
         <AnimatedBlock
           stepIndex={2}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-5"
+          className="rounded-2xl border px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <div className="text-sky-400 font-bold text-sm mb-2">這是你自己設的第一道機制</div>
+          <div className="text-sky-400 font-bold text-base mb-2">這是你自己設的第一道機制</div>
           <p className="text-slate-300 text-base leading-relaxed">
             擋住這些檔案的東西叫 <code className="font-mono text-sky-300">.gitignore</code>。
             列在裡面的檔案，git 根本不會碰。

@@ -83,7 +83,7 @@ function Marks({ pass, fail }: { pass: number[]; fail: number[] }) {
 export default function SlideLoopWatch() {
   return (
     <SlideLayout
-      title="它自己跑的時候，你在旁邊看什麼"
+      title="Agent 自己跑的時候，你在旁邊看什麼"
       subtitle="Watching the Loop"
       icon={Eye}
     >

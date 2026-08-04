@@ -1,6 +1,6 @@
 import { MessagesSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { Callout } from './_Callout';
+import { Callout } from '../../components/Callout';
 import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
@@ -31,7 +31,7 @@ export default function RecWhyNotNewChat() {
         </AnimatedBlock>
 
         {/* 這一頁是正反對照，正解那側走 good：綠色加微光，不是 sky */}
-        <Callout stepIndex={3} tone="good" label="寫在指令欄">
+        <Callout stepIndex={3} tone="good" size="rec" label="寫在指令欄">
           每一輪都在，不會被後面的內容蓋過去。跟根目錄的 CLAUDE.md 是同一個機制。
         </Callout>
       </RecPage>

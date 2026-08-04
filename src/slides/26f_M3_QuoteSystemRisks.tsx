@@ -32,10 +32,10 @@ export default function SlideQuoteSystemRisks() {
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={7} className="rounded-xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-4">
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <div className="flex items-start gap-3">
             <CheckCircle2 aria-hidden="true" size={20} className="text-sky-400 shrink-0 mt-0.5" />
-            <p className="text-slate-300 text-sm leading-relaxed">
+            <p className="text-slate-300 text-base leading-relaxed">
               下一段把它接進循環：讓它自己跑、自己驗、自己修，但仍然受你設的邊界控制。
             </p>
           </div>

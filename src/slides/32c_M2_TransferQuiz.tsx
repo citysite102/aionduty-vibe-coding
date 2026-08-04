@@ -74,8 +74,8 @@ export default function SlideM2TransferQuiz() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={7} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-3.5">
-          <p className="text-slate-400 text-sm leading-relaxed">
+        <AnimatedBlock stepIndex={7} className="border rounded-2xl px-5 py-3.5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+          <p className="text-slate-400 text-base leading-relaxed">
             這三個問題跟你用哪個工具無關。<strong className="text-slate-200">換成別的 AI、換成完全不同的工作，要問的還是這三題。</strong>
           </p>
         </AnimatedBlock>

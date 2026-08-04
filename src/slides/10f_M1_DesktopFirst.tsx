@@ -70,9 +70,9 @@ export default function SlideDesktopFirst() {
 
         <AnimatedBlock
           stepIndex={3}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-5"
+          className="rounded-2xl border px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <div className="text-sky-400 font-bold text-sm mb-2">這一格不是簡化版</div>
+          <div className="text-sky-400 font-bold text-base mb-2">這一格不是簡化版</div>
           <p className="text-slate-300 text-base leading-relaxed">
             桌面版的 Code 頁籤跟終端機是<strong className="text-slate-100">同一個 Claude Code</strong>，只是換了介面。
             同一份 CLAUDE.md、同一組斜線指令、一樣能跑測試與版本控制。旁邊的 Cowork 才是另一回事，那個之後會講。

@@ -57,15 +57,15 @@ export default function SlideClaudeMdLayers() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 relative overflow-hidden border-l-4 border-l-sky-500">
+          <AnimatedBlock stepIndex={4} className="border rounded-2xl p-5 relative overflow-hidden bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
             <h3 className="text-lg font-bold text-slate-100 mb-2 flex items-center gap-2">
               <FileText className="text-sky-400" size={20} />
               專案根目錄 ./CLAUDE.md
             </h3>
-            <p className="text-slate-400 text-sm leading-relaxed mb-2">
+            <p className="text-slate-400 text-base leading-relaxed mb-2">
               這個專案的規章，進 repo 跟團隊共用。
             </p>
-            <div className="text-slate-500 text-xs bg-slate-950 p-2 rounded">
+            <div className="text-slate-500 text-sm bg-slate-950 p-2 rounded">
               session 一開始就載入、整場都在，compaction 後還會自動重讀，不會掉。
             </div>
           </AnimatedBlock>

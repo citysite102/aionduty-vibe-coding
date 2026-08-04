@@ -45,7 +45,7 @@ export default function RecRecap() {
 
         <AnimatedBlock
           stepIndex={2}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-950 px-7 py-5"
+          className="rounded-2xl border px-7 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-xl leading-relaxed">
             三件事都收在同一個地方：你的專案資料夾裡多了一個{' '}

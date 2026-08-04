@@ -25,7 +25,7 @@ export default function SlideIntroCases() {
                    適合單次任務。但當專案變複雜時，來回複製貼上容易失去脈絡、覆蓋錯誤，或者忘記安裝相依套件。
                  </div>
                </li>
-               <li className="bg-slate-950 p-4 rounded-lg border border-slate-800 border-l-4 border-l-sky-500 flex gap-3 items-start">
+               <li className="p-4 rounded-2xl border flex gap-3 items-start bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
                  <TerminalSquare className="text-sky-400 shrink-0 mt-0.5" size={18} />
                  <div>
                    <strong className="text-slate-100 block mb-1">情境三：真實專案應用 (Claude Code 等 Agent)</strong>

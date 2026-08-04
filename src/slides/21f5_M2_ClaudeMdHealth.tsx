@@ -81,10 +81,10 @@ export default function SlideM2ClaudeMdHealth() {
             </div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={7} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5 flex gap-3 items-start">
+          <AnimatedBlock stepIndex={7} className="bg-amber-500/5 border border-amber-500/25 rounded-2xl p-5 flex gap-3 items-start">
             <AlertTriangle size={20} className="text-amber-400 shrink-0 mt-0.5" />
             <div>
-              <h4 className="text-sm font-bold text-slate-100 mb-2">證據不足的時候，不要直接刪</h4>
+              <h4 className="text-base font-bold text-slate-100 mb-2">證據不足的時候，不要直接刪</h4>
               <p className="text-slate-400 text-[13px] leading-relaxed">
                 兩個比較安全的做法：<strong className="text-slate-200">降級</strong>，把它從根目錄搬到子目錄，讓它只在相關的時候才載入；或<strong className="text-slate-200">標記觀察</strong>，在那一行後面註記日期，下一輪健檢再看。
               </p>
@@ -94,9 +94,9 @@ export default function SlideM2ClaudeMdHealth() {
 
         <AnimatedBlock
           stepIndex={8}
-          className="lg:col-span-2 bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4"
+          className="lg:col-span-2 border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
-          <p className="text-slate-400 text-sm leading-relaxed">
+          <p className="text-slate-400 text-base leading-relaxed">
             把「要優雅」改寫成可以檢查的敘述，不用寫得更長，換個方向講就好：與其列一串不要做什麼，不如講清楚只能做什麼。
           </p>
         </AnimatedBlock>

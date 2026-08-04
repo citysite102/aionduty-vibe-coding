@@ -115,7 +115,7 @@ export default function SlideLoopPractice() {
 
         <AnimatedBlock
           stepIndex={6}
-          className="rounded-2xl border border-slate-800 border-l-4 border-l-sky-500 bg-slate-900 px-6 py-4"
+          className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
             五題裡真正該花力氣的是第 2、3 題。
