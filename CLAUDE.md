@@ -2,12 +2,12 @@
 
 本專案有兩個性質不同的區塊，套用的規範不同：
 
-| 區塊 | 路徑 | 技術 | 適用章節 |
+| 區塊 | 路徑 | 技術 | 規範在哪 |
 |---|---|---|---|
-| 簡報投影片（主要產出） | `src/slides/`、`src/components/` | React + Tailwind + `motion/react` | A、B、D |
-| Remotion 動畫元件 | `src/remotion/` | Remotion，frame 驅動 | C、D |
+| 簡報投影片（主要產出） | `src/slides/`、`src/components/` | React + Tailwind + `motion/react` | 這份，A、B、D 章 |
+| Remotion 動畫元件 | `src/remotion/` | Remotion，frame 驅動 | `src/remotion/CLAUDE.md`，加這份的 A-3、D 章 |
 
-> `src/remotion/` 目前尚未被任何投影片引用，屬保留狀態。**C 章的規範只適用該目錄，不要套用到投影片上**（例如投影片沒有 frame 的概念，節奏是靠 `currentStep`）。
+> Remotion 那份是子目錄手冊，Claude Code 動到那一區的檔案時才會載入，平常不佔 context。**不要把它的規則套到投影片上**，投影片沒有 frame 的概念，節奏是靠 `currentStep`。
 
 ---
 
@@ -28,11 +28,30 @@
 |---|---|---|
 | 主 accent | `sky` | 標題 icon、副標、當下要強調的那一個元素 |
 | 對照的另一邊 | `indigo` | 僅在同一頁有成對對照時使用，見下方 |
+| Claude 專有名詞 | `orange` | 標身分不標重點，見下方 |
 | 成功／正解 | `emerald` | 僅在有正反對照時使用 |
 | 警告／注意 | `amber` | 僅在有風險提示時使用 |
 | 錯誤／禁止 | `red`／`rose` | 僅在示範錯誤做法時使用 |
 
-**同一頁最多兩種強調色**。`violet`、`purple`、`orange`、`teal`、`cyan`、`pink`、`fuchsia`、`lime`、`yellow` 等一律不要新增；沒有語意的地方就用灰階。顏色越少越乾淨。
+**同一頁最多兩種強調色**（`orange` 不計入，理由見下方）。沒有語意的地方就用灰階，顏色越少越乾淨。
+
+上表以外的色相一律不要新增。特別注意這三組，它們長得跟合法色很像，最容易混進來：
+
+- `blue` 不是 `sky`、`green` 不是 `emerald`。差一階但色溫不同，混在同一頁會看起來像沒對齊。
+- `gray`、`zinc`、`neutral`、`stone` 都不是 `slate`。全片灰階只有 `slate` 一種。
+- `violet`、`purple`、`teal`、`cyan`、`pink`、`fuchsia`、`lime`、`yellow` 直接不要用。
+
+驗收用這行掃，只該印出上表那七個色相（`slate`、`sky`、`indigo`、`orange`、`emerald`、`amber`、`red`／`rose`）：
+
+```bash
+grep -rhoE --include="*.tsx" -- \
+  "-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-[0-9]" \
+  src/slides src/slides-recorded | sed -E 's/^-//; s/-[0-9]$//' | sort | uniq -c | sort -rn
+```
+
+色相要一個一個列出來（這是 Tailwind 全部 22 個），不要偷懶寫成 `[a-z]+`。寫成萬用會把 `duration-500`、`z-50`、`border-l-…` 的 `l` 都算進來，跑出一堆雜訊，久了就沒人看了。
+
+2026-08-04 起這行是乾淨的，只會印出那七個。**多印任何一個就是違規，不會有例外**，不要為了留一個孤兒檔而把它當成已知誤報放著。
 
 #### `indigo` 的職務：成對對照的第二邊
 
@@ -45,8 +64,9 @@
 | `10c_M1_WebArch` | 前端 (Client) | 後端 (Server) |
 | `10c2_M1_WebArchDuties` | 前端負責 | 後端與資料庫 |
 | `06_Threads` | Thread A | Thread B |
-| `09_M1_CodeIntro` | 對話框 | 裝在你電腦裡 |
-| `13_M1_Example2` | 執行前 | 執行後 |
+| `31_Cheat_Dials` | 旋鈕二：邊界大小 | 旋鈕一：監督程度 |
+
+已知還沒改的兩頁：`09_M1_CodeIntro`（對話框／裝在你電腦裡）與 `13_M1_Example2`（執行前／執行後）的第一邊是灰階不是 `sky`，所以那個 `indigo` 其實是下面說的「單一強調」，該改成 `sky`。列在這裡是為了不要再被當成正確範例抄。
 
 判斷方式很簡單：**如果拿掉 `indigo` 那一邊，畫面上就沒有東西在跟它對照，那就不該用 `indigo`。**
 
@@ -57,6 +77,24 @@
 3. **純裝飾**：漸層、光暈、背景色塊裡的 `indigo`，沒有掛在任何文字或概念上。直接刪掉。
 
 `sky` 與 `indigo` 成對出現時**合計算一種強調色**，因為它們是同一個對照關係的兩邊。所以「前端 sky / 後端 indigo / API emerald」的三段式圖解是合法的。單獨出現的 `indigo`（沒有 `sky` 跟它配對）則算違規，不是算一種。
+
+#### `orange` 的職務：Claude 專有名詞
+
+`orange` 跟其他強調色不同，**它標的是「這東西是誰家的」，不是「這東西現在重要」**。所以它不計入一頁兩色的額度，就像灰階不計入一樣。
+
+只有三種用法：
+
+1. **行內的產品專有名詞**，一律等寬字：斜線指令（`/help`、`/context`）、Claude Code 的按鍵（`@`、`Shift + Tab`）、`CLAUDE.md`、`SKILL.md`、Skill 名稱。
+2. **成對對照裡「Claude 那一邊」**，此時另一邊用 `emerald` 或灰階。例如 `32_Cheat_Tools` 的「Claude 生態系 vs 開源通用陣營」。
+3. **仿真 Claude Code 真實畫面時照抄它的橘**（`11b_M1_ClaudeCodeUI`）。學員要拿它對照自己的螢幕，改色反而是錯的。
+
+不要這樣用：
+
+- **不要拿它當重點色。**「這一句要記住」是 `sky` 的工作。同一頁如果橘字比 sky 還多，代表你在用它強調，不是在用它標身分。
+- **不要整塊卡片染橘**，除非那一塊真的在跟非 Claude 的東西對照（上面第 2 種）。邊框、背景、標題染橘會讓它變成強調色。
+- **不要標通用名詞。**`git commit`、`npm run lint`、`.env` 不是 Claude 的東西，維持灰階。`Shift + Tab` 算，因為那是 Claude Code 定義的操作。
+
+判斷方式：**把那個 token 換成別家工具的對應物，句子還成立嗎？**成立就不是專有名詞，不該上橘。
 
 ### A-2 節奏與分段
 
@@ -81,10 +119,11 @@
 
 - **只用內建色階。** `slate-850`、`sky-350` 這類不存在的色階不會報錯、typecheck 也會過，但邊框會直接不渲染。
 - **只用合法的間距 class。** `py-0.2`、`px-1.7` 等同樣是靜默失效，寫 `py-0.5`。
+- **只用 Tailwind 內建的 animate class。** `animate-spin-slow`、`animate-infinite`、`animate-duration-2000` 都是別的外掛才有的，這個專案沒裝，寫了不會報錯也不會動。要調速度用 `style={{ animationDuration }}`，或直接改用 `motion`。（這三類是同一種病：class 拼錯不會壞，只會安靜地什麼都不做。）
 - **內容區的外層要用 `min-h-full`，不要用 `h-full`。** `SlideLayout` 的內容區是 `overflow-y-auto`，外層寫 `h-full` 加 `justify-center` 時，內容一旦超過高度就會上下同時溢出，**上緣會被推到捲動範圍外面，捲不到也看不到**。`min-h-full` 是「至少這麼高」，超過就往下長，捲動正常。這種錯不會報錯也不會被 typecheck 抓到。
 - **不引用外部網址資源**（圖片、字型、背景貼圖）。現場離線播放會破圖，一律放 `assets/`。
 - 不要留不可點的裝飾性按鈕，現場真的會有人去點。用 `div` 或加上真實行為。
-- 提交前跑 `npm run lint`（`tsc --noEmit`）。注意它抓不到上面兩類 class 錯誤，那要靠肉眼。
+- 提交前三支都要跑：`npm run lint`、`npm run check:slides`、`npm run check:rec`。注意 `lint` 只是 `tsc --noEmit`，抓不到上面那三類 class 錯誤，那要靠肉眼或上面那行 `grep`。
 
 ---
 
@@ -101,7 +140,7 @@ REPLACEMENTS ─┘
 ```
 
 - **`LIVE_SLIDES` / `LIVE_TITLES`**（`src/App.tsx`）是「未拆頁」的順序，兩個陣列靠 index 對齊，長度必須一致。
-- **`REPLACEMENTS`**（`src/slides-recorded/registry.ts`）的 key 是 **LIVE index**，把那一頁換成一組預錄頁。目前 8 頁被拆成 56 頁。
+- **`REPLACEMENTS`**（`src/slides-recorded/registry.ts`）的 key 是 **LIVE index**，把那一頁換成一組預錄頁。這個數字會變，要看現況就跑 `npm run check:slides`，第一行會印「LIVE N 頁，其中 X 頁拆成 Y 頁」。
 - **`SECTION_DEFS`** 的 `start` 也是 **LIVE index**，指向一張分節頁（`*_Div_*.tsx`）。下拉選單的 `optgroup` 由它自動推導，**不需要手動維護 slice 範圍**。
 
 `SLIDES`、`SLIDE_TITLES`、`SECTIONS` 都是衍生值，不要直接改。
@@ -143,32 +182,24 @@ npm run check:slides
 
 改用不帶數字的說法：「接下來這一段」「整份簡報」。分節頁的路線圖用 `SectionDivider` 的 `weight`，那是相對比例，不是頁數。
 
----
+### B-4 承接語要指到真的下一頁
 
-## C. Remotion 動畫規範（僅適用 `src/remotion/`）
+「接下來講 X」「下一段會做 Y」這種句子寫下去之前，先確認 X 真的就在下一頁。**搬頁、插頁的時候最容易漏掉的就是這種句子**，它不會報錯，也不在 `check:slides` 的檢查範圍內。
 
-**畫布**
-- 解析度 1920×1080，fps 30
-- 每個概念一個 Composition
+已經犯過兩次：
 
-**色彩**
-- 背景：深色 `#0E0F13`
-- 主文字：`#F5F5F4`
-- 次要文字／灰階：`#8A8F98`
-- 主色 accent：`#5B8DEF`（只用在當下要強調的那一個元素，其他一律灰階）
-- 不要引入 `theme.ts` 以外的顏色
+- `21e3_M2_ProjectTypes` 收尾寫「接下來講怎麼分工」，但分工在四十幾頁之後。
+- `32d_M2_Recap` 寫「下一段講怎麼設一個目標」，但下一段是 M3 分工，目標循環在 M4。
 
-**字體**
-- 中文：Noto Sans TC
-- 英文／程式碼：JetBrains Mono（用於指令、`/goal` 等 token）
+改法有兩種，選一種：把句子改成真正的下一頁，或者把它降級成不指定時間的說法（「這件事後面會再回來講」）。
 
-**動態**
-- 沿用 A-3 的六條動態原則。
-- 時間一律用 frame 控制（`useCurrentFrame`、`interpolate`、`spring`），**嚴禁 `setTimeout`**。
-- 不要用 CSS `transition` 或 `animate-spin`。逐格輸出時不生效，預覽會跟成品不一致，改用 `interpolate`。
-- spring 統一取用 `theme.ts` 的 `springConfig`，不要各自寫 damping／stiffness。
-- 不要用 `frame % N` 驅動 spring，會在每個週期邊界跳變。
-- 不要 hardcode 畫布中心座標（如 `960`），改用相對值。
+### B-5 同一批內容只開一頁
+
+要新增一頁之前，先搜一次關鍵詞，確認這批內容還沒有別的頁在講。**寧可把既有那頁加厚，不要另開一頁。**
+
+犯過一次：M1 曾經連續三頁講斜線指令（`18_M1_Features`、`11d2_M1_ClaudeFlowCmds`、`11e_M1_ClaudeMenuTabs`），重疊約七成，2026-08-04 併成一頁。現在斜線指令的唯一清單是 `11e`，要補指令加進它的四格，不要再另開一頁。
+
+判準：**兩頁的內容互換位置，讀起來有差別嗎？**沒有就是同一頁。
 
 ---
 
@@ -187,6 +218,7 @@ npm run check:slides
 - **過度承諾**：「安全 100%」「成功率極高」「它會自己修好」「指數級成長」。
 - **未來預測寫成事實**：「不可逆的趨勢」「這是接下來幾年的基本功」。要講預測就標明是預測。
 - **收尾金句**：「答得出這三題，這一段就過了」「規矩靠人記會忘，靠程式擋不會」這種自我滿足的結語。頁面結尾要嘛給具體的下一步，要嘛就不要寫。
+- **進度安撫**：「剩下三步，你已經學過兩步」「這題你已經有答案了」「別擔心，前面都講過了」。這類句子講的是學員的狀態，不是內容，讀起來像在拍肩膀。三個具體毛病：它不推進理解；它多半不精確（「學過兩步」其實是三步）；而它常常佔掉一頁唯一的重點位置。要標進度就用流程軌或分節頁的路線圖，那是視覺元件的工作，不要寫成句子。<br>判準：**把這句話刪掉，讀者少知道什麼嗎？**答不出來就刪。
 - **自創比喻**：「不是預設收容所」「像一位隨時待命的副駕駛」。比喻若沒有增加理解就是裝飾，直接講事實。
 - 「打造」全片留 1 到 2 處就好。
 
