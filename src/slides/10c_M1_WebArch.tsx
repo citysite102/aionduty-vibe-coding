@@ -160,6 +160,8 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
   }
 };
 
+const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
+
 export default function Slide10c() {
   const [activeScenario, setActiveScenario] = useState<'login' | 'cart' | 'search'>('login');
   const [animState, setAnimState] = useState<AnimState>('idle');
@@ -219,7 +221,7 @@ export default function Slide10c() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-900/40 p-4 rounded-2xl border border-slate-800/80 text-left">
             <div>
               <h3 className="text-base font-bold text-slate-200 flex items-center gap-2">
-                <ArrowRightLeft className="text-sky-400 w-5 h-5 animate-pulse" />
+                <ArrowRightLeft className="text-sky-400 w-5 h-5" />
                 <span>請選擇要模擬的商業情境（即時切換）：</span>
               </h3>
               <p className="text-xs text-slate-400 mt-1">
@@ -235,9 +237,12 @@ export default function Slide10c() {
                 const isActive = activeScenario === key;
                 return (
                   <button
+                    type="button"
                     key={key}
                     onClick={() => handleScenarioChange(key)}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
+                    aria-pressed={isActive}
+                    aria-label={`切換到${item.title}情境`}
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-colors duration-150 ${focusRing} ${
                       isActive 
                         ? 'bg-sky-500 text-slate-950 shadow-md scale-105' 
                         : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
@@ -258,7 +263,7 @@ export default function Slide10c() {
           {/* Simulator Controls */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800/60">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
               <h3 className="text-xs md:text-sm font-bold text-slate-300 uppercase tracking-wider font-mono">
                 API Live Connection Simulator
               </h3>
@@ -267,8 +272,11 @@ export default function Slide10c() {
             <div className="flex items-center gap-3">
               {/* Playback Mode Switch */}
               <button 
+                type="button"
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                className={`text-xs px-3 py-1.5 rounded-lg border transition-all flex items-center gap-1.5 ${
+                aria-pressed={isAutoPlaying}
+                aria-label={isAutoPlaying ? '切換為手動模式' : '切換為自動循環'}
+                className={`text-xs px-3 py-1.5 rounded-lg border transition-colors duration-150 flex items-center gap-1.5 ${focusRing} ${
                   isAutoPlaying 
                     ? 'bg-indigo-950/40 text-indigo-400 border-indigo-900/60' 
                     : 'bg-slate-900 text-slate-400 border-slate-800'
@@ -280,12 +288,14 @@ export default function Slide10c() {
 
               {/* Trigger Button */}
               <button
+                type="button"
                 onClick={triggerSimulation}
                 disabled={animState !== 'idle'}
-                className={`text-xs px-4 py-1.5 rounded-lg font-bold border flex items-center gap-1.5 transition-all ${
+                aria-label={animState === 'idle' ? '手動發送 API 請求' : 'API 請求正在發送中'}
+                className={`text-xs px-4 py-1.5 rounded-lg font-bold border flex items-center gap-1.5 transition-colors duration-150 ${focusRing} ${
                   animState === 'idle'
                     ? 'bg-sky-500 text-slate-950 border-sky-400 hover:bg-sky-400 hover:scale-[1.03] shadow-[0_0_12px_rgba(14,165,233,0.3)]'
-                    : 'bg-slate-900 text-slate-500 border-slate-800 cursor-not-allowed'
+                    : 'bg-slate-900 text-slate-500 border-slate-800 cursor-not-allowed opacity-70'
                 }`}
               >
                 {animState === 'idle' ? <Play size={12} fill="currentColor" /> : <RotateCcw size={12} className="animate-spin" />}

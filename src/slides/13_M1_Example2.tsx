@@ -63,7 +63,7 @@ export default function SlideExample2() {
                  </div>
                </div>
 
-               <div className="animate-pulse flex justify-center text-indigo-500">
+               <div className="flex justify-center text-indigo-500">
                  ↓ 執行 rename.js ↓
                </div>
 

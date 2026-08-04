@@ -81,20 +81,16 @@ export default function Slide10d() {
                 <motion.div
                   className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-emerald-400 rounded-full"
                   animate={{ top: ["10%", "85%", "10%"] }}
-                  transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                  transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
                 />
               </div>
 
               <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 z-10 w-full text-center flex flex-col items-center shadow-2xl">
                 <Database className="text-amber-400 mb-1.5" size={32} />
                 <span className="text-slate-200 text-sm font-bold">資料庫 (長期記憶)</span>
-                <motion.div
-                  className="mt-2 text-[11px] font-mono text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded"
-                  animate={{ opacity: [0, 1, 0] }}
-                  transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-                >
+                <div className="mt-2 text-[11px] font-mono text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded">
                   SELECT * FROM users WHERE id = 12;
-                </motion.div>
+                </div>
               </div>
             </div>
           </AnimatedBlock>

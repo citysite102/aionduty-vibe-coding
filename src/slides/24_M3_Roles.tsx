@@ -32,14 +32,14 @@ const OrchestratorAnim = () => (
                 r="4" fill="#38bdf8"
                 initial={{ cx: 0, cy: 0, opacity: 0 }}
                 animate={{ cx: [0, x], cy: [0, y], opacity: [0, 1, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
+                transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.8 }}
               />
               {/* Incoming Result */}
               <motion.circle
                 r="4" fill="#818cf8"
                 initial={{ cx: x, cy: y, opacity: 0 }}
                 animate={{ cx: [x, 0], cy: [y, 0], opacity: [0, 1, 0] }}
-                transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 + 0.9 }}
+                transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.8 + 1.8 }}
               />
             </g>
           );
@@ -105,7 +105,7 @@ const SwarmAnim = () => (
                 fill="none"
                 initial={{ scale: 0, opacity: 1 }}
                 animate={{ scale: [0, 2.5], opacity: [1, 0] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5 }}
+                transition={{ duration: 5, repeat: Infinity, delay: i * 1.25 }}
               />
             </g>
           );
@@ -155,14 +155,7 @@ const WorkflowAnim = () => (
              <Activity className="text-amber-400" size={24} />
            </div>
            {i < 2 && (
-             <div className="w-8 h-1 bg-amber-900/50 -mr-4 ml-[-8px] relative overflow-hidden">
-                <motion.div 
-                  className="absolute inset-0 bg-amber-400"
-                  initial={{ x: '-100%' }}
-                  animate={{ x: '100%' }}
-                  transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                />
-             </div>
+             <div className="w-8 h-1 bg-amber-900/50 -mr-4 ml-[-8px] relative overflow-hidden" />
            )}
          </motion.div>
        ))}

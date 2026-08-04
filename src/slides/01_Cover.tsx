@@ -14,7 +14,7 @@ export default function Slide01() {
         initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5, duration: 1 }}
         className="absolute top-[20%] left-[15%] hidden md:flex items-center gap-3 bg-slate-900/50 backdrop-blur-md border border-slate-700 p-3 rounded-xl shadow-2xl"
       >
-        <div className="w-10 h-10 rounded-full border-4 border-slate-700 border-t-slate-500 animate-spin" style={{ animationDuration: '3s' }} />
+        <div className="w-10 h-10 rounded-full border-4 border-slate-700 border-t-slate-500" />
         <div className="h-2 w-12 bg-slate-700 rounded-full" />
       </motion.div>
       

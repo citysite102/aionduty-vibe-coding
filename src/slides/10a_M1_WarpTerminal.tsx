@@ -115,8 +115,8 @@ export default function SlideWarpTerminal() {
                   <div className="mb-4">
                     <div className="text-slate-500 font-bold mb-1">Thought for 6 seconds &gt;</div>
                     <div className="text-slate-200 font-bold mb-1">Task 5: Add popularity...</div>
-                    <div className="flex items-center gap-2 text-pink-400 bg-pink-500/5 p-2 rounded border border-pink-500/10">
-                      <span className="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                    <div className="flex items-center gap-2 text-sky-400 bg-sky-500/5 p-2 rounded border border-sky-500/10">
+                      <span className="w-2 h-2 rounded-full bg-sky-500"></span>
                       <span>Add popularity indicator to ObjectCard</span>
                     </div>
                   </div>
@@ -133,8 +133,8 @@ export default function SlideWarpTerminal() {
                     <div className="flex items-center gap-1.5 text-emerald-400 text-[11px]">
                       <CheckCircle2 size={10} /> <span>Update ObjectData type with popularity</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-pink-400 text-[11px] font-semibold">
-                      <span className="w-1.5 h-1.5 rounded-full bg-pink-500 shrink-0"></span>
+                    <div className="flex items-center gap-1.5 text-sky-400 text-[11px] font-semibold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
                       <span>Add popularity indicator to ObjectCard</span>
                     </div>
                     <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">

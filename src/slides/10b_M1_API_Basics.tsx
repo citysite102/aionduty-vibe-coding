@@ -29,7 +29,7 @@ export default function Slide10b() {
             
             <div>
               <h3 className="text-lg font-bold text-sky-400 mb-3 flex items-center gap-2">
-                <Globe size={20} className="text-sky-400 animate-pulse" />
+                <Globe size={20} className="text-sky-400" />
                 什麼是 API？（服務生）
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs md:text-sm mb-4">
@@ -41,11 +41,11 @@ export default function Slide10b() {
               <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3 mt-4">
                 <div className="text-xs text-slate-500 font-mono flex justify-between items-center">
                   <span>Client (你/桌位)</span>
-                  <span className="text-sky-400 flex items-center gap-1">Request (點單紙) <span className="animate-bounce">➔</span></span>
+                  <span className="text-sky-400 flex items-center gap-1">Request (點單紙) <span>➔</span></span>
                   <span>Server (後端/廚房)</span>
                 </div>
                 <div className="h-1 bg-slate-800 rounded-full relative overflow-hidden">
-                  <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-sky-500 to-sky-300 animate-infinite animate-duration-2000" />
+                  <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-sky-500 to-sky-300" />
                 </div>
                 <div className="text-xs text-slate-500 font-mono flex justify-between items-center">
                   <span>獲得餐點、結帳單</span>

@@ -19,16 +19,8 @@ export default function SlideOutro() {
             transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
             className="w-[600px] h-[600px] rounded-full border border-sky-500/10 border-dashed absolute opacity-40"
           />
-          {/* Framer Motion elegant pulsating background glow - positioned slightly lower to avoid clipping */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.25, 1], 
-              opacity: [0.15, 0.35, 0.15],
-              rotate: [0, 90, 0]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[350px] h-[350px] bg-gradient-to-tr from-sky-500/25 to-emerald-500/25 blur-[90px] rounded-full absolute top-[15%]"
-          />
+          {/* 背景光暈維持靜態：A-3 規定全頁最多留一組慢速動態，那一組是上面兩圈虛線環 */}
+          <div className="w-[350px] h-[350px] bg-gradient-to-tr from-sky-500/25 to-emerald-500/25 blur-[90px] rounded-full absolute top-[15%] opacity-25" />
         </div>
 
         <AnimatedBlock stepIndex={1} className="max-w-4xl relative z-10 mt-2">
@@ -39,11 +31,7 @@ export default function SlideOutro() {
             className="w-20 h-20 mx-auto bg-slate-900 rounded-full flex items-center justify-center mb-6 border border-sky-500/30 shadow-[0_0_40px_rgba(14,165,233,0.35)] relative"
           >
              <Network size={36} className="text-sky-400 z-10" />
-             <motion.div 
-                animate={{ rotate: 360 }} 
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-t-2 border-r-2 border-sky-400 rounded-full"
-             />
+             <div className="absolute inset-0 border-t-2 border-r-2 border-sky-400 rounded-full" />
           </motion.div>
           
           <h2 className="text-2xl md:text-4xl font-black text-slate-100 mb-4 leading-tight">

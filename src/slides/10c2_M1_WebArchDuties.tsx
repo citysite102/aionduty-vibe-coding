@@ -116,7 +116,7 @@ export default function SlideWebArchDuties() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/60 p-4 rounded-2xl border border-slate-800 text-left">
             <div>
               <h3 className="text-base font-bold text-slate-200 flex items-center gap-2">
-                <ArrowRightLeft className="text-sky-400 w-5 h-5 animate-pulse" />
+                <ArrowRightLeft className="text-sky-400 w-5 h-5" />
                 <span>請點選切換不同商業情境，觀察前後端的分工：</span>
               </h3>
               <p className="text-xs text-slate-400 mt-1 leading-relaxed">

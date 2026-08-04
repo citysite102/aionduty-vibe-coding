@@ -9,7 +9,7 @@ export default function SlideIntroAgentic() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-8 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
           <div className="flex items-center gap-2 mb-3 text-sky-400 font-mono text-xs font-bold tracking-wider uppercase">
-            <span className="w-1.5 h-1.5 bg-sky-400 rounded-full animate-pulse"></span>
+            <span className="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>
             2026 Update: From Vibe to Agentic
           </div>
           <h3 className="text-2xl font-black text-slate-100 mb-4">

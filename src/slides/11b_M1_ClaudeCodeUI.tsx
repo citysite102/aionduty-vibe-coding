@@ -12,7 +12,7 @@ export default function SlideClaudeCodeUI() {
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4 text-left">
           <div>
             <AnimatedBlock stepIndex={1}>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-xs text-amber-400 font-mono mb-3 animate-pulse">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-xs text-amber-400 font-mono mb-3">
                 <Compass size={12} /> FIRST LAUNCH GUIDE
               </div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-3">
@@ -166,10 +166,10 @@ export default function SlideClaudeCodeUI() {
               {/* Bottom Interactive Command prompt area */}
               <div className="pt-4 border-t border-slate-900/60 flex flex-col justify-end">
                 <div className="flex items-center gap-2">
-                  <span className="text-orange-500 font-bold shrink-0 animate-pulse">&gt;</span>
+                  <span className="text-orange-500 font-bold shrink-0">&gt;</span>
                   {/* Simulated blinking terminal cursor */}
                   <div className="flex items-center gap-1.5 w-full">
-                    <span className="bg-slate-300 w-1.5 h-4 inline-block animate-[ping_1s_infinite]"></span>
+                    <span className="bg-slate-300 w-1.5 h-4 inline-block"></span>
                     <span className="text-slate-500 font-mono text-[12px] truncate">
                       try "edit &lt;filepath&gt; to ..."
                     </span>

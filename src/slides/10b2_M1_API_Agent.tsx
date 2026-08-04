@@ -67,7 +67,7 @@ export default function Slide10b2() {
                 <div className="flex gap-3 items-start">
                   <div className="w-6 h-6 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0 text-[11px] font-bold text-sky-400">C</div>
                   <div className="bg-slate-900 text-slate-300 p-3 rounded-2xl rounded-tl-none w-full border border-slate-800">
-                    <div className="text-[11px] text-sky-400 font-bold mb-2 flex items-center gap-1.5 animate-pulse">
+                    <div className="text-[11px] text-sky-400 font-bold mb-2 flex items-center gap-1.5">
                       <Globe size={12}/> Fetching https://platform.claude.com/docs/en/api/messages...
                     </div>
                     <p className="mb-3 text-[11px] text-slate-400">我已經順利下載並閱讀了 Anthropic Messages API 的文件。這是一個使用官方 <code>@anthropic-ai/sdk</code> 的精準實作：</p>

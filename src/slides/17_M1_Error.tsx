@@ -55,7 +55,7 @@ export default function SlideError() {
 
               <div className="mt-6 pt-4 border-t border-red-950/40 space-y-2">
                 <div className="text-xs md:text-sm text-emerald-400 font-bold flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping shrink-0" />
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
                   <span>重點不在於盲目排除，而在於知道發生了什麼事。</span>
                 </div>
                 <p className="text-[11px] text-slate-500 leading-relaxed">

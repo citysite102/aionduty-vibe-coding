@@ -67,11 +67,7 @@ const LoopEngineeringAnimation = () => {
                   <span className="text-[11px] font-mono text-slate-500 mb-1">手動輸入 Prompt</span>
                   <div className="flex items-center relative">
                     <ArrowRight className="text-slate-700" size={32} />
-                    <motion.div
-                      animate={{ x: [0, 80] }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
-                      className="absolute left-1 w-2.5 h-2.5 bg-slate-500 rounded-full"
-                    />
+                    <div className="absolute left-1 w-2.5 h-2.5 bg-slate-500 rounded-full" />
                   </div>
                 </div>
 

@@ -433,7 +433,7 @@ export default function SlideTerminalBasics() {
                           >
                             <Folder size={13} className="text-emerald-400 shrink-0" />
                             <span className="font-bold text-emerald-400">utils/</span>
-                            {highlightTree && <span className="text-xs bg-emerald-950 border border-emerald-800 rounded px-1 text-emerald-400 animate-pulse font-sans">New</span>}
+                            {highlightTree && <span className="text-xs bg-emerald-950 border border-emerald-800 rounded px-1 text-emerald-400 font-sans">New</span>}
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -441,7 +441,7 @@ export default function SlideTerminalBasics() {
                   </div>
 
                   <div className="flex items-center gap-1.5">
-                    <FileCode size={13} className="text-yellow-500/80 shrink-0" />
+                    <FileCode size={13} className="text-amber-500/80 shrink-0" />
                     <span className="text-slate-300">package.json</span>
                   </div>
                   
@@ -503,14 +503,14 @@ export default function SlideTerminalBasics() {
                       <div key={idx} className="flex flex-wrap items-center gap-1 pl-1 border-l border-slate-800 hover:bg-slate-900/40">
                         <span className="text-emerald-400 font-semibold">{fileName}</span>
                         <span className="text-slate-500">:</span>
-                        <span className="text-yellow-500 font-mono">{lineNum}</span>
+                        <span className="text-amber-500 font-mono">{lineNum}</span>
                         <span className="text-slate-500">:</span>
                         <span className="text-slate-300">
                           {code.split('API').map((frag, fragIdx, arr) => (
                             <React.Fragment key={fragIdx}>
                               {frag}
                               {fragIdx < arr.length - 1 && (
-                                <strong className="text-yellow-400 bg-yellow-500/20 px-0.5 rounded font-black">API</strong>
+                                <strong className="text-amber-400 bg-amber-500/20 px-0.5 rounded font-black">API</strong>
                               )}
                             </React.Fragment>
                           ))}
@@ -531,7 +531,7 @@ export default function SlideTerminalBasics() {
                   {isTyping && <span className="w-1.5 h-3 bg-slate-300 animate-pulse ml-0.5 inline-block"></span>}
                   {isRunning && (
                     <span className="inline-flex items-center gap-1.5 ml-2 text-xs text-sky-400 font-mono">
-                      <Activity size={10} className="animate-spin" />
+                      <Activity size={10} />
                       <span>正在運算...</span>
                     </span>
                   )}
