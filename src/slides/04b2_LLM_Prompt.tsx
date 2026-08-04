@@ -1,5 +1,29 @@
 import { Image as ImageIcon, TriangleAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import refTypePoster from '../../assets/design-refs/ref-type-poster.png';
+import refEditorialSite from '../../assets/design-refs/ref-editorial-site.png';
+import refDeckTemplate from '../../assets/design-refs/ref-deck-template.png';
+
+const DESIGN_REFS = [
+  {
+    src: refTypePoster,
+    alt: '深色底的網站首頁，中央是超大字級的英文標題，只有一塊紅色方塊當作重點',
+    label: '字級落差與留白',
+    note: '標題要壓多大、周圍要空多少，講不清楚，看圖一眼就知道。',
+  },
+  {
+    src: refEditorialSite,
+    alt: '藍底網站的三個區塊，由深色首圖換到整片藍再換到白底內文',
+    label: '配色與分區節奏',
+    note: '整份用同一個藍撐場，靠底色換頁分段，這是「配色乾淨」的具體樣子。',
+  },
+  {
+    src: refDeckTemplate,
+    alt: '八頁一組的商務簡報樣板，白底黑字加黃色色塊，每頁版型不同但風格一致',
+    label: '整套版型的一致性',
+    note: '要的是一整套，不是單頁。給它八頁的樣板，它才知道下一頁該長什麼樣。',
+  },
+];
 
 export default function SlideLLMPrompt() {
   return (
@@ -7,7 +31,7 @@ export default function SlideLLMPrompt() {
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          上一頁講的是為什麼它會猜錯。<strong className="text-slate-200">Vibe Coding 不是「丟棄邏輯、隨意亂指」</strong>，因為它沒有你腦中的畫面，遇到講不清楚的地方它不會停下來問你，只會挑一個最像的往下做。
+          <strong className="text-slate-200">Vibe Coding 不是「丟棄邏輯、隨意亂指」</strong>，因為它沒有你腦中的畫面，遇到講不清楚的地方它不會停下來問你，只會挑一個最像的往下做。
           而有一類需求，你再怎麼加形容詞都講不清楚。
         </AnimatedBlock>
 
@@ -35,21 +59,42 @@ export default function SlideLLMPrompt() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5 flex gap-3 items-start">
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <p className="text-slate-300 text-sm leading-relaxed mb-4">
+            要它排一份簡報的版型也是同一件事。
+            <strong className="text-slate-100">與其寫「做得專業一點」，不如貼三張你覺得好看的頁面進去。</strong>
+            這份簡報的版型就是這樣來的。
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {DESIGN_REFS.map((ref) => (
+              <div key={ref.label} className="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden">
+                <img src={ref.src} alt={ref.alt} className="w-full h-40 object-cover object-top" />
+                <div className="p-3.5 border-t border-slate-800">
+                  <div className="text-xs font-bold text-sky-400 mb-1.5">{ref.label}</div>
+                  <p className="text-slate-500 text-xs leading-relaxed">{ref.note}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={4} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5 flex gap-3 items-start">
           <TriangleAlert size={18} className="text-amber-400 shrink-0 mt-0.5" />
           <div>
             <div className="text-sm font-bold text-amber-300 mb-1.5">但參考圖要挑「它做得出來的」</div>
             <p className="text-slate-300 text-xs leading-relaxed mb-2">
-              AI 只會寫程式，不會生圖。你貼一張攝影作品或 3D 算圖過去，它寫不出那種東西，只會給你一個不上不下的結果，
-              然後你會以為是自己不會用。
+              上面那三張之所以有用，是因為版面、字級、色塊都能用程式畫出來。Claude 現在也有設計相關的 Skills，
+              接手這類版面的品質比以前好很多。<strong className="text-slate-200">但它是在寫程式畫版面，不是在生圖。</strong>
             </p>
             <p className="text-slate-400 text-xs leading-relaxed">
-              挑那種<strong className="text-slate-200">看得出來「這是用程式畫的」</strong>的圖。這是期待落差最常發生的地方。
+              你貼一張攝影作品或 3D 算圖過去，它只能用 CSS 去逼近，結果會不上不下，然後你會以為是自己不會用。
+              真的需要圖片素材，要另外用生圖工具做好再放進來。
             </p>
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4">
+        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 border-l-4 border-l-sky-500 rounded-xl px-5 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
             圖負責「長什麼樣」，文字負責「不准做什麼」和「怎麼運作」。
             <strong className="text-slate-200">前者省掉十句形容詞，後者是圖片永遠表達不了的。兩個要一起給。</strong>
