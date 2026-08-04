@@ -1,10 +1,9 @@
-import { Bot, RefreshCw, Terminal, TrendingUp, Lightbulb, CheckCircle2, ShieldAlert } from 'lucide-react';
+import { Bot, Terminal, TrendingUp, Lightbulb, CheckCircle2, ShieldAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { motion } from 'motion/react';
 
 export default function SlideGoalLoop() {
   return (
-    <SlideLayout title="設定目標，讓它自己跑到完成" subtitle="Goal-Driven Loops, Built into Official CLIs" icon={Bot}>
+    <SlideLayout title="設定目標，讓它自己跑到完成" subtitle="Goal-Driven Agent Workflow" icon={Bot}>
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 max-w-6xl mx-auto mt-2 items-stretch">
         
         {/* Left Side: Claude Code vs Codex comparison */}
@@ -25,20 +24,20 @@ export default function SlideGoalLoop() {
                 </div>
 
                 <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                  <code className="text-sky-300 bg-slate-950 px-2 py-0.5 rounded text-xs font-mono">/goal</code> 是 Session 層級的完成條件，Claude 會跨多輪一直朝它收斂，這就是 Loop Engineering 講的<strong>「遞迴式目標」</strong>。
+                  Claude Code 的重點不是某個特定指令，而是它能在專案脈絡裡讀檔、改檔、呼叫工具，並受權限模式限制。你要練的是把一輪工作說成<strong>「目標、完成條件與邊界」</strong>。
                 </p>
 
                 <div className="bg-slate-950/60 p-4 rounded-2xl border border-slate-800 space-y-3">
                   <div className="flex items-start gap-2">
-                    <span className="bg-sky-500/20 text-sky-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">/goal</span>
+                    <span className="bg-sky-500/20 text-sky-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">目標</span>
                     <div className="text-xs text-slate-300 font-medium">
-                      回答：<strong>「做什麼，什麼叫做完」</strong>。
+                      說清楚：<strong>「做什麼，什麼叫做完」</strong>。
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
-                    <span className="bg-sky-500/20 text-sky-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">/loop</span>
+                    <span className="bg-sky-500/20 text-sky-400 text-[11px] font-mono px-1.5 py-0.5 rounded shrink-0 mt-0.5">邊界</span>
                     <div className="text-xs text-slate-300 font-medium">
-                      回答：<strong>「多久做一次」</strong>（排程與監控）。
+                      說清楚：<strong>「能跑幾輪、能動哪些檔案、何時停下來問」</strong>。
                     </div>
                   </div>
                 </div>
@@ -46,7 +45,7 @@ export default function SlideGoalLoop() {
 
               <div className="border-t border-slate-800/80 mt-5 pt-3 text-[11px] text-slate-400 flex items-center gap-1.5 font-medium">
                 <CheckCircle2 size={12} className="text-emerald-400" />
-                兩者相乘，成了一條會自我修正直到通過的完整迴圈。
+                目標明確，邊界清楚，Agent 才能連續做事而不失控。
               </div>
             </AnimatedBlock>
 
@@ -64,17 +63,18 @@ export default function SlideGoalLoop() {
                 </div>
 
                 <p className="text-slate-300 text-sm leading-relaxed mb-4">
-                  OpenAI 官方推出的 CLI，在 2026 年上線了 <code className="text-sky-300 bg-slate-950 px-2 py-0.5 rounded text-xs font-mono">/goal</code> 功能。它並非傳統的「一問一答」，而是真正的<strong>自動代理迴圈</strong>。
+                  Codex 類工具的共同價值，是讓代理讀懂 repo、提出修改、執行檢查，再把結果交回來。不同工具的介面名稱會變，但你要設計的工作流形狀不變。
                 </p>
 
-                {/* Ralph Loop Pipeline */}
+                {/* Agent loop pipeline */}
                 <div className="bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-[11px] text-slate-400 tracking-wider">自己回頭修正的流程（Ralph 技巧）：</span>
+                    <span className="text-[11px] text-slate-400 tracking-wider">自己回頭修正的基本形狀：</span>
                     <span className="text-[11px] px-1.5 py-0.5 bg-sky-950/80 text-sky-300 rounded border border-sky-900/40 whitespace-nowrap">試錯循環</span>
                   </div>
                   <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
-                    <strong>Ralph Loop</strong> 源自開源社群（由 Geoffrey Huntley 提出的 Ralph 技巧：用一個簡單的迴圈，反覆把錯誤訊息餵回去請 AI 修），現在官方工具已經把它做成內建功能。
+                    不要記某個產品名稱，記這條鏈：先計畫、再修改、跑檢查、看結果，失敗就帶著證據回到下一輪。
+                    這就是第一單元「探索、計畫、執行、驗證」那張圖，差別只在原本每一格都要你按一次，現在它自己走完。
                   </p>
                   <div className="flex items-center justify-between gap-1">
                     {['Plan', 'Act', 'Test', 'Review'].map((step, idx) => (
@@ -91,7 +91,7 @@ export default function SlideGoalLoop() {
 
               <div className="border-t border-slate-800/80 mt-5 pt-3 text-[11px] text-slate-400 flex items-center gap-1.5 font-medium">
                 <ShieldAlert size={12} className="text-amber-400" />
-                持續循環，直到「目標達成」或「Token 預算燒完」才停。
+                讓它連續跑之前，先設定預算、權限與人工檢查點。
               </div>
             </AnimatedBlock>
 
@@ -103,9 +103,9 @@ export default function SlideGoalLoop() {
               <TrendingUp className="text-emerald-400" size={24} />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-slate-100">官方把社群自己摸索出來的做法，收進了正式功能</h4>
+              <h4 className="text-sm font-bold text-slate-100">工具名稱會變，工作流形狀不會變</h4>
               <p className="text-xs text-slate-400 leading-relaxed mt-1">
-                原本是社群自己寫迴圈餵錯誤訊息，現在 OpenAI 與 Anthropic 都把它做成內建功能。共通的形狀都一樣：<strong>給它一個目標、一個預算，再留一道檢查關卡</strong>，然後讓它自己跑。
+                不管你用哪一套 Agent 工具，共通的形狀都一樣：<strong>給它一個目標、一個預算，再留一道檢查關卡</strong>，然後讓它依證據推進下一步。
               </p>
             </div>
           </AnimatedBlock>
@@ -121,16 +121,16 @@ export default function SlideGoalLoop() {
 
               <div className="space-y-5">
                 <div className="space-y-1.5">
-                  <h4 className="text-xs font-bold text-slate-200">1. 兩家同時做了同一件事</h4>
+                  <h4 className="text-xs font-bold text-slate-200">1. 先學共同模型，不追單一指令</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    兩個主要的 AI 供應商，都把「設定目標、讓它自己反覆試」做進官方自己的 CLI 工具裡，而不是留給使用者自己拼裝。
+                    不同工具會用不同入口處理長任務。課程要你帶走的是：如何定義目標、預算、邊界與檢查點。
                   </p>
                 </div>
 
                 <div className="space-y-1.5">
-                  <h4 className="text-xs font-bold text-slate-200">2. 官方自己做的差別在哪</h4>
+                  <h4 className="text-xs font-bold text-slate-200">2. 放手不是全放行</h4>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    Cursor 的 Agent Mode 也能自動循環，但官方自己的 CLI 能把這套流程和底層系統、隔離環境綁得更緊，權限與邊界也控制得比較細。
+                    讓 Agent 連續工作時，仍要決定它能讀哪裡、能寫哪裡、能不能下指令，以及什麼情況必須停下來。
                   </p>
                 </div>
 

@@ -104,8 +104,8 @@ export default function SlideProjectTypes() {
 
         <AnimatedBlock stepIndex={7} className="px-1">
           <p className="text-slate-400 text-sm leading-relaxed">
-            四種都一樣：題目一小，一個 Agent 從頭做到尾沒問題。
-            但整理一整個資料夾的文件、對完一份幾十頁的合約，這種規模就會開始出錯。接下來講怎麼分工。
+            四種的寫法一樣，難的是「第一條該寫什麼」。
+            接下來看兩份真的在用的手冊，一份是大型專案的，一份是你眼前這份簡報的。
           </p>
         </AnimatedBlock>
 
