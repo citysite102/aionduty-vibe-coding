@@ -32,7 +32,7 @@ const PROBLEMS: {
   },
   {
     q: '手冊越寫越長，這樣對嗎',
-    lead: '長不是問題，沒有依據才是',
+    lead: '長不是問題，每一條說不出理由才是',
     items: ['盤點現在有幾條', '刪掉沒有證據的', '留下的要說得出出過什麼事'],
   },
   {
@@ -51,7 +51,7 @@ export default function SlideProblemMap() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            等你自己寫一份，<strong className="text-sky-300">這四件事會依序發生</strong>。
+            等你自己動手寫一份手冊，<strong className="text-sky-300">多半會照這個順序撞上這四個問題</strong>。
           </p>
         </AnimatedBlock>
 

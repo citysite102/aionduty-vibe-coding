@@ -48,10 +48,11 @@ export default function RecSurfaceIntro() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-3">
-            這一段講的 CLAUDE.md 是終端機的東西，但你不會每天都開終端機。
+            <code className="font-mono text-orange-300">CLAUDE.md</code> 是終端機的東西，
+            但你不會每天都開終端機。改用網頁版或桌面版，要重學嗎？
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
-            手冊怎麼寫都一樣，<Key>會變的只有兩件事</Key>
+            不用。寫法三個地方通用，<Key>差別只在它碰得到什麼</Key>
           </p>
         </AnimatedBlock>
 

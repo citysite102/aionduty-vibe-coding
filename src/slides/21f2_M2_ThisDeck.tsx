@@ -1,3 +1,4 @@
+import type React from 'react';
 import { Presentation, Terminal, AlertTriangle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
@@ -35,8 +36,8 @@ const RULES = [
   },
 ];
 
-const INIT_STEPS = [
-  { n: '1', t: '打 /init', d: '它會把整個專案讀過一遍。' },
+const INIT_STEPS: { n: string; t: React.ReactNode; d: string }[] = [
+  { n: '1', t: <>打 <code className="font-mono text-orange-300">/init</code></>, d: '它會把整個專案讀過一遍。' },
   { n: '2', t: '它產出第一版', d: '寫的是它從檔案裡看得出來的：用什麼框架、資料夾怎麼分。' },
   { n: '3', t: '你刪掉猜的', d: '補上它看不到的。通常會刪掉一半，這一步才是重點。' },
 ];
@@ -94,7 +95,7 @@ export default function SlideThisDeck() {
             <div className="rounded-2xl border border-sky-500/40 bg-sky-950/25 px-5 py-4">
               <div className="flex items-center gap-2.5 mb-1.5">
                 <Terminal size={15} className="text-sky-400 shrink-0" />
-                <span className="font-mono text-lg font-bold text-sky-300">/init</span>
+                <span className="font-mono text-lg font-bold text-orange-300">/init</span>
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">
                 換你試。不用從空白開始，你已經有的專案就是素材。
@@ -121,9 +122,11 @@ export default function SlideThisDeck() {
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">`/init` 產出的是它從檔案裡推得出來的東西。</strong>
+            <strong className="text-slate-100">
+              <code className="font-mono text-orange-300">/init</code> 產出的是它從檔案裡推得出來的東西。
+            </strong>
             你腦裡那些「為什麼要這樣」「什麼絕對不能做」，它一個都看不到。
-            上面那三條的橘字，就是它猜不到、只有你寫得出來的部分。
+            上面那三條各自附了一行「這條為什麼會存在」，那就是它猜不到、只有你寫得出來的部分。
           </p>
         </AnimatedBlock>
 

@@ -9,8 +9,8 @@ export const meta: RecordedMeta = {
   id: 'harness-17-health-overview',
   title: '手冊健檢：五個步驟',
   script:
-    '手冊越寫越長是正常的，每加一條當下都有理由。所以需要一套固定的整理流程，建議每三個月跑一次，或是在你發現它又沒照做的時候跑一次。流程有五步：盤點、減法、分流、加法、修剪。順序不能換，最重要的是減法一定要排在分流前面，先刪再搬。順序反了，你會把本來該刪掉的規則搬到別的地方，繼續佔著空間。',
-  seconds: 44,
+    '手冊越寫越長是正常的，每加一條當下都有理由，所以需要一套固定的整理流程，建議每三個月跑一次。五步：盤點、減法、分流、加法、修剪。順序不能換，最重要的是減法排在分流前面，先刪再搬。順序反了，你會把本來該刪掉的規則搬到別的地方，繼續佔著空間。下面這段可以直接貼給它，注意最後那句要它先不要動檔案。',
+  seconds: 42,
   from: 69,
 };
 
@@ -43,6 +43,16 @@ export default function RecHealthOverview() {
 
         <AnimatedBlock stepIndex={3} className="mt-5 border rounded-2xl px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-xl leading-relaxed">先刪再搬，順序反了就會把該刪的搬到別處，繼續佔著空間。</p>
+        </AnimatedBlock>
+
+        {/* 五步是給人看的流程，這一段是給人貼的。少了它，學員回去只會記得「有五步」但不知道怎麼開始。 */}
+        <AnimatedBlock stepIndex={4} className="mt-5 rounded-2xl border border-sky-900/50 bg-sky-950/20 px-6 py-4">
+          <div className="text-base font-mono uppercase tracking-widest text-sky-500 mb-2.5">Prompt</div>
+          <p className="text-sky-100 text-lg leading-relaxed">
+            「讀一遍我的 <code className="font-mono text-orange-300">CLAUDE.md</code>，照上面五步整理：
+            每條在管什麼、哪幾條說不出理由、哪幾條該搬走、要不要補、哪些句子沒辦法檢查。
+            <strong className="font-bold">先不要改檔案，列給我看。</strong>」
+          </p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

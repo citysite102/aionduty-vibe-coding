@@ -14,7 +14,7 @@ const CASES = [
   {
     kind: '寫程式',
     subject: '你手上這個計時器',
-    rules: ['配色只給要強調的元素', '禁止引用外部圖片', '按鈕文案用航太語彙'],
+    rules: ['配色只給要強調的元素', '禁止引用外部圖片', '按鈕文案用航太語彙：發射、待機、返航'],
     output: 'index.html',
     mine: true,
   },
@@ -95,9 +95,12 @@ export default function SlideProjectTypes() {
         >
           <p className="text-slate-300 text-base leading-relaxed">
             <strong className="text-slate-100">知識庫那一格跟其他三格不一樣。</strong>
-            另外三格是產出，它是產出的來源。你要做課程簡報、要準備一份策略報告，
-            用到的其實是同一批底層知識，但那會是<strong className="text-slate-100">兩個專案</strong>，
-            因為規矩不同、產出格式也不同。知識累積成一份，專案照產出切開，這件事後面會再回來講。
+            另外三格各自交出一份東西，知識庫交不出東西，它是那些東西的材料。
+          </p>
+          <p className="text-slate-300 text-base leading-relaxed mt-3">
+            同一批材料可以做成課程簡報，也可以做成策略報告。
+            但這是<strong className="text-slate-100">兩個專案</strong>，因為兩邊的規矩不同、要交出來的格式也不同。
+            材料集中放一份，專案照產出切開。
           </p>
         </AnimatedBlock>
 

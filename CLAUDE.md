@@ -277,3 +277,15 @@ npm run check:slides
 | Context Engineering | 上下文工程 | 語境工程 |
 
 大小寫固定寫法：`CLAUDE.md`（全大寫）、`claude.ai`（全小寫）、`Claude Code`、`MCP`、`Skills`。
+
+#### 「專案」與「Project」是兩個東西
+
+同一個詞在這份簡報裡有兩個意思，混著寫學員會分不出來：
+
+| 指的是 | 寫法 | 例子 |
+|---|---|---|
+| 泛指的工作單位 | 專案 | 「『專案』不是只有寫程式」、程式專案、專案資料夾 |
+| `claude.ai` 的那個功能 | Claude Projects | 「在 Claude Projects 裡」 |
+| 那個功能底下的單一個 | 一個 Project | 「一個任務一個 Project」 |
+
+例外是 Claude 自己介面上的中文標籤，照抄不要翻譯，例如「專案知識庫（Project knowledge）」。
