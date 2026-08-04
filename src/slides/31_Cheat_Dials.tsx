@@ -136,10 +136,10 @@ export default function Slide16() {
       
       {/* Context Bridge Banner */}
       <AnimatedBlock stepIndex={1} className="bg-slate-950/40 border border-slate-800/80 rounded-2xl px-6 py-3.5 mb-4 max-w-6xl mx-auto text-left flex flex-col md:flex-row md:items-center gap-4">
-        <div className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-xs font-mono shrink-0 self-start md:self-center font-bold">
+        <div className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-sm font-mono shrink-0 self-start md:self-center font-bold">
           接續前面
         </div>
-        <p className="text-slate-400 text-sm leading-relaxed">
+        <p className="text-slate-400 text-base leading-relaxed">
           <strong>「如果放任 Agent 隨意讀寫與下指令，會不會把我的專案改壞？」</strong>要安全使用這股力量，就必須理解「監督與邊界」的兩個虛擬調節旋鈕。
         </p>
       </AnimatedBlock>
@@ -152,21 +152,21 @@ export default function Slide16() {
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col justify-between">
             <div>
               <div className="flex justify-between items-center border-b border-slate-800 pb-2.5 mb-4">
-                <h3 className="text-sm font-bold text-slate-200 flex items-center gap-1.5">
+                <h3 className="text-base font-bold text-slate-200 flex items-center gap-1.5">
                   <Sliders size={15} className="text-sky-400" />
                   虛擬安全調節面板
                 </h3>
-                <span className="text-xs font-mono text-slate-500">點擊調整</span>
+                <span className="text-sm font-mono text-slate-500">點擊調整</span>
               </div>
 
               {/* Dial 1: Supervision Level */}
               <div className="space-y-3 mb-5">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-slate-300 flex items-center gap-1">
+                  <span className="text-sm font-bold text-slate-300 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
                     旋鈕一：監督程度
                   </span>
-                  <span className="text-xs font-mono text-indigo-400 bg-indigo-500/5 px-2 py-0.5 rounded border border-indigo-500/10">
+                  <span className="text-sm font-mono text-indigo-400 bg-indigo-500/5 px-2 py-0.5 rounded border border-indigo-500/10">
                     {supervision === 0 ? '每步都問' : supervision === 1 ? '關鍵才問' : '完全不問'}
                   </span>
                 </div>
@@ -174,9 +174,9 @@ export default function Slide16() {
                 {/* Visual Dial Slider row */}
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { label: '每步都問', desc: '每一步都要你點頭', val: 0 },
-                    { label: '關鍵才問', desc: '只在關鍵處停下來', val: 1 },
-                    { label: '完全不問', desc: '全程不打斷你', val: 2 }
+                    { label: '每步都問', desc: '每步都要點頭', val: 0 },
+                    { label: '關鍵才問', desc: '關鍵處才停', val: 1 },
+                    { label: '完全不問', desc: '全程不打斷', val: 2 }
                   ].map((btn) => (
                     <button
                       type="button"
@@ -190,8 +190,8 @@ export default function Slide16() {
                           : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-500 hover:text-slate-300'
                       }`}
                     >
-                      <div className="text-xs font-bold">{btn.label}</div>
-                      <div className="text-xs font-mono opacity-80 mt-0.5">{btn.desc}</div>
+                      <div className="text-sm font-bold">{btn.label}</div>
+                      <div className="text-sm font-mono opacity-80 mt-0.5">{btn.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -200,11 +200,11 @@ export default function Slide16() {
               {/* Dial 2: Sandbox Scope */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-bold text-slate-300 flex items-center gap-1">
+                  <span className="text-sm font-bold text-slate-300 flex items-center gap-1">
                     <span className="w-1.5 h-1.5 bg-sky-500 rounded-full"></span>
                     旋鈕二：邊界大小
                   </span>
-                  <span className="text-xs font-mono text-sky-400 bg-sky-500/5 px-2 py-0.5 rounded border border-sky-500/10">
+                  <span className="text-sm font-mono text-sky-400 bg-sky-500/5 px-2 py-0.5 rounded border border-sky-500/10">
                     {sandbox === 0 ? '唯讀唯看' : sandbox === 1 ? '限制專案' : '容器全開'}
                   </span>
                 </div>
@@ -212,9 +212,9 @@ export default function Slide16() {
                 {/* Visual Dial Slider row */}
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { label: '唯讀唯看', desc: '只能看，不能改', val: 0 },
-                    { label: '限制專案', desc: '限在這個資料夾內', val: 1 },
-                    { label: '容器全開', desc: '整台機器都能動', val: 2 }
+                    { label: '唯讀唯看', desc: '只能看不能改', val: 0 },
+                    { label: '限制專案', desc: '限專案資料夾', val: 1 },
+                    { label: '容器全開', desc: '整台機器全開', val: 2 }
                   ].map((btn) => (
                     <button
                       type="button"
@@ -228,8 +228,8 @@ export default function Slide16() {
                           : 'bg-slate-950/40 border-slate-800 hover:border-slate-700 text-slate-500 hover:text-slate-300'
                       }`}
                     >
-                      <div className="text-xs font-bold">{btn.label}</div>
-                      <div className="text-xs font-mono opacity-80 mt-0.5">{btn.desc}</div>
+                      <div className="text-sm font-bold">{btn.label}</div>
+                      <div className="text-sm font-mono opacity-80 mt-0.5">{btn.desc}</div>
                     </button>
                   ))}
                 </div>
@@ -238,13 +238,13 @@ export default function Slide16() {
 
             {/* Quick Presets (The 3 original scenarios) */}
             <div className="mt-5 pt-4 border-t border-slate-800">
-              <span className="text-xs text-slate-500 font-mono block mb-2">快速載入實戰情境</span>
+              <span className="text-sm text-slate-500 font-mono block mb-2">快速載入實戰情境</span>
               <div className="flex flex-col gap-1.5">
                 <button 
                   type="button"
                   onClick={() => applyPreset(0, 0)}
                   aria-pressed={supervision === 0 && sandbox === 0}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
+                  className={`px-3 py-1.5 rounded-lg text-sm font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 0 && sandbox === 0 
                       ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -257,7 +257,7 @@ export default function Slide16() {
                   type="button"
                   onClick={() => applyPreset(1, 1)}
                   aria-pressed={supervision === 1 && sandbox === 1}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
+                  className={`px-3 py-1.5 rounded-lg text-sm font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 1 && sandbox === 1 
                       ? 'bg-indigo-500/10 border-indigo-500/30 text-indigo-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -270,7 +270,7 @@ export default function Slide16() {
                   type="button"
                   onClick={() => applyPreset(2, 2)}
                   aria-pressed={supervision === 2 && sandbox === 2}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
+                  className={`px-3 py-1.5 rounded-lg text-sm font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
                     supervision === 2 && sandbox === 2 
                       ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' 
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
@@ -284,7 +284,7 @@ export default function Slide16() {
           </AnimatedBlock>
 
           {/* Golden Rules Callout */}
-          <AnimatedBlock stepIndex={3} className="bg-gradient-to-br from-indigo-950/30 to-slate-950 border border-indigo-900/30 rounded-2xl p-4 text-xs space-y-3">
+          <AnimatedBlock stepIndex={3} className="bg-gradient-to-br from-indigo-950/30 to-slate-950 border border-indigo-900/30 rounded-2xl p-4 text-sm space-y-3">
             <span className="text-indigo-400 font-bold flex items-center gap-1">
               <Shield size={12} /> 權限規格提醒
             </span>
@@ -312,10 +312,10 @@ export default function Slide16() {
 
             <div className="flex justify-between items-start border-b border-slate-900 pb-3 z-10 shrink-0">
               <div>
-                <span className="text-slate-500 text-xs font-mono tracking-wider">兩個旋鈕的即時對照</span>
+                <span className="text-slate-500 text-sm font-mono tracking-wider">兩個旋鈕的即時對照</span>
                 <h4 className="text-base font-black text-slate-200 mt-0.5">監督與邊界對照圖</h4>
               </div>
-              <div className="px-2.5 py-0.5 bg-slate-900 text-slate-500 text-xs font-mono rounded">
+              <div className="px-2.5 py-0.5 bg-slate-900 text-slate-500 text-sm font-mono rounded">
                 座標圖
               </div>
             </div>
@@ -436,12 +436,12 @@ export default function Slide16() {
               >
                 <div className="space-y-1.5 max-w-md">
                   <div className="flex items-center gap-2">
-                    <span className={`text-xs px-2 py-0.5 rounded-full border font-bold ${currentState.badgeColor}`}>
+                    <span className={`text-sm px-2 py-0.5 rounded-full border font-bold ${currentState.badgeColor}`}>
                       {currentState.badge}
                     </span>
-                    <h5 className="text-sm font-bold text-slate-100">{currentState.title}</h5>
+                    <h5 className="text-base font-bold text-slate-100">{currentState.title}</h5>
                   </div>
-                  <p className="text-slate-400 text-xs leading-relaxed">
+                  <p className="text-slate-400 text-sm leading-relaxed">
                     {currentState.description}
                   </p>
                 </div>
@@ -449,7 +449,7 @@ export default function Slide16() {
                 <div className="flex flex-col gap-3 min-w-[120px] md:border-l border-slate-900 md:pl-4">
                   {/* Speed Dial Gauge indicator */}
                   <div>
-                    <div className="flex justify-between text-xs text-slate-500 font-mono mb-1">
+                    <div className="flex justify-between text-sm text-slate-500 font-mono mb-1">
                       <span>開發效率</span>
                       <span className="text-sky-400 font-bold">{currentState.speed}%</span>
                     </div>
@@ -465,7 +465,7 @@ export default function Slide16() {
 
                   {/* Risk Level indicator */}
                   <div>
-                    <div className="flex justify-between text-xs text-slate-500 font-mono mb-1">
+                    <div className="flex justify-between text-sm text-slate-500 font-mono mb-1">
                       <span>失控風險</span>
                       <span className="text-rose-400 font-bold">{currentState.risk}%</span>
                     </div>
@@ -497,8 +497,8 @@ export default function Slide16() {
               >
                 <AlertCircle size={16} className="text-amber-400 shrink-0 mt-0.5" />
                 <div className="text-left">
-                  <span className="text-xs font-mono font-bold text-amber-400 block mb-0.5">💡 狀態評估：</span>
-                  <p className="text-xs text-slate-400 leading-relaxed">
+                  <span className="text-sm font-mono font-bold text-amber-400 block mb-0.5">💡 狀態評估：</span>
+                  <p className="text-sm text-slate-400 leading-relaxed">
                     {currentState.advice}
                   </p>
                 </div>
@@ -511,7 +511,7 @@ export default function Slide16() {
       </div>
 
       {/* Slide Concluding Takeaway footer statement */}
-      <AnimatedBlock stepIndex={3} className="text-center text-slate-500 text-xs mt-4">
+      <AnimatedBlock stepIndex={3} className="text-center text-slate-500 text-sm mt-4">
         🔑 記住一句話：<strong>「監督鬆（完全不問），不等於有邊界！」</strong>若要讓 AI 長時間沒人看著跑，請務必把邊界縮窄或綁定虛擬容器。
       </AnimatedBlock>
     </SlideLayout>
