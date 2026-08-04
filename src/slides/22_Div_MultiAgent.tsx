@@ -1,17 +1,17 @@
 import { SectionDivider } from '../components/SectionDivider';
 
-/**
- * 原本標題是「Agent 團隊與開發循環架構」，跟後面 26_Div_Loop 那一節重疊，
- * 而且這一節實際只涵蓋分工與品質四頁，循環是下一節的事，所以改掉。
- *
- * 這一節只有四頁，不掛路線圖：三塊的路線圖對四頁是多餘的資訊。
- */
 export default function SlideDivMultiAgent() {
   return (
     <SectionDivider
       number="MODULE 3"
       subtitle="Teams & Quality"
       title="讓 Agent 分工，並守住品質"
+      roadmap={[
+        { label: '分工', weight: 2, note: '讓不同角色負責不同判斷' },
+        { label: '品質防線', weight: 2, note: '讓小幫手先找缺口' },
+        { label: '中型專案', weight: 5, note: '把需求、API、資料與規範拆開' },
+        { label: '接到循環', weight: 1, note: '留給下一段自動化' },
+      ]}
     />
   );
 }

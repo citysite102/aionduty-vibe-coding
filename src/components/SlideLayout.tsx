@@ -44,7 +44,7 @@ export function SlideLayout({
       <div className="mb-8 flex-shrink-0">
         {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm mb-2.5 uppercase flex items-center gap-2">{subtitle}</h3>}
         <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">
-          {Icon && <Icon className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
+          {Icon && <Icon aria-hidden="true" className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
           {title}
         </h1>
       </div>
@@ -133,4 +133,3 @@ export function AnimatedBlock({
     </MotionComponent>
   );
 }
-

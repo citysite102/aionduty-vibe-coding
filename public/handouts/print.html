@@ -135,7 +135,7 @@
 <!-- ============ 第一張：CLAUDE.md 模板 ============ -->
 <section class="sheet">
   <h1>CLAUDE.md 模板</h1>
-  <p class="sub">把內容抄進專案根目錄的 CLAUDE.md。填完之後，開一個新對話輸入 <code>/context</code>，確認它出現在 Memory files 清單裡。</p>
+  <p class="sub">把內容抄進專案根目錄的 CLAUDE.md。也可以放在 <code>./.claude/CLAUDE.md</code>；課堂先用根目錄版本。填完之後，開一個新對話輸入 <code>/context</code>，確認它出現在 Memory files 清單裡。</p>
 
   <h2>這個專案是什麼</h2>
   <p class="note">一到兩句就好。讓它知道自己在幫什麼樣的專案工作。</p>
@@ -165,7 +165,7 @@
   <div class="callout">
     <p class="note" style="margin:0">
       真的不能發生的事，<strong>不要只寫在這裡</strong>。寫在 CLAUDE.md 只是拜託，對話一長它還是可能犯。
-      要擋死請用 Hook 或 CI，然後這一區只留一行提醒就好。
+      要擋死請用 Hook 或 CI。只適用某些檔案的規則，可以放子目錄 CLAUDE.md 或 <code>.claude/rules/</code>。
     </p>
   </div>
   <table>
@@ -178,7 +178,7 @@
 npm run dev</pre>
 
   <p class="foot">
-    一份控制在 200 行以內。太長的話，排在後面的規則會被當成背景。<br>
+    一份控制在 200 行以內。太長的話，排在後面的規則會被當成背景。依 Claude Code 官方 memory 文件於 2026-08-04（台北）核對。<br>
     最後健檢：<span class="fill sm"></span> 年 <span class="fill sm"></span> 月 <span class="fill sm"></span> 日
   </p>
 </section>
@@ -240,6 +240,7 @@ npm run dev</pre>
   <ul class="check">
     <li>總行數：健檢前 <span class="fill sm"></span> 行，健檢後 <span class="fill sm"></span> 行</li>
     <li>開新對話跑 <code>/context</code>，確認手冊仍在 Memory files 清單裡</li>
+    <li>只適用特定檔案或資料夾的規則，已移到子目錄 CLAUDE.md 或 <code>.claude/rules/</code></li>
     <li>下一個會踩到規則的需求，確認它有照做</li>
     <li>更新手冊最後一行的健檢日期</li>
   </ul>
