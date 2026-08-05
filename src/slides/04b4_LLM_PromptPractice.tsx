@@ -1,34 +1,103 @@
+import type { ReactNode } from 'react';
 import { Pencil } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-const DRILLS = ['「這個按鈕怪怪的，修一下」', '「幫我做一頁產品介紹的簡報，要專業一點」'];
+/**
+ * 這一頁原本只有兩句話，沒有附上被抱怨的那個東西。
+ *
+ * 那樣其實是無解的：要把「這個按鈕怪怪的」改成不用猜的版本，
+ * 前提是你知道它哪裡怪。看不到按鈕，學員只能自己編一個毛病出來，
+ * 練的就不是「把話講清楚」，是「編一個需求」。
+ *
+ * 兩個實物都是照著上一頁那三個檢查點設計的：
+ *   1 代稱換名字   → 按鈕上有字、投影片有標題，名字是看得到的
+ *   2 講清楚邊界   → 兩張圖裡都有「不該被動到」的東西（取消鍵、原本的文案）
+ *   3 直接給它看   → 這兩張圖本身就是正解的一部分，貼給它比形容十句有用
+ * 換掉實物之前先確認新的那個也同時滿足這三件事。
+ */
+
+/** 題一：訂單表單，送出跟取消長得一模一樣 */
+const ButtonMock = () => (
+  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <div className="text-xs font-mono text-slate-600 mb-3">訂單表單</div>
+    <div className="space-y-2 mb-4">
+      <div className="h-2 w-2/3 rounded bg-slate-800" />
+      <div className="h-2 w-1/2 rounded bg-slate-800" />
+    </div>
+    <div className="flex gap-2">
+      <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">儲存草稿</div>
+      <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">送出</div>
+      <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">取消</div>
+    </div>
+  </div>
+);
+
+/** 題二：現有的那一頁簡報，沒有層次 */
+const SlideMock = () => (
+  <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+    <div className="text-xs font-mono text-slate-600 mb-3">第 3 頁</div>
+    <div className="rounded-md bg-slate-900 px-4 py-3">
+      <div className="text-sm text-slate-300 mb-2">產品介紹</div>
+      <div className="space-y-1 text-xs text-slate-500">
+        <div>· 支援多人同時編輯</div>
+        <div>· 可以匯出成 Excel</div>
+        <div>· 有權限管理</div>
+      </div>
+    </div>
+  </div>
+);
+
+const DRILLS: { prompt: string; mock: ReactNode; caption: string; nudge: string }[] = [
+  {
+    prompt: '「這個按鈕怪怪的，修一下」',
+    mock: <ButtonMock />,
+    caption: '你手上的畫面',
+    nudge: '按鈕上有字，那就是它的名字。旁邊那兩顆不該被動到。',
+  },
+  {
+    prompt: '「幫我做一頁產品介紹的簡報，要專業一點」',
+    mock: <SlideMock />,
+    caption: '你現在有的那一頁',
+    nudge: '「專業一點」是在跟什麼比？還有，三行文案要留著還是可以改？',
+  },
+];
 
 export default function SlideLLMPromptPractice() {
   return (
     <SlideLayout title="換你改這兩句" subtitle="Try It Yourself" icon={Pencil}>
-      <div className="max-w-4xl mx-auto space-y-5 pb-4">
+      <div className="max-w-5xl mx-auto space-y-5 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">
-          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。
+          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。右邊是你手上真正有的東西。
         </AnimatedBlock>
 
         {DRILLS.map((d, i) => (
           <AnimatedBlock
-            key={d}
+            key={d.prompt}
             stepIndex={i + 2}
-            className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-6"
+            className="bg-slate-900 border border-slate-800 rounded-2xl px-6 py-5"
           >
-            <div className="text-slate-200 text-2xl leading-snug mb-5">{d}</div>
-            <div className="border-t border-dashed border-slate-700 pt-4 text-slate-600 text-base">
-              改寫：
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-6 items-start">
+              <div>
+                <div className="text-slate-200 text-xl leading-snug mb-4">{d.prompt}</div>
+                <div className="border-t border-dashed border-slate-700 pt-3 text-slate-600 text-base">
+                  改寫：
+                </div>
+                <div className="h-10" />
+                <p className="text-slate-500 text-sm leading-relaxed">{d.nudge}</p>
+              </div>
+              <div>
+                <div className="text-xs text-slate-600 mb-2">{d.caption}</div>
+                {d.mock}
+              </div>
             </div>
-            <div className="h-12" />
           </AnimatedBlock>
         ))}
 
         <AnimatedBlock stepIndex={4} className="text-slate-400 text-base leading-relaxed px-1">
           改完念給旁邊的人聽。
           <span className="text-slate-200">他如果還要反問你一句，代表 AI 也會猜錯。</span>
+          右邊那兩張圖本身也是答案的一部分：講不清楚的，直接貼給它看。
         </AnimatedBlock>
 
       </div>
