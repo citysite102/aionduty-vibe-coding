@@ -22,6 +22,8 @@ sim/reactions/
 sim/state/
 sim/findings/
 sim/handoff.md
+# 舊輪次的歸檔（頁碼已與現況對不上，只留在本機供對照）
+sim/archive/
 
 # AI Studio / Codex 的本機專案設定
 .openai/
