@@ -32,7 +32,8 @@ export default function SlideLLMPrompt() {
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          <strong className="text-slate-200">Vibe Coding 不是「丟棄邏輯、隨意亂指」</strong>，因為它沒有你腦中的畫面，遇到講不清楚的地方它不會停下來問你，只會挑一個最像的往下做。
+          <strong className="text-slate-200">Vibe Coding 不等於隨意亂指。</strong>
+          AI 沒有你腦中的畫面，遇到講不清楚的地方不會停下來問你，只會挑一個最像的往下做。
           而有一類需求，你再怎麼加形容詞都講不清楚。
         </AnimatedBlock>
 
@@ -106,7 +107,7 @@ export default function SlideLLMPrompt() {
         <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-400 text-base leading-relaxed">
             圖負責「長什麼樣」，文字負責「不准做什麼」和「怎麼運作」。
-            <strong className="text-slate-200">前者省掉十句形容詞，後者是圖片永遠表達不了的。兩個要一起給。</strong>
+            <strong className="text-slate-200">兩個要一起給。</strong>
           </p>
         </AnimatedBlock>
 

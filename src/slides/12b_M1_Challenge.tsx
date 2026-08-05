@@ -103,13 +103,6 @@ export default function SlideChallenge() {
             <strong className="text-slate-200">壞掉通常是壞在這兩下，不是壞在倒數。</strong>
           </p>
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={6} className="px-1">
-          <p className="text-slate-400 text-sm leading-relaxed">
-            寫完先不要送出，跟旁邊的人交換看一眼。
-            兩個人的 prompt 差在哪裡，等一下跑出來的東西就會差在哪裡。
-          </p>
-        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

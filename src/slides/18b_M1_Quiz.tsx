@@ -50,8 +50,7 @@ export default function Slide18b() {
     <SlideLayout title="該用什麼工具？" subtitle="Scenario Quiz" icon={HelpCircle}>
       <div className="max-w-5xl mx-auto min-h-full flex flex-col justify-center pb-4">
         <p className="text-slate-300 text-xl mb-2 text-center leading-relaxed">
-          這五題，你覺得該用<strong className="text-slate-100">純對話</strong>、
-          <strong className="text-slate-100">無程式碼工具</strong>，
+          這五題，你覺得該用<strong className="text-slate-100">對話框或現成的無程式碼工具</strong>，
           還是<strong className="text-slate-100">能動手的 Claude Code</strong>？
         </p>
         <p className="text-slate-500 text-sm mb-2 text-center">
@@ -60,7 +59,7 @@ export default function Slide18b() {
         <div className="flex items-center justify-center gap-5 mb-6 text-xs">
           <span className="inline-flex items-center gap-1.5 text-emerald-300">
             <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            不用，前兩種工具就夠
+            不用，對話框或現成工具就夠
           </span>
           <span className="inline-flex items-center gap-1.5 text-sky-300">
             <span className="h-2 w-2 rounded-full bg-sky-400" />

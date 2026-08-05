@@ -79,7 +79,7 @@ export default function SlideExample2() {
 
              <div className="mt-8 space-y-2">
                 <div className="flex items-center gap-3 text-indigo-400 text-sm font-bold">
-                  <Check size={16} /> <span>不用自己查語法，多數情況下遇到錯誤它會自己修。</span>
+                  <Check size={16} /> <span>不用自己查語法，跑出錯誤訊息可以直接貼回去讓它改。</span>
                 </div>
                 <div className="flex items-center gap-3 text-indigo-400 text-sm font-bold">
                   <Check size={16} /> <span>AI 幫你做的不只有網頁，也包括沒有畫面的小工具。</span>

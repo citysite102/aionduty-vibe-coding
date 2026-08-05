@@ -48,7 +48,7 @@ export default function SlideM1Harvest() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這一單元做完，你的電腦上應該多了三樣東西。
+            這一單元做完，下面三件事應該都成立。
           </p>
         </AnimatedBlock>
 

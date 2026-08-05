@@ -71,8 +71,7 @@ export default function SlideExample1() {
               <strong className="text-slate-300">寫得越具體，需要的來回就越少，但不會變成零。</strong>
             </p>
             <p className="text-slate-500 text-xs leading-relaxed border-t border-slate-800 pt-2.5">
-              🖼️ 心裡已經有畫面的話，把參考圖一起拖進終端機貼給它，比多寫三行形容詞有用。
-              但要挑那種看得出「用程式畫得出來」的圖，別拿攝影作品，它寫不出來。
+              🖼️ 心裡已經有畫面的話，把參考圖一起拖進終端機貼給它。
             </p>
           </AnimatedBlock>
         </div>

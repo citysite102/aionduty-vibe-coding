@@ -60,8 +60,8 @@ const CASES: CaseSpec[] = [
     key: 'bug',
     name: '修一個環境問題',
     desc: '套件版本衝突，專案跑不起來。',
-    quote: '4.5 萬',
-    leadTime: '3 天',
+    quote: '8 千',
+    leadTime: '2 天',
     tokenCost: '30 元',
     basis: '抓半小時的來回：輸出約 2.5 萬 token，加上讀錯誤訊息與設定檔的輸入',
     yourHours: '半小時',
@@ -192,10 +192,6 @@ export default function SlideROI() {
             <p className="text-slate-500 text-sm leading-relaxed">
               兩邊的數字都是估計。外包報價是市場上常見的區間，實際依需求規模與廠商差異很大；
               token 費用是用公告單價乘上估計用量算的。這裡只拿來對照數量級。
-            </p>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              修一個環境問題報價高卻交期短，不是寫錯：這種案子貴在<strong className="text-slate-400">要先花時間查</strong>，
-              查完往往只改一兩行。
             </p>
           </div>
         </AnimatedBlock>
