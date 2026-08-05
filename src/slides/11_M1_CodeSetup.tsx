@@ -17,7 +17,7 @@ export default function SlideCodeSetup() {
           footnote={
             <>
               下面的步驟 0 與步驟 1 是終端機版在裝的，跟你無關，直接跳到步驟 2。
-              那兩步的做法一樣，只是改成在 Code 頁籤裡輸入。
+              步驟 2 那一格有一行是寫給你的：你已經在對話裡了，不用輸入 <code className="font-mono text-orange-300">claude</code>，直接打那句中文。
             </>
           }
         >
@@ -73,7 +73,12 @@ export default function SlideCodeSetup() {
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">2</span>
             試跑一次，確認環境真的通了
           </h3>
-          <p className="text-slate-400 text-sm mb-3">在你想放作品的地方輸入 <code className="text-sky-300">claude</code>，直接對話。</p>
+          <p className="text-slate-400 text-sm mb-1.5">
+            <strong className="text-slate-300">終端機：</strong>先切到你想放作品的資料夾，輸入 <code className="text-sky-300">claude</code>，直接對話。
+          </p>
+          <p className="text-slate-400 text-sm mb-3">
+            <strong className="text-slate-300">桌面版 Code 頁籤：</strong>你已經在對話裡了，不用輸入 <code className="text-sky-300">claude</code>，直接打下面這句。
+          </p>
           <div className="bg-black/50 p-4 rounded-lg border border-slate-800">
             <div className="flex gap-2 text-sm">
               <span className="text-sky-400 font-bold shrink-0">You:</span>

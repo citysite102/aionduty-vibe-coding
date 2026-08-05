@@ -15,6 +15,9 @@ export default function SlideIntroAgentic() {
           <h3 className="text-2xl font-black text-slate-100 mb-4">
             Andrej Karpathy 於 2026 年 2 月宣告：Vibe Coding 已經過時
           </h3>
+          <p className="text-slate-500 text-xs mb-3">
+            出自 Sequoia AI Ascent 2026 的對談，講題就叫「From Vibe Coding to Agentic Engineering」。
+          </p>
           <p className="text-slate-300 text-lg leading-relaxed">
             隨著模型一次能處理的步驟變多、也能自己跑指令，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
           </p>
