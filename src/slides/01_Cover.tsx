@@ -66,11 +66,12 @@ export default function Slide01() {
         {/* Pill Subtitle */}
         <div className="bg-gradient-to-r from-slate-100 via-white to-sky-100 text-slate-900 font-bold px-8 py-4 rounded-full text-xl md:text-2xl flex items-center justify-center shadow-[0_0_30px_rgba(56,189,248,0.4)] border-2 border-white/80 mb-10">
           <Terminal size={24} className="mr-3 text-sky-600" />
-          <span className="tracking-wide">Vibe Coding x Agent Engineering</span>
+          <span className="tracking-wide">Vibe Coding x Agentic Engineering</span>
         </div>
         
         <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
           這堂課程帶你跨過「做」的門檻：搞懂 AI 怎麼輔助開發、建立自己的判斷框架，然後親手做出一套屬於自己的工作流程。
+          你不用會寫程式，今天練的是把需求講清楚，再自己驗收它做出來的東西。
         </p>
 
         <motion.div 

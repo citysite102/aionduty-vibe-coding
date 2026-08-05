@@ -22,7 +22,7 @@ export default function SlideIntroSpectrum() {
     <SlideLayout title="依據目標選擇工具" subtitle="Choosing the Right Tool" icon={Layers}>
       <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
         <p className="text-slate-400 text-sm mb-6 text-center">
-          愈往右，AI 能碰到的東西愈多，我們要負的責任也愈重。
+          愈往右，程式碼與檔案離你自己的電腦愈近，你能寫下的規矩也愈多。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -114,11 +114,12 @@ export default function SlideIntroSpectrum() {
         <Callout
           stepIndex={7}
           className="mt-6 max-w-4xl mx-auto text-left"
-          footnote="代價是有些事要自己接。例如低程式碼平台通常內建託管資料庫，這是它們方便的原因；第 5 格要自己選一個資料庫服務接上去。這就是「方便」與「掌控」的取捨，我們在後面會處理它。"
+          footnote="第 5 格的工具要付費方案，月費 20 美金起，或儲值 5 美金按用量計費。另外有些事要自己接：低程式碼平台通常內建託管資料庫，這是它們方便的原因；第 5 格要自己選一個資料庫服務接上去。這就是「方便」與「掌控」的取捨，我們在後面會處理它。"
         >
-          <strong className="text-sky-300">這門課從第 5 格開始。</strong>
-          前面四種你之後都還會用到，但只有這一格能讓你<strong className="text-slate-100">把規矩寫下來，然後 AI 每次都照著做</strong>。
-          因為程式碼在你自己的電腦裡，不在別人的平台上。
+          <strong className="text-sky-300">這門課從第 5 格開始，但學的東西不綁在這一格。</strong>
+          把需求講清楚的問法、把規矩寫成一份手冊讓 AI 每次照著做的架構，
+          <strong className="text-slate-100">換到第 2、3 格一樣用得上</strong>。
+          選第 5 格是因為程式碼在你自己的電腦裡，規矩寫下來之後看得到它有沒有照做，這件事在別人的平台上驗不了。
         </Callout>
       </div>
     </SlideLayout>

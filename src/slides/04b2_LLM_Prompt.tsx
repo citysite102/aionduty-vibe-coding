@@ -61,7 +61,7 @@ export default function SlideLLMPrompt() {
                 <div className="text-xs font-bold text-sky-400 mb-2 uppercase tracking-wider font-mono">附上參考圖</div>
                 <p className="text-slate-300 text-sm font-medium mb-2">同一句話，外加上面這張點陣星球的圖</p>
                 <p className="text-slate-500 text-xs leading-relaxed">
-                  它看懂那不是一顆球加陰影，是幾千個點各自算亮度，直接換一種畫法。
+                  它算出來的最近答案不再是一顆球加陰影，而是幾千個點各自算亮度，畫法直接換掉。
                   <strong className="text-slate-300">這個決定從形容詞裡推不出來。</strong>
                 </p>
               </div>

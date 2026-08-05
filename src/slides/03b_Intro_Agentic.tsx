@@ -16,7 +16,7 @@ export default function SlideIntroAgentic() {
             Andrej Karpathy 於 2026 年 2 月宣告：Vibe Coding 已經過時
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">
-            隨著 LLM 的推理與執行能力提升，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
+            隨著模型一次能處理的步驟變多、也能自己跑指令，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
           </p>
         </AnimatedBlock>
 
@@ -26,6 +26,7 @@ export default function SlideIntroAgentic() {
             你現在用的對話框，是你問一句、它回一段字，真正要照著做的還是你自己。
             <strong className="text-slate-100">Agent 是你交代一件事，它自己去開檔案、跑指令、改東西，做完回報結果給你。</strong>
             差別只有一個：它有沒有手。今天整天都會用到這個詞，指的都是這件事。
+            <span className="block mt-2 text-slate-400">它開的是你電腦裡真正的檔案，但預設會在改檔案、跑指令之前停下來問你，只有讀取不打擾。要放寬到什麼程度是你決定的。</span>
           </p>
         </AnimatedBlock>
 

@@ -90,6 +90,13 @@ export default function Slide18b() {
             </AnimatedBlock>
           ))}
         </div>
+
+        <AnimatedBlock stepIndex={6} className="mt-5 px-1">
+          <p className="text-slate-400 text-sm leading-relaxed">
+            這一頁分的是工具，不是分方法。
+            <strong className="text-slate-200">把需求講清楚的問法、把規矩寫下來的做法，上面五題選哪一邊都用得上。</strong>
+          </p>
+        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

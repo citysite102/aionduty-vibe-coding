@@ -48,6 +48,8 @@ const BANNED = [
   // D-4 譯名
   { word: 'Sub Agent', fix: '子代理（Subagent）' },
   { word: '小幫手', fix: '子代理（Subagent）' },
+  // 帶空格，所以不會誤命中 Agentic Engineering（那是 Agent + ic）
+  { word: 'Agent Engineering', fix: '代理工程（Agentic Engineering）' },
   { word: 'AI 專案經理', fix: '指揮者' },
   { word: '安全沙箱', fix: '運作框架（Harness），sandbox 才是沙箱' },
   { word: '語境工程', fix: '上下文工程' },
