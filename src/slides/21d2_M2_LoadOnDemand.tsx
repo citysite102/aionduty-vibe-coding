@@ -6,18 +6,21 @@ const PARTS = [
     name: 'Skill',
     when: '平常只載名稱',
     what: '一套有步驟、用到才需要的 SOP 流程',
+    where: '.claude/skills/名稱/SKILL.md',
     desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。2026 起 slash 指令也併進 Skill。',
   },
   {
     name: 'Subagent',
     when: '叫了才展開',
     what: '獨立做完一件事，只回報結論',
+    where: '.claude/agents/名稱.md',
     desc: '它自己的那段對話不會塞進你這邊，你只會收到結果。適合要翻很多檔案的調查工作。',
   },
   {
     name: 'MCP / Plugin',
     when: '連上才有',
     what: 'MCP 連真實系統，Plugin 把設定打包',
+    where: '不是自己寫檔案，是去接一個現成的服務',
     desc: 'MCP 讓它能讀 Notion、開 GitHub Issue 這類外部系統。Plugin 是把前面這些整組打包，讓團隊共用同一份設定。',
   },
 ];
@@ -42,7 +45,10 @@ export default function SlideM2LoadOnDemand() {
               <span className="text-slate-500 text-xs font-mono">{p.when}</span>
             </div>
             <div className="text-slate-200 text-sm font-bold mb-1">{p.what}</div>
-            <p className="text-slate-500 text-sm leading-relaxed">{p.desc}</p>
+            <p className="text-slate-500 text-sm leading-relaxed mb-2">{p.desc}</p>
+            <div className="text-slate-500 text-sm border-t border-slate-800 pt-2">
+              寫在哪：<span className="font-mono text-slate-400">{p.where}</span>
+            </div>
           </AnimatedBlock>
         ))}
 

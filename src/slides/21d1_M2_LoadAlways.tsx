@@ -28,7 +28,8 @@ export default function SlideM2LoadAlways() {
           </div>
           <div className="text-slate-200 text-sm font-bold mb-1">只在某一區檔案才適用的限制</div>
           <p className="text-slate-500 text-sm leading-relaxed">
-            把它放進那一區的資料夾。只有動到那一區的時候才會被讀進來，平常不會佔掉對話的空間。
+            寫成一個檔案放進 <code className="font-mono text-slate-400">.claude/rules/</code>，在檔案開頭指定它管哪一區。
+            只有動到那一區的時候才會被讀進來，平常不會佔掉對話的空間。等一下有一頁會給你看那個檔案長什麼樣。
           </p>
         </AnimatedBlock>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Shield, ArrowRight, HelpCircle, Activity, Compass, Star } from 'lucide-react';
+import { Terminal, Shield, ArrowRight, HelpCircle, Activity, Star } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion } from 'motion/react';
 
@@ -12,15 +12,17 @@ export default function SlideClaudeCodeUI() {
         <div className="lg:col-span-5 flex flex-col justify-between space-y-4 text-left">
           <div>
             <AnimatedBlock stepIndex={1}>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-full text-xs text-amber-400 font-mono mb-3">
-                <Compass size={12} /> FIRST LAUNCH GUIDE
-              </div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-3">
                 第一次啟動？<br/>
                 教你一眼看懂這個畫面
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">
-                在專案目錄下輸入 <code>claude</code> 啟動後：
+              <p className="text-slate-400 text-sm leading-relaxed mb-3">
+                右邊這張是終端機啟動後的樣子。
+              </p>
+              <p className="text-slate-400 text-sm leading-relaxed mb-4 bg-slate-900 border border-slate-800 rounded-xl p-3">
+                用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人，你的畫面不長這樣，
+                但下面這三塊東西都在，位置也一樣：目前狀態在上方、對話在中間、輸入框在最下面。
+                <strong className="text-slate-300">跟著右邊那張圖看這三塊就對了。</strong>
               </p>
             </AnimatedBlock>
 
@@ -61,10 +63,6 @@ export default function SlideClaudeCodeUI() {
             💡 那個 <code>&gt;</code> 不是在等程式碼，是在等你講話。直接打中文就可以：「幫我看看這個專案要怎麼跑起來」「幫我寫一個倒數計時網頁」。
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={6} className="bg-slate-900 p-4 rounded-xl border border-slate-800 text-xs text-slate-400 leading-relaxed">
-            用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人，你的畫面不長這樣，但三塊東西都在：
-            目前狀態在上方、對話在中間、輸入框在最下面。旁邊那個等你講話的位置就是同一個 <code>&gt;</code>。
-          </AnimatedBlock>
         </div>
 
         {/* Right column: Claude Code High-Fidelity UI Mockup (Image 1) */}
