@@ -31,6 +31,7 @@
 ```bash
 node scripts/slide-manifest.mjs --sections   # 看分節範圍
 node scripts/slide-manifest.mjs 76 87        # 看某段有哪些頁、對應哪些檔案
+node scripts/slide-manifest.mjs --dead       # 看哪些 src/slides/ 的檔案不會播
 ```
 
 ## 為什麼分段跑，不一次跑完
