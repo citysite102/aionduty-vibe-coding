@@ -5,6 +5,9 @@ import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
+// check-words-ignore-file：這一頁的正解就是在示範「一鍵改成⋯、上手改成⋯」那張對照表，
+// 命中的那幾個詞是教材本身，不是違規。
+
 export const meta: RecordedMeta = {
   id: 'harness-14-write-example',
   title: '規則怎麼寫：給一個例子',

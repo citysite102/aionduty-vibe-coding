@@ -51,7 +51,7 @@ export default function Slide04() {
             </div>
             <div className="bg-slate-800/50 p-5 rounded-lg border border-slate-700">
               <strong className="text-indigo-300 block mb-2 text-lg">最好的實踐習慣</strong>
-              <span className="text-slate-400 text-sm leading-relaxed">每當系統出現偏差，除了修正，記得問自己：<span className="text-white italic block mt-2 text-base">「這能轉化為一條新規則嗎？」</span></span>
+              <span className="text-slate-400 text-sm leading-relaxed">每當系統出現偏差，除了修正，記得問自己：<span className="text-slate-100 italic block mt-2 text-base">「這能轉化為一條新規則嗎？」</span></span>
             </div>
           </div>
         </AnimatedBlock>

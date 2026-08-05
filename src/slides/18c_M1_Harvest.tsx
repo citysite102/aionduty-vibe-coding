@@ -26,7 +26,7 @@ const HAVE = [
     text: (
       <>
         對 <code className="font-mono text-slate-200">index.html</code> 按兩下，
-        瀏覽器會打開，倒數會動
+        瀏覽器會打開，倒數會動，底下有一行日出與日落時間
       </>
     ),
   },
@@ -78,7 +78,8 @@ export default function SlideM1Harvest() {
             </p>
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
-            存完之後，接下來不管改壞什麼，都回得到這個點。
+            存完之後，Claude 改壞了這個資料夾裡的東西，你都回得到這一次的狀態。
+            存檔之後才新增的檔案不在裡面，那要再存一次才算。
           </p>
         </AnimatedBlock>
 
@@ -89,7 +90,8 @@ export default function SlideM1Harvest() {
         </Callout>
 
         <AnimatedBlock stepIndex={5} className="text-slate-400 text-sm leading-relaxed px-1">
-          這三樣是下一段的起點。下一段第一件事，就是把那份 <code className="font-mono text-orange-300">CLAUDE.md</code> 改成真正能用的版本。
+          那份 <code className="font-mono text-orange-300">CLAUDE.md</code> 現在是它自己總結的版本，還不能用。
+          第二單元會回來把它改成真正管用的手冊。
         </AnimatedBlock>
 
       </div>

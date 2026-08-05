@@ -45,6 +45,7 @@ import Slide11c from './slides/11c_M1_PricingAndROI';
 import Slide11c2 from './slides/11c2_M1_ROI';
 import Slide12 from './slides/12_M1_Example1';
 import Slide12b from './slides/12b_M1_Challenge';
+import Slide12c from './slides/12c_M1_ApiHandsOn';
 import Slide13 from './slides/13_M1_Example2';
 import Slide14 from './slides/14_M1_Boundaries';
 import Slide15 from './slides/15_M1_Workflow';
@@ -161,6 +162,7 @@ const LIVE_TITLES = [
   "Claude Code 指令的四種類型",
   "做出你的第一個作品",
   "換你寫一次",
+  "讓計時器去外面拿一筆資料",
   "叫它寫個小工具，幫你做雜事",
   "哪些事它做得好，哪些你得自己來",
   "該用什麼工具？",
@@ -277,6 +279,7 @@ const LIVE_SLIDES = [
   Slide11e,
   Slide12,
   Slide12b,
+  Slide12c,
   Slide13,
   Slide14,
   Slide18b,
@@ -367,9 +370,9 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 41, label: 'Agent 運作框架與成本分析' },
-  { start: 76, label: '讓 Agent 分工，並守住品質' },
-  { start: 89, label: 'Agent 循環開發流程' },
+  { start: 42, label: 'Agent 運作框架與成本分析' },
+  { start: 77, label: '讓 Agent 分工，並守住品質' },
+  { start: 90, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

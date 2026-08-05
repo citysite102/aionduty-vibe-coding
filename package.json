@@ -10,7 +10,8 @@
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
     "check:rec": "node scripts/check-recorded.mjs",
-    "check:slides": "node scripts/check-slides.mjs"
+    "check:slides": "node scripts/check-slides.mjs",
+    "check:words": "node scripts/check-words.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

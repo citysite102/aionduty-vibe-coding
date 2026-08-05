@@ -54,9 +54,19 @@ export default function Slide18b() {
           <strong className="text-slate-100">無程式碼工具</strong>，
           還是<strong className="text-slate-100">能動手的 Claude Code</strong>？
         </p>
-        <p className="text-slate-500 text-sm mb-6 text-center">
+        <p className="text-slate-500 text-sm mb-2 text-center">
           分界只有一條：這件事需不需要讀寫你電腦裡的真實檔案。
         </p>
+        <div className="flex items-center justify-center gap-5 mb-6 text-xs">
+          <span className="inline-flex items-center gap-1.5 text-emerald-300">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            不用，前兩種工具就夠
+          </span>
+          <span className="inline-flex items-center gap-1.5 text-sky-300">
+            <span className="h-2 w-2 rounded-full bg-sky-400" />
+            要，這時候才輪到 Claude Code
+          </span>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {CASES.map((c, i) => (

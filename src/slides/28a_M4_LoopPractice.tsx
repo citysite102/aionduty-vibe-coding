@@ -74,7 +74,7 @@ export default function SlideLoopPractice() {
       subtitle="Loop Engineering, Applied"
       icon={RefreshCw}
     >
-      <LiveDemo kind="terminal" note="貼上這段，然後放著看它跑" />
+      <LiveDemo kind="claude" note="貼上這段，然後放著看它跑" />
 
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-5 items-start">

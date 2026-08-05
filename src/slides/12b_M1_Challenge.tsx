@@ -38,7 +38,7 @@ const TRAPS = [
 export default function SlideChallenge() {
   return (
     <SlideLayout title="換你寫一次" subtitle="Your Turn: Say It Precisely" icon={Target}>
-      <LiveDemo kind="terminal" note="三分鐘，寫完先別送出" />
+      <LiveDemo kind="claude" note="三分鐘，寫完先別送出" />
 
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-6">

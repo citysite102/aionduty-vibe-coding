@@ -23,7 +23,7 @@ function Prompt({ children }: { children: ReactNode }) {
 export default function SlideM2HandsOn() {
   return (
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
-      <LiveDemo kind="terminal" note="四格都做完，產出留著後面還會用" />
+      <LiveDemo kind="claude" note="四格都做完，產出留著後面還會用" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8">
 

@@ -82,7 +82,7 @@ export default function SlideTeachingSim() {
               <div className="rounded-lg bg-slate-950 border border-slate-800 px-4 py-3">
                 <div className="text-xs font-bold text-slate-500 mb-1.5">觀察員說</div>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  兩種背景的學員在這一頁都是紅燈，而且卡的理由一模一樣。
+                  兩種背景差很多的學員，在這一頁都完全卡住，而且卡的理由一模一樣。
                 </p>
               </div>
 
@@ -103,8 +103,7 @@ export default function SlideTeachingSim() {
           <Callout tone="warn" label="但產出要驗過才能用" stepIndex={6}>
             這次三個角色各出過一次錯：講師編了一句簡報上沒有的保證，
             學生說某頁「沒有下載連結」但其實有，觀察員第一段的結論下得太早。
-            <strong className="text-slate-100">所以每一條指到具體位置的說法，我都回去原檔查過一次。</strong>
-            分工會放大產出，不會自動放大正確性。
+            <strong className="text-slate-100">所以每一條指到具體位置的說法，都要回原檔查過才算數。</strong>
           </Callout>
         </div>
 

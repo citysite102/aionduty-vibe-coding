@@ -67,7 +67,7 @@ export default function SlideExample1() {
           <AnimatedBlock stepIndex={5} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
             <p className="text-slate-400 text-xs leading-relaxed">
               <strong className="text-slate-200">別期待一次就長成右邊那樣。</strong>
-              右邊那張圖是改了四輪才到位的：第一版星球太亮蓋住按鈕，第二版粒子排太密，疊出一圈一圈的干擾波紋，第三版才換成經緯排列。
+              右邊那張圖不是第一次就長這樣：第一版星球太亮蓋住按鈕，第二版粒子排太密，疊出一圈一圈的干擾波紋，第三版才換成經緯排列。
               <strong className="text-slate-300">寫得越具體，需要的來回就越少，但不會變成零。</strong>
             </p>
             <p className="text-slate-500 text-xs leading-relaxed border-t border-slate-800 pt-2.5">
