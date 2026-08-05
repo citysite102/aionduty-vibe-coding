@@ -4,6 +4,17 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 type CaseKey = 'script' | 'webapp' | 'bug';
 
+/**
+ * token 費用不是憑印象填的，是用公告單價乘估計用量算出來的。
+ *
+ * 單價：Claude Opus 5，輸入 $5、輸出 $25 / 百萬 token，快取讀取約輸入的十分之一。
+ * 這三個是官方公告的數字，學員查得到，所以頁面上要寫出來。
+ * 用量（basis 那一欄）是估的，所以頁面上要標明它是估的，並告訴學員怎麼查自己的真實數字。
+ *
+ * 匯率抓 1 美元兌 32 元。改單價或改匯率的時候，三筆都要一起重算。
+ */
+const PRICE_NOTE = '輸入 $5、輸出 $25 / 百萬 token';
+
 type CaseSpec = {
   key: CaseKey;
   name: string;
@@ -12,8 +23,10 @@ type CaseSpec = {
   quote: string;
   /** 外包交期，日曆時間 */
   leadTime: string;
-  /** 你自己做的 token 花費 */
+  /** 你自己做的 token 花費，由 basis 的用量乘上公告單價算出 */
   tokenCost: string;
+  /** 上面那個金額是怎麼算的 */
+  basis: string;
   /** 你自己要投入的工時 */
   yourHours: string;
   /** 你自己做的交期 */
@@ -27,7 +40,8 @@ const CASES: CaseSpec[] = [
     desc: '定時抓取網站資料，整理成 Excel 寄出。',
     quote: '1 萬',
     leadTime: '5 天',
-    tokenCost: '40 元',
+    tokenCost: '70 元',
+    basis: '抓一小時的來回：輸出約 6 萬 token，加上讀專案的輸入',
     yourHours: '1 小時',
     yourLeadTime: '當天',
   },
@@ -37,7 +51,8 @@ const CASES: CaseSpec[] = [
     desc: '有前台畫面、後端 API 與資料儲存的訂單管理系統。',
     quote: '7.5 萬',
     leadTime: '3 週',
-    tokenCost: '250 元',
+    tokenCost: '450 元',
+    basis: '抓五小時的來回：輸出約 40 萬 token，加上反覆讀專案的輸入',
     yourHours: '5 小時',
     yourLeadTime: '當天',
   },
@@ -47,7 +62,8 @@ const CASES: CaseSpec[] = [
     desc: '套件版本衝突，專案跑不起來。',
     quote: '4.5 萬',
     leadTime: '3 天',
-    tokenCost: '15 元',
+    tokenCost: '30 元',
+    basis: '抓半小時的來回：輸出約 2.5 萬 token，加上讀錯誤訊息與設定檔的輸入',
     yourHours: '半小時',
     yourLeadTime: '當天',
   },
@@ -64,7 +80,7 @@ export default function SlideROI() {
         {/* 主張 */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
           <p className="text-slate-100 text-lg leading-relaxed font-bold">
-            你買的不是省錢，是把「等三週」變成「當天就能試」。
+            花這筆錢，換到的是把「驗證一個點子行不行」從三週壓到當天。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-2">
             外包最貴的往往不是報價，而是你得先寫需求、等排程、來回改，然後才知道這個點子行不行。
@@ -106,8 +122,13 @@ export default function SlideROI() {
             <div className="bg-slate-950 border border-emerald-900/40 rounded-xl p-5">
               <div className="text-emerald-400 text-xs font-bold mb-2">自己指揮 AI 做（token 費用）</div>
               <div className="text-emerald-300 text-3xl font-bold font-mono">{c.tokenCost}</div>
+              <p className="text-slate-500 text-xs mt-3 leading-relaxed">{c.basis}</p>
             </div>
           </div>
+          <p className="text-slate-500 text-xs mt-3 leading-relaxed">
+            單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取約輸入的十分之一，匯率抓 32。
+            用量是估的，你自己跑一次之後打 <code className="font-mono text-orange-300">/usage</code> 就看得到真實數字。
+          </p>
         </AnimatedBlock>
 
         {/* 時間：兩件不同的事，並排不相減 */}
@@ -169,7 +190,12 @@ export default function SlideROI() {
               token 很便宜，但你得看得懂它做了什麼、抓得出它哪裡做錯。那個能力不會自己長出來。
             </p>
             <p className="text-slate-500 text-sm leading-relaxed">
-              上面的外包報價是市場上常見的區間，實際依需求規模與廠商差異很大，這裡只是拿來對照數量級。
+              兩邊的數字都是估計。外包報價是市場上常見的區間，實際依需求規模與廠商差異很大；
+              token 費用是用公告單價乘上估計用量算的。這裡只拿來對照數量級。
+            </p>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              修一個環境問題報價高卻交期短，不是寫錯：這種案子貴在<strong className="text-slate-400">要先花時間查</strong>，
+              查完往往只改一兩行。
             </p>
           </div>
         </AnimatedBlock>

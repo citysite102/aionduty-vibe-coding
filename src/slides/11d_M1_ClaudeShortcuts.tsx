@@ -13,22 +13,16 @@ export default function SlideClaudeShortcuts() {
         
         {/* Left Side: Concept */}
         <div className="lg:col-span-4 flex flex-col justify-between">
-          <AnimatedBlock stepIndex={1} className="bg-gradient-to-b from-slate-900 to-amber-950/20 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-between relative overflow-hidden">
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-amber-500/5 rounded-full blur-2xl pointer-events-none" />
-            
+          <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-between relative overflow-hidden">
+
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-amber-500/10 border border-amber-500/20 rounded-full text-[11px] font-mono text-amber-400 font-bold tracking-wider uppercase mb-3">
-                Hardware Bridge
-              </div>
               <h3 className="text-xl font-bold text-slate-100 mb-3 leading-snug">
-                不用再慢慢打字，<br/>
-                像工程師一樣流暢協作
+                這五個按鍵，<br/>
+                一般的聊天對話框都沒有
               </h3>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
-                在使用 Claude Code 時，這五個按鍵能幫你<strong>省下大部分的路徑輸入與操作切換時間</strong>，其中一個還能救回做壞的東西。
-              </p>
-              <p className="text-slate-400 text-xs leading-relaxed mb-3">
-                這幾個都是 Claude Code 才有的操作，一般的聊天對話框做不到。
+              <p className="text-slate-300 text-sm leading-relaxed mb-4">
+                它們各自解掉一件事：不用打完整路徑、可以收放它的修改權限、不用退出去下指令、
+                做壞了可以退回去、有話直接貼圖給它看。
               </p>
               <p className="text-slate-400 text-xs leading-relaxed border-t border-slate-800 pt-3">
                 用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人：
