@@ -48,7 +48,7 @@ export default function Slide06() {
                 <CheckCircle2 size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">4. 驗證</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">自動測試、除錯、確保能跑</p>
+              <p className="text-slate-400 text-xs leading-relaxed">跑一次、看結果對不對、不對就回頭修</p>
             </div>
             
             {/* Connecting lines for desktop */}
@@ -67,8 +67,8 @@ export default function Slide06() {
           <p className="text-lg leading-relaxed">
             <span className="text-sky-300 font-bold tracking-wider">探索 → 計畫 → 執行 → 驗證</span>
             <br/><br/>
-            以此循環不斷迭代。這正是為什麼我們需要讓 Agent 在終端機工作：<br/>
-            <strong className="text-sky-400">它能自動幫你完成這個循環中的「執行與驗證」步驟。</strong>
+            以此循環不斷迭代。Agent 接手的是中間的「執行」，<br/>
+            <strong className="text-sky-400">而「驗證」是你的：先寫下什麼情況該出現什麼結果，再照著跑一次看對不對。</strong>
           </p>
         </AnimatedBlock>
       </div>

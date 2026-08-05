@@ -60,8 +60,13 @@ export default function SlideM2SectionGoal() {
 
         <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4 space-y-2">
           <p className="text-slate-400 text-sm leading-relaxed">
+            <strong className="text-slate-300">先說一個接下來三頁都會用到的字。</strong>
+            token 是計費的單位，可以粗略當成「字」：你打進去的、它吐出來的、它讀你專案讀進去的，都要算。
+            中文一個字大約一到兩個 token。所以下面講的費用不是按時間算，是按這一次來回總共經過多少字算。
+          </p>
+          <p className="text-slate-400 text-sm leading-relaxed">
             最後那一項最難有體感，先給一個對照的錨點：找人外包寫一支自動抓資料的小腳本，
-            報價大約一萬元、五個工作天；你自己指揮 AI 做，token 費用大約四十元、一小時。
+            報價大約一萬元、五個工作天；你自己指揮 AI 做，做完這一支的 token 費用大約七十元，一小時做完。
             <span className="text-slate-500">兩個數字都會因為需求規模差很多，這裡只拿來對照量級。</span>
           </p>
           <p className="text-slate-300 text-sm leading-relaxed border-t border-slate-800 pt-2.5">

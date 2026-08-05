@@ -58,7 +58,10 @@ export default function SlideClaudeCodeIntegration() {
             
             <div className="flex-1 bg-[#1e1e1e] border border-slate-800 p-5 rounded-xl text-center w-full">
               <div className="text-sm font-bold text-slate-200 mb-2">Step 2: 傳遞與交接</div>
-              <div className="text-xs text-slate-400 text-left leading-relaxed">把網頁端規劃好的架構、Schema 與元件清單，複製成一份 <code>plan.md</code> 存檔到本機專案目錄中。</div>
+              <div className="text-xs text-slate-400 text-left leading-relaxed">
+                把網頁端規劃好的架構、Schema 與元件清單，存成一份 <code>plan.md</code> 放進本機專案目錄。
+                <span className="block mt-1.5 text-slate-500">不用自己開編輯器：把那段內容貼給 Claude Code，跟它說「幫我存成 <code>plan.md</code>」就好。</span>
+              </div>
             </div>
 
             <ArrowRightLeft className="text-slate-600 shrink-0 hidden sm:block" size={24} />
@@ -66,7 +69,7 @@ export default function SlideClaudeCodeIntegration() {
 
             <div className="flex-1 bg-[#1e1e1e] border border-slate-800 p-5 rounded-xl text-center w-full">
               <div className="text-sm font-bold text-slate-200 mb-2">Step 3: 本機實作</div>
-              <div className="text-xs text-slate-400 text-left leading-relaxed">在終端機啟動 Claude Code：<br/><code className="text-amber-300 mt-2 block">請讀取 plan.md 並幫我建立所有相關的檔案與路由。</code></div>
+              <div className="text-xs text-slate-400 text-left leading-relaxed">在 Claude Code（終端機，或桌面版的 Code 頁籤）：<br/><code className="text-amber-300 mt-2 block">請讀取 plan.md 並幫我建立所有相關的檔案與路由。</code></div>
             </div>
           </div>
         </AnimatedBlock>

@@ -52,7 +52,7 @@ export default function SlideHandsOnPrompt() {
             <h3 className="text-lg font-bold text-slate-100">把約定寫成 CLAUDE.md</h3>
           </div>
           <div className="bg-black/50 p-4 rounded-lg font-mono text-sm border border-slate-800 text-sky-300 leading-relaxed">
-            You: 請把 CLAUDE.md 改寫成下面這幾條，以後每次進來都要遵守。<br/>
+            You: 請在 CLAUDE.md 補上下面這幾條，原本已經有的不要動，以後每次進來都要遵守。<br/>
             1. 深色星空背景，主色只用在當下要強調的那一個元素。<br/>
             2. 星球與火箭一律用 canvas 或 CSS 畫，不得引用外部圖片。<br/>
             3. 按鈕文案使用航太語彙：發射、待機、返航、補給。<br/>

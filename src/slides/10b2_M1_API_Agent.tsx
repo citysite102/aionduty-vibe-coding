@@ -23,7 +23,8 @@ export default function Slide10b2() {
                 過去串接 API 最花時間的，往往是翻閱厚重的官方英文手冊，搞懂正確的參數名稱與認證機制。
               </p>
               <p className="text-slate-400 text-xs leading-relaxed">
-                在 Vibe Coding 時代，你可以將文件 URL 直接餵給終端機裡的 Claude Code，它會自動發送 HTTP 請求解析網頁、提取關鍵型別，並寫出乾淨無誤的呼叫程式碼。
+                你可以將文件 URL 直接餵給 Claude Code，它會自動發送 HTTP 請求解析網頁、提取關鍵型別，寫出一份可以直接跑的呼叫程式碼。
+                它讀的是當下抓到的那一頁，抓錯版本或抓到別的頁面它不會告訴你，所以下一頁那四個定位點是你自己要對的。
               </p>
             </div>
 

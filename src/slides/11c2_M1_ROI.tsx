@@ -11,7 +11,9 @@ type CaseKey = 'script' | 'webapp' | 'bug';
  * 這三個是官方公告的數字，學員查得到，所以頁面上要寫出來。
  * 用量（basis 那一欄）是估的，所以頁面上要標明它是估的，並告訴學員怎麼查自己的真實數字。
  *
- * 匯率抓 1 美元兌 32 元。改單價或改匯率的時候，三筆都要一起重算。
+ * 匯率抓 1 美元兌 32 元。改單價或改匯率的時候，這裡三筆要一起重算，
+ * 而且 19a_M2_SectionGoal.tsx 的錨點句（自動化小腳本那一筆）是同一個數字的複本，也要跟著改。
+ * 2026-08 那次重算只改了這裡，兩頁的數字就差了六頁沒人發現。
  */
 const PRICE_NOTE = '輸入 $5、輸出 $25 / 百萬 token';
 
@@ -126,6 +128,11 @@ export default function SlideROI() {
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
+            這一格的金額是<strong className="text-slate-400">走 API 計量</strong>的人實際會被扣的錢。
+            <strong className="text-slate-400">走訂閱制（Pro／Max）的人不會看到這筆扣款</strong>，你付的是月費，
+            這個數字對你的意義是「這件事會吃掉多少額度」：像旗艦那一格五小時的來回，Pro 的五小時額度大概就用在這裡了。
+          </p>
+          <p className="text-slate-500 text-xs mt-2 leading-relaxed">
             單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取約輸入的十分之一，匯率抓 32。
             用量是估的，你自己跑一次之後打 <code className="font-mono text-orange-300">/usage</code> 就看得到真實數字。
           </p>
