@@ -6,13 +6,13 @@ export default function SlideExample2() {
     <SlideLayout title="叫它寫個小工具，幫你做雜事" subtitle="Example 2: Automation Script" icon={FolderSync}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-stretch min-h-full">
         
-        <div className="flex flex-col justify-center space-y-6">
+        <div className="flex flex-col justify-start space-y-6">
           <AnimatedBlock stepIndex={1}>
-            <div className="inline-block mb-3 px-2.5 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-[11px] font-bold text-slate-400">
+            <div className="inline-block mb-3 px-2.5 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-xs font-bold text-slate-400">
               支線示範，跟你的任務計時器無關
             </div>
-            <h3 className="text-2xl font-bold text-indigo-400 mb-4 flex items-center gap-3">
-              <TextCursorInput size={24} className="text-indigo-400" />
+            <h3 className="text-2xl font-bold text-sky-400 mb-4 flex items-center gap-3">
+              <TextCursorInput size={24} className="text-sky-400" />
               情境：批次整理混亂的檔案
             </h3>
             <p className="text-slate-300 text-lg leading-relaxed mb-6">
@@ -29,10 +29,10 @@ export default function SlideExample2() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-indigo-950/20 border border-indigo-900/30 p-4 rounded-xl mt-4">
-            <p className="text-indigo-300 text-sm font-bold mb-2">💡 執行腳本的小提示</p>
+          <AnimatedBlock stepIndex={4} className="bg-sky-950/20 border border-sky-900/30 p-4 rounded-xl mt-4">
+            <p className="text-sky-300 text-sm font-bold mb-2">💡 執行腳本的小提示</p>
             <p className="text-slate-400 text-xs leading-relaxed mb-2">腳本通常使用 Node.js 或 Python 執行，確保你已經安裝對應環境：</p>
-            <div className="bg-black/40 p-2 rounded text-xs font-mono text-slate-300 border border-indigo-900/50 space-y-1">
+            <div className="bg-black/40 p-2 rounded text-xs font-mono text-slate-300 border border-sky-900/50 space-y-1">
                <span className="text-emerald-400"># 執行 Node.js（安裝時裝過的人才有，桌面版跳過的話請它幫你裝）</span><br/>
                $ node script.js<br/><br/>
                <span className="text-sky-400"># 執行 Python (請至 python.org 下載安裝)</span><br/>
@@ -50,8 +50,9 @@ export default function SlideExample2() {
           </AnimatedBlock>
         </div>
 
-        <div className="flex justify-center items-center h-full pt-8 lg:pt-0">
-           <AnimatedBlock stepIndex={3} className="bg-indigo-950/20 border border-indigo-900/40 rounded-3xl p-6 relative overflow-hidden w-full h-full max-h-[450px]">
+        {/* 靠上對齊左欄。置中的話，左欄一長，右邊這塊就會掉到畫面下半部 */}
+        <div className="flex justify-center items-start h-full pt-8 lg:pt-0">
+           <AnimatedBlock stepIndex={3} className="bg-sky-950/20 border border-sky-900/40 rounded-3xl p-6 relative overflow-hidden w-full">
              
              <div className="space-y-4">
                <div className="bg-slate-900/50 rounded-xl p-4 border border-slate-800/80">
@@ -63,12 +64,12 @@ export default function SlideExample2() {
                  </div>
                </div>
 
-               <div className="flex justify-center text-indigo-500">
+               <div className="flex justify-center text-sky-500">
                  ↓ 執行 rename.js ↓
                </div>
 
-               <div className="bg-slate-900/80 rounded-xl p-4 border border-indigo-500/30">
-                 <div className="text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">執行後 (After)</div>
+               <div className="bg-slate-900/80 rounded-xl p-4 border border-sky-500/30">
+                 <div className="text-sky-400 text-xs font-bold uppercase tracking-wider mb-2">執行後 (After)</div>
                  <div className="font-mono text-sm text-slate-100 space-y-1">
                    <div>├─ 20260621-001.JPG</div>
                    <div>├─ 20260621-002.png</div>
@@ -78,10 +79,10 @@ export default function SlideExample2() {
              </div>
 
              <div className="mt-8 space-y-2">
-                <div className="flex items-center gap-3 text-indigo-400 text-sm font-bold">
+                <div className="flex items-center gap-3 text-sky-400 text-sm font-bold">
                   <Check size={16} /> <span>不用自己查語法，跑出錯誤訊息可以直接貼回去讓它改。</span>
                 </div>
-                <div className="flex items-center gap-3 text-indigo-400 text-sm font-bold">
+                <div className="flex items-center gap-3 text-sky-400 text-sm font-bold">
                   <Check size={16} /> <span>AI 幫你做的不只有網頁，也包括沒有畫面的小工具。</span>
                 </div>
              </div>
