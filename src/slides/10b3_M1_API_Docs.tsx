@@ -161,8 +161,16 @@ export default function Slide10b3() {
           })}
 
           <AnimatedBlock stepIndex={7} className="bg-sky-500/5 border border-sky-500/20 rounded-2xl p-4 text-left mt-auto">
-            <p className="text-[11px] text-slate-300 leading-relaxed">
-              💡 看懂這四塊，你甚至不用自己讀完整份文件。把網址丟給 Claude Code，它會照同樣邏輯幫你讀懂並寫出串接程式碼，而你有能力驗收它對不對。
+            <p className="text-[11px] text-slate-300 leading-relaxed mb-2">
+              💡 把網址丟給 Claude Code，它會照同樣邏輯讀懂並寫出串接程式碼。你要做的是驗收，方法就三步。
+            </p>
+            <p className="text-[11px] text-slate-400 leading-relaxed border-t border-sky-500/20 pt-2">
+              一、把文件標 <code className="font-mono text-slate-300">required</code> 的欄位抄下來，這一支是
+              <code className="font-mono text-slate-300"> model</code>、
+              <code className="font-mono text-slate-300">messages</code>、
+              <code className="font-mono text-slate-300">max_tokens</code>。
+              二、回頭數它寫的那幾行，三個都在才算過（上一頁那段是過的）。
+              三、少了就這樣講：<strong className="text-slate-300">「你少填了 max_tokens，文件上這個是必填，補上去再跑一次給我看。」</strong>
             </p>
           </AnimatedBlock>
 
