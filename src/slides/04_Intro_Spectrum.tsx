@@ -88,7 +88,7 @@ export default function SlideIntroSpectrum() {
               <h3 className="text-lg font-bold text-sky-200 mb-1.5">5. 開發級 Agent / CLI (本機執行)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
                 <ToolBadge name="Claude Code" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
-                <ToolBadge name="Copilot CLI" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Codex" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">
                 在你自己的電腦上動工。讀得到真實檔案、跑得動指令、管得了 Git。
