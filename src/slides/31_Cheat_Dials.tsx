@@ -268,11 +268,11 @@ export default function Slide16() {
                 </button>
                 <button 
                   type="button"
-                  onClick={() => applyPreset(2, 2)}
-                  aria-pressed={supervision === 2 && sandbox === 2}
+                  onClick={() => applyPreset(2, 1)}
+                  aria-pressed={supervision === 2 && sandbox === 1}
                   className={`px-3 py-1.5 rounded-lg text-sm font-semibold border flex justify-between items-center transition-colors duration-150 cursor-pointer ${focusRing} ${
-                    supervision === 2 && sandbox === 2 
-                      ? 'bg-rose-500/10 border-rose-500/30 text-rose-400' 
+                    supervision === 2 && sandbox === 1
+                      ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
                       : 'bg-slate-950/20 border-slate-900 text-slate-400 hover:bg-slate-950 hover:text-slate-200'
                   }`}
                 >
@@ -383,20 +383,22 @@ export default function Slide16() {
                 <span className="text-xs text-slate-400 font-bold mt-1 bg-slate-900/80 px-1 py-0.5 rounded border border-slate-800 pointer-events-none font-sans">日常小修小改</span>
               </button>
 
-              {/* Preset 3: 無人值守 Loop (Autonomous + FullContainer) */}
-              <button 
+              {/* Preset 3: 無人值守 Loop (Autonomous + 限制專案)
+                  指的是頁面自己推薦的那一格（風險 20），不是右下角「全自動 Loop 區」那格（風險 85）。
+                  座標：top 是監督程度（上嚴下鬆）、left 是邊界大小（左小右大），所以 (2,1) 是 top 80% / left 50%。 */}
+              <button
                 type="button"
-                onClick={() => applyPreset(2, 2)}
-                aria-pressed={supervision === 2 && sandbox === 2}
+                onClick={() => applyPreset(2, 1)}
+                aria-pressed={supervision === 2 && sandbox === 1}
                 aria-label="選擇無人值守 Loop 情境"
-                className={`absolute left-[80%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer rounded ${focusRing}`}
+                className={`absolute left-[50%] top-[80%] -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center group cursor-pointer rounded ${focusRing}`}
               >
                 <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-150 flex items-center justify-center ${
-                  supervision === 2 && sandbox === 2 
-                    ? 'bg-rose-500 border-white scale-125 shadow-lg shadow-rose-500/60' 
-                    : 'bg-slate-900 border-slate-700 hover:border-rose-400'
+                  supervision === 2 && sandbox === 1
+                    ? 'bg-amber-500 border-white scale-125 shadow-lg shadow-amber-500/60'
+                    : 'bg-slate-900 border-slate-700 hover:border-amber-400'
                 }`} />
-                <span className="text-xs text-rose-400 font-bold mt-1 bg-slate-900/80 px-1.5 py-0.5 rounded border border-rose-950/30 pointer-events-none">無人值守 Loop</span>
+                <span className="text-xs text-amber-400 font-bold mt-1 bg-slate-900/80 px-1.5 py-0.5 rounded border border-amber-950/30 pointer-events-none">無人值守 Loop</span>
               </button>
 
               {/* Dynamic Gliding Target Cursor (Framer Motion!) */}

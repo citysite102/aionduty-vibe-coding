@@ -98,8 +98,8 @@ team.dispatch("Implement auth tests")`
     description: 'AI 擁有自組「執行命令、讀取錯誤、自我除錯」的自動化循環（Feedback Loop），不需要人類每一秒按確認。',
     whyItMatters: '省下人力。你去泡杯咖啡的時間，AI 已經跑了五次編譯，修掉幾個拼字錯誤與語法報錯。',
     claudeName: '自組除錯迴圈',
-    claudeDesc: 'Claude Code 預設就會這樣做，不用額外設定：編譯失敗時它讀 stack trace、改檔、重跑。要交代一整段長任務時，把驗收條件一起寫進去，它才知道什麼時候算跑完。',
-    claudeBadge: '內建，不用外掛',
+    claudeDesc: '自動導航是內建的：編譯失敗時它讀 stack trace、改檔、重跑，不用額外設定。但預設每一步都會停下來問你，真的要放手讓它自己跑一整段，前提是先把邊界縮到專案資料夾內、並且先存好檔，那是前面「監督與邊界」那一頁的事。交代長任務時把驗收條件一起寫進去，它才知道什麼時候算跑完。',
+    claudeBadge: '內建，但放手的條件要自己設',
     claudeCode: `> 請修好所有失敗的測試
 > 完成條件：npm test 通過，最多跑 5 輪
 
