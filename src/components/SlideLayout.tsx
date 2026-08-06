@@ -48,7 +48,8 @@ export function SlideLayout({
           {title}
         </h1>
       </div>
-      <div ref={scrollRef} className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
+      {/* data-slide-scroll：AnimatedBlock 靠它往上找到真正的捲動容器，見該元件的捲動邏輯 */}
+      <div ref={scrollRef} data-slide-scroll className="flex-1 overflow-y-auto pr-4 custom-scrollbar">
         {children}
       </div>
     </motion.div>
@@ -97,27 +98,46 @@ export function AnimatedBlock({
 
   const isVisible = stepIndex === undefined || currentStep >= stepIndex;
 
+  // 這一塊剛亮起來時，把它整塊捲進可視範圍。
+  // 判準是「有沒有被切到」，不是「看不看得到」：底部被切掉一半也要捲，
+  // 否則講者按下一步之後，新出現的內容只露出上緣，下半截留在摺線下面。
   useEffect(() => {
-    if (isVisible && stepIndex !== undefined && currentStep === stepIndex) {
-      const timer = setTimeout(() => {
-        if (elementRef.current) {
-          const rect = elementRef.current.getBoundingClientRect();
-          const viewHeight = window.innerHeight || document.documentElement.clientHeight;
-          
-          // Check if any significant portion of the element is already in the viewport
-          const isTopVisible = rect.top >= 0 && rect.top < (viewHeight - 40);
-          const isBottomVisible = rect.bottom > 40 && rect.bottom <= viewHeight;
-          const isOccupying = rect.top < 0 && rect.bottom > viewHeight;
-          const inViewport = isTopVisible || isBottomVisible || isOccupying;
+    if (stepIndex === undefined || currentStep !== stepIndex) return;
 
-          if (!inViewport) {
-            elementRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
-        }
-      }, 120); // short delay to let the animation start and layout to update
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible, stepIndex, currentStep]);
+    const timer = setTimeout(() => {
+      const el = elementRef.current;
+      if (!el) return;
+
+      // 基準要拿真正的捲動容器，不是視窗。SlideLayout 的內容區上有標題、
+      // 下有 pb-20，容器底緣比視窗底緣高一截，拿 innerHeight 量會以為還看得到。
+      const box = el.closest('[data-slide-scroll]') as HTMLElement | null;
+      if (!box) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      const MARGIN = 24; // 捲完不要讓內容貼齊容器邊緣
+      const rect = el.getBoundingClientRect();
+      const boxRect = box.getBoundingClientRect();
+
+      let delta = 0;
+      if (rect.height + MARGIN * 2 > boxRect.height) {
+        // 這一塊比可視範圍還高，本來就塞不完，對齊頂端至少從頭讀得到
+        delta = rect.top - MARGIN - boxRect.top;
+      } else if (rect.bottom + MARGIN > boxRect.bottom) {
+        delta = rect.bottom + MARGIN - boxRect.bottom;
+      } else if (rect.top - MARGIN < boxRect.top) {
+        delta = rect.top - MARGIN - boxRect.top;
+      }
+
+      if (Math.abs(delta) > 1) {
+        box.scrollTo({ top: box.scrollTop + delta, behavior: 'smooth' });
+      }
+      // 等進場位移走完再量，否則 y: 20 → 0 還沒收完，會多捲那段距離
+    }, delay * 1000 + 220);
+
+    return () => clearTimeout(timer);
+  }, [stepIndex, currentStep, delay]);
   
   const MotionComponent = useMemo(() => motion.create(Component as any), [Component]) as any;
 
