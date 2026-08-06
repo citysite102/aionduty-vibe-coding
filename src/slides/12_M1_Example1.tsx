@@ -160,10 +160,13 @@ export default function SlideExample1() {
             <p className="text-slate-200 text-sm font-bold">做完之後，打開來看</p>
             <ul className="text-slate-300 text-sm leading-relaxed space-y-1 list-disc pl-4 marker:text-slate-600">
               <li>
-                Mac：在 Finder 裡找到 <code className="font-mono text-slate-400">mission-timer</code> 資料夾，
+                <code className="font-mono text-slate-400">mission-timer</code> 在你安裝那一頁選的那個資料夾裡面，
+                照著建議選桌面的話，它就在桌面上
+              </li>
+              <li>
+                Mac 在 Finder、Windows 在檔案總管打開它，
                 對裡面的 <code className="font-mono text-slate-400">index.html</code> 按兩下
               </li>
-              <li>Windows：在檔案總管找到同一個資料夾，一樣對 <code className="font-mono text-slate-400">index.html</code> 按兩下</li>
             </ul>
             <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-800 pt-2.5">
               它會用你平常的瀏覽器打開，網址列是一串本機路徑，不是網站網址。這就是前面說的「在本機跑」，

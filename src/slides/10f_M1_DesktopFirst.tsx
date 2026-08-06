@@ -40,14 +40,23 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
     ),
   },
   { icon: AppWindow, label: '切到 Code 頁籤', desc: '上面有 Chat、Cowork、Code 三個，要開的是最右邊那個。' },
-  { icon: FolderOpen, label: '選一個資料夾', desc: '它之後就在這個範圍裡讀寫，不會跑出去。' },
+  {
+    icon: FolderOpen,
+    label: '選一個資料夾',
+    desc: (
+      <>
+        <strong className="text-slate-300">選桌面就可以。</strong>
+        它之後就在這個範圍裡讀寫，不會跑出去，等一下正式的作品也會建在你選的這個地方。
+      </>
+    ),
+  },
   {
     icon: MessageSquare,
     label: '講一句話',
     desc: (
       <>
         「幫我做一個五分鐘的計時器網頁。」然後看檔案真的長出來。
-        <strong className="text-slate-300">這一個是試跑</strong>，正式的作品等一下會另外開一個資料夾重做。
+        <strong className="text-slate-300">這一個是試跑</strong>，正式的作品等一下會在同一個地方另外開一個資料夾重做。
       </>
     ),
   },

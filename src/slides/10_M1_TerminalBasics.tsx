@@ -45,6 +45,14 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     explanation: '📍 Print Working Directory：告訴你「我現在站在哪一個資料夾」的完整系統絕對路徑。',
     output: '/workspace/hahow-vibe-coding-project'
   },
+  cd: {
+    cmd: 'cd ~/Desktop',
+    label: 'cd',
+    desc: '換到另一個資料夾',
+    icon: Compass,
+    explanation: '🚶 Change Directory：把你「站的位置」換到指定的資料夾。安裝那一頁叫你「切到你想放作品的地方」，用的就是這一個。波浪號代表你的家目錄，所以 ~/Desktop 就是桌面。',
+    output: '（成功時什麼都不會顯示，再打一次 pwd 就會看到位置變了）'
+  },
   ls: {
     cmd: 'ls',
     label: 'ls',

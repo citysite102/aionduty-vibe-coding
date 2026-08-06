@@ -87,6 +87,9 @@ export default function SlideCodeSetup() {
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
             這一步只是確認環境能跑通，不用管它做得好不好看。正式的作品在後面會重做一次，資料夾就沿用 <code className="text-slate-400">mission-timer</code> 這個名字，整堂課都會回頭改它。
+            <span className="block mt-1.5">
+              它會建在你剛才選的那個資料夾裡面（桌面版）或你切過去的那個位置（終端機）。<strong className="text-slate-400">記住它在哪，等一下要回來找。</strong>
+            </span>
           </p>
         </AnimatedBlock>
 
