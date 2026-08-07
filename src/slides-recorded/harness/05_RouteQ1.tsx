@@ -1,6 +1,7 @@
 import { ShieldX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { AskFirst } from './_AskFirst';
+import { SeriesRail, ROUTE_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -17,9 +18,9 @@ export default function RecRouteQ1() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={ShieldX}>
       <RecPage handbook={1}>
+        <SeriesRail {...ROUTE_RAIL} current={0} revealAt={2} />
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
           <AnimatedBlock stepIndex={1}>
-            <div className="text-slate-500 text-base font-mono mb-3">依序要問的第 1 題，共 4 題</div>
 
             <div className="border-l-2 border-slate-700 pl-5 mb-6">
               <p className="text-slate-300 text-2xl leading-snug">違反了會出事，絕對不能發生？</p>

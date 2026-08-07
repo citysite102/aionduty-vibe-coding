@@ -1,6 +1,7 @@
 import { ShieldAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { SeriesRail, FAIL_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -35,6 +36,7 @@ export default function RecFailCantFollow() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={ShieldAlert}>
       <RecPage className="space-y-4" handbook={1}>
+        <SeriesRail {...FAIL_RAIL} current={2} />
         <AnimatedBlock className="mb-6">
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             因為那條規則本身，<Key>沒辦法被照著做</Key>。

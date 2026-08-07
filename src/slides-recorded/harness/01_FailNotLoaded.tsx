@@ -1,6 +1,7 @@
 import { FileX2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { SeriesRail, FAIL_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -17,6 +18,7 @@ export default function RecFailNotLoaded() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={FileX2}>
       <RecPage className="space-y-5" handbook={1}>
+        <SeriesRail {...FAIL_RAIL} current={0} />
         <AnimatedBlock className="mb-6">
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             因為那份手冊，<Key>根本沒進到這一輪的對話裡</Key>。
