@@ -25,8 +25,20 @@ const CLAUDE_MD = `# 專案架構與開發紀律
 - 使用 TypeScript，禁用 \`any\`。
 - 元件必須放在 \`src/components/\`，嚴禁 inline style。`;
 
+/**
+ * 三個痛點刻意橫跨三種專案。上一頁整頁在說「專案不是只有寫程式」，
+ * 這一頁如果三個例子全是工程場面，等於當場把那扇門關上，
+ * 不寫程式的人會確認這一段與自己無關。
+ */
+const PAINS = [
+  { kind: '寫程式', text: '寫完新功能忘記把最新的 API 規格補回手冊，它下次又亂猜。' },
+  { kind: '每月報表', text: '每個月做同一份報表，每次都要重講一遍欄位口徑和異常值怎麼算。' },
+  { kind: '文件審閱', text: '心裡有一套標準條款，但沒寫下來，每次看合約都靠記憶重講一次。' },
+];
+
+/** 兩層標題用亮度分階，不另外給色相：色彩留給有語意的地方（A-1）。 */
 function lineClass(line: string) {
-  if (line.startsWith('## ')) return 'text-emerald-300';
+  if (line.startsWith('## ')) return 'text-slate-200';
   if (line.startsWith('# ')) return 'text-sky-300';
   return 'text-slate-400';
 }
@@ -39,28 +51,27 @@ export default function Slide21f() {
         <div className="flex-1 space-y-6">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              設定檔不是寫完就算了，它是 Agent 的「行為準則」。
+              沒寫下來的規矩，每次都要重講一次。這件事跟你做的是哪一種專案無關。
             </p>
             <ul className="space-y-3">
-              <li className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
-                <AlertTriangle className="text-rose-400 mt-0.5 shrink-0" size={18} />
-                <span className="text-slate-300 text-sm">每次寫完新功能，都忘記把最新的 API 規格補回 CLAUDE.md，導致 Agent 下次又亂猜。</span>
-              </li>
-              <li className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
-                <AlertTriangle className="text-rose-400 mt-0.5 shrink-0" size={18} />
-                <span className="text-slate-300 text-sm">團隊有 SDD (Software Design Document) 開發流程，但 Agent 不知道，所以每次都直接寫程式碼而不先規劃。</span>
-              </li>
-              <li className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
-                <AlertTriangle className="text-rose-400 mt-0.5 shrink-0" size={18} />
-                <span className="text-slate-300 text-sm">忘記把「每次修改後必須跑測試」寫進規則，結果部署上線才發現壞了。</span>
-              </li>
+              {PAINS.map((p) => (
+                <li key={p.text} className="bg-slate-900 border border-slate-800 p-4 rounded-xl flex items-start gap-3">
+                  <AlertTriangle className="text-rose-400 mt-0.5 shrink-0" size={18} />
+                  <div>
+                    <span className="mr-2 rounded bg-slate-800 px-1.5 py-0.5 text-xs font-bold text-slate-400">
+                      {p.kind}
+                    </span>
+                    <span className="text-slate-300 text-sm">{p.text}</span>
+                  </div>
+                </li>
+              ))}
             </ul>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-sky-950/20 border border-sky-900/40 p-5 rounded-xl">
             <h4 className="text-sky-400 font-bold mb-2">💡 解決方案：動態更新的 SOP</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
-              只要你在對話中告訴它：「以後請幫我記得這個規則」，它就能幫你把規則補進設定檔，讓 Agent 自動照著團隊的規矩走。
+              只要你在對話中告訴它：「以後請幫我記得這個規則」，它就能幫你把規則補進手冊，讓 Agent 之後自動照著走。
             </p>
           </AnimatedBlock>
         </div>
@@ -69,7 +80,8 @@ export default function Slide21f() {
           <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl">
             <div className="bg-slate-800 px-4 py-2 border-b border-slate-700 flex items-center gap-2">
               <FileCode2 size={16} className="text-sky-400" />
-              <span className="text-slate-300 text-xs font-mono">CLAUDE.md (大型專案範例)</span>
+              <span className="text-slate-300 text-xs font-mono">CLAUDE.md</span>
+              <span className="ml-auto text-slate-500 text-xs">一個工程專案養了一陣子之後的樣子</span>
             </div>
             <div className="p-4 text-xs font-mono leading-relaxed max-h-[400px] overflow-y-auto custom-scrollbar bg-[#0f111a]">
               {CLAUDE_MD.split('\n').map((line, i) =>
@@ -81,6 +93,12 @@ export default function Slide21f() {
               )}
             </div>
           </div>
+
+          <p className="mt-3 text-slate-400 text-sm leading-relaxed">
+            這份是工程專案，但要看的是左邊那排章節：
+            <strong className="text-slate-200">流程、外部連線、固定 SOP、分層、規範</strong>。
+            換成報表或審閱專案，章節一樣，只是內容換掉。
+          </p>
         </AnimatedBlock>
 
       </div>

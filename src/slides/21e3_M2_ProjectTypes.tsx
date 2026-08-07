@@ -10,7 +10,18 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * 手冊實際怎麼寫，後面的預錄段落有完整演練（社群文案、會議紀錄），這裡不要重複。
  * 專案該怎麼切也不要在這裡講，那是「一個專案該放多少東西？」那一頁的事，
  * 學員在這個位置還沒看過 Claude Projects。
+ *
+ * 三個判準是這一頁真正要帶走的東西，四個案例只是套用結果。
+ * 原本判準只寫在頂端一行內文，視覺上比四張案例卡輕得多，
+ * 學員記住的會是「有四種專案」而不是「怎麼判斷一件事能不能變成專案」。
+ * 每個判準都附反面，那才是實際拿來檢查用的。
  */
+const TESTS = [
+  { q: '會重複做嗎？', no: '只做一次的事，當場交代就好，不用寫手冊' },
+  { q: '你有自己的規矩嗎？', no: '沒有偏好的話，它怎麼做都行' },
+  { q: '產出要一致嗎？', no: '每次長得不一樣也沒差的，不需要固定下來' },
+];
+
 const CASES = [
   {
     kind: '寫程式',
@@ -42,13 +53,22 @@ const CASES = [
 export default function SlideProjectTypes() {
   return (
     <SlideLayout title="「專案」不是只有寫程式" subtitle="What Counts as a Project" icon={FolderTree}>
-      <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto w-full space-y-4 pb-4">
 
-        <AnimatedBlock stepIndex={1}>
+        <AnimatedBlock stepIndex={1} className="space-y-3">
           <p className="text-slate-300 text-base leading-relaxed">
-            只要一件事<strong className="text-slate-100">會重複做、你有自己的規矩、而且產出要一致</strong>，
-            它就可以是一個專案，寫法完全一樣。
+            拿一件你手上的事問這三題。三題都答「是」，它就能變成專案，
+            <strong className="text-slate-100">寫法跟你的計時器一樣</strong>。
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {TESTS.map((t) => (
+              <div key={t.q} className="rounded-xl border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
+                <div className="text-sky-300 text-base font-bold leading-snug">{t.q}</div>
+                <div className="text-slate-400 text-sm leading-snug mt-1">{t.no}</div>
+              </div>
+            ))}
+          </div>
         </AnimatedBlock>
 
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${hoverIsolateGrid}`}>
@@ -56,7 +76,7 @@ export default function SlideProjectTypes() {
             <AnimatedBlock
               key={c.kind}
               stepIndex={i + 2}
-              className={`rounded-2xl border bg-slate-900 p-5 flex flex-col ${hoverIsolateCard} ${
+              className={`rounded-2xl border bg-slate-900 p-4 flex flex-col ${hoverIsolateCard} ${
                 c.mine ? 'border-sky-900/60' : 'border-slate-800'
               }`}
             >
@@ -95,12 +115,8 @@ export default function SlideProjectTypes() {
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">知識庫那一格跟其他三格不一樣。</strong>
-            另外三格各自交出一份東西，知識庫交不出東西，它是那些東西的材料。
-          </p>
-          <p className="text-slate-300 text-base leading-relaxed mt-3">
-            同一批材料可以做成課程簡報，也可以做成策略報告。
-            但這是<strong className="text-slate-100">兩個專案</strong>，因為兩邊的規矩不同、要交出來的格式也不同。
+            <strong className="text-slate-100">知識庫那一格交不出東西</strong>，它是其他三格的材料。
+            同一批材料可以做成課程簡報，也可以做成策略報告，但那是兩個專案，規矩與產出格式都不同。
             材料集中放一份，專案照產出切開。
           </p>
         </AnimatedBlock>
