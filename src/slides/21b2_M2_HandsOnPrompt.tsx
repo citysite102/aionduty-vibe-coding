@@ -15,10 +15,13 @@ export default function SlideHandsOnPrompt() {
           </p>
         </AnimatedBlock>
 
-        {/* 不加 items-start：讓同一列的卡片等高，四張卡的邊框才會對齊 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/*
+          不加 items-start：讓同一列的卡片等高，四張卡的邊框才會對齊。
+          hover 暗化用 brightness 不用 opacity，理由見「動手搭建運作框架」那頁的註解。
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 [&:hover>*]:brightness-[0.4] [&>*:hover]:brightness-100">
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-8 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">1</div>
             <h3 className="text-lg font-bold text-slate-100">回到原本的專案</h3>
@@ -29,7 +32,7 @@ export default function SlideHandsOnPrompt() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-8 rounded bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">2</div>
             <h3 className="text-lg font-bold text-slate-100">先讓它自己讀一遍</h3>
@@ -46,7 +49,7 @@ export default function SlideHandsOnPrompt() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-8 rounded bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold">3</div>
             <h3 className="text-lg font-bold text-slate-100">把約定寫成 CLAUDE.md</h3>
@@ -60,7 +63,7 @@ export default function SlideHandsOnPrompt() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg">
+        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-lg transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-8 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">4</div>
             <h3 className="text-lg font-bold text-slate-100">驗收：規範真的有用嗎</h3>

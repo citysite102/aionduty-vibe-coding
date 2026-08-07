@@ -25,12 +25,18 @@ export default function SlideM2HandsOn() {
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
       <LiveDemo kind="claude" note="四格都做完，產出留著後面還會用" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8">
+      {/*
+        滑到哪一格，那一格亮邊框、其餘變暗，講者現場好指。
+        暗化用 brightness 不用 opacity：AnimatedBlock 的進場動畫是 motion 直接寫 inline 的
+        opacity，class 蓋不過去；就算用 ! 蓋過去，還沒輪到的那幾格會被強制顯示出來。
+        filter 沒有人在動，所以 opacity 0 的格子乘上任何 brightness 還是看不見。
+      */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8 [&:hover>*]:brightness-[0.4] [&>*:hover]:brightness-100">
 
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">1</span>
-            寫一份手冊給你的計時器
+            為你的計時器生成手冊
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
             把第一單元你一句一句盯出來的東西，變成它每次都會讀到的檔案。
@@ -39,22 +45,16 @@ export default function SlideM2HandsOn() {
             「讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。」
           </Prompt>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，這四條它猜不到：
+            它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，那幾條它猜不到。
           </p>
-          <div className="mt-2 rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 font-mono text-xs text-slate-400 leading-relaxed">
-            - 深色星空背景，主色只給要強調的元素<br />
-            - 星球與火箭用 canvas 或 CSS 畫，禁止外部圖片<br />
-            - 按鈕文案用航太語彙：發射、待機、返航、補給<br />
-            - 倒數分鐘數集中成設定，不要散在程式碼裡
-          </div>
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
-            把這四條補進去，再加上你自己想到的，然後讓它存成 <code className="font-mono text-orange-300">CLAUDE.md</code>。
-            下面三格都是在改這同一份檔案。
+            先把草稿存成 <code className="font-mono text-orange-300">CLAUDE.md</code>。
+            要補哪幾條、怎麼確認它真的照做，下一頁一步一步帶。下面三格都是在改這同一份檔案。
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">2</span>
             親眼看 context 被吃掉
@@ -84,7 +84,7 @@ export default function SlideM2HandsOn() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">3</span>
             讓它先問，不要讓它先寫
@@ -119,7 +119,7 @@ export default function SlideM2HandsOn() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col">
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">4</span>
             它自己也在記，去看它記了什麼
