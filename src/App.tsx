@@ -62,6 +62,8 @@ import Slide30 from './slides/30_Cheat_Perms';
 import Slide31 from './slides/31_Cheat_Dials';
 import Slide21 from './slides/21_M2_Pillars';
 import Slide21a from './slides/21a_M2_MCPSkills';
+import Slide21a2 from './slides/21a2_M2_SkillDemoResume';
+import Slide21a3 from './slides/21a3_M2_SkillDemoReference';
 import Slide21b from './slides/21b_M2_HandsOn';
 import Slide21b2 from './slides/21b2_M2_HandsOnPrompt';
 import Slide21b3 from './slides/21b3_M2_ContextCheck';
@@ -75,6 +77,7 @@ import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
 import Slide21e3 from './slides/21e3_M2_ProjectTypes';
 import Slide21f from './slides/21f_M2_ClaudeMdRealWorld';
 import Slide21f2 from './slides/21f2_M2_ThisDeck';
+import SlideDivHandbook from './slides/21g_Div_Handbook';
 import Slide21f6 from './slides/21f6_M2_ProblemMap';
 import Slide21f3 from './slides/21f3_M2_RuleFailure';
 import Slide21f4 from './slides/21f4_M2_RuleRouting';
@@ -179,6 +182,8 @@ const LIVE_TITLES = [
   "讓 AI 有手可用：MCP 與 Skills",
   "監督與邊界",
   "Claude Code 的四種權限模式",
+  "同一份履歷，裝與不裝 Skill",
+  "給它看，還要叫得出每一塊的名字",
   "動手搭建運作框架",
   "跟著做：寫出真正能用的 CLAUDE.md",
   "怎麼確認它真的讀到了",
@@ -186,12 +191,13 @@ const LIVE_TITLES = [
   "CLAUDE.md 的分層",
   "常駐的東西越少，它越專心",
   "用到才展開，平常只佔一行",
-  "真要擋住，就不要放進 context",
+  "光寫在手冊裡，擋不住",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
   "「專案」不是只有寫程式",
   "這跟你的專案有什麼關係？",
   "這份簡報就是這樣做出來的",
+  "手冊（CLAUDE.md）的疑難雜症與轉移",
   "接下來要解決的四個問題",
   "規則明明寫了，它卻沒照做",
   "這條規則該放哪",
@@ -296,6 +302,8 @@ const LIVE_SLIDES = [
   Slide21a,
   Slide31,
   Slide30,
+  Slide21a2,
+  Slide21a3,
   Slide21b,
   Slide21b2,
   Slide21b3,
@@ -309,6 +317,7 @@ const LIVE_SLIDES = [
   Slide21e3,
   Slide21f,
   Slide21f2,
+  SlideDivHandbook,
   Slide21f6,
   Slide21f3,
   Slide21f4,
@@ -371,8 +380,9 @@ const SECTION_DEFS = [
   { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
   { start: 42, label: 'Agent 運作框架與成本分析' },
-  { start: 77, label: '讓 Agent 分工，並守住品質' },
-  { start: 90, label: 'Agent 循環開發流程' },
+  { start: 69, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 80, label: '讓 Agent 分工，並守住品質' },
+  { start: 93, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

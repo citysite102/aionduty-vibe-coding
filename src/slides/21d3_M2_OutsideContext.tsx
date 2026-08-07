@@ -3,11 +3,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideM2OutsideContext() {
   return (
-    <SlideLayout title="真要擋住，就不要放進 context" subtitle="Outside the Context Window" icon={ShieldX}>
+    <SlideLayout title="光寫在手冊裡，擋不住" subtitle="Outside the Context Window" icon={ShieldX}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
-          前面兩頁的零件都在 context 裡面，也就是說它們都要靠 AI 自己讀到、自己記得。這一頁的兩個不一樣，<strong className="text-slate-200">它們是程式在跑，不經過 AI 的判斷。</strong>
+          前面兩頁的零件都是<strong className="text-slate-200">寫成文字給 AI 讀</strong>，這就叫放進 context，
+          要靠它自己讀到、自己記得。這一頁的兩個不一樣，<strong className="text-slate-200">它們是程式在跑，不經過 AI 的判斷</strong>，
+          所以連進 context 都不用。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -45,7 +47,7 @@ export default function SlideM2OutsideContext() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={5} className="text-slate-500 text-xs leading-relaxed px-1">
-          零件的分類只有三種載入時機：整場常駐、用到才展開、根本不進來。
+          零件的分類只有三種載入時機：整場常駐、用到才展開、根本不給它讀。
         </AnimatedBlock>
 
       </div>

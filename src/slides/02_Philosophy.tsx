@@ -5,8 +5,11 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 這一頁的主角是那四個單元，所以它們佔滿版面排成 2×2，
  * 核心目標收成上方一條橫幅。
  *
- * 單元名稱要跟 App.tsx 的 SECTION_DEFS 對得上，
- * 學員會拿這一頁對照講者選單裡的分節名。
+ * 學員會拿這一頁對照講者選單裡的分節名，但兩者不是一對一：
+ * 選單的分節比單元細，單元 03 與 04 各橫跨兩節
+ * （03 = 運作框架與成本分析 ＋ 手冊（CLAUDE.md）的疑難雜症與轉移，
+ *   04 = 讓 Agent 分工 ＋ Agent 循環開發流程）。
+ * 改單元名稱時，要確認學員還對得回 App.tsx 的 SECTION_DEFS。
  */
 const UNITS = [
   {
