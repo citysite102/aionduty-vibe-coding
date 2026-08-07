@@ -2,6 +2,7 @@ import { Play, AppWindow } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { LiveDemo } from '../components/LiveDemo';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 export default function SlideCodeSetup() {
   return (
@@ -29,19 +30,38 @@ export default function SlideCodeSetup() {
         </Callout>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto">
+      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto ${hoverIsolateGrid}`}>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
+        <AnimatedBlock stepIndex={2} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-800 font-mono text-xs text-slate-400">0</span>
             前置準備：開發環境設定
           </h3>
-          <p className="text-slate-400 text-sm mb-3">如果你的電腦是一台白紙，請先安裝編輯器與執行環境：</p>
-          <div className="bg-black/50 p-3 rounded-lg font-mono text-xs border border-slate-800 space-y-2">
-            <div className="text-slate-300">1. 安裝 <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">VS Code</a> (最主流的程式碼編輯器)</div>
-            <div className="text-slate-300">2. 安裝 <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">Node.js</a> (下載 LTS 版本，需 18 以上，它會自動包含 npm)</div>
-            <div className="text-slate-300">3. 安裝 <a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">Git</a> (裝好就不用管它，指令都讓 AI 代打)</div>
-            <div className="text-slate-500 pt-1 border-t border-slate-800/50">開啟 VS Code 內建終端機，輸入以下指令確認安裝成功：</div>
+          {/*
+            下載安裝與打指令要分開呈現。原本三個安裝項目跟三行驗證指令同在一個黑底
+            等寬框裡，看起來像六行都要用打的，學員會卡在「這是要跟 AI 說的嗎」。
+          */}
+          <p className="text-slate-400 text-sm mb-2.5">
+            這三個要<strong className="text-slate-200">自己開瀏覽器下載安裝</strong>，不是打指令，也不是跟 AI 說：
+          </p>
+          <div className="space-y-1.5 mb-3">
+            <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
+              <a href="https://code.visualstudio.com/" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">VS Code</a>
+              <span className="text-xs text-slate-500">最主流的程式碼編輯器</span>
+            </div>
+            <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
+              <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Node.js</a>
+              <span className="text-xs text-slate-500">選 LTS 版本，需 18 以上，會一起裝好 npm</span>
+            </div>
+            <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
+              <a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Git</a>
+              <span className="text-xs text-slate-500">裝完就不用管它，之後的指令都讓 AI 代打</span>
+            </div>
+          </div>
+          <p className="text-slate-400 text-sm mb-2">
+            裝完開 VS Code 內建終端機，<strong className="text-slate-200">這三行才是用打的</strong>，印出版本號就成功：
+          </p>
+          <div className="bg-black/50 p-3 rounded-lg font-mono text-xs border border-slate-800 space-y-1">
             <div className="text-emerald-400">$ node -v</div>
             <div className="text-emerald-400">$ npm -v</div>
             <div className="text-emerald-400">$ git -v</div>
@@ -51,7 +71,7 @@ export default function SlideCodeSetup() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
+        <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">1</span>
             安裝與啟動 Claude Code
@@ -68,7 +88,7 @@ export default function SlideCodeSetup() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
+        <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">2</span>
             試跑一次，確認環境真的通了
@@ -93,7 +113,7 @@ export default function SlideCodeSetup() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 p-5 rounded-2xl">
+        <AnimatedBlock stepIndex={5} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-emerald-500/20 font-mono text-xs text-emerald-400">3</span>
             收尾：先看一眼專案記憶 (CLAUDE.md)
