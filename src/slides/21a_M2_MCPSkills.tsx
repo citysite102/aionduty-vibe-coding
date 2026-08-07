@@ -100,8 +100,29 @@ export default function Slide21a() {
           </div>
         </AnimatedBlock>
 
+        {/*
+          2026-08-06 發布的跨廠商標準。這裡只放一句話定位，不教操作：
+          它打包的就是上面那兩樣，沒有新概念。
+          Claude Code 不在支援名單、格式也不同，這點一定要寫，
+          否則學員會以為現在就能拿別家的 plugin 直接裝進 Claude Code。
+        */}
+        <AnimatedBlock stepIndex={4} className="mt-3 rounded-2xl border border-slate-800 bg-slate-900 p-4 text-left">
+          <div className="mb-2 flex items-baseline gap-2.5">
+            <h4 className="text-sm font-bold text-slate-200">這兩樣正在被打包成同一種格式</h4>
+            <span className="rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-slate-500">2026.08</span>
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed">
+            Amazon、Cursor、Microsoft、OpenAI、Vercel 共同發布了 Agent Plugins 1.0.0，
+            把 Skills 與 MCP 設定放進同一個資料夾，讓不同工具讀同一包。
+            <strong className="text-slate-300">裡面就是上面這兩樣東西，沒有新東西要學。</strong>
+            <span className="mt-1.5 block text-slate-500">
+              Claude Code 目前不在支援名單裡，用的是自己的格式，所以這件事現在還不影響你的操作。
+            </span>
+          </p>
+        </AnimatedBlock>
+
         {/* Resource Link */}
-        <AnimatedBlock stepIndex={4} className="mt-2 flex justify-center">
+        <AnimatedBlock stepIndex={5} className="mt-2 flex justify-center">
           <a href="https://www.youtube.com/watch?v=185XGEMefgc" target="_blank" rel="noopener noreferrer" 
              className="inline-flex items-center gap-3 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-slate-500 transition-all px-6 py-3 rounded-full text-slate-200 text-sm">
              <ExternalLink size={16} className="text-red-400" />
