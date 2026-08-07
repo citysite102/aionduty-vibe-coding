@@ -1,6 +1,7 @@
 import { FilePlus2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HandbookState } from './_HandbookState';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -19,9 +20,12 @@ export default function RecHandbookV1() {
       <RecPage className="space-y-4" handbook={1}>
         <HandbookState stepIndex={1} version={1} />
 
-        <AnimatedBlock stepIndex={2} className="px-1">
+        <AnimatedBlock stepIndex={2} className="px-1 space-y-2.5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            檔案就開在<Key>專案根目錄</Key>，跟你的程式放在一起。裡面先照想到的寫就好。
+          </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            四種混在一起：該留的、該搬的、該刪的，還有一條寫了等於沒寫。
+            這十四行混著四種：該留的、該搬去別的地方的、該刪的，還有一條寫了等於沒寫。
           </p>
         </AnimatedBlock>
       </RecPage>

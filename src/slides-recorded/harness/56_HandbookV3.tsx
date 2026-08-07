@@ -1,6 +1,7 @@
 import { Scissors } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HandbookState } from './_HandbookState';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -19,9 +20,12 @@ export default function RecHandbookV3() {
       <RecPage className="space-y-4" handbook={3}>
         <HandbookState stepIndex={1} version={3} />
 
-        <AnimatedBlock stepIndex={2} className="px-1">
+        <AnimatedBlock stepIndex={2} className="px-1 space-y-2.5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            刪掉它<Key>不是因為它寫錯了</Key>，是全域手冊裡已經有同一條，每個專案都適用。
+          </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            上一層已經有的，這一層不要再寫一次。
+            同一條寫在兩個地方，之後要改的時候，你只會改到其中一份。留在上面那一層就好。
           </p>
         </AnimatedBlock>
       </RecPage>

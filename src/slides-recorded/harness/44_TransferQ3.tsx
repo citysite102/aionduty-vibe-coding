@@ -25,8 +25,12 @@ export default function RecTransferQ3() {
           <AskFirst />
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2}>
+        <AnimatedBlock stepIndex={2} className="space-y-3">
           <p className="text-slate-300 text-3xl font-bold leading-snug">這些分出去，<Key>用到的時候才讀</Key></p>
+          <p className="text-slate-400 text-lg leading-relaxed">
+            像是兩個客戶要英文版、一個客戶不收 PDF。全塞進同一份，手冊只會越寫越肥。
+            分到子目錄，手冊裡留一行指過去就好。
+          </p>
         </AnimatedBlock>
 
         <ProposalDraft stage={3} stepIndex={3} />

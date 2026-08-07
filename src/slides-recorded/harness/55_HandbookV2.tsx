@@ -1,6 +1,7 @@
 import { ArrowRightLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HandbookState } from './_HandbookState';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -19,9 +20,12 @@ export default function RecHandbookV2() {
       <RecPage className="space-y-4" handbook={2}>
         <HandbookState stepIndex={1} version={2} />
 
-        <AnimatedBlock stepIndex={2} className="px-1">
+        <AnimatedBlock stepIndex={2} className="px-1 space-y-2.5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            「絕對不要刪掉我的檔案」這種，<Key>它讀到了，份量也可能不夠</Key>。
+          </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            違反了會出事的，交給機制。手冊是提醒，不是防線。
+            違反了會出事的，搬去 Hook 讓程式擋，手冊裡留一行提醒就好。手冊是提醒，不是防線。
           </p>
         </AnimatedBlock>
       </RecPage>

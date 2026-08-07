@@ -1,6 +1,7 @@
 import { PenLine } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { HandbookState } from './_HandbookState';
+import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -19,9 +20,13 @@ export default function RecHandbookV4() {
       <RecPage className="space-y-4" handbook={4}>
         <HandbookState stepIndex={1} version={4} />
 
-        <AnimatedBlock stepIndex={2} className="px-1">
+        <AnimatedBlock stepIndex={2} className="px-1 space-y-2.5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            「畫面要好看、風格保持一致」它無法判定，
+            <Key>做完了它自己也不知道有沒有達成</Key>，你也沒辦法指著結果說它違規。
+          </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            判準只有一句：他能不能只看結果回答「有」或「沒有」。
+            改法是把你心裡的標準寫出來。判準只有一句：他能不能只看結果回答「有」或「沒有」。
           </p>
         </AnimatedBlock>
       </RecPage>
