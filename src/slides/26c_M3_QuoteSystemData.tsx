@@ -1,5 +1,6 @@
 import { Database, ArrowRight, KeyRound } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 const TABLES = [
   { name: 'customers', desc: '客戶公司、聯絡人、稅籍資訊', fields: ['id', 'name', 'contact_name', 'tax_id'] },
@@ -27,9 +28,9 @@ export default function SlideQuoteSystemData() {
           </p>
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+        <div className={`grid grid-cols-1 md:grid-cols-4 gap-3 ${hoverIsolateGrid}`}>
           {TABLES.map((table, index) => (
-            <AnimatedBlock key={table.name} stepIndex={index + 2} className="rounded-lg border border-slate-800 bg-slate-950 p-4">
+            <AnimatedBlock key={table.name} stepIndex={index + 2} className={`rounded-lg border border-slate-800 bg-slate-950 p-4 ${hoverIsolateCard}`}>
               <div className="font-mono text-sky-400 text-sm font-bold mb-2">{table.name}</div>
               <p className="text-slate-400 text-sm leading-snug mb-3">{table.desc}</p>
               <div className="space-y-1">

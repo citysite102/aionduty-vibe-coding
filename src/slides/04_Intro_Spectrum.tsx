@@ -1,6 +1,7 @@
 import { Layers, Bot, Sparkles, Heart, Code2, Terminal, ShieldCheck, Keyboard } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 interface BadgeProps {
   name: string;
@@ -25,8 +26,8 @@ export default function SlideIntroSpectrum() {
           愈往右，程式碼與檔案離你自己的電腦愈近，你能寫下的規矩也愈多。
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-[210px]">
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ${hoverIsolateGrid}`}>
+          <AnimatedBlock stepIndex={1} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">1. 純對話聊天 (對話式 AI)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -41,7 +42,7 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：一次性的思考、語法諮詢、打草稿</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={2} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">2. AI App Builder (低程式碼平台)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -56,7 +57,7 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：行銷活動頁、不會寫程式快速做出 MVP</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">3. 瀏覽器原型工具</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -69,7 +70,7 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：快速驗證產品點子，準備好接續實踐開發</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-sky-500/50 transition-colors flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">4. 雲端自主 Agent</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -83,7 +84,7 @@ export default function SlideIntroSpectrum() {
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：多步驟繁瑣任務、結果導向的背景自動化</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="bg-sky-950/30 border border-sky-500/50 rounded-xl p-5 shadow-[0_0_30px_-5px_rgba(14,165,233,0.2)] flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={5} className={`bg-sky-950/30 border border-sky-500/50 rounded-xl p-5 shadow-[0_0_30px_-5px_rgba(14,165,233,0.2)] flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-sky-200 mb-1.5">5. 開發級 Agent / CLI (本機執行)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
@@ -97,7 +98,7 @@ export default function SlideIntroSpectrum() {
             <div className="text-sky-300 text-xs bg-sky-900/30 px-3 py-2 rounded border border-sky-500/20">適合：真實專案執行開發、自動化除錯、長期維護的系統</div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={6} className="bg-slate-900/50 border border-slate-800/50 rounded-xl p-5 flex flex-col justify-between h-[210px]">
+          <AnimatedBlock stepIndex={6} className={`bg-slate-900/50 border border-slate-800/50 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
             <div>
               <h3 className="text-lg font-bold text-slate-400 mb-1.5">6. 自己手寫 (The Baseline)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">

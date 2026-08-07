@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { PenTool } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
  * 這一頁是動手頁，所以每一格都要有可以直接貼的東西，不是描述「你應該做什麼」。
@@ -25,15 +26,9 @@ export default function SlideM2HandsOn() {
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
       <LiveDemo kind="claude" note="四格都做完，產出留著後面還會用" />
 
-      {/*
-        滑到哪一格，那一格亮邊框、其餘變暗，講者現場好指。
-        暗化用 brightness 不用 opacity：AnimatedBlock 的進場動畫是 motion 直接寫 inline 的
-        opacity，class 蓋不過去；就算用 ! 蓋過去，還沒輪到的那幾格會被強制顯示出來。
-        filter 沒有人在動，所以 opacity 0 的格子乘上任何 brightness 還是看不見。
-      */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8 [&:hover>*]:brightness-[0.4] [&>*:hover]:brightness-100">
+      <div className={`grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8 ${hoverIsolateGrid}`}>
 
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
+        <AnimatedBlock stepIndex={1} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col ${hoverIsolateCard}`}>
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">1</span>
             為你的計時器生成手冊
@@ -54,7 +49,7 @@ export default function SlideM2HandsOn() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
+        <AnimatedBlock stepIndex={2} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col ${hoverIsolateCard}`}>
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">2</span>
             親眼看 context 被吃掉
@@ -84,7 +79,7 @@ export default function SlideM2HandsOn() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
+        <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col ${hoverIsolateCard}`}>
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">3</span>
             讓它先問，不要讓它先寫
@@ -119,7 +114,7 @@ export default function SlideM2HandsOn() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col transition-[filter,border-color] duration-200 hover:border-sky-500/60">
+        <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col ${hoverIsolateCard}`}>
           <h3 className="text-lg font-bold text-slate-100 mb-3 pb-3 border-b border-slate-800 flex items-baseline gap-2.5">
             <span className="font-mono text-xs text-slate-600">4</span>
             它自己也在記，去看它記了什麼

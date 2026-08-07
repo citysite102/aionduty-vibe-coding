@@ -1,5 +1,6 @@
 import { FolderTree } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
  * 前面四個擴充情境全部是軟體工程的場面（rm -rf、DROP TABLE、GitHub Issue、Sentry），
@@ -50,12 +51,12 @@ export default function SlideProjectTypes() {
           </p>
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${hoverIsolateGrid}`}>
           {CASES.map((c, i) => (
             <AnimatedBlock
               key={c.kind}
               stepIndex={i + 2}
-              className={`rounded-2xl border bg-slate-900 p-5 flex flex-col ${
+              className={`rounded-2xl border bg-slate-900 p-5 flex flex-col ${hoverIsolateCard} ${
                 c.mine ? 'border-sky-900/60' : 'border-slate-800'
               }`}
             >

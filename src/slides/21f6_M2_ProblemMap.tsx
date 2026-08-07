@@ -1,5 +1,6 @@
 import { Map, ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
  * 這一段接下來連續幾十頁在回答四個問題，但原本沒有任何一頁先說有哪四個。
@@ -55,12 +56,12 @@ export default function SlideProblemMap() {
           </p>
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${hoverIsolateGrid}`}>
           {PROBLEMS.map((p, i) => (
             <AnimatedBlock
               key={p.q}
               stepIndex={i + 2}
-              className={`rounded-2xl border p-5 flex flex-col ${
+              className={`rounded-2xl border p-5 flex flex-col ${hoverIsolateCard} ${
                 p.next ? 'border-sky-500/40 bg-sky-950/20' : 'border-slate-800 bg-slate-900'
               }`}
             >

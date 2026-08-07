@@ -1,6 +1,7 @@
 import React from 'react';
 import { Keyboard, FolderOpen, Terminal, ClipboardCheck, Undo2, Image as ImageIcon } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 export default function SlideClaudeShortcuts() {
   return (
@@ -38,10 +39,10 @@ export default function SlideClaudeShortcuts() {
         {/* Right Side: The Key Modifiers */}
         <div className="lg:col-span-8 flex flex-col gap-4">
           
-          <div className="grid grid-cols-1 gap-4 h-full">
+          <div className={`grid grid-cols-1 gap-4 h-full ${hoverIsolateGrid}`}>
             
             {/* Shortcut 1: @ for File Paths */}
-            <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+            <AnimatedBlock stepIndex={2} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 ${hoverIsolateCard}`}>
               <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <FolderOpen size={24} />
               </div>
@@ -57,7 +58,7 @@ export default function SlideClaudeShortcuts() {
             </AnimatedBlock>
 
             {/* Shortcut 2: Shift + Tab */}
-            <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+            <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 ${hoverIsolateCard}`}>
               <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <ClipboardCheck size={24} />
               </div>
@@ -74,7 +75,7 @@ export default function SlideClaudeShortcuts() {
             </AnimatedBlock>
 
             {/* Shortcut 3: ! for Shell Command */}
-            <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+            <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 ${hoverIsolateCard}`}>
               <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <Terminal size={24} />
               </div>
@@ -90,7 +91,7 @@ export default function SlideClaudeShortcuts() {
             </AnimatedBlock>
 
             {/* Shortcut 4: Esc / rewind */}
-            <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+            <AnimatedBlock stepIndex={5} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 ${hoverIsolateCard}`}>
               <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <Undo2 size={24} />
               </div>
@@ -107,7 +108,7 @@ export default function SlideClaudeShortcuts() {
             </AnimatedBlock>
 
             {/* Shortcut 5: Ctrl + V 貼圖 */}
-            <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 hover:border-slate-700 transition-all">
+            <AnimatedBlock stepIndex={6} className={`bg-slate-900 border border-slate-800 rounded-2xl p-5 flex items-center gap-4 ${hoverIsolateCard}`}>
               <div className="p-3 bg-orange-500/10 text-orange-400 rounded-2xl shrink-0">
                 <ImageIcon size={24} />
               </div>

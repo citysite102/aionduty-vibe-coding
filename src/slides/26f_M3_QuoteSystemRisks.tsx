@@ -1,5 +1,6 @@
 import { AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 const RISKS = [
   { title: '需求一直長出新功能', fix: '把「這一輪先不做」寫進 brief，新增需求先進下一輪。' },
@@ -22,9 +23,9 @@ export default function SlideQuoteSystemRisks() {
           </p>
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+        <div className={`grid grid-cols-1 md:grid-cols-5 gap-3 ${hoverIsolateGrid}`}>
           {RISKS.map((risk, index) => (
-            <AnimatedBlock key={risk.title} stepIndex={index + 2} className="rounded-lg border border-slate-800 bg-slate-950 p-4">
+            <AnimatedBlock key={risk.title} stepIndex={index + 2} className={`rounded-lg border border-slate-800 bg-slate-950 p-4 ${hoverIsolateCard}`}>
               <div className="font-mono text-slate-600 text-xs mb-2">0{index + 1}</div>
               <h3 className="text-slate-100 text-base font-bold leading-snug mb-3">{risk.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-800 pt-3">{risk.fix}</p>

@@ -1,5 +1,6 @@
 import { AlertCircle, BrainCircuit, ShieldCheck, Flame, KeyRound, FileWarning, Bug } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsolate';
 
 export default function SlideSafety() {
   return (
@@ -24,9 +25,9 @@ export default function SlideSafety() {
           </div>
         </AnimatedBlock>
  
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-1">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 mt-1 ${hoverIsolateGrid}`}>
 
-          <AnimatedBlock stepIndex={2} className="bg-slate-900/60 p-5 rounded-3xl border border-red-900/40 shadow-xl">
+          <AnimatedBlock stepIndex={2} className={`bg-slate-900/60 p-5 rounded-3xl border border-red-900/40 shadow-xl ${hoverIsolateCardRing}`}>
             <div className="flex items-center gap-3 mb-3">
               <div className="bg-red-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <KeyRound className="text-red-400" size={18} />
@@ -41,7 +42,7 @@ export default function SlideSafety() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={3} className="bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl">
+          <AnimatedBlock stepIndex={3} className={`bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl ${hoverIsolateCardRing}`}>
             <div className="flex items-center gap-3 mb-3">
               <div className="bg-amber-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <FileWarning className="text-amber-400" size={18} />
@@ -59,7 +60,7 @@ export default function SlideSafety() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={4} className="bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl">
+          <AnimatedBlock stepIndex={4} className={`bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl ${hoverIsolateCardRing}`}>
             <div className="flex items-center gap-3 mb-3">
               <div className="bg-amber-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <Bug className="text-amber-400" size={18} />
@@ -74,7 +75,7 @@ export default function SlideSafety() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="bg-slate-900/60 p-5 rounded-3xl border border-emerald-900/40 shadow-xl">
+          <AnimatedBlock stepIndex={5} className={`bg-slate-900/60 p-5 rounded-3xl border border-emerald-900/40 shadow-xl ${hoverIsolateCardRing}`}>
             <div className="flex items-center gap-3 mb-3">
               <div className="bg-emerald-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <ShieldCheck className="text-emerald-400" size={18} />
