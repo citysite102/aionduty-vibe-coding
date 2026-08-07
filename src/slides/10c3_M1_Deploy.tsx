@@ -1,4 +1,4 @@
-import { Rocket, Home, Store, Globe, Database, TerminalSquare } from 'lucide-react';
+import { Rocket, Home, Store, Globe, Database, TerminalSquare, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
 
@@ -49,9 +49,28 @@ export default function Slide10c3Deploy() {
             <p className="text-slate-300 text-sm leading-relaxed mb-3">
               <strong className="text-slate-100">Vercel 是什麼？</strong> 一個「把你的網頁放上網、發給它一個網址」的託管服務。連上 GitHub 之後，你每次更新程式碼，它就<strong className="text-sky-300">自動重新上線</strong>，你完全不用碰伺服器。
             </p>
+            <a
+              href="https://vercel.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="mb-3 inline-flex items-center gap-1.5 font-mono text-sm text-sky-400 hover:underline"
+            >
+              vercel.com <ExternalLink size={12} />
+            </a>
             <div className="mt-auto text-[11px] text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
               適合：網頁前端、個人網站、作品集、小工具
-              <span className="block text-slate-600 mt-1">同類的還有 <strong className="text-slate-500">Netlify</strong>、<strong className="text-slate-500">Cloudflare Pages</strong>、<strong className="text-slate-500">GitHub Pages</strong>。做法幾乎一樣，挑一個就好。</span>
+              <span className="block text-slate-600 mt-1">
+                同類的還有{' '}
+                <a
+                  href="https://app.netlify.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-sky-400 hover:underline"
+                >
+                  Netlify
+                </a>
+                、<strong className="text-slate-500">Cloudflare Pages</strong>、<strong className="text-slate-500">GitHub Pages</strong>。做法幾乎一樣，挑一個就好。
+              </span>
             </div>
           </AnimatedBlock>
 

@@ -470,8 +470,10 @@ export default function App() {
   }, [next, prev]);
 
   const handleContainerClick = (e: React.MouseEvent) => {
-    // Prevent advancing when clicking on buttons inside the slide
-    if ((e.target as HTMLElement).closest('button')) return;
+    // 點投影片裡的按鈕與連結時不要推進。連結一併放行，否則點外部連結會開新分頁，
+    // 底下卻偷偷跳掉一格，講者切回來位置就不對了。放在這裡是為了讓之後新增的連結
+    // 自動適用，不必每個 <a> 都記得補一次 stopPropagation。
+    if ((e.target as HTMLElement).closest('button, a')) return;
     next(true);
   };
 
