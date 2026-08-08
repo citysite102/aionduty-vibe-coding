@@ -7,14 +7,37 @@ interface BadgeProps {
   name: string;
   className: string;
   icon: any;
+  /** 官網。現場示範時可以直接點開，沒有官網的（例如「純手寫程式」）就不給。 */
+  href?: string;
 }
 
-function ToolBadge({ name, className, icon: Icon }: BadgeProps) {
-  return (
-    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[11px] font-medium border ${className}`}>
+/**
+ * 有 href 就渲染成連結。App.tsx 的點擊處理已經放行 <a>，
+ * 所以點開官網不會順便把投影片推進一格。
+ */
+function ToolBadge({ name, className, icon: Icon, href }: BadgeProps) {
+  const base = `inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-xs font-medium border ${className}`;
+  const content = (
+    <>
       <Icon size={11} className="shrink-0" />
       <span>{name}</span>
-    </span>
+    </>
+  );
+
+  if (!href) {
+    return <span className={base}>{content}</span>;
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      title={href.replace(/^https:\/\//, '')}
+      className={`${base} hover:border-sky-500/50 hover:text-sky-300 transition-colors`}
+    >
+      {content}
+    </a>
   );
 }
 
@@ -31,9 +54,9 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">1. 純對話聊天 (對話式 AI)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="ChatGPT" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
-                <ToolBadge name="Claude" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
-                <ToolBadge name="Gemini" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
+                <ToolBadge name="ChatGPT" href="https://chatgpt.com" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Claude" href="https://claude.ai" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
+                <ToolBadge name="Gemini" href="https://gemini.google.com" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 你問、它答，給你一段程式碼。但它看不到你的專案，貼上去對不對要你自己負責。
@@ -46,9 +69,9 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">2. AI App Builder (低程式碼平台)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Base44" className="bg-slate-950 border-slate-800 text-slate-300" icon={Code2} />
-                <ToolBadge name="Lovable" className="bg-slate-950 border-slate-800 text-slate-300" icon={Heart} />
-                <ToolBadge name="v0" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
+                <ToolBadge name="Base44" href="https://base44.com" className="bg-slate-950 border-slate-800 text-slate-300" icon={Code2} />
+                <ToolBadge name="Lovable" href="https://lovable.dev" className="bg-slate-950 border-slate-800 text-slate-300" icon={Heart} />
+                <ToolBadge name="v0" href="https://v0.app" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 講一句話就生出能用的網站。方便，但程式碼放在平台上，要客製就卡住。
@@ -61,7 +84,7 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">3. 瀏覽器原型工具</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Google AI Studio" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Google AI Studio" href="https://aistudio.google.com" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 一句話生出前後端都有的網頁，可以直接上線，也可以把程式碼匯出帶走。
@@ -74,8 +97,8 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-100 mb-1.5">4. 雲端自主 Agent</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Manus" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
-                <ToolBadge name="Devin" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Manus" href="https://manus.im" className="bg-slate-950 border-slate-800 text-slate-300" icon={Sparkles} />
+                <ToolBadge name="Devin" href="https://devin.ai" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 給它一個目標，它在雲端一台隔離的虛擬電腦裡自己查、自己寫、自己測，做完交件。
@@ -88,8 +111,8 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-sky-200 mb-1.5">5. 開發級 Agent / CLI (本機執行)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="Claude Code" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
-                <ToolBadge name="Codex" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
+                <ToolBadge name="Claude Code" href="https://claude.com/claude-code" className="bg-slate-950 border-slate-800 text-slate-300" icon={Terminal} />
+                <ToolBadge name="Codex" href="https://openai.com/codex" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-300 text-sm leading-relaxed">
                 在你自己的電腦上動工。讀得到真實檔案、跑得動指令、管得了 Git。

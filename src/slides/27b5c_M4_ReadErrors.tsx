@@ -4,8 +4,8 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 const CASES = [
   {
     icon: Terminal,
-    where: '終端機的紅字',
-    when: '還沒跑起來就出事',
+    where: 'Claude Code 執行指令時的紅字',
+    when: '終端機或桌面版都一樣，還沒跑起來就出事',
     accent: 'text-amber-400 bg-amber-500/10',
     log: [
       { text: '$ npm run dev', tone: 'text-slate-500' },
@@ -66,7 +66,7 @@ export default function SlideReadErrors() {
               stepIndex={idx + 2}
               className="bg-slate-900 border border-slate-800 rounded-3xl p-6"
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-4">
                 <div className={`p-2.5 rounded-xl ${c.accent}`}>
                   <Icon size={18} />
                 </div>

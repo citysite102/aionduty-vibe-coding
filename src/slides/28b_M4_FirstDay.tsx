@@ -1,11 +1,18 @@
 import { Rocket, FolderPlus, FileText, ListChecks, LifeBuoy } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-const STEPS = [
+const STEPS: {
+  icon: typeof FolderPlus;
+  title: string;
+  body: string;
+  codeLabel?: string;
+  code: string[] | null;
+}[] = [
   {
     icon: FolderPlus,
     title: '1. 開一個資料夾，把它叫起來',
-    body: '不用先想清楚要做什麼。開資料夾、cd 進去、輸入 claude，先讓它跑起來再說。',
+    body: '不用先想清楚要做什麼，先讓它跑起來再說。桌面版：開 Code 頁籤，選那個資料夾。終端機：cd 進去，輸入 claude。兩邊是同一個 Claude Code，挑你順手的那個。',
+    codeLabel: '走終端機的話：',
     code: ['$ mkdir my-project && cd my-project', '$ claude']
   },
   {
@@ -54,8 +61,11 @@ export default function SlideFirstDay() {
                   <div className="min-w-0">
                     <h4 className="text-base font-bold text-slate-100 mb-1.5">{step.title}</h4>
                     <p className="text-sm text-slate-400 leading-relaxed">{step.body}</p>
+                    {step.codeLabel && (
+                      <div className="text-xs text-slate-500 mt-3">{step.codeLabel}</div>
+                    )}
                     {step.code && (
-                      <div className="bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 mt-3 font-mono text-sm text-emerald-300 space-y-1 break-all">
+                      <div className={`bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 font-mono text-sm text-emerald-300 space-y-1 break-all ${step.codeLabel ? 'mt-1.5' : 'mt-3'}`}>
                         {step.code.map((line) => (
                           <div key={line}>{line}</div>
                         ))}

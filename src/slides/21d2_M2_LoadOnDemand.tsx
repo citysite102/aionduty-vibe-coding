@@ -52,6 +52,23 @@ export default function SlideM2LoadOnDemand() {
           </AnimatedBlock>
         ))}
 
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+          <div className="text-slate-200 text-sm font-bold mb-2">
+            找不到 <code className="font-mono text-orange-300">.claude</code> 資料夾？它預設是隱藏的
+          </div>
+          <p className="text-slate-500 text-sm leading-relaxed mb-2">
+            開頭是一個點的資料夾，Finder 與檔案總管平常都不會顯示。它在，只是你看不到。
+          </p>
+          <div className="text-slate-400 text-sm leading-relaxed space-y-1">
+            <div>Mac 的 Finder：進到專案資料夾，按 <code className="font-mono text-slate-300">Cmd + Shift + .</code> 切換顯示。</div>
+            <div>Windows 檔案總管：上方「檢視」→ 勾選「隱藏的項目」。</div>
+            <div>VS Code：側邊欄本來就看得到，不用另外設定。</div>
+          </div>
+          <p className="text-slate-500 text-sm leading-relaxed mt-2 border-t border-slate-800 pt-2">
+            懶得找就直接問它：「列出 .claude 底下有哪些檔案」，或請它幫你開起來。
+          </p>
+        </AnimatedBlock>
+
       </div>
     </SlideLayout>
   );

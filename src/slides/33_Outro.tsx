@@ -1,6 +1,40 @@
-import { Network, Star } from 'lucide-react';
+import { Network, Star, Repeat, Users, Share2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion } from 'motion/react';
+
+/**
+ * 收尾給三個方向而不是一個，因為台下三種人：手上有重複雜事的、
+ * 身邊有人被爛流程卡住的、要帶團隊的。一個建議只接得住其中一種。
+ * 三張都寫成「明天就能動手」的大小，不要寫成願景。
+ */
+const NEXT = [
+  {
+    icon: Repeat,
+    title: '把重複的事寫成流程',
+    body: (
+      <>
+        每週都要做一次的那件事（週報、對帳、整理名單），把做法與判斷標準寫成一份{' '}
+        <code className="rounded bg-slate-950 px-1.5 py-0.5 font-mono text-sky-300">SKILL.md</code>，交給它跑一次看看。
+      </>
+    ),
+  },
+  {
+    icon: Share2,
+    title: '把卡住別人的東西做成工具',
+    body: '部門一直用 Excel 互傳的那張表、每次都要重問一次的那份資料，做成一個網頁，網址發出去就有人在用。',
+  },
+  {
+    icon: Users,
+    title: '把規矩交給團隊',
+    body: (
+      <>
+        把你寫的{' '}
+        <code className="rounded bg-slate-950 px-1.5 py-0.5 font-mono text-sky-300">CLAUDE.md</code>{' '}
+        放進團隊共用的專案，下一個接手的人，跟下一個 Agent，都從同一個起點開始。
+      </>
+    ),
+  },
+];
 
 export default function SlideOutro() {
   return (
@@ -48,21 +82,35 @@ export default function SlideOutro() {
           </p>
 
           <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto border-t border-slate-800 pt-5">
-            今天做的那個計時器已經在線上了，網址可以直接傳給別人看。
-            <strong className="text-slate-100">下次換一個題目，流程還是一樣：講清楚要什麼、說好什麼叫做完、跑完自己抽查幾筆。</strong>
+            你做出來的那個計時器已經在線上，網址可以直接傳給別人看。
+            <strong className="text-slate-100">換一個題目，流程還是同一套：講清楚要什麼、說好什麼叫做完、跑完自己抽查幾筆。</strong>
           </p>
         </AnimatedBlock>
-        
+
         <AnimatedBlock stepIndex={2} className="w-full max-w-4xl relative z-10 mt-2">
           <div className="bg-gradient-to-r from-sky-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
-            <div className="bg-slate-950/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl border border-slate-800">
-              <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                <Star className="text-amber-400" size={20} />
-                下一步可以練什麼
+            <div className="bg-slate-950/80 backdrop-blur-xl p-7 md:p-8 rounded-3xl border border-slate-800 text-left">
+              <h3 className="text-xl font-bold text-white mb-1.5 flex items-center gap-2">
+                <Star className="text-sky-400" size={20} />
+                挑一個方向，這禮拜就能動手
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                挑一件你每週都要重複做的事，把做法和判斷標準整理成一份 <code className="text-sky-300 bg-slate-950 px-1.5 py-0.5 rounded font-mono">SKILL.md</code>，交給它跑一次看看。不必等到會寫程式才開始。
+              <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                三個都不必等到會寫程式才開始。
               </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {NEXT.map((n) => {
+                  const Icon = n.icon;
+                  return (
+                    <div key={n.title} className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Icon size={16} className="shrink-0 text-sky-400" />
+                        <h4 className="text-sm font-bold text-slate-100">{n.title}</h4>
+                      </div>
+                      <p className="text-sm text-slate-400 leading-relaxed">{n.body}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </AnimatedBlock>

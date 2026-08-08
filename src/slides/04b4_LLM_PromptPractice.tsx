@@ -16,7 +16,11 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 換掉實物之前先確認新的那個也同時滿足這三件事。
  */
 
-/** 題一：訂單表單，送出跟取消長得一模一樣 */
+/**
+ * 題一：訂單表單。毛病要看得見，學員才有東西可以描述，
+ * 所以「儲存草稿」故意染成警示紅、還是三顆裡最搶眼的那一顆，
+ * 真正要按的「送出」反而跟「取消」一樣灰。
+ */
 const ButtonMock = () => (
   <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
     <div className="text-xs font-mono text-slate-600 mb-3">訂單表單</div>
@@ -25,7 +29,7 @@ const ButtonMock = () => (
       <div className="h-2 w-1/2 rounded bg-slate-800" />
     </div>
     <div className="flex gap-2">
-      <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">儲存草稿</div>
+      <div className="rounded-md border border-red-500 bg-red-500/20 px-3 py-1.5 text-xs font-bold text-red-300">儲存草稿</div>
       <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">送出</div>
       <div className="rounded-md border border-slate-700 px-3 py-1.5 text-xs text-slate-400">取消</div>
     </div>
@@ -52,7 +56,7 @@ const DRILLS: { prompt: string; mock: ReactNode; caption: string; nudge: string 
     prompt: '「這個按鈕怪怪的，修一下」',
     mock: <ButtonMock />,
     caption: '你手上的畫面',
-    nudge: '按鈕上有字，那就是它的名字。旁邊那兩顆不該被動到。',
+    nudge: '紅色通常代表「按下去會出事」。哪一顆該紅、哪一顆該最顯眼？按鈕上有字，那就是它的名字，另外兩顆不該被動到。',
   },
   {
     prompt: '「幫我做一頁產品介紹的簡報，要專業一點」',

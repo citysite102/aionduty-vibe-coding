@@ -14,8 +14,8 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 const UNITS = [
   {
     n: '01',
-    title: '解構 Vibe Coding：跳脫對話框的開發新典範',
-    desc: '跳脫對話框，理解從輔助生成到 Agent 自動化的本質差異。',
+    title: 'Vibe Coding 是什麼，能做到哪裡',
+    desc: '從輔助生成到 Agent 自動化，中間差在哪裡，工具又該怎麼挑。',
   },
   {
     n: '02',
@@ -36,7 +36,7 @@ const UNITS = [
 
 export default function SlidePhilosophy() {
   return (
-    <SlideLayout title="這一天你會走過的四個關卡" subtitle="Unit Overview" icon={Map}>
+    <SlideLayout title="四個單元，從看懂到自己做出來" subtitle="Unit Overview" icon={Map}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock
           stepIndex={1}

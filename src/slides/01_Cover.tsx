@@ -70,8 +70,9 @@ export default function Slide01() {
         </div>
         
         <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
-          這堂課程帶你跨過「做」的門檻：搞懂 AI 怎麼輔助開發、建立自己的判斷框架，然後親手做出一套屬於自己的工作流程。
-          你不用會寫程式，今天練的是把需求講清楚，再自己驗收它做出來的東西。
+          不用會寫程式。你要練的是把需求講清楚，然後驗收它做出來的東西。
+          <br className="hidden md:block" />
+          從第一個能跑的作品開始，親手做出一套自己的 AI 開發流程。
         </p>
 
         <motion.div 

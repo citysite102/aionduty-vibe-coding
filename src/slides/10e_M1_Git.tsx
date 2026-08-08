@@ -40,15 +40,19 @@ export default function Slide10e() {
           </AnimatedBlock>
 
           {/* Tip Box */}
-          <AnimatedBlock stepIndex={4} className="bg-slate-900/40 border border-slate-800/60 p-4 rounded-xl text-xs text-slate-400 space-y-1.5">
-            <p>
-              💡 <strong>觀念拓展：</strong>Git 並非程式碼專用，它是<strong>「版本控制」的通用心智模型</strong>。不論是企劃文案、規格書、還是 AI 的設定檔，都能用 Git 管理。
+          <AnimatedBlock stepIndex={4} className="bg-slate-900/40 border border-slate-800/60 p-4 rounded-xl text-sm text-slate-400 space-y-2">
+            <p className="leading-relaxed">
+              💡 <strong className="text-slate-200">存的不只是程式碼。</strong>
+              Git 記的是「這個資料夾裡的文字檔，每一版長什麼樣」。所以你之後寫的 <code className="font-mono text-orange-300">CLAUDE.md</code>、
+              自己搭的運作框架、Skill 與子代理的設定檔，全都會一起被記下來。
             </p>
-            <p className="text-[11px] text-slate-500 border-t border-slate-950 pt-1.5">
-              🔍 <strong>延伸練習：</strong>推薦你去 GitHub 上查看專案的 <strong>Commit 提交紀錄</strong>，比對每一次的 Diff 修改。這能幫你看懂 Agent 到底改了哪些檔案！
+            <p className="leading-relaxed border-t border-slate-950 pt-2">
+              <strong className="text-slate-200">為什麼要留著這些紀錄：</strong>規矩會越改越多，總有一次會改壞。
+              有紀錄，你查得到是哪一次改的、那一次改了什麼、跟現在差在哪，然後退回上一版。
+              沒紀錄，你只能靠印象猜自己上禮拜寫了什麼。
             </p>
-            <p className="text-[11px] text-sky-300/90 border-t border-slate-950 pt-1.5 leading-relaxed">
-              🔭 <strong>先記著這一頁。</strong>等一下你做出任務計時器之後，第一件事就是幫它存檔。後面要放手讓 AI 自己改的時候，這個存檔點就是你的退路。
+            <p className="text-slate-500 leading-relaxed border-t border-slate-950 pt-2">
+              🔍 <strong>延伸練習：</strong>去 GitHub 上翻一個專案的 Commit 紀錄，比對每一次的 Diff。這能幫你看懂 Agent 到底改了哪些檔案。
             </p>
           </AnimatedBlock>
         </div>
@@ -70,9 +74,9 @@ export default function Slide10e() {
                 <motion.div 
                   key={commit.id}
                   className="relative z-10 flex flex-col items-center"
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 + i * 1, duration: 0.5, type: "spring" }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 + i * 0.6, duration: 0.4, ease: "easeOut" }}
                 >
                   <div className="text-xs text-slate-400 absolute -top-8 whitespace-nowrap font-mono">{commit.msg}</div>
                   <div className={`w-6 h-6 rounded-full border-4 border-slate-900 ${commit.color}`}></div>
@@ -85,14 +89,14 @@ export default function Slide10e() {
               className="absolute top-[50%] left-[50%] w-[50%] h-[40px] border-b-2 border-l-2 border-sky-500 rounded-bl-xl opacity-0"
               style={{ transformOrigin: "top left" }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 4, duration: 0.5 }}
+              transition={{ delay: 2.4, duration: 0.5 }}
             />
 
             <motion.div 
               className="absolute -bottom-[50px] right-0 translate-x-[10%] bg-sky-950/80 border border-sky-500/50 p-2 rounded-lg text-xs text-sky-300 flex items-center gap-2 shadow-lg whitespace-nowrap"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 4.5, duration: 0.5 }}
+              transition={{ delay: 2.8, duration: 0.5 }}
             >
               <FolderGit2 size={14} /> Agent 自動幫你 Commit 存檔
             </motion.div>

@@ -8,7 +8,7 @@ export default function SlideHarnessIntro() {
   const [triggerCount, setTriggerCount] = useState(0);
 
   return (
-    <SlideLayout title="什麼是運作框架？" subtitle="What Is a Harness?" icon={Box}>
+    <SlideLayout title="什麼是運作框架（Harness）？" subtitle="What Is a Harness?" icon={Box}>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto mt-2 items-stretch text-left pb-6">
         
@@ -80,7 +80,7 @@ export default function SlideHarnessIntro() {
                   }`}
                 >
                   <AlertCircle size={14} />
-                  無環境導引 (No Harness)
+                  無框架引導 (No Harness)
                 </button>
                 <button
                   onClick={() => setActiveTab('with')}

@@ -1,11 +1,28 @@
-import { Palette, FileText, CornerDownRight } from 'lucide-react';
+import { Palette, FileText, CornerDownRight, Eye } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { BrowserFrame, GenericMock, DesignedMock } from '../components/SiteMock';
 
+/**
+ * 參考站現場會直接點開，所以只放兩個，不做成一長串清單。
+ * 兩個的分工不一樣：一個是「同類作品長什麼樣」，一個是「上限在哪」。
+ */
+const REFS = [
+  {
+    name: 'Bestfolios',
+    href: 'https://www.bestfolios.com/',
+    desc: '設計師的個人網站與作品集實例，跟你等一下要做的東西同一類。',
+  },
+  {
+    name: 'CSS Design Awards',
+    href: 'https://www.cssdesignawards.com/',
+    desc: '每天選一個得獎網站，看的是版面能被做到什麼程度。',
+  },
+];
+
 export default function Slide21a2SkillDemoResume() {
   return (
-    <SlideLayout title="同一份履歷，裝與不裝 Skill" subtitle="With and Without a Skill" icon={Palette}>
+    <SlideLayout title="同一個個人網站，裝與不裝 Skill" subtitle="With and Without a Skill" icon={Palette}>
       <div className="mx-auto min-h-full w-full max-w-6xl space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
@@ -61,8 +78,34 @@ export default function Slide21a2SkillDemoResume() {
           </AnimatedBlock>
         </div>
 
+        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
+          <div className="mb-3 flex items-start gap-2.5">
+            <Eye size={16} className="mt-0.5 shrink-0 text-sky-400" />
+            <p className="text-sm leading-relaxed text-slate-300">
+              你不會寫版面，但你要驗收版面。
+              <strong className="text-slate-100">看過的好版面不夠多，你只講得出「怪怪的」，講不出哪裡該改。</strong>
+              而且做出來的東西是要給別人看的，對方通常在讀完內容之前就先決定要不要讀。
+              平常存幾個喜歡的網站，要改的時候直接把截圖貼給它，比形容十句有用。
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {REFS.map((r) => (
+              <a
+                key={r.href}
+                href={r.href}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-xl border border-slate-800 bg-slate-950 p-3 transition-colors hover:border-sky-500/50"
+              >
+                <div className="mb-1 font-mono text-sm text-sky-300">{r.name}</div>
+                <p className="text-sm leading-relaxed text-slate-400">{r.desc}</p>
+              </a>
+            ))}
+          </div>
+        </AnimatedBlock>
+
         <Callout
-          stepIndex={4}
+          stepIndex={5}
           footnote={
             <>
               <code className="font-mono text-orange-300">frontend-design</code> 在 Anthropic 官方市集

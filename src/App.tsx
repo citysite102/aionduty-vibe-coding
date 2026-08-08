@@ -129,9 +129,9 @@ import { REPLACEMENTS } from './slides-recorded/registry';
 
 const LIVE_TITLES = [
   "封面",
-  "這一天你會走過的四個關卡",
+  "四個單元，從看懂到自己做出來",
   "學完帶走的 3 大核心資產",
-  "跳脫對話框的開發新典範",
+  "Vibe Coding 是什麼，能做到哪裡",
   "什麼是 Vibe Coding？",
   "從 Vibe Coding 到 Agentic Engineering",
   "Vibe Coding 與 Agentic Engineering",
@@ -172,7 +172,7 @@ const LIVE_TITLES = [
   "先確認你手上有什麼",
   "Agent 運作框架與成本分析",
   "每次開新對話，你都要重講一次規矩",
-  "什麼是運作框架？",
+  "什麼是運作框架（Harness）？",
   "完整的運作框架有哪些零件",
   "上下文工程",
   "Token 經濟學：資本支出與營運成本",
@@ -182,7 +182,7 @@ const LIVE_TITLES = [
   "讓 AI 有手可用：MCP 與 Skills",
   "監督與邊界",
   "Claude Code 的四種權限模式",
-  "同一份履歷，裝與不裝 Skill",
+  "同一個個人網站，裝與不裝 Skill",
   "給它看，還要叫得出每一塊的名字",
   "動手搭建運作框架",
   "跟著做：寫出真正能用的 CLAUDE.md",
@@ -377,7 +377,7 @@ const IS_CLEAN = PARAMS.get('clean') === '1';
  */
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
-  { start: 3, label: '解構 Vibe Coding：跳脫對話框的開發新典範' },
+  { start: 3, label: 'Vibe Coding 是什麼，能做到哪裡' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
   { start: 42, label: 'Agent 運作框架與成本分析' },
   { start: 69, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
