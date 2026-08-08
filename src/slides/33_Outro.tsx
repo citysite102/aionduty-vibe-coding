@@ -1,6 +1,7 @@
 import { Network, Star, Repeat, Users, Share2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion } from 'motion/react';
+import { FeedbackQR, FEEDBACK_FORM_URL } from '../components/FeedbackQR';
 
 /**
  * 收尾給三個方向而不是一個，因為台下三種人：手上有重複雜事的、
@@ -62,39 +63,41 @@ export default function SlideOutro() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 1, type: "spring" }}
-            className="w-20 h-20 mx-auto bg-slate-900 rounded-full flex items-center justify-center mb-6 border border-sky-500/30 shadow-[0_0_40px_rgba(14,165,233,0.35)] relative"
+            className="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center mb-5 border border-sky-500/30 shadow-[0_0_40px_rgba(14,165,233,0.35)] relative"
           >
-             <Network size={36} className="text-sky-400 z-10" />
+             <Network size={30} className="text-sky-400 z-10" />
              <div className="absolute inset-0 border-t-2 border-r-2 border-sky-400 rounded-full" />
           </motion.div>
           
-          <h2 className="text-2xl md:text-4xl font-black text-slate-100 mb-4 leading-tight">
+          <h2 className="text-2xl md:text-3xl font-black text-slate-100 mb-3 leading-tight">
             以前寫下來的東西是給人看的，<br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
               現在寫下來的東西，會自己跑起來。
             </span>
           </h2>
 
-          <p className="text-slate-300 text-base md:text-lg leading-relaxed mb-6 max-w-3xl mx-auto">
+          <p className="text-slate-300 text-base leading-relaxed mb-4 max-w-3xl mx-auto">
             過去我們的價值在於親手把每一件瑣事做完。<br/>
             接下來的價值在於<strong className="text-white mx-1">「把判斷標準、流程與邊界講清楚」</strong>。<br/>
             工具會一直換，但這件事練起來不會白費。
           </p>
 
-          <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto border-t border-slate-800 pt-5">
+          <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-2xl mx-auto border-t border-slate-800 pt-4">
             你做出來的那個計時器已經在線上，網址可以直接傳給別人看。
             <strong className="text-slate-100">換一個題目，流程還是同一套：講清楚要什麼、說好什麼叫做完、跑完自己抽查幾筆。</strong>
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="w-full max-w-4xl relative z-10 mt-2">
-          <div className="bg-gradient-to-r from-sky-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
-            <div className="bg-slate-950/80 backdrop-blur-xl p-7 md:p-8 rounded-3xl border border-slate-800 text-left">
+        {/* 收尾與 QR 並排。疊起來的話這一頁會超出畫面，而最後一頁沒有人會去捲 */}
+        <div className="w-full max-w-6xl relative z-10 mt-1 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_290px] items-stretch">
+        <AnimatedBlock stepIndex={2} className="min-w-0">
+          <div className="h-full bg-gradient-to-r from-sky-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="h-full bg-slate-950/80 backdrop-blur-xl p-6 rounded-3xl border border-slate-800 text-left">
               <h3 className="text-xl font-bold text-white mb-1.5 flex items-center gap-2">
                 <Star className="text-sky-400" size={20} />
                 挑一個方向，這禮拜就能動手
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed mb-5">
+              <p className="text-slate-500 text-sm leading-relaxed mb-4">
                 三個都不必等到會寫程式才開始。
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -114,6 +117,29 @@ export default function SlideOutro() {
             </div>
           </div>
         </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3}>
+          <div className="flex h-full flex-col items-center justify-center gap-3 rounded-3xl border border-slate-800 bg-slate-950/70 p-5 text-center backdrop-blur-xl">
+            <div className="rounded-xl bg-white p-2 shadow-lg">
+              <FeedbackQR className="h-32 w-32" />
+            </div>
+            <div>
+              <h3 className="text-base font-bold text-slate-100 mb-1">課後回饋</h3>
+              <p className="text-sm leading-relaxed text-slate-400">
+                三分鐘。最卡住的那一刻寫得越具體，下一梯的人越不會卡在同一個地方。
+              </p>
+            </div>
+            <a
+              href={FEEDBACK_FORM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="font-mono text-xs text-sky-400 hover:underline"
+            >
+              {FEEDBACK_FORM_URL.replace('https://', '')}
+            </a>
+          </div>
+        </AnimatedBlock>
+        </div>
 
       </div>
     </SlideLayout>
