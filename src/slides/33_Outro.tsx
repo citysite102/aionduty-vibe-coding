@@ -125,8 +125,12 @@ export default function SlideOutro() {
             </div>
             <div>
               <h3 className="text-base font-bold text-slate-100 mb-1">課後回饋</h3>
-              <p className="text-sm leading-relaxed text-slate-400">
-                三分鐘。最卡住的那一刻寫得越具體，下一梯的人越不會卡在同一個地方。
+              {/* 定位成「可以說話的地方」，不是一份要交的作業。講怎麼填會變成交代事項 */}
+              <p className="text-sm leading-relaxed text-slate-300">
+                有什麼話想說，寫在這裡。
+              </p>
+              <p className="text-sm leading-relaxed text-slate-500">
+                三分鐘，匿名。
               </p>
             </div>
             <a
