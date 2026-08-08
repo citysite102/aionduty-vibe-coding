@@ -130,7 +130,7 @@ export default function SlideOutro() {
                 有什麼話想說，寫在這裡。
               </p>
               <p className="text-sm leading-relaxed text-slate-500">
-                三分鐘，匿名。
+                三分鐘就好。
               </p>
             </div>
             <a
