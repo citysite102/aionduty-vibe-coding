@@ -7,7 +7,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, Type, Timer } from 'lucide-react';
 import { SlideContext } from './components/SlideLayout';
-import { CountdownOverlay, openCountdown } from './components/CountdownOverlay';
+import { CountdownOverlay } from './components/CountdownOverlay';
+import { openCountdown } from './components/countdownBus';
 
 import Slide01 from './slides/01_Cover';
 import Slide02 from './slides/02_Philosophy';

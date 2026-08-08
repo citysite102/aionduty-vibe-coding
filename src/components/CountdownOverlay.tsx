@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Timer, Play, Pause, RotateCcw, X, Plus, SkipForward, Volume2, VolumeX } from 'lucide-react';
 import { LetterField } from './LetterField';
+import { onOpenCountdown } from './countdownBus';
 
 /**
  * 現場用的倒數計時器。跟投影片是分開的一層，任何一頁都能叫出來。
@@ -12,14 +13,10 @@ import { LetterField } from './LetterField';
  *
  * 叫出來的時候會把投影片的左右鍵接管掉（App.tsx 靠 onActiveChange 收到通知），
  * 否則講者按空白鍵想暫停音樂，投影片會偷偷跳頁。
+ *
+ * 這個檔案不要匯出元件以外的東西，Fast Refresh 會整包失效。開面板的函式
+ * 放在 countdownBus.ts。
  */
-
-const OPEN_EVENT = 'countdown:open';
-
-/** 給操作列那顆按鈕用。用事件而不是把狀態拉到 App，是為了不讓計時器的內部狀態外流 */
-export function openCountdown() {
-  window.dispatchEvent(new CustomEvent(OPEN_EVENT));
-}
 
 const TRACKS = [
   { file: 'soft-conference-drift.mp3', title: 'Soft Conference Drift' },
@@ -249,11 +246,7 @@ export function CountdownOverlay({ onActiveChange }: { onActiveChange?: (active:
     return () => window.removeEventListener('keydown', onKey, true);
   }, [mode, close, toggleRun, addMinute, reset, playTrack, pickRandomTrack, trackIdx]);
 
-  useEffect(() => {
-    const onOpen = () => setMode('panel');
-    window.addEventListener(OPEN_EVENT, onOpen);
-    return () => window.removeEventListener(OPEN_EVENT, onOpen);
-  }, []);
+  useEffect(() => onOpenCountdown(() => setMode('panel')), []);
 
   useEffect(() => () => stopFade(), []);
 
