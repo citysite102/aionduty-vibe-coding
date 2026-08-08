@@ -3,90 +3,184 @@ import { useEffect, useRef } from 'react';
 /**
  * 參考影格的字母場：整面黑底散著字母，其中一部分聚成當下的數字。
  *
- * 作法是「把字形當成一張遮罩」：先把 4:54 這種字串畫進一張離屏 canvas，
- * 讀回像素，有墨的地方就是字母該站的位置。剩下的字母平均撒在整個畫面上，
+ * 作法是「把字形當成一張遮罩」：把數字畫進離屏 canvas，讀回像素，
+ * 有墨的地方就是字母該站的位置。剩下的字母平均撒在整個畫面上，
  * 讓數字是「浮出來」的而不是貼上去的。
  *
- * 三件事決定它看起來像不像：
- *   1. 字母要是當下這個數字念出來的字。英文拼字加中文寫法一起用，
- *      台下看到的是「四分五十四秒」跟 FOUR FIFTY FOUR 混在一起，
- *      而不是一堆無意義的符號。
- *   2. 秒數跳動時字母是「飄過去」而不是瞬移。每顆粒子留著自己的位置與速度，
- *      每秒只換目標點，再用臨界阻尼彈簧收過去，所以不會抖也不會過頭。
- *   3. 停下來的時候也要有呼吸。每顆粒子帶一個慢速的正弦偏移，
- *      整片字母會緩緩浮動，不會像一張靜止的圖。
+ * 四件事決定它看起來像不像：
  *
- * 這一頁每秒都會換一次數字，所以「每秒要做的事」要壓到最低，否則每一秒
- * 都會頓一下。三個地方都做了處理：
- *   烘字母圖與掃遮罩像素都有快取，同一個字母表與同一組數字只算第一次；
- *   換目標點時直接寫進粒子，不另外配一整個陣列；
- *   粒子依透明度排序後才畫，globalAlpha 從每顆一次降到每幀十幾次。
+ * 1. 一位數字是一個格子，格子各自獨立。4:41 走到 4:40 只有個位那一格重排，
+ *    前面兩位連字母都不換。整組一起重抽的話，畫面每秒大範圍翻動一次，
+ *    看久了很吵，數字也永遠停不下來讓人讀。
+ *    為了讓格子真的獨立，版面用等寬排：每一位數字都佔一樣寬的格子，
+ *    寬度取十個數字裡最寬的那個。否則 1 換成 8 會把後面整排推開。
+ *
+ * 2. 每一格的字母是那一位數字自己的名字，中英各一份。4 那格由 F/O/U/R/四
+ *    組成，1 那格是 O/N/E/一。用整串時間的念法（FORTY ONE）也可以，但那樣
+ *    個位一變，前面幾格的字母也得跟著換，就破壞了第 1 點。
+ *
+ * 3. 字重與字距是這裡最關鍵的兩個數字。900 的數字有五成六的面積是實心，
+ *    字母鋪上去之後 8 的中空、4 的缺口全被填滿，就變成一坨。降到 600
+ *    再把字距拉開，實心面積掉到四成以下，形狀才看得出來。
+ *
+ * 4. 字母是飄過去而不是瞬移。每顆粒子留著自己的位置與速度，用臨界阻尼
+ *    彈簧收向目標，快慢還各自有差異。停著的時候帶一個慢速正弦在浮動。
+ *
+ * 效能：每秒要做的事都壓到最低。遮罩與字母圖都按「單一個字」快取，
+ * 全部加起來只有十幾個字，算一次就夠用一整堂課。粒子直接記著自己要畫的
+ * 那張圖，每幀不查表；粒子依透明度排序後才畫，globalAlpha 從每顆一次
+ * 降到每幀十幾次。
  *
  * 這個檔案不要匯出元件以外的東西，否則 Vite 的 Fast Refresh 會整包失效，
  * 開發時每改一次就整頁重載。
  */
 
-const SHAPE_COUNT = 1000;  // 聚成數字的字母數。太密會糊成一團，太疏就讀不出數字
-const FIELD_COUNT = 460;   // 散在背景的字母數
-const OMEGA = 6.5;         // 彈簧的自然頻率，越大收得越快
-const MASK_H = 150;        // 遮罩取樣高度，夠細就好，不用跟畫面同解析度
-const ALPHA_STEP = 0.04;   // 透明度量化階距，決定一幀要切幾次 globalAlpha
+const SHAPE_COUNT = 1400;   // 聚成數字的字母數。分給每一格之後才是那一位數字的密度
+const FIELD_COUNT = 460;    // 散在背景的字母數
+const OMEGA = 6.5;          // 彈簧的自然頻率，越大收得越快
+const MASK_H = 150;         // 遮罩字級
+const MASK_W = 210;         // 遮罩畫布寬，放得下一個 150px 的字就夠
+const MASK_ROWS = 200;      // 遮罩畫布高
+const TRACKING = 26;        // 格子之間的間隙，遮罩座標
+const COLON_SHARE = 0.3;    // 冒號那一格分到的粒子量，相對一位數字
+const ALPHA_STEP = 0.04;    // 透明度量化階距，決定一幀要切幾次 globalAlpha
+const FIELD_SWAP = 0.05;    // 每秒有多少比例的背景字母換一個字
+const GLOW = 4;             // 數字那組的外光暈。再大就會糊掉筆畫之間的縫
 
-const ONES = ['ZERO', 'ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT', 'NINE',
-  'TEN', 'ELEVEN', 'TWELVE', 'THIRTEEN', 'FOURTEEN', 'FIFTEEN', 'SIXTEEN', 'SEVENTEEN',
-  'EIGHTEEN', 'NINETEEN'];
-const TENS = ['', '', 'TWENTY', 'THIRTY', 'FORTY', 'FIFTY', 'SIXTY', 'SEVENTY', 'EIGHTY', 'NINETY'];
-const ZH = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+const DIGITS = '0123456789';
 
-function spellEn(n: number): string {
-  if (n < 20) return ONES[n];
-  const r = n % 10;
-  return r === 0 ? TENS[Math.floor(n / 10)] : `${TENS[Math.floor(n / 10)]}${ONES[r]}`;
-}
+/** 每一個字自己的名字。中英各念一次 */
+const WORDS: Record<string, string> = {
+  '0': 'ZERO零', '1': 'ONE一', '2': 'TWO二', '3': 'THREE三', '4': 'FOUR四',
+  '5': 'FIVE五', '6': 'SIX六', '7': 'SEVEN七', '8': 'EIGHT八', '9': 'NINE九',
+  ':': '分秒',
+};
 
-function spellZh(n: number): string {
-  if (n < 10) return ZH[n];
-  const t = Math.floor(n / 10);
-  const r = n % 10;
-  return `${t === 1 ? '' : ZH[t]}十${r === 0 ? '' : ZH[r]}`;
-}
-
-/** 這一秒要用的字。中英各念一次，去掉重複的字元 */
-function alphabetFor(totalSeconds: number): string[] {
-  const m = Math.floor(totalSeconds / 60);
-  const s = totalSeconds % 60;
-  const en = m === 0 ? spellEn(s) : `${spellEn(m)}${spellEn(s)}`;
-  const zh = m === 0 ? `${spellZh(s)}秒` : `${spellZh(m)}分${spellZh(s)}秒`;
-  return Array.from(new Set((en + zh).split('')));
-}
-
-/** 畫面正中央那組數字。超過一分鐘顯示 M:SS，否則只顯示秒數 */
+/** 畫面正中央那組數字。超過一分鐘顯示 M:SS，最後一分鐘只留秒數，讓它變大 */
 function faceFor(totalSeconds: number): string {
   const m = Math.floor(totalSeconds / 60);
   const s = totalSeconds % 60;
   return m === 0 ? String(s) : `${m}:${String(s).padStart(2, '0')}`;
 }
 
+function lettersOf(ch: string): string[] {
+  return Array.from(new Set(WORDS[ch] ?? ch));
+}
+
+function pick<T>(list: T[]): T {
+  return list[(Math.random() * list.length) | 0];
+}
+
+// --- 單一個字的遮罩。只跟字有關，跟畫面大小無關，所以可以一直留著 ---
+
+type CharMask = {
+  hits: Int32Array;
+  minX: number; maxX: number; minY: number; maxY: number;
+};
+
+const EMPTY_MASK: CharMask = { hits: new Int32Array(0), minX: 0, maxX: 0, minY: 0, maxY: 0 };
+const maskCache = new Map<string, CharMask>();
+
+function maskFor(ch: string): CharMask {
+  const cached = maskCache.get(ch);
+  if (cached) return cached;
+
+  const canvas = document.createElement('canvas');
+  canvas.width = MASK_W;
+  canvas.height = MASK_ROWS;
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+  if (!ctx) return EMPTY_MASK;
+
+  ctx.font = `600 ${MASK_H}px ui-sans-serif, system-ui, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#fff';
+  ctx.fillText(ch, MASK_W / 2, MASK_ROWS / 2);
+
+  const data = ctx.getImageData(0, 0, MASK_W, MASK_ROWS).data;
+  const hits: number[] = [];
+  let minX = MASK_W, maxX = 0, minY = MASK_ROWS, maxY = 0;
+  for (let y = 0; y < MASK_ROWS; y++) {
+    for (let x = 0; x < MASK_W; x++) {
+      if (data[(y * MASK_W + x) * 4 + 3] > 128) {
+        hits.push(y * MASK_W + x);
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }
+    }
+  }
+  if (hits.length === 0) return EMPTY_MASK;
+
+  const mask: CharMask = { hits: Int32Array.from(hits), minX, maxX, minY, maxY };
+  maskCache.set(ch, mask);
+  return mask;
+}
+
+/** 十個數字共用的度量。等寬排版與垂直對齊都靠它 */
+let metrics: { cellW: number; top: number; bottom: number; maxInk: number } | null = null;
+
+function digitMetrics() {
+  if (metrics) return metrics;
+  let cellW = 0, top = MASK_ROWS, bottom = 0, maxInk = 0;
+  for (const d of DIGITS) {
+    const m = maskFor(d);
+    cellW = Math.max(cellW, m.maxX - m.minX + 1);
+    top = Math.min(top, m.minY);
+    bottom = Math.max(bottom, m.maxY);
+    maxInk = Math.max(maxInk, m.hits.length);
+  }
+  metrics = { cellW, top, bottom, maxInk };
+  return metrics;
+}
+
+// --- 字母的小圖。每個字每個尺寸烘一次就好 ---
+
+const spriteCache = new Map<string, HTMLCanvasElement>();
+
+function spriteFor(ch: string, size: number, glow: number, dpr: number) {
+  const key = `${ch}|${size}|${glow}|${dpr}`;
+  const cached = spriteCache.get(key);
+  if (cached) return cached;
+
+  const canvas = document.createElement('canvas');
+  const box = size + Math.ceil(size * 0.9) + glow * 2;
+  canvas.width = Math.ceil(box * dpr);
+  canvas.height = Math.ceil(box * dpr);
+  const ctx = canvas.getContext('2d');
+  if (ctx) {
+    ctx.scale(dpr, dpr);
+    ctx.font = `700 ${size}px ui-sans-serif, system-ui, "PingFang TC", "Noto Sans TC", sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    if (glow > 0) {
+      ctx.shadowColor = 'rgba(255,255,255,0.55)';
+      ctx.shadowBlur = glow;
+    }
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(ch, box / 2, box / 2);
+  }
+  spriteCache.set(key, canvas);
+  return canvas;
+}
+
 type Particle = {
   x: number; y: number;    // 目前位置
   vx: number; vy: number;  // 目前速度，彈簧靠它才不會抖
   tx: number; ty: number;  // 目標位置
-  ch: number;              // 在字母圖集裡的索引
+  char: string;
+  img: HTMLCanvasElement | null;  // 直接記著要畫的圖，每幀不查表
   alpha: number;
   speed: number;           // 每顆快慢略有差異，抵達時間錯開才像一群東西在飄
   phase: number;           // 呼吸用的相位
   amp: number;             // 呼吸幅度
   shape: boolean;
-  slot: number;            // 在自己這一組裡的編號。排序之後不能再用陣列索引推
+  active: boolean;         // 細的數字用不到整格的粒子，多的就收起來不畫
 };
 
-/** 一組數字的遮罩取樣結果。存的是遮罩座標，跟畫面大小無關，換視窗尺寸也不必重算 */
-type MaskInfo = {
-  hits: Int32Array;
-  maskW: number;
-  minX: number; minY: number;
-  inkW: number; inkH: number;
-};
+/** 一位數字（或冒號）佔的一格。from/size 是它固定分到的那一段粒子 */
+type Slot = { ch: string; cellX: number; cellW: number; from: number; size: number };
 
 export function LetterField({
   seconds,
@@ -95,7 +189,7 @@ export function LetterField({
 }: {
   /** 剩餘秒數 */
   seconds: number;
-  /** 暫停時字母停止呼吸、亮度降下來 */
+  /** 暫停時字母停止呼吸、亮度收一點 */
   paused?: boolean;
   className?: string;
 }) {
@@ -117,177 +211,153 @@ export function LetterField({
     let w = 0;
     let h = 0;
     let raf = 0;
-    let bright: HTMLCanvasElement[] = [];
-    let dim: HTMLCanvasElement[] = [];
-    let glyphChars = '';
+    let brightSize = 16;
+    let dimSize = 13;
     let lastFace = '';
-    let lastAlphabet = '';
-    /** 只有真正第一次進場才從畫面外收進來。改視窗大小時重算位置，但不要整個重來 */
     let spawned = false;
+    /** 改過視窗大小之後版面要整個重算，不能只補變動的那一格 */
+    let geometryStale = true;
 
-    // 一堂課會出現的字母表與數字都只有幾十種，全部留著也不佔多少記憶體
-    const glyphCache = new Map<string, { bright: HTMLCanvasElement[]; dim: HTMLCanvasElement[] }>();
-    const maskCache = new Map<string, MaskInfo | null>();
+    let slots: Slot[] = [];
+    let pattern = '';
+    let scale = 1;
+    let originX = 0;
+    let originY = 0;
 
     const particles: Particle[] = [];
     for (let i = 0; i < SHAPE_COUNT + FIELD_COUNT; i++) {
       const shape = i < SHAPE_COUNT;
       const raw = shape ? 0.88 + Math.random() * 0.12 : 0.16 + Math.random() * 0.26;
       particles.push({
-        x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0, ch: 0, shape,
-        slot: shape ? i : i - SHAPE_COUNT,
-        // 量化到固定階距，等一下排序後同一階的可以共用一次 globalAlpha
+        x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0,
+        char: '0', img: null, shape, active: !shape,
+        // 量化到固定階距，排序後同一階的可以共用一次 globalAlpha
         alpha: Math.round(raw / ALPHA_STEP) * ALPHA_STEP,
         speed: 0.7 + Math.random() * 0.7,
         phase: Math.random() * Math.PI * 2,
         amp: shape ? 1.5 + Math.random() * 2.5 : 5 + Math.random() * 9,
       });
     }
-    // 背景先畫、數字後畫，數字才會壓在上面；同一組內再依透明度排，好讓相鄰的共用設定
+    // 背景先畫、數字後畫，數字才會壓在上面；同一組內再依透明度排，好共用設定
     particles.sort((a, b) => (a.shape === b.shape ? a.alpha - b.alpha : (a.shape ? 1 : -1)));
+    const shapePool = particles.filter((p) => p.shape);
+    const fieldPool = particles.filter((p) => !p.shape);
 
-    /** 把字母表烘成兩組小圖：數字用的（大、帶光暈）與背景用的（小、乾淨） */
-    const bakeGlyphs = (chars: string[]) => {
-      const joined = chars.join('');
-      glyphChars = joined;
-      const base = Math.max(11, Math.min(20, Math.round(h / 46)));
-      const key = `${joined}|${base}`;
-      const cached = glyphCache.get(key);
-      if (cached) {
-        bright = cached.bright;
-        dim = cached.dim;
-        return;
-      }
+    const setChar = (p: Particle, ch: string) => {
+      p.char = ch;
+      p.img = spriteFor(ch, p.shape ? brightSize : dimSize, p.shape ? GLOW : 0, dpr);
+    };
 
-      const bake = (size: number, glow: number) => chars.map((ch) => {
-        const g = document.createElement('canvas');
-        const box = size + Math.ceil(size * 0.9) + glow * 2;
-        g.width = Math.ceil(box * dpr);
-        g.height = Math.ceil(box * dpr);
-        const gc = g.getContext('2d');
-        if (!gc) return g;
-        gc.scale(dpr, dpr);
-        gc.font = `700 ${size}px ui-sans-serif, system-ui, "PingFang TC", "Noto Sans TC", sans-serif`;
-        gc.textAlign = 'center';
-        gc.textBaseline = 'middle';
-        if (glow > 0) {
-          gc.shadowColor = 'rgba(255,255,255,0.55)';
-          gc.shadowBlur = glow;
-        }
-        gc.fillStyle = '#ffffff';
-        gc.fillText(ch, box / 2, box / 2);
-        return g;
+    const spawnFromRing = (p: Particle) => {
+      const a = Math.random() * Math.PI * 2;
+      const d = Math.max(w, h) * (0.6 + Math.random() * 0.4);
+      p.x = w / 2 + Math.cos(a) * d;
+      p.y = h / 2 + Math.sin(a) * d;
+      p.vx = 0;
+      p.vy = 0;
+    };
+
+    /**
+     * 依 face 的樣式（哪幾格是數字、哪一格是冒號）算版面。
+     * 刻意只看樣式不看數字，這樣 4:41 與 4:40 的格子位置與粒子分配完全一樣。
+     */
+    const layOut = (face: string) => {
+      const met = digitMetrics();
+      const chars = face.split('');
+      const colon = maskFor(':');
+      const widths = chars.map((c) => (c === ':' ? colon.maxX - colon.minX + 1 : met.cellW));
+      const totalW = widths.reduce((a, b) => a + b, 0) + TRACKING * (chars.length - 1);
+      const totalH = met.bottom - met.top + 1;
+
+      // 數字要夠大，字母之間才拉得開；擠在一起就糊成一團，讀不出是幾分幾秒
+      scale = Math.min((h * 0.56) / totalH, (w * 0.7) / totalW);
+      originX = (w - totalW * scale) / 2;
+      originY = (h - totalH * scale) / 2;
+
+      const weights = chars.map((c) => (c === ':' ? COLON_SHARE : 1));
+      const weightSum = weights.reduce((a, b) => a + b, 0);
+      let cursorX = 0;
+      let cursorP = 0;
+      slots = chars.map((c, i) => {
+        const size = i === chars.length - 1
+          ? SHAPE_COUNT - cursorP
+          : Math.round((SHAPE_COUNT * weights[i]) / weightSum);
+        const slot: Slot = { ch: c, cellX: cursorX, cellW: widths[i], from: cursorP, size };
+        cursorX += widths[i] + TRACKING;
+        cursorP += size;
+        return slot;
       });
-
-      // 光暈只給數字那組，而且要克制：糊掉的話字母就疊成一團看不出形狀
-      bright = bake(base, 4);
-      dim = bake(Math.round(base * 0.78), 0);
-      glyphCache.set(key, { bright, dim });
+      pattern = chars.map((c) => (c === ':' ? ':' : '#')).join('');
     };
 
-    /** 把 face 這串字畫進離屏 canvas，抽出有墨的像素。同一組數字只掃一次 */
-    const maskFor = (face: string): MaskInfo | null => {
-      const cached = maskCache.get(face);
-      if (cached !== undefined) return cached;
+    /** 把一格的粒子放到那個字的筆畫上。只有這一格會動 */
+    const placeSlot = (slot: Slot, ring: boolean) => {
+      const met = digitMetrics();
+      const mask = maskFor(slot.ch);
+      if (mask.hits.length === 0) return;
 
-      const mask = document.createElement('canvas');
-      const mctx = mask.getContext('2d', { willReadFrequently: true });
-      if (!mctx) return null;
+      const inkW = mask.maxX - mask.minX + 1;
+      // 字在自己格子裡置中。等寬排版下 1 比 8 窄，不置中會看起來偏左
+      const dx = slot.cellX + (slot.cellW - inkW) / 2 - mask.minX;
+      const letters = lettersOf(slot.ch);
 
-      // 字重與字距是這一頁最關鍵的兩個數字。900 的數字有五成六的面積是實心，
-      // 字母鋪上去之後 8 的中空、4 的缺口、字與字的間隙全被填滿，就變成一坨。
-      // 降到 600 再把字距拉開，實心面積掉到不到四成，形狀才看得出來。
-      const font = `600 ${MASK_H}px ui-sans-serif, system-ui, sans-serif`;
-      const spacing = `${Math.round(MASK_H * 0.12)}px`;
-      const setup = () => {
-        mctx.font = font;
-        // 舊瀏覽器沒有這個屬性，設不上去就只是沒有額外字距，不會壞
-        mctx.letterSpacing = spacing;
-      };
+      // 細的字（1）墨少，用滿整格會比粗的字（8）密上三倍。按墨量收，密度才一致
+      const ratio = slot.ch === ':' ? 1 : mask.hits.length / met.maxInk;
+      const live = Math.max(8, Math.min(slot.size, Math.round(slot.size * ratio)));
 
-      setup();
-      mask.width = Math.ceil(mctx.measureText(face).width) + 40;
-      mask.height = Math.ceil(MASK_H * 1.3);
-
-      // 改過 width/height 之後 context 會重置，字型要重設一次
-      setup();
-      mctx.fillStyle = '#fff';
-      mctx.textAlign = 'center';
-      mctx.textBaseline = 'middle';
-      mctx.fillText(face, mask.width / 2, mask.height / 2);
-
-      const data = mctx.getImageData(0, 0, mask.width, mask.height).data;
-      const hits: number[] = [];
-      let minX = mask.width, maxX = 0, minY = mask.height, maxY = 0;
-      for (let y = 0; y < mask.height; y++) {
-        for (let x = 0; x < mask.width; x++) {
-          if (data[(y * mask.width + x) * 4 + 3] > 128) {
-            hits.push(y * mask.width + x);
-            if (x < minX) minX = x;
-            if (x > maxX) maxX = x;
-            if (y < minY) minY = y;
-            if (y > maxY) maxY = y;
-          }
+      for (let k = 0; k < slot.size; k++) {
+        const p = shapePool[slot.from + k];
+        if (!p) break;
+        if (k >= live) {
+          p.active = false;
+          continue;
         }
+        const idx = mask.hits[(Math.random() * mask.hits.length) | 0];
+        p.active = true;
+        p.tx = originX + (dx + (idx % MASK_W) + Math.random()) * scale;
+        p.ty = originY + (((idx / MASK_W) | 0) - met.top + Math.random()) * scale;
+        setChar(p, pick(letters));
+        if (ring) spawnFromRing(p);
       }
-
-      const info: MaskInfo | null = hits.length === 0 ? null : {
-        hits: Int32Array.from(hits),
-        maskW: mask.width,
-        minX,
-        minY,
-        inkW: maxX - minX + 1,
-        inkH: maxY - minY + 1,
-      };
-      maskCache.set(face, info);
-      return info;
     };
 
-    /** 換一組目標點。直接寫進粒子，不另外配陣列，這是每秒都會跑的路徑 */
-    const retarget = (face: string, chars: string[]) => {
-      const mask = maskFor(face);
-      const firstRun = !spawned;
-      const joined = chars.join('');
-      const alphabetChanged = joined !== lastAlphabet;
-
-      // 縮放要照「真的有墨的範圍」算，不是照畫布大小。字型的行高留白很多，
-      // 拿畫布高度去算會讓數字只有預期的三分之二大
-      let scale = 0, ox = 0, oy = 0;
-      if (mask) {
-        // 數字要夠大，字母之間才拉得開；擠在一起就糊成一團，讀不出是幾分幾秒
-        scale = Math.min((h * 0.56) / mask.inkH, (w * 0.7) / mask.inkW);
-        ox = (w - mask.inkW * scale) / 2;
-        oy = (h - mask.inkH * scale) / 2;
-      }
-      // 背景字母切成格子再各自抖動，避免純亂數擠成一團一團
+    /** 背景字母。位置只在開場與改視窗大小時重撒，平常靠呼吸就夠了 */
+    const placeField = (letters: string[], ring: boolean) => {
       const cols = Math.max(1, Math.ceil(Math.sqrt((FIELD_COUNT * w) / h)));
       const rows = Math.ceil(FIELD_COUNT / cols);
+      fieldPool.forEach((p, i) => {
+        p.tx = (((i % cols) + 0.1 + Math.random() * 0.8) / cols) * w;
+        p.ty = ((((i / cols) | 0) + 0.1 + Math.random() * 0.8) / rows) * h;
+        setChar(p, pick(letters));
+        if (ring) spawnFromRing(p);
+      });
+    };
 
-      for (const p of particles) {
-        if (p.shape) {
-          if (!mask) continue;
-          const idx = mask.hits[(Math.random() * mask.hits.length) | 0];
-          p.tx = ox + ((idx % mask.maskW) - mask.minX + Math.random()) * scale;
-          p.ty = oy + (((idx / mask.maskW) | 0) - mask.minY + Math.random()) * scale;
-        } else {
-          p.tx = (((p.slot % cols) + 0.1 + Math.random() * 0.8) / cols) * w;
-          p.ty = ((((p.slot / cols) | 0) + 0.1 + Math.random() * 0.8) / rows) * h;
-        }
-        if (firstRun) {
-          // 開場從畫面外圍收進來，不要憑空出現
-          const a = Math.random() * Math.PI * 2;
-          const d = Math.max(w, h) * (0.6 + Math.random() * 0.4);
-          p.x = w / 2 + Math.cos(a) * d;
-          p.y = h / 2 + Math.sin(a) * d;
-          p.vx = 0;
-          p.vy = 0;
-        }
-        if (alphabetChanged || firstRun) {
-          p.ch = (Math.random() * chars.length) | 0;
+    const applyFace = (face: string) => {
+      const chars = face.split('');
+      const nextPattern = chars.map((c) => (c === ':' ? ':' : '#')).join('');
+      const rebuild = geometryStale || nextPattern !== pattern || slots.length !== chars.length;
+      const firstRun = !spawned;
+      const letters = Array.from(new Set(chars.flatMap(lettersOf)));
+
+      if (rebuild) {
+        layOut(face);
+        for (const slot of slots) placeSlot(slot, firstRun);
+        placeField(letters, firstRun);
+        geometryStale = false;
+      } else {
+        // 這是常走的那條路：一秒過去，通常只有個位變了
+        slots.forEach((slot, i) => {
+          if (slot.ch === chars[i]) return;
+          slot.ch = chars[i];
+          placeSlot(slot, false);
+        });
+        // 背景不重排，只讓少數幾個字母悄悄換一個字，整片才不會跟著閃
+        for (const p of fieldPool) {
+          if (Math.random() < FIELD_SWAP) setChar(p, pick(letters));
         }
       }
       spawned = true;
-      lastAlphabet = joined;
     };
 
     const resize = () => {
@@ -299,8 +369,13 @@ export function LetterField({
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      bakeGlyphs(glyphChars ? glyphChars.split('') : alphabetFor(targetRef.current.seconds));
-      lastFace = ''; // 逼下一幀依新尺寸重算目標點
+
+      brightSize = Math.max(11, Math.min(20, Math.round(h / 46)));
+      dimSize = Math.max(9, Math.round(brightSize * 0.78));
+      for (const p of particles) setChar(p, p.char);
+
+      geometryStale = true;
+      lastFace = ''; // 逼下一幀依新尺寸重算版面
     };
 
     resize();
@@ -317,9 +392,7 @@ export function LetterField({
       const { seconds: sec, paused: isPaused } = targetRef.current;
       const face = faceFor(sec);
       if (face !== lastFace) {
-        const chars = alphabetFor(sec);
-        if (chars.join('') !== glyphChars) bakeGlyphs(chars);
-        retarget(face, chars);
+        applyFace(face);
         lastFace = face;
       }
 
@@ -331,6 +404,8 @@ export function LetterField({
 
       let curAlpha = -1;
       for (const p of particles) {
+        if (!p.active || !p.img) continue;
+
         // 呼吸：目標點自己慢慢晃，整片字母才不會像一張靜止的圖
         const tx = p.tx + Math.cos(t * 0.35 + p.phase) * p.amp * breath;
         const ty = p.ty + Math.sin(t * 0.28 + p.phase * 1.3) * p.amp * breath;
@@ -353,21 +428,19 @@ export function LetterField({
           p.vy = nvy;
         }
 
-        const atlas = p.shape ? bright : dim;
-        const g = atlas[p.ch % atlas.length];
-        if (!g) continue;
         const a = p.alpha * alphaMul;
         if (a !== curAlpha) {
           ctx.globalAlpha = a;
           curAlpha = a;
         }
-        const gw = g.width / dpr;
-        const gh = g.height / dpr;
-        ctx.drawImage(g, p.x - gw / 2, p.y - gh / 2, gw, gh);
+        const gw = p.img.width / dpr;
+        const gh = p.img.height / dpr;
+        ctx.drawImage(p.img, p.x - gw / 2, p.y - gh / 2, gw, gh);
       }
       ctx.globalAlpha = 1;
     };
     raf = requestAnimationFrame(loop);
+
 
     const observer = new ResizeObserver(resize);
     observer.observe(parent);
