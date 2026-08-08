@@ -6,8 +6,11 @@
 |---|---|---|---|
 | 簡報投影片（主要產出） | `src/slides/`、`src/components/` | React + Tailwind + `motion/react` | 這份，A、B、D 章 |
 | Remotion 動畫元件 | `src/remotion/` | Remotion，frame 驅動 | `src/remotion/CLAUDE.md`，加這份的 A-3、D 章 |
+| 現場工具（倒數計時器） | `src/components/CountdownOverlay.tsx`、`LetterField.tsx` | React + canvas | 只套 D 章。**A-3 的動態規範不適用**，見下方 |
 
 > Remotion 那份是子目錄手冊，Claude Code 動到那一區的檔案時才會載入，平常不佔 context。**不要把它的規則套到投影片上**，投影片沒有 frame 的概念，節奏是靠 `currentStep`。
+
+> 倒數計時器是疊在投影片上的一層，講者按 `T` 或點操作列上的碼錶叫出來。它會透過 `onActiveChange` 通知 `App.tsx` 把翻頁的鍵盤與點擊讓出來，**改 `App.tsx` 的 `handleKeyDown` 或 `handleContainerClick` 時不要把那兩個 `if (timerActive) return` 拿掉**，否則講者在計時畫面按空白鍵，底下的投影片會偷偷跳頁。它的字母場是持續動的，這是它的功能本身，不受 A-3「禁止常駐無限動畫」規範；那條規範是為了投影片內容不要跟講者搶注意力。背景音樂放 `public/music/`，換檔案要同步改 `CountdownOverlay.tsx` 的 `TRACKS`。
 
 ---
 

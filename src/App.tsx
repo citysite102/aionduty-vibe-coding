@@ -5,8 +5,9 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Type } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Type, Timer } from 'lucide-react';
 import { SlideContext } from './components/SlideLayout';
+import { CountdownOverlay, openCountdown } from './components/CountdownOverlay';
 
 import Slide01 from './slides/01_Cover';
 import Slide02 from './slides/02_Philosophy';
@@ -417,6 +418,8 @@ export default function App() {
   const [current, setCurrent] = useState(INITIAL_SLIDE);
   const [currentStep, setCurrentStep] = useState(INITIAL_STEP);
   const [fontScale, setFontScale] = useState<number>(100); // default 100%
+  /** 計時器叫出來的時候，翻頁的鍵與點擊都要讓給它 */
+  const [timerActive, setTimerActive] = useState(false);
   const maxStepRef = useRef(0);
   const controlFocusClass = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950";
 
@@ -463,6 +466,7 @@ export default function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (timerActive) return;
       if (e.key === ' ') {
         e.preventDefault();
         next(false);
@@ -477,9 +481,10 @@ export default function App() {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [next, prev]);
+  }, [next, prev, timerActive]);
 
   const handleContainerClick = (e: React.MouseEvent) => {
+    if (timerActive) return;
     // 點投影片裡的按鈕與連結時不要推進。連結一併放行，否則點外部連結會開新分頁，
     // 底下卻偷偷跳掉一格，講者切回來位置就不對了。放在這裡是為了讓之後新增的連結
     // 自動適用，不必每個 <a> 都記得補一次 stopPropagation。
@@ -517,9 +522,22 @@ export default function App() {
         </SlideContext.Provider>
       </div>
 
+      <CountdownOverlay onActiveChange={setTimerActive} />
+
       {/* Floating Controls */}
       {!IS_CLEAN && <div className="absolute bottom-6 right-6 flex gap-2 items-center bg-slate-900/80 p-2 rounded-full backdrop-blur-md border border-slate-800 shadow-2xl z-50">
-        
+
+        {/* 倒數計時器。鍵盤按 T 也可以叫出來 */}
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); openCountdown(); }}
+          className={`p-1.5 hover:bg-slate-800 rounded-full transition-colors text-slate-400 hover:text-sky-300 ${controlFocusClass}`}
+          title="倒數計時器 (T)"
+          aria-label="開啟倒數計時器"
+        >
+          <Timer size={16} />
+        </button>
+
         {/* Font Scale Adjuster */}
         <div className="flex gap-1 items-center px-2.5 py-0.5 border-r border-slate-800 text-slate-400 select-none shrink-0" onClick={e => e.stopPropagation()}>
           <Type size={12} className="text-slate-500 mr-1" />
