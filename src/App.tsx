@@ -38,6 +38,7 @@ import Slide10c2 from './slides/10c2_M1_WebArchDuties';
 import Slide10c3 from './slides/10c3_M1_Deploy';
 import Slide10d from './slides/10d_M1_Database';
 import Slide10e from './slides/10e_M1_Git';
+import Slide10e2 from './slides/10e2_M1_GitRemote';
 import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
@@ -162,6 +163,7 @@ const LIVE_TITLES = [
   "同一批資料，兩種擺法",
   "從本機到上線：交給託管平台",
   "用 Git 存檔，改壞了可以回去",
+  "commit 完了，東西還是只在你電腦裡",
   "一次改一點，比一次改完安全",
   "手把手操作",
   "畫面上這幾塊分別在說什麼",
@@ -284,6 +286,7 @@ const LIVE_SLIDES = [
   Slide10d,
   Slide10c3,
   Slide10e,
+  Slide10e2,
   Slide15,
   Slide11,
   Slide11b,
@@ -387,10 +390,10 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 3, label: 'Vibe Coding 是什麼，能做到哪裡' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 42, label: 'Agent 運作框架與成本分析' },
-  { start: 70, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 81, label: '讓 Agent 分工，並守住品質' },
-  { start: 94, label: 'Agent 循環開發流程' },
+  { start: 43, label: 'Agent 運作框架與成本分析' },
+  { start: 71, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 82, label: '讓 Agent 分工，並守住品質' },
+  { start: 95, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
