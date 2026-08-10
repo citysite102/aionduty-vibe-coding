@@ -24,7 +24,6 @@ import Slide04b2 from './slides/04b2_LLM_Prompt';
 import Slide04b3 from './slides/04b3_LLM_PromptDrill';
 import Slide04b4 from './slides/04b4_LLM_PromptPractice';
 import Slide05 from './slides/05_Intro_Cases';
-import Slide06 from './slides/06_Threads';
 import Slide07 from './slides/07_Div_Terminal';
 import Slide07b from './slides/07b_Div_TerminalTrack';
 import Slide09 from './slides/09_M1_CodeIntro';
@@ -151,7 +150,6 @@ const LIVE_TITLES = [
   "講清楚，先檢查這三件事",
   "換你改這兩句",
   "同一個需求，三種做法",
-  "兩條學習主線",
   "讓 AI 動手：Claude Code 入門",
   "為什麼要一個能動手的 AI？",
   "這件事真的做得到嗎？",
@@ -278,7 +276,6 @@ const LIVE_SLIDES = [
   Slide04b3,
   Slide04b4,
   Slide05,
-  Slide06,
   Slide07,
   Slide09,
   Slide09a,
@@ -401,12 +398,12 @@ const IS_CLEAN = PARAMS.get('clean') === '1';
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 4, label: 'Vibe Coding 是什麼，能做到哪裡' },
-  { start: 15, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 41, label: '選修：終端機' },
-  { start: 46, label: 'Agent 運作框架與成本分析' },
-  { start: 76, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 86, label: '讓 Agent 分工，並守住品質' },
-  { start: 99, label: 'Agent 循環開發流程' },
+  { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
+  { start: 40, label: '選修：終端機' },
+  { start: 45, label: 'Agent 運作框架與成本分析' },
+  { start: 75, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 85, label: '讓 Agent 分工，並守住品質' },
+  { start: 98, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
