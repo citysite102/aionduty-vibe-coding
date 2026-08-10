@@ -34,7 +34,6 @@ import RecTransferQ3, { meta as m44 } from './harness/44_TransferQ3';
 import RecTransferMapping, { meta as m46 } from './harness/46_TransferMapping';
 import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep';
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
-import RecTransferGrowth, { meta as m60 } from './harness/60_TransferGrowth';
 import RecTransferIntegrate, { meta as m61 } from './harness/61_TransferIntegrate';
 import RecHookHowTo, { meta as m62 } from './harness/62_HookHowTo';
 import RecHandbookV1, { meta as m54 } from './harness/54_HandbookV1';
@@ -116,7 +115,6 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m43, Component: RecTransferQ2 },
     { meta: m44, Component: RecTransferQ3 },
     { meta: m46, Component: RecTransferMapping },
-    { meta: m60, Component: RecTransferGrowth },
     { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
