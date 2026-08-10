@@ -16,7 +16,7 @@ export default function SlideCodeIntro() {
         
         <AnimatedBlock stepIndex={1} className="text-center">
           <p className="text-slate-300 text-base leading-relaxed">
-            同一個 AI，放在<strong className="text-slate-100">對話框</strong>裡和放在<strong className="text-indigo-300">你的電腦</strong>裡，是兩種完全不同的東西。
+            同一個 AI，放在<strong className="text-slate-100">對話框</strong>裡和放在<strong className="text-sky-300">你的電腦</strong>裡，是兩種完全不同的東西。
           </p>
         </AnimatedBlock>
 
@@ -63,17 +63,17 @@ export default function SlideCodeIntro() {
           </AnimatedBlock>
 
           {/* Claude Code Block */}
-          <AnimatedBlock stepIndex={3} className="bg-gradient-to-b from-indigo-950/20 to-slate-950/10 border-2 border-indigo-500/30 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.08)]">
-            <div className="absolute top-0 right-0 p-4 text-indigo-400/10">
+          <AnimatedBlock stepIndex={3} className="bg-gradient-to-b from-sky-950/20 to-slate-950/10 border-2 border-sky-500/30 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden shadow-[0_0_30px_rgba(56,189,248,0.10)]">
+            <div className="absolute top-0 right-0 p-4 text-sky-400/10">
               <Code2 size={100} />
             </div>
 
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="p-1.5 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                <div className="p-1.5 rounded-lg bg-sky-500/10 text-sky-400 border border-sky-500/20">
                   <Terminal size={16} />
                 </div>
-                <h3 className="text-base font-bold text-indigo-300">裝在你電腦裡 (Claude Code)：「執行者」</h3>
+                <h3 className="text-base font-bold text-sky-300">裝在你電腦裡 (Claude Code)：「執行者」</h3>
               </div>
 
               <p className="text-sm text-slate-300 leading-relaxed mb-5">
@@ -96,17 +96,25 @@ export default function SlideCodeIntro() {
               </ul>
             </div>
 
-            <div className="mt-6 pt-3 border-t border-slate-900 text-xs text-indigo-300/80 font-medium">
+            <div className="mt-6 pt-3 border-t border-slate-900 text-xs text-sky-300/80 font-medium">
               ★ 有腦，也有手。
             </div>
           </AnimatedBlock>
 
         </div>
 
+        {/*
+          原本開頭是「那 Connector 跟 MCP 呢？」。
+          Connector 全片只出現過這一次，MCP 要到第二單元才正式介紹，
+          在這裡等於用兩個沒教過的名詞去回答一個學員還沒問的問題。
+          實質保留（接得到線上服務、打不開你電腦裡的檔案），名詞拿掉。
+        */}
         <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-3.5 bg-slate-900 border-slate-800">
           <p className="text-slate-400 text-sm leading-relaxed">
-            <strong className="text-slate-300">那 Connector 跟 MCP 呢？</strong>網頁版確實可以透過它們接上一些外部工具，但接的多半是<strong className="text-slate-300">雲端服務</strong>：讀某個線上服務的資料、查某個線上資料庫。
-            它還是<strong className="text-slate-200">打不開你電腦裡的檔案</strong>，也不能在你的資料夾裡新增或修改任何東西。要做到那件事，工具得裝在你自己這台電腦上。
+            <strong className="text-slate-300">網頁版不是也能接東西嗎？</strong>可以，它接得上一些線上服務，
+            讀某個雲端資料庫、查某個平台上的資料。但那些東西都在網路上，
+            它還是<strong className="text-slate-200">打不開你電腦裡的檔案</strong>，也不能在你的資料夾裡新增或修改任何東西。
+            要做到那件事，工具得裝在你自己這台電腦上。
           </p>
         </AnimatedBlock>
 
