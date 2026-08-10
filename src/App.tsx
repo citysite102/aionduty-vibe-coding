@@ -11,6 +11,7 @@ import { CountdownOverlay } from './components/CountdownOverlay';
 import { openCountdown } from './components/countdownBus';
 
 import Slide01 from './slides/01_Cover';
+import Slide01b from './slides/01b_PreFlight';
 import Slide02 from './slides/02_Philosophy';
 import Slide02a from './slides/02a_CoreAssets';
 import Slide02b from './slides/02b_Div_Intro';
@@ -134,6 +135,7 @@ import { REPLACEMENTS } from './slides-recorded/registry';
 
 const LIVE_TITLES = [
   "封面",
+  "動手之前，先準備這幾樣",
   "四個單元，從看懂到自己做出來",
   "學完帶走的 3 大核心資產",
   "Vibe Coding 是什麼，能做到哪裡",
@@ -257,6 +259,7 @@ const LIVE_TITLES = [
 
 const LIVE_SLIDES = [
   Slide01,
+  Slide01b,
   Slide02,
   Slide02a,
   Slide02b,
@@ -388,12 +391,12 @@ const IS_CLEAN = PARAMS.get('clean') === '1';
  */
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
-  { start: 3, label: 'Vibe Coding 是什麼，能做到哪裡' },
-  { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 43, label: 'Agent 運作框架與成本分析' },
-  { start: 71, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 82, label: '讓 Agent 分工，並守住品質' },
-  { start: 95, label: 'Agent 循環開發流程' },
+  { start: 4, label: 'Vibe Coding 是什麼，能做到哪裡' },
+  { start: 15, label: 'Agent 的心智模型與 Claude Code 實作' },
+  { start: 44, label: 'Agent 運作框架與成本分析' },
+  { start: 72, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 83, label: '讓 Agent 分工，並守住品質' },
+  { start: 96, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
