@@ -92,7 +92,6 @@ import Slide21f3 from './slides/21f3_M2_RuleFailure';
 import Slide21f4 from './slides/21f4_M2_RuleRouting';
 import Slide21f5 from './slides/21f5_M2_ClaudeMdHealth';
 import Slide21h2 from './slides/21h2_M2_ProjectsInPractice';
-import Slide21j from './slides/21j_M2_ClaudeCodeIntegration';
 import Slide32 from './slides/32_Cheat_Tools';
 import Slide32c from './slides/32c_M2_TransferQuiz';
 import Slide32d from './slides/32d_M2_Recap';
@@ -221,7 +220,6 @@ const LIVE_TITLES = [
   "手冊越寫越肥，怎麼整理",
   "怎麼把話講對：白名單與探索空間",
   "同一套手冊，換個地方用",
-  "Claude Projects 與 Claude Code 怎麼搭",
   "跨工具思維對照表",
   "換成你的工作，手冊該寫什麼",
   "這一段你完成了三件事",
@@ -349,7 +347,6 @@ const LIVE_SLIDES = [
   Slide21f5,
   Slide32b,
   Slide21h2,
-  Slide21j,
   Slide32,
   Slide32c,
   Slide32d,
@@ -408,8 +405,8 @@ const SECTION_DEFS = [
   { start: 41, label: '選修：終端機' },
   { start: 46, label: 'Agent 運作框架與成本分析' },
   { start: 76, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 87, label: '讓 Agent 分工，並守住品質' },
-  { start: 100, label: 'Agent 循環開發流程' },
+  { start: 86, label: '讓 Agent 分工，並守住品質' },
+  { start: 99, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

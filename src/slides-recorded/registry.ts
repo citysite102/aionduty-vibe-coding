@@ -27,11 +27,6 @@ import RecLayersOverview, { meta as m26 } from './harness/26_LayersOverview';
 import RecHandbookLength, { meta as m31 } from './harness/31_HandbookLength';
 import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
-import RecProjectsUI, { meta as m34b } from './harness/34b_ProjectsUI';
-import RecNonCodeKnowledge, { meta as m37 } from './harness/37_NonCodeKnowledge';
-import RecNonCodeInstruction, { meta as m38 } from './harness/38_NonCodeInstruction';
-import RecProjectScope, { meta as m39 } from './harness/39_ProjectScope';
-import RecWhyNotNewChat, { meta as m39b } from './harness/39b_WhyNotNewChat';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
 import RecTransferQ1, { meta as m42 } from './harness/42_TransferQ1';
 import RecTransferQ2, { meta as m43 } from './harness/43_TransferQ2';
@@ -112,15 +107,10 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
   82: [
     { meta: m33, Component: RecSurfaceIntro },
-    { meta: m34b, Component: RecProjectsUI },
-    { meta: m37, Component: RecNonCodeKnowledge },
-    { meta: m38, Component: RecNonCodeInstruction },
-    { meta: m39, Component: RecProjectScope },
-    { meta: m39b, Component: RecWhyNotNewChat },
     { meta: m58, Component: RecHandbookV5 },
   ],
-  // index 85 = 原「換成你的工作，手冊該寫什麼」
-  85: [
+  // index 84 = 原「換成你的工作，手冊該寫什麼」
+  84: [
     { meta: m41, Component: RecTransferCase },
     { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
@@ -130,8 +120,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 86 = 原「這一段你完成了三件事」
-  86: [
+  // index 85 = 原「這一段你完成了三件事」
+  85: [
     { meta: m48, Component: RecRecapOne },
   ],
 };
