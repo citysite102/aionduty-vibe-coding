@@ -72,7 +72,7 @@ export default function SlideLLMPromptPractice() {
       <div className="max-w-5xl mx-auto space-y-5 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">
-          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。右邊是你手上真正有的東西。
+          照剛才那三個檢查點，把下面兩句改成它不用猜的版本。附的那張圖是你手上真正有的東西。
         </AnimatedBlock>
 
         {DRILLS.map((d, i) => (
@@ -98,10 +98,21 @@ export default function SlideLLMPromptPractice() {
           </AnimatedBlock>
         ))}
 
-        <AnimatedBlock stepIndex={4} className="text-slate-400 text-base leading-relaxed px-1">
-          改完念給旁邊的人聽。
-          <span className="text-slate-200">他如果還要反問你一句，代表 AI 也會猜錯。</span>
-          右邊那兩張圖本身也是答案的一部分：講不清楚的，直接貼給它看。
+        {/*
+          原本是「念給旁邊的人聽，他反問你就代表 AI 也會猜錯」。
+          線上課沒有旁邊的人，但那句的功能是「不需要講師改的自我檢查」，
+          所以替代的也要能自己執行：念到得補一句「我的意思是」就是同一個訊號。
+          第二句把「講不清楚的直接貼給它看」變成真的做得到的動作，
+          自己看影片的人才有辦法當場驗一次。
+        */}
+        <AnimatedBlock stepIndex={4} className="text-slate-400 text-base leading-relaxed px-1 space-y-1.5">
+          <p>
+            改完自己念一遍。
+            <span className="text-slate-200">念到需要停下來補一句「我的意思是⋯」，那個地方 AI 也會猜。</span>
+          </p>
+          <p>
+            還是不確定，就把改寫後的句子連同那張圖一起貼給它，問它「你還需要猜哪些地方」。
+          </p>
         </AnimatedBlock>
 
       </div>
