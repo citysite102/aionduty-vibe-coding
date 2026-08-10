@@ -82,9 +82,8 @@ export default function Slide10d() {
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            程式一關掉，使用者的帳號跟訂單就跟著不見，所以要有資料庫，它是軟體的
-            <strong className="text-slate-100">長期記憶</strong>。
-            但存下來只是第一步。同一批資料怎麼擺，決定了它三個月後還能不能用。
+            網頁一關掉，剛才輸入的東西就沒了。要留住，就得寫進資料庫。
+            <strong className="text-slate-100">但寫進去只是第一步，同一批資料擺法不一樣，三個月後差很多。</strong>
           </p>
         </AnimatedBlock>
 
@@ -188,21 +187,21 @@ export default function Slide10d() {
               <Table aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
               <p className="text-slate-300 text-sm leading-relaxed">
                 <strong className="text-slate-100">關聯式（SQL）</strong>：PostgreSQL、MySQL。
-                欄位要先講清楚，改起來費工，但關係嚴謹。上面那種拆表就是它的做法，
-                訂單、金流這種錯不得的資料用它。
+                每張表有哪些欄位要先講好，之後想改比較麻煩。好處是它會幫你擋掉對不起來的資料。
+                上面那種拆表就是它的做法，訂單、金流這種不能錯的東西用它。
               </p>
             </div>
             <div className="flex items-start gap-3">
               <FileJson aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
               <p className="text-slate-300 text-sm leading-relaxed">
                 <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firebase。
-                每一筆格式自由，想加欄位隨時加，寫起來快，但少了硬性約束，
-                複雜的交叉查詢就吃力。
+                每一筆想放什麼就放什麼，開發的時候很快。代價是沒有人幫你把關，
+                而且要把好幾張表湊在一起查的時候會很吃力。
               </p>
             </div>
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            沒有特別理由的話，一般網站選 SQL。真正決定好不好用的是上面那件事，不是選哪一種。
+            沒有特別理由就選 SQL。會不會出事，看的是上面那件事，不是你選了哪一種。
           </p>
         </AnimatedBlock>
       </div>

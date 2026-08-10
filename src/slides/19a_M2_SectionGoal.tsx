@@ -70,7 +70,7 @@ export default function SlideM2SectionGoal() {
             <span className="text-slate-500">兩個數字都會因為需求規模差很多，這裡只拿來對照量級。</span>
           </p>
           <p className="text-slate-300 text-sm leading-relaxed border-t border-slate-800 pt-2.5">
-            這一段不會教你精算帳單，但會讓你知道<strong className="text-slate-100">自己大概落在哪個量級</strong>，
+            你要能講出<strong className="text-slate-100">自己大概落在哪個量級</strong>，
             以及<strong className="text-slate-100">哪些做法會讓它暴增</strong>。
           </p>
         </AnimatedBlock>

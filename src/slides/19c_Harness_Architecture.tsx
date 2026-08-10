@@ -42,7 +42,7 @@ const parts = [
   },
   {
     icon: Link,
-    name: '生命週期掛鉤',
+    name: '自動關卡',
     en: 'Hooks',
     desc: '在固定時機自動跑的一段檢查，不經過 AI 判斷，所以它想跳過也跳不掉（例如存檔前擋下密碼）。',
     scope: 'later' as const,
@@ -50,7 +50,7 @@ const parts = [
   },
   {
     icon: Activity,
-    name: '可觀測性',
+    name: '事後查得到',
     en: 'Observability',
     desc: '事後查得到它做過什麼、走過哪些步驟、花掉多少額度。',
     scope: 'aware' as const,
