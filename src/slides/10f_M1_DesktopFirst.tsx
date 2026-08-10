@@ -73,7 +73,7 @@ export default function SlideDesktopFirst() {
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            終端機等一下就會裝。但先讓你看到成果，不然裝到一半卡住的人，不會知道自己在裝什麼。
+            這四步不用終端機，整堂課接下來也都用得上這個畫面。先讓你看到成果，其他的等有東西跑出來再說。
           </p>
         </AnimatedBlock>
 

@@ -26,6 +26,7 @@ import Slide04b4 from './slides/04b4_LLM_PromptPractice';
 import Slide05 from './slides/05_Intro_Cases';
 import Slide06 from './slides/06_Threads';
 import Slide07 from './slides/07_Div_Terminal';
+import Slide07b from './slides/07b_Div_TerminalTrack';
 import Slide09 from './slides/09_M1_CodeIntro';
 import Slide09a from './slides/09a_M1_Benchmarks';
 import Slide09b from './slides/09b_M1_TopicsOverview';
@@ -44,6 +45,7 @@ import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
 import Slide11d from './slides/11d_M1_ClaudeShortcuts';
+import Slide11d2 from './slides/11d2_M1_TerminalKeys';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide11c from './slides/11c_M1_PricingAndROI';
 import Slide11c2 from './slides/11c2_M1_ROI';
@@ -155,8 +157,6 @@ const LIVE_TITLES = [
   "先用桌面版做出第一個東西",
   "前置基礎觀念導覽",
   "紅字不是壞事，它在告訴你哪裡卡住",
-  "選修：終端機指令互動 Playground",
-  "選修：推薦現代 AI 終端機 Warp",
   "兩個程式要講話，得先講好格式",
   "讓 Agent 幫你讀文件並串接",
   "如何閱讀 API 文件",
@@ -167,7 +167,6 @@ const LIVE_TITLES = [
   "用 Git 存檔，改壞了可以回去",
   "commit 完了，東西還是只在你電腦裡",
   "一次改一點，比一次改完安全",
-  "手把手操作",
   "畫面上這幾塊分別在說什麼",
   "Claude Code 核心按鍵與技巧",
   "Claude Code 指令的四種類型",
@@ -178,6 +177,11 @@ const LIVE_TITLES = [
   "哪些事它做得好，哪些你得自己來",
   "該用什麼工具？",
   "先確認你手上有什麼",
+  "選修：把 Claude Code 裝進終端機",
+  "選修：終端機指令互動 Playground",
+  "選修：推薦現代 AI 終端機 Warp",
+  "手把手操作",
+  "終端機才有的三個鍵",
   "Agent 運作框架與成本分析",
   "每次開新對話，你都要重講一次規矩",
   "什麼是運作框架（Harness）？",
@@ -279,8 +283,6 @@ const LIVE_SLIDES = [
   Slide10f,
   Slide09b,
   Slide17,
-  Slide10,
-  Slide10a,
   Slide10b,
   Slide10b2,
   Slide10b3,
@@ -291,7 +293,6 @@ const LIVE_SLIDES = [
   Slide10e,
   Slide10e2,
   Slide15,
-  Slide11,
   Slide11b,
   Slide11d,
   Slide11e,
@@ -302,6 +303,11 @@ const LIVE_SLIDES = [
   Slide14,
   Slide18b,
   Slide18c,
+  Slide07b,
+  Slide10,
+  Slide10a,
+  Slide11,
+  Slide11d2,
   Slide19,
   Slide19a,
   Slide20,
@@ -393,10 +399,11 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 4, label: 'Vibe Coding 是什麼，能做到哪裡' },
   { start: 15, label: 'Agent 的心智模型與 Claude Code 實作' },
-  { start: 44, label: 'Agent 運作框架與成本分析' },
-  { start: 72, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 83, label: '讓 Agent 分工，並守住品質' },
-  { start: 96, label: 'Agent 循環開發流程' },
+  { start: 41, label: '選修：終端機' },
+  { start: 46, label: 'Agent 運作框架與成本分析' },
+  { start: 74, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 85, label: '讓 Agent 分工，並守住品質' },
+  { start: 98, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

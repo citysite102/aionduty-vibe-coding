@@ -10,23 +10,10 @@ export default function SlideCodeSetup() {
       <LiveDemo kind="terminal" note="跟著裝一次" />
 
       <div className="max-w-6xl mx-auto mb-5">
-        <Callout
-          tone="focus"
-          label="用桌面版的人看這裡"
-          icon={AppWindow}
-          stepIndex={1}
-          footnote={
-            <>
-              下面的步驟 0 與步驟 1 是終端機版在裝的，跟你無關，直接跳到步驟 2。
-              步驟 2 那一格有一行是寫給你的：你已經在對話裡了，不用輸入 <code className="font-mono text-orange-300">claude</code>，直接打那句中文。
-            </>
-          }
-        >
-          你只要做一件事：<strong className="text-slate-100">安裝 Git</strong>。到{' '}
-          <code className="font-mono text-slate-200">git-scm.com/downloads</code>{' '}
-          下載，一路按下一步就好。
-          <strong className="text-slate-100">裝完不用驗證，也不用開終端機</strong>，
-          後面把作品推上 GitHub 的時候才會用到它。
+        <Callout tone="focus" label="這一段是選修的" icon={AppWindow} stepIndex={1}>
+          桌面版已經做得完前面所有事，<strong className="text-slate-100">終端機是同一個 Claude Code 的另一個介面</strong>，
+          不是另一個工具。裝它的理由是：可以同時開好幾個在跑、可以用 <code className="font-mono text-orange-300">!</code> 直接下指令、
+          以及之後想把它接進自動化流程的時候需要它。
         </Callout>
       </div>
 
@@ -42,7 +29,8 @@ export default function SlideCodeSetup() {
             等寬框裡，看起來像六行都要用打的，學員會卡在「這是要跟 AI 說的嗎」。
           */}
           <p className="text-slate-400 text-sm mb-2.5">
-            這三個要<strong className="text-slate-200">自己開瀏覽器下載安裝</strong>，不是打指令，也不是跟 AI 說：
+            這三個要<strong className="text-slate-200">自己開瀏覽器下載安裝</strong>，不是打指令，也不是跟 AI 說。
+            Git 在課前那份清單裡就有，前兩個是走終端機這條路才需要的：
           </p>
           <div className="space-y-1.5 mb-3">
             <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
@@ -70,24 +58,6 @@ export default function SlideCodeSetup() {
             macOS 裝過 Xcode 命令列工具的話通常已經有 Git 了，Windows 預設沒有。
           </p>
 
-          {/*
-            這兩個帳號原本沒列，結果現場最花時間的兩件事就是它們：
-            有人整段時間卡在 GitHub 建置，也有人到下午才發現沒有付費額度可以跑。
-            兩個都要收驗證信，臨場申請一定會卡住，所以列進來並標明要先辦好。
-          */}
-          <p className="text-slate-400 text-sm mt-4 mb-2.5">
-            另外<strong className="text-slate-200">兩個帳號要先辦好</strong>，兩個都要收驗證信，臨時申請會卡在那裡：
-          </p>
-          <div className="space-y-1.5">
-            <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
-              <a href="https://claude.ai" target="_blank" rel="noreferrer" className="font-bold text-sky-400 hover:underline">Claude 付費方案</a>
-              <span className="text-xs text-slate-500 ml-2.5">Pro 以上，或到 Console 儲值走 API。沒有額度它跑不動</span>
-            </div>
-            <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="font-bold text-sky-400 hover:underline">GitHub</a>
-              <span className="text-xs text-slate-500 ml-2.5">存檔跟上線都要用它，帳號本身免費</span>
-            </div>
-          </div>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
@@ -110,42 +80,37 @@ export default function SlideCodeSetup() {
         <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">2</span>
-            試跑一次，確認環境真的通了
+            切到你的專案，確認它讀得到
           </h3>
-          <p className="text-slate-400 text-sm mb-1.5">
-            <strong className="text-slate-300">終端機：</strong>先切到你想放作品的資料夾，輸入 <code className="text-sky-300">claude</code>，直接對話。
-          </p>
           <p className="text-slate-400 text-sm mb-3">
-            <strong className="text-slate-300">桌面版 Code 頁籤：</strong>你已經在對話裡了，不用輸入 <code className="text-sky-300">claude</code>，直接打下面這句。
+            用 <code className="text-sky-300">cd</code> 切到你前面做計時器的那個{' '}
+            <code className="text-sky-300">mission-timer</code> 資料夾，輸入{' '}
+            <code className="text-sky-300">claude</code>，然後問它一句：
           </p>
           <div className="bg-black/50 p-4 rounded-lg border border-slate-800">
             <div className="flex gap-2 text-sm">
               <span className="text-sky-400 font-bold shrink-0">You:</span>
-              <span className="text-slate-300">請建立一個 <code className="text-sky-300">mission-timer</code> 資料夾，裡面放一個計時器的 HTML 網頁。</span>
+              <span className="text-slate-300">請幫我看一下這個資料夾裡有哪些檔案，並說明這個專案在做什麼。</span>
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
-            這一步只是確認環境能跑通，不用管它做得好不好看。正式的作品在後面會重做一次，資料夾就沿用 <code className="text-slate-400">mission-timer</code> 這個名字，整堂課都會回頭改它。
-            <span className="block mt-1.5">
-              它會建在你剛才選的那個資料夾裡面（桌面版）或你切過去的那個位置（終端機）。<strong className="text-slate-400">記住它在哪。</strong>
-            </span>
+            它應該要認得你的 <code className="text-slate-400">index.html</code>，也讀得到你寫過的規矩。
+            <strong className="text-slate-400">這就是這一段要確認的事：跟桌面版是同一個 Claude Code、同一個專案，只是換一個介面進去。</strong>
           </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={5} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
           <h3 className="text-xl font-bold text-slate-100 mb-2 flex items-start gap-2.5">
-            <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-emerald-500/20 font-mono text-xs text-emerald-400">3</span>
-            收尾：先看一眼專案記憶 (CLAUDE.md)
+            <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">3</span>
+            兩邊可以隨時換
           </h3>
-          <p className="text-slate-400 text-sm mb-3">在會話最後，請它自己總結一份，先知道有這個東西就好。</p>
-          <div className="bg-black/50 p-4 rounded-lg border border-slate-800">
-            <div className="flex gap-2 text-sm">
-              <span className="text-emerald-400 font-bold shrink-0">You:</span>
-              <span className="text-slate-300">請幫我把剛才的開發重點總結成一份 CLAUDE.md。</span>
-            </div>
-          </div>
-          <p className="text-slate-500 text-xs mt-3 leading-relaxed">
-            打開來看看它寫了什麼就好。第二單元會專門講 CLAUDE.md 該寫哪些東西、分幾層放，到時候我們再回來把這份改成真正能用的版本。
+          <p className="text-slate-400 text-sm mb-3">
+            同一個資料夾，你今天用終端機、明天用桌面版都可以，它讀的是同一份檔案。
+            要離開終端機的對話，輸入 <code className="text-sky-300">/exit</code> 或按兩次{' '}
+            <code className="text-sky-300">Ctrl + C</code>。
+          </p>
+          <p className="text-slate-500 text-xs leading-relaxed">
+            裝到一半卡住也不影響你前面做的任何東西，回桌面版繼續就好。
           </p>
         </AnimatedBlock>
 

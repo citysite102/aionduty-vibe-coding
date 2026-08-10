@@ -16,13 +16,11 @@ export default function SlideClaudeCodeUI() {
                 第一次啟動？<br/>
                 教你一眼看懂這個畫面
               </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-3">
-                右邊這張是終端機啟動後的樣子。
-              </p>
               <p className="text-slate-400 text-sm leading-relaxed mb-4 bg-slate-900 border border-slate-800 rounded-xl p-3">
-                用<strong className="text-slate-300">桌面版 Code 頁籤</strong>的人，你的畫面不長這樣，
-                但下面這三塊東西都在，位置也一樣：目前狀態在上方、對話在中間、輸入框在最下面。
-                <strong className="text-slate-300">跟著右邊那張圖看這三塊就對了。</strong>
+                不管你開的是<strong className="text-slate-300">桌面版的 Code 頁籤</strong>還是終端機，
+                畫面上都是同樣三塊，位置也一樣：
+                <strong className="text-slate-300">目前狀態在上方、對話在中間、輸入框在最下面。</strong>
+                旁邊那張圖是終端機的樣子，桌面版長得漂亮一點，但要看的就是這三塊。
               </p>
             </AnimatedBlock>
 

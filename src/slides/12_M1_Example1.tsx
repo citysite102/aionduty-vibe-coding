@@ -28,8 +28,8 @@ export default function SlideExample1() {
               這個作品不是做完就丟。接下來整堂課我們都會回頭改它，最後把它放上網路，你會拿到一個可以傳給別人的網址。
             </p>
             <p className="text-slate-500 text-sm leading-relaxed mt-3">
-              剛才桌面版那個五分鐘計時器只是試跑，可以放著不管。正式的作品做在安裝時建的{' '}
-              <code className="font-mono text-slate-400">mission-timer</code> 資料夾裡，也就是這一頁要做的這一個。
+              剛才那個五分鐘計時器只是試跑，可以放著不管。正式的作品另外開一個資料夾，
+              叫 <code className="font-mono text-slate-400">mission-timer</code>，整堂課都會回頭改它。
             </p>
           </AnimatedBlock>
 
@@ -39,7 +39,7 @@ export default function SlideExample1() {
             </div>
 
             <p className="text-slate-100 leading-relaxed font-medium text-sm mb-3">
-              「請在這個資料夾建立一個單頁的任務計時器，一個 index.html 就好。」
+              「請開一個 mission-timer 資料夾，在裡面建立一個單頁的任務計時器，一個 index.html 就好。」
             </p>
 
             <div className="space-y-2.5 text-[13px] leading-relaxed">
