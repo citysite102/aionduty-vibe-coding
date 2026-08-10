@@ -7,7 +7,7 @@ export const meta: RecordedMeta = {
   id: 'harness-32-agents-md',
   title: '換成別家的工具，還讀得到嗎？',
   script:
-    '會有人擔心，寫了一份 CLAUDE.md，之後換成別家的工具是不是要重寫。不用。AGENTS.md 是目前跨工具的共通檔名，Codex、Cursor 這些都會讀它。做法是在專案裡建一個 AGENTS.md 的捷徑，指向同一份 CLAUDE.md，兩個檔名指的是同一個檔案，改一份、兩邊同時更新。這份簡報的專案就是這樣設定的。',
+    '會有人擔心，寫了一份 CLAUDE.md，之後換成別家的工具是不是要重寫。不用。AGENTS.md 是目前跨工具的共通檔名，Codex、Cursor 這些都會讀它。做法是在專案裡建一個 AGENTS.md 的捷徑，指向同一份 CLAUDE.md，兩個檔名指的是同一個檔案，改一份、兩邊同時更新。這件事你不用自己打指令，跟它說一句就好。這份簡報的專案就是這樣設定的。',
   seconds: 40,
   from: 55,
 };
@@ -23,12 +23,19 @@ export default function RecAgentsMd() {
           </p>
         </AnimatedBlock>
 
+        {/*
+          原本這一格只印 ln -s CLAUDE.md AGENTS.md。
+          沒學終端機的人看到那一行就卡住了，而且他根本不需要自己打，
+          交代一句話就會做完。指令降成註腳，跟它講的那句話才是主體。
+        */}
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
-          <div className="bg-slate-950 border border-slate-800 rounded-xl px-6 py-4 font-mono text-lg text-slate-300">
-            ln -s CLAUDE.md AGENTS.md
+          <div className="text-slate-500 text-base mb-2">跟它說這句就好</div>
+          <div className="bg-slate-950 border border-sky-900/50 rounded-xl px-6 py-4 text-sky-100 text-xl leading-relaxed">
+            「幫我在專案裡建一個 AGENTS.md，做成指向 CLAUDE.md 的捷徑，不要複製成兩份。」
           </div>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">
-            建一個捷徑指向同一份檔案。改一份，兩個檔名同時更新。
+            改一份，兩個檔名同時更新。
+            <span className="text-slate-600 text-base ml-2 font-mono">（它實際做的是 ln -s CLAUDE.md AGENTS.md）</span>
           </p>
         </AnimatedBlock>
 
