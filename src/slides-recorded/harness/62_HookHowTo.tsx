@@ -21,7 +21,7 @@ export const meta: RecordedMeta = {
   id: 'harness-62-hook-howto',
   title: 'Hook 怎麼寫，真的會自己觸發嗎',
   script:
-    '會出事的交給 Hook，那 Hook 到底怎麼寫？它是一段設定，不是程式。你告訴它三件事：什麼時候檢查、檢查什麼、不通過要怎麼辦。這份簡報自己就有一條：我不想在中文裡看到破折號。設定成每次它要寫檔案之前先看一眼，有破折號就擋。它會自己觸發，不需要你在場，被擋下來之後它會看到拒絕的理由，然後自己換寫法重來。實際的專案通常掛好幾條，各自管一件事：寫檔案之前擋金鑰、改完自動排版、它說做完之前先跑一次測試。時機不同，管的事情也不同。',
+    '會出事的交給 Hook，那 Hook 到底怎麼寫？它是一段設定，不是程式。你告訴它三件事：什麼時候檢查、檢查什麼、不通過要怎麼辦。前面那個破折號的例子，擋它的就是 Hook，這份簡報真的掛著一條：每次它要寫檔案之前先看一眼，有破折號就擋。它會自己觸發，不需要你在場，被擋下來之後它會看到拒絕的理由，然後自己換寫法重來。實際的專案通常掛好幾條，各自管一件事：寫檔案之前擋金鑰、改完自動排版、它說做完之前先跑一次測試。時機不同，管的事情也不同。',
   seconds: 45,
   from: 68,
 };
@@ -73,7 +73,7 @@ export default function RecHookHowTo() {
           <div className="divide-y divide-slate-800/70">
             {HOOKS.map((h) => (
               <div key={h.on} className="grid grid-cols-[auto_1fr] gap-5 px-6 py-3 items-baseline">
-                <span className="font-mono text-base text-sky-300 w-32 shrink-0">{h.on}</span>
+                <span className="font-mono text-base text-orange-300 w-32 shrink-0">{h.on}</span>
                 <div>
                   <div className="font-mono text-base text-slate-300">{h.do}</div>
                   <div className="text-slate-600 text-base mt-0.5">{h.why}</div>
