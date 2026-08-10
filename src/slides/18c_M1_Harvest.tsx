@@ -81,7 +81,7 @@ export default function SlideM1Harvest() {
 
         <Callout tone="muted" label="還沒拿到的" stepIndex={4}>
           <strong className="text-slate-200">可以傳給別人的上線網址，現在還沒有。</strong>
-          它要先推上 GitHub，再接部署平台，那兩步在第四單元。
+          它要先推上 GitHub，再接部署平台，那兩步還沒做。
           你現在這個只有自己這台電腦看得到。
         </Callout>
 

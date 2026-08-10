@@ -21,18 +21,19 @@ export default function Slide09() {
           <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
             查不到的東西它就會用猜的。給它真的能查、能動手的工具。
           </p>
+          {/*
+            這一格原本把 MCP 與 Skills 的定義寫完了，但下一頁整頁就是在講它們，
+            學員等於同一件事聽兩次，而且第二次才是完整的。
+            這裡只留名字，定義交給下一頁。
+          */}
           <ul className="space-y-3">
             <li className="bg-slate-950 p-4 rounded-xl border border-slate-800">
               <strong className="text-sky-300 block mb-1.5">系統擴充 (MCP)</strong>
-              <span className="text-slate-400 text-sm leading-relaxed block">
-                接上外部工具，例如讓它直接操作你的 GitHub、讀取 Notion 文件。
-              </span>
+              <span className="text-slate-400 text-sm leading-relaxed block">讓它碰得到你電腦以外的東西。</span>
             </li>
             <li className="bg-slate-950 p-4 rounded-xl border border-slate-800">
               <strong className="text-sky-300 block mb-1.5">專屬技能 (Skills)</strong>
-              <span className="text-slate-400 text-sm leading-relaxed block">
-                教它「怎麼做」。把一套 SOP 包起來，遇到那類任務就照著走。
-              </span>
+              <span className="text-slate-400 text-sm leading-relaxed block">把你重複交代的那套流程包起來。</span>
             </li>
           </ul>
         </AnimatedBlock>

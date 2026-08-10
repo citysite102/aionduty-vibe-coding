@@ -5,20 +5,27 @@ export default function SlideHarnessContext() {
   return (
     <SlideLayout title="上下文工程" subtitle="Context Engineering" icon={BookOpen}>
       <div className="pt-6 max-w-6xl mx-auto min-h-full flex flex-col">
+        {/*
+          原本開頭是「靠兩件事：餵對輸入＋驗證輸出」，但整頁三張卡全部在講輸入，
+          驗證那一半講完就沒了，學員會在等一個不會出現的東西。
+          而且它跟前一頁的六個零件接不起來，讀起來像換了一個題目。
+          改成從第一個零件接下去，並且只承諾這一頁真的會講的事。
+        */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
           <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
             <Zap size={24} />
-            把 AI 開發變成工程，靠兩件事：餵對輸入 ＋ 驗證輸出
+            同一份東西，每次都給跟用到才給，差很多
           </h3>
           <p className="text-slate-300 text-lg leading-relaxed">
-            一邊是<strong className="text-sky-200">上下文工程</strong>，也就是把它需要知道的事先給對；
-            一邊是<strong className="text-sky-200">驗證</strong>，也就是它做完之後有東西會去檢查，不是你自己一行一行看。
-            只有前面沒有後面，Prompt 寫得再漂亮，還是 Vibe Coding。
+            六個零件裡的第一個是<strong className="text-sky-200">規則文件</strong>。
+            難的不只是寫什麼，還有<strong className="text-sky-200">什麼時候把它送進去</strong>：
+            送太多它抓不到重點，送太少它就用猜的，而且送進去的每一個字都是要付錢的。
+            這件事有一個名字，叫上下文工程。
           </p>
         </div>
 
         <p className="text-slate-300 text-lg mb-8">
-          給它什麼資料，就決定它做出什麼品質。
+          給它什麼資料，就決定它做出什麼品質。下面三種是它拿到資料的三種時機。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
