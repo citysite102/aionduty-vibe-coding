@@ -68,18 +68,18 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m32, Component: RecAgentsMd },
     { meta: m54, Component: RecHandbookV1 },
   ],
-  // index 71 = 原「規則明明寫了，它卻沒照做」
-  71: [
+  // index 72 = 原「規則明明寫了，它卻沒照做」
+  72: [
     { meta: m01, Component: RecFailNotLoaded },
     { meta: m02, Component: RecFailBuried },
     { meta: m03, Component: RecFailCantFollow },
     { meta: m04, Component: RecDiagnose },
   ],
-  // index 72 = 原「這條規則該放哪」
+  // index 73 = 原「這條規則該放哪」
   // Hook 怎麼寫原本掛在「換成你的工作，手冊該寫什麼」那一組，搬過來了。
   // 分流的第一題就是「會出事的交給 Hook」，學員得先看過 Hook 長什麼樣才做得了那個決定；
   // 而且下一頁講「Hook 是程式在擋，但你要去動設定檔」，剛看過設定檔的人才聽得懂那個取捨。
-  72: [
+  73: [
     { meta: m05, Component: RecRouteQ1 },
     { meta: m06, Component: RecRouteQ2 },
     { meta: m07, Component: RecRouteQ3 },
@@ -89,8 +89,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },
   ],
-  // index 73 = 原「手冊越寫越肥，怎麼整理」
-  73: [
+  // index 74 = 原「手冊越寫越肥，怎麼整理」
+  74: [
     { meta: m17, Component: RecHealthOverview },
     { meta: m18, Component: RecHealthInventory },
     { meta: m19, Component: RecHealthSubtract },
@@ -99,8 +99,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m22, Component: RecHealthRest },
     { meta: m56, Component: RecHandbookV3 },
   ],
-  // index 74 = 原「怎麼把話講對：白名單與探索空間」
-  74: [
+  // index 75 = 原「怎麼把話講對：白名單與探索空間」
+  75: [
     { meta: m11, Component: RecWrite1 },
     { meta: m12, Component: RecWrite2 },
     { meta: m13, Component: RecWrite3 },
@@ -109,10 +109,10 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m16, Component: RecWrite6 },
     { meta: m57, Component: RecHandbookV4 },
   ],
-  // index 75 = 原「同一套手冊，換個地方用」
+  // index 76 = 原「同一套手冊，換個地方用」
   // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：
   // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
-  75: [
+  76: [
     { meta: m33, Component: RecSurfaceIntro },
     { meta: m34b, Component: RecProjectsUI },
     { meta: m37, Component: RecNonCodeKnowledge },
@@ -121,8 +121,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m39b, Component: RecWhyNotNewChat },
     { meta: m58, Component: RecHandbookV5 },
   ],
-  // index 78 = 原「換成你的工作，手冊該寫什麼」
-  78: [
+  // index 79 = 原「換成你的工作，手冊該寫什麼」
+  79: [
     { meta: m41, Component: RecTransferCase },
     { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
@@ -132,8 +132,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 79 = 原「這一段你完成了三件事」
-  79: [
+  // index 80 = 原「這一段你完成了三件事」
+  80: [
     { meta: m48, Component: RecRecapOne },
   ],
 };

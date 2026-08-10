@@ -74,6 +74,7 @@ import Slide21c from './slides/21c_M2_ClaudeMdLayers';
 import Slide21d1 from './slides/21d1_M2_LoadAlways';
 import Slide21d2 from './slides/21d2_M2_LoadOnDemand';
 import Slide21d3 from './slides/21d3_M2_OutsideContext';
+import Slide21d4 from './slides/21d4_M2_PartsMap';
 import Slide21e from './slides/21e_M2_Extensions_Cases';
 import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
 import Slide21e3 from './slides/21e3_M2_ProjectTypes';
@@ -194,6 +195,7 @@ const LIVE_TITLES = [
   "常駐的東西越少，它越專心",
   "用到才展開，平常只佔一行",
   "光寫在手冊裡，擋不住",
+  "這幾樣零件，誰叫它、什麼時候進來",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
   "「專案」不是只有寫程式",
@@ -314,6 +316,7 @@ const LIVE_SLIDES = [
   Slide21d1,
   Slide21d2,
   Slide21d3,
+  Slide21d4,
   Slide21e,
   Slide21e2,
   Slide21e3,
@@ -382,9 +385,9 @@ const SECTION_DEFS = [
   { start: 3, label: 'Vibe Coding 是什麼，能做到哪裡' },
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
   { start: 42, label: 'Agent 運作框架與成本分析' },
-  { start: 69, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 80, label: '讓 Agent 分工，並守住品質' },
-  { start: 93, label: 'Agent 循環開發流程' },
+  { start: 70, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 81, label: '讓 Agent 分工，並守住品質' },
+  { start: 94, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
