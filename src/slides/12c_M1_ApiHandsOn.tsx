@@ -84,10 +84,12 @@ export default function SlideApiHandsOn() {
           </AnimatedBlock>
 
           <Callout tone="warn" label="第 3 點不要拿掉" stepIndex={5}>
-            「拿不到的時候顯示離線」不是客套話。
-            <strong className="text-slate-100">網路會斷，別人的服務也會有壞掉的一天。</strong>
-            你沒交代拿不到要怎麼辦，它多半只寫成功那一條路，然後畫面就卡在載入中。
-            之後你接任何外部服務，這句話都要先講。
+            不寫這一句，它只會處理「拿到了要怎麼顯示」，不會處理「拿不到怎麼辦」。
+            <strong className="text-slate-100">教室的 wifi 一斷，那一行就會一直停在載入中</strong>，
+            而你會以為是自己哪裡寫錯了。
+            <span className="block mt-2 text-slate-400">
+              只要是去外面拿資料，就有拿不到的時候。拿不到的時候畫面要長什麼樣，是你要先決定的。
+            </span>
           </Callout>
 
           <AnimatedBlock stepIndex={6} className="text-slate-400 text-sm leading-relaxed px-1">
