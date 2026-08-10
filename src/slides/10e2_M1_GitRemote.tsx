@@ -1,4 +1,4 @@
-import { CloudOff, HardDrive, Cloud, ArrowUp, ArrowDown } from 'lucide-react';
+import { CloudOff, HardDrive, Cloud, ArrowRight, ArrowLeft } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -99,23 +99,68 @@ export default function Slide10e2() {
           })}
         </div>
 
+        {/*
+          示意圖用 grid 排三欄：左邊你的電腦、中間兩個箭頭、右邊 GitHub。
+          箭頭是靜態的，不做動畫（A-3），方向靠 icon 與位置講清楚就夠了。
+          中間那條虛線是重點：跨過去要靠指令，不會自己過去。
+        */}
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-          <div className="text-base font-bold text-slate-100 mb-3">跨過那條線的只有兩個動作</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900 px-4 py-3">
-              <ArrowUp size={16} className="text-slate-400 shrink-0 mt-1" />
-              <div>
-                <div className="font-mono text-sm text-slate-200 mb-0.5">git push</div>
-                <p className="text-slate-400 text-sm leading-relaxed">把你電腦裡的存檔點送上 GitHub。</p>
+          <div className="text-base font-bold text-slate-100 mb-4">跨過那條線的只有兩個動作</div>
+
+          <div className="grid grid-cols-[1fr_auto_1fr] gap-3 md:gap-5 items-stretch">
+            <div className="rounded-xl border border-sky-900/50 bg-slate-900 p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <HardDrive size={16} className="text-sky-400 shrink-0" />
+                <span className="text-sky-300 text-sm font-bold">你的電腦</span>
+              </div>
+              <div className="font-mono text-xs text-slate-500 mb-2">mission-timer/</div>
+              <div className="space-y-1.5">
+                <div className="rounded border border-slate-800 bg-slate-950 px-2.5 py-1.5 font-mono text-xs text-slate-400">
+                  index.html
+                </div>
+                <div className="rounded border border-slate-800 bg-slate-950 px-2.5 py-1.5 font-mono text-xs text-slate-400">
+                  .git ／ 存檔點都在這
+                </div>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-xl border border-slate-800 bg-slate-900 px-4 py-3">
-              <ArrowDown size={16} className="text-slate-400 shrink-0 mt-1" />
-              <div>
-                <div className="font-mono text-sm text-slate-200 mb-0.5">git pull</div>
-                <p className="text-slate-400 text-sm leading-relaxed">把 GitHub 上的更新拿回你的電腦。</p>
+
+            <div className="flex flex-col justify-center gap-3 border-x border-dashed border-slate-700 px-3 md:px-5">
+              <div className="flex flex-col items-center gap-1">
+                <ArrowRight size={18} className="text-slate-300" />
+                <code className="font-mono text-xs font-bold text-slate-200 whitespace-nowrap">git push</code>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <ArrowLeft size={18} className="text-slate-500" />
+                <code className="font-mono text-xs text-slate-400 whitespace-nowrap">git pull</code>
               </div>
             </div>
+
+            <div className="rounded-xl border border-indigo-900/50 bg-slate-900 p-4 flex flex-col">
+              <div className="flex items-center gap-2 mb-2">
+                <Cloud size={16} className="text-indigo-400 shrink-0" />
+                <span className="text-indigo-300 text-sm font-bold">GitHub</span>
+              </div>
+              <div className="font-mono text-xs text-slate-500 mb-2">github.com/你/mission-timer</div>
+              <div className="space-y-1.5">
+                <div className="rounded border border-slate-800 bg-slate-950 px-2.5 py-1.5 font-mono text-xs text-slate-400">
+                  同一份的複本
+                </div>
+                <div className="rounded border border-slate-800 bg-slate-950 px-2.5 py-1.5 font-mono text-xs text-slate-600">
+                  push 過才有
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+            <p className="text-slate-400 text-sm leading-relaxed">
+              <code className="font-mono text-slate-200">git push</code>
+              ：把你電腦裡的存檔點送上 GitHub。
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              <code className="font-mono text-slate-200">git pull</code>
+              ：把 GitHub 上的更新拿回你的電腦。
+            </p>
           </div>
         </AnimatedBlock>
 
