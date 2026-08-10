@@ -20,7 +20,7 @@ const parts = [
     icon: Wrench,
     name: '工具',
     en: 'Tools',
-    desc: '供 Agent 呼叫的函式 (Functions) 或 MCP 伺服器。',
+    desc: '它能動的東西：讀寫檔案、跑指令，或接上外面的系統。沒給工具，它就只能跟你講話。',
     scope: 'core' as const,
     tag: '本課會動手',
   },
@@ -28,7 +28,7 @@ const parts = [
     icon: GitMerge,
     name: '指揮分工',
     en: 'Orchestration',
-    desc: '決定多個子代理誰做什麼、先後順序的分工規則。',
+    desc: '同時有好幾個子代理在跑的時候，誰做哪一塊、誰要等誰做完。',
     scope: 'later' as const,
     tag: '第三單元',
   },
@@ -36,7 +36,7 @@ const parts = [
     icon: Shield,
     name: '沙箱',
     en: 'Sandbox',
-    desc: '安全執行與測試程式碼的隔離環境。',
+    desc: '把它關在一個隔起來的地方跑，就算做壞了也弄不到你其他的東西。',
     scope: 'aware' as const,
     tag: '先認識就好',
   },
@@ -44,7 +44,7 @@ const parts = [
     icon: Link,
     name: '生命週期掛鉤',
     en: 'Hooks',
-    desc: '在固定生命週期執行的確定性程式碼 (例如：提交前阻擋密碼寫入)。',
+    desc: '在固定時機自動跑的一段檢查，不經過 AI 判斷，所以它想跳過也跳不掉（例如存檔前擋下密碼）。',
     scope: 'later' as const,
     tag: '本段稍後示範',
   },
@@ -52,7 +52,7 @@ const parts = [
     icon: Activity,
     name: '可觀測性',
     en: 'Observability',
-    desc: '監控系統日誌 (Logs)、執行追蹤 (Traces) 與成本的機制。',
+    desc: '事後查得到它做過什麼、走過哪些步驟、花掉多少額度。',
     scope: 'aware' as const,
     tag: '先認識就好',
   },
@@ -100,6 +100,7 @@ export default function SlideHarnessArchitecture() {
         <div className="max-w-4xl mx-auto text-center mb-6">
           <p className="text-slate-300 text-base">
             這是<strong className="text-slate-100">業界完整版</strong>的六個零件。
+            知道每一個負責什麼，出問題的時候才知道要往哪一塊找。
           </p>
         </div>
 

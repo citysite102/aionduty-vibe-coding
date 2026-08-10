@@ -3,7 +3,7 @@ import { DollarSign, TrendingDown, TrendingUp, AlertCircle, Factory } from 'luci
 
 export default function SlideHarnessEconomics() {
   return (
-    <SlideLayout title="Token 經濟學：資本支出與營運成本" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
+    <SlideLayout title="兩種花錢的方式：邊做邊花，還是先花再省" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
       <div className="pt-8 max-w-6xl mx-auto h-full flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col">
@@ -13,26 +13,26 @@ export default function SlideHarnessEconomics() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-slate-100">Vibe Coding</h3>
-                <p className="text-amber-400/80 text-base font-medium">類似營運成本 (Opex)</p>
+                <p className="text-amber-400/80 text-base font-medium">邊做邊花（類似營運成本 Opex）</p>
               </div>
             </div>
-            
+
             <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              前期投資趨近於零，隨時能開工。但藏著三個會<strong className="text-amber-400 font-bold">複利成長的隱形成本</strong>：
+              一開始不用準備什麼，隨時能開工。但有三筆帳<strong className="text-amber-400 font-bold">當下不痛，會拖到後面才一次還</strong>：
             </p>
-            
+
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
-                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">Token 消耗高：</strong>因為缺乏邊界與測試，反覆除錯會消耗大量 Token。</span>
+                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">額度燒得快：</strong>沒有規矩也沒有檢查，它做錯了你要一輪一輪叫它重做，每一輪都在花錢。</span>
               </li>
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
-                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">維護稅：</strong>半年後得回頭維護一堆毫無結構的義大利麵程式碼。</span>
+                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">之後改不動：</strong>半年後回來看，是一堆沒有結構、連你自己都看不懂的程式碼。</span>
               </li>
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
-                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">資安補救成本：</strong>初期忽略架構，後期需花費巨大代價修補漏洞。</span>
+                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">安全性要重補：</strong>金鑰寫死在程式裡、誰都讀得到的資料，這些前期沒管，後期要拆開重來。</span>
               </li>
             </ul>
           </AnimatedBlock>
@@ -44,12 +44,12 @@ export default function SlideHarnessEconomics() {
               </div>
               <div>
                 <h3 className="text-2xl font-bold text-slate-100">Agentic Engineering</h3>
-                <p className="text-sky-400/80 text-base font-medium">類似資本支出 (Capex)</p>
+                <p className="text-sky-400/80 text-base font-medium">先花再省（類似資本支出 Capex）</p>
               </div>
             </div>
-            
+
             <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              前期需要投入工程時間來設計架構、編寫測試與建置運作框架 (前期成本高)。
+              一開始要先花時間：想清楚東西怎麼組起來、寫下規矩、加上會自己跑的檢查。這一段是純付出，還看不到成果。
             </p>
             
             <div className="bg-sky-950/20 p-6 rounded-xl border border-sky-900/40 flex items-start gap-5">
