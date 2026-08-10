@@ -3,6 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide09b() {
   // 順序必須跟實際播放順序一致，否則學員會拿這張圖對不上進度。
+  // 前端與後端排在資料庫前面：資料庫那一頁會講到「後端伺服器」，先講完分工才接得上。
   // hands 標出哪幾站會離開簡報、實際開畫面操作，讓學員先知道要準備電腦。
   // stuck 是這一站要解掉的卡點。名詞留著是為了後面對得上進度，但先讀到的
   // 應該是「不學這個會卡在哪」，否則八站連著看會像一段要撐過去的電腦概論。
@@ -10,18 +11,18 @@ export default function Slide09b() {
     { id: 1, name: "看懂紅字", stuck: "紅字一出現就不敢動", icon: AlertTriangle, hands: null },
     { id: 2, name: "終端機", stuck: "AI 叫你貼一行指令，不知道貼哪", icon: TerminalSquare, hands: "終端機" },
     { id: 3, name: "API 與資料格式", stuck: "想接外面的資料，看不懂文件", icon: Globe, hands: "瀏覽器" },
-    { id: 4, name: "資料庫", stuck: "關掉瀏覽器，剛存的就不見了", icon: Database, hands: null },
-    { id: 5, name: "前端與後端", stuck: "壞了不知道要去哪一層找", icon: LayoutTemplate, hands: null },
+    { id: 4, name: "前端與後端", stuck: "壞了不知道要去哪一層找", icon: LayoutTemplate, hands: null },
+    { id: 5, name: "資料庫", stuck: "關掉瀏覽器，剛存的就不見了", icon: Database, hands: null },
     { id: 6, name: "上線部署", stuck: "只有自己電腦打得開，傳不出去", icon: Rocket, hands: null },
     { id: 7, name: "Git 版控", stuck: "改壞了回不去上一版", icon: GitCommit, hands: null },
-    { id: 8, name: "Claude Code", stuck: "還在複製貼上，沒讓它自己動手", icon: Bot, hands: "先桌面版，再終端機" },
+    { id: 8, name: "Claude Code", stuck: "桌面版做出來了，但終端機還沒裝", icon: Bot, hands: "終端機" },
   ];
 
   return (
     <SlideLayout title="前置基礎觀念導覽" subtitle="Learning Roadmap" icon={Map}>
       <AnimatedBlock stepIndex={1} className="max-w-4xl mx-auto mb-8 text-center">
-        <p className="text-slate-200 text-sm leading-relaxed max-w-2xl mx-auto bg-sky-950/20 border border-sky-900/40 rounded-xl px-4 py-3">
-          最後一站的 Claude Code 會先用桌面版，不需要終端機。
+        <p className="text-slate-200 text-base leading-relaxed max-w-2xl mx-auto bg-sky-950/20 border border-sky-900/40 rounded-xl px-4 py-3">
+          剛才那四步跑得動，靠的是下面這幾樣。不知道它們在做什麼，出事的時候就不知道要去哪一層找。
         </p>
       </AnimatedBlock>
 
