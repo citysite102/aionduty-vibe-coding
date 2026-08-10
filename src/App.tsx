@@ -70,6 +70,7 @@ import Slide21 from './slides/21_M2_Pillars';
 import Slide21a from './slides/21a_M2_MCPSkills';
 import Slide21a2 from './slides/21a2_M2_SkillDemoResume';
 import Slide21a3 from './slides/21a3_M2_SkillDemoReference';
+import Slide21a4 from './slides/21a4_M2_SkillInstall';
 import Slide21b from './slides/21b_M2_HandsOn';
 import Slide21b2 from './slides/21b2_M2_HandsOnPrompt';
 import Slide21b3 from './slides/21b3_M2_ContextCheck';
@@ -79,6 +80,7 @@ import Slide21d1 from './slides/21d1_M2_LoadAlways';
 import Slide21d2 from './slides/21d2_M2_LoadOnDemand';
 import Slide21d3 from './slides/21d3_M2_OutsideContext';
 import Slide21d4 from './slides/21d4_M2_PartsMap';
+import Slide21d5 from './slides/21d5_M2_FolderMap';
 import Slide21e from './slides/21e_M2_Extensions_Cases';
 import Slide21e2 from './slides/21e2_M2_Extensions_Cases2';
 import Slide21e3 from './slides/21e3_M2_ProjectTypes';
@@ -196,6 +198,7 @@ const LIVE_TITLES = [
   "Claude Code 的四種權限模式",
   "同一個個人網站，裝與不裝 Skill",
   "給它看，還要叫得出每一塊的名字",
+  "Skill 怎麼裝，怎麼知道它裝好了",
   "動手搭建運作框架",
   "跟著做：寫出真正能用的 CLAUDE.md",
   "怎麼確認它真的讀到了",
@@ -205,6 +208,7 @@ const LIVE_TITLES = [
   "用到才展開，平常只佔一行",
   "光寫在手冊裡，擋不住",
   "這幾樣零件，誰叫它、什麼時候進來",
+  "這些東西實際上放在哪兩個地方",
   "這幾樣實際怎麼用？（一）規範與流程",
   "這幾樣實際怎麼用？（二）防線與調查",
   "「專案」不是只有寫程式",
@@ -322,6 +326,7 @@ const LIVE_SLIDES = [
   Slide30,
   Slide21a2,
   Slide21a3,
+  Slide21a4,
   Slide21b,
   Slide21b2,
   Slide21b3,
@@ -331,6 +336,7 @@ const LIVE_SLIDES = [
   Slide21d2,
   Slide21d3,
   Slide21d4,
+  Slide21d5,
   Slide21e,
   Slide21e2,
   Slide21e3,
@@ -401,9 +407,9 @@ const SECTION_DEFS = [
   { start: 15, label: 'Agent 的心智模型與 Claude Code 實作' },
   { start: 41, label: '選修：終端機' },
   { start: 46, label: 'Agent 運作框架與成本分析' },
-  { start: 74, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 85, label: '讓 Agent 分工，並守住品質' },
-  { start: 98, label: 'Agent 循環開發流程' },
+  { start: 76, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 87, label: '讓 Agent 分工，並守住品質' },
+  { start: 100, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
