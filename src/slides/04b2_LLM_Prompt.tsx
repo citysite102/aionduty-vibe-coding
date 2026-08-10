@@ -97,10 +97,46 @@ export default function SlideLLMPrompt() {
               上面那三張之所以有用，是因為版面、字級、色塊都能用程式畫出來。Claude 現在也有設計相關的 Skills，
               接手這類版面的品質比以前好很多。<strong className="text-slate-200">但它是在寫程式畫版面，不是在生圖。</strong>
             </p>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed mb-4">
               你貼一張攝影作品或 3D 算圖過去，它只能用 CSS 去逼近，結果會不上不下，然後你會以為是自己不會用。
               真的需要圖片素材，要另外用生圖工具做好再放進來。
             </p>
+
+            {/*
+              學員的實際卡點不是不同意這個原則，是拿到一張新圖的時候套不上去。
+              所以要給一個能自己判斷的問法，加上兩欄具體的東西。
+              點陣星球特別點出來：它看起來最複雜，卻是這一頁唯一「算出來」的例子，
+              不講的話學員會把「複雜」直接當成「做不到」。
+            */}
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+              <p className="text-slate-200 text-sm leading-relaxed mb-3">
+                怎麼判斷手上這張？<strong className="text-slate-100">拆開來看，是形狀、色塊、文字、線條堆出來的，程式就畫得出來；是拍出來的、手畫的、算圖算出來的，就要另外準備。</strong>
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <div className="text-xs font-bold text-slate-400 mb-1.5">貼了有用</div>
+                  <ul className="text-slate-400 text-sm space-y-1 list-disc pl-4 marker:text-slate-700">
+                    <li>版面配置、留白、字級落差</li>
+                    <li>配色、圓角、陰影、漸層</li>
+                    <li>按鈕、卡片、圖表</li>
+                    <li>幾何與點陣效果</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-slate-400 mb-1.5">要另外準備素材</div>
+                  <ul className="text-slate-400 text-sm space-y-1 list-disc pl-4 marker:text-slate-700">
+                    <li>照片、人物、實景</li>
+                    <li>木紋、皮革這類質感</li>
+                    <li>手繪插畫、3D 算圖</li>
+                    <li>筆畫複雜的 Logo</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-slate-500 text-sm leading-relaxed mt-3 border-t border-slate-800 pt-3">
+                上面那顆星球看起來最複雜，但它是幾千個點各自算亮度，屬於左邊那一欄。
+                <strong className="text-slate-300">而一張圖裡常常兩種都有</strong>：一個漂亮的網站首頁，版面能抄，中間那張照片不能。版面照抄，照片自己準備。
+              </p>
+            </div>
           </div>
         </AnimatedBlock>
 
