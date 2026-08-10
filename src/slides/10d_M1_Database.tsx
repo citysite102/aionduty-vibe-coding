@@ -1,101 +1,210 @@
-import { Database, Table, FileJson, ServerCog } from 'lucide-react';
+import type { ReactNode } from 'react';
+import { Database, Table, FileJson, AlertTriangle, Check } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { motion } from 'motion/react';
+import { Callout } from '../components/Callout';
+
+/**
+ * 資料庫這一頁的重點不是 SQL 與 NoSQL 的差別，是「同一批資料，擺法不同差在哪」。
+ *
+ * 理由：學員不會自己寫資料表，但 AI 會給他一張。他要判斷的是那張表能不能用，
+ * 而 SQL / NoSQL 的分類幫不上這個忙。所以主體換成一張爛表跟拆好的表的對照，
+ * SQL / NoSQL 降成最後一小塊，讓他聽到名字的時候對得上。
+ */
+
+/**
+ * 一張仿試算表的表格。rows 吃 ReactNode 是為了在儲存格裡標出重複與錯字。
+ *
+ * widths 要給：這兩張表擠在半個版面裡，平均分欄會把電話號碼切掉，
+ * 而「有沒有那兩個橫線」正是這一頁要比的東西。
+ */
+function Sheet({
+  name,
+  cols,
+  widths,
+  rows,
+}: {
+  name: string;
+  cols: string[];
+  widths: string;
+  rows: ReactNode[][];
+}) {
+  const grid = { gridTemplateColumns: widths };
+  return (
+    <div className="rounded-xl border border-slate-800 bg-slate-950 overflow-hidden">
+      <div className="px-2.5 py-1.5 bg-slate-900 border-b border-slate-800 font-mono text-xs text-slate-400">
+        {name}
+      </div>
+      <div className="grid text-sm font-mono text-slate-500 border-b border-slate-800" style={grid}>
+        {cols.map((c) => (
+          <div key={c} className="px-2.5 py-1.5 truncate">
+            {c}
+          </div>
+        ))}
+      </div>
+      {rows.map((row, i) => (
+        <div
+          key={i}
+          className={`grid text-sm font-mono text-slate-200 ${i > 0 ? 'border-t border-slate-900' : ''}`}
+          style={grid}
+        >
+          {row.map((cell, j) => (
+            <div key={j} className="px-2.5 py-1.5 truncate">
+              {cell}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const BAD_ROWS: ReactNode[][] = [
+  ['王小明', '0912-345-678', <span className="text-rose-300">牛肉麵,滷蛋</span>],
+  ['王小明', '0912-345-678', '牛肉麵'],
+  [<span className="text-rose-300">王小名</span>, <span className="text-rose-300">0912345678</span>, '排骨飯'],
+];
+
+const BAD_POINTS = [
+  '同一個客戶重複寫在每一列。他換電話，你要一列一列改，漏掉一列就有兩個電話並存。',
+  '少打一橫、名字打錯一個字，系統就當成另一個人，這個人的消費紀錄從此對不起來。',
+  '「牛肉麵,滷蛋」擠在同一格。要算滷蛋賣了幾份，只能一格一格用眼睛看。',
+];
+
+const GOOD_POINTS = [
+  '電話只存在客戶表那一格，改一次，所有訂單看到的都是新的。',
+  '訂單記的是客戶 id，不是名字。名字打錯不會多生出一個客戶。',
+  '一份餐點一列，要算滷蛋賣幾份、哪一項最好賣，直接數就有。',
+];
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="關掉瀏覽器，資料就不見了" subtitle="Database Basics" icon={Database}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-2 h-full items-start max-w-6xl mx-auto pb-8">
+    <SlideLayout title="同一批資料，兩種擺法" subtitle="Database & Schema Design" icon={Database}>
+      <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
+        <AnimatedBlock stepIndex={1}>
+          <p className="text-slate-300 text-base leading-relaxed">
+            程式一關掉，使用者的帳號跟訂單就跟著不見，所以要有資料庫，它是軟體的
+            <strong className="text-slate-100">長期記憶</strong>。
+            但存下來只是第一步。同一批資料怎麼擺，決定了它三個月後還能不能用。
+          </p>
+        </AnimatedBlock>
 
-        <div className="space-y-6 text-left">
-          <AnimatedBlock stepIndex={1}>
-            <h2 className="text-2xl font-bold text-slate-100 mb-3">為什麼需要資料庫？</h2>
-            <p className="text-slate-300 text-base leading-relaxed">
-              沒有資料庫的話，程式一關掉，使用者的帳號和貼文就跟著不見。
-              資料庫就是軟體的<strong className="text-slate-100">長期記憶</strong>。
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+          {/* 沒有設計 */}
+          <AnimatedBlock
+            stepIndex={2}
+            className="rounded-2xl border px-6 py-5 bg-rose-500/5 border-rose-500/25 space-y-4"
+          >
+            <div className="flex items-center gap-2 font-bold text-sm text-rose-300">
+              <AlertTriangle aria-hidden="true" size={18} className="shrink-0" />
+              沒有設計：什麼都塞在同一張表
+            </div>
+
+            <Sheet
+              name="orders.xlsx"
+              cols={['客戶', '電話', '品項']}
+              widths="0.8fr 1.3fr 1fr"
+              rows={BAD_ROWS}
+            />
+
+            <ul className="space-y-2.5">
+              {BAD_POINTS.map((p) => (
+                <li key={p} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2.5 bg-sky-900/30 rounded-lg text-sky-400 shrink-0">
-                <Table size={22} />
-              </div>
-              <h3 className="text-lg font-bold text-slate-100">關聯式 (SQL)</h3>
+          {/* 有設計 */}
+          <AnimatedBlock
+            stepIndex={3}
+            className="rounded-2xl border px-6 py-5 bg-emerald-500/5 border-emerald-500/25 space-y-4"
+          >
+            <div className="flex items-center gap-2 font-bold text-sm text-emerald-300">
+              <Check aria-hidden="true" size={18} className="shrink-0" />
+              有設計：一件事只存一個地方，其他人用 id 指過去
             </div>
-            <p className="text-slate-300 text-base leading-relaxed mb-3">
-              像一疊<strong className="text-slate-100">互相拉好線的 Excel 分頁</strong>。欄位要先講清楚，改起來比較費工，
-              但關係嚴謹，適合訂單、金流這種錯不得的資料。
-            </p>
-            <div className="flex gap-2">
-              <span className="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs rounded border border-slate-800 font-mono">PostgreSQL</span>
-              <span className="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs rounded border border-slate-800 font-mono">MySQL</span>
+
+            <div className="space-y-2.5">
+              <Sheet
+                name="customers"
+                cols={['id', '姓名', '電話']}
+                widths="0.5fr 0.9fr 1.3fr"
+                rows={[[<span className="text-emerald-300">1</span>, '王小明', '0912-345-678']]}
+              />
+              <Sheet
+                name="orders"
+                cols={['id', 'customer_id', '日期']}
+                widths="0.5fr 1.2fr 1fr"
+                rows={[
+                  [<span className="text-emerald-300">101</span>, <span className="text-emerald-300">1</span>, '08/09'],
+                  [<span className="text-emerald-300">102</span>, <span className="text-emerald-300">1</span>, '08/12'],
+                ]}
+              />
+              <Sheet
+                name="order_items"
+                cols={['order_id', '品項', '數量']}
+                widths="1fr 1fr 0.6fr"
+                rows={[
+                  [<span className="text-emerald-300">101</span>, '牛肉麵', '1'],
+                  [<span className="text-emerald-300">101</span>, '滷蛋', '1'],
+                ]}
+              />
             </div>
-          </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2.5 bg-amber-900/30 rounded-lg text-amber-400 shrink-0">
-                <FileJson size={22} />
-              </div>
-              <h3 className="text-lg font-bold text-slate-100">非關聯式 (NoSQL)</h3>
-            </div>
-            <p className="text-slate-300 text-base leading-relaxed mb-3">
-              像一個<strong className="text-slate-100">巨大的資料夾</strong>，每份檔案格式自由，想加什麼欄位隨時加。
-              開發快，但少了硬性約束，複雜的交叉查詢就吃力。
-            </p>
-            <div className="flex gap-2">
-              <span className="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs rounded border border-slate-800 font-mono">MongoDB</span>
-              <span className="px-2.5 py-1 bg-slate-950 text-slate-400 text-xs rounded border border-slate-800 font-mono">Firebase</span>
-            </div>
-          </AnimatedBlock>
-        </div>
-
-        <div className="space-y-6">
-          <AnimatedBlock stepIndex={4} className="bg-slate-950 border border-slate-800 p-6 rounded-2xl shadow-xl text-left">
-            <h4 className="text-base font-extrabold text-amber-400 mb-3">
-              🙋 AI 都會自己寫了，我還需要看懂嗎？
-            </h4>
-            <p className="text-slate-200 text-base leading-relaxed mb-3">
-              需要。<strong className="text-white">你看不懂它給的資料表，就抓不出它的邏輯錯誤。</strong>
-            </p>
-            <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              你不用會寫 SQL，但要看得懂大致的結構，才有辦法這樣指正它：
-            </p>
-            <p className="text-sm leading-relaxed text-sky-300 font-medium bg-sky-950/20 border border-sky-950/40 rounded-lg px-3.5 py-3">
-              「使用者跟文章是一對多。使用者被刪掉的時候，他的文章要一起刪嗎？你有處理嗎？」
-            </p>
-          </AnimatedBlock>
-
-          <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col items-center justify-center relative min-h-[260px]">
-            <h4 className="text-slate-400 text-sm font-bold mb-5">資料怎麼被取出來</h4>
-
-            <div className="relative w-full max-w-sm flex flex-col items-center justify-between gap-3 py-2">
-
-              <div className="bg-slate-800 p-3 rounded-xl border border-slate-700 z-10 w-full text-center flex flex-col items-center">
-                <ServerCog className="text-sky-400 mb-1" size={24} />
-                <span className="text-slate-200 text-sm font-bold">後端伺服器 (API)</span>
-              </div>
-
-              <div className="h-14 w-1 bg-slate-800 relative my-1">
-                <motion.div
-                  className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-emerald-400 rounded-full"
-                  animate={{ top: ["10%", "85%", "10%"] }}
-                  transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-                />
-              </div>
-
-              <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 z-10 w-full text-center flex flex-col items-center shadow-2xl">
-                <Database className="text-amber-400 mb-1.5" size={32} />
-                <span className="text-slate-200 text-sm font-bold">資料庫 (長期記憶)</span>
-                <div className="mt-2 text-[11px] font-mono text-emerald-400 bg-emerald-950/30 px-2 py-0.5 rounded">
-                  SELECT * FROM users WHERE id = 12;
-                </div>
-              </div>
-            </div>
+            <ul className="space-y-2.5">
+              {GOOD_POINTS.map((p) => (
+                <li key={p} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
           </AnimatedBlock>
         </div>
 
+        <Callout
+          stepIndex={4}
+          tone="good"
+          label="所以你要看得懂的是這個"
+          footnote={
+            <>
+              可以這樣講：「客戶資料不要重複寫在每一筆訂單裡，拆成一張客戶表，訂單用 id 指過去。
+              客戶被刪掉的時候，他的訂單要一起刪嗎，你有處理嗎？」
+            </>
+          }
+        >
+          你不用會寫 SQL。但 AI 不會主動問你要哪一種，你只說「幫我做一個訂單系統」，
+          它給你的很可能就是那張什麼都塞在一起的表。
+          <strong className="text-slate-100">看得懂它給的表，你才擋得下來</strong>。
+          等到資料存了三個月才發現，表要重拆，已經寫進去的每一筆也要跟著搬。
+        </Callout>
+
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <div className="text-slate-400 text-sm font-bold mb-3">兩種資料庫，先認得名字就好</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="flex items-start gap-3">
+              <Table aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
+              <p className="text-slate-300 text-sm leading-relaxed">
+                <strong className="text-slate-100">關聯式（SQL）</strong>：PostgreSQL、MySQL。
+                欄位要先講清楚，改起來費工，但關係嚴謹。上面那種拆表就是它的做法，
+                訂單、金流這種錯不得的資料用它。
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <FileJson aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
+              <p className="text-slate-300 text-sm leading-relaxed">
+                <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firebase。
+                每一筆格式自由，想加欄位隨時加，寫起來快，但少了硬性約束，
+                複雜的交叉查詢就吃力。
+              </p>
+            </div>
+          </div>
+          <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+            沒有特別理由的話，一般網站選 SQL。真正決定好不好用的是上面那件事，不是選哪一種。
+          </p>
+        </AnimatedBlock>
       </div>
     </SlideLayout>
   );
