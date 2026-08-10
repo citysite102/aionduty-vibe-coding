@@ -56,7 +56,7 @@ export default function SlideBenchmarks() {
           */}
           <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-amber-900/30">
             爭議的點不是 AI 寫得好不好，是<strong className="text-slate-200">沒有人驗得動</strong>：
-            既有測試抓不到的 bug，換一種語言重寫還是抓不到。速度提高了，能驗的量沒有跟著提高。
+            既有測試抓不到的 bug，換一種語言重寫還是抓不到。寫的速度變快了，能檢查的量並沒有跟著變快。
             <strong className="text-slate-100 block mt-2">所以判準只有一條：你驗得動多少，就只能放手多少。</strong>
           </p>
         </AnimatedBlock>

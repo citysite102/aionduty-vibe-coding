@@ -166,7 +166,7 @@ export default function Slide10e2() {
 
         <Callout tone="warn" label="最容易誤會的一件事" stepIndex={5}>
           <strong className="text-slate-100">commit 一百次，沒有 push，備份份數還是零。</strong>
-          存檔點做得再勤，只要沒送上去，它們就跟你的資料夾在同一台電腦上，一起壞、一起不見。
+          存檔點做得再勤，只要沒送上去，它們就跟你的資料夾在同一台電腦上，那台壞了就一起沒了。
         </Callout>
 
       </div>

@@ -34,7 +34,7 @@ export default function SlideError() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           它做事的時候會自己跑指令，跑失敗就把紅字印出來。
           <strong className="text-slate-100">那不是壞掉，是它在跟你說卡在哪。</strong>
-          你不需要看懂那段紅字，需要的是知道拿它去做什麼。
+          你不需要看懂那段紅字，只要知道拿它去做什麼。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-4 items-start">

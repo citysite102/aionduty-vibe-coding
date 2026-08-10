@@ -101,7 +101,7 @@ export default function SlideM2PartsMap() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           差別在<strong className="text-slate-100">誰叫它出來、什麼時候進來</strong>。
-          進來的時機決定它佔掉多少空間，也決定它到底擋不擋得住。
+          什麼時候進來，決定了它佔掉多少空間。有些根本不進對話，那種它想跳過也跳不掉。
         </AnimatedBlock>
 
         <div className={`${COLS} px-5 text-xs uppercase tracking-widest text-slate-500`}>

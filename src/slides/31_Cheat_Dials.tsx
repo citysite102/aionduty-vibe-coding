@@ -59,7 +59,7 @@ export default function SlideCheatDials() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           「放手讓它跑，會不會把我的東西改壞？」這件事你可以調，而且
-          <strong className="text-slate-100">要調的是兩個各自獨立的旋鈕</strong>，不是一個總開關。
+          <strong className="text-slate-100">有兩個旋鈕可以轉，它們各自獨立</strong>。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -105,17 +105,17 @@ export default function SlideCheatDials() {
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
           <div className="text-base font-bold text-slate-100 mb-2">兩個是分開的，不會一起動</div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            可以「權限開很大，但每一步都問你」，也可以「權限縮到最小，然後完全放手」。
-            <strong className="text-slate-300">後面那一種才是還不熟的時候該待的地方</strong>：
-            就算它整段跑歪了，能壞的也就那一個資料夾。
-            很多人反過來，權限全開又懶得看，那是最貴的組合。
+            權限開很大、但每一步都問你，這樣可以。權限縮到最小、然後完全放手，這樣也可以。
+            <strong className="text-slate-300">還不熟的時候建議選後面那種</strong>，
+            因為就算它整段跑歪，能壞的也就那一個資料夾。
+            要小心的是兩個旋鈕都轉到底：權限全開，又懶得看它做了什麼。
           </p>
         </AnimatedBlock>
 
         <Callout tone="focus" label="怎麼決定要轉到哪" stepIndex={5}>
-          <strong className="text-slate-100">你驗得動多少，就放多少。</strong>
-          你看得懂它改了什麼，監督就可以放鬆；你根本不會檢查，那邊界就要縮小，
-          讓它就算做錯，你也賠得起。
+          回到前面那條判準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
+          看得懂它改了什麼，監督那個旋鈕就可以往右轉。
+          不會檢查的話，就把邊界縮小，讓它做錯了你也賠得起。
         </Callout>
 
       </div>
