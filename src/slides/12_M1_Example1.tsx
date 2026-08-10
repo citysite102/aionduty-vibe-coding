@@ -39,7 +39,7 @@ export default function SlideExample1() {
             </div>
 
             <p className="text-slate-100 leading-relaxed font-medium text-sm mb-3">
-              「請在 mission-timer 這個資料夾下建立一個單頁的任務計時器，一個 index.html 就好。」
+              「請在這個資料夾建立一個單頁的任務計時器，一個 index.html 就好。」
             </p>
 
             <div className="space-y-2.5 text-[13px] leading-relaxed">

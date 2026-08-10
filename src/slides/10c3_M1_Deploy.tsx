@@ -100,7 +100,7 @@ export default function Slide10c3Deploy() {
             <h4 className="text-sm font-bold text-slate-200">實際上怎麼做？一句話發包給 Claude Code</h4>
           </div>
           <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-xs md:text-sm text-emerald-300 whitespace-pre-wrap leading-relaxed shadow-inner">
-            {`幫我把 mission-timer 這個資料夾部署到 Vercel：
+            {`幫我把這個資料夾部署到 Vercel：
 
 1. 先在本機開一次，確認畫面正常、沒有錯誤訊息
 2. 檢查資料夾裡有沒有不該公開的東西（金鑰、個人資料），有的話加進 .gitignore

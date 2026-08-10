@@ -70,7 +70,7 @@ export default function SlideM1Harvest() {
           <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-4 py-3">
             <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
             <p className="text-sky-100 text-sm leading-relaxed">
-              「幫我在 mission-timer 這個資料夾建立 Git repository，做第一次 commit，訊息寫『第一單元完成』。」
+              「幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫『第一單元完成』。」
             </p>
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
