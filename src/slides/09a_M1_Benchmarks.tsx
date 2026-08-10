@@ -30,7 +30,7 @@ export default function SlideBenchmarks() {
             ].map((s, i) => (
               <div key={i} className="bg-slate-950/60 border border-slate-800 rounded-xl px-3 py-3 text-center">
                 <div className="text-white font-mono font-bold text-lg">{s.v}</div>
-                <div className="text-slate-500 text-[11px] mt-0.5">{s.l}</div>
+                <div className="text-slate-500 text-xs mt-0.5">{s.l}</div>
               </div>
             ))}
           </div>
@@ -49,8 +49,15 @@ export default function SlideBenchmarks() {
             Zig 語言作者 Andrew Kelley 公開批評這是「<strong className="text-amber-200">未經審查的產出</strong>」，
             並指出一個關鍵問題：<span className="text-slate-200">既有測試沒抓到的 bug，改寫成 Rust 後一樣抓不到。</span>
           </p>
+          {/*
+            原本收在「這門課要談的，正是後面這一半」，那是在講課程結構，不是給學員的東西。
+            換成一條他拿得走的判準：爭議的點不是 AI 寫得好不好，是沒有人驗得動。
+            這條也是後面監督、邊界、品質防線幾段共用的那個判準。
+          */}
           <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-amber-900/30">
-            速度是真的，品質誰把關也是真的問題。<strong className="text-slate-200">這門課要談的，正是後面這一半。</strong>
+            爭議的點不是 AI 寫得好不好，是<strong className="text-slate-200">沒有人驗得動</strong>：
+            既有測試抓不到的 bug，換一種語言重寫還是抓不到。速度提高了，能驗的量沒有跟著提高。
+            <strong className="text-slate-100 block mt-2">所以判準只有一條：你驗得動多少，就只能放手多少。</strong>
           </p>
         </AnimatedBlock>
 
