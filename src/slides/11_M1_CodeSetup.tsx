@@ -69,6 +69,25 @@ export default function SlideCodeSetup() {
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
             macOS 裝過 Xcode 命令列工具的話通常已經有 Git 了，Windows 預設沒有。
           </p>
+
+          {/*
+            這兩個帳號原本沒列，結果現場最花時間的兩件事就是它們：
+            有人整段時間卡在 GitHub 建置，也有人到下午才發現沒有付費額度可以跑。
+            兩個都要收驗證信，臨場申請一定會卡住，所以列進來並標明要先辦好。
+          */}
+          <p className="text-slate-400 text-sm mt-4 mb-2.5">
+            另外<strong className="text-slate-200">兩個帳號要先辦好</strong>，兩個都要收驗證信，臨時申請會卡在那裡：
+          </p>
+          <div className="space-y-1.5">
+            <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
+              <a href="https://claude.ai" target="_blank" rel="noreferrer" className="font-bold text-sky-400 hover:underline">Claude 付費方案</a>
+              <span className="text-xs text-slate-500 ml-2.5">Pro 以上，或到 Console 儲值走 API。沒有額度它跑不動</span>
+            </div>
+            <div className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
+              <a href="https://github.com" target="_blank" rel="noreferrer" className="font-bold text-sky-400 hover:underline">GitHub</a>
+              <span className="text-xs text-slate-500 ml-2.5">存檔跟上線都要用它，帳號本身免費</span>
+            </div>
+          </div>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>
@@ -108,7 +127,7 @@ export default function SlideCodeSetup() {
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
             這一步只是確認環境能跑通，不用管它做得好不好看。正式的作品在後面會重做一次，資料夾就沿用 <code className="text-slate-400">mission-timer</code> 這個名字，整堂課都會回頭改它。
             <span className="block mt-1.5">
-              它會建在你剛才選的那個資料夾裡面（桌面版）或你切過去的那個位置（終端機）。<strong className="text-slate-400">記住它在哪，等一下要回來找。</strong>
+              它會建在你剛才選的那個資料夾裡面（桌面版）或你切過去的那個位置（終端機）。<strong className="text-slate-400">記住它在哪。</strong>
             </span>
           </p>
         </AnimatedBlock>
@@ -126,7 +145,7 @@ export default function SlideCodeSetup() {
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
-            打開來看看它寫了什麼就好，這頁不用背。第二單元會專門講 CLAUDE.md 該寫哪些東西、分幾層放，到時候我們再回來把這份改成真正能用的版本。
+            打開來看看它寫了什麼就好。第二單元會專門講 CLAUDE.md 該寫哪些東西、分幾層放，到時候我們再回來把這份改成真正能用的版本。
           </p>
         </AnimatedBlock>
 

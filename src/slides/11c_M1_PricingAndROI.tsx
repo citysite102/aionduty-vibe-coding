@@ -1,6 +1,7 @@
 import React from 'react';
-import { CreditCard, DollarSign, Cpu, CheckCircle, Shield } from 'lucide-react';
+import { CreditCard, DollarSign, Cpu, CheckCircle, Shield, BatteryWarning } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
 
 export default function SlidePricingAndROI() {
   return (
@@ -14,7 +15,7 @@ export default function SlidePricingAndROI() {
           </h3>
           <p className="text-slate-300 text-sm leading-relaxed max-w-4xl">
             其實，現在主流的 AI 軟體大多支援<strong>「官方網頁 Pro 訂閱直接登入」</strong>與<strong>「API 計量付費」</strong>這兩種模式！
-            搞懂這兩者的差異，你才知道自己的用量該走哪一種。<span className="text-[11px] text-slate-500 block mt-1">（* 費用皆為 2026 年中資訊。各家計價變動頻繁，尤其 Cursor 已多次改版，請務必以官方頁面為準）</span>
+            搞懂這兩者的差異，你才知道自己的用量該走哪一種。<span className="text-xs text-slate-500 block mt-1">（* 費用皆為 2026 年中資訊。各家計價變動頻繁，尤其 Cursor 已多次改版，請務必以官方頁面為準）</span>
           </p>
         </AnimatedBlock>
 
@@ -28,7 +29,7 @@ export default function SlidePricingAndROI() {
                 <span className="px-2.5 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-lg text-xs font-mono font-bold">
                   官方終端機工具
                 </span>
-                <span className="text-[11px] text-slate-500 font-mono">Claude Code</span>
+                <span className="text-xs text-slate-500 font-mono">Claude Code</span>
               </div>
               <h4 className="text-lg font-bold text-slate-100 mb-2">Claude Code (Anthropic 官方)</h4>
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
@@ -53,7 +54,7 @@ export default function SlidePricingAndROI() {
               </div>
             </div>
             
-            <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-[11px] text-slate-400 font-medium">
+            <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400 font-medium">
               <span className="text-amber-500">💡 怎麼選：</span>
               <span>偶爾用 → API 儲值，用多少算多少；每天都用 → 訂閱制通常便宜得多。先從便宜的開始，撞到上限再升級。</span>
             </div>
@@ -67,7 +68,7 @@ export default function SlidePricingAndROI() {
                 <span className="px-2.5 py-1 bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 rounded-lg text-xs font-mono font-bold">
                   AI 輔助編輯器
                 </span>
-                <span className="text-[11px] text-slate-500 font-mono">Cursor & Copilot</span>
+                <span className="text-xs text-slate-500 font-mono">Cursor & Copilot</span>
               </div>
               <h4 className="text-lg font-bold text-slate-100 mb-2">Cursor / GitHub Copilot</h4>
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
@@ -90,13 +91,45 @@ export default function SlidePricingAndROI() {
               </div>
             </div>
             
-            <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-[11px] text-slate-400 font-medium">
+            <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400 font-medium">
               <span className="text-indigo-400">🚀 實務建議：</span>
               <span>自備 API Key 能讓你免繳月租，且能在同一個介面依用量靈活切換多款主流模型（不同廠牌的模型都可切換）。</span>
             </div>
           </AnimatedBlock>
 
         </div>
+
+        {/*
+          現場真的發生過：額度在下午燒完，那個人整個後半段沒辦法跟著做，
+          而且以為是自己哪裡做錯了。所以這一塊要先講「這不是你的錯」，再講怎麼辦。
+        */}
+        <Callout tone="warn" label="額度突然不夠用的時候" icon={BatteryWarning} stepIndex={4}>
+          <p className="mb-3">
+            額度是<strong className="text-slate-100">按它讀了多少、寫了多少字在算</strong>，跟你做得對不對無關。
+            成果還沒出來就先燒完，多半是下面這三件事其中之一。
+          </p>
+          <ul className="space-y-1.5 mb-3 text-slate-400">
+            <li>
+              <strong className="text-slate-200">一次交代太大的事。</strong>
+              它會把整個資料夾翻過一遍才動手，光是讀就花掉很多。
+            </li>
+            <li>
+              <strong className="text-slate-200">卡在同一個錯誤反覆重試。</strong>
+              每一輪都要把前面的來回重讀一次，越後面越貴。
+            </li>
+            <li>
+              <strong className="text-slate-200">整場開著同一個對話。</strong>
+              對話越長，每一句話要帶的前文就越多。
+            </li>
+          </ul>
+          <div className="rounded-lg border border-slate-700 bg-slate-950/60 px-4 py-3 text-slate-300">
+            <div className="font-bold text-slate-100 mb-1">當下可以做的</div>
+            輸入 <code className="font-mono text-orange-300">/usage</code> 看還剩多少；
+            訂閱制是 5 小時一個區間，等它重置就會回來。
+            不想等就去 Console 儲值走 API，最低 5 美金就能開通，兩種登入方式可以隨時切換。
+            換新題目之前輸入 <code className="font-mono text-orange-300">/clear</code> 開一段新對話，會省下不少。
+          </div>
+        </Callout>
       </div>
     </SlideLayout>
   );
