@@ -1,4 +1,4 @@
-import { PackageCheck, FolderOpen, MonitorPlay, FileText } from 'lucide-react';
+import { PackageCheck, FolderOpen, MonitorPlay } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -8,8 +8,11 @@ import { Callout } from '../components/Callout';
  * 模擬授課跑出來的問題：整個第一單元有四頁叫學員動手，沒有一頁給「成功長什麼樣」，
  * 所以講者到最後也不知道有多少人真的做出東西。這一頁就是那個判準。
  *
- * 三項清單同時兌現前面欠的兩張支票：存檔（版本控制那一頁說「第一件事就是存檔」，
+ * 清單同時兌現前面欠的兩張支票：存檔（版本控制那一頁說「第一件事就是存檔」，
  * 但沒教怎麼存）、上線網址（部署那一頁說「最後會走完這一步」，實際上在第四單元）。
+ *
+ * 這裡只列學員手上真的會有的檔案。CLAUDE.md 曾經列過，但到這一頁為止它只被
+ * 產出來看過一眼，沒有講過那是什麼，列進驗收清單學員無從判斷自己有沒有做到。
  */
 const HAVE = [
   {
@@ -17,7 +20,8 @@ const HAVE = [
     text: (
       <>
         一個 <code className="font-mono text-slate-200">mission-timer</code> 資料夾，
-        裡面有 <code className="font-mono text-slate-200">index.html</code>
+        裡面有一個 <code className="font-mono text-slate-200">index.html</code>，
+        整個計時器就是這一個檔案
       </>
     ),
   },
@@ -26,16 +30,8 @@ const HAVE = [
     text: (
       <>
         對 <code className="font-mono text-slate-200">index.html</code> 按兩下，
-        瀏覽器會打開，倒數會動，底下有一行日出與日落時間
-      </>
-    ),
-  },
-  {
-    icon: FileText,
-    text: (
-      <>
-        一份 <code className="font-mono text-orange-300">CLAUDE.md</code>，
-        安裝那一頁最後請它總結的那份
+        瀏覽器會打開，倒數會動，底下有一行日出與日落時間。
+        那一行是它去外面的 API 拿回來的，不是你自己打上去的
       </>
     ),
   },
@@ -48,7 +44,7 @@ export default function SlideM1Harvest() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這一單元做完，下面三件事應該都成立。
+            這一單元做完，下面兩件事應該都成立。
           </p>
         </AnimatedBlock>
 
@@ -88,11 +84,6 @@ export default function SlideM1Harvest() {
           它要先推上 GitHub，再接部署平台，那兩步在第四單元。
           你現在這個只有自己這台電腦看得到。
         </Callout>
-
-        <AnimatedBlock stepIndex={5} className="text-slate-400 text-sm leading-relaxed px-1">
-          那份 <code className="font-mono text-orange-300">CLAUDE.md</code> 現在是它自己總結的版本，還不能用。
-          第二單元會回來把它改成真正管用的手冊。
-        </AnimatedBlock>
 
       </div>
     </SlideLayout>
