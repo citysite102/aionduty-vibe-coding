@@ -14,6 +14,10 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 這一頁是全片唯一的斜線指令清單。原本前面還有「新手友善內建功能」與
  * 「對話與會話控制命令」兩頁，三頁講的是同一批指令，已經併進這裡。
  * 之後要補指令就加進對應的那一格，不要再另開一頁。
+ *
+ * 只放打得出來的斜線指令。原本「設定與權限」那格有一個 Shift + Tab，
+ * 那是按鍵不是指令，打 / 找不到它，而且只有終端機按了有反應，
+ * 已經搬去終端機那一段的按鍵頁。這一格不要再放按鍵進來。
  */
 const GROUPS = [
   {
@@ -33,7 +37,7 @@ const GROUPS = [
     items: [
       { cmd: '/permissions', desc: '設定允許與禁止的規則' },
       { cmd: '/model', desc: '換模型，控制花費最直接的手段' },
-      { cmd: 'Shift + Tab', desc: '循環切換權限模式' },
+      { cmd: '/rewind', desc: '退回這次對話的某個時間點' },
     ],
   },
   {
