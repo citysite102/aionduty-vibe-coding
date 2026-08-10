@@ -1,11 +1,9 @@
 import { Rocket, Home, Store, Globe, Database, TerminalSquare, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { LiveDemo } from '../components/LiveDemo';
 
 export default function Slide10c3Deploy() {
   return (
     <SlideLayout title="從本機到上線：交給託管平台" subtitle="Deploy: From Localhost to the World" icon={Rocket}>
-      <LiveDemo kind="browser" note="看 Vercel 的實際畫面" />
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
 
         {/* 1. 心智模型：本機能跑 ≠ 別人看得到 */}
@@ -49,6 +47,27 @@ export default function Slide10c3Deploy() {
             <p className="text-slate-300 text-sm leading-relaxed mb-3">
               <strong className="text-slate-100">Vercel 是什麼？</strong> 一個「把你的網頁放上網、發給它一個網址」的託管服務。連上 GitHub 之後，你每次更新程式碼，它就<strong className="text-sky-300">自動重新上線</strong>，你完全不用碰伺服器。
             </p>
+            {/*
+              網址這件事學員問過：部署完到底會拿到什麼、要不要花錢買。
+              先講預設就有一個免費的，再講想換自己的要另外買，順序不要反過來，
+              不然聽起來像是還要先花一筆錢才有網址。
+            */}
+            <div className="mb-3 rounded-lg border border-slate-800 bg-slate-950 px-3.5 py-3">
+              <div className="text-slate-200 text-sm font-bold mb-1.5">部署完，網址從哪來</div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                它會直接給你一個{' '}
+                <code className="font-mono text-sky-300">你的專案名.vercel.app</code>{' '}
+                的網址，免費，馬上就能傳給別人。
+              </p>
+              <p className="text-slate-500 text-sm leading-relaxed mt-1.5">
+                想換成自己的名字，就去{' '}
+                <a href="https://www.godaddy.com/" target="_blank" rel="noreferrer" className="text-slate-400 hover:underline">GoDaddy</a>
+                、
+                <a href="https://www.cloudflare.com/products/registrar/" target="_blank" rel="noreferrer" className="text-slate-400 hover:underline">Cloudflare</a>
+                {' '}這類網域商買一個（一年幾百到一千多元），再回到 Vercel 設定裡指過去。
+                <strong className="text-slate-400">先用免費那個也完全沒問題。</strong>
+              </p>
+            </div>
             <a
               href="https://vercel.com/"
               target="_blank"
