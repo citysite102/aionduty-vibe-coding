@@ -11,7 +11,7 @@ const STEPS: {
   {
     icon: FolderPlus,
     title: '1. 開一個資料夾，把它叫起來',
-    body: '不用先想清楚要做什麼，先讓它跑起來再說。桌面版：開 Code 頁籤，選那個資料夾。終端機：cd 進去，輸入 claude。兩邊是同一個 Claude Code，挑你順手的那個。',
+    body: '題目挑好之後，先開一個空資料夾放它。桌面版：開 Code 頁籤，選那個資料夾。終端機：cd 進去，輸入 claude。兩邊是同一個 Claude Code，挑你順手的那個。',
     codeLabel: '走終端機的話：',
     code: ['$ mkdir my-project && cd my-project', '$ claude']
   },
@@ -38,7 +38,7 @@ const STUCK = [
 export default function SlideFirstDay() {
   return (
     <SlideLayout
-      title="回去之後，第一天做什麼"
+      title="開工的三個步驟"
       subtitle="Your First Day After This Course"
       icon={Rocket}
     >
@@ -92,11 +92,10 @@ export default function SlideFirstDay() {
             </div>
 
             <div className="mt-5 pt-4 border-t border-slate-800 space-y-2">
+              <div className="text-sm font-bold text-slate-200">額度好像快用完了</div>
               <p className="text-sm text-slate-400 leading-relaxed">
-                <strong className="text-slate-200">想再往前一步：</strong>把每週都要重複做的那件事，整理成一份 <code className="text-sky-300 font-mono">SKILL.md</code>，交給它跑一次看看。
-              </p>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                想知道額度用到哪了，輸入 <code className="text-slate-400 font-mono">/usage</code>。
+                輸入 <code className="text-orange-300 font-mono">/usage</code> 看還剩多少。
+                快見底就先把手上這一輪收掉，不要在剩最後一點的時候開新的大工程。
               </p>
             </div>
           </AnimatedBlock>

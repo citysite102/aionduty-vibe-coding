@@ -126,6 +126,7 @@ import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
+import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
@@ -247,7 +248,8 @@ const LIVE_TITLES = [
   "你的專案現在只活在這台電腦裡",
   "有些東西不能推上去",
   "上線之後才發現的問題",
-  "回去之後，第一天做什麼",
+  "回去之後，做哪一種題目",
+  "開工的三個步驟",
   "未來的工作者",
 ];
 
@@ -368,6 +370,7 @@ const LIVE_SLIDES = [
   Slide27b8b,
   Slide27b8c,
   Slide27b9,
+  Slide28b0,
   Slide28b,
   Slide33,
 ];
