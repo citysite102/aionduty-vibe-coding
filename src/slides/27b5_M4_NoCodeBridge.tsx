@@ -5,7 +5,7 @@ export default function SlideNoCodeBridge() {
   return (
     <SlideLayout
       title="不寫程式，也能守住品質"
-      subtitle="Linting & Type Checking for Non-Developers"
+      subtitle="Automated Checks for Non-Developers"
       icon={ClipboardCheck}
     >
       <div className="max-w-5xl mx-auto mt-3 text-left space-y-6">
@@ -14,7 +14,11 @@ export default function SlideNoCodeBridge() {
           <p className="text-slate-300 text-base leading-relaxed">
             前面說「要有客觀的完成標準，迴圈才知道自己做完了沒」。問題是，
             <strong className="text-slate-100">你不會看程式碼，那個標準要從哪裡來？</strong>
-            答案是：不用你來看。有兩個工具會自動幫你把關，跑完會給你綠燈或紅字，AI 也看得到同一份結果，紅字就自己回頭修。
+            答案是：不用你來看。有東西會自動幫你把關，跑完給綠燈或紅字，AI 看得到同一份結果，紅字就自己回頭修。
+            <span className="block mt-2 text-slate-400">
+              把關分兩種：一種是<strong className="text-slate-300">讀程式碼挑錯</strong>（下面兩個），一種是<strong className="text-slate-300">實際打開畫面點一次</strong>。
+              你手上的計時器適用第二種，所以待會動手做的是那個。
+            </span>
           </p>
         </AnimatedBlock>
 
@@ -63,38 +67,53 @@ export default function SlideNoCodeBridge() {
             <Terminal size={18} className="text-sky-400" />
             那我的專案要怎麼跑這兩道關卡？
           </h4>
+          {/*
+            這三步原本是 ESLint + npm run lint。問題有兩個：
+            主線學員沒有 npm（Node.js 在選修的終端機那一段才裝），而且他的計時器是
+            單一個 index.html，沒有 package.json，lint 根本跑不起來。
+            28a_M4_LoopPractice 的檔案註解自己就寫著那會變成一個假例子。
+            改成他手上那個 index.html 真的驗得動的：叫它自己開瀏覽器點一次。
+          */}
           <p className="text-sm text-slate-400 leading-relaxed mb-5">
-            用 Vite、Next.js 這類工具建立的專案，多半已經內建了，只是沒人叫它跑。你要做的是這三件事：
+            你的計時器是一個 <code className="font-mono text-slate-300">index.html</code>，
+            它能不能用，看的是「打開之後點下去有沒有反應」。這件事也可以交給它自己驗：
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
-              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 1　交代它裝好</div>
+              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 1　裝一個會點畫面的 Skill</div>
               <p className="text-sm text-slate-300 leading-relaxed mb-2">在對話框跟它說：</p>
               <p className="text-sm text-sky-300 leading-relaxed">
-                「請幫這個專案設定好 ESLint 與 TypeScript 型別檢查，並在 package.json 加一個 lint 指令。」
+                「幫我安裝 webapp-testing 這個 Skill，裝完重開一次對話，然後告訴我怎麼叫它。」
               </p>
-              <p className="text-xs text-slate-500 leading-relaxed mt-2">設定一次就好，之後不用再管。</p>
+              <p className="text-xs text-slate-500 leading-relaxed mt-2">裝一次就好。它會自己開瀏覽器點你的網頁。</p>
             </div>
 
             <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
-              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 2　自己驗一次</div>
-              <p className="text-sm text-slate-300 leading-relaxed mb-2">在終端機輸入：</p>
-              <code className="text-sm text-emerald-300 font-mono bg-slate-900 px-2 py-1 rounded inline-block">npm run lint</code>
-              <p className="text-sm text-slate-300 leading-relaxed mt-2">
-                沒有紅字就是綠燈。有紅字就整段複製，貼回對話框請它修。
+              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 2　先講清楚什麼叫做完</div>
+              <p className="text-sm text-slate-300 leading-relaxed mb-2">寫成看得出有沒有的事實：</p>
+              <p className="text-sm text-sky-300 leading-relaxed">
+                「三顆按鈕都點得到、點下去大字會變、瀏覽器 Console 沒有紅字。」
+              </p>
+              <p className="text-xs text-slate-500 leading-relaxed mt-2">
+                不要寫「操作要順暢」，那種它驗不動。
               </p>
             </div>
 
             <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
-              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 3　讓它每次都跑</div>
+              <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 3　讓它每次都驗</div>
               <p className="text-sm text-slate-300 leading-relaxed mb-2">在 CLAUDE.md 裡加一行：</p>
               <p className="text-sm text-sky-300 leading-relaxed">
-                「每次改完程式，都要跑一次 npm run lint，紅字沒清掉不算做完。」
+                「每次改完，用 webapp-testing 把上面那幾題點過一次，沒全過不算做完。」
               </p>
               <p className="text-xs text-slate-500 leading-relaxed mt-2">這句話就是你給迴圈的完成標準。</p>
             </div>
           </div>
+
+          <p className="text-xs text-slate-500 leading-relaxed mt-4 border-t border-slate-800 pt-3">
+            專案長大到用 Vite、Next.js 這類工具建起來之後，還會多一種自動關卡叫 lint，
+            那是靠讀程式碼挑錯，跟這裡點畫面的驗法互補。跟它說「幫我設定好 lint 並加進完成標準」它會處理，你一樣不用看程式碼。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={5} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4">
