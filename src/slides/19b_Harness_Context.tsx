@@ -16,6 +16,15 @@ export default function SlideHarnessContext() {
             <Zap size={24} />
             同一份東西，每次都給跟用到才給，差很多
           </h3>
+          {/*
+            模擬學員在這一頁問的第一個問題是「上下文到底是什麼？是對話紀錄嗎？會滿嗎？」
+            整頁的標題就是這個詞，卻從來沒有人定義過它。先給一句白話再往下講。
+          */}
+          <p className="text-slate-300 text-lg leading-relaxed mb-3">
+            先講「上下文」是什麼：<strong className="text-sky-200">它這一輪看得到的所有東西</strong>，
+            你打的字、它讀過的檔案、前面來回過的對話，全部算在一起。
+            它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
+          </p>
           <p className="text-slate-300 text-lg leading-relaxed">
             六個零件裡的第一個是<strong className="text-sky-200">規則文件</strong>。
             難的不只是寫什麼，還有<strong className="text-sky-200">什麼時候把它送進去</strong>：

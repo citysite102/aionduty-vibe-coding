@@ -45,9 +45,20 @@ export default function SlideMultiAgent() {
           <p className="text-slate-100 text-2xl font-bold leading-snug mb-2">
             任務一大，一個 Agent 從頭做到尾就容易出錯。
           </p>
-          <p className="text-slate-400 text-base leading-relaxed">
+          <p className="text-slate-400 text-base leading-relaxed mb-3">
             它得同時記著整份規格、正在改的那個檔案、還有哪幾項沒驗。
             東西一多，最先掉的通常是最後那項。所以把它拆成三個角色。
+          </p>
+          {/*
+            「子代理」在這一頁之前已經出現過十幾次，但沒有一頁正面定義它。
+            模擬學員的原話：「子代理跟我直接開一個新對話問它，有什麼不一樣？」
+            那正是要回答的問題，答案是它的對話不會回到你這邊，只回結論。
+          */}
+          <p className="text-slate-400 text-base leading-relaxed">
+            下面那兩個標著 <span className="font-mono text-slate-300">Subagent</span> 的，中文叫
+            <strong className="text-slate-200">子代理</strong>：
+            你派它出去做一件事，<strong className="text-slate-200">它自己那一段來回不會回到你的對話裡，只把結論交回來</strong>。
+            跟你自己另外開一個對話問的差別就在這：那邊的東西你得自己搬回來，子代理是主 session 直接派、直接收。
           </p>
         </AnimatedBlock>
 
