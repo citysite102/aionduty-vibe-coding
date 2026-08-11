@@ -165,7 +165,12 @@ const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible
 export default function Slide10c() {
   const [activeScenario, setActiveScenario] = useState<'login' | 'cart' | 'search'>('login');
   const [animState, setAnimState] = useState<AnimState>('idle');
-  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  /*
+   * 預設是自動循環播放，講者還在講、學員還在讀左邊的字，右邊已經自己跑完一輪了。
+   * CLAUDE.md A-2 明文禁止用 setTimeout 驅動畫面內容切換，這裡正是那一條。
+   * 改成預設手動：按下按鈕才跑一次，跑完停住。要循環播放講者自己切。
+   */
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(false);
 
   const activeData = scenarios[activeScenario];
 
@@ -279,7 +284,7 @@ export default function Slide10c() {
                     : 'bg-slate-900 text-slate-400 border-slate-800'
                 }`}
               >
-                <Activity size={12} className={isAutoPlaying ? 'animate-pulse' : ''} />
+                <Activity size={12} />
                 <span>{isAutoPlaying ? '自動循環中' : '手動模式'}</span>
               </button>
 
