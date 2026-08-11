@@ -28,7 +28,7 @@ export default function SlideGoalWorkflow() {
   const [selectedRole, setSelectedRole] = useState(0);
 
   return (
-    <SlideLayout title="Goal 五步驟操作" subtitle="5-Step Action Guide for Non-Coders" icon={Compass}>
+    <SlideLayout title="交代一輪工作的五個步驟" subtitle="5-Step Action Guide for Non-Coders" icon={Compass}>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
         {/* Left Side: 5-step Workflow */}

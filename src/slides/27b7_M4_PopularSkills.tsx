@@ -55,7 +55,7 @@ export default function SlidePopularSkills() {
 
               <div className="flex items-center gap-2 mb-4">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-orange-500/15 border border-orange-500/30 rounded-full text-[11px] font-mono text-orange-400 font-bold tracking-wider uppercase">
-                  接續規格驅動
+                  動工前先問清楚
                 </span>
               </div>
 

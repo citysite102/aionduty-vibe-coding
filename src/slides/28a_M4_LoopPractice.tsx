@@ -23,7 +23,7 @@ const BLOCKS = [
     tag: '目標',
     title: '一句話講清楚要什麼',
     body: '這一輪要它做的事。範圍只有一個功能，不是「把計時器做好」。',
-    from: '對應 Goal 五步驟的第 1 步',
+    from: '對應五個步驟的第 1 步',
   },
   {
     icon: ListChecks,
@@ -36,7 +36,7 @@ const BLOCKS = [
     icon: PlayCircle,
     tag: '怎麼驗',
     title: '這一段才是讓它跑下一輪的引擎',
-    body: '少了它，它改完就停在那裡等你。有了它，沒過的題目它會自己回頭修再驗一次。webapp-testing 就是前面那頁介紹的 Skill。',
+    body: '少了它，它改完就停在那裡等你。有了它，沒過的題目它會自己回頭修再驗一次。webapp-testing 就是前面裝過的那個 Skill。',
     from: '對應「熱門 Skills 精選」那一頁',
   },
   {

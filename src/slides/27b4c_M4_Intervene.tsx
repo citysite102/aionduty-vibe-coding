@@ -75,6 +75,12 @@ export default function SlideIntervene() {
             <strong className="text-slate-200">這四招都不需要你看懂程式碼。</strong>
             判斷的標準只有一個：它有沒有在往前走。原地打轉超過幾輪，就停下來換一種方式，不要放著讓它繼續跑。
           </p>
+          {/* 原本「自動化 Loop 的局限與風險」那一頁併掉了，只留下這兩件設定一次就生效的事。 */}
+          <p className="text-sm text-slate-400 leading-relaxed mt-3 pt-3 border-t border-slate-800">
+            <strong className="text-slate-200">人不在旁邊的時候</strong>，靠的是設定一次就生效的兩件事：
+            在後台設用量上限，帳單才不會在你睡覺的時候長大；先拿一小部分資料試跑，
+            確認產出長得對，再讓它跑完整批。
+          </p>
         </AnimatedBlock>
 
       </div>

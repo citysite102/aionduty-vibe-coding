@@ -108,26 +108,19 @@ import Slide26c from './slides/26c_M3_QuoteSystemData';
 import Slide26d from './slides/26d_M3_QuoteSystemStandards';
 import Slide26e from './slides/26e_M3_QuoteSystemPrompts';
 import Slide26f from './slides/26f_M3_QuoteSystemRisks';
+import Slide26g from './slides/26g_M3_Harvest';
 import Slide26 from './slides/26_Div_Loop';
 import Slide27 from './slides/27_M4_LoopEng';
-import Slide27b from './slides/27b_M4_LoopParts';
-import Slide27b2 from './slides/27b2_M4_GoalLoop';
 import Slide27b3 from './slides/27b3_M4_GoalWorkflow';
-import Slide27b4 from './slides/27b4_M4_Vocabulary';
-import Slide27b4b from './slides/27b4b_M4_Caveats';
 import Slide27b4c from './slides/27b4c_M4_Intervene';
 import Slide27b5 from './slides/27b5_M4_NoCodeBridge';
-import Slide27b5b from './slides/27b5b_M4_WhiteScreen';
 import Slide27b5c from './slides/27b5c_M4_ReadErrors';
-import Slide27b6 from './slides/27b6_M4_FutureEngineering';
 import Slide27b7 from './slides/27b7_M4_PopularSkills';
-import Slide27b7b from './slides/27b7b_M4_GrillMeRouting';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
 import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
-import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
@@ -235,30 +228,23 @@ const LIVE_TITLES = [
   "把規範放進對的位置",
   "用五個指令推進",
   "中型專案最常卡在這五件事",
+  "這一段你手上多了什麼",
   "Agent 循環開發流程",
   "做完一次不算完，要能自己跑下一輪",
-  "自動化之後，最容易累積的三件事",
-  "讓它自己跑，需要哪幾個零件",
   "熱門 Skills 精選",
-  "想讓它每次都這樣問，寫進手冊就好了嗎",
-  "設定目標，讓它自己跑到完成",
-  "Goal 五步驟操作",
-  "省下的時間，用來擴大搜尋",
-  "自動化 Loop 的局限與風險",
+  "交代一輪工作的五個步驟",
   "鬼打牆的時候，你可以怎麼踩煞車",
   "不寫程式，也能守住品質",
-  "畫面一片空白，終端機又沒報錯",
   "紅字在跟你說三件事",
-  "先說清楚，再讓它自己驗",
   "放手之前，先設好四道邊界",
   "讓計時器自己跑完一輪",
   "Agent 自己跑的時候，你在旁邊看什麼",
+  "回去之後，做哪一種題目",
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
   "有些東西不能推上去",
   "真的把它變成一個網址",
   "上線之後才發現的問題",
-  "回去之後，做哪一種題目",
   "開工的三個步驟",
   "未來的工作者",
 ];
@@ -362,30 +348,23 @@ const LIVE_SLIDES = [
   Slide26d,
   Slide26e,
   Slide26f,
+  Slide26g,
   Slide26,
   Slide27,
-  Slide27b4,
-  Slide27b,
   Slide27b7,
-  Slide27b7b,
-  Slide27b2,
   Slide27b3,
-  Slide27c,
-  Slide27b4b,
   Slide27b4c,
   Slide27b5,
-  Slide27b5b,
   Slide27b5c,
-  Slide27b6,
   Slide28,
   Slide28a,
   Slide28a2,
+  Slide28b0,
   Slide27b8,
   Slide27b8b,
   Slide27b8c,
   Slide27b8d,
   Slide27b9,
-  Slide28b0,
   Slide28b,
   Slide33,
 ];
@@ -406,7 +385,7 @@ const SECTION_DEFS = [
   { start: 45, label: 'Agent 運作框架與成本分析' },
   { start: 75, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
   { start: 85, label: '讓 Agent 分工，並守住品質' },
-  { start: 98, label: 'Agent 循環開發流程' },
+  { start: 99, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

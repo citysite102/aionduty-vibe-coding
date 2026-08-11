@@ -48,7 +48,7 @@ export default function SlideReadErrors() {
       subtitle="Reading Error Messages Without Reading Code"
       icon={AlertOctagon}
     >
-      <div className="max-w-5xl mx-auto mt-3 text-left space-y-5 pb-6">
+      <div className="max-w-6xl mx-auto mt-3 text-left space-y-5 pb-6">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
@@ -58,6 +58,8 @@ export default function SlideReadErrors() {
           </p>
         </AnimatedBlock>
 
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
+        <div className="space-y-5">
         {CASES.map((c, idx) => {
           const Icon = c.icon;
           return (
@@ -74,7 +76,7 @@ export default function SlideReadErrors() {
                 <span className="text-sm text-slate-500">{c.when}</span>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-5 items-start">
+              <div className="space-y-4">
                 <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs leading-relaxed overflow-x-auto">
                   {c.log.map((line) => (
                     <div key={line.text} className={`${line.tone} whitespace-pre`}>{line.text}</div>
@@ -93,16 +95,54 @@ export default function SlideReadErrors() {
             </AnimatedBlock>
           );
         })}
+        </div>
 
-        <AnimatedBlock stepIndex={4} className="bg-slate-950 border border-slate-800 rounded-3xl p-6">
+        <div className="space-y-5">
+        {/*
+          原本「畫面一片空白，終端機又沒報錯」是獨立的一頁，但它跟這一頁的第二個案例
+          講的是同一件事：紅字在瀏覽器裡，不在終端機。合併成這一塊，
+          保留那一頁真正多出來的兩個操作：截圖直接貼，以及 Console 怎麼打開。
+        */}
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+          <h4 className="text-base font-bold text-slate-100 mb-1.5">畫面壞了，可是哪裡都找不到紅字</h4>
+          <p className="text-sm text-slate-400 leading-relaxed mb-4">
+            計時器昨天還好好的，今天打開只剩一片黑，按「發射」也沒反應，終端機卻什麼都沒說。這時候有兩招。
+          </p>
+
+          <div className="space-y-4">
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
+              <div className="text-sm font-bold text-slate-200 mb-2">一、直接給它看</div>
+              <p className="text-sm text-slate-400 leading-relaxed mb-2.5">
+                別花力氣描述「星球不見了、按鈕點了沒反應」，截圖貼給它。
+              </p>
+              <p className="text-sm text-emerald-300 leading-relaxed">
+                「這是我現在看到的畫面，星球本來應該在下面，請幫我修正。」
+              </p>
+            </div>
+
+            <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
+              <div className="text-sm font-bold text-slate-200 mb-2">二、自己去撈那段紅字</div>
+              <div className="text-sm text-slate-400 leading-relaxed space-y-1">
+                <div>
+                  1. 按 <code className="font-mono text-slate-200">F12</code>
+                  （Mac 按 <code className="font-mono text-slate-200">Cmd + Opt + I</code>）
+                </div>
+                <div>2. 點最上面的 Console 分頁</div>
+                <div>3. 看到紅字，整段複製貼回對話框</div>
+              </div>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={5} className="bg-slate-950 border border-slate-800 rounded-3xl p-6">
           <h4 className="text-base font-bold text-slate-100 mb-4 flex items-center gap-2">
             <MessageSquare size={18} className="text-emerald-400" />
             順便讓它教你：三句可以直接照抄
           </h4>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="space-y-2.5">
             {ASKS.map((q, i) => (
-              <div key={q} className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-                <div className="text-xs font-mono text-slate-500 mb-1.5">{i + 1}</div>
+              <div key={q} className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-2.5 flex gap-3">
+                <span className="text-xs font-mono text-slate-500 shrink-0 mt-1">{i + 1}</span>
                 <p className="text-sm text-emerald-300 leading-relaxed">{q}</p>
               </div>
             ))}
@@ -112,6 +152,8 @@ export default function SlideReadErrors() {
             第三句最值得問，錯誤看多了，你自己也會開始看得懂。
           </p>
         </AnimatedBlock>
+        </div>
+        </div>
 
       </div>
     </SlideLayout>
