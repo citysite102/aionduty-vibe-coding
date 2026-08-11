@@ -8,8 +8,8 @@ export const meta: RecordedMeta = {
   id: 'harness-22-health-rest',
   title: '手冊健檢：加法排在第四',
   script:
-    '第三步分流，就是前面那四個問題，會出事的交給機制，只在某一區的分出去。第四步才輪到加法，這個順序值得停一下：發現手冊沒生效的時候，多數人的第一個動作就是再加一條，健檢刻意把加法排在後面，因為先刪再搬之後，你要補的東西通常比原本以為的少。第五步修剪，把要優雅這種句子改寫成可以檢查的敘述，具體做法是下一段的主題。',
-  seconds: 44,
+    '剩下三步直接套在你這份手冊上。第三步分流：「絕對不要刪掉我的檔案」違反了會出事，搬去 Hook。第四步加法，這一輪一條都不用補。這個順序值得停一下，發現手冊沒生效的時候多數人的第一個動作就是再加一條，健檢刻意把加法排在第四，因為先刪再搬之後要補的通常比原本以為的少。第五步修剪，「畫面要好看」它做完自己也不知道達成沒有，怎麼改寫是下一段的主題。',
+  seconds: 46,
   from: 69,
 };
 
@@ -27,15 +27,22 @@ export default function RecHealthRest() {
           <p className="text-slate-300 text-4xl font-bold leading-snug">手冊沒生效時，第一個動作<Key>不是再加一條</Key></p>
         </AnimatedBlock>
 
+        {/*
+          原本這三步只有名詞加一句解釋，學員問「那到底要做什麼」。
+          三步各掛一條這一段一直在改的那份手冊裡的真實句子，抽象的部分就有落點了。
+        */}
         <AnimatedBlock stepIndex={2} className="space-y-4">
           {[
-            ['3　分流', '就是前面那四個問題。會出事的交給機制，只在某一區的分出去。'],
-            ['4　加法', '這時候才補新規則，而且補在正確的位置，不要一律往根目錄堆。'],
-            ['5　修剪', '把「要優雅」這種改寫成可以檢查的句子。'],
-          ].map(([n, d]) => (
+            ['3　分流', '「絕對不要刪掉我的檔案」違反了會出事，搬去 Hook。', '這條就是前面四個問題的第一題。'],
+            ['4　加法', '這一輪一條都不用補。', '先刪再搬之後，原本想加的那條通常已經不需要了。'],
+            ['5　修剪', '「畫面要好看，風格保持一致」改成看得出達成沒有的寫法。', '它做完自己也不知道算不算好看。'],
+          ].map(([n, d, note]) => (
             <div key={n} className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-5 flex gap-6 items-baseline">
               <span className="text-sky-400 font-bold text-xl font-mono shrink-0 w-24">{n}</span>
-              <p className="text-slate-400 text-lg leading-relaxed">{d}</p>
+              <div>
+                <p className="text-slate-200 text-lg leading-relaxed">{d}</p>
+                <p className="text-slate-500 text-base leading-relaxed mt-1">{note}</p>
+              </div>
             </div>
           ))}
         </AnimatedBlock>
