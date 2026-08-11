@@ -1,5 +1,6 @@
 import { CloudUpload, HardDrive, Laptop2, Send, Terminal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
 
 /**
  * 出貨前的 GitHub 動機頁。
@@ -20,6 +21,7 @@ export default function SlidePushToGithub() {
       subtitle="Push It to GitHub"
       icon={CloudUpload}
     >
+      <LiveDemo kind="claude" note="跟著推一次" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {LOSSES.map((l) => {

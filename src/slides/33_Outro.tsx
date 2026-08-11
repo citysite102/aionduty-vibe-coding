@@ -83,8 +83,11 @@ export default function SlideOutro() {
           </p>
 
           <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-2xl mx-auto border-t border-slate-800 pt-4">
-            你做出來的那個計時器已經在線上，網址可以直接傳給別人看。
+            那個計時器現在有一組網址，傳給誰都打得開。
             <strong className="text-slate-100">換一個題目，流程還是同一套：講清楚要什麼、說好什麼叫做完、跑完自己抽查幾筆。</strong>
+            <span className="block mt-2 text-slate-500">
+              還沒走到部署那一步也沒關係，前面那幾頁的步驟跟卡關對照留著，回去照著做一次就有了。
+            </span>
           </p>
         </AnimatedBlock>
 

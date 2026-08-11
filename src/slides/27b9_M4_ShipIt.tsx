@@ -1,4 +1,4 @@
-import { Globe, Terminal, Smartphone, Laptop, ArrowRight, Database } from 'lucide-react';
+import { Globe, Smartphone, Laptop, ArrowRight, Database } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideShipIt() {
@@ -6,25 +6,12 @@ export default function SlideShipIt() {
     <SlideLayout title="上線之後才發現的問題" subtitle="Mission Timer v3: Ship It" icon={Globe}>
       <div className="max-w-6xl mx-auto text-left space-y-5 pb-8">
 
-        {/* 一、把它送上線 */}
+        {/*
+          部署那段 prompt 搬到前一頁去了，那裡才是真的動手做出網址的地方。
+          這一頁留給它原本更有價值的職務：網址有了之後才會發現的那個問題。
+        */}
+        {/* 一、痛點 */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-3">先把它送上線</h3>
-          <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 relative">
-            <div className="absolute top-2.5 right-3 flex items-center gap-1 text-[11px] font-mono text-slate-500 uppercase tracking-wider font-bold">
-              <Terminal size={11} className="text-sky-400" /> Prompt
-            </div>
-            <p className="text-sky-300 text-xs leading-relaxed font-medium mt-1">
-              「幫我把 mission-timer 部署到 Vercel。先確認本機打開沒問題，建立 Git repository 推上 GitHub，
-              連結 Vercel 完成部署，最後把網址給我。」
-            </p>
-          </div>
-          <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
-            你不用碰伺服器，平台負責維運，Agent 負責跑步驟。
-          </p>
-        </AnimatedBlock>
-
-        {/* 二、痛點 */}
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-4">拿手機打開你的網址，日誌是空的</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-center">
@@ -56,7 +43,7 @@ export default function SlideShipIt() {
         </AnimatedBlock>
 
         {/* 三、答案 */}
-        <AnimatedBlock stepIndex={3} className="bg-gradient-to-br from-emerald-950/25 to-slate-950 border border-emerald-900/30 rounded-2xl p-5 flex gap-4 items-start">
+        <AnimatedBlock stepIndex={2} className="bg-gradient-to-br from-emerald-950/25 to-slate-950 border border-emerald-900/30 rounded-2xl p-5 flex gap-4 items-start">
           <div className="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl shrink-0">
             <Database size={20} />
           </div>

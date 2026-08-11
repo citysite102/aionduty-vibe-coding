@@ -125,6 +125,7 @@ import Slide27b7b from './slides/27b7b_M4_GrillMeRouting';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
 import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
+import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27c from './slides/27c_M4_Scale';
 import Slide28 from './slides/28_M4_Safety';
@@ -255,6 +256,7 @@ const LIVE_TITLES = [
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
   "有些東西不能推上去",
+  "真的把它變成一個網址",
   "上線之後才發現的問題",
   "回去之後，做哪一種題目",
   "開工的三個步驟",
@@ -381,6 +383,7 @@ const LIVE_SLIDES = [
   Slide27b8,
   Slide27b8b,
   Slide27b8c,
+  Slide27b8d,
   Slide27b9,
   Slide28b0,
   Slide28b,
