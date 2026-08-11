@@ -1,82 +1,148 @@
-import { Wrench, Lightbulb, UserPlus } from 'lucide-react';
+import { Wrench, UserPlus, Play, Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { LiveDemo } from '../components/LiveDemo';
+import { Callout } from '../components/Callout';
+
+/**
+ * 這一頁標題寫「動手做」，但原本沒有 LiveDemo，也沒有「叫它出場」與「怎麼看它有沒有用」
+ * 這兩步，所以整個 M3 十幾頁下來學員手上不會多出任何東西。
+ *
+ * 現在是三步：建檔、叫它、看它退回什麼。第三步是重點，因為子代理最常見的失敗
+ * 不是不出場，是出場了只說「看起來可以」。那個對照要用學員自己的計時器看得出來，
+ * 所以檢查標準挑「倒數分鐘數有沒有寫死」，那是 M2 的 CLAUDE.md 已經寫過的規則。
+ *
+ * 第二個案例（quote-reviewer）拿掉了，同一件事 25_M3_Quality 與報價系統那一段都講過。
+ */
+const FRONTMATTER = `---
+name: code-reviewer
+description: 專門負責挑錯的資深工程師
+---
+檢查我改完的檔案。倒數的分鐘數不准寫死在程式裡，CLAUDE.md 要求集中成設定。
+逐條回覆，每條寫「通過」或「不通過」，不通過要指出檔案與第幾行。
+有一條不通過就整份退回，不要自己動手改。`;
+
+const STEPS = [
+  {
+    icon: UserPlus,
+    label: 'STEP 1',
+    title: '建一個只負責挑錯的角色',
+    body: (
+      <>
+        在對話框說「幫我建一個 code-reviewer 子代理，內容照下面這段」，
+        或是打 <code className="font-mono text-orange-300">/agents</code> 讓它帶你建。
+        檔案會放在 <code className="font-mono text-slate-200">.claude/agents/code-reviewer.md</code>。
+      </>
+    ),
+  },
+  {
+    icon: Play,
+    label: 'STEP 2',
+    title: '叫它出場',
+    body: (
+      <>
+        它不會自己監聽，你要點名：
+        <span className="mt-2 block rounded-lg border border-slate-800 bg-slate-950 px-4 py-2.5 text-slate-200">
+          「請 code-reviewer 檢查 index.html。」
+        </span>
+      </>
+    ),
+  },
+  {
+    icon: Search,
+    label: 'STEP 3',
+    title: '看它退回什麼',
+    body: (
+      <>
+        這一步才是驗收。它應該指得出<strong className="text-slate-100">哪個檔案第幾行</strong>，
+        而不是給你一段感想。指不出來就是它沒真的讀，把標準再寫死一點再叫一次。
+      </>
+    ),
+  },
+];
 
 export default function SlideM3HandsOn() {
   return (
     <SlideLayout title="動手做一個審查子代理" subtitle="Hands-on Reviewer" icon={Wrench}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-stretch h-full">
-        
-        <div className="flex flex-col justify-center space-y-4">
-          <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 relative group">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-sky-400 mb-3 border-b border-slate-800 pb-2">
-              <UserPlus aria-hidden="true" size={18} />
-              案例一：嚴格的 Code Reviewer
-            </h3>
-            <p className="text-slate-300 text-xs mb-3">
-              在 <code className="text-sky-300">.claude/agents/</code> 放一個 <code className="text-sky-300">code-reviewer.md</code>。
-              不用自己開資料夾，打 <code className="text-sky-300">/agents</code> 它會帶你建，或是直接說「幫我建一個 code-reviewer 子代理，內容照下面這段」。
-            </p>
-            <div className="bg-slate-950 p-3 rounded-lg font-mono text-xs border border-slate-800 text-slate-400 leading-relaxed overflow-x-auto">
-              <span className="text-slate-600">---</span><br/>
-              name: code-reviewer<br/>
-              description: 專門負責挑錯的資深工程師<br/>
-              <span className="text-slate-600">---</span><br/>
-              當我改完程式碼後，請你幫我挑錯。特別注意倒數的分鐘數有沒有被寫死 (hardcode) 在程式裡，規範要求它必須集中成設定。發現就退回。
-            </div>
-            <p className="text-slate-500 text-[11px] mt-2 leading-relaxed">
-              前後各一行 <code className="text-slate-400">---</code> 缺一不可，中間那段叫 frontmatter，Claude Code 靠它認出這是一個 subagent。
-            </p>
-            
-            <div className="mt-3 bg-sky-950/30 p-3 rounded-lg border border-sky-900/50">
-              <h4 className="text-sky-400 font-bold text-xs mb-1">🤔 這會全自動觸發嗎？</h4>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                subagent 自己<strong className="text-slate-300">不會</strong>監聽事件，要它出場有三種方式：直接在對話裡指名「請 code-reviewer 幫我看一下」；主 Agent 依 description 判斷後自動委派；或在 <code className="text-slate-300">CLAUDE.md</code> 裡規定「每次完成任務前都要先請 code-reviewer 檢查」。若真的要「一定會跑」，得改用 <code className="text-slate-300">hooks</code>（見後面的擴充機制）。
-              </p>
-            </div>
-          </AnimatedBlock>
+      <LiveDemo kind="claude" note="跟著建一個，然後叫它檢查你的計時器" />
 
-          <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-            <h3 className="text-lg font-bold flex items-center gap-3 text-sky-400 mb-3 border-b border-slate-800 pb-2">
-              <UserPlus aria-hidden="true" size={18} />
-              案例二：報價單審查員
-            </h3>
-            <p className="text-slate-300 text-xs mb-3">
-              建立一個 <code className="text-sky-300">quote-reviewer.md</code>，專門檢查客戶報價是否完整。
-            </p>
-            <div className="bg-slate-950 p-3 rounded-lg font-mono text-xs border border-slate-800 text-slate-400 leading-relaxed overflow-x-auto">
-              <span className="text-slate-600">---</span><br/>
-              name: quote-reviewer<br/>
-              description: 檢查客戶報價單是否缺欄位、價格規則或風險提醒<br/>
-              <span className="text-slate-600">---</span><br/>
-              請用業務助理的角度檢查報價草稿。每一份都要有客戶名稱、有效期限、品項、數量、幣別、稅金、折扣理由與付款條件。缺任何一項就退回，不能自行補資料。
-            </div>
-          </AnimatedBlock>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start pb-8">
+
+        <div className="space-y-4">
+          {STEPS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <AnimatedBlock
+                key={s.label}
+                stepIndex={i + 1}
+                className="rounded-2xl border border-slate-800 bg-slate-900 p-5"
+              >
+                <div className="flex items-center gap-2.5 mb-2">
+                  <Icon aria-hidden="true" size={17} className="text-slate-400 shrink-0" />
+                  <span className="font-mono text-xs uppercase tracking-widest text-slate-400">{s.label}</span>
+                  <span className="text-slate-100 text-base font-bold">{s.title}</span>
+                </div>
+                <div className="text-slate-400 text-sm leading-relaxed">{s.body}</div>
+
+                {i === 0 && (
+                  <>
+                    <pre className="mt-3 rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-wrap">
+                      {FRONTMATTER}
+                    </pre>
+                    <p className="text-slate-500 text-sm leading-relaxed mt-2">
+                      前後各一行 <code className="font-mono text-slate-400">---</code> 缺一不可，
+                      Claude Code 靠中間那段認出它是子代理。
+                    </p>
+                  </>
+                )}
+              </AnimatedBlock>
+            );
+          })}
         </div>
 
-        <div className="flex flex-col justify-center space-y-6">
-          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 h-full flex flex-col justify-center relative overflow-hidden shadow-lg">
-            <div className="absolute top-0 right-0 p-4 opacity-20">
-              <Lightbulb aria-hidden="true" size={64} className="text-sky-400" />
-            </div>
-            <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
-              同一種檔案，可以定義不同角色
+        <div className="space-y-4">
+          <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <h3 className="text-base font-bold text-slate-100 mb-4 pb-2 border-b border-slate-800">
+              它退回來的那段話，長這兩種
             </h3>
-            <p className="text-slate-300 text-base leading-relaxed mb-4">
-              檔案格式一樣，差別在角色、標準與工具權限：
+
+            <div className="space-y-3">
+              <div className="rounded-xl border px-4 py-3 bg-rose-500/5 border-rose-500/25">
+                <div className="text-rose-300 text-sm font-bold mb-1.5">這樣就是沒在審</div>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  「整體結構清楚，沒有明顯問題，可以了。」
+                </p>
+              </div>
+
+              <div className="rounded-xl border px-4 py-3 bg-emerald-500/5 border-emerald-500/25 shadow-[0_0_32px_-12px_rgba(16,185,129,0.45)]">
+                <div className="text-emerald-300 text-sm font-bold mb-1.5">這樣才是審過了</div>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  「不通過。index.html 第 42 行寫死 25，CLAUDE.md 要求集中成設定。退回。」
+                </p>
+              </div>
+            </div>
+
+            <p className="text-slate-400 text-sm leading-relaxed mt-4 pt-3 border-t border-slate-800">
+              差別不在它多聰明，在你有沒有給它一條「不通過就退回」的線。
+              沒有那條線，它預設會找一個說得過去的說法讓你通過。
             </p>
-            <ul className="text-slate-400 text-sm space-y-3 list-disc pl-5">
-              <li>
-                工程團隊可以建 <strong className="text-slate-200">code-reviewer</strong>，檢查 PR 與測試缺口。
-              </li>
-              <li>
-                業務團隊可以建 <strong className="text-slate-200">quote-reviewer</strong>，檢查價格、條款與缺漏欄位。
-              </li>
-              <li>
-                行銷或教學團隊可以建 <strong className="text-slate-200">brand-reviewer</strong> 或 <strong className="text-slate-200">lesson-reviewer</strong>，檢查用字與教材完整性。
-              </li>
-            </ul>
-            <p className="text-slate-500 text-sm italic mt-6 border-t border-slate-800 pt-4">
-              差別不在檔案寫了什麼，而在你什麼時候叫它、以及有沒有規定一定要叫它。
+          </AnimatedBlock>
+
+          <Callout tone="muted" label="要它每次都出場" stepIndex={5}>
+            子代理自己不會監聽事件。三種叫得動它的方式：對話裡直接點名；
+            把 description 寫清楚讓主 Agent 自己判斷要不要派它；
+            或在 <code className="font-mono text-orange-300">CLAUDE.md</code> 寫一條「每次改完 index.html，先請 code-reviewer 檢查再回報」。
+            <span className="mt-2 block text-slate-400">
+              要「一定會跑」而不是「通常會跑」，就得用前面講過的 Hook，
+              那是在執行層攔下來，不是靠它記得。
+            </span>
+          </Callout>
+
+          <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
+            <p className="text-slate-400 text-sm leading-relaxed">
+              換成你的工作也是同一個檔案，只有角色與標準要改：
+              業務可以建 <strong className="text-slate-200">quote-reviewer</strong> 檢查報價缺哪個欄位，
+              行銷可以建 <strong className="text-slate-200">brand-reviewer</strong> 檢查用字。
+              退回條件寫得出來，這個角色就成立。
             </p>
           </AnimatedBlock>
         </div>
