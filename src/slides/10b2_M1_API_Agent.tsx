@@ -69,6 +69,22 @@ export default function Slide10b2() {
                     </div>
                     <p className="mb-3 text-sm text-slate-400">我已經順利下載並閱讀了 Anthropic Messages API 的文件。這是一個使用官方 <code>@anthropic-ai/sdk</code> 的精準實作：</p>
 
+                    {/*
+                      模擬學員反應：零基礎的人看到這一塊會整個放空，然後接下來兩頁都跟不上。
+                      問題不是程式碼在這裡，而是沒有人告訴他這一塊不用讀。
+                      加一行說清楚要看的是什麼，程式碼就從門檻變成證據。
+                    */}
+                    <div className="mb-3 rounded-lg border border-sky-500/25 bg-sky-500/5 px-3 py-2">
+                      <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                        <strong className="text-slate-100">下面這段不用讀懂。</strong>
+                        要看的只有一件事：這幾行裡的
+                        <code className="mx-1 font-mono text-sky-300">model</code>、
+                        <code className="mx-1 font-mono text-sky-300">max_tokens</code>、
+                        <code className="mx-1 font-mono text-sky-300">messages</code>
+                        都是它從那份文件裡抄下來的，不是它自己編的。
+                      </p>
+                    </div>
+
                     <pre className="bg-slate-950 p-3 rounded-xl text-sm text-sky-300 font-mono overflow-x-auto border border-slate-800">
 {`import Anthropic from '@anthropic-ai/sdk';
 
