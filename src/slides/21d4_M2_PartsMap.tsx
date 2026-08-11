@@ -11,6 +11,10 @@ import { Callout } from '../components/Callout';
  *   「不同 CLAUDE.md 裡面如何提取 skill」→ Skill 不是被手冊提取的，是 Claude 自己判斷要用。
  *
  * 零件名一律 sky，檔案路徑裡屬於 Claude 的才上 orange，.github/ 不是 Claude 的，維持灰階。
+ *
+ * Rules 出現兩次是對的，不是重複：同樣放在 .claude/rules/ 底下，
+ * 開頭沒有寫適用範圍的跟 CLAUDE.md 一起載入，寫了範圍的才是碰到那一區才讀。
+ * 原本只列一條放在「整場都在」那一帶，卻寫「動到那一區才讀」，自己跟自己打架。
  */
 const BANDS = [
   {
@@ -26,8 +30,8 @@ const BANDS = [
       },
       {
         name: 'Rules',
-        job: '只管某一區檔案的規矩',
-        who: '自動，但要動到那一區才讀',
+        job: '拆出去的規矩，開頭沒有指定範圍的那種',
+        who: '自動，跟 CLAUDE.md 一起讀進來',
         where: '.claude/rules/名稱.md',
         claudeOwned: true,
       },
@@ -49,6 +53,13 @@ const BANDS = [
         job: '獨立做完一件事，只回報結論',
         who: 'Claude 派它出去，你也可以指定派誰',
         where: '.claude/agents/名稱.md',
+        claudeOwned: true,
+      },
+      {
+        name: 'Rules（限定範圍）',
+        job: '同樣放 rules，但開頭寫了它只管哪一區',
+        who: '動到那一區的檔案才讀進來',
+        where: '.claude/rules/名稱.md',
         claudeOwned: true,
       },
       {
