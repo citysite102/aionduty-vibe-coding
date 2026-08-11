@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
+  Compass,
   Wand2,
   FileText,
   UserPlus,
@@ -9,6 +10,7 @@ import {
   Globe,
   ExternalLink,
 } from 'lucide-react';
+import Start from './modules/Start';
 import PromptBuilder from './modules/PromptBuilder';
 import ClaudeMdBuilder from './modules/ClaudeMdBuilder';
 import SubagentBuilder from './modules/SubagentBuilder';
@@ -27,11 +29,21 @@ import DeployHelp from './modules/DeployHelp';
  */
 const TABS = [
   {
+    id: 'start',
+    icon: Compass,
+    label: '從這裡開始',
+    sub: '你現在該用哪一格',
+    from: '',
+    when: '',
+    Component: Start,
+  },
+  {
     id: 'prompt',
     icon: Wand2,
     label: 'Prompt 組裝器',
     sub: '目標、什麼叫做完、怎麼驗、邊界',
     from: '第四單元',
+    when: '要交代一件比較大的事，而且希望它自己驗、自己修，不是改完就停下來等你。',
     Component: PromptBuilder,
   },
   {
@@ -40,6 +52,7 @@ const TABS = [
     label: 'CLAUDE.md 產生器',
     sub: '含 AGENTS.md 怎麼接',
     from: '第二單元',
+    when: '開一個新專案的第一件事。或是你發現自己每次開新對話都在重講同樣的規矩。',
     Component: ClaudeMdBuilder,
   },
   {
@@ -48,6 +61,7 @@ const TABS = [
     label: '子代理產生器',
     sub: '會退回的審查角色',
     from: '第三單元',
+    when: '你不想每次都自己檢查，但又不放心讓它自己說「看起來沒問題」的時候。',
     Component: SubagentBuilder,
   },
   {
@@ -56,6 +70,7 @@ const TABS = [
     label: '規則分流器',
     sub: '這條該放哪一層',
     from: '第二單元',
+    when: '想到一條新規矩，但不確定要寫進手冊、分到子目錄、做成 Skill 還是用 Hook 擋。',
     Component: RuleRouter,
   },
   {
@@ -64,6 +79,7 @@ const TABS = [
     label: 'Done-when 檢查器',
     sub: '把願望改成驗得出來的句子',
     from: '第四單元',
+    when: '交代完它做出來的東西總是差一點，多半是完成條件寫成了願望。先貼進來看哪幾句驗不出來。',
     Component: DoneWhenChecker,
   },
   {
@@ -72,6 +88,7 @@ const TABS = [
     label: '終端機沙盒',
     sub: '打錯不會弄壞東西',
     from: '選修',
+    when: '第一次開終端機、或看不懂別人教學裡那幾行指令的時候。這裡打錯不會弄壞任何東西。',
     Component: Sandbox,
   },
   {
@@ -80,6 +97,7 @@ const TABS = [
     label: '部署卡關',
     sub: '六個症狀跟怎麼辦',
     from: '第四單元',
+    when: '推不上去、部署完一片空白、改了網址卻沒更新。照症狀找，不用先懂原理。',
     Component: DeployHelp,
   },
 ];
@@ -106,7 +124,8 @@ export default function App() {
   }, []);
 
   const tab = TABS.find((t) => t.id === active) ?? TABS[0];
-  const Body = tab.Component;
+  // 起始頁要能把人送去別格，所以它多吃一個 go；其餘的都不吃 props
+  const Body = tab.Component as React.ComponentType<{ go?: (id: string) => void }>;
 
   return (
     <div className="min-h-screen bg-[#020617]">
@@ -152,14 +171,24 @@ export default function App() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-10">
-        <div className="mb-7 flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
-          <h2 className="text-2xl font-bold text-slate-100">{tab.label}</h2>
-          <span className="text-base text-slate-500">{tab.sub}</span>
-          <span className="rounded-full border border-slate-800 px-2.5 py-0.5 font-mono text-xs text-slate-500">
-            {tab.from}
-          </span>
+        <div className="mb-7">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5">
+            <h2 className="text-2xl font-bold text-slate-100">{tab.label}</h2>
+            <span className="text-base text-slate-500">{tab.sub}</span>
+            {tab.from && (
+              <span className="rounded-full border border-slate-800 px-2.5 py-0.5 font-mono text-xs text-slate-500">
+                {tab.from}
+              </span>
+            )}
+          </div>
+          {tab.when && (
+            <p className="mt-3 rounded-xl border border-sky-500/20 bg-sky-500/5 px-5 py-3.5 text-base leading-relaxed text-slate-300 max-w-4xl">
+              <span className="font-bold text-sky-300">什麼時候用：</span>
+              {tab.when}
+            </p>
+          )}
         </div>
-        <Body />
+        <Body go={setActive} />
       </main>
 
       <footer className="border-t border-slate-800/80 mt-14">
