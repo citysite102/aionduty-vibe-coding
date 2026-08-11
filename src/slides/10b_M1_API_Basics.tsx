@@ -1,6 +1,7 @@
-import { Database, FileJson, Globe, Receipt, Utensils } from 'lucide-react';
+import { Database, FileJson, Globe, KeyRound, Receipt, Utensils } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
+import { Callout } from '../components/Callout';
 
 export default function Slide10b() {
   return (
@@ -113,8 +114,24 @@ export default function Slide10b() {
               💡 <strong>大白話：</strong> <code>"欄位鍵" : "欄位值"</code> 只是把事情列得清清楚楚，這樣電腦就不用去猜人類模糊的對話了。
             </div>
           </AnimatedBlock>
-          
+
         </div>
+
+        {/*
+          金鑰安全原本要到第四單元才講，但畫面上第一次出現金鑰是這裡（上面那行 api_key=your_key），
+          而學員回去自己申請 API 是這一頁之後就會發生的事。所以規則放在第一次看到它的地方。
+          完整的擋法（.env、settings.json 的 deny）留在第四單元，這裡只講三十秒講得完的部分。
+
+          用 muted 不用 warn，是因為這一頁已經有 sky 與 emerald 兩個強調色（點單與出菜是一組對照），
+          再上一個 amber 就變三種了。A-1 的上限是兩種。
+        */}
+        <Callout tone="muted" label="網址裡的 your_key 是你的密碼" icon={KeyRound} stepIndex={4}>
+          多數 API 要先申請一組金鑰，那串字等於帳號密碼，別人拿到就能用你的額度、動你的資料。
+          <span className="mt-2 block text-slate-400">
+            所以三件事：不要貼進聊天室或公開的頁面；不要跟著程式碼一起推上 GitHub；
+            真的貼出去過就當它已經外洩，回後台重新產一組，舊的作廢。
+          </span>
+        </Callout>
       </div>
     </SlideLayout>
   );
