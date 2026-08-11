@@ -22,7 +22,7 @@ const MODES = [
     title: 'text-amber-300',
     iconClass: 'text-amber-400 bg-amber-500/10 border-amber-500/25',
     bar: 'bg-amber-400/70',
-    cell: 'border-slate-800 bg-slate-900',
+    cell: 'border-amber-900/40 bg-amber-500/5',
     prompt: '幫我加一個匯出按鈕',
     promptNote: '沒說加在哪一頁、匯出成什麼格式，它只能自己猜一個。',
     done: '「看起來會動」就好',
@@ -87,7 +87,7 @@ export default function SlideVibeVsAgentic() {
           <strong className="text-slate-100">AI 動手之前，你給了多少結構；它交出來之後，誰在驗。</strong>
         </AnimatedBlock>
 
-        <div className="grid grid-cols-[7rem_repeat(3,minmax(0,1fr))] gap-x-4 gap-y-2.5 items-start">
+        <div className="grid grid-cols-[7rem_repeat(3,minmax(0,1fr))] gap-x-4 gap-y-2.5 items-stretch">
 
           {/* 表頭，右下角那條是結構與驗證的量 */}
           <div className="flex items-end justify-end pr-1 pb-1 text-right font-mono text-xs leading-tight text-slate-500">
@@ -128,6 +128,7 @@ export default function SlideVibeVsAgentic() {
           {/* 三個問題，同一列一定講同一件事 */}
           {ROWS.map((row) => (
             <React.Fragment key={row.key}>
+              <div className="col-span-4 h-px bg-slate-800/70" />
               <div className="flex items-start justify-end pr-1 pt-3 text-right font-mono text-xs leading-tight text-slate-500">
                 {row.label}
               </div>
