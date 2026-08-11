@@ -12,14 +12,25 @@ export default function SlideIntroAgentic() {
             <span className="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>
             2026 Update: From Vibe to Agentic
           </div>
+          {/*
+            原本寫「Karpathy 於 2026 年 2 月宣告：Vibe Coding 已經過時」，三件事都不準：
+            時間是 4 月底、形式是 fireside chat 不是有標題的演講，
+            而他的結論是兩者互補，不是誰取代誰。查證出處：
+            karpathy.bearblog.dev/sequoia-ascent-2026/（2026-04-30）。
+            這是指名歸屬的引述，又擺在整堂課的定調位置，不能寫成他沒說過的話。
+          */}
           <h3 className="text-2xl font-black text-slate-100 mb-4">
-            Andrej Karpathy 於 2026 年 2 月宣告：Vibe Coding 已經過時
+            Andrej Karpathy：這兩個不是誰取代誰，是各做各的事
           </h3>
           <p className="text-slate-500 text-xs mb-3">
-            出自 Sequoia AI Ascent 2026 的對談，講題就叫「From Vibe Coding to Agentic Engineering」。
+            2026 年 4 月，Sequoia AI Ascent 的對談。
+          </p>
+          <p className="text-slate-300 text-lg leading-relaxed mb-3">
+            他的原話是：<strong className="text-sky-400 font-bold">「Vibe coding 把地板墊高，Agentic engineering 守住專業軟體的品質水準。」</strong>
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            隨著模型一次能處理的步驟變多、也能自己跑指令，透過 Agent 寫程式逐漸成為專業工作者的預設工作流。Karpathy 為這個新階段提出了新名稱：<strong className="text-sky-400 font-bold">「Agentic Engineering」</strong>。
+            前者讓本來做不出軟體的人做得出來，後者處理的是「做得出來之後，怎麼確定它是對的」。
+            <strong className="text-slate-100">你今天兩個都會碰到</strong>：先用前者做出東西，再用後者把它變成敢交出去的東西。
           </p>
         </AnimatedBlock>
 
