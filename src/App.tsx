@@ -70,6 +70,7 @@ import Slide21a from './slides/21a_M2_MCPSkills';
 import Slide21a2 from './slides/21a2_M2_SkillDemoResume';
 import Slide21a3 from './slides/21a3_M2_SkillDemoReference';
 import Slide21a4 from './slides/21a4_M2_SkillInstall';
+import Slide21a5 from './slides/21a5_M2_PopularSkills';
 import Slide21b from './slides/21b_M2_HandsOn';
 import Slide21b2 from './slides/21b2_M2_HandsOnPrompt';
 import Slide21b3 from './slides/21b3_M2_ContextCheck';
@@ -115,7 +116,7 @@ import Slide27b3 from './slides/27b3_M4_GoalWorkflow';
 import Slide27b4c from './slides/27b4c_M4_Intervene';
 import Slide27b5 from './slides/27b5_M4_NoCodeBridge';
 import Slide27b5c from './slides/27b5c_M4_ReadErrors';
-import Slide27b7 from './slides/27b7_M4_PopularSkills';
+import Slide27b6 from './slides/27b6_M4_FutureEngineering';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
 import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
@@ -190,6 +191,7 @@ const LIVE_TITLES = [
   "同一個個人網站，裝與不裝 Skill",
   "給它看，還要叫得出每一塊的名字",
   "Skill 怎麼裝，怎麼知道它裝好了",
+  "熱門 Skills 精選",
   "動手搭建運作框架",
   "跟著做：寫出真正能用的 CLAUDE.md",
   "怎麼確認它真的讀到了",
@@ -231,7 +233,6 @@ const LIVE_TITLES = [
   "這一段你手上多了什麼",
   "Agent 循環開發流程",
   "做完一次不算完，要能自己跑下一輪",
-  "熱門 Skills 精選",
   "交代一輪工作的五個步驟",
   "鬼打牆的時候，你可以怎麼踩煞車",
   "不寫程式，也能守住品質",
@@ -239,6 +240,7 @@ const LIVE_TITLES = [
   "放手之前，先設好四道邊界",
   "讓計時器自己跑完一輪",
   "Agent 自己跑的時候，你在旁邊看什麼",
+  "先說清楚，再讓它自己驗",
   "回去之後，做哪一種題目",
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
@@ -310,6 +312,7 @@ const LIVE_SLIDES = [
   Slide21a2,
   Slide21a3,
   Slide21a4,
+  Slide21a5,
   Slide21b,
   Slide21b2,
   Slide21b3,
@@ -351,7 +354,6 @@ const LIVE_SLIDES = [
   Slide26g,
   Slide26,
   Slide27,
-  Slide27b7,
   Slide27b3,
   Slide27b4c,
   Slide27b5,
@@ -359,6 +361,7 @@ const LIVE_SLIDES = [
   Slide28,
   Slide28a,
   Slide28a2,
+  Slide27b6,
   Slide28b0,
   Slide27b8,
   Slide27b8b,
@@ -383,9 +386,9 @@ const SECTION_DEFS = [
   { start: 14, label: 'Agent 的心智模型與 Claude Code 實作' },
   { start: 40, label: '選修：終端機' },
   { start: 45, label: 'Agent 運作框架與成本分析' },
-  { start: 75, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
-  { start: 85, label: '讓 Agent 分工，並守住品質' },
-  { start: 99, label: 'Agent 循環開發流程' },
+  { start: 76, label: '手冊（CLAUDE.md）的疑難雜症與轉移' },
+  { start: 86, label: '讓 Agent 分工，並守住品質' },
+  { start: 100, label: 'Agent 循環開發流程' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

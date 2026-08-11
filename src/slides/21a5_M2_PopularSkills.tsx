@@ -36,12 +36,13 @@ export default function SlidePopularSkills() {
     <SlideLayout title="熱門 Skills 精選" subtitle="Popular Skills to Install" icon={Sparkles}>
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
 
-        {/* Intro: tie back to spec-driven */}
+        {/* 這一頁從 M4 搬到 M2 的 Skill 那一段：講完怎麼裝，接著就是裝什麼。 */}
         <AnimatedBlock stepIndex={1} className="w-full">
           <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 text-left">
             <p className="text-slate-300 text-sm leading-relaxed">
               <strong className="text-sky-400">Skill 就是「把一套做法打包好，裝上就能用」。</strong>
               需要時才載入，讓 Agent 在特定任務上直接照著高手的做法走。
+              這四個是最常被裝的，前面那三種裝法隨便挑一種都裝得起來。
             </p>
           </div>
         </AnimatedBlock>
@@ -50,42 +51,42 @@ export default function SlidePopularSkills() {
 
           {/* HERO: Grill Me */}
           <AnimatedBlock stepIndex={2} className="lg:col-span-5 flex">
-            <div className="bg-gradient-to-b from-orange-950/30 to-slate-900 border border-orange-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden w-full flex flex-col text-left">
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-500/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="bg-gradient-to-b from-sky-950/30 to-slate-900 border border-sky-900/40 rounded-3xl p-6 shadow-xl relative overflow-hidden w-full flex flex-col text-left">
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-sky-500/10 rounded-full blur-2xl pointer-events-none" />
 
               <div className="flex items-center gap-2 mb-4">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-orange-500/15 border border-orange-500/30 rounded-full text-[11px] font-mono text-orange-400 font-bold tracking-wider uppercase">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-sky-500/15 border border-sky-500/30 rounded-full text-xs font-mono text-sky-400 font-bold tracking-wider uppercase">
                   動工前先問清楚
                 </span>
               </div>
 
               <div className="flex items-center gap-3 mb-3">
-                <div className="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center shrink-0">
                   <Flame size={26} />
                 </div>
                 <div>
                   <h3 className="text-xl font-black text-slate-100">Grill Me</h3>
-                  <p className="text-[11px] font-mono text-slate-500">by @mattpocock</p>
+                  <p className="text-xs font-mono text-slate-500">by @mattpocock</p>
                 </div>
               </div>
 
               <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                與其自己憋出一份完整規格，不如讓它<strong className="text-orange-300">「烤問」你</strong>。動工前它會把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
+                與其自己憋出一份完整規格，不如讓它<strong className="text-sky-300">「烤問」你</strong>：動工前把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
               </p>
 
-              <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-3 font-mono text-[11px] text-emerald-400">
+              <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-3 font-mono text-xs text-emerald-400">
                 $ npx skills add mattpocock/skills --skill=grill-me
               </div>
 
               <div className="bg-slate-950/70 border border-slate-800 rounded-2xl p-4 space-y-2 mb-3">
-                <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">它一次只問一題，而且附上自己的建議</div>
-                <div className="text-xs leading-relaxed space-y-1.5">
-                  <p className="text-slate-300"><span className="text-orange-400 font-mono">Q.</span> 倒數中途按「返航」，這一趟要算完成還是放棄？</p>
+                <div className="text-xs font-mono text-slate-500 uppercase tracking-wider">它一次只問一題，而且附上自己的建議</div>
+                <div className="text-sm leading-relaxed space-y-1.5">
+                  <p className="text-slate-300"><span className="text-sky-400 font-mono">Q.</span> 倒數中途按「返航」，這一趟要算完成還是放棄？</p>
                   <p className="text-slate-500 pl-4">我的建議：記成未完成，但仍留下紀錄，這樣你才看得出放棄率。</p>
                 </div>
               </div>
 
-              <div className="mt-auto space-y-1.5 text-[11px] text-slate-400 leading-relaxed">
+              <div className="mt-auto space-y-1.5 text-sm text-slate-400 leading-relaxed">
                 <p>• <strong className="text-slate-300">一次一題，等你答完才問下一題。</strong>一次丟十題只會讓人腦袋當機。</p>
                 <p>• <strong className="text-slate-300">能自己查的它就去查，只把「決定」留給你。</strong>這正是指揮官該做的事。</p>
                 <p>• 你沒說「我們有共識了」之前，它不會動手寫任何東西。</p>
@@ -99,16 +100,16 @@ export default function SlidePopularSkills() {
             {MORE_SKILLS.map((skill, idx) => {
               const Icon = skill.icon;
               return (
-                <AnimatedBlock key={skill.name} stepIndex={3 + idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-left flex items-start gap-4">
+                <AnimatedBlock key={skill.name} stepIndex={3 + idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-left flex flex-1 items-center gap-4">
                   <div className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 ${COLOR_MAP[skill.color]}`}>
                     <Icon size={20} />
                   </div>
                   <div>
                     <div className="flex items-baseline gap-2.5 mb-1 flex-wrap">
                       <h4 className="text-base font-bold text-slate-100">{skill.name}</h4>
-                      <code className="text-[11px] font-mono text-orange-400/90">{skill.tag}</code>
+                      <code className="text-xs font-mono text-orange-400/90">{skill.tag}</code>
                     </div>
-                    <p className="text-slate-400 text-xs leading-relaxed">{skill.desc}</p>
+                    <p className="text-slate-400 text-sm leading-relaxed">{skill.desc}</p>
                   </div>
                 </AnimatedBlock>
               );
@@ -116,7 +117,7 @@ export default function SlidePopularSkills() {
 
             <AnimatedBlock stepIndex={6} className="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-left flex items-start gap-3 mt-auto">
               <Puzzle size={18} className="text-slate-500 shrink-0 mt-0.5" />
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-sm text-slate-400 leading-relaxed">
                 Skills 是個持續長大的生態系，官方與社群都在陸續釋出。挑選原則很單純：<strong className="text-slate-300">哪件事你常做又懶得每次交代，就找一個 Skill 幫你固定下來。</strong>
               </p>
             </AnimatedBlock>
