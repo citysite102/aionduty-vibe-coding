@@ -19,7 +19,7 @@ export default function SlideDivTerminalTrack() {
         { label: '終端機是什麼', weight: 3, note: '幾個指令，跟著打一次' },
         { label: '換一個好用的', weight: 2, note: 'Warp，內建的也行' },
         { label: '裝 Claude Code', weight: 3, note: '一行指令，然後登入' },
-        { label: '終端機才有的鍵', weight: 2, note: 'Shift + Tab、!、Esc' },
+        { label: '終端機才有的操作', weight: 2, note: 'Shift + Tab、!、Esc' },
       ]}
     />
   );

@@ -38,14 +38,14 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="終端機才有的三個鍵"
-      subtitle="Terminal-only Keys"
+      title="終端機才有的三種操作"
+      subtitle="Terminal-only Moves"
       icon={Keyboard}
     >
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這三個是<strong className="text-slate-100">按鍵，不是指令</strong>，所以打 <span className="font-mono text-slate-200">/</span> 找不到它們，
+          這三種都是按鍵操作，<strong className="text-slate-100">不是指令</strong>，所以打 <span className="font-mono text-slate-200">/</span> 找不到它們，
           而且只有在終端機裡按才有反應。
         </AnimatedBlock>
 
