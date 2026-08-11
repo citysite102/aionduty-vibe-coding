@@ -10,6 +10,16 @@ export default defineConfig(() => {
     // 之後若改綁自訂網域，把這行改回 '/'。
     base: '/aionduty-vibe-coding/',
     plugins: [react(), tailwindcss()],
+    build: {
+      // 兩個入口：簡報在根目錄，課堂工具箱在 /tools/。
+      // 同一個 repo、同一次部署，所以簡報上印的網址跟工具箱永遠是同一版。
+      rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          tools: path.resolve(__dirname, 'tools/index.html'),
+        },
+      },
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
