@@ -15,8 +15,8 @@ export const meta: RecordedMeta = {
   id: 'harness-04-diagnose',
   title: '那要怎麼知道是哪一種？',
   script:
-    '這五種原因的處理方式完全不同，所以不要一發現它沒照做就急著再加一條規則，那只會讓檔案更肥，原本的問題還在。診斷順序是這樣：第一步跑 /context，確認那份手冊在不在載入清單裡，不在就是位置的問題。第二步問它依據哪一條做決定。如果它答不出來，代表規則寫得無法判定。如果它答得出來卻還是做錯，那多半是被埋在後面，或是兩條規則互相矛盾。',
-  seconds: 42,
+    '這五種原因的處理方式完全不同，所以不要一發現它沒照做就急著再加一條規則，那只會讓檔案更肥，原本的問題還在。診斷順序是這樣：第一步跑 /context，確認那份手冊在不在載入清單裡，不在就是位置的問題。第二步問它依據哪一條做決定。如果它答不出來，代表規則寫得無法判定。如果它答得出來卻還是做錯，那多半是被埋在後面，或是兩條規則互相矛盾。而這四種裡只有第三種是句子寫壞，其餘都是位置問題，所以下一步先決定位置。',
+  seconds: 47,
   from: 68,
 };
 
@@ -54,9 +54,16 @@ export default function RecDiagnose() {
           </AnimatedBlock>
         ))}
 
+        {/*
+          原本這一頁講完診斷就結束，下一頁直接開始問「這條規則該放哪」，中間是斷的。
+          診斷的結論本身就是接點，所以併進這一塊，不另開一個區塊把頁面撐爆。
+        */}
         <AnimatedBlock stepIndex={5} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl px-7 py-5">
           <p className="text-slate-300 text-lg leading-relaxed">
             ⚠️ 跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
+          </p>
+          <p className="text-slate-300 text-lg leading-relaxed mt-3 pt-3 border-t border-amber-500/15">
+            而這四種裡只有第 3 種是句子寫壞，<Key>其餘都是位置問題</Key>，所以下一步先決定位置。
           </p>
         </AnimatedBlock>
       </RecPage>
