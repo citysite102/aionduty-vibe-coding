@@ -54,9 +54,14 @@ export default function SlideM2Recap() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4">
-            <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">下一段要解決什麼</div>
+            {/*
+              原本寫「下一段講的是怎麼設一個目標，讓它自己跑完一輪」，但下一段是 M3 分工，
+              目標循環在 M4。CLAUDE.md B-4 章早就把這一句列為犯過的錯，改成指真正的下一段。
+            */}
+            <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">還沒解決的事</div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              手冊管得到「怎麼做」，管不到「什麼時候算做完」。到目前為止，每一輪都要你按下開始、你來看結果。<span className="text-slate-200">下一段講的是怎麼設一個目標，讓它自己跑完一輪再回來找你。</span>
+              手冊管得到「怎麼做」，管不到「誰來檢查」。到目前為止，唯一在把關的人是你，而你手上只有一雙眼睛。
+              <span className="text-slate-200">接下來要多找幾個角色進來，讓它們互相檢查。</span>
             </p>
           </AnimatedBlock>
 
