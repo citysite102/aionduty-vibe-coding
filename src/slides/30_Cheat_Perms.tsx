@@ -51,7 +51,7 @@ export default function SlideCheatPerms() {
   };
 
   return (
-    <SlideLayout title="Claude Code 的四種權限模式" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
+    <SlideLayout title="Claude Code 的權限模式" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-2 items-stretch text-left pb-6">
         
@@ -108,8 +108,13 @@ export default function SlideCheatPerms() {
                     <span className="font-bold text-emerald-400 text-sm tracking-wide">自動接受 <code className="text-[11px] font-mono opacity-70">acceptEdits</code></span>
                     <span className="text-xs font-mono text-emerald-500/30 bg-emerald-950/20 px-1.5 py-0.5 rounded border border-emerald-900/30">熟悉專案後</span>
                   </div>
+                  {/*
+                    原本寫「只有檔案編輯自動通過，Bash 指令仍走原本的許可規則」，那是錯的，
+                    而且錯在讓人以為比較安全的那一邊：它同時放行 mkdir、touch、mv、cp 這類
+                    檔案系統指令，mv 會搬走、會覆蓋。整頁是安全邊界的依據，這裡不能寫鬆。
+                  */}
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    只有「檔案編輯」自動通過，Bash 指令仍走原本的許可規則。適合高頻、重複的小幅度修改。
+                    改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp 這類搬檔案的指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
                   </p>
                 </button>
 
@@ -132,7 +137,7 @@ export default function SlideCheatPerms() {
                     <span className="text-xs font-mono text-amber-500/30 bg-amber-950/20 px-1.5 py-0.5 rounded border border-amber-900/30">大重構推薦</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    只讀不寫：它會翻專案、提出方案給你看，但不動任何檔案。適合先確認方向再放手做。
+                    它會翻專案、提出方案給你看，<strong className="text-slate-100">但不動任何檔案</strong>。適合先確認方向再放手做。
                   </p>
                 </button>
 
@@ -242,7 +247,7 @@ export default function SlideCheatPerms() {
                               <div className="text-sky-300">✓ 模式：default：寫入檔案或執行指令前會確認，讀取不打擾</div>
                             )}
                             {terminalMode === 'auto-accept' && (
-                              <div className="text-emerald-400">✓ 模式：acceptEdits：檔案編輯免提問，Bash 指令仍走原本的許可規則</div>
+                              <div className="text-emerald-400">✓ 模式：acceptEdits：檔案編輯與 mkdir／mv／cp 這類指令免提問，其餘照原本的規則問</div>
                             )}
                             {terminalMode === 'plan' && (
                               <div className="text-amber-400">✓ 模式：plan：先讀懂再出方案，不寫入任何檔案</div>
@@ -407,7 +412,13 @@ export default function SlideCheatPerms() {
             <div className="mt-4 p-4 bg-slate-950/60 rounded-2xl border border-slate-800 text-xs text-slate-300">
               <span className="text-indigo-400 font-bold block mb-1">💡 跨平台控制思維：</span>
               {activeTab === 'terminal' ? (
-                <span>在 Terminal CLI 中講求隨手切換：<code>Shift + Tab</code> 會在幾種模式之間<strong>循環</strong>，目前是哪一種，輸入框下方會顯示。</span>
+                <span>
+                  <code>Shift + Tab</code> 平常只在 <strong>default（新版介面上叫 Manual）→ acceptEdits → plan</strong> 三個之間循環，目前是哪一種，輸入框下方會顯示。
+                  另外還有三種要用啟動參數才進得去：<code>auto</code>（全放行但有背景檢查）、
+                  <code>dontAsk</code>（只放行你事先核准的工具，是縮小邊界最實際的做法）、
+                  以及上面那個 <code>bypassPermissions</code>。
+                  <strong className="text-slate-100"> 按不到它們是刻意的設計，不會誤觸。</strong>
+                </span>
               ) : (
                 <span>在 Web 網頁控制台中，我們則享有<strong>精細（Granular）的安全隔離</strong>，能精細開關特定資料夾、指令黑名單或特定沙箱行為。</span>
               )}

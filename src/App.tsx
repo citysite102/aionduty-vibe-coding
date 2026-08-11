@@ -192,7 +192,7 @@ const LIVE_TITLES = [
   "接下來要動手的三件事",
   "讓 AI 有手可用：MCP 與 Skills",
   "監督與邊界",
-  "Claude Code 的四種權限模式",
+  "Claude Code 的權限模式",
   "同一個個人網站，裝與不裝 Skill",
   "給它看，還要叫得出每一塊的名字",
   "Skill 怎麼裝，怎麼知道它裝好了",
