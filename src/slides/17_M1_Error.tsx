@@ -97,7 +97,7 @@ export default function SlideError() {
         <Callout tone="focus" label="紅字會出現在三個地方，做法都一樣" stepIndex={4}>
           <ul className="space-y-1.5 mb-3">
             <li>
-              <strong className="text-slate-100">Claude Code 的對話裡</strong>，它跑指令失敗的時候。桌面版跟終端機都一樣，這是你今天最常看到的。
+              <strong className="text-slate-100">Claude Code 的對話裡</strong>，它跑指令失敗的時候。桌面版跟終端機都一樣，這是你最常看到的。
             </li>
             <li>
               <strong className="text-slate-100">瀏覽器</strong>，網頁打開怪怪的時候。按 <code className="font-mono text-slate-200">F12</code>（Mac 是 <code className="font-mono text-slate-200">Cmd + Opt + I</code>）開 Console 看。

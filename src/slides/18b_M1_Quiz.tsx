@@ -1,11 +1,17 @@
 import { HelpCircle, Briefcase } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { AskFirst } from '../components/AskFirst';
 
 /**
  * 五個情境的建議做法。tone 只有兩種：
  *   plain  這一題不需要動到專案檔案，用對話框或現成工具就好
  *   agent  這一題要讀寫你電腦裡的真實檔案，才輪到 Claude Code
  * 顏色標的是這個分界，不是「哪一題比較好」。
+ *
+ * 五題的答案原本跟題目掛在同一個 stepIndex，看到題目就看到答案，練習等於沒發生。
+ * 現在題目佔 1 到 5，停在 6 的 AskFirst，五個答案一起在 7 出現。
+ * 答案不逐題揭曉，是因為這五題比的是同一條分界（要不要讀寫真實檔案），
+ * 一起攤開才看得出哪幾題落在同一邊。
  */
 const CASES = [
   {
@@ -81,17 +87,24 @@ export default function Slide18b() {
               </div>
               <div className="flex-1">
                 <h4 className="text-slate-100 font-bold mb-1.5 text-base leading-snug">{c.title}</h4>
-                <p className="text-slate-400 text-sm mb-3 leading-relaxed">{c.need}</p>
-                <div className={`text-sm px-3 py-2 rounded-lg border leading-relaxed ${TONES[c.tone]}`}>
+                <p className="text-slate-400 text-sm leading-relaxed">{c.need}</p>
+                <AnimatedBlock
+                  stepIndex={7}
+                  className={`mt-3 text-sm px-3 py-2 rounded-lg border leading-relaxed ${TONES[c.tone]}`}
+                >
                   <strong>建議做法：</strong>
                   {c.answer}
-                </div>
+                </AnimatedBlock>
               </div>
             </AnimatedBlock>
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={6} className="mt-5 px-1">
+        <AnimatedBlock stepIndex={6} className="mt-5 flex justify-center">
+          <AskFirst />
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={8} className="mt-5 px-1">
           <p className="text-slate-400 text-sm leading-relaxed">
             這一頁分的是工具，不是分方法。
             <strong className="text-slate-200">把需求講清楚的問法、把規矩寫下來的做法，上面五題選哪一邊都用得上。</strong>

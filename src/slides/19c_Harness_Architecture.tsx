@@ -46,7 +46,7 @@ const parts = [
     en: 'Hooks',
     desc: '在固定時機自動跑的一段檢查，不經過 AI 判斷，所以它想跳過也跳不掉（例如存檔前擋下密碼）。',
     scope: 'later' as const,
-    tag: '本段稍後示範',
+    tag: '本段會動手做',
   },
   {
     icon: Activity,

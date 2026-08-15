@@ -20,7 +20,7 @@ export default function Slide04() {
           <ul className="space-y-4 text-sm mt-8">
             <li className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">1</div>
-              <div><strong className="text-slate-200 block text-base">雛形：先有一份，然後確認它真的被讀到</strong><span className="text-slate-500 leading-relaxed">第一單元收尾就會有第一版，請它把剛才的開發重點總結出來。內容不用多，但要親眼確認它出現在載入清單裡。</span></div>
+              <div><strong className="text-slate-200 block text-base">雛形：先有一份，然後確認它真的被讀到</strong><span className="text-slate-500 leading-relaxed">第一單元收尾就會有第一版，請它把那個單元的開發重點總結出來。內容不用多，但要親眼確認它出現在載入清單裡。</span></div>
             </li>
             <li className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sky-400 font-mono shrink-0">2</div>

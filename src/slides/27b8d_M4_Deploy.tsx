@@ -128,7 +128,8 @@ export default function SlideDeploy() {
 
         <Callout tone="good" label="做完你手上會有" stepIndex={5}>
           一組<strong className="text-slate-100">別人打得開的網址</strong>，對方不用裝任何東西，手機也開得起來。
-          傳給旁邊的人，請他點一次確認真的打得開，那才算數。
+          用手機開一次那個網址，不要用你部署的那台電腦，也不要連同一個 wifi。
+          手機開得起來，才代表它真的在線上，不是只有你這台打得開。
         </Callout>
 
       </div>

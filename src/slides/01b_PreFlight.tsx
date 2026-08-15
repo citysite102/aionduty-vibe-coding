@@ -20,7 +20,7 @@ const REQUIRED = [
     name: 'Claude Desktop',
     where: 'claude.com/download',
     href: 'https://claude.com/download',
-    why: 'Mac 與 Windows 都能裝。整堂課的操作都在它上面，第一個作品也是從這裡做出來的。',
+    why: 'Mac 與 Windows 都能裝。整門課的操作都在它上面，第一個作品也是從這裡做出來的。',
   },
   {
     icon: CreditCard,
@@ -151,7 +151,7 @@ export default function SlidePreFlight() {
             </>
           }
         >
-          公司電腦不能自行安裝軟體的話，用個人電腦來上課會順很多。
+          公司電腦不能自行安裝軟體的話，用個人電腦跟著做會順很多。
           桌面版與 Git 都需要安裝權限，這是最常擋住人的一關。
         </Callout>
 

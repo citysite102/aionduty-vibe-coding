@@ -30,7 +30,7 @@ export default function SlideIntroAgentic() {
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
             前者讓本來做不出軟體的人做得出來，後者處理的是「做得出來之後，怎麼確定它是對的」。
-            <strong className="text-slate-100">你今天兩個都會碰到</strong>：先用前者做出東西，再用後者把它變成敢交出去的東西。
+            <strong className="text-slate-100">這門課兩個都會碰到</strong>：先用前者做出東西，再用後者把它變成敢交出去的東西。
           </p>
         </AnimatedBlock>
 
@@ -39,7 +39,7 @@ export default function SlideIntroAgentic() {
           <p className="text-slate-300 text-base leading-relaxed">
             你現在用的對話框，是你問一句、它回一段字，真正要照著做的還是你自己。
             <strong className="text-slate-100">Agent 是你交代一件事，它自己去開檔案、跑指令、改東西，做完回報結果給你。</strong>
-            差別只有一個：它有沒有手。今天整天都會用到這個詞，指的都是這件事。
+            差別只有一個：它有沒有手。這門課都會用到這個詞，指的都是這件事。
             <span className="block mt-2 text-slate-400">它開的是你電腦裡真正的檔案，但預設會在改檔案、跑指令之前停下來問你，只有讀取不打擾。要放寬到什麼程度是你決定的。</span>
           </p>
         </AnimatedBlock>

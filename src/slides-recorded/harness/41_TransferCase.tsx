@@ -1,7 +1,7 @@
 import { Briefcase, FileText, AlertTriangle, Languages } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
-import { AskFirst } from './_AskFirst';
+import { AskFirst } from '../../components/AskFirst';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 

@@ -38,7 +38,7 @@ const TRAPS = [
 export default function SlideChallenge() {
   return (
     <SlideLayout title="換你寫一次" subtitle="Your Turn: Say It Precisely" icon={Target}>
-      <LiveDemo kind="claude" note="三分鐘，寫完先別送出" />
+      <LiveDemo kind="claude" note="先自己寫一版，對完下面四題再送出" />
 
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
@@ -83,7 +83,7 @@ export default function SlideChallenge() {
             <p className="text-slate-300 text-sm leading-relaxed">
               <strong className="text-amber-300">加一句不要做什麼。</strong>
               例如「不要跳 alert」「不要用閃爍」。不寫的話它會自己挑一個，
-              而閃爍在投影機上看起來會比你想的刺眼很多。
+              而閃爍實際跑起來會比你想的刺眼很多。
             </p>
           </div>
         </AnimatedBlock>
@@ -96,7 +96,7 @@ export default function SlideChallenge() {
           </p>
           <p className="text-slate-300 text-base leading-relaxed mb-2">
             改完之後，請它把倒數改成從 65 秒開始跑，然後盯著看第 5 秒有沒有變。
-            等 25 分鐘才驗收一次，你今天只驗得了一次。
+            等 25 分鐘才驗收一次，你一個下午也試不了幾輪。
           </p>
           <p className="text-slate-400 text-base leading-relaxed">
             接著做兩件事：在警示狀態下按待機，再按發射；然後按返航。

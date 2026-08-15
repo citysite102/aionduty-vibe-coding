@@ -57,9 +57,18 @@ export default function SlideM2BadRules() {
           </AnimatedBlock>
         ))}
 
-        <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-slate-900 border-slate-800">
+        {/*
+          原本是「把那句話拿給旁邊的人看」。自學的人沒有旁邊的人，
+          但那句的功能是「不需要別人幫忙的可驗證性測試」，所以替代的也要自己執行得了：
+          先自己答一次，答不出來就把句子貼回去問它怎麼判斷，兩步都當場驗得出來。
+        */}
+        <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-slate-900 border-slate-800 space-y-1.5">
           <p className="text-slate-400 text-base leading-relaxed">
-            檢查方法只有一個：把那句話拿給旁邊的人看，<strong className="text-slate-200">他能不能只看程式碼就回答「有」或「沒有」。</strong>答不出來的，它也答不出來。
+            檢查方法只有一個：<strong className="text-slate-200">只看程式碼，你能不能回答「有」或「沒有」。</strong>你自己答不出來的，它也答不出來。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed">
+            還是不確定，就把那句話貼給它，問「照這句話，你要怎麼判斷自己做到了沒」。
+            它只能回答「我會注意」，這條就是寫了等於沒寫。
           </p>
         </AnimatedBlock>
 

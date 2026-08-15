@@ -85,7 +85,7 @@ export default function SlideM3Harvest() {
           <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4">
             <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">還沒拿到的</div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              報價系統那個規模的分工，今天只走過一次流程，沒有真的做出來。
+              報價系統那個規模的分工，這一段只走過一次流程，沒有真的做出來。
               <span className="text-slate-200">那一段給你的是順序跟五個卡關的地方</span>，
               回去照著同一個順序推，才是真的做過一次。
             </p>

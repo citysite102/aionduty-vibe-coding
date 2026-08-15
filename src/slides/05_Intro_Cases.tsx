@@ -103,7 +103,7 @@ export default function SlideIntroCases() {
         </AnimatedBlock>
 
         <Callout tone="muted" stepIndex={6}>
-          第二種是最多人現在的做法，也是這堂課要帶你離開的那一種。
+          第二種是最多人現在的做法，也是這門課要帶你離開的那一種。
           它每個月都要你重來一次，而前面兩種都沒有留下一份「下次它還記得」的東西。
         </Callout>
 

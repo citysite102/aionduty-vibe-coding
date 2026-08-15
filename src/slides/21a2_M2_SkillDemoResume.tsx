@@ -11,7 +11,7 @@ const REFS = [
   {
     name: 'Bestfolios',
     href: 'https://www.bestfolios.com/',
-    desc: '設計師的個人網站與作品集實例，跟你等一下要做的東西同一類。',
+    desc: '設計師的個人網站與作品集實例，跟你要做的東西同一類。',
   },
   {
     name: 'CSS Design Awards',

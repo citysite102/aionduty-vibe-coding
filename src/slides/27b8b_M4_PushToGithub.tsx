@@ -49,7 +49,7 @@ export default function SlidePushToGithub() {
             <div className="rounded-xl border border-sky-500/30 bg-slate-950 p-4">
               <div className="text-sky-300 text-sm font-bold mb-1.5">用途二：部署平台從這裡拿程式</div>
               <p className="text-slate-400 text-sm leading-relaxed">
-                這才是你等一下真的需要它的原因。Vercel 不是讀你的電腦，是讀 GitHub。
+                這才是你真的需要它的原因。Vercel 不是讀你的電腦，是讀 GitHub。
               </p>
             </div>
           </div>

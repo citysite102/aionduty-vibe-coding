@@ -56,7 +56,7 @@ export default function SlideFutureEngineering() {
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
-            你剛才貼下去那段話做了兩件事，
+            你貼下去那段話做了兩件事，
             <strong className="text-slate-100">業界各有一個名字</strong>。
             這兩個詞你之後看文章、跟工程師講話都會一直遇到，所以在這裡對一次。
           </p>

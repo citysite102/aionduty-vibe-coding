@@ -35,7 +35,7 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
       <>
         Claude Code 要有付費方案才能跑：Claude Pro（月費 $20）直接登入，
         或到 Console 儲值（最低 $5）走用量計費。
-        <strong className="text-slate-300">今天兩種都可以，選一個先進去</strong>，差別在後面的成本那一段會展開。
+        <strong className="text-slate-300">兩種都可以，選一個先進去</strong>，差別在後面的成本那一段會展開。
       </>
     ),
   },
@@ -46,7 +46,7 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
     desc: (
       <>
         <strong className="text-slate-300">選桌面就可以。</strong>
-        它之後就在這個範圍裡讀寫，不會跑出去，等一下正式的作品也會建在你選的這個地方。
+        它之後就在這個範圍裡讀寫，不會跑出去，正式的作品也會建在你選的這個地方。
       </>
     ),
   },
@@ -56,7 +56,7 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
     desc: (
       <>
         「幫我做一個五分鐘的計時器網頁。」然後看檔案真的長出來。
-        <strong className="text-slate-300">這一個是試跑</strong>，正式的作品等一下會在同一個地方另外開一個資料夾重做。
+        <strong className="text-slate-300">這一個是試跑</strong>，正式的作品會在同一個地方另外開一個資料夾重做。
       </>
     ),
   },
@@ -73,7 +73,7 @@ export default function SlideDesktopFirst() {
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這四步不用終端機，整堂課接下來也都用得上這個畫面。先讓你看到成果，其他的等有東西跑出來再說。
+            這四步不用終端機，後面也都用得上這個畫面。先讓你看到成果，其他的等有東西跑出來再說。
           </p>
         </AnimatedBlock>
 

@@ -17,7 +17,7 @@ export default function SlideNoCodeBridge() {
             答案是：不用你來看。有東西會自動幫你把關，跑完給綠燈或紅字，AI 看得到同一份結果，紅字就自己回頭修。
             <span className="block mt-2 text-slate-400">
               把關分兩種：一種是<strong className="text-slate-300">讀程式碼挑錯</strong>（下面兩個），一種是<strong className="text-slate-300">實際打開畫面點一次</strong>。
-              你手上的計時器適用第二種，所以待會動手做的是那個。
+              你手上的計時器適用第二種，所以你要動手做的是那個。
             </span>
           </p>
         </AnimatedBlock>

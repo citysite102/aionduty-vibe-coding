@@ -5,7 +5,7 @@ export default function Slide09() {
   return (
     <SlideLayout title="接下來要動手的三件事" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
-        前面那六個零件裡，這堂課真的會動手的是
+        前面那六個零件裡，這門課真的會動手的是
         <strong className="text-slate-200">規則文件</strong>與<strong className="text-slate-200">工具</strong>兩塊，
         再加一件零件表沒列、但你每天都會用到的事：<strong className="text-slate-200">把大題目切小</strong>。
       </p>

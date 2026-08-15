@@ -63,8 +63,8 @@ export default function SlideApiHandsOn() {
             <div className="text-base font-bold text-slate-100 mb-2">為什麼挑這一個</div>
             <p className="text-slate-400 text-sm leading-relaxed">
               它<strong className="text-slate-300">不用金鑰、不用註冊</strong>，網址貼上去就能打。
-              前面看過的那些 API 多半要先申請一組金鑰，光是申請就會卡掉一整節課，
-              所以今天先用打得通的這一個把整條路走完一次。
+              前面看過的那些 API 多半要先申請一組金鑰，光是申請就會卡掉不少時間，
+              所以先用打得通的這一個把整條路走完一次。
             </p>
           </AnimatedBlock>
         </div>
@@ -85,7 +85,7 @@ export default function SlideApiHandsOn() {
 
           <Callout tone="warn" label="第 3 點不要拿掉" stepIndex={5}>
             不寫這一句，它只會處理「拿到了要怎麼顯示」，不會處理「拿不到怎麼辦」。
-            <strong className="text-slate-100">教室的 wifi 一斷，那一行就會一直停在載入中</strong>，
+            <strong className="text-slate-100">網路一斷，那一行就會一直停在載入中</strong>，
             而你會以為是自己哪裡寫錯了。
             <span className="block mt-2 text-slate-400">
               只要是去外面拿資料，就有拿不到的時候。拿不到的時候畫面要長什麼樣，是你要先決定的。

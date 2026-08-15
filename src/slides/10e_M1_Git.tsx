@@ -108,7 +108,7 @@ export default function Slide10e() {
           </div>
           <p className="text-slate-500 text-sm leading-relaxed border-t border-slate-800 pt-3">
             另外會看到 <span className="font-mono text-slate-400">branch</span>（分支）這個字，
-            意思是從主線分出一條獨立的線去試新東西，搞砸了也不影響主線。今天用不到，看到的時候知道是這個意思就好。
+            意思是從主線分出一條獨立的線去試新東西，搞砸了也不影響主線。這門課用不到，看到的時候知道是這個意思就好。
           </p>
         </AnimatedBlock>
 

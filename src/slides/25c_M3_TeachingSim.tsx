@@ -38,7 +38,7 @@ export default function SlideTeachingSim() {
         <div className="space-y-4">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-base leading-relaxed">
-              這份簡報改版前跑過一次模擬授課。三個角色都是你剛才做的那種子代理，
+              這份簡報改版前跑過一次模擬授課。三個角色都是你前面做的那種子代理，
               指揮者是你：<strong className="text-slate-100">你決定誰先跑、把誰的產出交給誰</strong>。
             </p>
           </AnimatedBlock>

@@ -58,7 +58,7 @@ export default function SlideShipIt() {
               真的要接的話，用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這些設定工。
             </p>
             <div className="mt-3 text-[11px] text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
-              接資料庫留作課後延伸。
+              接資料庫留作延伸練習。
             </div>
           </div>
         </AnimatedBlock>
