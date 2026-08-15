@@ -30,6 +30,13 @@ const CASES = [
     tags: ['vercel', 'repo', '找不到', '私人', 'private'],
   },
   {
+    sign: 'GitHub Pages 那邊找不到設定，或存了也沒生效',
+    what: '免費帳號只掛得起 public 的 repo。repo 是 private 的話，這個功能是關著的。',
+    fix: '把 repo 改成 public，或改用 Vercel，它吃 private。改成 public 之前先確認金鑰沒跟著上去。',
+    say: '我的 repo 是 private，GitHub Pages 掛不上去。請先幫我確認 .gitignore 有沒有擋掉金鑰跟 .env，確認乾淨之後再告訴我怎麼把 repo 改成 public。',
+    tags: ['pages', 'github pages', 'private', '公開', '沒生效', '灰的'],
+  },
+  {
     sign: '部署成功，打開卻一片空白',
     what: '多半是 index.html 不在最外層，或路徑寫死成你電腦上的位置。',
     fix: '請它檢查 index.html 的位置與所有引用路徑，改成相對路徑。',

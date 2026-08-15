@@ -41,7 +41,7 @@ const REQUIRED = [
     name: 'GitHub 帳號',
     where: 'github.com，帳號免費',
     href: 'https://github.com',
-    why: '作品要上線的話，程式碼會先送到這裡，部署平台再從這裡拿。',
+    why: '作品要上線的話，程式碼會先送到這裡。GitHub 自己就掛得起網頁，也可以交給 Vercel 這類平台接手。',
   },
 ];
 

@@ -22,13 +22,16 @@ export default function SlideGitignoreGuard() {
             <div className="space-y-2 text-sm leading-relaxed">
               <p className="text-slate-400">
                 <span className="font-mono text-slate-300">public</span>　想當作品集給人看、想讓人試用。
+                <span className="block text-slate-500">免費帳號要用 GitHub 自己掛網頁，只能選這個。</span>
               </p>
               <p className="text-slate-400">
                 <span className="font-mono text-slate-300">private</span>　跟工作有關、裡面有客戶的東西。
+                <span className="block text-slate-500">這種要上線就接 Vercel，它吃 private。</span>
               </p>
             </div>
             <p className="text-slate-500 text-sm leading-relaxed mt-3">
-              不確定就選 private。之後隨時可以改成公開，反過來很麻煩。
+              不確定就選 private，之後隨時可以改成公開，反過來很麻煩。
+              這一格選什麼，會決定你上線能走哪一條路。
             </p>
           </div>
 

@@ -12,6 +12,9 @@ import { Callout } from '../components/Callout';
  *
  * 所以這一頁的職務只有一個：真的把網址生出來。
  * 兩條路都給，因為公司電腦裝不了東西的人一樣走得完 GitHub Pages 那條。
+ * 但這兩條不是平行的：免費帳號的 GitHub Pages 只掛得起 public 的 repo，
+ * 而前一頁才剛叫他們「不確定就選 private」。兩頁都要寫出這個限制，
+ * 否則選了 private 的人會走到這裡才發現沒有那個選項，而且看不出是自己哪裡做錯。
  *
  * 「卡住的五件事」那一塊不是補充，是主體的一半：現場真正花掉時間的是這些，
  * 不是那句 prompt。第五條（改完要再推一次）是最多人以為壞掉的地方。
@@ -22,7 +25,7 @@ const ROUTES = [
     name: 'Vercel',
     url: '你的專案名.vercel.app',
     how: '到 vercel.com 用 GitHub 帳號登入，選你剛推上去的那個 repo，按 Deploy。',
-    good: '之後每次 push，它會自己重新上線，你什麼都不用做。',
+    good: '之後每次 push，它會自己重新上線，你什麼都不用做。repo 設成 private 也可以。',
     accent: true,
   },
   {
@@ -30,7 +33,7 @@ const ROUTES = [
     name: 'GitHub Pages',
     url: '你的帳號.github.io/專案名',
     how: '在 repo 的 Settings → Pages，Source 選你的分支，存檔。',
-    good: '不用再開一個平台的帳號，東西全部留在 GitHub。',
+    good: '不用再開一個平台的帳號，東西全部留在 GitHub。但免費帳號的 repo 要設成 public 才掛得上去。',
     accent: false,
   },
 ];

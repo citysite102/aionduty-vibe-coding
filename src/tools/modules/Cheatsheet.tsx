@@ -173,7 +173,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         when: '把專案推上 GitHub',
         kind: 'say',
         text: '幫我把這個專案推到 GitHub，設成 private。推之前先確認沒有把密碼或金鑰帶上去。',
-        watch: '不確定要不要公開就選 private。之後隨時能改成公開，反過來很麻煩。',
+        watch: '不確定要不要公開就選 private，之後隨時能改成公開，反過來很麻煩。但免費帳號要用 GitHub Pages 掛網頁的話，repo 必須是 public。',
         from: '推上 GitHub',
       },
       {
@@ -182,6 +182,13 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         text: '幫我把這個資料夾部署上線。先確認本機打開沒問題，推上 GitHub，再接部署平台完成部署。需要我去瀏覽器授權的時候停下來告訴我要點哪裡。完成後把網址給我，並且確認那個網址真的打得開。',
         watch: '拿到網址之後用手機開一次，不要用你部署的那台電腦，也不要連同一個 wifi。',
         from: '真的把它變成一個網址',
+      },
+      {
+        when: 'repo 是 private，GitHub Pages 掛不上去',
+        kind: 'say',
+        text: '我的 repo 是 private，GitHub Pages 掛不上去。請先幫我確認 .gitignore 有沒有擋掉金鑰跟 .env，確認乾淨之後再告訴我怎麼把 repo 改成 public。',
+        watch: '免費帳號只掛得起 public 的 repo。不想公開就改走 Vercel，它吃 private。',
+        from: '有些東西不能推上去',
       },
       {
         when: '改完之後，讓線上那版跟著更新',
