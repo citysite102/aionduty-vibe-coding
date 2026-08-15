@@ -9,7 +9,7 @@ import { Panel, Field, TextInput, TextArea, Select, Toggle, OutputPane, Note, Mo
  * 而是給捷徑（symlink）跟一行引用兩種做法，並且說明各自的代價。
  */
 const STACKS = [
-  { value: 'single', label: '單一個 index.html（課堂上那個計時器）' },
+  { value: 'single', label: '單一個 index.html（課程裡那個計時器）' },
   { value: 'vite', label: 'Vite + React' },
   { value: 'next', label: 'Next.js' },
   { value: 'python', label: 'Python 腳本' },

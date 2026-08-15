@@ -142,7 +142,7 @@ export default function SlidePreFlight() {
           stepIndex={4}
           footnote={
             <>
-              課堂工具箱（Prompt 組裝、
+              課程工具箱（Prompt 組裝、
               <code className="font-mono text-orange-300">CLAUDE.md</code> 產生、終端機沙盒）：
               <span className="font-mono text-slate-300 break-all">
                 {' '}
@@ -151,8 +151,8 @@ export default function SlidePreFlight() {
             </>
           }
         >
-          公司電腦不能自行安裝軟體的話，用個人電腦跟著做會順很多。
-          桌面版與 Git 都需要安裝權限，這是最常擋住人的一關。
+          桌面版與 Git 都要安裝權限，公司配的電腦常常裝不了。
+          先試裝一次，裝不起來就換自己的電腦。
         </Callout>
 
       </div>

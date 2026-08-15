@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Compass,
+  ClipboardList,
   Wand2,
   FileText,
   UserPlus,
@@ -11,6 +12,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import Start from './modules/Start';
+import Cheatsheet from './modules/Cheatsheet';
 import PromptBuilder from './modules/PromptBuilder';
 import ClaudeMdBuilder from './modules/ClaudeMdBuilder';
 import SubagentBuilder from './modules/SubagentBuilder';
@@ -20,7 +22,7 @@ import Sandbox from './modules/Sandbox';
 import DeployHelp from './modules/DeployHelp';
 
 /**
- * 課堂工具箱。跟簡報同一個 repo、同一次部署，網址是簡報的 /tools/。
+ * 課程工具箱。跟簡報同一個 repo、同一次部署，網址是簡報的 /tools/。
  *
  * 每一個工具都對應課程裡的一段，而且都產出一個帶得走的東西（一段指令、一個檔案、一個判斷）。
  * 沒有東西可以帶走的就不要放進來，那種內容留在投影片上就好。
@@ -36,6 +38,15 @@ const TABS = [
     from: '',
     when: '',
     Component: Start,
+  },
+  {
+    id: 'cheatsheet',
+    icon: ClipboardList,
+    label: '指令速查',
+    sub: '課程裡出現過的每一句',
+    from: '全課程',
+    when: '想不起來某一步那句話怎麼打。這裡收的都是課程裡真的出現過的原話，照單元排。',
+    Component: Cheatsheet,
   },
   {
     id: 'prompt',
@@ -131,7 +142,7 @@ export default function App() {
     <div className="min-h-screen bg-[#020617]">
       <header className="border-b border-slate-800/80 bg-slate-950/60">
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-6 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-          <h1 className="text-xl font-bold text-slate-100">課堂工具箱</h1>
+          <h1 className="text-xl font-bold text-slate-100">課程工具箱</h1>
           <p className="text-sm text-slate-500">
             打造自己的 AI 工作體系 · 每一格都會產出一個你帶得走的東西
           </p>
@@ -192,9 +203,23 @@ export default function App() {
       </main>
 
       <footer className="border-t border-slate-800/80 mt-14">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 text-sm leading-relaxed text-slate-500 max-w-prose">
-          這裡的東西都在你的瀏覽器裡跑，沒有送出去任何內容，也沒有呼叫任何 AI。
-          關掉分頁就沒了，要留下來的請按複製。
+        <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 text-sm leading-relaxed text-slate-500 max-w-prose space-y-3">
+          <p>
+            這裡的東西都在你的瀏覽器裡跑，沒有送出去任何內容，也沒有呼叫任何 AI。
+            關掉分頁就沒了，要留下來的請按複製。
+          </p>
+          <p>
+            要印出來放在手邊的四份講義（
+            <code className="font-mono">CLAUDE.md</code> 模板、規則分流判斷卡、五步健檢表、錯誤訊息對照表）在
+            <a
+              href="../handouts/"
+              className="ml-1 inline-flex items-center gap-1.5 text-sky-400 hover:text-sky-300"
+            >
+              講義下載頁
+              <ExternalLink size={12} />
+            </a>
+            。
+          </p>
         </div>
       </footer>
     </div>

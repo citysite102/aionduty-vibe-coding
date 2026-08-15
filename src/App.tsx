@@ -532,15 +532,15 @@ export default function App() {
       {/* Floating Controls */}
       {!IS_CLEAN && <div className="absolute bottom-6 right-6 flex gap-2 items-center bg-slate-900/80 p-2 rounded-full backdrop-blur-md border border-slate-800 shadow-2xl z-50">
 
-        {/* 課堂工具箱。開新分頁，簡報停在原地不動 */}
+        {/* 課程工具箱。開新分頁，簡報停在原地不動 */}
         <a
           href={`${import.meta.env.BASE_URL}tools/`}
           target="_blank"
           rel="noreferrer"
           onClick={(e) => e.stopPropagation()}
           className={`p-1.5 hover:bg-slate-800 rounded-full transition-colors text-slate-400 hover:text-sky-300 ${controlFocusClass}`}
-          title="課堂工具箱（另開分頁）"
-          aria-label="開啟課堂工具箱"
+          title="課程工具箱（另開分頁）"
+          aria-label="開啟課程工具箱"
         >
           <Wrench size={16} />
         </a>

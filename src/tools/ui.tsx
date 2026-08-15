@@ -122,7 +122,7 @@ export function CopyButton({ text, label = '複製' }: { text: string; label?: s
     try {
       await navigator.clipboard.writeText(text);
     } catch {
-      // 沒有剪貼簿權限時退回舊做法，教室裡的瀏覽器不一定給
+      // 沒有剪貼簿權限時退回舊做法，公司配的瀏覽器不一定給
       const el = document.createElement('textarea');
       el.value = text;
       document.body.appendChild(el);

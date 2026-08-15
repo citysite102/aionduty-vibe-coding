@@ -10,6 +10,12 @@ import { Panel, Note, Mono } from '../ui';
  */
 const NOW = [
   {
+    id: 'cheatsheet',
+    q: '我想不起來那句話怎麼打',
+    then: '課程裡出現過的指令都收在同一頁，照單元排。',
+    get: '可以直接複製的那一句',
+  },
+  {
     id: 'claude-md',
     q: '我要開始一個新的專案',
     then: '先寫一份手冊，它每次開新對話都會先讀。',
@@ -74,15 +80,17 @@ export default function Start({ go = () => {} }: { go?: (id: string) => void }) 
     <div className="max-w-5xl mx-auto space-y-6">
       <Panel
         title="你現在卡在哪？"
-        desc="這七格不用全部看過。挑跟你現在這一步有關的那一格就好，其他的等你需要再回來。"
+        desc="這八格不用全部看過。挑跟你現在這一步有關的那一格就好，其他的等你需要再回來。"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {NOW.map((n) => (
+          {NOW.map((n, i) => (
             <button
               key={n.id}
               type="button"
               onClick={() => go(n.id)}
-              className="group text-left rounded-xl border border-slate-800 bg-slate-950 p-5 transition-colors hover:border-sky-500/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+              className={`group text-left rounded-xl border border-slate-800 bg-slate-950 p-5 transition-colors hover:border-sky-500/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40 ${
+                NOW.length % 2 === 1 && i === NOW.length - 1 ? 'md:col-span-2' : ''
+              }`}
             >
               <div className="flex items-start gap-3 mb-2">
                 <span className="text-base font-bold text-slate-100 leading-snug">{n.q}</span>

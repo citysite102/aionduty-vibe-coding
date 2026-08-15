@@ -5,7 +5,7 @@ import { Panel, TextInput, Note, Mono, CopyButton } from '../ui';
  * 部署卡關對照表。內容跟簡報那一頁同一份，差別是這裡可以搜尋，
  * 而且每一條都給一句可以直接貼回對話框的話。
  *
- * 排序照現場真的會遇到的順序，不是照嚴重程度。
+ * 排序照真的會遇到的順序，不是照嚴重程度。
  */
 const CASES = [
   {
@@ -68,7 +68,7 @@ export default function DeployHelp() {
     <div className="max-w-4xl mx-auto space-y-6">
       <Panel
         title="部署卡在哪裡"
-        desc="現場真正花時間的不是那句部署指令，是下面這幾件事。找到你的症狀，右邊那句可以直接貼回對話框。"
+        desc="真正花掉時間的不是那句部署指令，是下面這幾件事。找到你的症狀，右邊那句可以直接貼回對話框。"
       >
         <TextInput
           value={q}
