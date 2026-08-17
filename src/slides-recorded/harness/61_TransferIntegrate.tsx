@@ -22,9 +22,9 @@ const DOCS = [
 
 export const meta: RecordedMeta = {
   id: 'harness-61-transfer-integrate',
-  title: '那我怎麼串我自己的工具',
+  title: '規矩寫完了，但你的資料不在這台電腦上',
   script:
-    '你不用為了這套東西改變工作方式，資料還是放在你原本的地方，接上去就好。以 Notion 為例，照官方文件現在是三步。第一步在終端機加入官方的 Notion MCP 連線。第二步回到 Claude Code 跑斜線 mcp，跟著瀏覽器完成 OAuth 登入，不需要自己架伺服器，也不需要自己保管一串整合金鑰。第三步用斜線 mcp 和斜線 context 確認它有沒有接上，以及這個連線佔了多少 token。串好之後，你不用再把 Notion 的內容複製貼上，它自己去查。換成其他支援 MCP 的工具，判斷方式一樣：先找官方文件，再確認權限與範圍。',
+    '前面幾頁處理的是規矩，寫在哪、用什麼方式擋。還有一件事沒解決：你的資料多半不在這台電腦上，它在 Notion、在雲端硬碟、在公司的系統裡。你不用為了這套東西改變工作方式，資料還是放在你原本的地方，接上去就好。以 Notion 為例，照官方文件現在是三步。第一步在終端機加入官方的 Notion MCP 連線。第二步回到 Claude Code 跑斜線 mcp，跟著瀏覽器完成 OAuth 登入，不需要自己架伺服器，也不需要自己保管一串整合金鑰。第三步用斜線 mcp 和斜線 context 確認它有沒有接上，以及這個連線佔了多少 token。串好之後，你不用再把 Notion 的內容複製貼上，它自己去查。換成其他支援 MCP 的工具，判斷方式一樣：先找官方文件，再確認權限與範圍。',
   seconds: 45,
   from: 75,
 };
@@ -33,9 +33,15 @@ export default function RecTransferIntegrate() {
   return (
     <SlideLayout title={meta.title} subtitle="Plug It In" icon={Plug}>
       <RecPage className="space-y-5">
+        {/*
+          原本第一句就跳到 Notion，但前一頁收在「五行規矩各自該怎麼擋」，
+          讀者不知道為什麼突然講起串工具。標題的「那我怎麼串⋯」也在回應一個
+          前面沒有被提出的問題。先講清楚這裡換了一個維度：前面處理規矩，這裡處理資料。
+        */}
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-2">
-            資料還是放在你原本的地方，接上去就好。以 Notion 為例，照官方文件走：
+            規矩解決完了，還有一件事：你的資料多半不在這台電腦上。
+            不用搬家，接上去就好，以 Notion 為例：
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             串好之後<Key>它自己去查，你不用再複製貼上</Key>

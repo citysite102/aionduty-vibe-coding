@@ -5,6 +5,14 @@ export default function SlideHarnessEconomics() {
   return (
     <SlideLayout title="兩種花錢的方式：邊做邊花，還是先花再省" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
       <div className="pt-8 max-w-6xl mx-auto h-full flex flex-col">
+        {/*
+          前一頁收在「送進去的東西是要付錢的」，這一頁原本直接開兩張卡，
+          那筆錢是怎麼算的沒有人接。先用一句把帳單接起來再展開。
+        */}
+        <p className="text-slate-300 text-lg leading-relaxed mb-6">
+          那筆錢怎麼算：<strong className="text-slate-100">你送進去的字與它吐回來的字，兩邊都計價</strong>。
+          所以同樣一件事，花費會落在下面兩種形狀的其中一種。
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col">
             <div className="flex items-center gap-4 mb-8">

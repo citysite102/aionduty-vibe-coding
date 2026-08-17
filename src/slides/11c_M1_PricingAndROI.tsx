@@ -9,6 +9,10 @@ export default function SlidePricingAndROI() {
       <div className="max-w-6xl mx-auto mt-2 text-left space-y-6 pb-6">
         
         <AnimatedBlock stepIndex={1}>
+          {/* 前一頁講的是錢的兩種形狀，這一頁講的是帳單本身怎麼開，先把兩者接起來 */}
+          <p className="text-slate-400 text-sm leading-relaxed mb-2">
+            知道錢花在哪之後，下一個問題是這筆錢怎麼繳。
+          </p>
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-2 mb-1">
             <DollarSign className="text-sky-400" size={20} />
             「我有 Claude Pro 了，還需要另外付費嗎？」

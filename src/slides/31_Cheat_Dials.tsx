@@ -112,7 +112,21 @@ export default function SlideCheatDials() {
           </p>
         </AnimatedBlock>
 
-        <Callout tone="focus" label="怎麼決定要轉到哪" stepIndex={5}>
+        {/*
+          這一頁原本只講「要轉到哪」，沒講「怎麼轉」，學員讀完會卡在
+          「那我實際上要點什麼」。補一句講機制，下一頁的速查表才接得上。
+        */}
+        <Callout
+          tone="focus"
+          label="怎麼決定要轉到哪"
+          stepIndex={5}
+          footnote={
+            <>
+              轉的方法不是兩根滑桿。Claude Code 把常用的組合做成四個模式，按{' '}
+              <code className="font-mono text-orange-300">Shift + Tab</code> 換。
+            </>
+          }
+        >
           回到前面那條判準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
           看得懂它改了什麼，監督那個旋鈕就可以往右轉。
           不會檢查的話，就把邊界縮小，讓它做錯了你也賠得起。

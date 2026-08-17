@@ -5,8 +5,20 @@ export default function Slide21a() {
   return (
     <SlideLayout title="讓 AI 有手可用：MCP 與 Skills" subtitle="Empowering AI: MCP & Skills" icon={Layers}>
       <div className="flex flex-col gap-4 pt-2 px-4 h-full">
+        {/*
+          兩張卡各自都講得完整，但沒有一句話說它們的分工是什麼，
+          讀者要自己從兩段說明裡歸納。這一句補上去，兩張卡才知道要對照什麼看。
+
+          寫法改過一次：原本是「Skills 管它會做什麼」，那句不準。
+          Skills 不會讓 Agent 多出原本沒有的能力，它是一份寫好的做法（SKILL.md），
+          用到才展開。真正會讓它多碰得到東西的是 MCP。講成「會做什麼」，
+          學員會以為裝了 Skill 就能連到新的系統。
+        */}
         <p className="text-slate-300 font-medium text-base max-w-4xl">
           要讓 AI 從「只會聊天」變成「能真的做事」，它得先有辦法讀取環境、執行動作。
+          下面兩樣加的東西不一樣：
+          <strong className="text-sky-300">MCP 加的是它碰得到的範圍</strong>，
+          <strong className="text-emerald-300">Skills 加的是照著做的步驟</strong>。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">

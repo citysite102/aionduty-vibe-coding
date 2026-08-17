@@ -1,13 +1,27 @@
 import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-export default function Slide09() {
+/*
+ * 開頭那句的順序要跟下面三格一致。原本寫「規則文件與工具」，但格子是
+ * 1 工具、2 規則文件、3 切小，兩邊對不上，學員讀完第一句再看格子會先愣一下。
+ * 改的是句子不是格子：下一頁（21a）整頁在講 MCP 與 Skills，也就是第 1 格的工具，
+ * 格子的順序是對的，動格子會連下一頁一起斷掉。
+ */
+export default function SlidePillars() {
   return (
     <SlideLayout title="接下來要動手的三件事" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
         前面那六個零件裡，這門課真的會動手的是
-        <strong className="text-slate-200">規則文件</strong>與<strong className="text-slate-200">工具</strong>兩塊，
+        <strong className="text-slate-200">工具</strong>與<strong className="text-slate-200">規則文件</strong>兩塊，
         再加一件零件表沒列、但你每天都會用到的事：<strong className="text-slate-200">把大題目切小</strong>。
+      </p>
+      {/*
+        第四塊沒有做成第四格，因為它不是「你要建的東西」，是你在建的過程中一直要轉的旋鈕。
+        但它一定要在這張地圖上：學員拿這一頁當進度表，走到監督與邊界那兩頁會找不到自己在哪。
+      */}
+      <p className="text-slate-500 text-sm leading-relaxed max-w-4xl mx-auto mb-5 text-center">
+        工具講完會先插一段<strong className="text-slate-300">沙箱</strong>，那是六個零件裡的第四塊：
+        手給出去了，你得知道怎麼收緊它碰得到的範圍，再往下動手才安全。
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">

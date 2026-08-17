@@ -6,12 +6,17 @@ export default function SlideHarnessContext() {
     <SlideLayout title="上下文工程" subtitle="Context Engineering" icon={BookOpen}>
       <div className="pt-6 max-w-6xl mx-auto min-h-full flex flex-col">
         {/*
-          原本開頭是「靠兩件事：餵對輸入＋驗證輸出」，但整頁三張卡全部在講輸入，
-          驗證那一半講完就沒了，學員會在等一個不會出現的東西。
-          而且它跟前一頁的六個零件接不起來，讀起來像換了一個題目。
-          改成從第一個零件接下去，並且只承諾這一頁真的會講的事。
+          接縫改過兩次。第一次是把「餵對輸入＋驗證輸出」拿掉，因為整頁三張卡都在講輸入。
+          第二次（現在這版）是把順序倒過來：原本先定義「上下文」再回頭接前一頁的零件，
+          學員讀到的順序是「陌生名詞 → 細節主張 → 才知道為什麼講這個」，所以覺得跳題。
+          現在第一句就從前一頁的零件接下去，名詞留到讀者已經知道在講什麼之後才給。
         */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
+          <p className="text-slate-300 text-lg leading-relaxed mb-3">
+            前一頁六個零件裡的第一個是<strong className="text-sky-200">規則文件</strong>。
+            難的不只是寫什麼，還有<strong className="text-sky-200">什麼時候把它送進去</strong>：
+            送太多它抓不到重點，送太少它就用猜的。
+          </p>
           <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
             <Zap size={24} />
             同一份東西，每次都給跟用到才給，差很多
@@ -20,16 +25,11 @@ export default function SlideHarnessContext() {
             模擬學員在這一頁問的第一個問題是「上下文到底是什麼？是對話紀錄嗎？會滿嗎？」
             整頁的標題就是這個詞，卻從來沒有人定義過它。先給一句白話再往下講。
           */}
-          <p className="text-slate-300 text-lg leading-relaxed mb-3">
-            先講「上下文」是什麼：<strong className="text-sky-200">它這一輪看得到的所有東西</strong>，
-            你打的字、它讀過的檔案、前面來回過的對話，全部算在一起。
-            它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
-          </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            六個零件裡的第一個是<strong className="text-sky-200">規則文件</strong>。
-            難的不只是寫什麼，還有<strong className="text-sky-200">什麼時候把它送進去</strong>：
-            送太多它抓不到重點，送太少它就用猜的，而且送進去的每一個字都是要付錢的。
-            這件事有一個名字，叫上下文工程。
+            送進去的那一整包東西叫<strong className="text-sky-200">上下文</strong>：
+            你打的字、它讀過的檔案、前面來回過的對話，全部算在一起，就是它這一輪看得到的所有東西。
+            它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
+            決定什麼時候送什麼進去，這件事叫上下文工程。
           </p>
         </div>
 

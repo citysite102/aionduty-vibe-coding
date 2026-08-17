@@ -66,6 +66,15 @@ export default function SlideCheatPerms() {
                 <h4 className="text-sm font-bold text-slate-200">權限模式速查表 (Modes Matrix)</h4>
               </div>
 
+              {/*
+                上一頁花整頁建立「兩個旋鈕」那組心智模型，這一頁原本一次都沒用到，
+                兩頁只是前後相鄰。每一格補一行標它轉的是哪一個旋鈕，前一頁才不是講完就丟。
+              */}
+              <p className="text-xs text-slate-400 leading-relaxed mb-3">
+                上一頁那兩個旋鈕，在 Claude Code 裡就是下面這四個模式。
+                每一格最後一行標的，是它轉的哪一個。
+              </p>
+
               <div className="space-y-3">
                 {/* Default Mode Block */}
                 <button 
@@ -88,6 +97,9 @@ export default function SlideCheatPerms() {
                   <p className="text-xs text-slate-300 leading-relaxed">
                     修改檔案、執行終端機指令前會停下來徵求同意；純讀取不打擾。適合金流、認證設定或陌生專案。
                   </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                    旋鈕一 監督程度　每一步都先問
+                  </div>
                 </button>
 
                 {/* Auto-Accept Mode Block */}
@@ -116,6 +128,9 @@ export default function SlideCheatPerms() {
                   <p className="text-xs text-slate-300 leading-relaxed">
                     改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp 這類搬檔案的指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
                   </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                    旋鈕一 監督程度　改檔案不問，跑指令還問
+                  </div>
                 </button>
 
                 {/* Plan Mode Block */}
@@ -139,6 +154,9 @@ export default function SlideCheatPerms() {
                   <p className="text-xs text-slate-300 leading-relaxed">
                     它會翻專案、提出方案給你看，<strong className="text-slate-100">但不動任何檔案</strong>。適合先確認方向再放手做。
                   </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                    旋鈕二 邊界大小　縮到只能讀
+                  </div>
                 </button>
 
                 {/* Bypass Mode Block */}
@@ -162,6 +180,9 @@ export default function SlideCheatPerms() {
                   <p className="text-xs text-slate-300 leading-relaxed">
                     無條件放行所有層級的操作，包含高危指令與檔案覆寫。<strong>僅限與外部隔離的 Docker 容器。</strong>
                   </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                    旋鈕一＋旋鈕二　兩個都轉到底
+                  </div>
                 </button>
               </div>
             </div>

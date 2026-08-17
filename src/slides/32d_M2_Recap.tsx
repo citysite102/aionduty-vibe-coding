@@ -60,7 +60,7 @@ export default function SlideM2Recap() {
             */}
             <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">還沒解決的事</div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              手冊管得到「怎麼做」，管不到「誰來檢查」。到目前為止，唯一在把關的人是你，而你手上只有一雙眼睛。
+              手冊管得到「怎麼做」，管不到「誰來檢查」。到目前為止，唯一在把關的人是你。
               <span className="text-slate-200">接下來要多找幾個角色進來，讓它們互相檢查。</span>
             </p>
           </AnimatedBlock>
