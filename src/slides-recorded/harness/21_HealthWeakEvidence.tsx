@@ -1,6 +1,7 @@
 import { AlertTriangle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { SeriesRail, HEALTH_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -17,6 +18,8 @@ export default function RecHealthWeakEvidence() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={AlertTriangle}>
       <RecPage>
+        <SeriesRail {...HEALTH_RAIL} current={1} />
+
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug">證據不足的時候，<Key>不要直接刪</Key></p>
         </AnimatedBlock>

@@ -4,19 +4,39 @@ import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
-const STEPS = [
-  { n: '1', t: '跑 /context', d: '那份手冊在載入清單裡嗎？', key: '不在，就是位置的問題' },
-  { n: '2', t: '問它依據哪一條', d: '「你剛才那個決定，是依據 CLAUDE.md 的哪一條？」', key: '' },
-  { n: '3', t: '它答不出來', d: '改寫成可以檢查的句子。', key: '代表規則無法判定' },
-  { n: '4', t: '答得出來卻做錯', d: '多半是', key: '被埋在後面，或是兩條規則互相矛盾' },
+/**
+ * 這一頁原本是四張編號卡，一張一步。但它做的事其實是分岔：
+ * 問一個問題，答案往兩邊走，其中一邊就地結案，另一邊才往下問。
+ * 排成清單看不出那個分岔，讀者會以為四步是依序都要做完。
+ *
+ * 改成兩個問題各帶兩條岔路。左邊那條是就地結案（灰底加結論），
+ * 右邊那條才繼續往下。這樣「查到哪裡為止」自己就看得出來。
+ *
+ * 顏色：問題灰階，結論給 sky（當下要記的是結論），最後的警告 amber。一頁兩色。
+ */
+const BRANCHES = [
+  {
+    step: '1',
+    ask: '那份手冊在載入清單裡嗎？',
+    how: '跑 /context',
+    no: { label: '不在', result: '位置問題，查到這裡就結束' },
+    yes: { label: '在', result: '往下問' },
+  },
+  {
+    step: '2',
+    ask: '剛才那個決定依據哪一條？',
+    how: '直接問它',
+    no: { label: '答不出來', result: '句子寫壞，改寫成可以檢查的' },
+    yes: { label: '答得出來卻做錯', result: '被埋在後面，或兩條規則打架' },
+  },
 ];
 
 export const meta: RecordedMeta = {
   id: 'harness-04-diagnose',
   title: '那要怎麼知道是哪一種？',
   script:
-    '這三種原因的處理方式完全不同，所以不要一發現它沒照做就急著再加一條規則，那只會讓檔案更肥，原本的問題還在。診斷順序是這樣：第一步跑 /context，確認那份手冊在不在載入清單裡，不在就是位置的問題。第二步問它依據哪一條做決定。如果它答不出來，代表規則寫得無法判定。如果它答得出來卻還是做錯，那多半是被埋在後面，或是兩條規則互相矛盾。第一步查出來的是位置問題，第三步是句子寫壞，第四步可能是位置，也可能是兩條規則打架。位置的問題最好處理，所以下一步先決定位置。',
-  seconds: 47,
+    '三種原因的處理方式完全不同，所以不要一發現它沒照做就急著再加一條規則，那只會讓檔案更肥。診斷只有兩個問題，每一個問題答案往兩邊走。第一個問題：那份手冊在載入清單裡嗎？跑斜線 context 就知道。不在，就是位置問題，查到這裡結束。在的話往下問第二個：剛才那個決定依據哪一條？答不出來，代表句子寫壞了，要改寫成可以檢查的。答得出來卻還是做錯，多半是被埋在後面，或者兩條規則互相打架。位置最好處理，所以下一步先決定位置。',
+  seconds: 45,
   from: 68,
 };
 
@@ -24,46 +44,40 @@ export default function RecDiagnose() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Search}>
       <RecPage className="space-y-4" handbook={1}>
-        {STEPS.map((s, i) => (
-          <AnimatedBlock
-            key={s.n}
-            stepIndex={i + 1}
-            className="bg-slate-900 border border-slate-800 rounded-2xl px-7 py-5 flex gap-5 items-start"
-          >
-            <div className="w-11 h-11 shrink-0 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center text-sky-400 font-bold font-mono text-xl">
-              {s.n}
+        {BRANCHES.map((b, i) => (
+          <AnimatedBlock key={b.step} stepIndex={i + 1}>
+            {/* 問題 */}
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-4">
+              <div className="flex items-baseline gap-4">
+                <span className="font-mono text-xl font-bold text-slate-500 shrink-0">{b.step}</span>
+                <div className="min-w-0">
+                  <div className="text-slate-100 text-xl font-bold leading-snug">{b.ask}</div>
+                  <div className="font-mono text-base text-orange-300 mt-1">{b.how}</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div className="text-slate-100 text-xl font-bold mb-1">{s.t}</div>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                {s.n === '4' ? (
-                  <>
-                    {s.d}
-                    <Key>{s.key}</Key>。
-                  </>
-                ) : s.key ? (
-                  <>
-                    {s.d}
-                    <Key>{s.key}</Key>。
-                  </>
-                ) : (
-                  s.d
-                )}
-              </p>
+
+            {/* 兩條岔路。線只畫一條短的，不要做成花俏的流程圖 */}
+            <div className="mx-auto h-3 w-px bg-slate-700" />
+
+            <div className="grid grid-cols-2 gap-4">
+              {[b.no, b.yes].map((branch) => (
+                <div
+                  key={branch.label}
+                  className="rounded-xl border border-slate-800 bg-slate-950 px-5 py-3"
+                >
+                  <div className="text-slate-500 text-base mb-1">{branch.label}</div>
+                  <div className="text-sky-200 text-lg leading-snug">{branch.result}</div>
+                </div>
+              ))}
             </div>
           </AnimatedBlock>
         ))}
 
-        {/*
-          原本這一頁講完診斷就結束，下一頁直接開始問「這條規則該放哪」，中間是斷的。
-          診斷的結論本身就是接點，所以併進這一塊，不另開一個區塊把頁面撐爆。
-        */}
-        <AnimatedBlock stepIndex={5} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl px-7 py-5">
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-amber-900/40 bg-amber-950/20 px-7 py-4">
           <p className="text-slate-300 text-lg leading-relaxed">
-            ⚠️ 跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
-          </p>
-          <p className="text-slate-300 text-lg leading-relaxed mt-3 pt-3 border-t border-amber-500/15">
-            第 1 步查出來的是位置，第 3 步是句子寫壞，第 4 步兩種都有可能。<Key>位置的問題最好處理</Key>，所以下一步先決定位置。
+            ⚠️ 跳過診斷直接再加一條，檔案只會更肥，原本的問題還在。
+            <Key>位置的問題最好處理</Key>，所以下一步先決定位置。
           </p>
         </AnimatedBlock>
       </RecPage>

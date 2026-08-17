@@ -16,6 +16,7 @@ import RecWrite3, { meta as m13 } from './harness/13_WriteWhy';
 import RecWrite4, { meta as m14 } from './harness/14_WriteExample';
 import RecWrite5, { meta as m15 } from './harness/15_WriteException';
 import RecWrite6, { meta as m16 } from './harness/16_WriteOneThing';
+import RecWritePractice, { meta as m16b } from './harness/16b_WritePractice';
 import RecHealthOverview, { meta as m17 } from './harness/17_HealthOverview';
 import RecHealthInventory, { meta as m18 } from './harness/18_HealthInventory';
 import RecHealthSubtract, { meta as m19 } from './harness/19_HealthSubtract';
@@ -125,6 +126,9 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m15, Component: RecWrite5 },
     { meta: m16, Component: RecWrite6 },
     { meta: m57, Component: RecHandbookV4 },
+    // 六個寫法講完原本就停在這裡，整組沒有動手的頁面。
+    // 57 是拿示範手冊改一條，16b 是換成學員自己那份：先看別人改，再改自己的。
+    { meta: m16b, Component: RecWritePractice },
   ],
   // index 82 = 原「同一套手冊，換個地方用」
   // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：

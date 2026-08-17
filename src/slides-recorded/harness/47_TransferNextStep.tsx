@@ -1,14 +1,12 @@
 import { Footprints } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { FlowRow } from './_StageMap';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
-const STEPS = [
-  '挑一件你這個月重複做過三次以上的事',
-  '照三個問題各寫一句，先不要求完整',
-  '下次做同一件事時把它貼上去，缺什麼再補',
-];
+/** 排成流程線之後每一格要短，長句移到口白 */
+const STEPS = ['挑一件重複做過三次的事', '照三個問題各寫一句', '下次做同一件事貼上去'];
 
 export const meta: RecordedMeta = {
   id: 'harness-47-transfer-next-step',
@@ -32,15 +30,12 @@ export default function RecTransferNextStep() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-6">
-          <ul className="space-y-4">
-            {STEPS.map((s, i) => (
-              <li key={s} className="flex gap-5 text-slate-300 text-xl leading-relaxed">
-                <span className="font-mono text-slate-600 shrink-0">{i + 1}</span>
-                {s}
-              </li>
-            ))}
-          </ul>
+        {/*
+          原本是三條清單。但這三件事是一條線上的三站（挑一件、各寫一句、下次貼上去），
+          清單排下來看不出先後，也看不出第三站是「下一次」才會發生的。排成流程線。
+        */}
+        <AnimatedBlock stepIndex={2}>
+          <FlowRow steps={STEPS} />
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="px-1">

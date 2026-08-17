@@ -1,6 +1,21 @@
 import { Map, ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
+import type { RecordedMeta } from '../slides-recorded/types';
+
+/**
+ * 這一頁是後面 40 頁唯一的座標系，學員會停在上面對照，所以它比拆頁密，
+ * kind 標 reference，不套 160 字與 45 秒。但口白一定要有：
+ * 少了它，錄影時這一段的入口是無聲的四格三百字。
+ */
+export const meta: RecordedMeta = {
+  id: 'live-83-problem-map',
+  title: '接下來要解決的四個問題',
+  script:
+    '等你自己動手寫一份手冊，多半會照這個順序撞上這四個問題。第一個，規則明明寫了它卻沒照做，先分辨是哪一種，因為三種的解法完全不同。第二個，這條規則到底該放哪裡，不是每一條都該進 CLAUDE.md。第三個，手冊越寫越長，長不是問題，每一條說不出理由才是。第四個，那規則到底怎麼寫，六個寫法，判準只有一句：另一個人只看做出來的東西，能不能回答有做到或沒做到。四題問的都是同一份檔案，第二題之後每一塊講完，會回頭看那份檔案變成什麼樣子。',
+  seconds: 50,
+  kind: 'reference',
+};
 
 /**
  * 這一段接下來連續幾十頁在回答四個問題，但原本沒有任何一頁先說有哪四個。

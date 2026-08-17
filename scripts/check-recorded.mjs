@@ -45,13 +45,28 @@ function walk(dir) {
   });
 }
 
+/**
+ * 要檢查的頁面有兩批。
+ *
+ * 一批是 src/slides-recorded/ 底下全部的拆頁，那是這一段的常態。
+ * 另一批是 src/slides/ 底下「有寫 meta」的頁面：分節頁、地圖頁、速查表這幾張現場頁。
+ * 課程改成全片預錄之後它們一樣要念口白，但版面本來就比拆頁密，
+ * 所以只檢查 meta 與口白長度，160 字與條列那幾條不套（見 types.ts 的 kind）。
+ */
+function pages() {
+  const rec = walk(ROOT).map((file) => ({ file, name: file.replace(ROOT + '/', '') }));
+  const live = walk('src/slides')
+    .filter((file) => readFileSync(file, 'utf8').includes('export const meta'))
+    .map((file) => ({ file, name: file.replace('src/', '') }));
+  return [...rec, ...live];
+}
+
 const errors = [];
 const warnings = [];
 let estTotal = 0;
 
-for (const file of walk(ROOT)) {
+for (const { file, name } of pages()) {
   const src = readFileSync(file, 'utf8');
-  const name = file.replace(ROOT + '/', '');
 
   // meta 完整性
   const metaBlock = src.match(/export const meta[\s\S]*?\n\};/);
@@ -70,8 +85,10 @@ for (const file of walk(ROOT)) {
     .replace(metaBlock[0], '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/^\s*\/\/.*$/gm, '');
+  const isReference = /kind:\s*'reference'/.test(metaBlock[0]);
+
   const chars = (visible.match(/[一-龥]/g) || []).length;
-  if (chars > LIMIT_CHARS) {
+  if (!isReference && chars > LIMIT_CHARS) {
     errors.push(`${name}：畫面中文 ${chars} 字，超過 ${LIMIT_CHARS}`);
   }
 
@@ -86,10 +103,10 @@ for (const file of walk(ROOT)) {
   const script = (metaBlock[0].match(/script:\s*\n?\s*'([\s\S]*?)',/) || [])[1] || '';
   const est = Math.round(spokenLength(script) / CHARS_PER_SECOND);
 
-  if (sec > LIMIT_SECONDS) {
+  if (!isReference && sec > LIMIT_SECONDS) {
     warnings.push(`${name}：口白宣稱 ${sec} 秒，超過 ${LIMIT_SECONDS} 秒，這一頁可能還是太滿`);
   }
-  if (est > LIMIT_SECONDS) {
+  if (!isReference && est > LIMIT_SECONDS) {
     warnings.push(
       `${name}：口白推算 ${est} 秒（meta 寫 ${sec}），照每秒 ${CHARS_PER_SECOND} 字念會超過 ${LIMIT_SECONDS} 秒`,
     );
@@ -99,7 +116,7 @@ for (const file of walk(ROOT)) {
 
   // 標題含連接詞，可能是兩頁
   const title = (metaBlock[0].match(/title:\s*'([^']*)'/) || [])[1] || '';
-  if (/[與和]|以及/.test(title)) {
+  if (!isReference && /[與和]|以及/.test(title)) {
     warnings.push(`${name}：標題「${title}」含連接詞，確認是不是兩個主張`);
   }
 
@@ -110,20 +127,21 @@ for (const file of walk(ROOT)) {
     warnings.push(`${name}：有 ${longItems.length} 個項目偏長，考慮再拆`);
   }
   const arrayItems = (visible.match(/^\s*\{\s*$/gm) || []).length;
-  if (arrayItems > LIMIT_BULLET) {
+  if (!isReference && arrayItems > LIMIT_BULLET) {
     warnings.push(`${name}：條列超過 ${LIMIT_BULLET} 項`);
   }
 }
 
 // 口白總長
-const total = walk(ROOT).reduce((sum, f) => {
-  const m = readFileSync(f, 'utf8').match(/seconds:\s*(\d+)/);
+const all = pages();
+const total = all.reduce((sum, { file }) => {
+  const m = readFileSync(file, 'utf8').match(/seconds:\s*(\d+)/);
   return sum + (m ? Number(m[1]) : 0);
 }, 0);
 
-const pages = walk(ROOT).length;
+const pageCount = all.length;
 console.log(
-  `檢查 ${pages} 頁，口白宣稱總長 ${total} 秒（約 ${(total / 60).toFixed(1)} 分鐘），` +
+  `檢查 ${pageCount} 頁，口白宣稱總長 ${total} 秒（約 ${(total / 60).toFixed(1)} 分鐘），` +
     `照每秒 ${CHARS_PER_SECOND} 字推算是 ${estTotal} 秒（約 ${(estTotal / 60).toFixed(1)} 分鐘）`,
 );
 

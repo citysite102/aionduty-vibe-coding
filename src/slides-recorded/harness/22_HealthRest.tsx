@@ -1,6 +1,7 @@
 import { Sparkles } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { SeriesRail, HEALTH_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -9,7 +10,7 @@ export const meta: RecordedMeta = {
   title: '手冊健檢：加法排在第四',
   script:
     '剩下三步直接套在你這份手冊上。第三步分流：「絕對不要刪掉我的檔案」違反了會出事，搬去 Hook。第四步加法，這一輪一條都不用補。這個順序值得停一下，發現手冊沒生效的時候多數人的第一個動作就是再加一條，健檢刻意把加法排在第四，因為先刪再搬之後要補的通常比原本以為的少。第五步修剪，「畫面要好看」它做完自己也不知道達成沒有，怎麼改寫是下一段的主題。',
-  seconds: 46,
+  seconds: 38,
   from: 69,
 };
 
@@ -17,6 +18,8 @@ export default function RecHealthRest() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Sparkles}>
       <RecPage>
+        <SeriesRail {...HEALTH_RAIL} current={2} />
+
         <AnimatedBlock stepIndex={1} className="mb-6">
           {/*
             大字位置給的是主張，不是進度。這一頁改過兩次：先是「剩下三步，你已經學過兩步」，

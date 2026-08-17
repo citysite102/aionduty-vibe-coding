@@ -2,6 +2,7 @@ import { ListTodo } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { PairTable } from './_PairTable';
 import { Key } from './_Key';
+import { SeriesRail, HEALTH_RAIL } from './_SeriesRail';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -24,6 +25,8 @@ export default function RecHealthInventory() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ListTodo}>
       <RecPage>
+        <SeriesRail {...HEALTH_RAIL} current={0} />
+
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug">每一條規則後面，<Key>標上它當初在解決什麼</Key></p>
         </AnimatedBlock>
