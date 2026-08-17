@@ -29,3 +29,8 @@ sim/archive/
 # AI Studio / Codex 的本機專案設定
 .openai/
 .claude/settings.local.json
+
+# 設計稽核工具的本機狀態。config.json 是共用設定，要進版控；
+# 這兩個是這台電腦自己的（同意紀錄與掃描快取）。
+.impeccable/config.local.json
+.impeccable/hook.cache.json

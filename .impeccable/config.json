@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "src/slides/10e1_M1_GitPlayground.tsx"
+        ],
+        "createdAt": "2026-08-17T06:21:51.111Z",
+        "reason": "false positive: slate-800/slate-900 are this deck's neutral card surfaces per CLAUDE.md A-1, not colored backgrounds; identical pattern at 10e_M1_Git.tsx:71"
+      }
+    ]
+  }
+}
