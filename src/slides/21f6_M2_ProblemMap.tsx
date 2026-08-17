@@ -121,9 +121,14 @@ export default function SlideProblemMap() {
           ))}
         </div>
 
+        {/*
+          原本寫「四題都⋯每一塊講完會回頭看那份檔案」，但那不是實際的頁序：
+          第 2、3、4 題各自收在一頁手冊成長軸（HandbookV2 到 V4），第 1 題沒有，
+          它收在診斷那一頁。畫面上寫成四題都有，學員看完第一題會等一個不會出現的東西。
+        */}
         <AnimatedBlock stepIndex={6} className="px-1">
           <p className="text-slate-400 text-sm leading-relaxed">
-            四題都是同一份檔案的問題，所以每一塊講完會回頭看那份檔案變成什麼樣子。
+            四題問的都是同一份檔案。第二題之後每一塊講完，會回頭看那份檔案變成什麼樣子。
           </p>
         </AnimatedBlock>
 

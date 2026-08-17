@@ -75,9 +75,12 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m04, Component: RecDiagnose },
   ],
   // index 79 = 原「這條規則該放哪」
-  // Hook 那一組（62 到 68）排在分流四問之前，不是之後。
-  // 分流的第一題就是「會出事的交給 Hook」，答那一題之前得先知道 Hook 擋得住什麼；
-  // 而且四問之後那一頁講「Hook 是程式在擋，但你要去動設定檔」，
+  // Hook 那一組（62 到 68）夾在分流四問與「保證越高改起來越麻煩」之間。
+  //
+  // 位置試過排在四問之前，不行：前一組的收尾是「所以下一步先決定位置」，
+  // 接著就跳去講 Hook 的三層設定，那句承接語會指到不相干的地方（B-4）。
+  // 排在四問之後就順了：第一題的答案是「交給 Hook 或 CI」，
+  // 這一組就是把那個答案攤開；而下一頁講「Hook 一定會執行，但你要去動設定檔」，
   // 剛看完三層設定的人才聽得懂那個取捨。
   //
   // 62 原本是唯一講 Hook 的一頁，一頁塞完為什麼、怎麼寫、有哪些時機。
@@ -85,6 +88,10 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // 動手掛一條（67）、換成 Codex 還算不算數（68）。
   // 最後那一頁是這一節的職務，這一節本來就是疑難雜症與轉移。
   79: [
+    { meta: m05, Component: RecRouteQ1 },
+    { meta: m06, Component: RecRouteQ2 },
+    { meta: m07, Component: RecRouteQ3 },
+    { meta: m08, Component: RecRouteQ4 },
     { meta: m62, Component: RecHookHowTo },
     { meta: m63, Component: RecHookThreeLayers },
     { meta: m64, Component: RecHookEvents },
@@ -92,10 +99,6 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m66, Component: RecHookHandler },
     { meta: m67, Component: RecHookPractice },
     { meta: m68, Component: RecHookCodex },
-    { meta: m05, Component: RecRouteQ1 },
-    { meta: m06, Component: RecRouteQ2 },
-    { meta: m07, Component: RecRouteQ3 },
-    { meta: m08, Component: RecRouteQ4 },
     { meta: m09, Component: RecRoutePrinciples },
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },

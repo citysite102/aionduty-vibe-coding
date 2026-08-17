@@ -11,6 +11,15 @@
         ],
         "createdAt": "2026-08-17T06:21:51.111Z",
         "reason": "false positive: slate-800/slate-900 are this deck's neutral card surfaces per CLAUDE.md A-1, not colored backgrounds; identical pattern at 10e_M1_Git.tsx:71"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "src/slides/21f6_M2_ProblemMap.tsx"
+        ],
+        "createdAt": "2026-08-17T15:16:04.569Z",
+        "reason": "false positive: bg-sky-950/20 is a 20% tint over the deck's near-black page background, i.e. still a dark neutral surface per CLAUDE.md A-1; text-slate-400 on it is the deck-wide pattern. Same case already sanctioned for 10e1_M1_GitPlayground"
       }
     ]
   }
