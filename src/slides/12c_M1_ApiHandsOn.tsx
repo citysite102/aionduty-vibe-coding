@@ -1,5 +1,6 @@
 import { Antenna } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 import { LiveDemo } from '../components/LiveDemo';
 
@@ -52,11 +53,8 @@ export default function SlideApiHandsOn() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={2} className="rounded-2xl border border-sky-900/50 bg-sky-950/20 p-5">
-            <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-2.5">Prompt</div>
-            <pre className="text-sky-100 text-sm leading-relaxed whitespace-pre-wrap font-mono break-all">
-              {PROMPT}
-            </pre>
+          <AnimatedBlock stepIndex={2}>
+            <CopyBlock text={PROMPT} note="網址很長，用複製的不要自己打" />
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">

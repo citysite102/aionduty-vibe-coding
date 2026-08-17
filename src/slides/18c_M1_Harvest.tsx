@@ -1,5 +1,6 @@
 import { PackageCheck, FolderOpen, MonitorPlay } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
@@ -37,6 +38,9 @@ const HAVE = [
   },
 ];
 
+const PROMPT =
+  '幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫『第一單元完成』。';
+
 export default function SlideM1Harvest() {
   return (
     <SlideLayout title="先確認你手上有什麼" subtitle="What You Should Have" icon={PackageCheck}>
@@ -69,9 +73,8 @@ export default function SlideM1Harvest() {
           </p>
           <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-4 py-3">
             <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
-            <p className="text-sky-100 text-sm leading-relaxed">
-              「幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫『第一單元完成』。」
-            </p>
+            <p className="text-sky-100 text-sm leading-relaxed">「{PROMPT}」</p>
+            <CopyAction text={PROMPT} className="mt-2" />
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
             存完之後，Claude 改壞了這個資料夾裡的東西，你都回得到這一次的狀態。

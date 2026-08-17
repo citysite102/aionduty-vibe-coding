@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Layout, Check, Terminal, Lightbulb, Rocket } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { SpaceCanvas, PLANETS, type PlanetKey } from '../components/SpaceCanvas';
 
 const PLANET_ORDER: PlanetKey[] = ['earth', 'mars', 'moon', 'jupiter', 'saturn'];
 
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
+const PROMPT =
+  '請開一個 mission-timer 資料夾，在裡面建立一個單頁的任務計時器，一個 index.html 就好。';
 
 export default function SlideExample1() {
   const [planet, setPlanet] = useState<PlanetKey>('earth');
@@ -38,9 +42,8 @@ export default function SlideExample1() {
               <Terminal size={14} /> Prompt
             </div>
 
-            <p className="text-slate-100 leading-relaxed font-medium text-sm mb-3">
-              「請開一個 mission-timer 資料夾，在裡面建立一個單頁的任務計時器，一個 index.html 就好。」
-            </p>
+            <p className="text-slate-100 leading-relaxed font-medium text-sm mb-2">「{PROMPT}」</p>
+            <CopyAction text={PROMPT} className="mb-3" />
 
             <div className="space-y-2.5 text-[13px] leading-relaxed">
               <div>

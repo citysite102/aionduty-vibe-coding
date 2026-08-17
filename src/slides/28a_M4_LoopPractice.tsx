@@ -1,5 +1,6 @@
 import { RefreshCw, Target, ListChecks, PlayCircle, Fence } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyBlock } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 
 /**
@@ -80,15 +81,8 @@ export default function SlideLoopPractice() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-5 items-start">
           <AnimatedBlock
             stepIndex={1}
-            className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden"
           >
-            <div className="flex items-baseline gap-3 border-b border-slate-800 bg-slate-900 px-5 py-2.5">
-              <span className="font-mono text-xs uppercase tracking-widest text-sky-400">Prompt</span>
-              <span className="text-xs text-slate-500">一次貼完，不要拆成四句慢慢講</span>
-            </div>
-            <pre className="px-5 py-4 font-mono text-xs md:text-sm leading-relaxed text-slate-300 whitespace-pre-wrap">
-              {PROMPT}
-            </pre>
+            <CopyBlock text={PROMPT} note="一次貼完，不要拆成四句慢慢講" size="xs" />
           </AnimatedBlock>
 
           <div className="space-y-3">

@@ -1,5 +1,6 @@
 import { CheckSquare, CornerDownRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
@@ -21,6 +22,12 @@ const RULES = [
   '按鈕文案使用航太語彙：發射、待機、返航、補給。',
   '倒數的分鐘數要放在最上面當設定，不要散在程式碼裡。',
 ];
+
+/** 第 1 步要貼的完整內容。畫面上的指令句與清單都從這裡推導，不會兩邊不一致。 */
+const STEP1_LEAD = '請在 CLAUDE.md 補上下面這幾條，原本已經有的不要動，以後每次進來都要遵守。';
+const STEP1_TEXT = [STEP1_LEAD, ...RULES.map((r, i) => `${i + 1}. ${r}`)].join('\n');
+
+const STEP2_TEXT = '幫我加一個 5 分鐘的「補給時間」模式，樣式請遵守 CLAUDE.md。';
 
 export default function SlideHandsOnPrompt() {
   return (
@@ -50,14 +57,14 @@ export default function SlideHandsOnPrompt() {
               <h3 className="text-lg font-bold text-slate-100">把約定補進去</h3>
             </div>
             <div className="bg-black/50 p-4 rounded-lg border border-slate-800 text-sky-300 text-sm leading-relaxed">
-              <div className="mb-2">
-                You: 請在 CLAUDE.md 補上下面這幾條，原本已經有的不要動，以後每次進來都要遵守。
-              </div>
+              <div className="mb-2">You: {STEP1_LEAD}</div>
               <ol className="space-y-1 list-decimal list-inside">
                 {RULES.map((r) => (
                   <li key={r}>{r}</li>
                 ))}
               </ol>
+              {/* 複製的是指令加四條規則的完整文字，跟畫面上讀到的一致 */}
+              <CopyAction text={STEP1_TEXT} className="mt-3" />
             </div>
             <p className="text-slate-500 text-xs mt-3 leading-relaxed">
               這四條都是它讀程式碼讀不出來的：它看得到你用了什麼顏色，看不到你為什麼不准用外部圖片。
@@ -73,7 +80,8 @@ export default function SlideHandsOnPrompt() {
               <h3 className="text-lg font-bold text-slate-100">驗收：規範真的有用嗎</h3>
             </div>
             <div className="bg-black/50 p-4 rounded-lg border border-slate-800 text-sky-300 text-sm leading-relaxed">
-              You: 幫我加一個 5 分鐘的「補給時間」模式，樣式請遵守 CLAUDE.md。
+              You: {STEP2_TEXT}
+              <CopyAction text={STEP2_TEXT} className="mt-3" />
             </div>
             <p className="text-slate-400 text-xs mt-3 leading-relaxed">
               重點在看它有沒有自己去讀那份手冊：按鈕文案有沒有跟上、有沒有偷塞一張外部圖片進來、分鐘數有沒有寫死在程式裡。

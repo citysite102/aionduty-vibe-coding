@@ -1,5 +1,19 @@
 import { FolderSync, TextCursorInput, Terminal, Check } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
+
+/**
+ * 這段 prompt 有兩處要標亮（它們正是這一頁在教的：講清楚邊界、先確認再執行），
+ * 所以拆成片段。畫面用 hi 決定要不要上色，複製時把 t 接回去就是純文字，
+ * 不會發生「畫面上讀到的跟複製到的不一樣」。
+ */
+const PROMPT_PARTS: { t: string; hi?: boolean }[] = [
+  { t: '請查看 imgs 資料夾裡面的所有圖片。撰寫一個 Node.js 腳本幫我全部重新命名，格式為：日期-流水號，' },
+  { t: '副檔名保持原樣不要改', hi: true },
+  { t: '。' },
+  { t: '先印出預計的新舊檔名對照表給我確認，我說 OK 之後你再實際執行。', hi: true },
+];
+const PROMPT_TEXT = PROMPT_PARTS.map((p) => p.t).join('');
 
 export default function SlideExample2() {
   return (
@@ -25,8 +39,20 @@ export default function SlideExample2() {
               <Terminal size={14} /> Prompt
             </div>
             <p className="text-slate-100 leading-relaxed font-medium">
-              「請查看 imgs 資料夾裡面的所有圖片。撰寫一個 Node.js 腳本幫我全部重新命名，格式為：日期-流水號，<strong className="text-amber-300">副檔名保持原樣不要改</strong>。<strong className="text-amber-300">先印出預計的新舊檔名對照表給我確認，我說 OK 之後你再實際執行。</strong>」
+              「
+              {PROMPT_PARTS.map((part) =>
+                part.hi ? (
+                  <strong key={part.t} className="text-amber-300">
+                    {part.t}
+                  </strong>
+                ) : (
+                  <span key={part.t}>{part.t}</span>
+                ),
+              )}
+              」
             </p>
+            {/* 複製出去的版本不帶外層的「」，那兩個是排版用的，貼進去只會多兩個括號 */}
+            <CopyAction text={PROMPT_TEXT} className="mt-3" />
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={4} className="bg-sky-950/20 border border-sky-900/30 p-4 rounded-xl mt-4">

@@ -1,5 +1,6 @@
 import { GitPullRequest, AppWindow, Copy, TerminalSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
@@ -92,14 +93,8 @@ export default function SlideIntroCases() {
           );
         })}
 
-        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
-          <div className="flex items-baseline gap-3 border-b border-slate-800 bg-slate-900 px-5 py-2.5">
-            <span className="font-mono text-xs uppercase tracking-widest text-sky-400">Prompt</span>
-            <span className="text-sm text-slate-500">第三種做法實際交代下去的樣子</span>
-          </div>
-          <pre className="px-5 py-4 font-mono text-sm leading-relaxed text-slate-300 whitespace-pre-wrap">
-            {PROMPT}
-          </pre>
+        <AnimatedBlock stepIndex={5}>
+          <CopyBlock text={PROMPT} note="第三種做法實際交代下去的樣子" />
         </AnimatedBlock>
 
         <Callout tone="muted" stepIndex={6}>

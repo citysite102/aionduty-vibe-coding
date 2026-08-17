@@ -1,5 +1,6 @@
 import { CloudUpload, HardDrive, Laptop2, Send, Terminal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 
 /**
@@ -13,6 +14,9 @@ const LOSSES = [
   { icon: Laptop2, t: '換一台電腦', d: '要自己複製資料夾，還常常漏東西。' },
   { icon: Send, t: '想傳給別人看', d: '總不能把整個資料夾壓縮寄過去。' },
 ];
+
+const PROMPT =
+  '幫我把這個專案推到 GitHub，設成 private。推之前先確認沒有把密碼或金鑰帶上去。';
 
 export default function SlidePushToGithub() {
   return (
@@ -59,9 +63,8 @@ export default function SlidePushToGithub() {
           <div className="flex items-center gap-2 mb-3 text-slate-500 font-mono text-xs uppercase tracking-wider">
             <Terminal size={12} className="text-sky-400" /> Prompt
           </div>
-          <p className="text-sky-300 text-base leading-relaxed">
-            「幫我把這個專案推到 GitHub，設成 private。推之前先確認沒有把密碼或金鑰帶上去。」
-          </p>
+          <p className="text-sky-300 text-base leading-relaxed">「{PROMPT}」</p>
+          <CopyAction text={PROMPT} className="mt-3" />
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="px-1">

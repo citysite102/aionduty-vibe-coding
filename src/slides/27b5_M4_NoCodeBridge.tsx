@@ -1,5 +1,9 @@
 import { ClipboardCheck, FileCheck2, Terminal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
+
+const SKILL_PROMPT =
+  '幫我安裝 webapp-testing 這個 Skill，裝完重開一次對話，然後告訴我怎麼叫它。';
 
 export default function SlideNoCodeBridge() {
   return (
@@ -83,9 +87,8 @@ export default function SlideNoCodeBridge() {
             <div className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
               <div className="text-xs font-mono text-sky-400 font-bold mb-2">STEP 1　裝一個會點畫面的 Skill</div>
               <p className="text-sm text-slate-300 leading-relaxed mb-2">在對話框跟它說：</p>
-              <p className="text-sm text-sky-300 leading-relaxed">
-                「幫我安裝 webapp-testing 這個 Skill，裝完重開一次對話，然後告訴我怎麼叫它。」
-              </p>
+              <p className="text-sm text-sky-300 leading-relaxed">「{SKILL_PROMPT}」</p>
+              <CopyAction text={SKILL_PROMPT} className="mt-2" />
               <p className="text-xs text-slate-500 leading-relaxed mt-2">裝一次就好。它會自己開瀏覽器點你的網頁。</p>
             </div>
 

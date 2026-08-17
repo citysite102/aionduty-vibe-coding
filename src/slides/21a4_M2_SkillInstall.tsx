@@ -1,5 +1,6 @@
 import { PackagePlus, FolderPlus, Store, MessageSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
@@ -92,6 +93,8 @@ export default function SlideSkillInstall() {
                   <div className="mt-auto rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
                     <div className="text-xs font-mono uppercase tracking-widest text-slate-600 mb-1">Prompt</div>
                     <p className="text-sky-100 text-sm leading-relaxed">{w.prompt}</p>
+                    {/* 資料裡的字串自帶「」是為了排版，複製出去要剝掉 */}
+                    <CopyAction text={w.prompt.replace(/^「|」$/g, '')} className="mt-2" />
                   </div>
                 )}
               </AnimatedBlock>

@@ -1,5 +1,6 @@
 import { Wrench, UserPlus, Play, Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyBlock } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 import { Callout } from '../components/Callout';
 
@@ -85,9 +86,14 @@ export default function SlideM3HandsOn() {
 
                 {i === 0 && (
                   <>
-                    <pre className="mt-3 rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 font-mono text-xs leading-relaxed text-slate-300 whitespace-pre-wrap">
-                      {FRONTMATTER}
-                    </pre>
+                    {/* 這一段學員要一字不差地打進檔案（前後各一行 --- 缺一不可），
+                        所以跟 Prompt 一樣掛上點一下複製 */}
+                    <CopyBlock
+                      label="子代理設定"
+                      text={FRONTMATTER}
+                      size="xs"
+                      className="mt-3"
+                    />
                     <p className="text-slate-500 text-sm leading-relaxed mt-2">
                       前後各一行 <code className="font-mono text-slate-400">---</code> 缺一不可，
                       Claude Code 靠中間那段認出它是子代理。

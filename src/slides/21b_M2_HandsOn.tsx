@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
 import { PenTool } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
@@ -12,11 +12,16 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * （返航算不算一趟、今天怎麼算、關掉瀏覽器還在不在），
  * 換成通用的「要記哪些欄位、存在哪裡」就沒有教學效果了。
  */
-function Prompt({ children }: { children: ReactNode }) {
+/**
+ * 改吃純文字而不是 children，這樣同一份字串既拿去顯示也拿去複製，
+ * 不會出現「畫面上讀到的跟複製到的不一樣」。外層的「」是排版用的，複製不帶。
+ */
+function Prompt({ text }: { text: string }) {
   return (
     <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
       <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
-      <p className="text-sky-100 text-sm leading-relaxed">{children}</p>
+      <p className="text-sky-100 text-sm leading-relaxed">「{text}」</p>
+      <CopyAction text={text} className="mt-2" />
     </div>
   );
 }
@@ -36,9 +41,7 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
             把第一單元你一句一句盯出來的東西，變成它每次都會讀到的檔案。
           </p>
-          <Prompt>
-            「讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。」
-          </Prompt>
+          <Prompt text="讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。" />
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
             它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，那幾條它猜不到。
           </p>
@@ -62,7 +65,7 @@ export default function SlideM2HandsOn() {
               <span className="font-mono text-orange-300 font-bold">/context</span>
               <span className="text-slate-400"> ，記下 Free space 那個百分比。</span>
             </div>
-            <Prompt>「把 index.html 整份讀一遍，告訴我它有幾行。」</Prompt>
+            <Prompt text="把 index.html 整份讀一遍，告訴我它有幾行。" />
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="font-mono text-orange-300 font-bold">/context</span>
               <span className="text-slate-400"> 再打一次，看少了多少。</span>
@@ -88,9 +91,7 @@ export default function SlideM2HandsOn() {
             拿一個你自己也還沒想清楚的需求：
             <span className="text-slate-200">「我想知道自己今天完成幾趟任務」</span>。
           </p>
-          <Prompt>
-            「這個需求我還沒想清楚。先不要寫程式，把你需要我決定的事情列出來問我。」
-          </Prompt>
+          <Prompt text="這個需求我還沒想清楚。先不要寫程式，把你需要我決定的事情列出來問我。" />
           <p className="text-slate-500 text-xs leading-relaxed mt-3 mb-2">
             它應該要問回這種等級的問題。你回答之前，自己也答不出來：
           </p>
