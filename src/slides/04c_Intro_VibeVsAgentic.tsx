@@ -7,10 +7,17 @@ import { ArrowRight, CheckCircle2, AlertTriangle, FileCode2 } from 'lucide-react
  * 高度不一樣，所以要橫著比很難比。現在拆成對齊的帶狀表格：左邊是題目，
  * 右邊三欄同一列一定講同一件事，差別才看得出來。
  *
- * 最上面那條是這一頁的軸線：三種模式的差別只有一個變數，就是結構與驗證的量。
+ * 最上面那條是這一頁的軸線：三種模式的差別在需求寫得多細，以及做完有沒有人檢查。
+ * 原本寫成「AI 動手之前，你給了多少結構；它交出來之後，誰在驗」，是分號串起來的
+ * 對句加疑問詞收尾，讀起來像廣告文案。同一件事直接講就好，不要對稱、不要留疑問。
  * 第二列是全頁重點，同一個需求寫成三種樣子，那是學員唯一能自己複製的差別。
  *
  * 顏色兩種：amber 是「幾乎沒有結構」那一端，emerald 是目標狀態，中間維持灰階。
+ *
+ * 這頁是直的一欄一欄開：step 2 是 Vibe Coding 那欄，3、4 各再加一欄。
+ * 左邊的題目欄與橫線是表格的骨架，原本沒包 AnimatedBlock，所以翻到這一頁
+ * 還沒按任何一下，畫面上就先浮著四行灰字加三條線。現在一起掛在 step 2，
+ * 跟第一欄同時進場。
  */
 const MODES = [
   {
@@ -83,16 +90,19 @@ export default function SlideVibeVsAgentic() {
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          決定開發模式的不是「有沒有用 AI」，三種都在用。差別只有一個變數：
-          <strong className="text-slate-100">AI 動手之前，你給了多少結構；它交出來之後，誰在驗。</strong>
+          三種模式都在用 AI，差別在兩件事：
+          <strong className="text-slate-100">你事前把需求寫到多細，以及它做完之後有沒有人檢查。</strong>
         </AnimatedBlock>
 
         <div className="grid grid-cols-[7rem_repeat(3,minmax(0,1fr))] gap-x-4 gap-y-2.5 items-stretch">
 
           {/* 表頭，右下角那條是結構與驗證的量 */}
-          <div className="flex items-end justify-end pr-1 pb-1 text-right font-mono text-xs leading-tight text-slate-500">
+          <AnimatedBlock
+            stepIndex={2}
+            className="flex items-end justify-end pr-1 pb-1 text-right font-mono text-xs leading-tight text-slate-500"
+          >
             結構與驗證
-          </div>
+          </AnimatedBlock>
           {MODES.map((m, i) => {
             const Icon = m.icon;
             return (
@@ -128,10 +138,16 @@ export default function SlideVibeVsAgentic() {
           {/* 三個問題，同一列一定講同一件事 */}
           {ROWS.map((row) => (
             <React.Fragment key={row.key}>
-              <div className="col-span-4 h-px bg-slate-800/70" />
-              <div className="flex items-start justify-end pr-1 pt-3 text-right font-mono text-xs leading-tight text-slate-500">
+              {/* 這條橫線沒有內容，但 AnimatedBlock 的 children 是必填，所以給它一個空的 */}
+              <AnimatedBlock stepIndex={2} className="col-span-4 h-px bg-slate-800/70">
+                <></>
+              </AnimatedBlock>
+              <AnimatedBlock
+                stepIndex={2}
+                className="flex items-start justify-end pr-1 pt-3 text-right font-mono text-xs leading-tight text-slate-500"
+              >
                 {row.label}
-              </div>
+              </AnimatedBlock>
               {MODES.map((m, i) => (
                 <AnimatedBlock
                   key={`${row.key}-${m.name}`}
