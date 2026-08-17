@@ -169,7 +169,7 @@ const WorkflowAnim = () => (
   </div>
 );
 
-export default function Slide11() {
+export default function SlideRoles() {
   const { currentStep } = useSlide();
   
   // Decide which animation to show based on step

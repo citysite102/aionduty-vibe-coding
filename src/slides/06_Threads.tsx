@@ -1,7 +1,7 @@
 import { Target } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-export default function Slide04() {
+export default function SlideThreads() {
   return (
     <SlideLayout title="兩條學習主線" subtitle="Dual Threads" icon={Target}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">

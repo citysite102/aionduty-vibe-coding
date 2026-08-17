@@ -1,7 +1,7 @@
 import { ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-export default function Slide12() {
+export default function SlideQuality() {
   return (
     <SlideLayout title="設立品質防線 (Anti-Slop)" subtitle="Quality Defense" icon={ShieldCheck}>
       

@@ -2,7 +2,7 @@ import { RefreshCcw, Search, FileEdit, PlaySquare, CheckCircle2 } from 'lucide-r
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion } from 'motion/react';
 
-export default function Slide06() {
+export default function SlideWorkflow() {
   return (
     <SlideLayout title="一次改一點，比一次改完安全" subtitle="A Healthy Workflow" icon={RefreshCcw}>
       <div className="w-full max-w-5xl mx-auto mt-4">
