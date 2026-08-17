@@ -37,7 +37,7 @@ export const meta: RecordedMeta = {
   id: 'harness-33-surface-intro',
   title: '三個地方，差別只有兩件事',
   script:
-    '這一段從頭到尾都在講 CLAUDE.md，而它是終端機的東西。問題是你不會每天都開終端機，有時候只是想在網頁上問一句話。換到另外兩個地方，前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手。網頁版的 Projects 只看得到你上傳的檔案，不會動你的電腦。桌面版的 Cowork 綁一個資料夾，能讀能寫但不執行指令。Claude Code 整個專案都能讀，也能執行測試和版本控制，這門課主要在用的就是它。差別都落在權限，不在你要怎麼寫手冊。',
+    '這一段從頭到尾都在講 CLAUDE.md，而它是 Claude Code 在讀的檔案。問題是你不會每天都開 Claude Code，有時候只是想在網頁上問一句話。換到另外兩個地方，前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手。網頁版的 Projects 只看得到你上傳的檔案，不會動你的電腦。桌面版的 Cowork 綁一個資料夾，能讀能寫但不執行指令。Claude Code 整個專案都能讀，也能執行測試和版本控制，這門課主要在用的就是它。差別都落在它碰得到多少東西，不在你要怎麼寫手冊。',
   seconds: 44,
   from: 72,
 };
@@ -48,8 +48,8 @@ export default function RecSurfaceIntro() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-3">
-            <code className="font-mono text-orange-300">CLAUDE.md</code> 是終端機的東西，
-            但你不會每天都開終端機。改用網頁版或桌面版，要重學嗎？
+            <code className="font-mono text-orange-300">CLAUDE.md</code> 是 Claude Code 在讀的檔案，
+            但你不會每天都開它。改用網頁版，要重學嗎？
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             不用。寫法三個地方通用，<Key>差別只在它碰得到什麼</Key>
@@ -82,7 +82,7 @@ export default function RecSurfaceIntro() {
 
         <AnimatedBlock stepIndex={3} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
-            💡 差別都落在權限，不在你要怎麼寫手冊。
+            💡 差別都落在它碰得到多少東西，不在你要怎麼寫手冊。
           </p>
         </AnimatedBlock>
       </RecPage>

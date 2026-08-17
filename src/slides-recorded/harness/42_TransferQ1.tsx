@@ -21,7 +21,7 @@ export default function RecTransferQ1() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
           <div className="text-slate-500 text-base font-mono mb-3">第 1 題，共 3 題</div>
-          <p className="text-slate-200 text-2xl leading-snug mb-4 border-l-2 border-slate-700 pl-5">哪些事情你每次都要重講一次？</p>
+          <p className="text-slate-200 text-2xl leading-snug mb-4">哪些事情你每次都要重講一次？</p>
           <AskFirst />
         </AnimatedBlock>
 

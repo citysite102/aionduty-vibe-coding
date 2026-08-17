@@ -71,8 +71,15 @@ export default function RecTransferCase() {
           題目寫出來，並且給三個格子：那三格就是接下來三頁各答一格。
         */}
         <AnimatedBlock stepIndex={3}>
-          <p className="text-slate-300 text-3xl font-bold leading-snug mb-4">
+          {/*
+            原本只寫「三個條件全中」，那三個條件只在口白裡講過，畫面上讀不到。
+            這一段是預錄的，看影片的人沒辦法問「哪三個」，所以列出來。
+          */}
+          <p className="text-slate-300 text-3xl font-bold leading-snug mb-2">
             跟程式無關，但<Key>三個條件全中</Key>
+          </p>
+          <p className="text-slate-500 text-lg leading-relaxed mb-4">
+            重複發生　有你自己的規矩　每次都要重講
           </p>
           <p className="text-slate-300 text-xl leading-relaxed mb-4">
             交給 Claude 做，你的手冊會寫什麼？三格各一條。
