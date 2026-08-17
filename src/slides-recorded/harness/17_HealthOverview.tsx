@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'harness-17-health-overview',
   title: '手冊健檢：五個步驟',
   script:
-    '手冊越寫越長是正常的，每加一條當下都有理由，所以需要一套固定的整理流程，建議每三個月跑一次。五步：盤點、減法、分流、加法、修剪。順序不能換，最重要的是減法排在分流前面，先刪再搬。順序反了，你會把本來該刪掉的規則搬到別的地方，繼續佔著空間。下面這段可以直接貼給它，注意最後那句要它先不要動檔案。',
+    '手冊越寫越長是正常的，每加一條當下都有理由，所以需要一套固定的整理流程，建議每三個月跑一次。五步：盤點、減法、分流、加法、修剪。順序不能換，減法一定要排在分流前面。下面這段可以直接貼給它，注意最後那句要它先不要動檔案。',
   seconds: 42,
   from: 69,
 };
@@ -41,12 +41,15 @@ export default function RecHealthOverview() {
           ])}
         />
 
-        <AnimatedBlock stepIndex={3} className="mt-5 border rounded-2xl px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
-          <p className="text-slate-300 text-xl leading-relaxed">先刪再搬，順序反了就會把該刪的搬到別處，繼續佔著空間。</p>
-        </AnimatedBlock>
+        {/*
+          這裡原本有一塊 callout 寫「先刪再搬，順序反了就會把該刪的搬到別處，繼續佔著空間」。
+          那句話就是第二步那一頁（19_HealthSubtract）整頁的主張，預告先把結論講完，
+          走到那一頁時只剩重複。這一頁的職務是列出五步並給一句可以貼的指令，
+          為什麼不能換順序留給第二步自己講。
+        */}
 
         {/* 五步是給人看的流程，這一段是給人貼的。少了它，學員回去只會記得「有五步」但不知道怎麼開始。 */}
-        <AnimatedBlock stepIndex={4} className="mt-5 rounded-2xl border border-sky-900/50 bg-sky-950/20 px-6 py-4">
+        <AnimatedBlock stepIndex={3} className="mt-5 rounded-2xl border border-sky-900/50 bg-sky-950/20 px-6 py-4">
           <div className="text-base font-mono uppercase tracking-widest text-sky-500 mb-2.5">Prompt</div>
           <p className="text-sky-100 text-lg leading-relaxed">
             「讀一遍我的 <code className="font-mono text-orange-300">CLAUDE.md</code>，照上面五步整理：

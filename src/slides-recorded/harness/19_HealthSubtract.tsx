@@ -21,7 +21,14 @@ export default function RecHealthSubtract() {
           <p className="text-slate-300 text-4xl font-bold leading-snug"><Key>先刪再搬</Key>，順序不要反</p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="mt-5 bg-amber-500/5 border border-amber-500/20 rounded-2xl px-6 py-5">
+        {/* 口白說「這一步最容易被跳過，因為刪東西比加東西難決定」，畫面上原本沒有這句 */}
+        <AnimatedBlock stepIndex={2} className="mt-5 rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            這一步最容易被跳過，因為刪東西比加東西難決定。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="mt-5 bg-amber-500/5 border border-amber-500/20 rounded-2xl px-6 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
             ⚠️ 如果先分流再減法，你會把本來該刪的規則搬到子目錄，然後在那裡繼續佔著空間，下次健檢又要處理一次。
           </p>

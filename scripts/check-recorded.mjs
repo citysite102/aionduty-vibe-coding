@@ -13,6 +13,28 @@ const LIMIT_SECONDS = 45;
 const LIMIT_BULLET = 5;
 const LIMIT_BULLET_CHARS = 20;
 
+/**
+ * 口白的實際長度要從字數推算，不能只信 meta 裡的 seconds。
+ *
+ * seconds 是手寫的估計值，而這支腳本原本只讀那個數字，所以「寫 45、實際要念 60 秒」
+ * 完全抓不到。全片的宣稱值換算出來是每秒 3.7 到 6.5 字，差了將近兩倍，
+ * 也就是那些數字彼此之間就不一致。
+ *
+ * 4 是中文口播含停頓的保守速度（一個字約等於一個音節）。刻意取偏慢的值，
+ * 因為這個數字只用來回答一個問題：這一頁會不會超過 45 秒。推算出來超過就提醒，
+ * 沒超過就不吵。反過來（宣稱值比推算值大）不提醒，那多半只是估得寬鬆，
+ * 而真正的長度要錄一次才知道，不該拿一個猜出來的常數去吵已經寫好的四十幾頁。
+ */
+const CHARS_PER_SECOND = 4;
+
+/** 口白裡的英文與數字也要念，不能只數中文 */
+function spokenLength(script) {
+  const cjk = (script.match(/[一-鿿]/g) || []).length;
+  // 連續的英文或數字算一個詞，一個詞的長度大約等於兩個中文字
+  const words = (script.match(/[A-Za-z0-9][A-Za-z0-9.\-_/]*/g) || []).length;
+  return cjk + words * 2;
+}
+
 /** 底線開頭的檔案是共用元件，不是頁面，跳過不檢查 */
 function walk(dir) {
   return readdirSync(dir).flatMap((name) => {
@@ -25,6 +47,7 @@ function walk(dir) {
 
 const errors = [];
 const warnings = [];
+let estTotal = 0;
 
 for (const file of walk(ROOT)) {
   const src = readFileSync(file, 'utf8');
@@ -58,11 +81,21 @@ for (const file of walk(ROOT)) {
     errors.push(`${name}：出現寫死的字級 ${[...new Set(hardPx)].join('、')}`);
   }
 
-  // 口白長度
+  // 口白長度。宣稱值與推算值都要看，兩者對不上的時候宣稱值不可信
   const sec = Number((metaBlock[0].match(/seconds:\s*(\d+)/) || [])[1]);
+  const script = (metaBlock[0].match(/script:\s*\n?\s*'([\s\S]*?)',/) || [])[1] || '';
+  const est = Math.round(spokenLength(script) / CHARS_PER_SECOND);
+
   if (sec > LIMIT_SECONDS) {
-    warnings.push(`${name}：口白 ${sec} 秒，超過 ${LIMIT_SECONDS} 秒，這一頁可能還是太滿`);
+    warnings.push(`${name}：口白宣稱 ${sec} 秒，超過 ${LIMIT_SECONDS} 秒，這一頁可能還是太滿`);
   }
+  if (est > LIMIT_SECONDS) {
+    warnings.push(
+      `${name}：口白推算 ${est} 秒（meta 寫 ${sec}），照每秒 ${CHARS_PER_SECOND} 字念會超過 ${LIMIT_SECONDS} 秒`,
+    );
+  }
+
+  estTotal += est;
 
   // 標題含連接詞，可能是兩頁
   const title = (metaBlock[0].match(/title:\s*'([^']*)'/) || [])[1] || '';
@@ -89,7 +122,10 @@ const total = walk(ROOT).reduce((sum, f) => {
 }, 0);
 
 const pages = walk(ROOT).length;
-console.log(`檢查 ${pages} 頁，口白總長 ${total} 秒（約 ${(total / 60).toFixed(1)} 分鐘）`);
+console.log(
+  `檢查 ${pages} 頁，口白宣稱總長 ${total} 秒（約 ${(total / 60).toFixed(1)} 分鐘），` +
+    `照每秒 ${CHARS_PER_SECOND} 字推算是 ${estTotal} 秒（約 ${(estTotal / 60).toFixed(1)} 分鐘）`,
+);
 
 if (warnings.length) {
   console.log('\n警告');
