@@ -99,6 +99,21 @@ grep -rhoE --include="*.tsx" -- \
 
 判斷方式：**把那個 token 換成別家工具的對應物，句子還成立嗎？**成立就不是專有名詞，不該上橘。
 
+#### 產品 Logo 走 `BrandLogos`，品牌色不佔額度
+
+列工具的頁面（`01b_PreFlight` 那種）不要拿 lucide 的通用 icon 代替產品。學員要拿畫面上的圖示去對照自己桌面上的那一個，`SquareTerminal` 對不上 Warp，`MonitorDown` 也對不上 Claude。用 `src/components/BrandLogos.tsx`：
+
+- `<BrandTile brand="claude" />` 是連底色方塊一起的版本，直接替掉原本包 icon 的那個 `span`。
+- `<BrandLogo brand="git" size={18} />` 只出字形，顏色吃 `currentColor`，要塞進句子或自訂容器時用它。
+- 要加新的牌子就在 `BRAND_PATH`、`BRAND_COLOR`、`BRAND_LABEL` 各補一條。路徑取自 simple-icons（CC0），**要內嵌進那個檔案，不要 import 套件、也不要連外部網址**（A-4）。
+
+品牌色不走 Tailwind 色階，寫成 hex 的 inline style。**它不計入一頁兩色的額度**，理由跟 `orange` 那條同一個：它標的是「這是誰家的東西」，不是「這東西現在重要」。也因為是 inline style，上面那行色相 grep 掃不到它，不會影響驗收。
+
+兩個要注意的：
+
+- **官方色在深底上看不見就要換。** GitHub 的 `#181717` 與 Warp 的黑底白字直接消失，那兩個取它們深色模式下的白。判準是看得見，不是照抄色票。
+- **這個豁免只給真正的產品 Logo。** 自己畫一個圖形然後配一個 hex，那是繞過 A-1，不是標身分。
+
 #### 訊息塊一律用 `Callout`，不要自己拼
 
 要跟周圍內文區隔開的那種塊（結論、但書、正解、錯誤示範）走 `src/components/Callout.tsx`，用 `tone` 選語意：`focus`（重點）、`good`（正解）、`warn`（風險）、`bad`（錯誤做法）、`muted`（次要補充，維持灰階）。內層版面特殊、不方便換成元件時，至少用它匯出的 `calloutClass()` 取得同一組 class。

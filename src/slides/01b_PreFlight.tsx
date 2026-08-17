@@ -1,6 +1,7 @@
-import { PackageCheck, MonitorDown, CreditCard, GitBranch, SquareTerminal, Github, Image } from 'lucide-react';
+import { PackageCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { BrandTile, type Brand } from '../components/BrandLogos';
 
 /**
  * 課前準備。放在封面之後，講者可以直接截這一頁發出去當行前通知。
@@ -14,30 +15,30 @@ import { Callout } from '../components/Callout';
  * GitHub 是課後回饋加上去的。有人整段時間卡在 GitHub 建置，
  * 而它到出貨那一段一定會用到，帳號本身免費。
  */
-const REQUIRED = [
+const REQUIRED: { brand: Brand; name: string; where: string; href: string; why: string }[] = [
   {
-    icon: MonitorDown,
+    brand: 'claude',
     name: 'Claude Desktop',
     where: 'claude.com/download',
     href: 'https://claude.com/download',
     why: 'Mac 與 Windows 都能裝。整門課的操作都在它上面，第一個作品也是從這裡做出來的。',
   },
   {
-    icon: CreditCard,
+    brand: 'claude',
     name: '付費的 Claude 帳號',
     where: 'Pro 月費 $20 起，或到 Console 儲值，最低 $5',
     href: 'https://claude.ai',
     why: '沒有額度，Claude Code 跑不動。兩種付法都可以，先有一種就行。',
   },
   {
-    icon: GitBranch,
+    brand: 'git',
     name: 'Git',
     where: 'git-scm.com/downloads',
     href: 'https://git-scm.com/downloads',
     why: '一路按下一步就好，裝完不用開它。後面存檔跟上線的時候，Claude 會自己用到。',
   },
   {
-    icon: Github,
+    brand: 'github',
     name: 'GitHub 帳號',
     where: 'github.com，帳號免費',
     href: 'https://github.com',
@@ -50,16 +51,16 @@ const REQUIRED = [
  * 這門課教的講清楚方法之一就是不要用形容詞描述畫面，直接給參考圖。
  * 沒有帳號也能看，但存不了自己的板，臨時要找就會翻很久。
  */
-const OPTIONAL = [
+const OPTIONAL: { brand: Brand; name: string; where: string; href: string; why: string }[] = [
   {
-    icon: SquareTerminal,
+    brand: 'warp',
     name: 'Warp',
     where: 'warp.dev',
     href: 'https://www.warp.dev',
     why: '比系統內建好用的終端機。終端機那一段會用到，不裝也走得完，用內建的就可以。',
   },
   {
-    icon: Image,
+    brand: 'pinterest',
     name: 'Pinterest 帳號',
     where: 'pinterest.com，帳號免費',
     href: 'https://www.pinterest.com',
@@ -81,12 +82,9 @@ export default function SlidePreFlight() {
           className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800"
         >
           {REQUIRED.map((r) => {
-            const Icon = r.icon;
             return (
               <div key={r.name} className="flex items-start gap-4 px-6 py-3">
-                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-500/10 text-sky-400">
-                  <Icon size={18} />
-                </span>
+                <BrandTile brand={r.brand} />
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3">
                     <span className="text-base font-bold text-slate-100">{r.name}</span>
@@ -111,12 +109,9 @@ export default function SlidePreFlight() {
           className="rounded-2xl border border-slate-800 bg-slate-950 divide-y divide-slate-800"
         >
           {OPTIONAL.map((o) => {
-            const Icon = o.icon;
             return (
               <div key={o.name} className="flex items-start gap-4 px-6 py-3">
-                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-800 text-slate-400">
-                  <Icon size={18} />
-                </span>
+                <BrandTile brand={o.brand} />
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3">
                     <span className="text-base font-bold text-slate-300">{o.name}</span>
@@ -151,8 +146,8 @@ export default function SlidePreFlight() {
             </>
           }
         >
-          桌面版與 Git 都要安裝權限，公司配的電腦常常裝不了。
-          先試裝一次，裝不起來就換自己的電腦。
+          裝完 Claude Desktop 先登入一次，開得出對話框就算好了。
+          其餘三樣沒有先後順序，湊齊就可以。
         </Callout>
 
       </div>
