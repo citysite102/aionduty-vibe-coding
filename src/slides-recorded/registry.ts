@@ -4,6 +4,7 @@ import RecFailNotLoaded, { meta as m01 } from './harness/01_FailNotLoaded';
 import RecFailBuried, { meta as m02 } from './harness/02_FailBuried';
 import RecFailCantFollow, { meta as m03 } from './harness/03_FailCantFollow';
 import RecDiagnose, { meta as m04 } from './harness/04_Diagnose';
+import RecRouteIntro, { meta as m04b } from './harness/04b_RouteIntro';
 import RecRouteQ1, { meta as m05 } from './harness/05_RouteQ1';
 import RecRouteQ2, { meta as m06 } from './harness/06_RouteQ2';
 import RecRouteQ3, { meta as m07 } from './harness/07_RouteQ3';
@@ -90,6 +91,9 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // 動手掛一條（67）、換成 Codex 還算不算數（68）。
   // 最後那一頁是這一節的職務，這一節本來就是疑難雜症與轉移。
   79: [
+    // 四題原本直接從第一題開始，方法寫成第一題頁面上的一行引言。
+    // 那讓第一頁要同時交代方法與第一題，份量跟後面三頁不一樣。方法獨立一頁。
+    { meta: m04b, Component: RecRouteIntro },
     { meta: m05, Component: RecRouteQ1 },
     { meta: m06, Component: RecRouteQ2 },
     { meta: m07, Component: RecRouteQ3 },

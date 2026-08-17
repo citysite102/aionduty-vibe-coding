@@ -1,36 +1,21 @@
 import { Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { Fork, Branch } from './_DecisionTree';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * 這一頁原本是四張編號卡，一張一步。但它做的事其實是分岔：
- * 問一個問題，答案往兩邊走，其中一邊就地結案，另一邊才往下問。
- * 排成清單看不出那個分岔，讀者會以為四步是依序都要做完。
+ * 這一頁原本是四張編號卡，一張一步，看起來像四步都要照順序做完。
+ * 但它做的事是分岔：問一個問題，一邊就地結案，另一邊才往下問。
  *
- * 改成兩個問題各帶兩條岔路。左邊那條是就地結案（灰底加結論），
- * 右邊那條才繼續往下。這樣「查到哪裡為止」自己就看得出來。
+ * 第一版改成「問題卡加下面兩塊」，但只在中間畫了一小段豎線，
+ * 結果還是三個堆疊的區塊，看不出那兩塊是同一個問題分出來的。
+ * 現在用 _DecisionTree 的 Fork 畫出橫桿，第二個問題整組往右縮排，
+ * 深度就看得出來：第二層是掛在「在」那一條線底下的。
  *
- * 顏色：問題灰階，結論給 sky（當下要記的是結論），最後的警告 amber。一頁兩色。
+ * 顏色：往下走的那一邊 sky，就地結案的那一邊灰階加「到此結束」，最後的警告 amber。
  */
-const BRANCHES = [
-  {
-    step: '1',
-    ask: '那份手冊在載入清單裡嗎？',
-    how: '跑 /context',
-    no: { label: '不在', result: '位置問題，查到這裡就結束' },
-    yes: { label: '在', result: '往下問' },
-  },
-  {
-    step: '2',
-    ask: '剛才那個決定依據哪一條？',
-    how: '直接問它',
-    no: { label: '答不出來', result: '句子寫壞，改寫成可以檢查的' },
-    yes: { label: '答得出來卻做錯', result: '被埋在後面，或兩條規則打架' },
-  },
-];
-
 export const meta: RecordedMeta = {
   id: 'harness-04-diagnose',
   title: '那要怎麼知道是哪一種？',
@@ -40,43 +25,53 @@ export const meta: RecordedMeta = {
   from: 68,
 };
 
+/** 問題節點。編號、問句、怎麼查。 */
+function Ask({ n, q, how }: { n: string; q: string; how: string }) {
+  return (
+    <div className="rounded-2xl border border-slate-700 bg-slate-900 px-7 py-4">
+      <div className="flex items-baseline gap-4">
+        <span className="font-mono text-xl font-bold text-slate-500 shrink-0">{n}</span>
+        <div className="min-w-0">
+          <div className="text-slate-100 text-xl font-bold leading-snug">{q}</div>
+          <div className="font-mono text-base text-orange-300 mt-1">{how}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function RecDiagnose() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Search}>
-      <RecPage className="space-y-4" handbook={1}>
-        {BRANCHES.map((b, i) => (
-          <AnimatedBlock key={b.step} stepIndex={i + 1}>
-            {/* 問題 */}
-            <div className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-4">
-              <div className="flex items-baseline gap-4">
-                <span className="font-mono text-xl font-bold text-slate-500 shrink-0">{b.step}</span>
-                <div className="min-w-0">
-                  <div className="text-slate-100 text-xl font-bold leading-snug">{b.ask}</div>
-                  <div className="font-mono text-base text-orange-300 mt-1">{b.how}</div>
-                </div>
-              </div>
-            </div>
+      <RecPage className="space-y-3" handbook={1}>
+        <AnimatedBlock stepIndex={1}>
+          <Ask n="1" q="那份手冊在載入清單裡嗎？" how="跑 /context" />
+          <Fork />
+          <div className="grid grid-cols-2 gap-4">
+            <Branch label="不在" end>
+              位置問題
+            </Branch>
+            <Branch label="在">往下問</Branch>
+          </div>
+        </AnimatedBlock>
 
-            {/* 兩條岔路。線只畫一條短的，不要做成花俏的流程圖 */}
-            <div className="mx-auto h-3 w-px bg-slate-700" />
-
-            <div className="grid grid-cols-2 gap-4">
-              {[b.no, b.yes].map((branch) => (
-                <div
-                  key={branch.label}
-                  className="rounded-xl border border-slate-800 bg-slate-950 px-5 py-3"
-                >
-                  <div className="text-slate-500 text-base mb-1">{branch.label}</div>
-                  <div className="text-sky-200 text-lg leading-snug">{branch.result}</div>
-                </div>
-              ))}
-            </div>
-          </AnimatedBlock>
-        ))}
+        {/* 第二層縮排，讓人看得出它掛在「在」那一條底下，不是另一個平行的問題 */}
+        <AnimatedBlock stepIndex={2} className="pl-[8%]">
+          <Ask n="2" q="剛才那個決定依據哪一條？" how="直接問它" />
+          <Fork />
+          <div className="grid grid-cols-2 gap-4">
+            <Branch label="答不出來" end>
+              句子寫壞，改寫成可以檢查的
+            </Branch>
+            <Branch label="答得出來卻做錯" end>
+              被埋在後面，或兩條規則打架
+            </Branch>
+          </div>
+        </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-amber-900/40 bg-amber-950/20 px-7 py-4">
           <p className="text-slate-300 text-lg leading-relaxed">
-            ⚠️ 跳過診斷直接再加一條，檔案只會更肥，原本的問題還在。
+            ⚠️ 跳過診斷直接再加一條，檔案只會更肥。
             <Key>位置的問題最好處理</Key>，所以下一步先決定位置。
           </p>
         </AnimatedBlock>
