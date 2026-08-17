@@ -2,12 +2,13 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Write|Edit",
+        "matcher": "Write|Edit|MultiEdit",
         "hooks": [
           {
             "type": "command",
-            "command": "jq -r '(.tool_input.content // \"\") + \"\\n\" + (.tool_input.new_string // \"\")' | grep -q '——' && printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"偵測到中文破折號「——」，請改用「，」「。」「：」或（）括號取代，不要使用破折號。\"}}' || true",
-            "statusMessage": "檢查是否含破折號「——」"
+            "command": "[ ! -f \"$(git rev-parse --show-toplevel)/scripts/slide-guard.mjs\" ] || node \"$(git rev-parse --show-toplevel)/scripts/slide-guard.mjs\"",
+            "timeout": 5,
+            "statusMessage": "檢查投影片規範"
           }
         ]
       }
