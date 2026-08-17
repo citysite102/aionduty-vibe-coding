@@ -1,193 +1,241 @@
-import React from 'react';
-import { Terminal, Shield, ArrowRight, HelpCircle, Activity, Star } from 'lucide-react';
+import { AppWindow, BarChart3, MousePointerClick, FolderOpen } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { motion } from 'motion/react';
+import { Callout } from '../components/Callout';
+import { BrandLogo } from '../components/BrandLogos';
+import { PixelArt } from '../components/PixelArt';
+
+/**
+ * 這一頁的圖原本畫的是終端機的啟動畫面，但主線走的是桌面版，等於拿另一個外殼的圖
+ * 解釋學員手上的外殼，說明寫得再清楚都隔一層。現在換成桌面版 Code 頁籤的真實版面。
+ *
+ * 換圖之後標註也跟著改，因為兩個版本的資訊擺法剛好相反：終端機是狀態在上、輸入在下；
+ * 桌面版上面那一大塊是用量統計，真正的狀態（開哪個資料夾、用哪個模型）貼在輸入框旁邊。
+ * 照舊圖那組「上面是狀態」講下去會講錯。
+ *
+ * 數字刻意用初學者規模（12 場對話、5 天），不是照抄截圖上的真實用量。
+ * 那些數字對學員沒有教學價值，數字大反而會嚇到人。專案名也換成這門課的 mission-timer，
+ * 學員才對得上自己的畫面。
+ *
+ * 顏色照抄真實畫面，這是 A-1 對這一頁的規定：學員要拿它對照自己的螢幕，改色反而是錯的。
+ * 所以 mockup 裡走的是 hex 的 inline 值（跟舊版一樣），不進 Tailwind 色階，也不影響色相驗收。
+ */
+
+/** 貢獻熱區。'.' 是沒用的那天，1 到 3 是活動量，由淺到深。每列都是 28 格。 */
+const HEATMAP = [
+  '.....................1.2221.',
+  '....................12321221',
+  '.....................223321.',
+  '.....................132321.',
+  '......................23221.',
+  '....................1223212.',
+  '...................11.2.121.',
+] as const;
+
+const HEAT: Record<string, string> = {
+  '.': '#2b2b2b',
+  '1': '#a8c1f2',
+  '2': '#7c9fe8',
+  '3': '#4f7fd0',
+};
+
+const STATS: [string, string][] = [
+  ['Sessions', '12'],
+  ['Messages', '340'],
+  ['Total tokens', '2.4M'],
+  ['Active days', '5'],
+  ['Current streak', '2d'],
+  ['Longest streak', '3d'],
+  ['Peak hour', '10 PM'],
+  ['Favorite model', 'Opus 5'],
+];
+
+/** 輸入框右上角那隻小生物。純裝飾，但它在真實畫面上就在那裡。 */
+const PX_CRAB = [
+  '.XX.....XX.',
+  '.XXXXXXXXX.',
+  'XXXXXXXXXXX',
+  'XX.XXXXX.XX',
+  'XXXXXXXXXXX',
+  'XXXXXXXXXXX',
+  'X.X.....X.X',
+  '.X.......X.',
+] as const;
 
 export default function SlideClaudeCodeUI() {
   return (
-    <SlideLayout title="畫面上這幾塊分別在說什麼" subtitle="Claude Code Welcome Console" icon={Terminal}>
+    <SlideLayout
+      title="打開之後，你只需要動最下面那一條"
+      subtitle="Claude Code Desktop"
+      icon={AppWindow}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
-        
-        {/* Left column: Explaining sections */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-4 text-left">
-          <div>
-            <AnimatedBlock stepIndex={1}>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-3">
-                第一次啟動？<br/>
-                教你一眼看懂這個畫面
-              </h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-4 bg-slate-900 border border-slate-800 rounded-xl p-3">
-                不管你開的是<strong className="text-slate-300">桌面版的 Code 頁籤</strong>還是終端機，
-                畫面上都是同樣三塊，位置也一樣：
-                <strong className="text-slate-300">目前狀態在上方、對話在中間、輸入框在最下面。</strong>
-                旁邊那張圖是終端機的樣子，桌面版長得漂亮一點，但要看的就是這三塊。
-              </p>
-            </AnimatedBlock>
 
-            <div className="space-y-3 text-xs md:text-sm">
-              <AnimatedBlock stepIndex={2} className="flex gap-3 items-start bg-slate-900/40 p-3 rounded-xl border border-slate-800">
-                <div className="p-1.5 bg-orange-500/10 text-orange-400 rounded shrink-0">
-                  <Star size={14} />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-200">1. 目前狀態與模型 (左側)</h4>
-                  <p className="text-[12px] text-slate-400 mt-0.5">顯示目前載入的模型、訂閱方案與目前專案目錄。想換模型可用 /model。</p>
-                </div>
-              </AnimatedBlock>
-
-              <AnimatedBlock stepIndex={3} className="flex gap-3 items-start bg-slate-900/40 p-3 rounded-xl border border-slate-800">
-                <div className="p-1.5 bg-sky-500/10 text-sky-400 rounded shrink-0">
-                  <Activity size={14} />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-200">2. 近期活動記錄 (右上)</h4>
-                  <p className="text-[12px] text-slate-400 mt-0.5">列出你前幾次對話修改的歷史紀錄，隨時可以輸入 <code>/resume</code> 繼續未完成的工作。</p>
-                </div>
-              </AnimatedBlock>
-
-              <AnimatedBlock stepIndex={4} className="flex gap-3 items-start bg-slate-900/40 p-3 rounded-xl border border-slate-800">
-                <div className="p-1.5 bg-emerald-500/10 text-emerald-400 rounded shrink-0">
-                  <Shield size={14} />
-                </div>
-                <div>
-                  <h4 className="text-xs font-bold text-slate-200">3. 新版特色與快捷指令 (右下)</h4>
-                  <p className="text-[12px] text-slate-400 mt-0.5">提示如 <code>/agents</code> (多子代理)、<code>/security-review</code> (安全性審查) 等進階指令。</p>
-                </div>
-              </AnimatedBlock>
-            </div>
-          </div>
-
-          <AnimatedBlock stepIndex={5} className="bg-amber-950/20 p-4 rounded-xl border border-amber-900/30 text-xs text-amber-300">
-            💡 那個 <code>&gt;</code> 不是在等程式碼，是在等你講話。直接打中文就可以：「幫我看看這個專案要怎麼跑起來」「幫我寫一個倒數計時網頁」。
+        {/* 左欄：說明 */}
+        <div className="lg:col-span-5 flex flex-col space-y-3 text-left">
+          <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
+            第一次打開會看到一大片東西，
+            <strong className="text-slate-100">那些幾乎都是資訊，不是要你回答的問題</strong>。
+            真正要你動的只有最下面那一條，以及貼在它旁邊的兩個設定。
           </AnimatedBlock>
 
+          <AnimatedBlock
+            stepIndex={2}
+            className="flex gap-3 items-start bg-slate-900 p-4 rounded-xl border border-slate-800"
+          >
+            <div className="p-1.5 bg-slate-800 text-slate-400 rounded shrink-0">
+              <BarChart3 size={14} />
+            </div>
+            <div className="min-w-0">
+              <h4 className="text-base font-bold text-slate-100">上面那一大塊：用量統計</h4>
+              <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                你用了幾次、花掉多少 token、最常用哪個模型。
+                <strong className="text-slate-300">跟你要做的事沒關係，看過就好。</strong>
+              </p>
+            </div>
+          </AnimatedBlock>
+
+          <AnimatedBlock
+            stepIndex={3}
+            className="flex gap-3 items-start bg-slate-900 p-4 rounded-xl border border-slate-800"
+          >
+            <div className="p-1.5 bg-slate-800 text-slate-400 rounded shrink-0">
+              <FolderOpen size={14} />
+            </div>
+            <div className="min-w-0">
+              <h4 className="text-base font-bold text-slate-100">輸入框旁邊那幾個小標籤</h4>
+              <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                左邊是它現在打開的資料夾，右邊是用哪個模型。
+                <strong className="text-slate-300">開工前先看資料夾對不對</strong>，它只會在那個範圍裡讀寫。
+              </p>
+            </div>
+          </AnimatedBlock>
+
+          <AnimatedBlock
+            stepIndex={4}
+            className="flex gap-3 items-start bg-sky-500/5 p-4 rounded-xl border border-sky-500/25"
+          >
+            <div className="p-1.5 bg-sky-500/10 text-sky-400 rounded shrink-0">
+              <MousePointerClick size={14} />
+            </div>
+            <div className="min-w-0">
+              <h4 className="text-base font-bold text-sky-300">最下面那一條：你要動的地方</h4>
+              <p className="text-sm text-slate-400 mt-1 leading-relaxed">
+                整個畫面只有這裡要你輸入。上面那一整片都可以先跳過。
+              </p>
+            </div>
+          </AnimatedBlock>
+
+          <Callout tone="focus" stepIndex={5}>
+            那一條寫著 <span className="font-mono text-slate-300">Describe a task or ask a question</span>，
+            <strong className="text-slate-100">它在等你講話，不是在等程式碼</strong>。
+            直接打中文就可以：「幫我看看這個專案要怎麼跑起來」。
+          </Callout>
         </div>
 
-        {/* Right column: Claude Code High-Fidelity UI Mockup (Image 1) */}
+        {/* 右欄：桌面版 Code 頁籤的真實版面。底色比 slate 暖，照抄真實畫面 */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <AnimatedBlock stepIndex={2} className="relative bg-[#0c0c0e] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-full min-h-[460px] font-mono text-xs text-slate-300 text-left">
-            
-            {/* Mac Terminal Window Frame Header */}
-            <div className="bg-[#141416] px-4 py-3 flex items-center gap-1.5 border-b border-slate-900 shrink-0">
-              <span className="w-3 h-3 rounded-full bg-rose-500/80 block"></span>
-              <span className="w-3 h-3 rounded-full bg-amber-500/80 block"></span>
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80 block"></span>
-              <span className="text-[11px] text-slate-500 font-mono ml-4">Terminal - claude-code @ local</span>
-            </div>
+          <AnimatedBlock
+            stepIndex={2}
+            className="relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col h-full min-h-[460px] text-left"
+          >
+            <div className="bg-[#1a1a19] flex-1 flex flex-col px-6 py-5">
 
-            {/* Terminal Screen Body */}
-            <div className="p-6 flex-1 flex flex-col justify-between space-y-6">
-              
-              {/* Boxed area matching image 1 layout */}
-              <div className="border border-dashed border-orange-500/20 rounded-xl p-5 relative bg-orange-500/[0.01]">
-                
-                {/* Title overlay */}
-                <div className="absolute -top-2.5 left-4 bg-[#0c0c0e] px-2 text-[11px] text-orange-400 font-bold tracking-wider">
-                  Claude Code v2.1.x
+              {/* 問候列 */}
+              <div className="flex items-start justify-between mb-5 shrink-0">
+                <div className="flex items-center gap-2.5 text-[#d97757]">
+                  <BrandLogo brand="claude" size={20} />
+                  <span className="text-slate-100 text-lg font-bold">What's up next, Samuel?</span>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch mt-2">
-                  
-                  {/* Left Column: Welcome back & robot icon */}
-                  <div className="flex flex-col items-center justify-center text-center border-r border-slate-800/50 md:pr-4">
-                    <div className="text-orange-400 font-bold mb-4">Welcome back Meaghan!</div>
-                    
-                    {/* Space Invader Orange pixel art robot icon */}
-                    <div className="w-20 h-16 flex flex-col justify-between items-center my-2 text-orange-500">
-                      {/* Pixel layout representation */}
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                      </div>
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                      </div>
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 bg-orange-500 font-bold">■■■■■</span>
-                      </div>
-                      <div className="flex gap-1">
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                        <span className="w-2 h-2 bg-transparent"></span>
-                        <span className="w-2 h-2 bg-orange-500"></span>
-                      </div>
-                    </div>
-
-                    <div className="text-[11px] text-slate-500 mt-4">
-                      Sonnet 5 • Max 20x
-                    </div>
-                    <div className="text-[11px] text-slate-600 truncate max-w-[200px] mt-1">
-                      /users/meaghan/code/apps
-                    </div>
-                  </div>
-
-                  {/* Right Column: Recent activity & What's new */}
-                  <div className="space-y-4 md:pl-2">
-                    {/* Recent activity box */}
-                    <div>
-                      <div className="text-orange-400/80 font-bold text-[12px] mb-1.5 border-b border-slate-900 pb-1">
-                        Recent activity
-                      </div>
-                      <div className="space-y-1 text-[11px] text-slate-400">
-                        <div className="flex justify-between"><span className="text-slate-500 shrink-0">1m ago</span> <span className="text-slate-300 truncate pl-3">Updated project memory</span></div>
-                        <div className="flex justify-between"><span className="text-slate-500 shrink-0">8m ago</span> <span className="text-slate-300 truncate pl-3">Updated claw'd feet</span></div>
-                        <div className="flex justify-between"><span className="text-slate-500 shrink-0">2d ago</span> <span className="text-slate-300 truncate pl-3">Add new words to spinner</span></div>
-                        <div className="flex justify-between"><span className="text-slate-500 shrink-0">1w ago</span> <span className="text-slate-300 truncate pl-3">Update unit tests</span></div>
-                        <div className="text-slate-600 italic text-[11px] mt-1">... /resume for more</div>
-                      </div>
-                    </div>
-
-                    {/* What's new box */}
-                    <div>
-                      <div className="text-orange-400/80 font-bold text-[12px] mb-1.5 border-b border-slate-900 pb-1">
-                        What's new
-                      </div>
-                      <div className="space-y-1 text-[11px] text-slate-400">
-                        <div><code className="text-amber-500">/agents</code> to create subagents</div>
-                        <div><code className="text-amber-500">/security-review</code> for review agent</div>
-                        <div><code className="text-slate-500">ctrl+b</code> to background bashes</div>
-                        <div className="text-slate-600 italic text-[11px] mt-1">... /help for more</div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
+                <span className="text-slate-500 text-xs mt-1.5 shrink-0">What's new</span>
               </div>
 
-              {/* Bottom Interactive Command prompt area */}
-              <div className="pt-4 border-t border-slate-900/60 flex flex-col justify-end">
-                <div className="flex items-center gap-2">
-                  <span className="text-orange-500 font-bold shrink-0">&gt;</span>
-                  {/* Simulated blinking terminal cursor */}
-                  <div className="flex items-center gap-1.5 w-full">
-                    <span className="bg-slate-300 w-1.5 h-4 inline-block"></span>
-                    <span className="text-slate-500 font-mono text-[12px] truncate">
-                      try "edit &lt;filepath&gt; to ..."
-                    </span>
+              {/* 用量統計面板。這一整塊就是左邊第一條標註在講的東西 */}
+              <div className="rounded-xl bg-[#232322] p-3 shrink-0">
+                <div className="flex items-center justify-between mb-2.5">
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="rounded-md bg-[#3a3a38] px-2 py-1 text-slate-100">Overview</span>
+                    <span className="px-1 text-slate-500">Models</span>
                   </div>
+                  <div className="flex items-center gap-2 text-xs">
+                    <span className="rounded-md bg-[#3a3a38] px-2 py-1 text-slate-100">All</span>
+                    <span className="text-slate-500">30d</span>
+                    <span className="text-slate-500">7d</span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-4 gap-1.5 mb-2.5">
+                  {STATS.map(([label, value]) => (
+                    <div key={label} className="rounded-lg bg-[#2c2c2b] px-2 py-1.5 min-w-0">
+                      <div className="text-slate-500 text-xs truncate">{label}</div>
+                      <div className="text-slate-100 text-sm font-bold truncate">{value}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex flex-col gap-[3px] mb-2">
+                  {HEATMAP.map((row, y) => (
+                    <div key={row} className="flex gap-[3px]">
+                      {[...row].map((c, x) => (
+                        <span
+                          key={`${y}-${x}`}
+                          className="flex-1 aspect-square rounded-[2px]"
+                          style={{ backgroundColor: HEAT[c] }}
+                        />
+                      ))}
+                    </div>
+                  ))}
+                </div>
+                <div className="text-slate-500 text-xs">
+                  You've used ~11&times; more tokens than The Great Gatsby.
                 </div>
               </div>
 
+              {/* 中間本來就是空的，這一段留白是真實畫面的一部分 */}
+              <div className="flex-1 min-h-[1.5rem]" />
+
+              {/* 底部：資料夾標籤、輸入框、模型設定 */}
+              <div className="shrink-0">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="rounded-lg bg-[#232322] px-2.5 py-1 text-xs text-slate-300">Local</span>
+                  <span className="rounded-lg bg-[#232322] px-2.5 py-1 text-xs text-slate-300">
+                    mission-timer
+                  </span>
+                  <span className="rounded-lg bg-[#232322] px-2 py-1 text-xs text-slate-500">+</span>
+                  <PixelArt grid={PX_CRAB} size={22} className="ml-auto text-[#d97757]" />
+                </div>
+
+                <div className="rounded-xl bg-[#232322] border border-[#3a3a38] px-3 py-2.5 flex items-center justify-between gap-3">
+                  <span className="text-slate-500 text-sm truncate">
+                    Describe a task or ask a question
+                  </span>
+                  <span className="text-slate-600 text-sm shrink-0">&crarr;</span>
+                </div>
+
+                <div className="flex items-center justify-between mt-2 text-xs text-slate-500">
+                  <span>Auto &nbsp;+&nbsp; &#127908;</span>
+                  <span className="flex items-center gap-2">
+                    <span className="text-slate-300">Opus 5</span>
+                    <span className="text-slate-300">High</span>
+                    <span className="inline-block h-2.5 w-2.5 rounded-full border border-slate-600" />
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* Credit Bar */}
-            <div className="bg-[#08080a] border-t border-slate-900 px-4 py-2.5 text-center text-[11px] text-slate-600 flex justify-between">
-              <span>來源：Anthropic Claude Code 官方終端機介面</span>
-              <span>
-                官方文件: <a href="https://code.claude.com/docs/en/overview" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">code.claude.com</a>
+            <div className="bg-[#131312] border-t border-slate-800 px-4 py-2 text-xs text-slate-600 flex justify-between gap-3">
+              <span className="truncate">桌面版 Code 頁籤，數字是示意</span>
+              <span className="shrink-0">
+                官方文件:{' '}
+                <a
+                  href="https://code.claude.com/docs/en/overview"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sky-400 hover:underline"
+                >
+                  code.claude.com
+                </a>
               </span>
             </div>
-
           </AnimatedBlock>
         </div>
 

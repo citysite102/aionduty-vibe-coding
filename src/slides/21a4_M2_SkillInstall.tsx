@@ -28,7 +28,7 @@ const WAYS = [
     icon: Store,
     tag: '裝現成的',
     name: '從市集裝',
-    body: '官方市集是 anthropics/claude-plugins-official，社群也有自己的。裝之前先看它要求什麼權限。',
+    body: '官方市集是 anthropics/claude-plugins-official，社群也有自己的。裝之前先看它要求什麼權限，這件事接下來有兩頁專門講。',
     how: '輸入 /plugin，選市集，挑一個裝',
     prompt: null,
     accent: false,
