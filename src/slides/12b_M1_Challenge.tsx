@@ -1,5 +1,6 @@
 import { Target, Ban } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 
 /**
@@ -33,6 +34,26 @@ const TRAPS = [
     q: '按下返航的時候呢？',
     hint: '歸零之後畫面要回到原樣，還是停在警示狀態？沒講的話，它多半只處理倒數那一條路。',
   },
+];
+
+
+/**
+ * 驗收用的三條。順序刻意對齊上面 TRAPS 的四題（第 1 題是門檻、第 2 題是規則衝突，
+ * 兩題都在倒數那一條路上，所以併成第 1 條），學員才知道這裡是在回收剛剛寫的東西，
+ * 不是另一件新的事。
+ *
+ * 這一段原本開頭寫「接下來這件事有一個名字，叫測試」。兩個問題：
+ * 一是它憑空冒出一個名詞，學員不知道為什麼突然要學術語；
+ * 二是它跟這門課自己的立場打架 —— 02a_CoreAssets 的註解已經寫明
+ * 「整堂課沒有人寫過一個測試，那是驗證不是測試」。這裡按按看就是驗證。
+ * 所以名詞拿掉，改成直接給動作：一句可以複製的指令，加三條照著按的清單。
+ */
+const VERIFY_PROMPT = '先把倒數改成從 65 秒開始跑，我要驗收。驗完再改回原本的分鐘數。';
+
+const CHECKS = [
+  '倒數跑到第 5 秒，畫面有沒有照你寫的那樣變？',
+  '在警示狀態下按待機，再按發射：警示要留著還是解除，跟你寫的一樣嗎？',
+  '按返航歸零：畫面有沒有回到你寫的那個樣子？',
 ];
 
 export default function SlideChallenge() {
@@ -90,17 +111,28 @@ export default function SlideChallenge() {
 
         <AnimatedBlock stepIndex={5} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <div className="text-sky-400 text-base font-bold mb-2">怎麼知道它真的照做了</div>
-          <p className="text-slate-300 text-base leading-relaxed mb-2">
-            接下來這件事有一個名字，叫<strong className="text-slate-100">測試</strong>：
-            先寫下什麼情況該出現什麼結果，再照著跑一次看對不對。前面幾次提到的「驗證」「測試過」，講的都是這件事。
+          <p className="text-slate-300 text-base leading-relaxed mb-3">
+            <strong className="text-slate-100">上面那四題，你寫進去幾條就按幾條。</strong>
+            不是看它「有沒有變好看」，是一條一條對你自己寫的規格。
           </p>
-          <p className="text-slate-300 text-base leading-relaxed mb-2">
-            改完之後，請它把倒數改成從 65 秒開始跑，然後盯著看第 5 秒有沒有變。
-            等 25 分鐘才驗收一次，你一個下午也試不了幾輪。
+
+          <p className="text-slate-400 text-sm leading-relaxed mb-1.5">
+            25 分鐘等一次太慢，先叫它把時間改短，驗完再改回來：
           </p>
-          <p className="text-slate-400 text-base leading-relaxed">
-            接著做兩件事：在警示狀態下按待機，再按發射；然後按返航。
-            <strong className="text-slate-200">壞掉通常是壞在這兩下，不是壞在倒數。</strong>
+          <div className="rounded-lg border border-sky-900/50 bg-slate-950 px-3.5 py-2.5 mb-3">
+            <p className="text-sky-100 text-sm leading-relaxed">「{VERIFY_PROMPT}」</p>
+            <CopyAction text={VERIFY_PROMPT} className="mt-2" />
+          </div>
+
+          <ol className="space-y-1.5 text-slate-300 text-base leading-relaxed list-decimal list-inside mb-3">
+            {CHECKS.map((c) => (
+              <li key={c}>{c}</li>
+            ))}
+          </ol>
+
+          <p className="text-slate-400 text-base leading-relaxed border-t border-sky-500/20 pt-3">
+            <strong className="text-slate-200">壞掉通常是壞在後面兩下，不是壞在倒數。</strong>
+            倒數是它一定會做的部分，狀態怎麼互相影響才是沒講就會漏的地方。
           </p>
         </AnimatedBlock>
       </div>
