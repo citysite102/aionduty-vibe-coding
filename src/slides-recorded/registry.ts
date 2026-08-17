@@ -11,6 +11,7 @@ import RecRouteQ4, { meta as m08 } from './harness/08_RouteQ4';
 import RecRoutePrinciples, { meta as m09 } from './harness/09_RoutePrinciples';
 import RecStartSimple, { meta as m10 } from './harness/10_StartSimple';
 import RecWrite1, { meta as m11 } from './harness/11_WriteWhitelist';
+import RecWrite2, { meta as m12 } from './harness/12_WriteLatitude';
 import RecWrite3, { meta as m13 } from './harness/13_WriteWhy';
 import RecWrite4, { meta as m14 } from './harness/14_WriteExample';
 import RecWrite5, { meta as m15 } from './harness/15_WriteException';
@@ -114,8 +115,11 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m56, Component: RecHandbookV3 },
   ],
   // index 81 = 原「怎麼把話講對：白名單與探索空間」
+  // 12_WriteLatitude（留探索空間）本來漏在外面：檔案寫好了、母頁標題也點名它，
+  // 但 registry 沒有 import，所以那一頁從來沒有播過，六個寫法只播得出五個。補回來。
   81: [
     { meta: m11, Component: RecWrite1 },
+    { meta: m12, Component: RecWrite2 },
     { meta: m13, Component: RecWrite3 },
     { meta: m14, Component: RecWrite4 },
     { meta: m15, Component: RecWrite5 },
