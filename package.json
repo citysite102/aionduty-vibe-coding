@@ -11,7 +11,8 @@
     "lint": "tsc --noEmit",
     "check:rec": "node scripts/check-recorded.mjs",
     "check:slides": "node scripts/check-slides.mjs",
-    "check:words": "node scripts/check-words.mjs"
+    "check:words": "node scripts/check-words.mjs",
+    "map": "node scripts/slide-map.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
