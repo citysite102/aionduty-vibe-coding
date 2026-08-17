@@ -51,7 +51,7 @@ export default function SlideCoreAssets() {
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col justify-center pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed mb-5">
-          一天結束，你手上會多出三樣東西。
+          整門課走完，你手上會多出三樣東西。
           <strong className="text-slate-100">三樣都打得開、指得出來</strong>，不是「我好像懂了」。
         </AnimatedBlock>
 
@@ -70,9 +70,6 @@ export default function SlideCoreAssets() {
                     <div className="p-2.5 rounded-xl bg-sky-500/10 text-sky-400">
                       <Icon size={22} />
                     </div>
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500">
-                      資產 0{a.num}
-                    </span>
                     <span className="ml-auto font-mono text-3xl font-black leading-none text-slate-800 select-none">
                       0{a.num}
                     </span>
