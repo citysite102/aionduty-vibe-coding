@@ -39,6 +39,15 @@ const QUESTIONS = [
   },
 ];
 
+/**
+ * 使用者打規則的時候很自然會自己加句號，而每一句 prompt 都在插值後面接一個
+ * 「。」，兩個湊在一起畫面上就出現兩個句號。收尾的標點在這裡先剝掉，
+ * prompt 那邊的句號才是唯一的那一個。
+ */
+function trimTail(r: string) {
+  return r.trim().replace(/[。，、；：.,;:!！?？\s]+$/, '');
+}
+
 const FALLBACK = {
   place: '先不要寫進任何一份手冊',
   how: '四題都答「否」，代表這件事只發生過一次，或還沒穩定成規矩。等它再發生第二次，你會知道它該進哪一層。多寫一條的成本不是那一行字，是它每一輪都在稀釋其他規則。',
@@ -127,10 +136,10 @@ export default function RuleRouter() {
             <Panel title="接下來這樣做" desc="這句貼給它，它會幫你放到對的位置。">
               <div className="rounded-lg border border-slate-800 bg-slate-950 px-4 py-3 mb-3">
                 <p className="text-sm leading-relaxed text-slate-200">
-                  {QUESTIONS[hit].prompt(rule || '（把你的規則填在上面）')}
+                  {QUESTIONS[hit].prompt(trimTail(rule) || '（把你的規則填在上面）')}
                 </p>
               </div>
-              <CopyButton text={QUESTIONS[hit].prompt(rule || '（把你的規則填在上面）')} label="複製這句" />
+              <CopyButton text={QUESTIONS[hit].prompt(trimTail(rule) || '（把你的規則填在上面）')} label="複製這句" />
               <Note>
                 放進去之後打 <Mono>/context</Mono> 確認它在載入清單裡。看不到就是位置錯了，
                 不是它不聽話。
