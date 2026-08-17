@@ -39,7 +39,7 @@ import Slide10c2 from './slides/10c2_M1_WebArchDuties';
 import Slide10c3 from './slides/10c3_M1_Deploy';
 import Slide10d from './slides/10d_M1_Database';
 import Slide10e from './slides/10e_M1_Git';
-import Slide10e2 from './slides/10e2_M1_GitRemote';
+import Slide10e1 from './slides/10e1_M1_GitPlayground';
 import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
@@ -158,8 +158,8 @@ const LIVE_TITLES = [
   "前端與後端各自負責什麼",
   "同一批資料，兩種擺法",
   "從本機到上線：交給託管平台",
-  "用 Git 存檔，改壞了可以回去",
-  "commit 完了，東西還是只在你電腦裡",
+  "Git 幫你記下每一版，不只是程式碼",
+  "按按看，檔案怎麼從資料夾走到 GitHub",
   "一次改一點，比一次改完安全",
   "畫面上這幾塊分別在說什麼",
   "Claude Code 核心按鍵與技巧",
@@ -280,7 +280,7 @@ const LIVE_SLIDES = [
   Slide10d,
   Slide10c3,
   Slide10e,
-  Slide10e2,
+  Slide10e1,
   Slide15,
   Slide11b,
   Slide11d,
