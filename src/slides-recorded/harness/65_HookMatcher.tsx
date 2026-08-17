@@ -35,17 +35,17 @@ export const meta: RecordedMeta = {
 export default function RecHookMatcher() {
   return (
     <SlideLayout title={meta.title} subtitle="Layer 2: Matcher" icon={Filter}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <SeriesRail {...HOOK_RAIL} current={1} />
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
-            時機到了，<Key>還要挑這一次管不管</Key>
+            同一個時機會來很多次，<Key>挑你要檢查的</Key>
           </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
-          <FlowRow steps={['時機到了', '看它在用哪個工具', '只留這幾個']} />
+          <FlowRow steps={['時機到了', '看它在用哪個工具', '只有這幾個要檢查']} />
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">

@@ -12,20 +12,20 @@ import type { RecordedMeta } from '../types';
  * 流程那一排把「掛」跟「測」放在同一條線上，因為 Hook 最常見的失敗不是寫錯，
  * 是掛上去之後從來沒被觸發過，而你以為它在守著。所以測試不是附註，是步驟之一。
  */
-const CHECKS = ['它真的擋下來了嗎', '擋的那句話看得懂嗎'];
+const CHECKS = ['那個假金鑰真的被擋下來了嗎', '被擋的時候，有沒有一句話講清楚哪裡不行'];
 
 export const meta: RecordedMeta = {
   id: 'harness-67-hook-practice',
   title: '換你掛一條 Hook',
   script:
-    '換你掛一條。回到分流第一題那個例子：金鑰絕對不能寫進程式碼，這種就該交給 Hook。你不用自己編設定檔，把這句話交給它就好：每次你要寫檔案之前，先檢查內容裡有沒有 API 金鑰，有就擋下來，掛完故意寫一個假的測一次給我看。三層它會自己填：時機是寫檔案之前，範圍是寫檔案跟改檔案那幾個工具，動作是擋下來加一句理由。你要盯的是最後那一步。Hook 最常見的失敗不是寫錯，是掛上去之後從來沒被觸發過，而你以為它在守著。所以驗收只有兩件事：它真的擋下來了嗎，還有擋的那句話你看不看得懂。看不懂的話，下次被擋的是它，它也一樣看不懂。',
+    '換你掛一條。回到分流第一題那個例子：金鑰絕對不能寫進程式碼，這種就該交給 Hook。你不用自己編設定檔，把這句話交給它：每次你要寫檔案之前，先檢查內容裡有沒有 API 金鑰，有就擋下來，掛完故意寫一個假的測一次給我看。三層它會自己填，你要盯的是最後那一步。Hook 最常見的失敗不是寫錯，是掛上去之後從來沒被觸發過，而你以為它在守著。驗收兩件事：那個假金鑰真的被擋下來了嗎，還有被擋的時候有沒有講清楚哪裡不行。那句理由是寫給它看的，它會照著改，寫得含糊它只能亂猜。',
   seconds: 45,
 };
 
 export default function RecHookPractice() {
   return (
     <SlideLayout title={meta.title} subtitle="Your Turn" icon={Hammer}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             不用自己編設定檔，<Key>把這句交給它</Key>

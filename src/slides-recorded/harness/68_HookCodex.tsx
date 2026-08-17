@@ -23,19 +23,19 @@ const ROWS = [
 
 export const meta: RecordedMeta = {
   id: 'harness-68-hook-codex',
-  title: 'Hook 這套概念搬到 Codex',
+  title: '同一條 Hook 搬到 Codex',
   script:
-    '最後一件事：換一個工具還算不算數。Codex 也有 Hook，三層的想法一模一樣，差別在格子多寡。時機的數量 Claude Code 開得比較多，三十幾種，Codex 目前是十來種。動作那一層差最多，Claude Code 有五種，Codex 只有跑指令這一種，所以那些交給模型判斷、派子代理去查的寫法搬不過去。但你剛剛掛的那一條用的是工具執行前，動作是跑一段指令，這個時機跟這個動作兩邊都有，所以搬得過去。這就是為什麼前面說不要背名稱。你真正要練的是講清楚啟動時機：什麼時候、管哪一次、做什麼。名稱各家不一樣，查一次就好，而且兩邊的數字都還會改版。',
+    '最後一件事：換一個工具還算不算數。Codex 也有 Hook，也是這三層，差別是每一層可以選的比較少。時機 Claude Code 開三十幾種，Codex 目前是十來種。動作差最多，Claude Code 有五種，Codex 只有跑指令，所以交給模型判斷、派子代理去查那些搬不過去。但你剛掛的那一條用的是工具執行前，動作是跑一段指令，兩邊都有，所以搬得過去。這就是為什麼不用背名稱。你要練的是講清楚三件事：什麼時候檢查、管哪一次、做什麼。兩邊的數字都會改版，掛之前查一次文件。',
   seconds: 45,
 };
 
 export default function RecHookCodex() {
   return (
-    <SlideLayout title={meta.title} subtitle="Same Idea, Fewer Slots" icon={ArrowLeftRight}>
-      <RecPage className="space-y-5" handbook={1}>
+    <SlideLayout title={meta.title} subtitle="Same Three Layers" icon={ArrowLeftRight}>
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
-            三層一模一樣，<Key>差的是格子多寡</Key>
+            Codex 也是這三層，<Key>可以選的比較少</Key>
           </p>
         </AnimatedBlock>
 
@@ -65,7 +65,7 @@ export default function RecHookCodex() {
 
         <AnimatedBlock stepIndex={4} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
-            💡 別背名稱，練講清楚啟動時機。數字會改版，掛之前查一次文件。
+            💡 不用背名稱。要練的是講清楚：什麼時候檢查、管哪一次、做什麼。
           </p>
         </AnimatedBlock>
       </RecPage>

@@ -17,7 +17,7 @@ import type { RecordedMeta } from '../types';
  */
 const HANDLERS = [
   { does: '跑一段指令', name: 'command', start: true },
-  { does: '打一個網址', name: 'http' },
+  { does: '呼叫一個 API', name: 'http' },
   { does: '呼叫接上的工具', name: 'mcp_tool' },
   { does: '交給模型判斷', name: 'prompt' },
   { does: '派子代理去查', name: 'agent' },
@@ -27,14 +27,14 @@ export const meta: RecordedMeta = {
   id: 'harness-66-hook-handler',
   title: '第三層：條件過了要做什麼',
   script:
-    '第三層是動作。時機到了、範圍也符合，它到底要做什麼？有五種。第一種是跑一段指令，最常用。第二種是打一個網址出去。第三種是呼叫你接上的工具。第四種是交給模型判斷一次，適合沒辦法用規則寫死的情況。第五種是派一個子代理去查，它可以自己讀檔案、自己跑工具，能做的最多，也最慢。有一件事要先知道：不是每個時機都支援這五種，有些時機只吃前面三種，實際支援哪幾種要看官方文件。寫了不支援的它不會報錯，只會安靜地什麼都不做，那種問題很難找。所以從跑指令開始，它每個時機都支援，而且你自己在終端機就測得出來。',
+    '第三層是動作。時機到了、範圍也符合，它到底要做什麼？有五種。第一種是跑一段指令，最常用。第二種是呼叫一個 API，把這一次的資料送到你指定的網址。第三種是呼叫你接上的工具。第四種是交給模型判斷一次，適合沒辦法用規則寫死的情況。第五種是派一個子代理去查，它可以自己讀檔案、自己跑工具，能做的最多，也最慢。有一件事要先知道：不是每個時機都支援這五種，有些時機只吃前面三種，實際支援哪幾種要看官方文件。寫了不支援的它不會報錯，只會安靜地什麼都不做，那種問題很難找。所以從跑指令開始，它每個時機都支援，而且你自己在終端機就測得出來。',
   seconds: 45,
 };
 
 export default function RecHookHandler() {
   return (
     <SlideLayout title={meta.title} subtitle="Layer 3: Handler" icon={Wrench}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <SeriesRail {...HOOK_RAIL} current={2} />
 
         <AnimatedBlock stepIndex={1}>

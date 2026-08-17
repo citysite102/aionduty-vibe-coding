@@ -23,18 +23,32 @@ const STAGES = [
   { stage: '收尾', code: 'Stop', note: '準備停下', on: true },
 ];
 
+/**
+ * 上面四個加這六個，湊成十個常用的。
+ * 十個不是要人背下來，是讓學員知道「掛得起來的時機不只有寫檔案前後」，
+ * 之後要找的時候有一份可以對的清單。要更完整的一律去官方文件，那份會改版。
+ */
+const MORE = [
+  { code: 'UserPromptSubmit', when: '你送出一句話' },
+  { code: 'PostToolUseFailure', when: '工具跑失敗' },
+  { code: 'PermissionRequest', when: '它要跟你要權限' },
+  { code: 'SubagentStop', when: '子代理做完' },
+  { code: 'PreCompact', when: '對話要壓縮之前' },
+  { code: 'SessionEnd', when: '這次對話結束' },
+];
+
 export const meta: RecordedMeta = {
   id: 'harness-64-hook-events',
   title: '第一層：每個階段先記一個',
   script:
-    '第一層是時機。官方支援三十幾種，你不用背，按階段各記一個就夠開始。接到指令的時候是 SessionStart，開新對話或接續舊紀錄會觸發，適合每次都要先講一遍的事。工具執行前是 PreToolUse，它準備動手但還沒動，這是唯一擋得住的時機，前面那條破折號就掛在這裡。工具跑完之後是 PostToolUse，東西已經寫進去了，適合自動排版這種補動作。收尾是 Stop，它覺得做完了、準備停下來，適合在這裡驗一次，沒過就叫它回去改。這四個裡面最常掛的是 PreToolUse 跟 Stop，畫面上亮起來那兩格。想找其他的直接問它有哪些時機就好。',
+    '第一層是時機。官方支援三十幾種，你不用背，按階段各記一個就夠。接到指令是 SessionStart，開新對話或接續舊紀錄的時候。工具執行前是 PreToolUse，它準備動手但還沒動。工具跑完是 PostToolUse，東西已經寫進去了，適合自動排版這種補動作。收尾是 Stop，它覺得做完了，適合在這裡驗一次，沒過就叫它回去改。下面六個也常用，需要的時候再看。加起來十個，重點是只有工具執行前擋得住，因為那時候它還沒動手，其他都是事情發生完才觸發，只能事後補做。',
   seconds: 45,
 };
 
 export default function RecHookEvents() {
   return (
     <SlideLayout title={meta.title} subtitle="Layer 1: Event" icon={Clock}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <SeriesRail {...HOOK_RAIL} current={0} />
 
         <AnimatedBlock stepIndex={1}>
@@ -47,9 +61,21 @@ export default function RecHookEvents() {
           <StageMap items={STAGES} />
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="px-1">
+        <AnimatedBlock stepIndex={3}>
+          <div className="text-slate-500 text-base mb-3">常用的還有這六個</div>
+          <div className="grid grid-cols-3 gap-3">
+            {MORE.map((m) => (
+              <div key={m.code} className="rounded-xl border border-slate-800 bg-slate-900 px-4 py-3">
+                <div className="font-mono text-base font-bold text-orange-300">{m.code}</div>
+                <div className="text-slate-500 text-base mt-0.5">{m.when}</div>
+              </div>
+            ))}
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={4} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
-            💡 亮起來的是最常掛的兩個。擋得住的只有工具執行前那一格。
+            💡 十個裡面只有工具執行前擋得住，那時候它還沒動手。其他都是事後才觸發。
           </p>
         </AnimatedBlock>
       </RecPage>
