@@ -36,6 +36,12 @@ import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep'
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
 import RecTransferIntegrate, { meta as m61 } from './harness/61_TransferIntegrate';
 import RecHookHowTo, { meta as m62 } from './harness/62_HookHowTo';
+import RecHookThreeLayers, { meta as m63 } from './harness/63_HookThreeLayers';
+import RecHookEvents, { meta as m64 } from './harness/64_HookEvents';
+import RecHookMatcher, { meta as m65 } from './harness/65_HookMatcher';
+import RecHookHandler, { meta as m66 } from './harness/66_HookHandler';
+import RecHookPractice, { meta as m67 } from './harness/67_HookPractice';
+import RecHookCodex, { meta as m68 } from './harness/68_HookCodex';
 import RecHandbookV1, { meta as m54 } from './harness/54_HandbookV1';
 import RecHandbookV2, { meta as m55 } from './harness/55_HandbookV2';
 import RecHandbookV3, { meta as m56 } from './harness/56_HandbookV3';
@@ -69,15 +75,27 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m04, Component: RecDiagnose },
   ],
   // index 79 = 原「這條規則該放哪」
-  // Hook 怎麼寫原本掛在「換成你的工作，手冊該寫什麼」那一組，搬過來了。
-  // 分流的第一題就是「會出事的交給 Hook」，學員得先看過 Hook 長什麼樣才做得了那個決定；
-  // 而且下一頁講「Hook 是程式在擋，但你要去動設定檔」，剛看過設定檔的人才聽得懂那個取捨。
+  // Hook 那一組（62 到 68）排在分流四問之前，不是之後。
+  // 分流的第一題就是「會出事的交給 Hook」，答那一題之前得先知道 Hook 擋得住什麼；
+  // 而且四問之後那一頁講「Hook 是程式在擋，但你要去動設定檔」，
+  // 剛看完三層設定的人才聽得懂那個取捨。
+  //
+  // 62 原本是唯一講 Hook 的一頁，一頁塞完為什麼、怎麼寫、有哪些時機。
+  // 現在拆成七頁：為什麼（62）、三層骨架（63）、三層各一頁（64 到 66）、
+  // 動手掛一條（67）、換成 Codex 還算不算數（68）。
+  // 最後那一頁是這一節的職務，這一節本來就是疑難雜症與轉移。
   79: [
+    { meta: m62, Component: RecHookHowTo },
+    { meta: m63, Component: RecHookThreeLayers },
+    { meta: m64, Component: RecHookEvents },
+    { meta: m65, Component: RecHookMatcher },
+    { meta: m66, Component: RecHookHandler },
+    { meta: m67, Component: RecHookPractice },
+    { meta: m68, Component: RecHookCodex },
     { meta: m05, Component: RecRouteQ1 },
     { meta: m06, Component: RecRouteQ2 },
     { meta: m07, Component: RecRouteQ3 },
     { meta: m08, Component: RecRouteQ4 },
-    { meta: m62, Component: RecHookHowTo },
     { meta: m09, Component: RecRoutePrinciples },
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },
