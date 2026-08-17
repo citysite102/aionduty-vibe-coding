@@ -16,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthSubtract() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Minus}>
-      <RecPage handbook={2}>
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug"><Key>先刪再搬</Key>，順序不要反</p>
         </AnimatedBlock>

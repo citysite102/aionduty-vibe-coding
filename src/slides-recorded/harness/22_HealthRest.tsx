@@ -16,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthRest() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Sparkles}>
-      <RecPage handbook={2}>
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
           {/*
             大字位置給的是主張，不是進度。這一頁改過兩次：先是「剩下三步，你已經學過兩步」，

@@ -35,7 +35,7 @@ export const meta: RecordedMeta = {
 export default function RecFailCantFollow() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={ShieldAlert}>
-      <RecPage className="space-y-4" handbook={1}>
+      <RecPage className="space-y-4">
         <SeriesRail {...FAIL_RAIL} current={2} />
         <AnimatedBlock className="mb-6">
           <p className="text-slate-300 text-3xl font-bold leading-snug">

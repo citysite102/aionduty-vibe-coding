@@ -25,7 +25,7 @@ const STEPS: [string, string][] = [
 export default function RecHealthOverview() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
-      <RecPage handbook={2}>
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug">五個步驟，<Key>順序不能換</Key></p>
         </AnimatedBlock>

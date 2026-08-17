@@ -23,7 +23,7 @@ const ROWS: [string, string][] = [
 export default function RecHealthInventory() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ListTodo}>
-      <RecPage handbook={2}>
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug">每一條規則後面，<Key>標上它當初在解決什麼</Key></p>
         </AnimatedBlock>

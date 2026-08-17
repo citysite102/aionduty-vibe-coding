@@ -17,7 +17,7 @@ export const meta: RecordedMeta = {
 export default function RecFailBuried() {
   return (
     <SlideLayout title={meta.title} subtitle="Why Rules Fail" icon={Layers2}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <SeriesRail {...FAIL_RAIL} current={1} />
         <AnimatedBlock className="mb-6">
           <p className="text-slate-300 text-3xl font-bold leading-snug">

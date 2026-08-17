@@ -16,7 +16,7 @@ export const meta: RecordedMeta = {
 export default function RecHealthEvidence() {
   return (
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={Scale}>
-      <RecPage handbook={2}>
+      <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
           <p className="text-slate-300 text-4xl font-bold leading-snug">刪掉之前，<Key>至少要有兩種證據</Key></p>
         </AnimatedBlock>

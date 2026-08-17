@@ -22,7 +22,7 @@ export const meta: RecordedMeta = {
 export default function RecStartSimple() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={Sprout}>
-      <RecPage className="space-y-6" handbook={1}>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-4xl font-bold leading-snug">不用。<Key>從一份開始就好</Key>。</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">

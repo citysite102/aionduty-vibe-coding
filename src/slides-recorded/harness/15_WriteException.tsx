@@ -17,7 +17,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite5() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={GitBranch}>
-      <RecPage className="space-y-6" handbook={3}>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-4xl font-bold leading-snug">寫出例外，<Key>它才不會硬套</Key></p>
         </AnimatedBlock>

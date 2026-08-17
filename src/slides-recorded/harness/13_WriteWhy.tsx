@@ -17,7 +17,7 @@ export const meta: RecordedMeta = {
 export default function RecWrite3() {
   return (
     <SlideLayout title={meta.title} subtitle="How to Phrase It" icon={Lightbulb}>
-      <RecPage className="space-y-6" handbook={3}>
+      <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-4xl font-bold leading-snug">寫下理由，<Key>它才能推論你沒寫到的情況</Key></p>
         </AnimatedBlock>

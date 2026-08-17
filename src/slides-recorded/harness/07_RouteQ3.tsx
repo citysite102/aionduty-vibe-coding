@@ -17,7 +17,7 @@ export const meta: RecordedMeta = {
 export default function RecRouteQ3() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={ListChecks}>
-      <RecPage handbook={1}>
+      <RecPage>
         <SeriesRail {...ROUTE_RAIL} current={2} revealAt={2} />
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
           <AnimatedBlock stepIndex={1}>

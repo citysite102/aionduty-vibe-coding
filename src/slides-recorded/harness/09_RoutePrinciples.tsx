@@ -23,7 +23,7 @@ const LAYERS = [
 export default function RecRoutePrinciples() {
   return (
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={Layers}>
-      <RecPage className="space-y-5" handbook={1}>
+      <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           <div className="grid grid-cols-[1.1fr_1fr_1.3fr] gap-4 border-b border-slate-800 bg-slate-900 px-6 py-3 text-base text-slate-500">
             <span />
