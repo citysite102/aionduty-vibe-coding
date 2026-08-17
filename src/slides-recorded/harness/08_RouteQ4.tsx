@@ -22,9 +22,7 @@ export default function RecRouteQ4() {
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
           <AnimatedBlock stepIndex={1}>
 
-            <div className="border-l-2 border-slate-700 pl-5 mb-6">
-              <p className="text-slate-300 text-2xl leading-snug">以上皆非，而且每一輪都要記得？</p>
-            </div>
+            <p className="text-slate-300 text-2xl leading-snug mb-6">以上皆非，而且每一輪都要記得？</p>
 
             <AskFirst />
           </AnimatedBlock>

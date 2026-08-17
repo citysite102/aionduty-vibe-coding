@@ -15,6 +15,12 @@ export const FAIL_RAIL = {
   items: ['沒被載入', '被埋在後面', '沒辦法檢查'],
 };
 
+/** Hook 的三層，一層一頁。跟 ROUTE_RAIL 同一個作用：讓人知道自己在第幾層。 */
+export const HOOK_RAIL = {
+  label: '三層',
+  items: ['時機', '範圍', '動作'],
+};
+
 /**
  * 系列頁共用的分支軌。
  *

@@ -19,16 +19,20 @@ export default function RecRouteQ1() {
     <SlideLayout title={meta.title} subtitle="Routing Your Rules" icon={ShieldX}>
       <RecPage handbook={1}>
         <SeriesRail {...ROUTE_RAIL} current={0} revealAt={2} />
+
+        {/*
+          這一頁是四題的第一題，所以它得多交代一句規則怎麼用。那句話原本放在卡片裡面、
+          排在題目之前，於是這一頁的開場是一段小灰字，而 Q2 到 Q4 的開場都是題目本身，
+          連著播就會覺得這一頁的版面跟其他三頁不一樣。
+          把它移到卡片外面當整頁的引言，卡片裡就跟另外三頁對齊了：題目、停一下、答案。
+        */}
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-xl leading-relaxed mb-5">
+          先決定位置，再回頭修句子。照順序問四題，第一個答「是」的就是它該去的地方。
+        </AnimatedBlock>
+
         <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8">
           <AnimatedBlock stepIndex={1}>
-            {/* 接上一頁的診斷結論：位置的問題要先解，句子的問題後面那一段才處理 */}
-            <p className="text-slate-500 text-lg leading-relaxed mb-4">
-              先決定位置，再回頭修句子。拿到一條規則，照順序問四個問題，第一個答「是」的就是它該去的地方。
-            </p>
-
-            <div className="border-l-2 border-slate-700 pl-5 mb-6">
-              <p className="text-slate-300 text-2xl leading-snug">違反了會出事，絕對不能發生？</p>
-            </div>
+            <p className="text-slate-300 text-2xl leading-snug mb-6">違反了會出事，絕對不能發生？</p>
 
             <AskFirst />
           </AnimatedBlock>
