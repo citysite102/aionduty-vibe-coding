@@ -22,7 +22,7 @@ export const meta: RecordedMeta = {
   id: 'harness-68-hook-codex',
   title: 'Hook 這套概念搬到 Codex',
   script:
-    '最後一件事：換一個工具還算不算數。Codex 也有 Hook，三層的想法一模一樣，差別在格子多寡。時機的數量 Claude Code 開得比較多，三十幾種，Codex 目前是十來種。動作那一層差最多，Claude Code 有五種，Codex 只有跑指令這一種，所以那些交給模型判斷、派子代理去查的寫法搬不過去。但你前面掛的那兩條用的是工具執行前跟收尾，這兩個時機兩邊都有，動作也都是跑一段指令，所以搬得過去。這就是為什麼前面說不要背 Event 的名稱。你真正要練的是講清楚啟動時機：什麼時候、管哪一次、做什麼。名稱各家不一樣，查一次就好，兩邊的數字也都會改版。',
+    '最後一件事：換一個工具還算不算數。Codex 也有 Hook，三層的想法一模一樣，差別在格子多寡。時機的數量 Claude Code 開得比較多，三十幾種，Codex 目前是十來種。動作那一層差最多，Claude Code 有五種，Codex 只有跑指令這一種，所以那些交給模型判斷、派子代理去查的寫法搬不過去。但你剛剛掛的那一條用的是工具執行前，動作是跑一段指令，這個時機跟這個動作兩邊都有，所以搬得過去。這就是為什麼前面說不要背 Event 的名稱。你真正要練的是講清楚啟動時機：什麼時候、管哪一次、做什麼。名稱各家不一樣，查一次就好，兩邊的數字也都會改版。',
   seconds: 45,
 };
 
@@ -59,7 +59,7 @@ export default function RecHookCodex() {
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 px-7 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            你掛的那兩條用工具執行前跟收尾，動作是跑指令，兩邊都有，搬得過去。
+            你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。
           </p>
         </AnimatedBlock>
 
