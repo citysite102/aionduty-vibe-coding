@@ -39,7 +39,7 @@ export default function SlideM2HandsOn() {
             為你的計時器生成手冊
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            把第一單元你一句一句盯出來的東西，變成它每次都會讀到的檔案。
+            把你做計時器時一句一句盯出來的東西，變成它每次都會讀到的檔案。
           </p>
           <Prompt text="讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。" />
           <p className="text-slate-500 text-xs leading-relaxed mt-3">

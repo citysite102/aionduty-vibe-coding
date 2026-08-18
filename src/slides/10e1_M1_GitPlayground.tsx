@@ -33,7 +33,7 @@ import {
  * 一條線從資料夾走到 GitHub，push 那一段才看得出來是同一條路上的最後一站。
  * 原本那頁最重要的一句「commit 一百次，沒有 push，備份份數還是零」搬到下面的 Callout。
  *
- * 實際推上去的操作與「為什麼需要 GitHub」是第四單元 27b8b_M4_PushToGithub 的職務，
+ * 實際推上去的操作與「為什麼需要 GitHub」是章節八 27b8b_M4_PushToGithub 的職務，
  * 這裡只講機制，不重複。
  *
  * 互動不違反 A-2：那條規範禁的是 setTimeout 自己跳，這裡每一次變化都是使用者按出來的。

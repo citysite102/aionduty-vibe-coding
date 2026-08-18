@@ -3,7 +3,7 @@ import { Panel, Field, TextInput, Note, Mono, CopyButton } from '../ui';
 import { RotateCcw } from 'lucide-react';
 
 /**
- * 課程第二單元那四問，做成一次一題。
+ * 課程階段三那四問，做成一次一題。
  *
  * 重點是順序：第一個答「是」的就是答案，後面不用再問。
  * 所以畫面一次只出一題，答完才出下一題，不要四題一起攤開讓人挑一個順眼的。

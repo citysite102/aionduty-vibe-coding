@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import React from 'react';
+import { UnitMark } from './SlideLayout';
 
 export function SectionDivider({
   title,
@@ -21,6 +22,9 @@ export function SectionDivider({
 }) {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-slate-950 relative overflow-hidden">
+      {/* 分節頁是置中版面，記號放右上角，不要塞進中間那一疊去跟章名搶位置 */}
+      <UnitMark className="absolute top-10 right-10 z-10" />
+
       {/* Background decoration */}
       <div className="absolute inset-0 flex flex-col items-center justify-center opacity-[0.03] pointer-events-none select-none">
         <span className="text-[40rem] font-black leading-none">{number}</span>

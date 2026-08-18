@@ -12,7 +12,7 @@ const NOW = [
   {
     id: 'cheatsheet',
     q: '我想不起來那句話怎麼打',
-    then: '課程裡出現過的指令都收在同一頁，照單元排。',
+    then: '課程裡出現過的指令都收在同一頁，照階段排。',
     get: '可以直接複製的那一句',
   },
   {
@@ -43,13 +43,13 @@ const NOW = [
 
 const BY_UNIT = [
   {
-    unit: '第一單元',
+    unit: '階段一',
     title: '做出第一個作品',
     tools: [{ id: 'sandbox', label: '終端機沙盒' }],
     note: '走終端機那條路的話，先在這裡把 cd 跟 ls 按過一次。桌面版的人可以跳過，只當作認字。',
   },
   {
-    unit: '第二單元',
+    unit: '階段二',
     title: '寫出會被讀到的手冊',
     tools: [
       { id: 'claude-md', label: 'CLAUDE.md 產生器' },
@@ -58,13 +58,13 @@ const BY_UNIT = [
     note: '先產一份手冊，之後每次想「這條要不要寫進去」的時候，用分流器問四題。',
   },
   {
-    unit: '第三單元',
+    unit: '階段三',
     title: '讓角色替你把關',
     tools: [{ id: 'subagent', label: '子代理產生器' }],
     note: '產出那個會退回你的審查角色。退回條件那一格是重點，其他都是包裝。',
   },
   {
-    unit: '第四單元',
+    unit: '階段四',
     title: '讓它自己跑一輪',
     tools: [
       { id: 'done-when', label: 'Done-when 檢查器' },

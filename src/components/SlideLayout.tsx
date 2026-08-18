@@ -4,10 +4,33 @@ import React, { createContext, useContext, useEffect, useMemo } from 'react';
 export const SlideContext = createContext<{
   currentStep: number;
   registerStep: (index: number) => void;
-}>({ currentStep: 0, registerStep: () => {} });
+  /**
+   * 這一頁是某個錄製單元的第一頁時，帶著那個單元的編號（例如 '3-4'），否則是 null。
+   * 由 App.tsx 從 courseUnits.ts 推導，頁面自己不需要知道也不該寫死。
+   *
+   * 它取代的是「每個單元加一頁封面」：單元的第一頁本來就有大標題，
+   * 缺的只是一個「這裡是新的一支影片」的記號，所以補一個記號就好，不必多 38 頁。
+   * 錄製時（?clean=1）照樣要顯示，因為它就是要出現在影片畫面上的東西。
+   */
+  unitMark: string | null;
+}>({ currentStep: 0, registerStep: () => {}, unitMark: null });
 
 export function useSlide() {
   return useContext(SlideContext);
+}
+
+/**
+ * 單元起點的記號。灰階、等寬、不動，A-1 說沒有語意的地方就用灰階，
+ * 它標的是位置不是重點，所以不上 sky，也不要給它進場動畫去跟標題搶第一眼。
+ */
+export function UnitMark({ className = '' }: { className?: string }) {
+  const { unitMark } = useSlide();
+  if (!unitMark) return null;
+  return (
+    <span className={`shrink-0 font-mono text-xs tracking-widest text-slate-500 ${className}`}>
+      單元 {unitMark}
+    </span>
+  );
 }
 
 export function SlideLayout({
@@ -22,6 +45,7 @@ export function SlideLayout({
   icon?: React.ElementType;
 }) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
+  const { unitMark } = useSlide();
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -42,7 +66,17 @@ export function SlideLayout({
       className="h-full w-full flex flex-col pt-12 pb-20 px-8 md:px-16 max-w-6xl mx-auto absolute inset-0"
     >
       <div className="mb-8 flex-shrink-0">
-        {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm mb-2.5 uppercase flex items-center gap-2">{subtitle}</h3>}
+        {/*
+          副標與單元記號同一列。記號要有自己的一列，不能絕對定位疊在標題那一行：
+          沒有副標的頁面，標題就從這裡開始，長標題會直接撞上去。
+          兩個都沒有就整列不渲染，免得沒副標的頁面平白多出一段空白把內容往下推。
+        */}
+        {(subtitle || unitMark) && (
+          <div className="flex items-baseline gap-4 mb-2.5">
+            {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm uppercase flex items-center gap-2">{subtitle}</h3>}
+            <UnitMark className="ml-auto" />
+          </div>
+        )}
         <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">
           {Icon && <Icon aria-hidden="true" className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
           {title}

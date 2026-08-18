@@ -127,7 +127,7 @@ export default function SlideClaudeMenuTabs() {
             只有一件事現在就要知道：
             <code className="font-mono text-orange-300">/compact</code>
             的壓縮是有損的，細節會掉。所以重要的約定不要靠對話記憶撐著，要寫進檔案裡。
-            那個檔案叫 <code className="font-mono text-orange-300">CLAUDE.md</code>，是下一個單元整段的主題。
+            那個檔案叫 <code className="font-mono text-orange-300">CLAUDE.md</code>，後面會有一整段專門講它。
           </p>
         </AnimatedBlock>
       </div>

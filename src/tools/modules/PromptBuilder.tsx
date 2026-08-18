@@ -3,7 +3,7 @@ import { Panel, Field, TextInput, TextArea, Select, OutputPane, Note, lines } fr
 import { judge } from '../vague';
 
 /**
- * 組出來的形狀就是課程第四單元那段可以照抄的指令：目標、什麼叫做完、怎麼驗、邊界。
+ * 組出來的形狀就是課程階段四那段可以照抄的指令：目標、什麼叫做完、怎麼驗、邊界。
  * 四段缺一段就會有具體後果，所以每一段的提示都寫「少了它會怎樣」，不是寫「請填寫」。
  */
 const PRESETS = [

@@ -105,7 +105,7 @@ export default function SlideCodeIntro() {
 
         {/*
           原本開頭是「那 Connector 跟 MCP 呢？」。
-          Connector 全片只出現過這一次，MCP 要到第二單元才正式介紹，
+          Connector 全片只出現過這一次，MCP 要到章節五才正式介紹，
           在這裡等於用兩個沒教過的名詞去回答一個學員還沒問的問題。
           實質保留（接得到線上服務、打不開你電腦裡的檔案），名詞拿掉。
         */}

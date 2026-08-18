@@ -24,7 +24,7 @@ type Item = {
 
 const GROUPS: { unit: string; title: string; items: Item[] }[] = [
   {
-    unit: '第一單元',
+    unit: '階段一',
     title: '做出第一個作品',
     items: [
       {
@@ -44,9 +44,9 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
       {
         when: '第一次存檔，之後改壞了才回得來',
         kind: 'say',
-        text: '幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫「第一單元完成」。',
+        text: '幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫「第一個作品完成」。',
         watch: '存檔之後才新增的檔案不在裡面，那要再存一次才算。',
-        from: '第一單元收成',
+        from: '第一個作品收成',
       },
       {
         when: '看到紅字，不想自己讀那段英文',
@@ -65,7 +65,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '第二單元',
+    unit: '階段二',
     title: '寫出會被讀到的手冊',
     items: [
       {
@@ -127,7 +127,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '第三單元',
+    unit: '階段三',
     title: '讓角色替你把關',
     items: [
       {
@@ -147,7 +147,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '第四單元',
+    unit: '階段四',
     title: '讓它自己跑一輪，然後上線',
     items: [
       {
@@ -220,7 +220,7 @@ export default function Cheatsheet() {
     <div className="max-w-4xl mx-auto space-y-6">
       <Panel
         title={`課程裡出現過的指令，共 ${ALL.length} 條`}
-        desc="照單元排。找到你這一步要用的那一條，按複製，貼進 Claude Code。這裡不會有課程沒教過的東西。"
+        desc="照階段排。找到你這一步要用的那一條，按複製，貼進 Claude Code。這裡不會有課程沒教過的東西。"
       >
         <TextInput
           value={q}

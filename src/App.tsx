@@ -129,22 +129,23 @@ import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
+import { UNIT_DEFS } from './courseUnits';
 
 const LIVE_TITLES = [
   "封面",
   "動手之前，先準備這幾樣",
-  "四個單元，從看懂到自己做出來",
+  "四個階段，從看懂到自己做出來",
   "學完帶走的 3 大核心資產",
   "Vibe Coding 是什麼，能做到哪裡",
   "什麼是 Vibe Coding？",
   "從 Vibe Coding 到 Agentic Engineering",
   "Vibe Coding 與 Agentic Engineering",
   "依據目標選擇工具",
+  "同一個需求，三種做法",
   "AI 不是在理解，是在算哪個答案離你最近",
   "講不清楚的，直接給 AI 看",
   "講清楚，先檢查這三件事",
   "換你改這兩句",
-  "同一個需求，三種做法",
   "讓 AI 動手：Claude Code 入門",
   "為什麼要一個能動手的 AI？",
   "這件事真的做得到嗎？",
@@ -174,7 +175,7 @@ const LIVE_TITLES = [
   "選修：把 Claude Code 裝進終端機",
   "選修：終端機指令互動 Playground",
   "選修：推薦現代 AI 終端機 Warp",
-  "手把手操作",
+  "裝好終端機版，確認它讀得到你的專案",
   "終端機才有的三種操作",
   "Agent 運作框架與成本分析",
   "每次開新對話，你都要重講一次規矩",
@@ -241,12 +242,12 @@ const LIVE_TITLES = [
   "讓計時器自己跑完一輪",
   "Agent 自己跑的時候，你在旁邊看什麼",
   "先說清楚，再讓它自己驗",
-  "回去之後，做哪一種題目",
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
   "有些東西不能推上去",
   "真的把它變成一個網址",
   "上線之後才發現的問題",
+  "回去之後，做哪一種題目",
   "開工的三個步驟",
   "未來的工作者",
 ];
@@ -261,11 +262,11 @@ const LIVE_SLIDES = [
   Slide03b,
   Slide04c,
   Slide04,
+  Slide05,
   Slide04b,
   Slide04b2,
   Slide04b3,
   Slide04b4,
-  Slide05,
   Slide07,
   Slide09,
   Slide09a,
@@ -362,12 +363,12 @@ const LIVE_SLIDES = [
   Slide28a,
   Slide28a2,
   Slide27b6,
-  Slide28b0,
   Slide27b8,
   Slide27b8b,
   Slide27b8c,
   Slide27b8d,
   Slide27b9,
+  Slide28b0,
   Slide28b,
   Slide33,
 ];
@@ -395,9 +396,14 @@ const SECTION_DEFS = [
 const ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
   const replaced = REPLACEMENTS[i];
   if (replaced) {
-    return replaced.map((r) => ({ Component: r.Component, title: r.meta.title, liveIndex: i }));
+    return replaced.map((r, part) => ({
+      Component: r.Component,
+      title: r.meta.title,
+      liveIndex: i,
+      part,
+    }));
   }
-  return [{ Component, title: LIVE_TITLES[i], liveIndex: i }];
+  return [{ Component, title: LIVE_TITLES[i], liveIndex: i, part: 0 }];
 });
 
 const SLIDES = ENTRIES.map((e) => e.Component);
@@ -418,6 +424,44 @@ const SECTIONS = SECTION_DEFS.map((def, i) => {
     to: next ? ENTRIES.findIndex((e) => e.liveIndex === next.start) : ENTRIES.length - 1,
   };
 });
+
+/**
+ * 錄製單元。定義在 courseUnits.ts，這裡只是接上實際頁數並算出編號。
+ * 編號 X-Y 都是推導的：X 是這個單元落在第幾節（結語算第九章，跟下面的選單分組一致），
+ * Y 是它在那一節裡的第幾個。搬頁之後會自己重排，不用手動維護。
+ * 有沒有指錯頁由 npm run check:slides 拿 anchor 比對。
+ */
+const CN_NUM = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
+const UNITS = (() => {
+  const starts = UNIT_DEFS.map((d) =>
+    ENTRIES.findIndex((e) => e.liveIndex === d.live && e.part === (d.part ?? 0)),
+  );
+  const perChapter = new Map<number, number>();
+  return UNIT_DEFS.map((d, i) => {
+    const from = starts[i];
+    const to = i + 1 < starts.length ? starts[i + 1] - 1 : ENTRIES.length - 1;
+    // 結語那一頁不在任何 SECTIONS 的範圍內（它們的 to 是開區間），所以落在最後一章
+    const sectionIdx = SECTIONS.findIndex((s) => from >= s.from && from < s.to);
+    const chapter = sectionIdx < 0 ? SECTIONS.length + 1 : sectionIdx + 1;
+    const n = (perChapter.get(chapter) ?? 0) + 1;
+    perChapter.set(chapter, n);
+    return {
+      id: `${chapter}-${n}`,
+      title: d.title,
+      from,
+      to,
+      chapterLabel: sectionIdx < 0 ? '結語' : SECTIONS[sectionIdx].label,
+      isChapterHead: n === 1,
+      chapterName: `章節${CN_NUM[chapter] ?? chapter}`,
+    };
+  });
+})();
+
+/**
+ * 頁碼 -> 單元編號，只收每個單元的第一頁。頁面靠它在畫面上掛一個「這裡開始是新的一支影片」的記號。
+ * 封面（第一頁）不掛：整堂課的封面上再寫一個「單元 1-1」是噪音。
+ */
+const UNIT_START = new Map(UNITS.filter((u) => u.from !== 0).map((u) => [u.from, u.id]));
 
 export default function App() {
   const [current, setCurrent] = useState(INITIAL_SLIDE);
@@ -520,7 +564,7 @@ export default function App() {
       </div>
 
       <div className="flex-1 relative overflow-hidden">
-        <SlideContext.Provider value={{ currentStep, registerStep }}>
+        <SlideContext.Provider value={{ currentStep, registerStep, unitMark: UNIT_START.get(current) ?? null }}>
           <AnimatePresence mode="wait">
             <CurrentSlide key={current} />
           </AnimatePresence>
@@ -595,26 +639,37 @@ export default function App() {
           }}
           onClick={(e) => e.stopPropagation()}
         >
-          {SECTIONS.map((sec) => (
-            <optgroup key={sec.label} label={sec.label}>
-              {Array.from({ length: sec.to - sec.from }, (_, k) => sec.from + k).map((idx) => (
+          {/* 依錄製單元分組。一組就是一支影片，錄的時候照著跳 */}
+          {UNITS.map((u) => (
+            <optgroup
+              key={u.id}
+              label={
+                u.isChapterHead
+                  ? `〔${u.chapterName} ${u.chapterLabel}〕${u.id} ${u.title}`
+                  : `${u.id} ${u.title}`
+              }
+            >
+              {Array.from({ length: u.to - u.from + 1 }, (_, k) => u.from + k).map((idx) => (
                 <option key={idx} value={idx} className="bg-slate-900 text-slate-300">
                   Slide {idx + 1} - {SLIDE_TITLES[idx]}
                 </option>
               ))}
             </optgroup>
           ))}
-          <optgroup label="結語">
-            <option value={SLIDES.length - 1} className="bg-slate-900 text-slate-300">
-              Slide {SLIDES.length} - {SLIDE_TITLES[SLIDES.length - 1]}
-            </option>
-          </optgroup>
         </select>
 
         <span className="text-xs font-mono text-slate-500 pr-2 border-r border-slate-700 selection:bg-transparent">
           / {SLIDES.length}
         </span>
-        
+
+        {/*
+          現在錄到哪一個單元。翻頁的人要知道這一支影片什麼時候該停。
+          「單元」兩個字不能省：只印 6-3 會跟左邊的 / 160 連起來讀成「6-3 / 160」。
+        */}
+        <span className="text-xs font-mono text-slate-500 pl-2 selection:bg-transparent">
+          單元 {UNITS.find((u) => current >= u.from && current <= u.to)?.id ?? ''}
+        </span>
+
         <div className="flex gap-1 pl-1">
           <button 
             type="button"

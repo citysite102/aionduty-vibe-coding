@@ -2,33 +2,40 @@ import { Map, Target } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
- * 這一頁的主角是那四個單元，所以它們佔滿版面排成 2×2，
+ * 這一頁的主角是那四個階段，所以它們佔滿版面排成 2×2，
  * 核心目標收成上方一條橫幅。
  *
- * 學員會拿這一頁對照講者選單裡的分節名，但兩者不是一對一：
- * 選單的分節比單元細，單元 03 與 04 各橫跨兩節
- * （03 = 運作框架與成本分析 ＋ 手冊（CLAUDE.md）的疑難雜症與轉移，
- *   04 = 讓 Agent 分工 ＋ Agent 循環開發流程）。
- * 改單元名稱時，要確認學員還對得回 App.tsx 的 SECTION_DEFS。
+ * 「階段」原本叫「單元」，2026-08-18 改掉。課程改成一單元一支影片之後，
+ * 「單元」被錄製單元（courseUnits.ts 的 X-Y 編號）佔走了，同一個詞指兩種東西，
+ * 而且兩邊的編號還對不起來：內文寫的「第一單元的計時器」指的其實是這一頁的 02。
+ * 現在三個詞各指一件事：階段是這一頁，章節是分節，單元是一支影片。
+ *
+ * 階段跟章節不是一對一，02 到 04 各橫跨兩章，所以每張卡要標出它涵蓋哪幾章，
+ * 學員才對得回播放器選單。改章節結構時，chapters 那一欄要重新核對一次
+ * （npm run units 會印出目前的章節與單元）。
  */
-const UNITS = [
+const STAGES = [
   {
     n: '01',
+    chapters: '章節二',
     title: 'Vibe Coding 是什麼，能做到哪裡',
     desc: '從輔助生成到 Agent 自動化，中間差在哪裡，工具又該怎麼挑。',
   },
   {
     n: '02',
+    chapters: '章節三、四',
     title: 'Agent 的心智模型與 Claude Code 實作',
     desc: '建立發包思維，從只能問的對話框走到能動手的 Agent，掌握 Claude Code 的安全邊界。',
   },
   {
     n: '03',
+    chapters: '章節五、六',
     title: 'CLAUDE.md 設計邏輯與運作框架',
     desc: '把專案的規矩與慣例寫下來，讓 AI 每次進來都照同一套標準做事。',
   },
   {
     n: '04',
+    chapters: '章節七、八',
     title: 'Agent 團隊與開發循環架構',
     desc: '建構多角色協作網路，與自動化開發循環，獨立交付軟體。',
   },
@@ -36,7 +43,7 @@ const UNITS = [
 
 export default function SlidePhilosophy() {
   return (
-    <SlideLayout title="四個單元，從看懂到自己做出來" subtitle="Unit Overview" icon={Map}>
+    <SlideLayout title="四個階段，從看懂到自己做出來" subtitle="Course Arc" icon={Map}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock
           stepIndex={1}
@@ -52,18 +59,22 @@ export default function SlidePhilosophy() {
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {UNITS.map((u, i) => (
+          {STAGES.map((s, i) => (
             <AnimatedBlock
-              key={u.n}
+              key={s.n}
               stepIndex={i + 2}
               className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 p-6"
             >
               {/* 標題最長的那張會折兩行，所以編號放右下角，不跟標題搶第一行 */}
               <span className="pointer-events-none absolute -bottom-4 right-2 select-none font-mono text-7xl font-black text-sky-500/10">
-                {u.n}
+                {s.n}
               </span>
-              <h3 className="relative text-xl font-bold text-slate-100 leading-snug mb-2">{u.title}</h3>
-              <p className="relative text-slate-400 text-base leading-relaxed pr-16">{u.desc}</p>
+              {/* 對回播放器與課程平台上的章節名，維持灰階，不多加一種強調色 */}
+              <div className="relative text-slate-500 text-xs font-mono tracking-wider mb-1.5">
+                {s.chapters}
+              </div>
+              <h3 className="relative text-xl font-bold text-slate-100 leading-snug mb-2">{s.title}</h3>
+              <p className="relative text-slate-400 text-base leading-relaxed pr-16">{s.desc}</p>
             </AnimatedBlock>
           ))}
         </div>

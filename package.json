@@ -12,7 +12,8 @@
     "check:rec": "node scripts/check-recorded.mjs",
     "check:slides": "node scripts/check-slides.mjs",
     "check:words": "node scripts/check-words.mjs",
-    "map": "node scripts/slide-map.mjs"
+    "map": "node scripts/slide-map.mjs",
+    "units": "node scripts/course-units.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

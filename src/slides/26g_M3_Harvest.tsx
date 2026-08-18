@@ -2,7 +2,7 @@ import { PackageCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
- * 第三單元的收成頁。M1 與 M2 各有一頁，M3 原本沒有，所以整段十幾頁講完，
+ * 章節七的收成頁。M1 與 M2 各有一頁，M3 原本沒有，所以整段十幾頁講完，
  * 學員說不出自己手上多了什麼，講者也不知道有多少人真的建出那個子代理。
  *
  * 判準跟 18c_M1_Harvest 一樣：只列學員打得開、指得出來的東西。

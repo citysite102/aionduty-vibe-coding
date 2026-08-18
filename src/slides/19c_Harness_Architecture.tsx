@@ -1,7 +1,7 @@
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Settings, FileCode, Wrench, Shield, GitMerge, Link, Activity } from 'lucide-react';
 
-// 六大元件只有前兩塊是這堂課會動手的，指揮分工留到第三單元，其餘屬於團隊級配套。
+// 六大元件只有前兩塊是這堂課會動手的，指揮分工留到「讓 Agent 分工」那一章，其餘屬於團隊級配套。
 // 用 scope 控制視覺層級：本課主色、後續會回來講的灰、僅供認識最淡。
 //
 // Hooks 是 later 不是 aware：這一段接下來有八頁把它當成建議做法在用
@@ -30,7 +30,7 @@ const parts = [
     en: 'Orchestration',
     desc: '同時有好幾個子代理在跑的時候，誰做哪一塊、誰要等誰做完。',
     scope: 'later' as const,
-    tag: '第三單元',
+    tag: '後面會回來講',
   },
   {
     icon: Shield,

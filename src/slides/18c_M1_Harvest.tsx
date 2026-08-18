@@ -4,13 +4,13 @@ import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
- * 第一單元的收成頁。
+ * 章節三的收成頁。
  *
- * 模擬授課跑出來的問題：整個第一單元有四頁叫學員動手，沒有一頁給「成功長什麼樣」，
+ * 模擬授課跑出來的問題：整個章節三有四頁叫學員動手，沒有一頁給「成功長什麼樣」，
  * 所以講者到最後也不知道有多少人真的做出東西。這一頁就是那個判準。
  *
  * 清單同時兌現前面欠的兩張支票：存檔（版本控制那一頁說「第一件事就是存檔」，
- * 但沒教怎麼存）、上線網址（部署那一頁說「最後會走完這一步」，實際上在第四單元）。
+ * 但沒教怎麼存）、上線網址（部署那一頁說「最後會走完這一步」，實際上在章節八）。
  *
  * 這裡只列學員手上真的會有的檔案。CLAUDE.md 曾經列過，但到這一頁為止它只被
  * 產出來看過一眼，沒有講過那是什麼，列進驗收清單學員無從判斷自己有沒有做到。
@@ -39,7 +39,7 @@ const HAVE = [
 ];
 
 const PROMPT =
-  '幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫『第一單元完成』。';
+  '幫我把這個資料夾建立成 Git repository，做第一次 commit，訊息寫『第一個作品完成』。';
 
 export default function SlideM1Harvest() {
   return (
@@ -48,7 +48,7 @@ export default function SlideM1Harvest() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這一單元做完，下面兩件事應該都成立。
+            這一章做完，下面兩件事應該都成立。
           </p>
         </AnimatedBlock>
 

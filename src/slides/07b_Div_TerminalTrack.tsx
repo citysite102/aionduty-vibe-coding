@@ -7,7 +7,7 @@ import { SectionDivider } from '../components/SectionDivider';
  * 它原本散在前置觀念中間（兩頁選修）跟安裝那一頁，卡在主線裡讓所有人都要付注意力，
  * 而課後回饋有三個人是公司電腦不能裝，那幾頁對他們是純空轉。
  *
- * 放在第一單元收成之後，所以要跳過整段不會少掉任何前面用得到的東西。
+ * 放在章節三的收成之後，所以要跳過整段不會少掉任何前面用得到的東西。
  */
 export default function SlideDivTerminalTrack() {
   return (

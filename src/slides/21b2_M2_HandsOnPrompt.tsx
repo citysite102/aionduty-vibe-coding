@@ -9,7 +9,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * 但上一頁第 1 格就是叫它讀完專案生一份草稿，等於同一件事做兩次，
  * 學員會問這兩頁差在哪。前兩步拿掉，這一頁從那份草稿接下去。
  *
- * 另外原本寫「第一單元收尾時它自己總結過一份 CLAUDE.md」，那一步已經
+ * 另外原本寫「章節三收尾時它自己總結過一份 CLAUDE.md」，那一步已經
  * 隨著終端機安裝頁搬進選修段，主線上不存在那份檔案了，前提要跟著改。
  * cd 與 claude 兩行也拿掉：主線是桌面版，不預設有終端機。
  *
@@ -94,7 +94,7 @@ export default function SlideHandsOnPrompt() {
         </div>
 
         <Callout tone="muted" stepIndex={4}>
-          手上沒有計時器的話（第一單元沒做完也沒關係），開一個空資料夾，
+          手上沒有計時器的話（前面沒做完也沒關係），開一個空資料夾，
           把上面那四條改成你自己工作上真的有的規矩，一樣走得完這兩步。
         </Callout>
 

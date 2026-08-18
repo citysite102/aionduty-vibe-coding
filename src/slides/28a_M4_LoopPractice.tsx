@@ -15,7 +15,7 @@ import { LiveDemo } from '../components/LiveDemo';
  *   2、3 是狀態交互，那是 AI 最常漏、學員最容易看出來的地方。
  * 不要換成「操作要順暢」這種形容詞，換掉這一頁就沒有教學效果了。
  *
- * 驗證用 webapp-testing，不用 npm run lint。第一單元的計時器是單一個
+ * 驗證用 webapp-testing，不用 npm run lint。章節三做的那個計時器是單一個
  * index.html，沒有 package.json，寫 lint 會變成一個跑不起來的假例子。
  */
 const BLOCKS = [
@@ -114,7 +114,7 @@ export default function SlideLoopPractice() {
           <p className="text-slate-300 text-base leading-relaxed">
             五題裡真正該花力氣的是第 2、3 題。
             <strong className="text-slate-100">那兩題講的是「按下去之後會怎樣」</strong>，
-            也就是第一單元你被絆住的同一種地方。第 1 題它一定會過，第 2、3 題不寫進去它就會自己選一個答案。
+            也就是你第一次寫計時器時被絆住的同一種地方。第 1 題它一定會過，第 2、3 題不寫進去它就會自己選一個答案。
           </p>
         </AnimatedBlock>
       </div>

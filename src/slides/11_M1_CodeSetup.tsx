@@ -4,9 +4,14 @@ import { Callout } from '../components/Callout';
 import { LiveDemo } from '../components/LiveDemo';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
+/**
+ * 標題原本是「手把手操作」，副標「Live Demonstration」。兩個問題：它沒說這一頁在裝什麼，
+ * 而課程改成預錄之後也沒有現場示範這回事。這一頁是單元 4-2 的第一格，
+ * 也就是那支影片的第一個畫面，第一行字得說得出這一段要幹嘛。
+ */
 export default function SlideCodeSetup() {
   return (
-    <SlideLayout title="手把手操作" subtitle="Live Demonstration" icon={Play}>
+    <SlideLayout title="裝好終端機版，確認它讀得到你的專案" subtitle="Install and Verify" icon={Play}>
       <LiveDemo kind="terminal" note="跟著裝一次" />
 
       <div className="max-w-6xl mx-auto mb-5">

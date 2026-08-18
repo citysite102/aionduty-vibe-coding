@@ -8,11 +8,13 @@
  *   2. REPLACEMENTS 的 key 指到了別頁（插頁時忘了把 key 往後推）
  *   3. SECTION_DEFS 的 start 沒有落在分節頁上（插頁時忘了把 start 往後推）
  *   4. 分節頁數量跟 SECTION_DEFS 對不起來
+ *   5. courseUnits.ts 的錄製單元指錯頁、順序亂掉，或有單元跨章
  *
- * 2 和 3 是最容易漏的：在某一頁前面插一頁，所有「大於等於該位置」的
- * REPLACEMENTS key 與 SECTION_DEFS start 都要 +1，刪頁則是 -1。
+ * 2、3、5 是最容易漏的：在某一頁前面插一頁，所有「大於等於該位置」的
+ * REPLACEMENTS key、SECTION_DEFS start 與 UNIT_DEFS live 都要 +1，刪頁則是 -1。
  */
 import { readFileSync } from 'node:fs';
+import { readDeck, resolveUnits } from './lib/deck.mjs';
 
 const APP = 'src/App.tsx';
 const REGISTRY = 'src/slides-recorded/registry.ts';
@@ -126,6 +128,20 @@ if (missing.length) {
   );
 }
 
+// --- 5. 錄製單元 ---
+// 單元定義的是「一支影片從哪一頁開始」，它跟 SECTION_DEFS 一樣吃 LIVE index，
+// 所以插頁時同樣會指錯，而且指錯不會報錯：影片會從別的地方開始錄。
+// anchor 是唯一能核對的依據，跟 REPLACEMENTS 的註解同一個道理。
+let units = [];
+try {
+  const deck = readDeck();
+  const resolved = resolveUnits(deck);
+  units = resolved.units;
+  errors.push(...resolved.errors);
+} catch (e) {
+  errors.push(`src/courseUnits.ts：讀不出單元定義（${e.message}）`);
+}
+
 // --- 攤平後的實際頁數 ---
 let flat = 0;
 for (let i = 0; i < comps.length; i++) flat += replCounts.get(i) ?? 1;
@@ -138,6 +154,10 @@ console.log(
   )} 頁，實際播放 ${flat} 頁`,
 );
 console.log(`分節 ${sectionDefs.length} 組（＋結語自成一組）`);
+if (units.length) {
+  const chapters = new Set(units.map((u) => u.chapter.n)).size;
+  console.log(`錄製單元 ${units.length} 個，分在 ${chapters} 章（表用 npm run units 看）`);
+}
 
 if (notes.length) {
   console.log('\n提醒');

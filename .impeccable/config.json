@@ -20,6 +20,24 @@
         ],
         "createdAt": "2026-08-17T15:16:04.569Z",
         "reason": "false positive: bg-sky-950/20 is a 20% tint over the deck's near-black page background, i.e. still a dark neutral surface per CLAUDE.md A-1; text-slate-400 on it is the deck-wide pattern. Same case already sanctioned for 10e1_M1_GitPlayground"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-08-18T04:02:59.348Z",
+        "reason": "user confirmed: 使用者本輪明確回覆「不用拿掉」，格線底是全片 160 頁共用的既有視覺基調"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "src/App.tsx"
+        ],
+        "createdAt": "2026-08-18T04:03:09.091Z",
+        "reason": "專案 CLAUDE.md A-1 明訂：整頁背景 bg-[#020617]、主文字 text-slate-200。那是深色底不是彩色底，規範本身就是這個組合"
       }
     ]
   }
