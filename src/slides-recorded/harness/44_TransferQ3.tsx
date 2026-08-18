@@ -10,7 +10,7 @@ export const meta: RecordedMeta = {
   id: 'harness-44-transfer-q3',
   title: '先問哪三題：只有特定情況的',
   script:
-    '第三題：哪些事情只有特定情況才適用？一個客戶要英文版、另一個不收 PDF，這種只跟某一個客戶有關的規矩不要全塞進同一份，不然它會越寫越肥。分到子目錄，手冊裡只留一行指過去。三題問完，這份手冊就寫好了。',
+    '第三題：哪些事情只有特定情況才適用？一個客戶要英文版、另一個不收 PDF，這種只跟某一個客戶有關的規矩不要全塞進同一份，不然它會越寫越長。分到子目錄，手冊裡只留一行指過去。三題問完，這份手冊就寫好了。',
   seconds: 38,
   from: 75,
 };
@@ -28,7 +28,7 @@ export default function RecTransferQ3() {
         <AnimatedBlock stepIndex={2} className="space-y-3">
           <p className="text-slate-300 text-3xl font-bold leading-snug">這些分出去，<Key>用到的時候才讀</Key></p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            像是一個客戶要英文版、另一個不收 PDF。全塞進同一份，手冊只會越寫越肥。
+            像是一個客戶要英文版、另一個不收 PDF。全塞進同一份，手冊只會越寫越長。
             分到子目錄，手冊裡留一行指過去就好。
           </p>
         </AnimatedBlock>

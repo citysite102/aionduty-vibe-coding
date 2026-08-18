@@ -8,7 +8,7 @@ const SKILL_PROMPT =
 export default function SlideNoCodeBridge() {
   return (
     <SlideLayout
-      title="不寫程式，也能守住品質"
+      title="不讀程式碼，也驗得出它做完了沒"
       subtitle="Automated Checks for Non-Developers"
       icon={ClipboardCheck}
     >

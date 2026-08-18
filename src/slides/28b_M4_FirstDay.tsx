@@ -38,7 +38,7 @@ const STUCK = [
 export default function SlideFirstDay() {
   return (
     <SlideLayout
-      title="開工的三個步驟"
+      title="新專案的前三個動作"
       subtitle="Your First Day After This Course"
       icon={Rocket}
     >

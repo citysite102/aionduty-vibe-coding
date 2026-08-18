@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideQuality() {
   return (
-    <SlideLayout title="設立品質防線 (Anti-Slop)" subtitle="Quality Defense" icon={ShieldCheck}>
+    <SlideLayout title="設一道會退回的品質防線" subtitle="Quality Defense" icon={ShieldCheck}>
       
       <div className="max-w-5xl mx-auto mt-10">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-3xl p-8 mb-8 shadow-2xl">

@@ -54,7 +54,7 @@ const TIPS = [
 export default function SlideClaudeShortcuts() {
   return (
     <SlideLayout
-      title="Claude Code 核心按鍵與技巧"
+      title="Claude Code 的三個實用按鍵"
       subtitle="Keyboard Shortcuts & Tips"
       icon={Keyboard}
     >

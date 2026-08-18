@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideM2ExtensionsCases2() {
   return (
-    <SlideLayout title="這幾樣實際怎麼用？（二）防線與調查" subtitle="Real-world Scenarios for Extensions" icon={Briefcase}>
+    <SlideLayout title="零件實際怎麼用（二）：防線與調查" subtitle="Real-world Scenarios for Extensions" icon={Briefcase}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto items-stretch mt-6">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">

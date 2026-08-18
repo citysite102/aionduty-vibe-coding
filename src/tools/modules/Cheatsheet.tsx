@@ -188,7 +188,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         kind: 'say',
         text: '我的 repo 是 private，GitHub Pages 掛不上去。請先幫我確認 .gitignore 有沒有擋掉金鑰跟 .env，確認乾淨之後再告訴我怎麼把 repo 改成 public。',
         watch: '免費帳號只掛得起 public 的 repo。不想公開就改走 Vercel，它吃 private。',
-        from: '有些東西不能推上去',
+        from: '金鑰和客戶資料不能跟著推上去',
       },
       {
         when: '改完之後，讓線上那版跟著更新',

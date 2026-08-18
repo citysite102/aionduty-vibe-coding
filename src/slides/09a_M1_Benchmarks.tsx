@@ -4,7 +4,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 export default function SlideBenchmarks() {
   return (
     <SlideLayout
-      title="這件事真的做得到嗎？"
+      title="AI 真的做得出完整專案嗎？"
       subtitle="Real-world Benchmarks — and the Argument About Them"
       icon={Rocket}
     >

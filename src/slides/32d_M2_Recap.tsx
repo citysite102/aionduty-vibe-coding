@@ -18,7 +18,7 @@ const DONE = [
 
 export default function SlideM2Recap() {
   return (
-    <SlideLayout title="這一段你完成了三件事" subtitle="Module 2 Recap" icon={ListChecks}>
+    <SlideLayout title="你完成了哪四件事" subtitle="Module 2 Recap" icon={ListChecks}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
 
         <div className="space-y-3">

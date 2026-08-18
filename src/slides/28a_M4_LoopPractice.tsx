@@ -38,7 +38,7 @@ const BLOCKS = [
     tag: '怎麼驗',
     title: '這一段才是讓它跑下一輪的引擎',
     body: '少了它，它改完就停在那裡等你。有了它，沒過的題目它會自己回頭修再驗一次。webapp-testing 就是前面裝過的那個 Skill。',
-    from: '對應「熱門 Skills 精選」那一頁',
+    from: '對應「四個最常被裝的 Skills」那一頁',
   },
   {
     icon: Fence,

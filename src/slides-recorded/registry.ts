@@ -109,7 +109,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },
   ],
-  // index 80 = 原「手冊越寫越肥，怎麼整理」
+  // index 80 = 原「手冊越寫越長，怎麼整理」
   80: [
     { meta: m17, Component: RecHealthOverview },
     { meta: m18, Component: RecHealthInventory },
@@ -151,7 +151,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 85 = 原「這一段你完成了三件事」
+  // index 85 = 原「你完成了哪四件事」
   85: [
     { meta: m48, Component: RecRecapOne },
   ],

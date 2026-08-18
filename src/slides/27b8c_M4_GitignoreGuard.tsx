@@ -11,7 +11,7 @@ const NEVER_PUSH = ['.env（放金鑰的那個檔案）', 'API 金鑰、資料�
 
 export default function SlideGitignoreGuard() {
   return (
-    <SlideLayout title="有些東西不能推上去" subtitle="Push It to GitHub" icon={ShieldAlert}>
+    <SlideLayout title="金鑰和客戶資料不能跟著推上去" subtitle="What Not to Push" icon={ShieldAlert}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">

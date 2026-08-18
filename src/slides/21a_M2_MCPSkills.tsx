@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide21a() {
   return (
-    <SlideLayout title="讓 AI 有手可用：MCP 與 Skills" subtitle="Empowering AI: MCP & Skills" icon={Layers}>
+    <SlideLayout title="讓 AI 有工具可用：MCP 與 Skills" subtitle="Empowering AI: MCP & Skills" icon={Layers}>
       <div className="flex flex-col gap-4 pt-2 px-4 h-full">
         {/*
           兩張卡各自都講得完整，但沒有一句話說它們的分工是什麼，

@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideShipIt() {
   return (
-    <SlideLayout title="上線之後才發現的問題" subtitle="Mission Timer v3: Ship It" icon={Globe}>
+    <SlideLayout title="手機打開，紀錄卻是空的" subtitle="Mission Timer v3: Ship It" icon={Globe}>
       <div className="max-w-6xl mx-auto text-left space-y-5 pb-8">
 
         {/*

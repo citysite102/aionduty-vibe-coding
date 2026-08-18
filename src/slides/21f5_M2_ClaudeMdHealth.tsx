@@ -46,7 +46,7 @@ const EVIDENCE = [
 
 export default function SlideM2ClaudeMdHealth() {
   return (
-    <SlideLayout title="手冊越寫越肥，怎麼整理" subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
+    <SlideLayout title="手冊越寫越長，怎麼整理" subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-x-6 gap-y-4 max-w-6xl mx-auto items-start pb-4">
 
         <div className="space-y-2.5">

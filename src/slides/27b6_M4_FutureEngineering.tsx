@@ -48,7 +48,7 @@ const SPEC_VS_WISH = [
 export default function SlideFutureEngineering() {
   return (
     <SlideLayout
-      title="先說清楚，再讓它自己驗"
+      title="你寫的是規格，還是願望"
       subtitle="Spec First, Tests as the Finish Line"
       icon={Compass}
     >

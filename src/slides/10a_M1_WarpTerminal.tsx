@@ -9,7 +9,7 @@ export default function SlideWarpTerminal() {
   const [activeTab, setActiveTab] = useState<'agent' | 'features'>('agent');
 
   return (
-    <SlideLayout title="推薦現代 AI 終端機 Warp" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
+    <SlideLayout title="Warp，比內建好用的終端機" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
       <LiveDemo kind="terminal" note="打開 Warp 看實際操作" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         

@@ -45,7 +45,7 @@ function lineClass(line: string) {
 
 export default function Slide21f() {
   return (
-    <SlideLayout title="這跟你的專案有什麼關係？" subtitle="Real-World Application" icon={Zap}>
+    <SlideLayout title="真實專案裡的 CLAUDE.md 長什麼樣" subtitle="Real-World Application" icon={Zap}>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 mt-6">
         
         <div className="flex-1 space-y-6">

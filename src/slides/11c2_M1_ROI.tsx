@@ -76,7 +76,7 @@ export default function SlideROI() {
   const c = CASES.find(x => x.key === active) ?? CASES[1];
 
   return (
-    <SlideLayout title="為什麼你該花錢買 AI 算力？" subtitle="Cost & Lead Time" icon={TrendingUp}>
+    <SlideLayout title="自己做跟外包，成本與交期差多少" subtitle="Cost & Lead Time" icon={TrendingUp}>
       <div className="flex flex-col gap-4 max-w-6xl mx-auto w-full pb-2 text-left">
 
         {/* 主張 */}

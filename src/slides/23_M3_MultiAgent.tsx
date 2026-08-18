@@ -38,7 +38,7 @@ const ROLES = [
 
 export default function SlideMultiAgent() {
   return (
-    <SlideLayout title="讓團隊為你工作" subtitle="Multi-Agent Orchestration" icon={Users}>
+    <SlideLayout title="三個角色：指揮者、執行者、審查者" subtitle="Multi-Agent Orchestration" icon={Users}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1}>
