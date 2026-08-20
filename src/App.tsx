@@ -125,6 +125,16 @@ import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
+import SlideCase1Vessel from './slides/29a_Case1_Vessel';
+import SlideCaseSpec from './slides/29b_Case_Spec';
+import SlideCaseSpecCheck from './slides/29c_Case_SpecCheck';
+import SlideCase1Chain from './slides/29d_Case1_Chain';
+import SlideCase2TokyoLoop from './slides/29e_Case2_TokyoLoop';
+import SlideCase2Divide from './slides/29f_Case2_Divide';
+import SlideCase2Cost from './slides/29g_Case2_Cost';
+import SlideCase3Kiln from './slides/29h_Case3_Kiln';
+import SlideCase3Trust from './slides/29i_Case3_Trust';
+import SlideCase3Race from './slides/29j_Case3_Race';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide33 from './slides/33_Outro';
@@ -247,6 +257,16 @@ const LIVE_TITLES = [
   "金鑰和客戶資料不能跟著推上去",
   "真的把它變成一個網址",
   "手機打開，紀錄卻是空的",
+  "案例一：器 VESSEL",
+  "一份能用的規格，有七塊",
+  "把形容詞翻成可以檢查的條件",
+  "規則要能被機器檢查，才擋得住",
+  "案例二：東京環状 24 時",
+  "哪一半交給套件，哪一半自己算",
+  "套件替你寫掉程式，沒有替你省掉成本",
+  "案例三：開窯預約",
+  "兩把金鑰，兩層權限",
+  "兩個人同時搶最後一個名額",
   "回去之後，做哪一種題目",
   "新專案的前三個動作",
   "未來的工作者",
@@ -368,6 +388,16 @@ const LIVE_SLIDES = [
   Slide27b8c,
   Slide27b8d,
   Slide27b9,
+  SlideCase1Vessel,
+  SlideCaseSpec,
+  SlideCaseSpecCheck,
+  SlideCase1Chain,
+  SlideCase2TokyoLoop,
+  SlideCase2Divide,
+  SlideCase2Cost,
+  SlideCase3Kiln,
+  SlideCase3Trust,
+  SlideCase3Race,
   Slide28b0,
   Slide28b,
   Slide33,
