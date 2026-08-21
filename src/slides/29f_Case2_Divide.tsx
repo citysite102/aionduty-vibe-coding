@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 這一頁是成對對照：交給套件（sky）與自己算（indigo）是同一條分界線的兩邊，
+ * 這一頁是成對對照：交給套件（sky）與自己算（indigo）是同一個判斷的兩邊，
  * 所以合計算一種強調色，加上下面那個 warn 剛好兩種（A-1）。
  *
  * 「離散／連續」是案例二手冊的用語，但它是第一次出現的抽象名詞，
@@ -33,7 +33,7 @@ const JOBS = [
     task: '手放開之後捲動慢慢停下來，滑得越快照片彎得越明顯',
     side: '連續',
     who: '自己算',
-    why: '每一幀都在變。做成補間會得到一堆互相打架的動畫',
+    why: '每一幀都在變。交給套件去補中間的過程，會得到一堆互相打架的動畫',
   },
   {
     task: '背景的顏色隨著捲動一路混過去，照片邊緣柔柔地淡掉',
@@ -45,7 +45,7 @@ const JOBS = [
 
 export default function SlideCase2Divide() {
   return (
-    <SlideLayout title="哪一半交給套件，哪一半自己算" subtitle="Case 02 · 進階的動畫效果怎麼做出來" icon={Split}>
+    <SlideLayout title="哪些交給套件，哪些自己算" subtitle="Case 02 · 進階的動畫效果怎麼做出來" icon={Split}>
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -107,9 +107,9 @@ export default function SlideCase2Divide() {
         </AnimatedBlock>
 
         <Callout tone="warn" label="分錯邊的代價" stepIndex={3}>
-          把連續訊號交給補間系統，補間會互相疊加、互相覆寫，畫面既延遲又會抖，
+          這種每一幀都在變的值交給套件去補，那些補出來的動畫會互相疊加、互相覆寫，畫面既延遲又會抖，
           <strong className="text-slate-100">而且不會有任何錯誤訊息</strong>，你只知道「怪怪的」。
-          這一刀在手冊的第二步就要切下去，後面每做一個效果都會再切一次。
+          這個判斷在手冊的第二步就要定下來，後面每做一個效果都會再用一次。
         </Callout>
 
       </div>

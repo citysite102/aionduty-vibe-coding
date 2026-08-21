@@ -10,7 +10,7 @@ const STEPS = [
   {
     n: '重現',
     title: '開兩個瀏覽器，同時搶最後一個名額',
-    text: '兩筆都成功了，剩下的名額變成負的。先看到問題，你才會相信它真的存在。',
+    text: '兩筆都成功了，剩下的名額變成負的。',
   },
   {
     n: '修掉',
@@ -20,7 +20,7 @@ const STEPS = [
   {
     n: '再驗',
     title: '用一模一樣的方法再做一次',
-    text: '同一個實驗，這次只有一筆成功。修完不驗，等於沒修。',
+    text: '同一個實驗，這次只有一筆成功。',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function SlideCase3Race() {
           tone="focus"
           label="這個案例的核心判斷"
           stepIndex={5}
-          footnote="修好之前不要部署。已經知道有問題還送上線，跟沒發現它是兩件事。"
+          footnote="修好之前不要部署。"
         >
           這個檢查該放前端還是資料庫？判斷依據只有一句：
           <strong className="text-slate-100">有人繞過你的畫面直接送請求，它還擋不擋得住。</strong>

@@ -62,7 +62,7 @@ export default function SlideCase3Kiln() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-4">它和案例一是同一個品牌的兩半</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-4">它和案例一是同一個品牌的兩個部分</h3>
           <div className="overflow-hidden rounded-xl border border-slate-800">
             <table className="w-full text-sm">
               <thead>
@@ -89,7 +89,7 @@ export default function SlideCase3Kiln() {
             差別只有一處：案例一沒有表單，這裡有，所以規範多了五種狀態（輸入框、載入中、錯誤、成功、額滿）。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-2">
-            同一個品牌的兩個網站看起來不像同一家，那不是風格不同，是規範沒有生效。
+            同一個品牌的兩個網站看起來不像同一家，通常是因為第二個沒有把規範搬過去。
           </p>
         </AnimatedBlock>
 

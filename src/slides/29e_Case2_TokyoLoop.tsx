@@ -6,7 +6,7 @@ import tokyoLoopShot from '../../assets/cases/case-02-tokyo-loop.jpg';
 
 const ROUTE = [
   { label: '起點', text: '一個空資料夾、十張你自己選的照片，以及一張寫下十個時刻各自長什麼樣的表' },
-  { label: '過程', text: '先決定每件事交給套件還是自己算，再依序疊上資料、主迴圈、背景、照片、介面與面板' },
+  { label: '過程', text: '先決定每件事交給套件還是自己算，再依序疊上資料、背景、照片、介面與面板' },
   { label: '產出', text: '一個捲動穿越的照片藝廊，以及一張換個專案還用得到的選型判斷表' },
 ];
 
@@ -50,14 +50,14 @@ export default function SlideCase2TokyoLoop() {
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-3">這個作品在做的事</h3>
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
-            東京的一天，切成十個斷面。捲動穿過它們，背景的顏色就是那張照片的顏色。
+            東京的一天，取十個時刻。捲動穿過它們，背景的顏色就是那張照片的顏色。
             捲到 00:40 之後接回 04:52，一天是一個環，所以捲動也沒有盡頭。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
               <div className="text-slate-100 text-sm font-bold mb-1">顏色是量出來的，不是挑出來的</div>
               <p className="text-slate-400 text-sm leading-relaxed">
-                把照片縮小、逐像素累加，取出平均色與最暗的色，只依時刻調明度，色相不動。
+                把照片縮小，一個一個點加起來，取出平均色與最暗的色，只依時刻調明度，色相不動。
                 改一行資料就換一段視覺，不用去動畫面。
               </p>
             </div>

@@ -100,7 +100,7 @@ export default function SlideCaseSpec() {
                 <h3 className={`text-base font-bold ${b.key ? 'text-sky-200' : 'text-slate-100'}`}>
                   {b.name}
                 </h3>
-                {b.key && <span className="text-xs text-sky-400">這一塊決定成敗</span>}
+                {b.key && <span className="text-xs text-sky-400">只有這一塊 AI 補不出來</span>}
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">{b.line}</p>
               <p className="mt-2 border-t border-slate-800 pt-2 text-slate-500 text-sm leading-relaxed">
@@ -112,7 +112,7 @@ export default function SlideCaseSpec() {
 
         <Callout tone="focus" label="七塊裡最花時間的是第 2 塊" stepIndex={3}>
           AI 傾向把它會做的東西都加上去，
-          <strong className="text-slate-100">負面清單是唯一能限制它的地方</strong>，所以它比「要做什麼」更該花時間。
+          <strong className="text-slate-100">你不寫「不要什麼」，它就會加上去</strong>，所以這一塊比「要做什麼」更該花時間。
           整份一到兩頁就夠，超過三頁通常是在寫作文。
         </Callout>
 

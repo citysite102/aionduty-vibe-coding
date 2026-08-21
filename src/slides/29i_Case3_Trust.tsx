@@ -40,7 +40,7 @@ export default function SlideCase3Trust() {
             </div>
             <p className="text-slate-100 text-base font-bold mb-2">它本來就會被看到</p>
             <p className="text-slate-300 text-sm leading-relaxed">
-              這把金鑰會被打包進網頁，使用者打開開發者工具就看得到。這是設計上就這樣，不是疏失。
+              這把金鑰會被打包進網頁，使用者在瀏覽器裡翻一下就看得到。這是設計上就這樣，不是疏失。
               <strong className="text-slate-100">它拿得到什麼，完全由資料庫的規則決定。</strong>
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function SlideCase3Trust() {
           </p>
           <p className="text-slate-300 text-sm leading-relaxed mt-4">
             第二層打開之後<strong className="text-slate-100">預設是全部拒絕</strong>，
-            所以第二層底下每寫一條規則，都是在開一個洞，不是在加一道鎖。
+            所以第二層底下每寫一條規則，都是在放行某一批資料，不是在多擋一道。
             方向搞反的話，你會寫出一堆自以為在防守、實際上什麼都沒擋到的東西。
           </p>
         </AnimatedBlock>
@@ -96,7 +96,7 @@ export default function SlideCase3Trust() {
         <Callout tone="muted" label="那個前端算不出來的數字" stepIndex={3}>
           你看不到別人的預約，第二層擋住了。但畫面上要顯示「還剩幾個位子」，
           <strong className="text-slate-300">而前端手上根本沒有那些資料</strong>。
-          解法是把計算搬進資料庫：讓一個權限比較大的函式讀得到整張表，但只回傳你該知道的那個數字。
+          解法是請資料庫自己去數：它讀得到整張表，但只回你一個數字，別人的預約你還是看不到。
           判斷錯的代價是為了算一個數字，把不該給的資料全部給出去。
         </Callout>
 

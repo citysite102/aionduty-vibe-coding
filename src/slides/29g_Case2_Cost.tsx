@@ -19,17 +19,17 @@ const PICKS = [
   {
     want: '版面 A 變成版面 B 的轉場',
     yes: '專門做這件事的套件',
-    no: '對位置做補間',
+    no: '自己算位置，一格一格把它挪過去',
     why: '終點由樣式決定，動畫開始之前你不知道那個數字是多少',
   },
   {
     want: '阻尼、視差、速度這種每一幀都在變的值',
     yes: '自己寫一行公式',
-    no: '補間動畫',
-    why: '補間會疊加、互相覆寫，而且每一幀都被走訪一次',
+    no: '交給套件去補中間的過程',
+    why: '補出來的動畫會互相疊加、互相覆寫，而且每一幀都要重算一次',
   },
   {
-    want: '多個物件共用同一台相機、逐像素的效果',
+    want: '多個物件共用同一台相機，或是一個一個點去算的效果',
     yes: '3D 套件與顯示卡',
     no: '用一般網頁元素硬做',
     why: '網頁的透視是各算各的，物件一多，記憶體也吃不消',
@@ -61,7 +61,7 @@ const SYMPTOMS = [
 
 export default function SlideCase2Cost() {
   return (
-    <SlideLayout title="套件替你寫掉程式，沒有替你省掉成本" subtitle="Case 02 · 選什麼，以及為什麼還要懂" icon={Package}>
+    <SlideLayout title="選什麼套件，以及為什麼還是要看得懂" subtitle="Case 02 · 它替你寫掉的與沒替你解決的" icon={Package}>
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">

@@ -87,7 +87,7 @@ export default function SlideCase1Vessel() {
           </ul>
           <p className="text-slate-400 text-sm leading-relaxed">
             單獨看沒有一項難看，問題是每一個網站都有。
-            <strong className="text-slate-200">刪完之後剩下的，才是這家工作室自己的東西。</strong>
+            <strong className="text-slate-200">刪完之後剩下的，才是只有這家工作室講得出來的東西。</strong>
             你自己第一版做出來的東西，也拿這張清單掃一遍。
           </p>
         </AnimatedBlock>
@@ -108,7 +108,7 @@ export default function SlideCase1Vessel() {
               ：菊練法翻折兩百次、比例在拉坯的三分鐘裡決定、釉層厚薄的差異會在窯裡被放大十倍。
             </p>
             <p className="text-slate-400 text-sm leading-relaxed mt-2">
-              這些句子換成咖啡店就不成立，那正是它跟模板的差別。
+              這些句子換成咖啡店就不成立。
             </p>
           </div>
         </AnimatedBlock>
