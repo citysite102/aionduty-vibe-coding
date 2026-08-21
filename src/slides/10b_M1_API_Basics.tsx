@@ -62,6 +62,26 @@ export default function Slide10b() {
                 https://data.moenv.gov.tw/api/v2/aqx_p_432?api_key=your_key
               </code>
             </div>
+
+            {/*
+              同一行網址上有兩個要解釋的東西：開頭的 https 與結尾的 your_key。
+              金鑰那條在頁尾的 Callout，這條在這裡，理由跟金鑰那條一樣：
+              規則放在畫面上第一次看到它的地方。全片 https 第一次出現就是上面那行。
+
+              後面「你按下按鈕之後，發生了什麼事」那頁會講「解析來自前端的 HTTP 請求」，
+              少了這一段，那句話裡的 HTTP 就是一個沒有定義過的詞。
+
+              灰階，不吃強調色的額度：這一頁的 sky 與 emerald 已經被點單與出菜那組對照用掉了。
+            */}
+            <div className="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 mt-3">
+              <div className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono mb-1">開頭那個 https 是什麼</div>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                <code className="font-mono text-slate-300">http</code> 是兩台電腦講話的那套規矩：點單紙要寫哪些欄位、怎麼送過去、怎麼回話。
+                <code className="font-mono text-slate-300">https</code> 是同一套規矩，多包了一層加密。
+                走 http，中間經過的機器看得到你送了什麼；走 https，它們只看得到一堆亂碼。
+                <strong className="text-slate-300">帶金鑰的請求一律走 https</strong>，網址列那個鎖頭講的就是這件事。
+              </p>
+            </div>
           </AnimatedBlock>
 
           {/* Column 2: JSON Concept */}
