@@ -33,7 +33,7 @@ const COLOR_MAP: Record<string, string> = {
 
 export default function SlidePopularSkills() {
   return (
-    <SlideLayout title="四個最常被裝的 Skills" subtitle="Popular Skills to Install" icon={Sparkles}>
+    <SlideLayout title="先裝這四個 Skills" subtitle="Popular Skills to Install" icon={Sparkles}>
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
 
         {/* 這一頁從 M4 搬到 M2 的 Skill 那一段：講完怎麼裝，接著就是裝什麼。 */}
@@ -41,7 +41,7 @@ export default function SlidePopularSkills() {
           <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-5 text-left">
             <p className="text-slate-300 text-sm leading-relaxed">
               <strong className="text-sky-400">Skill 就是「把一套做法打包好，裝上就能用」。</strong>
-              需要時才載入，讓 Agent 在特定任務上直接照著高手的做法走。
+              需要時才載入，
               這四個是最常被裝的，前面那三種裝法隨便挑一種都裝得起來。
             </p>
           </div>
@@ -87,8 +87,8 @@ export default function SlidePopularSkills() {
               </div>
 
               <div className="mt-auto space-y-1.5 text-sm text-slate-400 leading-relaxed">
-                <p>• <strong className="text-slate-300">一次一題，等你答完才問下一題。</strong>一次丟十題只會讓人腦袋當機。</p>
-                <p>• <strong className="text-slate-300">能自己查的它就去查，只把「決定」留給你。</strong>這正是指揮官該做的事。</p>
+                <p>• <strong className="text-slate-300">一次一題，等你答完才問下一題。</strong></p>
+                <p>• <strong className="text-slate-300">能自己查的它就去查，只把「決定」留給你。</strong></p>
                 <p>• 你沒說「我們有共識了」之前，它不會動手寫任何東西。</p>
                 <p>• 要自己打 <code className="text-orange-300">/grill-me</code> 才會啟動，它不會自己跳出來煩你。</p>
               </div>
@@ -118,7 +118,7 @@ export default function SlidePopularSkills() {
             <AnimatedBlock stepIndex={6} className="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-left flex items-start gap-3 mt-auto">
               <Puzzle size={18} className="text-slate-500 shrink-0 mt-0.5" />
               <p className="text-sm text-slate-400 leading-relaxed">
-                Skills 是個持續長大的生態系，官方與社群都在陸續釋出。挑選原則很單純：<strong className="text-slate-300">哪件事你常做又懶得每次交代，就找一個 Skill 幫你固定下來。</strong>
+                挑選原則很單純：<strong className="text-slate-300">哪件事你常做又懶得每次交代，就找一個 Skill 幫你固定下來。</strong>
               </p>
             </AnimatedBlock>
           </div>

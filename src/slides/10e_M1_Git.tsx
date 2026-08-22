@@ -30,7 +30,7 @@ const RECORDED = [
   {
     icon: Bot,
     label: 'Skill 與子代理的設定',
-    body: '你分給 AI 的角色，一樣是文字檔，一樣跟著版本走。',
+    body: '你分給 AI 的角色，例如專門負責審查的那一個，一樣是文字檔，一樣跟著版本走。',
   },
   {
     icon: Wrench,

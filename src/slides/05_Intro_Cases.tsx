@@ -42,7 +42,7 @@ const STAGES = [
     icon: TerminalSquare,
     when: '要跟你手上的專案和流程接在一起',
     what: '系統化需求',
-    body: '在你自己的電腦上開 Claude Code，讓它直接在專案資料夾裡工作。它會自己寫程式、自己安裝需要的套件、自己看報錯修到跑得動、自己存檔。',
+    body: '在你自己的電腦上開 Claude Code，讓它直接在專案資料夾裡工作。它會自己寫程式、自己安裝需要的套件（別人寫好、拿來就能用的現成零件）、自己看報錯修到跑得動、自己存檔。',
     limit: '你從動手的人，變成決定方向跟驗收的人。',
     highlight: true,
   },
@@ -56,7 +56,7 @@ const PROMPT = `幫我寫一支 Python 腳本來處理報表，具體需求如�
 
 export default function SlideIntroCases() {
   return (
-    <SlideLayout title="同一個需求，三種做法" subtitle="When to Use What" icon={GitPullRequest}>
+    <SlideLayout title="同一個需求，差別在它碰不碰得到你的檔案" subtitle="When to Use What" icon={GitPullRequest}>
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

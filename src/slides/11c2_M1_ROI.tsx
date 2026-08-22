@@ -116,6 +116,10 @@ export default function SlideROI() {
             <Coins size={18} className="text-slate-400" />
             <h3 className="text-base font-bold text-slate-200">花的錢</h3>
           </div>
+          {/* token 全片到這裡才第一次要拿來判斷金額，所以定義放在這裡，不放在它第一次被提到的地方 */}
+          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            token 是它算錢的單位，一個中文字大約一到兩個 token，你打的字跟它回的字都要算。
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-950 border border-slate-800 rounded-xl p-5">
               <div className="text-slate-500 text-xs font-bold mb-2">找人外包</div>
@@ -163,7 +167,7 @@ export default function SlideROI() {
                 </div>
               </div>
               <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
-                這一格才是真正的差別。外包那幾天大多在等，不是在做。
+                外包那幾天大多在等，不是在做。
               </p>
             </div>
 

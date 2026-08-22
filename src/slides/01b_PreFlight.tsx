@@ -57,7 +57,7 @@ const OPTIONAL: { brand: Brand; name: string; where: string; href: string; why: 
     name: 'Warp',
     where: 'warp.dev',
     href: 'https://www.warp.dev',
-    why: '比系統內建好用的終端機。終端機那一段會用到，不裝也走得完，用內建的就可以。',
+    why: '比系統內建好用的終端機（用打字下指令的視窗）。終端機那一段會用到，不裝也走得完，用內建的就可以。',
   },
   {
     brand: 'pinterest',

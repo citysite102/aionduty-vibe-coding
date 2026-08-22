@@ -28,7 +28,7 @@ export default function SlideHarnessIntro() {
               </h3>
               
               <p className="text-slate-300 text-xs leading-relaxed">
-                隨著各大頂尖模型的基礎能力（Claude、GPT、Gemini）落差逐漸縮小，<strong className="text-sky-300 font-bold">你為 AI 準備的「運作框架 (Harness)」才是拉開產出差距的地方。</strong>
+                隨著各大頂尖模型的基礎能力（Claude、GPT、Gemini）落差逐漸縮小，<strong className="text-sky-300 font-bold">你為 AI 準備的「運作框架（Harness）」才是拉開產出差距的地方。</strong>
               </p>
 
               <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs space-y-3">
@@ -58,7 +58,7 @@ export default function SlideHarnessIntro() {
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-sm font-bold text-slate-300 flex items-center gap-2">
                   <Activity size={16} className="text-sky-400" />
-                  動態流程示意：能量的軌道約束
+                  動態流程示意：軌道怎麼限制方向
                 </h3>
                 <button 
                   onClick={() => setTriggerCount(c => c + 1)}
@@ -80,7 +80,7 @@ export default function SlideHarnessIntro() {
                   }`}
                 >
                   <AlertCircle size={14} />
-                  無框架引導 (No Harness)
+                  沒有運作框架 (No Harness)
                 </button>
                 <button
                   onClick={() => setActiveTab('with')}
@@ -91,7 +91,7 @@ export default function SlideHarnessIntro() {
                   }`}
                 >
                   <CheckCircle size={14} />
-                  有 Harness 軌道 (With Harness)
+                  有運作框架的軌道 (With Harness)
                 </button>
               </div>
 
@@ -159,8 +159,8 @@ export default function SlideHarnessIntro() {
                   <div className="space-y-6 relative z-10 flex-1 flex flex-col justify-between">
                     <div className="flex justify-between items-center text-xs font-mono text-slate-400">
                       <span>1. 觸發指令</span>
-                      <span>2. Harness 限制與 SOP 注入</span>
-                      <span>3. 精準執行</span>
+                      <span>2. 運作框架的限制與規範帶入</span>
+                      <span>3. 照規範執行</span>
                     </div>
 
                     <div className="relative h-20 bg-slate-900/40 rounded-xl border border-sky-950/30 overflow-hidden flex items-center justify-between px-6">
@@ -207,7 +207,7 @@ export default function SlideHarnessIntro() {
                         <span className="text-[11px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
                           編譯成功 (200 OK)
                         </span>
-                        <span className="text-[11px] font-mono text-slate-400">符合 CLAUDE.md、精準讀寫</span>
+                        <span className="text-[11px] font-mono text-slate-400">符合 CLAUDE.md，只動該動的檔案</span>
                       </div>
                     </div>
                   </div>
@@ -220,14 +220,14 @@ export default function SlideHarnessIntro() {
                       <span className="text-red-400 font-bold flex items-center gap-1">
                         ❌ 發散空轉 (Chaos)
                       </span>
-                      <span className="text-slate-500">模型在未知其專案上下文的情況下胡亂猜測，浪費 Token。</span>
+                      <span className="text-slate-500">模型不知道你的專案長什麼樣，只能亂猜，浪費 token。</span>
                     </>
                   ) : (
                     <>
                       <span className="text-sky-400 font-bold flex items-center gap-1">
                         🚀 軌道引導 (Rails)
                       </span>
-                      <span className="text-slate-400">注入 CLAUDE.md 規範、搭配本機 MCP 工具、自動核對型別與程式碼。</span>
+                      <span className="text-slate-400">帶入 CLAUDE.md 規範、搭配本機 MCP 工具、自動核對型別與程式碼。</span>
                     </>
                   )}
                 </div>
@@ -235,9 +235,9 @@ export default function SlideHarnessIntro() {
             </div>
 
             <div className="mt-6 p-4 bg-slate-950/40 rounded-2xl border border-slate-800 text-xs text-slate-300">
-              <span className="text-sky-400 font-bold block mb-1">💡 實踐啟示：</span>
+              <span className="text-sky-400 font-bold block mb-1">💡 這代表什麼：</span>
               {activeTab === 'without' ? (
-                <span>在沒有 CLAUDE.md 或 MCP 等 Harness 設定時，AI 只能像一般網頁對話框一樣「盲修」，容易偏離並寫出與專案架構完全衝突的冗餘程式碼。</span>
+                <span>在沒有 CLAUDE.md 或 MCP 等 Harness 設定時，AI 只能像一般網頁對話框一樣瞎改，容易偏離，寫出跟專案架構衝突的多餘程式碼。</span>
               ) : (
                 <span>把運作框架架乾淨（專案讀寫權、環境相依套件與明確規則），AI 就在對的範圍裡工作，<strong>比較常一次就寫出能編譯通過的程式碼</strong>。</span>
               )}

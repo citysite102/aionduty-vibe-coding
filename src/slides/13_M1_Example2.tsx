@@ -71,7 +71,7 @@ export default function SlideExample2() {
             <p className="text-slate-400 text-sm leading-relaxed">
               可以。Cowork 綁上 <code className="text-slate-300">imgs</code> 那個資料夾就能改。
               差別在產出物：腳本留得下來，下次換一百張圖再跑一次就好；Cowork 是這一次幫你做完，下次還要再講一遍。
-              這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 那條路後面會單獨講。
+              這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 能做到哪裡，後面比較三個地方的時候會講。
             </p>
           </AnimatedBlock>
         </div>

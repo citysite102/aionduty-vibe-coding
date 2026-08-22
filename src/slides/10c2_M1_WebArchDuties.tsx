@@ -98,7 +98,7 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     ],
     dbDuties: [
       '在 books 表的 title 和 tag 欄位建立索引 (Index) 加速文字搜尋。',
-      '記錄高頻搜尋關鍵字，供後續智慧關聯推薦之機器學習訓練。'
+      '記錄最常被搜尋的關鍵字，供之後的推薦模型訓練。'
     ]
   }
 };
@@ -173,7 +173,7 @@ export default function SlideWebArchDuties() {
             </div>
             
             <div className="mt-6 pt-4 border-t border-slate-800/80 text-xs text-sky-300/80 font-medium">
-              🎯 目標：讓使用者操作起來順手、不卡頓
+              🎯 目標：讓使用者操作起來順手、不卡
             </div>
           </AnimatedBlock>
 

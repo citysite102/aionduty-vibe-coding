@@ -121,7 +121,7 @@ export default function SlideNoCodeBridge() {
 
         <AnimatedBlock stepIndex={5} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-sm text-slate-400 leading-relaxed">
-            <strong className="text-slate-200">為什麼這對你重要：</strong>
+            
             這兩道關卡是自動跑的，不必你懂程式。它們就是迴圈能自己往下跑的最低標準：紅字沒清掉，就不算做完。
           </p>
         </AnimatedBlock>

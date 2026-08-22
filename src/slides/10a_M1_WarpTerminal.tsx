@@ -9,7 +9,7 @@ export default function SlideWarpTerminal() {
   const [activeTab, setActiveTab] = useState<'agent' | 'features'>('agent');
 
   return (
-    <SlideLayout title="Warp，比內建好用的終端機" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
+    <SlideLayout title="Warp 可以用滑鼠點，也可以用中文問它指令" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
       <LiveDemo kind="terminal" note="打開 Warp 看實際操作" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
@@ -51,7 +51,7 @@ export default function SlideWarpTerminal() {
                   <Share2 size={16} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-200">Warp Drive：保存常用指令</h4>
+                  <h4 className="text-sm font-bold text-slate-200">Warp Drive：儲存常用指令</h4>
                   <p className="text-xs text-slate-400 mt-0.5">把調通的指令或 SOP 存到雲端，之後可以分享給團隊或自己回頭用。</p>
                 </div>
               </AnimatedBlock>

@@ -86,7 +86,7 @@ export default function SlideThisDeck() {
               <p className="text-slate-400 text-xs leading-relaxed">
                 還有一條沒寫在這裡：<strong className="text-slate-200">中文不要用破折號。</strong>
                 寫進手冊沒用，它會忘，所以做成 Hook 擋下來。
-                <span className="text-slate-500">這就是分流四問的第一題，會出事的交給機制。</span>
+                
               </p>
             </div>
           </AnimatedBlock>

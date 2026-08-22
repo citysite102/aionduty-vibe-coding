@@ -24,7 +24,7 @@ export default function SlideQuoteSystemIntro() {
           </p>
           <p className="text-slate-400 text-base leading-relaxed">
             這不是要取代任務計時器主作品，也不是要把全部功能做完。
-            這一段練的是中型專案的拆解方式，下面五步就是順序，先講清楚要什麼，才有辦法談它怎麼組成。
+
           </p>
         </AnimatedBlock>
 

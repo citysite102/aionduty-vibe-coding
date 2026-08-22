@@ -5,7 +5,7 @@ import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsola
 export default function SlideSafety() {
   return (
     <SlideLayout title="放手之前，先設好四道邊界" subtitle="Safety Protocols Before Autonomy" icon={AlertCircle}>
-      
+
       <div className="flex flex-col gap-4 max-w-6xl mx-auto mt-2">
         <AnimatedBlock stepIndex={1} className="bg-gradient-to-r from-slate-900 to-slate-950 p-5 md:p-6 rounded-3xl border border-slate-800 shadow-xl relative overflow-hidden">
           <div className="absolute right-0 top-0 opacity-10 p-6 pointer-events-none">
@@ -24,7 +24,7 @@ export default function SlideSafety() {
             </p>
           </div>
         </AnimatedBlock>
- 
+
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 mt-1 ${hoverIsolateGrid}`}>
 
           <AnimatedBlock stepIndex={2} className={`bg-slate-900/60 p-5 rounded-3xl border border-red-900/40 shadow-xl ${hoverIsolateCardRing}`}>
@@ -38,7 +38,7 @@ export default function SlideSafety() {
               <code className="text-red-300 bg-slate-950 px-1 rounded font-mono">bypassPermissions</code> 的意思是：AI 執行<strong className="text-slate-200">任何</strong>指令都不再問你，包含刪檔、覆寫、對外連線。
             </p>
             <p className="text-slate-300 text-xs leading-relaxed mt-2 border-l-2 border-red-900/60 pl-3">
-              只在<strong>與外界隔離的容器</strong>裡開。在自己的主力電腦上開這個模式，等於把家裡鑰匙交給一個還在學習的實習生。
+              只在<strong>與外界隔離的容器</strong>裡開。
             </p>
           </AnimatedBlock>
 

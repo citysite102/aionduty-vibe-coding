@@ -149,7 +149,7 @@ export default function SlideReadErrors() {
           </div>
           <p className="text-sm text-slate-400 leading-relaxed mt-4">
             不要只說「有錯誤，幫我修」。<strong className="text-slate-200">紅字整段貼上</strong>，它才知道你在講哪一個。
-            第三句最值得問，錯誤看多了，你自己也會開始看得懂。
+
           </p>
         </AnimatedBlock>
         </div>

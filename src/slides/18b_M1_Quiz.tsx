@@ -42,7 +42,7 @@ const CASES = [
     title: '情境五：想了解目前實作的爬蟲邏輯',
     need: '不需要修改程式碼，只要看懂架構並規劃下一步。',
     tone: 'agent' as const,
-    answer: '用 Claude Code 在專案裡來回討論，請它「用白話文解釋這段程式碼」並協助梳理邏輯。',
+    answer: '用 Claude Code 在專案裡來回討論，請它「用白話文解釋這段程式碼」並協助整理邏輯。',
   },
 ];
 

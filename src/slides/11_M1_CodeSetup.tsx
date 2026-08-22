@@ -1,4 +1,5 @@
 import { Play, AppWindow } from 'lucide-react';
+import { OptionalTag } from '../components/OptionalTag';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { LiveDemo } from '../components/LiveDemo';
@@ -11,7 +12,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  */
 export default function SlideCodeSetup() {
   return (
-    <SlideLayout title="裝好終端機版，確認它讀得到你的專案" subtitle="Install and Verify" icon={Play}>
+    <SlideLayout title="裝好終端機版，確認它讀得到你的專案" subtitle={<><OptionalTag /> Install and Verify</>} icon={Play}>
       <LiveDemo kind="terminal" note="跟著裝一次" />
 
       <div className="max-w-6xl mx-auto mb-5">
@@ -100,7 +101,7 @@ export default function SlideCodeSetup() {
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
             它應該要認得你的 <code className="text-slate-400">index.html</code>，也讀得到你寫過的規矩。
-            <strong className="text-slate-400">這就是這一段要確認的事：跟桌面版是同一個 Claude Code、同一個專案，只是換一個介面進去。</strong>
+            
           </p>
         </AnimatedBlock>
 

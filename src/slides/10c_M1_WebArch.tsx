@@ -74,8 +74,8 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
       idle: '🟢 API Server 啟動中，監聽連接埠 3000...',
       requesting: '🔔 收到新請求！準備解析 POST 請求主體...',
       processing: '⚙️ 處理中：正在比對密碼雜湊值，並檢索使用者資料庫...',
-      responding: '🚀 驗證成功！產生安全 JWT Token，準備傳回前端...',
-      success: '🟢 狀態碼 200 OK 發送完成。伺服器回復閒置狀態。'
+      responding: '🚀 驗證成功！產生安全 JWT Token，準備回傳前端...',
+      success: '🟢 狀態碼 200 OK 發送完成。伺服器恢復閒置狀態。'
     }
   },
   cart: {
@@ -115,7 +115,7 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
       requesting: '🔔 收到結帳請求！確認品項與折價碼金額...',
       processing: '⚙️ 處理中：確認資料庫庫存，正與 Stripe 金流 API 進行扣款扣減...',
       responding: '🚀 扣款成功！資料庫訂單建立成功，回傳訂單編號與物流網址...',
-      success: '🟢 狀態碼 201 Created 發送完成。伺服器回復閒置狀態。'
+      success: '🟢 狀態碼 201 Created 發送完成。伺服器恢復閒置狀態。'
     }
   },
   search: {
@@ -137,16 +137,16 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
       '對資料庫進行 Full-text 全文檢索或 SQL 模糊搜尋查詢。',
       '根據熱門程度、關聯權重、特價狀態進行排序計算。',
       '實作 Cache 機制 (如 Redis)，避免熱門關鍵字重複轟炸資料庫。',
-      '執行分頁 (Pagination) 切割，限制一次只傳回 20 筆加速載入。'
+      '執行分頁 (Pagination) 切割，限制一次只回傳 20 筆加速載入。'
     ],
     dbDuties: [
       '在 books 表的 title 和 tag 欄位建立索引 (Index) 加速文字搜尋。',
-      '記錄高頻搜尋關鍵字，供後續智慧關聯推薦之機器學習訓練。'
+      '記錄最常被搜尋的關鍵字，供之後的推薦模型訓練。'
     ],
     feLog: {
       idle: '⏳ 等待使用者輸入關鍵字並點擊搜尋...',
       requesting: '📤 發送請求：GET /api/search?q=AI...',
-      processing: '📡 資料檢索中，顯示骨架螢幕 (Skeleton Loading) 預覽...',
+      processing: '📡 資料檢索中，顯示骨架畫面 (Skeleton Screen) 預覽...',
       responding: '📥 收到資料！包含 42 筆符合結果與分頁資訊...',
       success: '🎉 渲染完成！顯示 42 個搜尋結果卡片。'
     },
@@ -155,7 +155,7 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
       requesting: '🔔 收到搜尋請求！參數 q=AI, category=Books...',
       processing: '⚙️ 處理中：利用快取和資料庫全文索引檢索符合的商品...',
       responding: '🚀 檢索完畢！整理分頁格式為 JSON 封包，準備回傳...',
-      success: '🟢 狀態碼 200 OK 發送完成。伺服器回復閒置狀態。'
+      success: '🟢 狀態碼 200 OK 發送完成。伺服器恢復閒置狀態。'
     }
   }
 };
@@ -305,6 +305,17 @@ export default function Slide10c() {
               </button>
             </div>
           </div>
+
+          {/*
+            三欄清單裡有十幾個沒教過的名詞（雜湊、JWT、封包、索引、Redis⋯）。
+            逐條加註解會讓這一頁爆掉，所以改成先講清楚這三欄要看的是什麼，
+            學員知道不用逐字讀，那些名詞就不會變成卡點。
+          */}
+          <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
+            下面三欄不用讀懂每一個字。
+            <strong className="text-slate-200">要看的只有一件事：同一件事會被拆成三層做。</strong>
+            之後你交代工作與驗收的時候，要知道問題可能落在哪一層。
+          </p>
 
           {/* SIMULATOR CONTAINER */}
           <div className="flex flex-col md:flex-row items-stretch justify-between gap-4 md:gap-0 relative py-4">

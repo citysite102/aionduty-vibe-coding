@@ -5,9 +5,9 @@ import { Callout } from '../components/Callout';
 
 export default function SlidePricingAndROI() {
   return (
-    <SlideLayout title="兩大類 AI 程式工具付費與登入模式" subtitle="Accounts, Subscriptions & API Pricing Guide" icon={CreditCard}>
+    <SlideLayout title="訂閱制還是計量付費，你該走哪一種" subtitle="Accounts, Subscriptions & API Pricing Guide" icon={CreditCard}>
       <div className="max-w-6xl mx-auto mt-2 text-left space-y-6 pb-6">
-        
+
         <AnimatedBlock stepIndex={1}>
           {/* 前一頁講的是錢的兩種形狀，這一頁講的是帳單本身怎麼開，先把兩者接起來 */}
           <p className="text-slate-400 text-sm leading-relaxed mb-2">
@@ -24,7 +24,7 @@ export default function SlidePricingAndROI() {
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-          
+
           {/* Claude Code (Anthropic API Console) */}
           <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl relative overflow-hidden flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-24 h-24 bg-sky-500/5 rounded-full blur-xl pointer-events-none"></div>
@@ -39,7 +39,7 @@ export default function SlidePricingAndROI() {
               <p className="text-slate-300 text-xs leading-relaxed mb-4">
                 首次啟動 <code>claude</code>（或在對話中輸入 <code>/login</code>）登入時，系統提供兩種計費來源：
               </p>
-              
+
               <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 text-xs font-mono text-slate-300 space-y-4">
                 <div>
                   <span className="text-sky-400 font-bold block mb-1">❶ 訂閱制（Pro $20 / Max 5x $100 / Max 20x $200 每月）</span>
@@ -52,12 +52,12 @@ export default function SlidePricingAndROI() {
                 <div className="border-t border-slate-900 pt-3">
                   <span className="text-sky-400 font-bold block mb-1">❷ Anthropic API 流量扣款 (計量付費)</span>
                   <span className="text-slate-400 leading-relaxed block">
-                    免訂閱月租，註冊 Console 並儲值（最低 $5 美金即可開通），按實際 Token 消耗量精確計量。
+                    免訂閱月租，註冊 Console 並儲值（最低 $5 美金即可開通），按實際 token 用量計費。
                   </span>
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400 font-medium">
               <span className="text-amber-500">💡 怎麼選：</span>
               <span>偶爾用 → API 儲值，用多少算多少；每天都用 → 訂閱制通常便宜得多。先從便宜的開始，撞到上限再升級。</span>
@@ -75,10 +75,8 @@ export default function SlidePricingAndROI() {
                 <span className="text-xs text-slate-500 font-mono">Cursor & Copilot</span>
               </div>
               <h4 className="text-lg font-bold text-slate-100 mb-2">Cursor / GitHub Copilot</h4>
-              <p className="text-slate-300 text-xs leading-relaxed mb-4">
-                作為整合型編輯器，同樣提供彈性的付費選擇，適合不同強度的開發需求：
-              </p>
               
+
               <div className="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 text-xs font-mono text-slate-300 space-y-4">
                 <div>
                   <span className="text-indigo-400 font-bold block mb-1">❶ 月租訂閱制（約 $20/月起）</span>
@@ -94,7 +92,7 @@ export default function SlidePricingAndROI() {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-5 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400 font-medium">
               <span className="text-indigo-400">🚀 實務建議：</span>
               <span>自備 API Key 能讓你免繳月租，且能在同一個介面依用量靈活切換多款主流模型（不同廠牌的模型都可切換）。</span>

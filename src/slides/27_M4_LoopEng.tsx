@@ -84,7 +84,7 @@ const LoopEngineeringAnimation = () => {
               {/* Bullet points */}
               <div className="mt-10 bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center max-w-md">
                 <p className="text-xs text-slate-300 font-medium leading-relaxed">
-                  <strong className="text-slate-100">人類成為最大的頻寬瓶頸</strong><br />
+                  <br />
                   每一次推進都需要你手動重複：發問、等待、看結果、修正、再發問。
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function SlideLoopEngineering() {
 
               <div className="bg-[#0f111a] p-5 rounded-xl border border-slate-800 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-sky-500/10 rounded-bl-full pointer-events-none"></div>
-                <h4 className="text-sky-400 font-bold mb-3 border-b border-slate-800 pb-2">範式轉移</h4>
+                
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">
                    別再自己當那個一直下提示詞的人，而是去設計一套會自動下提示詞的系統。
                 </p>

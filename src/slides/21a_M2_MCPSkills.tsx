@@ -60,7 +60,7 @@ export default function Slide21a() {
             <div className="text-emerald-200/70 text-sm mb-6 font-mono">工作流程封裝 (SOP)</div>
 
             <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-              把特定的「工作 SOP」寫成技能包（SKILL.md）。平常 AI 只載入它的名稱，需要時才展開完整步驟供 AI 依循，就像給新進員工的任務執行手冊。
+              把特定的「工作 SOP」寫成技能包（SKILL.md）。平常 AI 只載入它的名稱，需要時才展開完整步驟。跟 CLAUDE.md 的差別是：這一份平常不佔位置，叫到才進來。
             </p>
 
             <div className="bg-slate-950 p-5 rounded-xl border border-emerald-900/30 mb-6 relative">

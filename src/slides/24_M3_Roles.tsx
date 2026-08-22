@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from 'motion/react';
 const OrchestratorAnim = () => (
   <div className="relative w-full h-full flex items-center justify-center min-h-[350px]">
     {/* Central Orchestrator */}
-    <motion.div 
+    <motion.div
       initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: 'spring' }}
       className="absolute z-20 flex flex-col items-center justify-center w-24 h-24 bg-sky-950 border-2 border-sky-400 rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.3)]"
     >
       <Bot className="text-sky-400" size={36} />
-      <span className="text-[11px] text-sky-400 font-bold mt-1">PM</span>
+      <span className="text-[11px] text-sky-400 font-bold mt-1">指揮者</span>
     </motion.div>
 
     {/* Connecting Lines and animated tasks */}
@@ -54,7 +54,7 @@ const OrchestratorAnim = () => (
       const y = Math.sin(angle) * 120;
       return (
         <div key={i} className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0, x: 0, y: 0 }} animate={{ scale: 1, x, y }} transition={{ type: 'spring', delay: 0.2 }}
             className="absolute z-10 flex flex-col items-center justify-center w-16 h-16 bg-indigo-950 border border-indigo-400 rounded-full shadow-[0_0_20px_rgba(129,140,248,0.2)]"
           >
@@ -114,7 +114,7 @@ const SwarmAnim = () => (
     </div>
 
     {/* Shared Context Badge in center */}
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }} animate={{ opacity: 1 }}
       className="absolute z-20 w-32 h-32 bg-emerald-950/80 rounded-full backdrop-blur-md border border-emerald-500/30 flex items-center justify-center shadow-[0_0_20px_rgba(52,211,153,0.1)]"
     >
@@ -128,7 +128,7 @@ const SwarmAnim = () => (
       const y = Math.sin(angle) * 100;
       return (
         <div key={i} className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0, x: 0, y: 0 }} animate={{ scale: 1, x, y }} transition={{ type: 'spring' }}
             className="absolute z-10 flex items-center justify-center w-14 h-14 bg-emerald-950 border border-emerald-400 rounded-full shadow-[0_0_15px_rgba(52,211,153,0.2)]"
           >
@@ -144,7 +144,7 @@ const WorkflowAnim = () => (
   <div className="relative w-full h-full flex flex-col items-center justify-center gap-6">
     <div className="flex gap-4">
        {[0, 1, 2].map(i => (
-         <motion.div 
+         <motion.div
            key={i}
            initial={{ opacity: 0, x: -20 }}
            animate={{ opacity: 1, x: 0 }}
@@ -160,7 +160,7 @@ const WorkflowAnim = () => (
          </motion.div>
        ))}
     </div>
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
       className="bg-amber-500/10 text-amber-300/80 px-4 py-2 rounded-full text-xs font-mono border border-amber-500/30"
     >
@@ -171,12 +171,12 @@ const WorkflowAnim = () => (
 
 export default function SlideRoles() {
   const { currentStep } = useSlide();
-  
+
   // Decide which animation to show based on step
   let ActiveAnim = OrchestratorAnim;
   let borderColor = "border-sky-900/50";
   let bgGlow = "shadow-[0_0_50px_-12px_rgba(14,165,233,0.15)]";
-  
+
   if (currentStep >= 5) {
     ActiveAnim = WorkflowAnim;
     borderColor = "border-amber-900/50";
@@ -194,7 +194,7 @@ export default function SlideRoles() {
   return (
     <SlideLayout title="一個人做不完的時候，怎麼分工" subtitle="Roles in Action" icon={Network}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-6 items-stretch">
-        
+
         <AnimatedBlock stepIndex={1} className={`w-full min-h-[400px] bg-slate-950 border ${borderColor} rounded-3xl ${bgGlow} transition-colors duration-1000 flex items-center justify-center relative overflow-hidden`}>
            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.02)_0%,transparent_70%)]"></div>
            <AnimatePresence mode="wait">
@@ -214,22 +214,22 @@ export default function SlideRoles() {
         <div className="flex flex-col justify-center space-y-4">
           <AnimatedBlock stepIndex={2} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 2 || currentStep === 1 ? 'border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.15)] bg-sky-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-sky-400 mb-1 flex justify-between items-center">
-              <span>指揮者 (Orchestrator)</span>
+              <span>指揮者（Orchestrator）</span>
               <span className="text-[11px] font-mono text-slate-500">適合：邊做邊決定</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              像專案經理。它把大任務切成小塊、決定誰做、最後驗收。
+              它把大任務切成小塊、決定誰做、最後驗收。
               <strong>你還不確定該怎麼做的時候用它</strong>，它會看著中間產出隨時調整計畫。
             </p>
           </AnimatedBlock>
-          
+
           <AnimatedBlock stepIndex={3} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 3 ? 'border-indigo-500/50 shadow-[0_0_20px_rgba(129,140,248,0.15)] bg-indigo-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-indigo-400 mb-1 flex justify-between items-center">
-              <span>執行者 (Subagent)</span>
+              <span>執行者（Subagent）</span>
               <span className="text-[11px] font-mono text-slate-500">適合：範圍明確的一件事</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              派出去做一件事的分身。<strong>它有自己的一份記憶，做完只回報結果</strong>，過程不佔主對話的空間。
+              派出去做一件事的子代理。<strong>它有自己的一份記憶，做完只回報結果</strong>，過程不佔主對話的空間。
               <strong>規則清楚、不需要懂整體的活交給它</strong>，例如翻譯、跑語法檢查、改一批檔名。
             </p>
           </AnimatedBlock>
@@ -240,8 +240,8 @@ export default function SlideRoles() {
               <span className="text-[11px] font-mono text-slate-500">進階，知道有這回事就好</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              好幾個分身同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，
-              把進度寫在上面給彼此看，那批檔案就是它們的白板。
+              好幾個子代理同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，
+
               <strong>這一種個人專案幾乎用不到</strong>：白板要你自己設計和維護，而且你同時審核得了幾件事，就是它的上限。
             </p>
           </AnimatedBlock>

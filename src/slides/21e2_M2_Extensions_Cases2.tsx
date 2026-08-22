@@ -28,7 +28,7 @@ export default function SlideM2ExtensionsCases2() {
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-amber-400 mb-4 border-b border-slate-800 pb-3">
             <Search size={20} />
-            情境四：跨系統除錯調查 (MCP + Subagent)
+            情境四：跨系統除錯調查 （MCP ＋ Subagent）
           </h3>
           <p className="text-slate-300 text-sm mb-4">
             收到一個線上報錯，需要查明原因並提出修復方案。
@@ -39,8 +39,8 @@ export default function SlideM2ExtensionsCases2() {
               <span className="text-slate-400 text-sm">連線到 GitHub 讀取 Issue #123 的錯誤回報。</span>
             </div>
             <div className="bg-slate-950 p-3 rounded-lg border border-slate-800">
-              <span className="text-amber-400 font-bold text-xs block mb-1">子代理 (Subagent)</span>
-              <span className="text-slate-400 text-sm">將 Issue 內容丟給「Log 分析員 (Subagent)」，讓它去翻找 Sentry 的日誌，最後只把「根因與修復建議」回報給你。</span>
+              <span className="text-amber-400 font-bold text-xs block mb-1">子代理（Subagent）</span>
+              <span className="text-slate-400 text-sm">將 Issue 內容丟給「Log 分析員（Subagent）」，讓它去翻找 Sentry 的日誌，最後只把「根因與修復建議」回報給你。</span>
             </div>
           </div>
         </AnimatedBlock>

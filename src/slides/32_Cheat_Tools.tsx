@@ -8,7 +8,7 @@ import type { RecordedMeta } from '../slides-recorded/types';
  */
 export const meta: RecordedMeta = {
   id: 'live-118-cheat-tools',
-  title: '跨工具思維對照表',
+  title: '同一件事，別家叫什麼名字',
   script:
     '前面講的都是 Claude Code，但這四件事換到 Cursor、Codex 或別家一樣成立，換工具要重學的只有名字。專案規則手冊在這裡叫 CLAUDE.md，別家叫 AGENTS.md，或者放在 Cursor 的 rules 資料夾底下，內容幾乎不用改。先想再動手，這裡是 plan 模式，別家叫 Chat-only 或 Ask。分工派工，這裡叫子代理，別家叫 Agent Teams 或 Role。自己跑自己修，這裡是寫好完成條件讓它自己驗，別家叫 Composer 或 Autonomous Loop。所以到新工具的第一天，你要找的就是這四個東西放在哪裡。',
   seconds: 52,
@@ -44,7 +44,7 @@ const ROWS = [
   {
     icon: Bot,
     concept: '分工與派工',
-    claude: '子代理（Subagents）',
+    claude: '子代理（Subagent）',
     others: 'Agent Teams、CrewAI 這類框架的 Role',
     why: '對話越長，前面交代的事越容易被稀釋。分開跑才守得住。',
   },
@@ -59,7 +59,7 @@ const ROWS = [
 
 export default function Slide32() {
   return (
-    <SlideLayout title="跨工具思維對照表" subtitle="Universal Translation Map for AI Coding Agents" icon={BookCopy}>
+    <SlideLayout title="同一件事，別家叫什麼名字" subtitle="Universal Translation Map for AI Coding Agents" icon={BookCopy}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

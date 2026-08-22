@@ -21,10 +21,10 @@ export default function SlideMissionLog() {
 
         <AnimatedBlock stepIndex={1} className="bg-slate-950/40 border border-slate-800/80 rounded-2xl px-6 py-3.5 flex flex-col md:flex-row md:items-center gap-4">
           <div className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-xs font-mono shrink-0 self-start md:self-center font-bold">
-            循環講完了，回頭收作品
+
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            計時器用了幾天之後，你會開始想知道「我這禮拜到底做了幾趟」。這個念頭一冒出來，作品就從一個玩具變成一個會累積東西的工具。
+            計時器用了幾天之後，你會開始想知道「我這禮拜到底做了幾趟」。
             這裡會回收前面資料庫那一頁講的東西，但先別急著架資料庫。
           </p>
         </AnimatedBlock>
@@ -62,7 +62,7 @@ export default function SlideMissionLog() {
                 ))}
               </div>
               <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
-                AI 很愛偷懶，直接存一個「今天完成 3 趟」的數字。那個數字遲早會跟實際紀錄對不上。
+                你沒講清楚的話，它多半會直接存一個「今天完成 3 趟」的數字。那個數字遲早會跟實際紀錄對不上。
                 <strong className="text-slate-300">能算出來的就不要另外存一份。</strong>
               </p>
             </AnimatedBlock>

@@ -10,7 +10,7 @@ import type { RecordedMeta } from '../slides-recorded/types';
  */
 export const meta: RecordedMeta = {
   id: 'live-83-problem-map',
-  title: '手冊最常出的四個問題',
+  title: '手冊出問題，你要分得出是哪一種',
   script:
     '等你自己動手寫一份手冊，多半會照這個順序撞上這四個問題。第一個，規則明明寫了它卻沒照做，先分辨是哪一種，因為三種的解法完全不同。第二個，這條規則到底該放哪裡，不是每一條都該進 CLAUDE.md。第三個，手冊越寫越長，長不是問題，每一條說不出理由才是。第四個，那規則到底怎麼寫，六個寫法，判準只有一句：另一個人只看做出來的東西，能不能回答有做到或沒做到。四題問的都是同一份檔案，第二題之後每一塊講完，會回頭看那份檔案變成什麼樣子。',
   seconds: 50,
@@ -73,7 +73,7 @@ const PROBLEMS: {
 
 export default function SlideProblemMap() {
   return (
-    <SlideLayout title="手冊最常出的四個問題" subtitle="What Goes Wrong, and Where We Answer It" icon={Map}>
+    <SlideLayout title="手冊出問題，你要分得出是哪一種" subtitle="What Goes Wrong, and Where We Answer It" icon={Map}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1}>

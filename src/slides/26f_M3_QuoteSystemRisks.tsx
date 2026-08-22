@@ -40,9 +40,7 @@ export default function SlideQuoteSystemRisks() {
     <SlideLayout title="中型專案最常卡在這五件事" subtitle="Failure Modes" icon={AlertTriangle}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-          <p className="text-slate-100 text-xl font-bold leading-snug mb-2">
-            這些問題不是意外，是中型專案一定會遇到的摩擦。
-          </p>
+          
           <p className="text-slate-400 text-sm leading-relaxed">
             先知道它們會在哪裡發生，真的遇到的時候你認得出來，也知道該退回哪一步。
           </p>

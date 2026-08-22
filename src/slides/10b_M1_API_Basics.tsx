@@ -35,7 +35,7 @@ export default function Slide10b() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-base mb-4">
                 API (應用程式介面) 就像是<strong>餐廳的服務生</strong>。
-                你（瀏覽器前端）向服務生點餐（發送 Request），服務生去廚房（後端伺服器）傳遞指令，最後端著香噴噴的菜餚與帳單（Response 格式資料）回到你面前。
+                你（在瀏覽器這邊）向服務生點餐（發送 Request），服務生去廚房（另一台電腦）傳遞指令，最後端著香噴噴的菜餚與帳單（Response 格式資料）回到你面前。
               </p>
               
               {/* Visual Request-Response Flow Diagram */}

@@ -115,7 +115,7 @@ export default function Slide21a2SkillDemoResume() {
             </>
           }
         >
-          差別不在它突然比較會寫程式，也不在你話講得比較長。
+
           <strong className="text-slate-100">Skill 是一份先寫好的設計判斷</strong>，
           逼它在動手前先選一個方向，而不是直接套一個最安全的版型。
         </Callout>

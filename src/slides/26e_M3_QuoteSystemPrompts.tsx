@@ -77,7 +77,7 @@ export default function SlideQuoteSystemPrompts() {
 
         <AnimatedBlock stepIndex={7} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-base leading-relaxed">
-            這段先不教 SDD，也不要求完整測試。這一段練的是四件事：需求先落地、API 先講好、資料先對齊、每一步都有審查點。
+            這段先不教 SDD，也不要求完整測試。這一段練的是四件事：需求先寫成一頁、API 先講好、資料結構先講定、每一步都有審查點。
           </p>
         </AnimatedBlock>
       </div>

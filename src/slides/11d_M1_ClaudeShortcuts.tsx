@@ -54,7 +54,7 @@ const TIPS = [
 export default function SlideClaudeShortcuts() {
   return (
     <SlideLayout
-      title="Claude Code 的三個實用按鍵"
+      title="這三個按鍵，一般的聊天對話框都沒有"
       subtitle="Keyboard Shortcuts & Tips"
       icon={Keyboard}
     >
@@ -66,12 +66,10 @@ export default function SlideClaudeShortcuts() {
             className="bg-slate-900 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-center"
           >
             <h3 className="text-xl font-bold text-slate-100 mb-3 leading-snug">
-              這三個，
-              <br />
-              一般的聊天對話框都沒有
+              這三個各解掉一件事
             </h3>
             <p className="text-slate-300 text-sm leading-relaxed">
-              它們各自解掉一件事：不用打完整路徑、做壞了可以退回去、有話直接貼圖給它看。
+              不用打完整路徑、做壞了可以退回去、有話直接貼圖給它看。
             </p>
             <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-3 mt-4">
               桌面版跟終端機都適用。找不到的時候打{' '}

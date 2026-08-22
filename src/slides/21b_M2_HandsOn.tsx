@@ -48,7 +48,7 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
             先把草稿存成 <code className="font-mono text-orange-300">CLAUDE.md</code>。
-            要補哪幾條、怎麼確認它真的照做，下一頁一步一步帶。下面三格都是在改這同一份檔案。
+            下面三格都是在改這同一份檔案。
           </p>
         </AnimatedBlock>
 
@@ -140,7 +140,7 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
             它記的東西裡，如果有你希望每個人都遵守的，搬進手冊。
-            先照這個粗略的分界走就好，一條規則到底該放哪，這一段後面會給你一套完整的判斷方式。
+            先照這個粗略的分界走就好，
           </p>
         </AnimatedBlock>
 

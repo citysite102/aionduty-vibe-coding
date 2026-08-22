@@ -88,7 +88,7 @@ export default function SlideClaudeCodeUI() {
             <div className="min-w-0">
               <h4 className="text-base font-bold text-slate-100">上面那一大塊：用量統計</h4>
               <p className="text-sm text-slate-400 mt-1 leading-relaxed">
-                你用了幾次、花掉多少 token、最常用哪個模型。
+                你用了幾次、花掉多少 token（它算錢的單位）、最常用哪個模型。
                 <strong className="text-slate-300">跟你要做的事沒關係，看過就好。</strong>
               </p>
             </div>

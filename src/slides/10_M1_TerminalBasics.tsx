@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  TerminalSquare, 
-  Keyboard, 
-  Play, 
-  RotateCcw, 
-  Folder, 
-  FileCode, 
-  Search, 
-  HelpCircle, 
+import {
+  TerminalSquare,
+  Keyboard,
+  Play,
+  RotateCcw,
+  Folder,
+  FileCode,
+  Search,
+  HelpCircle,
   Info,
   ChevronRight,
   FolderPlus,
@@ -95,7 +95,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'grep "dependencies"',
     desc: '在檔案內篩選特定字串',
     icon: Search,
-    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」！讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，對查找大型檔案極度實用！',
+    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」！讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，',
     output: [
       '  "dependencies": {'
     ]
@@ -128,7 +128,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
 export default function SlideTerminalBasics() {
   const [activeTab, setActiveTab] = useState<'commands' | 'shortcuts'>('commands');
   const [activeCmdKey, setActiveCmdKey] = useState<string>('pwd');
-  
+
   // Terminal Simulation State
   const [terminalLines, setTerminalLines] = useState<string[]>([
     'Welcome to Hahow Vibe Coding MacBook Terminal (v2026.1)',
@@ -138,7 +138,7 @@ export default function SlideTerminalBasics() {
   const [typedInput, setTypedInput] = useState<string>('');
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const [isRunning, setIsRunning] = useState<boolean>(false);
-  
+
   // Directory Tree Simulation State
   const [hasUtilsFolder, setHasUtilsFolder] = useState<boolean>(false);
   const [highlightTree, setHighlightTree] = useState<boolean>(false);
@@ -151,7 +151,7 @@ export default function SlideTerminalBasics() {
   const runCommand = (cmdKey: string) => {
     // If typing is already running, clean up
     if (typingTimerRef.current) clearInterval(typingTimerRef.current);
-    
+
     const targetCmdData = COMMAND_TEMPLATES[cmdKey];
     setIsTyping(true);
     setIsRunning(false);
@@ -171,14 +171,14 @@ export default function SlideTerminalBasics() {
         if (typingTimerRef.current) clearInterval(typingTimerRef.current);
         setIsTyping(false);
         setIsRunning(true);
-        
+
         // Brief loading delay then output results
         setTimeout(() => {
           setIsRunning(false);
           const newPromptLine = `guest@vibecoding-macbook:~/project$ ${fullCmdText}`;
           const rawOutput = targetCmdData.output;
           const outputLines = Array.isArray(rawOutput) ? rawOutput : [rawOutput];
-          
+
           setTerminalLines(prev => [
             ...prev,
             newPromptLine,
@@ -231,10 +231,10 @@ export default function SlideTerminalBasics() {
   };
 
   return (
-    <SlideLayout title="終端機指令互動 Playground" subtitle={<><OptionalTag /> Terminal Interactive Practice</>} icon={TerminalSquare}>
+    <SlideLayout title="跟著打一次，這幾個指令之後會一直用到" subtitle={<><OptionalTag /> Terminal Interactive Practice</>} icon={TerminalSquare}>
       <LiveDemo kind="terminal" note="每個指令跟著打一次" />
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
-        
+
         {/* Intro Banner */}
         <AnimatedBlock stepIndex={1} className="w-full">
           <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
@@ -255,7 +255,7 @@ export default function SlideTerminalBasics() {
 
         {/* MAIN BODY: Interactive Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* LEFT PANEL: Interactive Reference and Selection (5-Cols) */}
           <AnimatedBlock stepIndex={2} className="lg:col-span-5 bg-slate-900 border border-slate-800/80 rounded-2xl p-5 shadow-xl flex flex-col justify-between">
             <div>
@@ -264,8 +264,8 @@ export default function SlideTerminalBasics() {
                 <button
                   onClick={() => setActiveTab('commands')}
                   className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                    activeTab === 'commands' 
-                      ? 'bg-sky-500 text-slate-950 font-black shadow-md' 
+                    activeTab === 'commands'
+                      ? 'bg-sky-500 text-slate-950 font-black shadow-md'
                       : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -275,8 +275,8 @@ export default function SlideTerminalBasics() {
                 <button
                   onClick={() => setActiveTab('shortcuts')}
                   className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
-                    activeTab === 'shortcuts' 
-                      ? 'bg-amber-500 text-slate-950 font-black shadow-md' 
+                    activeTab === 'shortcuts'
+                      ? 'bg-amber-500 text-slate-950 font-black shadow-md'
                       : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -297,8 +297,8 @@ export default function SlideTerminalBasics() {
                         key={key}
                         onClick={() => runCommand(key)}
                         className={`w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between group ${
-                          isSelected 
-                            ? 'bg-sky-950/40 border-sky-500/50 text-sky-300' 
+                          isSelected
+                            ? 'bg-sky-950/40 border-sky-500/50 text-sky-300'
                             : 'bg-slate-950/40 border-slate-900 text-slate-400 hover:bg-slate-950 hover:border-slate-800 hover:text-slate-200'
                         }`}
                       >
@@ -314,8 +314,8 @@ export default function SlideTerminalBasics() {
                           </div>
                         </div>
                         <div className={`text-xs font-bold font-mono px-1.5 py-0.5 rounded border transition-colors shrink-0 ${
-                          isSelected 
-                            ? 'bg-sky-500/20 border-sky-500/30 text-sky-300' 
+                          isSelected
+                            ? 'bg-sky-500/20 border-sky-500/30 text-sky-300'
                             : 'bg-slate-900 border-slate-800 text-slate-600 group-hover:text-slate-400'
                         }`}>
                           執行 ↵
@@ -330,19 +330,19 @@ export default function SlideTerminalBasics() {
               {activeTab === 'shortcuts' && (
                 <div className="space-y-3 font-mono">
                   <p className="text-xs text-slate-400 font-sans leading-relaxed mb-1">
-                    終端機不像一般文書處理器，滑鼠是點不到特定字母的。以下是高頻、必學的資深鍵盤快捷鍵：
+                    終端機不像一般文書處理器，滑鼠是點不到特定字母的。以下是最常用、一定要會的鍵盤快捷鍵：
                   </p>
-                  
+
                   {[
                     { keys: ['Ctrl', 'C'], desc: '強制終止執行，或清空打到一半的殘留指令', action: 'Ctrl + C' },
                     { keys: ['Ctrl', 'L'], desc: '清空終端機畫面，讓排版回到乾淨的最上方', action: 'Ctrl + L' },
                     { keys: ['Ctrl', 'A'], desc: '把游標移到本行最前面' },
                     { keys: ['Ctrl', 'E'], desc: '把游標移到本行最後面' },
                     { keys: ['Ctrl', 'U'], desc: '清空游標前面的所有輸入' },
-                    { keys: ['Tab'], desc: '自動補完神鍵！打字打到一半按 Tab 自動補完檔案或資料夾名稱' }
+                    { keys: ['Tab'], desc: '' }
                   ].map((item, idx) => (
-                    <div 
-                      key={idx} 
+                    <div
+                      key={idx}
                       className={`p-2.5 rounded-xl border border-slate-900 bg-slate-950/30 flex items-start gap-3 justify-between ${
                         item.action ? 'cursor-pointer hover:bg-amber-950/20 hover:border-amber-900/40 group' : ''
                       }`}
@@ -359,7 +359,7 @@ export default function SlideTerminalBasics() {
                         </div>
                         <p className="text-xs text-slate-500 font-sans leading-relaxed">{item.desc}</p>
                       </div>
-                      
+
                       {item.action && (
                         <span className="text-xs font-bold bg-amber-500/10 text-amber-400 border border-amber-900/30 rounded px-1.5 py-0.5 shrink-0 select-none group-hover:bg-amber-500 group-hover:text-slate-950 transition-colors">
                           模擬鍵 ↩
@@ -375,8 +375,8 @@ export default function SlideTerminalBasics() {
             <div className="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-400">
               <span className="text-sky-400 font-bold">💡 </span>
               <span>
-                {activeTab === 'commands' 
-                  ? '點選指令即可在右側模擬真實打字與執行，觀察過濾後的精細回饋。'
+                {activeTab === 'commands'
+                  ? ''
                   : '點擊右方帶有「模擬鍵」的快速鍵，可以在模擬終端機上觸發對應行為！'}
               </span>
             </div>
@@ -384,7 +384,7 @@ export default function SlideTerminalBasics() {
 
           {/* RIGHT PANEL: Terminal Simulation Window & File Tree (7-Cols) */}
           <AnimatedBlock stepIndex={3} className="lg:col-span-7 flex flex-col gap-4">
-            
+
             {/* Visual File Directory Tree State */}
             <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-lg">
               <div className="flex items-center justify-between mb-3 border-b border-slate-800 pb-2">
@@ -394,35 +394,35 @@ export default function SlideTerminalBasics() {
                 </span>
                 <span className="text-xs text-slate-500 font-mono">/workspace/</span>
               </div>
-              
+
               {/* Fake Tree Node Component */}
               <div className="font-mono text-xs text-slate-300 space-y-1.5 pl-2 select-none">
                 <div className="flex items-center gap-1.5">
                   <Folder size={13} className="text-sky-400 shrink-0" />
                   <span className="font-bold text-slate-200">hahow-vibe-coding-project/</span>
                 </div>
-                
+
                 {/* Level 1 Subfolders */}
                 <div className="pl-4 space-y-1.5 border-l border-slate-800 ml-1.5">
                   <div className="flex items-center gap-1.5">
                     <Folder size={13} className="text-sky-400 shrink-0" />
                     <span className="font-semibold text-slate-300">public/</span>
                   </div>
-                  
+
                   {/* SRC folder */}
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-1.5">
                       <Folder size={13} className="text-sky-400 shrink-0" />
                       <span className="font-semibold text-slate-300">src/</span>
                     </div>
-                    
+
                     {/* SRC sub-nodes */}
                     <div className="pl-4 space-y-1.5 border-l border-slate-800 ml-1.5">
                       <div className="flex items-center gap-1.5">
                         <FileCode size={13} className="text-slate-400 shrink-0" />
                         <span className="text-slate-400">App.tsx</span>
                       </div>
-                      
+
                       <div className="flex items-center gap-1.5">
                         <Folder size={13} className="text-sky-400 shrink-0" />
                         <span className="text-slate-300">slides/</span>
@@ -431,7 +431,7 @@ export default function SlideTerminalBasics() {
                       {/* mkdir action updates this node live */}
                       <AnimatePresence>
                         {hasUtilsFolder && (
-                          <motion.div 
+                          <motion.div
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             exit={{ opacity: 0 }}
@@ -452,7 +452,7 @@ export default function SlideTerminalBasics() {
                     <FileCode size={13} className="text-amber-500/80 shrink-0" />
                     <span className="text-slate-300">package.json</span>
                   </div>
-                  
+
                   <div className="flex items-center gap-1.5">
                     <FileCode size={13} className="text-slate-500 shrink-0" />
                     <span className="text-slate-400">vite.config.ts</span>
@@ -472,7 +472,7 @@ export default function SlideTerminalBasics() {
                   <span className="text-xs text-slate-500 font-mono ml-3">guest@macbook: ~/project</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button 
+                  <button
                     onClick={resetSimulation}
                     className="text-xs bg-slate-900 hover:bg-slate-800 hover:text-slate-300 text-slate-500 font-mono border border-slate-800 rounded px-2 py-0.5 transition-colors flex items-center gap-1"
                   >
@@ -526,7 +526,7 @@ export default function SlideTerminalBasics() {
                       </div>
                     );
                   }
-                  
+
                   return <div key={idx} className="whitespace-pre-wrap">{line}</div>;
                 })}
 

@@ -36,7 +36,7 @@ export default function Slide10b2() {
               <ol className="text-sm text-slate-400 space-y-1.5 list-decimal list-inside font-medium">
                 <li><strong className="text-slate-300">給予網址：</strong>提供目標 API 的官方說明文件 URL</li>
                 <li><strong className="text-slate-300">動態查閱：</strong>Agent 自主發送請求並消化格式</li>
-                <li><strong className="text-slate-300">精準程式碼：</strong>直接產出符合該 SDK 規範的腳本</li>
+                <li><strong className="text-slate-300">正確的程式碼：</strong>直接產出符合該 SDK 規範的腳本</li>
               </ol>
             </div>
           </AnimatedBlock>
@@ -67,7 +67,7 @@ export default function Slide10b2() {
                     <div className="text-xs text-sky-400 font-bold mb-2 flex items-center gap-1.5">
                       <Globe size={14}/> Fetching https://platform.claude.com/docs/en/api/messages...
                     </div>
-                    <p className="mb-3 text-sm text-slate-400">我已經順利下載並閱讀了 Anthropic Messages API 的文件。這是一個使用官方 <code>@anthropic-ai/sdk</code> 的精準實作：</p>
+                    <p className="mb-3 text-sm text-slate-400">我已經順利下載並閱讀了 Anthropic Messages API 的文件。這是一個使用官方 <code>@anthropic-ai/sdk</code> 的照文件寫的實作：</p>
 
                     {/*
                       模擬學員反應：零基礎的人看到這一塊會整個放空，然後接下來兩頁都跟不上。

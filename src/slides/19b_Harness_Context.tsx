@@ -3,7 +3,7 @@ import { Database, FileText, Zap, BookOpen } from 'lucide-react';
 
 export default function SlideHarnessContext() {
   return (
-    <SlideLayout title="上下文工程" subtitle="Context Engineering" icon={BookOpen}>
+    <SlideLayout title="每次都給，還是用到才給" subtitle="Context Engineering" icon={BookOpen}>
       <div className="pt-6 max-w-6xl mx-auto min-h-full flex flex-col">
         {/*
           接縫改過兩次。第一次是把「餵對輸入＋驗證輸出」拿掉，因為整頁三張卡都在講輸入。
@@ -29,12 +29,12 @@ export default function SlideHarnessContext() {
             送進去的那一整包東西叫<strong className="text-sky-200">上下文</strong>：
             你打的字、它讀過的檔案、前面來回過的對話，全部算在一起，就是它這一輪看得到的所有東西。
             它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
-            決定什麼時候送什麼進去，這件事叫上下文工程。
+            決定什麼時候送什麼進去，這件事叫每次都給，還是用到才給。
           </p>
         </div>
 
         <p className="text-slate-300 text-lg mb-8">
-          給它什麼資料，就決定它做出什麼品質。下面三種是它拿到資料的三種時機。
+          下面三種是它拿到資料的三種時機。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">

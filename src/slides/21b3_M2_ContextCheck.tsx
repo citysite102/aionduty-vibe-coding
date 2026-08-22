@@ -70,7 +70,7 @@ export default function SlideM2ContextCheck() {
 
           <AnimatedBlock stepIndex={5} className="border rounded-2xl px-4 py-3 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
             <p className="text-slate-400 text-sm leading-relaxed">
-              寫完手冊的下一步不是繼續加規則，是先跑一次 <code className="text-orange-300 font-mono">/context</code>，確認它真的在清單裡。<span className="text-slate-200">沒被載入的規則，寫得再好都沒有用。</span>
+              寫完手冊的下一步不是繼續加規則，是先跑一次 <code className="text-orange-300 font-mono">/context</code>，確認它真的在清單裡。
             </p>
           </AnimatedBlock>
         </div>

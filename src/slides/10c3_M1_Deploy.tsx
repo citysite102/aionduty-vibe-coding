@@ -14,14 +14,14 @@ export default function Slide10c3Deploy() {
               <Home className="text-slate-400 shrink-0 mt-0.5" size={20} />
               <div>
                 <strong className="text-slate-200 block mb-1 text-sm">在你的電腦上跑（本機）</strong>
-                <span className="text-slate-400 text-xs leading-relaxed">像在<strong className="text-slate-300">自家廚房</strong>做菜自己吃。只有你這台電腦看得到，關機就沒了。</span>
+                <span className="text-slate-400 text-xs leading-relaxed">只有你這台電腦看得到，關掉就沒了，別人連不進來。</span>
               </div>
             </div>
             <div className="border rounded-2xl p-4 flex gap-3 items-start bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
               <Store className="text-sky-400 shrink-0 mt-0.5" size={20} />
               <div>
                 <strong className="text-slate-200 block mb-1 text-base">上線託管（部署）</strong>
-                <span className="text-slate-400 text-sm leading-relaxed">像<strong className="text-sky-300">開店營業</strong>，要有一個店面地址（<strong className="text-sky-300">網址</strong>），別人才找得到、24 小時都能用。</span>
+                <span className="text-slate-400 text-sm leading-relaxed">放到一台一直開著的電腦上，給它一個<strong className="text-sky-300">網址</strong>，別人才找得到、隨時都打得開。</span>
               </div>
             </div>
           </div>

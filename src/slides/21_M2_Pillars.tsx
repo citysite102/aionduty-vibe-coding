@@ -9,7 +9,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  */
 export default function SlidePillars() {
   return (
-    <SlideLayout title="接下來要動手的三件事" subtitle="What We Actually Build" icon={Layers}>
+    <SlideLayout title="六個零件裡，你要自己裝的是這三塊" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
         前面那六個零件裡，這門課真的會動手的是
         <strong className="text-slate-200">工具</strong>與<strong className="text-slate-200">規則文件</strong>兩塊，
@@ -20,7 +20,7 @@ export default function SlidePillars() {
         但它一定要在這張地圖上：學員拿這一頁當進度表，走到監督與邊界那兩頁會找不到自己在哪。
       */}
       <p className="text-slate-500 text-sm leading-relaxed max-w-4xl mx-auto mb-5 text-center">
-        工具講完會先插一段<strong className="text-slate-300">沙箱</strong>，那是六個零件裡的第四塊：
+        工具講完會先插一段<strong className="text-slate-300">權限與邊界</strong>，那是六個零件裡的第四塊：
         手給出去了，你得知道怎麼收緊它碰得到的範圍，再往下動手才安全。
       </p>
 

@@ -41,15 +41,15 @@ export default function SlideOutro() {
   return (
     <SlideLayout title="未來的工作者" subtitle="The Future Worker" icon={Star}>
       <div className="flex flex-col items-center justify-center min-h-[65vh] mt-2 px-4 text-center relative overflow-hidden">
-        
+
         {/* Cool floating background effect */}
         <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-          <motion.div 
+          <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
             className="w-[800px] h-[800px] rounded-full border border-sky-500/10 border-dashed absolute opacity-40"
           />
-          <motion.div 
+          <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
             className="w-[600px] h-[600px] rounded-full border border-sky-500/10 border-dashed absolute opacity-40"
@@ -59,7 +59,7 @@ export default function SlideOutro() {
         </div>
 
         <AnimatedBlock stepIndex={1} className="max-w-4xl relative z-10 mt-2">
-          <motion.div 
+          <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.3, duration: 1, type: "spring" }}
@@ -68,9 +68,9 @@ export default function SlideOutro() {
              <Network size={30} className="text-sky-400 z-10" />
              <div className="absolute inset-0 border-t-2 border-r-2 border-sky-400 rounded-full" />
           </motion.div>
-          
+
           <h2 className="text-2xl md:text-3xl font-black text-slate-100 mb-3 leading-tight">
-            以前寫下來的東西是給人看的，<br/>
+            <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
               現在寫下來的東西，會自己跑起來。
             </span>

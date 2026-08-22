@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'live-82-div-handbook',
   title: '手冊（CLAUDE.md）的疑難雜症與轉移',
   script:
-    '你已經寫出一份 CLAUDE.md 了，接下來這一段處理它的四個常見問題：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
+    '：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
   seconds: 22,
   kind: 'reference',
 };

@@ -58,7 +58,7 @@ export default function SlideFutureEngineering() {
           <p className="text-slate-300 text-base leading-relaxed">
             你貼下去那段話做了兩件事，
             <strong className="text-slate-100">業界各有一個名字</strong>。
-            這兩個詞你之後看文章、跟工程師講話都會一直遇到，所以在這裡對一次。
+
           </p>
         </AnimatedBlock>
 

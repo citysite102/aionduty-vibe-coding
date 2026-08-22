@@ -1,4 +1,5 @@
 import { Keyboard, ClipboardCheck, Terminal, Undo2 } from 'lucide-react';
+import { OptionalTag } from '../components/OptionalTag';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -38,8 +39,8 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="終端機才有的三種操作"
-      subtitle="Terminal-only Moves"
+      title="這三個是按鍵不是指令，打 /help 找不到"
+      subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
     >
       <div className="max-w-5xl mx-auto space-y-4 pb-6">

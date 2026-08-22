@@ -87,7 +87,7 @@ export default function SlideHandsOnPrompt() {
               重點在看它有沒有自己去讀那份手冊：按鈕文案有沒有跟上、有沒有偷塞一張外部圖片進來、分鐘數有沒有寫死在程式裡。
             </p>
             <p className="text-slate-300 text-sm mt-3 pt-2.5 border-t border-slate-800 leading-relaxed">
-              <strong className="text-slate-100">寫了規範，跟規範被遵守，是兩件事。</strong>
+              
             </p>
           </AnimatedBlock>
 

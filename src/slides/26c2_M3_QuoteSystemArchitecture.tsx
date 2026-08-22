@@ -29,7 +29,7 @@ const LAYERS = [
   {
     icon: Plug,
     title: '外部服務',
-    subtitle: '這一輪先當接口',
+    subtitle: '這一輪先留位置',
     detail: 'PDF 匯出、Email 寄送、金流或 CRM，先列出但不急著串',
   },
 ];
