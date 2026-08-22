@@ -17,7 +17,7 @@ export default function RecWhyDiff() {
     <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={ArrowRightLeft}>
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
-          <p className="text-slate-400 text-xl leading-relaxed">不是它變聰明了，是那三條規矩換了一個存放的位置。</p>
+          
           <p className="text-slate-100 text-4xl font-bold leading-snug">
             把你的要求從這次對話，搬到這個專案
           </p>

@@ -53,12 +53,6 @@ export default function RecHookPractice() {
             ))}
           </div>
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={5} className="px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">
-            💡 測不出它擋下來，就是還沒掛好。
-          </p>
-        </AnimatedBlock>
       </RecPage>
     </SlideLayout>
   );

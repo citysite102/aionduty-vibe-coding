@@ -61,7 +61,7 @@ import RecHandbookV5, { meta as m58 } from './harness/58_HandbookV5';
  * 現場與預錄共用這一份，差別只在錄製時加上 ?clean=1 隱藏操作列。
  */
 export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
-  // index 65 = 原「CLAUDE.md 的分層」
+  // index 65 = 原「一份手冊夠不夠用」
   65: [
     { meta: m23, Component: RecWhyNoHandbook },
     { meta: m25, Component: RecWhyDiff },
@@ -77,7 +77,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m03, Component: RecFailCantFollow },
     { meta: m04, Component: RecDiagnose },
   ],
-  // index 79 = 原「這條規則該放哪」
+  // index 79 = 原「規則該放哪，以及怎麼讓程式擋下來」
   // Hook 那一組（62 到 68）夾在分流四問與「保證越高改起來越麻煩」之間。
   //
   // 位置試過排在四問之前，不行：前一組的收尾是「所以下一步先決定位置」，

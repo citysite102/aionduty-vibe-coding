@@ -25,7 +25,7 @@ export default function RecHandbookV2() {
             「絕對不要刪掉我的檔案」這種，<Key>它讀到了，份量也可能不夠</Key>。
           </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            違反了會出事的，搬去 Hook 讓程式擋，手冊裡留一行提醒就好。手冊是提醒，不是防線。
+            違反了會出事的，搬去 Hook 讓程式擋，手冊裡留一行提醒就好。
           </p>
         </AnimatedBlock>
       </RecPage>

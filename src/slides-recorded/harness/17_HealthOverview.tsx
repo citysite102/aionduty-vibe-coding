@@ -7,7 +7,7 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-17-health-overview',
-  title: '手冊健檢：五個步驟',
+  title: '手冊健檢：五步，順序不能換',
   script:
     '手冊越寫越長是正常的，每加一條當下都有理由，所以需要一套固定的整理流程，建議每三個月跑一次。五步：盤點、減法、分流、加法、修剪。順序不能換，減法一定要排在分流前面。下面這段可以直接貼給它，注意最後那句要它先不要動檔案。',
   seconds: 42,

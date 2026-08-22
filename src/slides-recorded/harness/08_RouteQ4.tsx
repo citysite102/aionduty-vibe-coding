@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'harness-08-route-q4',
   title: '規則放哪：以上皆非，才進根目錄',
   script:
-    '第四個問題：如果前面三個都答不是，而且這件事每一輪都要記得，這時候才寫進根目錄。根目錄的 CLAUDE.md 是最後一站，不是預設選項。很多人一拿到規則就往這裡塞，檔案才會越寫越長。像是按鈕文案的用字習慣、檔案怎麼命名，這種才適合放這裡。',
+    '第四個問題：如果前面三個都答不是，而且這件事每一輪都要記得，這時候才寫進根目錄。很多人一拿到規則就往這裡塞，檔案才會越寫越長。像是按鈕文案的用字習慣、檔案怎麼命名，這種才適合放這裡。',
   seconds: 38,
   from: 69,
 };
@@ -31,7 +31,7 @@ export default function RecRouteQ4() {
             <p className="text-sky-300 text-4xl font-bold mb-5 leading-snug">這時候才寫進根目錄</p>
 
             <p className="text-slate-400 text-xl leading-relaxed">
-              根目錄的 CLAUDE.md 是最後一站，不是預設選項。前面三個問題都答不是，才輪到它。
+              前面三個問題都答不是，才輪到它。
             </p>
           </AnimatedBlock>
         </div>

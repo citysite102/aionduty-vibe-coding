@@ -85,12 +85,6 @@ export default function RecTransferIntegrate() {
             </div>
           </div>
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={4} className="px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">
-            💡 這一頁等你真的需要才回來看。現在照著做不完，不影響後面。
-          </p>
-        </AnimatedBlock>
       </RecPage>
     </SlideLayout>
   );

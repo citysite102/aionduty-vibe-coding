@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'harness-58-handbook-v5',
   title: '換個地方，一個字都不用改',
   script:
-    '這份檔案到這裡定型了。從十四行變成十一行，少的那三行不是被砍掉，是各自去了該去的地方。換到網頁版把它整份貼進指令欄，換到桌面版綁上同一個資料夾，內容一個字都不用改。',
+    '這份檔案到這裡定型了。從十四行變成十一行，少的那三行搬去了 Hook 與全域手冊。換到網頁版把它整份貼進指令欄，換到桌面版綁上同一個資料夾，內容一個字都不用改。',
   seconds: 28,
   from: 71,
 };
@@ -23,7 +23,7 @@ export default function RecHandbookV5() {
         {/* 順序照 stepIndex 排。原本 3 寫在 2 上面，翻到第 3 步時內容會插進已經看過的那行上方，版面會跳。 */}
         <AnimatedBlock stepIndex={2} className="px-1">
           <p className="text-slate-400 text-lg leading-relaxed">
-            從十四行變成十一行。少的那三行不是被砍掉，是各自去了該去的地方。
+            從十四行變成十一行。少的那三行搬去了 Hook 與全域手冊。
           </p>
         </AnimatedBlock>
 

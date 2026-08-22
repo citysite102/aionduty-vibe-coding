@@ -79,12 +79,6 @@ export default function RecSurfaceIntro() {
             </div>
           ))}
         </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3} className="px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">
-            💡 差別都落在它碰得到多少東西，不在你要怎麼寫手冊。
-          </p>
-        </AnimatedBlock>
       </RecPage>
     </SlideLayout>
   );
