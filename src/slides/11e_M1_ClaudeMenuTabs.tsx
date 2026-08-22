@@ -66,7 +66,7 @@ const GROUPS = [
 export default function SlideClaudeMenuTabs() {
   return (
     <SlideLayout
-      title="Claude Code 指令的四種類型"
+      title="斜線指令照「你現在想做什麼」分成四類"
       subtitle="Slash Commands, Grouped by What You Need"
       icon={Sliders}
     >

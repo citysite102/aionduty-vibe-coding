@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideIntroAgentic() {
   return (
-    <SlideLayout title="從 Vibe Coding 到 Agentic Engineering" subtitle="2026 Update" icon={ArrowRight}>
+    <SlideLayout title="這兩個詞，你要分得出自己在做哪一個" subtitle="2026 Update" icon={ArrowRight}>
       <div className="max-w-5xl mx-auto mt-6 space-y-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-8 relative overflow-hidden">

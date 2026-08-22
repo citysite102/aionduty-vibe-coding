@@ -54,7 +54,7 @@ const TONES = {
 
 export default function SlideCheatDials() {
   return (
-    <SlideLayout title="監督與邊界" subtitle="Two Independent Dials" icon={SlidersHorizontal}>
+    <SlideLayout title="兩個旋鈕：要不要先問你，碰得到多大範圍" subtitle="Two Independent Dials" icon={SlidersHorizontal}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

@@ -43,7 +43,7 @@ const STAGES = [
 
 export default function SlidePhilosophy() {
   return (
-    <SlideLayout title="四個階段，從看懂到自己做出來" subtitle="Course Arc" icon={Map}>
+    <SlideLayout title="四個階段，從看懂走到自己做出來" subtitle="Course Arc" icon={Map}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock
           stepIndex={1}

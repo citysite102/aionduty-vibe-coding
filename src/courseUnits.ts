@@ -41,7 +41,7 @@ export const UNIT_DEFS: UnitDef[] = [
 
   // ── 章節二 Vibe Coding 是什麼，能做到哪裡 ──
   { live: 4, title: 'Vibe Coding、Agentic Engineering 與工具選擇', anchor: 'Vibe Coding 是什麼，能做到哪裡' },
-  { live: 9, title: '把需求講清楚：AI 怎麼猜你的意思', anchor: '同一個需求，三種做法' },
+  { live: 9, title: '把需求講清楚：AI 怎麼猜你的意思', anchor: '同一個需求，差別在它碰不碰得到你的檔案' },
 
   // ── 章節三 Agent 的心智模型與 Claude Code 實作 ──
   { live: 14, title: '為什麼要一個能動手的 AI', anchor: '讓 AI 動手：Claude Code 入門' },
@@ -62,8 +62,8 @@ export const UNIT_DEFS: UnitDef[] = [
   // ── 章節五 Agent 運作框架與成本分析 ──
   { live: 45, title: '運作框架是什麼，有哪些零件', anchor: 'Agent 運作框架與成本分析' },
   { live: 50, title: 'Token 怎麼計費：兩種花法與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
-  { live: 53, title: '給它工具：MCP 與 Skills', anchor: '接下來要動手的三件事' },
-  { live: 59, title: '給它邊界：監督程度與權限模式', anchor: '監督與邊界' },
+  { live: 53, title: '給它工具：MCP 與 Skills', anchor: '六個零件裡，你要自己裝的是這三塊' },
+  { live: 59, title: '給它邊界：監督程度與權限模式', anchor: '兩個旋鈕：要不要先問你，碰得到多大範圍' },
   { live: 61, title: '動手寫出第一份 CLAUDE.md', anchor: '動手搭建運作框架' },
   { live: 65, title: '一份 CLAUDE.md 不夠用時：手冊的四個層級', anchor: '同一句話，有沒有手冊差在哪' },
   { live: 66, title: '零件什麼時候載入，各自放在哪', anchor: '常駐的東西越少，它越專心' },
@@ -79,7 +79,7 @@ export const UNIT_DEFS: UnitDef[] = [
   // 後兩題（太肥、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
   { live: 76, title: '規則沒生效的三種原因，以及規則該放哪一層', anchor: '手冊（CLAUDE.md）的疑難雜症與轉移' },
   { live: 79, part: 5, title: 'Hook：讓程式擋下來，不是靠它記得', anchor: 'Hook 是程式在擋，不是它記得' },
-  { live: 80, title: '手冊怎麼健檢，規則該怎麼寫', anchor: '手冊健檢：五個步驟' },
+  { live: 80, title: '手冊怎麼健檢，規則該怎麼寫', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
   { live: 82, title: '同一套手冊換個地方用，與從零寫出自己的手冊', anchor: '三個地方，差別只有兩件事' },

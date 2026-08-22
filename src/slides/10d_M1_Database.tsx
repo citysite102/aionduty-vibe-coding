@@ -78,7 +78,7 @@ const GOOD_POINTS = [
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="同一批資料，兩種擺法" subtitle="Database & Schema Design" icon={Database}>
+    <SlideLayout title="資料要怎麼擺，之後才改得動" subtitle="Database & Schema Design" icon={Database}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
