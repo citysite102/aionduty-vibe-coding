@@ -18,13 +18,13 @@ const STAGES = [
   {
     n: '01',
     chapters: '章節二',
-    title: 'Vibe Coding 是什麼，能做到哪裡',
+    title: 'Vibe Coding 與 Agentic Engineering',
     desc: '從輔助生成到 Agent 自動化，中間差在哪裡，工具又該怎麼挑。',
   },
   {
     n: '02',
     chapters: '章節三、四',
-    title: 'Agent 的心智模型與 Claude Code 實作',
+    title: 'Claude Code 實作與網頁開發基礎',
     desc: '建立發包思維，從只能問的對話框走到能動手的 Agent，掌握 Claude Code 的安全邊界。',
   },
   {

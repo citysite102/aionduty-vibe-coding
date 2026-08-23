@@ -7,7 +7,7 @@ import type { RecordedMeta } from '../slides-recorded/types';
  */
 export const meta: RecordedMeta = {
   id: 'live-82-div-handbook',
-  title: '手冊（CLAUDE.md）的疑難雜症與轉移',
+  title: '手冊（CLAUDE.md）的診斷、健檢與轉移',
   script:
     '：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
   seconds: 22,
@@ -25,8 +25,8 @@ export default function SlideDivHandbook() {
   return (
     <SectionDivider
       number="MODULE 2"
-      subtitle="Handbook Troubleshooting"
-      title="手冊（CLAUDE.md）的疑難雜症與轉移"
+      subtitle="Diagnose, Audit, Transfer"
+      title="手冊（CLAUDE.md）的診斷、健檢與轉移"
       roadmap={[
         { label: '四個常見問題', weight: 8, note: '沒生效、放哪層、太肥、怎麼寫' },
         { label: '換成你的工作', weight: 3, note: '不是程式也用得上' },

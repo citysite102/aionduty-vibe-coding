@@ -43,10 +43,11 @@ function ToolBadge({ name, className, icon: Icon, href }: BadgeProps) {
 
 export default function SlideIntroSpectrum() {
   return (
-    <SlideLayout title="依據目標選擇工具" subtitle="Choosing the Right Tool" icon={Layers}>
+    <SlideLayout title="照你的目標，挑一種 AI 工具" subtitle="Choosing the Right Tool" icon={Layers}>
       <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
         <p className="text-slate-400 text-sm mb-6 text-center">
-          愈往右，程式碼與檔案離你自己的電腦愈近，你能寫下的規矩也愈多。
+          從 1 到 5，程式碼愈來愈靠近你自己的電腦：第 1 格它看不到你的檔案，
+          第 5 格它直接在你的資料夾裡改檔案。檔案在你手上，你才有辦法寫下規矩要求它照著改。
         </p>
 
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ${hoverIsolateGrid}`}>

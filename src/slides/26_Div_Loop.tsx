@@ -8,8 +8,8 @@ export default function SlideDivLoop() {
   return (
     <SectionDivider
       number="MODULE 4"
-      subtitle="Loop Engineering · 進階概念"
-      title="Agent 循環開發流程"
+      subtitle="Loop Engineering & Case Studies"
+      title="Agent 循環開發流程與實戰案例"
       roadmap={[
         { label: '交代一輪', weight: 2, note: '目標、完成條件、邊界' },
         { label: '出事怎麼辦', weight: 4, note: '踩煞車、守品質、讀錯誤' },

@@ -4,8 +4,8 @@ export default function SlideDivTerminal() {
   return (
     <SectionDivider
       number="MODULE 1"
-      subtitle="Claude Code, Hands On"
-      title="讓 AI 動手：Claude Code 入門"
+      subtitle="Claude Code & Web Development Basics"
+      title="Claude Code 實作與網頁開發基礎"
       roadmap={[
         { label: '為什麼要能動手', weight: 2, note: '顧問與執行者的差別' },
         { label: '桌面版做一個', weight: 2, note: '四步，不用終端機' },

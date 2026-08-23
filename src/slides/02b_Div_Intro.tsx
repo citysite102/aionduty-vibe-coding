@@ -4,8 +4,8 @@ export default function SlideDivIntro() {
   return (
     <SectionDivider 
       number="INTRO"
-      subtitle="What Vibe Coding Actually Is"
-      title="Vibe Coding 是什麼，能做到哪裡"
+      subtitle="Vibe Coding & Agentic Engineering"
+      title="Vibe Coding 與 Agentic Engineering"
     />
   );
 }
