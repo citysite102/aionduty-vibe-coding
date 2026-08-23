@@ -231,7 +231,7 @@ export default function SlideTerminalBasics() {
   };
 
   return (
-    <SlideLayout title="跟著打一次，這幾個指令之後會一直用到" subtitle={<><OptionalTag /> Terminal Interactive Practice</>} icon={TerminalSquare}>
+    <SlideLayout title="選修：終端機基本指令互動練習" subtitle={<><OptionalTag /> Terminal Interactive Practice</>} icon={TerminalSquare}>
       <LiveDemo kind="terminal" note="每個指令跟著打一次" />
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
 

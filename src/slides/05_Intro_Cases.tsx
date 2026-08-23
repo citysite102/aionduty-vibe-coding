@@ -56,7 +56,7 @@ const PROMPT = `幫我寫一支 Python 腳本來處理報表，具體需求如�
 
 export default function SlideIntroCases() {
   return (
-    <SlideLayout title="同一個需求，差別在它碰不碰得到你的檔案" subtitle="When to Use What" icon={GitPullRequest}>
+    <SlideLayout title="同一個需求的三種做法：單次、重複、系統化" subtitle="When to Use What" icon={GitPullRequest}>
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

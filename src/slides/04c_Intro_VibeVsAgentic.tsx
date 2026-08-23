@@ -86,7 +86,7 @@ const ROWS = [
 
 export default function SlideVibeVsAgentic() {
   return (
-    <SlideLayout title="差在你寫多細，以及做完誰來檢查" subtitle="From Vibe to Agentic" icon={ArrowRight}>
+    <SlideLayout title="三種開發模式的比較：需求細度與驗收方式" subtitle="From Vibe to Agentic" icon={ArrowRight}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

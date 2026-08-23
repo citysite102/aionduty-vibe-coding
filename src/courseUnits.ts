@@ -41,7 +41,7 @@ export const UNIT_DEFS: UnitDef[] = [
 
   // ── 章節二 Vibe Coding 與 Agentic Engineering ──
   // 原本兩支：前一支同時裝了「兩個詞的差別」與「怎麼選工具」，名稱只好寫成三合一；
-  // 後一支叫「把需求講清楚」，第一頁卻是在比工具的「同一個需求，差別在它碰不碰得到你的檔案」。
+  // 後一支叫「把需求講清楚」，第一頁卻是在比工具的「同一個需求的三種做法：單次、重複、系統化」。
   // 現在把那一頁併進選工具這一支，三支各講一件事。
   { live: 4, title: 'Vibe Coding 與 Agentic Engineering 的差別', anchor: 'Vibe Coding 與 Agentic Engineering' },
   { live: 8, title: 'AI 開發工具的六種類型與選用時機', anchor: '照你的目標，挑一種 AI 工具' },
@@ -51,7 +51,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 14, title: 'Agent 的價值與實測表現', anchor: 'Claude Code 實作與網頁開發基礎' },
   { live: 17, title: 'Claude 桌面版實作與七項基礎總覽', anchor: '先用桌面版做出第一個東西' },
   { live: 19, title: '錯誤訊息與 API 文件', anchor: '紅字不是壞事，它在告訴你哪裡卡住' },
-  { live: 23, title: '前端、後端、資料庫與部署', anchor: '你按下按鈕之後，發生了什麼事' },
+  { live: 23, title: '前端、後端、資料庫與部署', anchor: '一次請求的完整流程：前端、後端與資料庫' },
   { live: 27, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
   { live: 29, title: 'Claude Code 的介面、按鍵與指令', anchor: '打開之後，你只需要動最下面那一條' },
   { live: 32, title: '漸進式開發：第一個作品', anchor: '一次改一點，比一次改完安全' },
@@ -66,8 +66,8 @@ export const UNIT_DEFS: UnitDef[] = [
   // ── 章節五 Agent 運作框架與成本分析 ──
   { live: 45, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
   { live: 50, title: 'Token 計費與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
-  { live: 53, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '六個零件裡，你要自己裝的是這三塊' },
-  { live: 59, title: '監督程度與權限模式', anchor: '兩個旋鈕：要不要先問你，碰得到多大範圍' },
+  { live: 53, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '這門課要動手的三塊：工具、規則文件、把題目切小' },
+  { live: 59, title: '監督程度與權限模式', anchor: '監督與邊界' },
   { live: 61, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。

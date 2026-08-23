@@ -5,7 +5,7 @@ import { Callout } from '../components/Callout';
 
 export default function SlidePricingAndROI() {
   return (
-    <SlideLayout title="訂閱制還是計量付費，你該走哪一種" subtitle="Accounts, Subscriptions & API Pricing Guide" icon={CreditCard}>
+    <SlideLayout title="AI 程式工具的付費模式：訂閱制與計量付費" subtitle="Accounts, Subscriptions & API Pricing Guide" icon={CreditCard}>
       <div className="max-w-6xl mx-auto mt-2 text-left space-y-6 pb-6">
 
         <AnimatedBlock stepIndex={1}>

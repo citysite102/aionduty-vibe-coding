@@ -51,7 +51,7 @@ export default function SlideCheatPerms() {
   };
 
   return (
-    <SlideLayout title="四個權限模式，各自轉的是哪一個旋鈕" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
+    <SlideLayout title="Claude Code 的四個權限模式" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-2 items-stretch text-left pb-6">
 

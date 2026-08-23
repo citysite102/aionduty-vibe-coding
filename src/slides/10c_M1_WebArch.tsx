@@ -210,7 +210,7 @@ export default function Slide10c() {
   };
 
   return (
-    <SlideLayout title="你按下按鈕之後，發生了什麼事" subtitle="Web Architecture & API Request" icon={LayoutTemplate}>
+    <SlideLayout title="一次請求的完整流程：前端、後端與資料庫" subtitle="Web Architecture & API Request" icon={LayoutTemplate}>
       <div className="flex flex-col items-stretch gap-3 max-w-5xl mx-auto w-full pb-0">
         
         {/* Intro */}

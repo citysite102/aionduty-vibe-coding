@@ -9,7 +9,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  */
 export default function SlidePillars() {
   return (
-    <SlideLayout title="六個零件裡，你要自己裝的是這三塊" subtitle="What We Actually Build" icon={Layers}>
+    <SlideLayout title="這門課要動手的三塊：工具、規則文件、把題目切小" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
         前面那六個零件裡，這門課真的會動手的是
         <strong className="text-slate-200">工具</strong>與<strong className="text-slate-200">規則文件</strong>兩塊，

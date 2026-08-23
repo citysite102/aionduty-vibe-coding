@@ -33,7 +33,7 @@ const COLOR_MAP: Record<string, string> = {
 
 export default function SlidePopularSkills() {
   return (
-    <SlideLayout title="先裝這四個 Skills" subtitle="Popular Skills to Install" icon={Sparkles}>
+    <SlideLayout title="四個常用的 Skills" subtitle="Popular Skills to Install" icon={Sparkles}>
       <div className="flex flex-col gap-5 max-w-6xl mx-auto w-full pb-8">
 
         {/* 這一頁從 M4 搬到 M2 的 Skill 那一段：講完怎麼裝，接著就是裝什麼。 */}

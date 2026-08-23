@@ -21,7 +21,7 @@ const CHECKS = [
 
 export default function SlideLLMPromptDrill() {
   return (
-    <SlideLayout title="講清楚，先檢查這三件事" subtitle="Three Checks" icon={PenLine}>
+    <SlideLayout title="常見的三個溝通誤區" subtitle="Three Checks" icon={PenLine}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
