@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TrendingUp, Clock, Hourglass, Coins, Info, Gauge } from 'lucide-react';
+import { TrendingUp, Clock, Hourglass, Coins, Info } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 type CaseKey = 'script' | 'webapp' | 'bug';
@@ -10,6 +10,10 @@ type CaseKey = 'script' | 'webapp' | 'bug';
  * 單價：Claude Opus 5，輸入 $5、輸出 $25 / 百萬 token，快取讀取約輸入的十分之一。
  * 這三個是官方公告的數字，學員查得到，所以頁面上要寫出來。
  * 用量（basis 那一欄）是估的，所以頁面上要標明它是估的，並告訴學員怎麼查自己的真實數字。
+ *
+ * 這一頁只回答「這筆錢值不值得」。「怎麼少花一點」（/usage、/effort、三個浪費）
+ * 拆到下一頁去了，因為這一頁裝到溢出六百多 px，是全片常態的四倍多。
+ * 情境分頁只跟金額有關，所以留在這裡，不要跟著搬過去。
  *
  * 匯率抓 1 美元兌 32 元。改單價或改匯率的時候，這裡三筆要一起重算，
  * 而且 19a_M2_SectionGoal.tsx 的錨點句（自動化小腳本那一筆）是同一個數字的複本，也要跟著改。
@@ -138,7 +142,7 @@ export default function SlideROI() {
           </p>
           <p className="text-slate-500 text-xs mt-2 leading-relaxed">
             單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取約輸入的十分之一，匯率抓 32。
-            用量是估的，你自己跑一次之後打 <code className="font-mono text-orange-300">/usage</code> 就看得到真實數字。
+            用量是估的。
           </p>
         </AnimatedBlock>
 
@@ -205,31 +209,6 @@ export default function SlideROI() {
               token 費用是用公告單價乘上估計用量算的。這裡只拿來對照數量級。
             </p>
           </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
-          <p className="text-slate-300 text-base leading-relaxed">
-            所以問題不是要不要花這筆錢，是<strong className="text-slate-100">怎麼讓它花在刀口上</strong>。
-            token 最容易被浪費的地方有三個：它手上沒有對的工具、你丟了一堆它用不到的資料給它、
-            或是一個題目一次交代太大。
-          </p>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
-          <div className="flex items-center gap-2 mb-2">
-            <Gauge size={16} className="text-slate-400 shrink-0" />
-            <h3 className="text-base font-bold text-slate-200">有一個旋鈕可以直接調深淺</h3>
-          </div>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            打 <code className="font-mono text-orange-300">/effort</code> 可以調它每一次回答要想多久，
-            想得越久越貴。預設是 high，事情簡單的時候調到 low 或 medium，省下來的是實打實的 token。
-            <code className="font-mono text-orange-300 mx-1">/model</code> 換的是模型等級，
-            <code className="font-mono text-orange-300 mx-1">/effort</code> 是在同一個模型裡調深淺，兩個可以分開用。
-          </p>
-          <p className="text-slate-500 text-sm leading-relaxed mt-2 pt-2 border-t border-slate-800">
-            它會記住你設的等級，下次開新對話還是同一個。所以調低之後遇到難題覺得它變笨，
-            先打一次 <code className="font-mono text-orange-300">/effort</code> 看現在停在哪一級。
-          </p>
         </AnimatedBlock>
 
       </div>

@@ -61,8 +61,8 @@ import RecHandbookV5, { meta as m58 } from './harness/58_HandbookV5';
  * 現場與預錄共用這一份，差別只在錄製時加上 ?clean=1 隱藏操作列。
  */
 export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
-  // index 65 = 原「CLAUDE.md 的作用、長度與分層」
-  65: [
+  // index 66 = 原「CLAUDE.md 的作用、長度與分層」
+  66: [
     { meta: m23, Component: RecWhyNoHandbook },
     { meta: m25, Component: RecWhyDiff },
     { meta: m26, Component: RecLayersOverview },
@@ -70,14 +70,14 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m32, Component: RecAgentsMd },
     { meta: m54, Component: RecHandbookV1 },
   ],
-  // index 78 = 原「規則明明寫了，它卻沒照做」
-  78: [
+  // index 79 = 原「規則明明寫了，它卻沒照做」
+  79: [
     { meta: m01, Component: RecFailNotLoaded },
     { meta: m02, Component: RecFailBuried },
     { meta: m03, Component: RecFailCantFollow },
     { meta: m04, Component: RecDiagnose },
   ],
-  // index 79 = 原「規則該放哪一層，以及 Hook 的寫法」
+  // index 80 = 原「規則該放哪一層，以及 Hook 的寫法」
   // Hook 那一組（62 到 68）夾在分流四問與「保證越高改起來越麻煩」之間。
   //
   // 位置試過排在四問之前，不行：前一組的收尾是「所以下一步先決定位置」，
@@ -90,7 +90,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // 現在拆成七頁：為什麼（62）、三層骨架（63）、三層各一頁（64 到 66）、
   // 動手掛一條（67）、換成 Codex 還算不算數（68）。
   // 最後那一頁是這一節的職務，這一節本來就是疑難雜症與轉移。
-  79: [
+  80: [
     // 四題原本直接從第一題開始，方法寫成第一題頁面上的一行引言。
     // 那讓第一頁要同時交代方法與第一題，份量跟後面三頁不一樣。方法獨立一頁。
     { meta: m04b, Component: RecRouteIntro },
@@ -109,8 +109,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },
   ],
-  // index 80 = 原「手冊越寫越長，怎麼整理」
-  80: [
+  // index 81 = 原「手冊越寫越長，怎麼整理」
+  81: [
     { meta: m17, Component: RecHealthOverview },
     { meta: m18, Component: RecHealthInventory },
     { meta: m19, Component: RecHealthSubtract },
@@ -119,10 +119,10 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m22, Component: RecHealthRest },
     { meta: m56, Component: RecHandbookV3 },
   ],
-  // index 81 = 原「怎麼把話講對：白名單與探索空間」
+  // index 82 = 原「怎麼把話講對：白名單與探索空間」
   // 12_WriteLatitude（留探索空間）本來漏在外面：檔案寫好了、母頁標題也點名它，
   // 但 registry 沒有 import，所以那一頁從來沒有播過，六個寫法只播得出五個。補回來。
-  81: [
+  82: [
     { meta: m11, Component: RecWrite1 },
     { meta: m12, Component: RecWrite2 },
     { meta: m13, Component: RecWrite3 },
@@ -134,15 +134,15 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     // 57 是拿示範手冊改一條，16b 是換成學員自己那份：先看別人改，再改自己的。
     { meta: m16b, Component: RecWritePractice },
   ],
-  // index 82 = 原「同一套手冊，換個地方用」
+  // index 83 = 原「同一套手冊，換個地方用」
   // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：
   // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
-  82: [
+  83: [
     { meta: m33, Component: RecSurfaceIntro },
     { meta: m58, Component: RecHandbookV5 },
   ],
-  // index 84 = 原「換成你的工作，手冊該寫什麼」
-  84: [
+  // index 85 = 原「換成你的工作，手冊該寫什麼」
+  85: [
     { meta: m41, Component: RecTransferCase },
     { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
@@ -151,8 +151,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 85 = 原「你完成了哪四件事」
-  85: [
+  // index 86 = 原「你完成了哪四件事」
+  86: [
     { meta: m48, Component: RecRecapOne },
   ],
 };

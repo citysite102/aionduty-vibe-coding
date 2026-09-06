@@ -48,6 +48,7 @@ import Slide11d2 from './slides/11d2_M1_TerminalKeys';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide11c from './slides/11c_M1_PricingAndROI';
 import Slide11c2 from './slides/11c2_M1_ROI';
+import Slide11c3 from './slides/11c3_M1_SpendLess';
 import Slide12 from './slides/12_M1_Example1';
 import Slide12b from './slides/12b_M1_Challenge';
 import Slide12c from './slides/12c_M1_ApiHandsOn';
@@ -197,6 +198,7 @@ const LIVE_TITLES = [
   "兩種花錢的方式：邊做邊花，還是先花再省",
   "AI 程式工具的付費模式：訂閱制與計量付費",
   "自己做跟外包，成本與交期差多少",
+  "怎麼少花一點：兩個指令與三個常見的浪費",
   "這門課要動手的三塊：工具、規則文件、把題目切小",
   "讓 AI 有工具可用：MCP 與 Skills",
   "同一個個人網站，裝與不裝 Skill",
@@ -330,6 +332,7 @@ const LIVE_SLIDES = [
   Slide19d,
   Slide11c,
   Slide11c2,
+  Slide11c3,
   Slide21,
   Slide21a,
   Slide21a2,
@@ -423,9 +426,9 @@ const SECTION_DEFS = [
   { start: 14, label: 'Claude Code 實作與網頁開發基礎' },
   { start: 40, label: '選修：終端機與 Claude Code 安裝' },
   { start: 45, label: 'Agent 運作框架與成本分析' },
-  { start: 76, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 86, label: 'Agent 分工與品質控管' },
-  { start: 100, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 77, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { start: 87, label: 'Agent 分工與品質控管' },
+  { start: 101, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
