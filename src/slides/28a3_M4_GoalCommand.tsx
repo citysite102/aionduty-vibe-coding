@@ -16,6 +16,10 @@ import { Callout } from '../components/Callout';
  *
  * 收尾那段是這一頁真正的重點：判定的模型只讀得到對話裡秀出來的東西，
  * 所以它跟「它有可能用講的宣稱驗過了」是同一個風險，不要刪掉。
+ *
+ * /loop 的正名放在這裡而不是「與其自己一直下提示」那一頁：名稱撞的是那一頁沒錯，
+ * 但那頁右欄的內容區已經溢出（量過，可捲高度比可視高度多兩百多），再加一塊會捲到看不見。
+ * 放這裡對比反而更利落，讀者眼前就是 /goal。tone 用 muted 是為了不跟上面那個 focus 搶。
  */
 const BLOCKS = [
   {
@@ -86,6 +90,13 @@ export default function SlideGoalCommand() {
           <strong className="text-slate-100">它只讀得到 Claude 在對話裡秀出來的東西。</strong>
           所以【怎麼驗】那一段不能省，條件也要寫成它的輸出能證明的樣子。
           它說達成的時候，你還是要自己點一次。
+        </Callout>
+
+        <Callout tone="muted" label="別跟 /loop 搞混" stepIndex={7}>
+          打 <span className="font-mono text-slate-100">/</span> 的時候你會看到一個
+          <code className="font-mono text-orange-300 mx-1">/loop</code>，它做的是另一件事：
+          照時間間隔重複跑同一句話，例如每五分鐘看一次部署好了沒，用來盯一個還在跑的東西。
+          要它自己改一輪、驗一輪跑到條件成立的，是 <code className="font-mono text-orange-300">/goal</code>。
         </Callout>
 
       </div>
