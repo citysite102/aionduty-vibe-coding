@@ -137,6 +137,7 @@ import SlideCase3Trust from './slides/29i_Case3_Trust';
 import SlideCase3Race from './slides/29j_Case3_Race';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
+import Slide28c from './slides/28c_M4_RunItAgain';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
 import { UNIT_DEFS } from './courseUnits';
@@ -269,6 +270,7 @@ const LIVE_TITLES = [
   "兩個人同時搶最後一個名額",
   "回去之後，做哪一種題目",
   "新專案的前三個動作",
+  "輸入放同一個資料夾，產物寫同一個檔名",
   "未來的工作者",
 ];
 
@@ -400,6 +402,7 @@ const LIVE_SLIDES = [
   SlideCase3Race,
   Slide28b0,
   Slide28b,
+  Slide28c,
   Slide33,
 ];
 
