@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TrendingUp, Clock, Hourglass, Coins, Info } from 'lucide-react';
+import { TrendingUp, Clock, Hourglass, Coins, Info, Gauge } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 type CaseKey = 'script' | 'webapp' | 'bug';
@@ -212,6 +212,23 @@ export default function SlideROI() {
             所以問題不是要不要花這筆錢，是<strong className="text-slate-100">怎麼讓它花在刀口上</strong>。
             token 最容易被浪費的地方有三個：它手上沒有對的工具、你丟了一堆它用不到的資料給它、
             或是一個題目一次交代太大。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
+          <div className="flex items-center gap-2 mb-2">
+            <Gauge size={16} className="text-slate-400 shrink-0" />
+            <h3 className="text-base font-bold text-slate-200">有一個旋鈕可以直接調深淺</h3>
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed">
+            打 <code className="font-mono text-orange-300">/effort</code> 可以調它每一次回答要想多久，
+            想得越久越貴。預設是 high，事情簡單的時候調到 low 或 medium，省下來的是實打實的 token。
+            <code className="font-mono text-orange-300 mx-1">/model</code> 換的是模型等級，
+            <code className="font-mono text-orange-300 mx-1">/effort</code> 是在同一個模型裡調深淺，兩個可以分開用。
+          </p>
+          <p className="text-slate-500 text-sm leading-relaxed mt-2 pt-2 border-t border-slate-800">
+            它會記住你設的等級，下次開新對話還是同一個。所以調低之後遇到難題覺得它變笨，
+            先打一次 <code className="font-mono text-orange-300">/effort</code> 看現在停在哪一級。
           </p>
         </AnimatedBlock>
 
