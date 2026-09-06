@@ -125,6 +125,7 @@ import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
+import Slide28a3 from './slides/28a3_M4_GoalCommand';
 import SlideCase1Vessel from './slides/29a_Case1_Vessel';
 import SlideCaseSpec from './slides/29b_Case_Spec';
 import SlideCaseSpecCheck from './slides/29c_Case_SpecCheck';
@@ -252,6 +253,7 @@ const LIVE_TITLES = [
   "放手之前，先設好四道邊界",
   "讓計時器自己跑完一輪",
   "Agent 自己跑的時候，你在旁邊看什麼",
+  "/goal：條件寫一次，它自己跑到達成",
   "你寫的是規格，還是願望",
   "幫計時器加上航行日誌",
   "你的專案現在只活在這台電腦裡",
@@ -384,6 +386,7 @@ const LIVE_SLIDES = [
   Slide28,
   Slide28a,
   Slide28a2,
+  Slide28a3,
   Slide27b6,
   Slide27b8,
   Slide27b8b,
