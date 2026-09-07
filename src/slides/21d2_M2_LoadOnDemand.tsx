@@ -27,7 +27,7 @@ const PARTS = [
 
 export default function SlideM2LoadOnDemand() {
   return (
-    <SlideLayout title="Skill、Subagent、MCP：叫到才進來，平常不佔位置" subtitle="Loaded on Demand" icon={Package}>
+    <SlideLayout title="Skill、Subagent、MCP：叫到才進來" subtitle="Loaded on Demand" icon={Package}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
