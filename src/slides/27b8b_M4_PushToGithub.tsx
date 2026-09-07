@@ -47,13 +47,13 @@ export default function SlidePushToGithub() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <div className="text-slate-300 text-sm font-bold mb-1.5">用途一：備份與帶著走</div>
+              <div className="text-slate-300 text-sm font-bold mb-1.5">給你自己用</div>
               <p className="text-slate-500 text-sm leading-relaxed">換電腦、找回舊版本、給別人看，都從這裡。</p>
             </div>
             <div className="rounded-xl border border-sky-500/30 bg-slate-950 p-4">
-              <div className="text-sky-300 text-sm font-bold mb-1.5">用途二：部署平台從這裡拿程式</div>
+              <div className="text-sky-300 text-sm font-bold mb-1.5">給部署平台用</div>
               <p className="text-slate-400 text-sm leading-relaxed">
-                這才是你真的需要它的原因。Vercel 不是讀你的電腦，是讀 GitHub。
+                Vercel 不是讀你的電腦，是讀 GitHub。沒有推上去，後面部署就接不上。
               </p>
             </div>
           </div>
