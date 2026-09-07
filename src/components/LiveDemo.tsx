@@ -15,7 +15,12 @@ import { TerminalSquare, Globe, AppWindow, Bot } from 'lucide-react';
  * 預設是 claude 不是 terminal。走桌面版那條路的學員占比不低，
  * 標成「切終端機」會讓他們以為這一頁不是寫給自己的，然後整頁跳過。
  *
- * 用法：<LiveDemo kind="claude" note="跟著加一次" />
+ * 用法：<LiveDemo kind="claude" note="推完你會拿到一個 GitHub 網址" />
+ *
+ * note 可以不給。要給的話，寫「做完會怎樣」或「要看什麼」，不要寫「跟著做一次」。
+ * 課程是預錄自學，沒有誰可以「跟著」，而且那種句子刪掉讀者不會少知道任何事（D-2）。
+ * 也不要重複 label 已經說過的動作：kind="browser" 的膠囊上已經寫著「現在開瀏覽器」，
+ * note 再寫一次「打開⋯」就是同一句話講兩次。
  */
 export function LiveDemo({
   kind = 'claude',

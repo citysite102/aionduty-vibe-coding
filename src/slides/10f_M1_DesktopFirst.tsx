@@ -69,7 +69,7 @@ export default function SlideDesktopFirst() {
       subtitle="Desktop First, Terminal Next"
       icon={AppWindow}
     >
-      <LiveDemo kind="desktop" note="四步做出第一個東西" />
+      <LiveDemo kind="desktop" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">

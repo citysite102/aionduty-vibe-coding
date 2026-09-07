@@ -25,7 +25,7 @@ export default function SlidePushToGithub() {
       subtitle="Push It to GitHub"
       icon={CloudUpload}
     >
-      <LiveDemo kind="claude" note="跟著推一次" />
+      <LiveDemo kind="claude" note="推完你會拿到一個 GitHub 網址" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {LOSSES.map((l) => {

@@ -13,7 +13,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 export default function SlideCodeSetup() {
   return (
     <SlideLayout title="裝好終端機版，確認它讀得到你的專案" subtitle={<><OptionalTag /> Install and Verify</>} icon={Play}>
-      <LiveDemo kind="terminal" note="跟著裝一次" />
+      <LiveDemo kind="terminal" />
 
       <div className="max-w-6xl mx-auto mb-5">
         <Callout tone="focus" label="這一段是選修的" icon={AppWindow} stepIndex={1}>

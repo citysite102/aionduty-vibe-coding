@@ -40,7 +40,7 @@ const RESPONSE = `{
 export default function SlideApiHandsOn() {
   return (
     <SlideLayout title="讓計時器去外面拿一筆資料" subtitle="Your First API Call" icon={Antenna}>
-      <LiveDemo kind="claude" note="跟著加一次" />
+      <LiveDemo kind="claude" note="加完之後，畫面上會出現今天的日出與日落" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start pb-8">
 

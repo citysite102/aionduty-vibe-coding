@@ -6,7 +6,7 @@ import { Callout } from '../components/Callout';
 export default function Slide10b() {
   return (
     <SlideLayout title="兩個程式要講話，得先講好格式" subtitle="API & JSON Fundamentals" icon={Database}>
-      <LiveDemo kind="browser" note="打開真實 API 看回應" />
+      <LiveDemo kind="browser" note="看它回來的東西，是不是就是這種 JSON 的形狀" />
       <div className="flex flex-col gap-6 max-w-6xl mx-auto w-full pb-8">
         
         {/* TOP METAPHOR BANNER */}

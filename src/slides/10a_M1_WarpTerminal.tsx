@@ -10,7 +10,7 @@ export default function SlideWarpTerminal() {
 
   return (
     <SlideLayout title="選修：Warp 終端機的三個特點" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
-      <LiveDemo kind="terminal" note="打開 Warp 看實際操作" />
+      <LiveDemo kind="terminal" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
         {/* Left column: Warp Intro */}
