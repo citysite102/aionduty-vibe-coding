@@ -63,7 +63,7 @@ const STUCK = [
 
 export default function SlideDeploy() {
   return (
-    <SlideLayout title="真的把它變成一個網址" subtitle="Ship It, For Real" icon={Rocket}>
+    <SlideLayout title="把它變成一個網址" subtitle="Ship It, For Real" icon={Rocket}>
       <LiveDemo kind="claude" note="這一步做完你就有網址了" />
 
       <div className="max-w-6xl mx-auto space-y-4 pb-8">

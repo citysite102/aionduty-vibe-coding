@@ -181,7 +181,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         kind: 'say',
         text: '幫我把這個資料夾部署上線。先確認本機打開沒問題，推上 GitHub，再接部署平台完成部署。需要我去瀏覽器授權的時候停下來告訴我要點哪裡。完成後把網址給我，並且確認那個網址真的打得開。',
         watch: '拿到網址之後用手機開一次，不要用你部署的那台電腦，也不要連同一個 wifi。',
-        from: '真的把它變成一個網址',
+        from: '把它變成一個網址',
       },
       {
         when: 'repo 是 private，GitHub Pages 掛不上去',

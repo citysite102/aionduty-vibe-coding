@@ -32,7 +32,7 @@ const DONE = [
 
 export default function SlideM3Harvest() {
   return (
-    <SlideLayout title="你手上現在多了什麼" subtitle="Module 3 Recap" icon={PackageCheck}>
+    <SlideLayout title="三項成果：一個審查子代理、一次實測、一個判準" subtitle="Module 3 Recap" icon={PackageCheck}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
 
         <div className="space-y-3">

@@ -32,7 +32,7 @@ const ROLES = [
 
 export default function SlideTeachingSim() {
   return (
-    <SlideLayout title="三個角色跑一次，找出自己看不到的洞" subtitle="A Real Case" icon={Users}>
+    <SlideLayout title="用講師、學生、觀察員跑一次，找出自己看不到的洞" subtitle="A Real Case" icon={Users}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start pb-8">
 
         <div className="space-y-4">
