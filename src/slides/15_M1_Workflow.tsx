@@ -1,5 +1,6 @@
-import { RefreshCcw, Search, FileEdit, PlaySquare, CheckCircle2 } from 'lucide-react';
+import { RefreshCcw, Search, FileEdit, PlaySquare, CheckCircle2, ShieldQuestion } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
 import { motion } from 'motion/react';
 
 export default function SlideWorkflow() {
@@ -71,6 +72,22 @@ export default function SlideWorkflow() {
             <strong className="text-sky-400">而「驗證」是你的：先寫下什麼情況該出現什麼結果，再照著跑一次看對不對。</strong>
           </p>
         </AnimatedBlock>
+
+        {/*
+          這一頁是學員第一次真的讓它動自己的檔案（下一頁就開始做第一個作品）之前的最後一頁。
+          權限模式那兩頁在幾十頁之後，中間這一整段他都在按同意，卻沒人跟他說按下去代表什麼。
+          這裡只補他當下需要的那一句：它會先問、你看過再按。
+          模式怎麼切、能不能整段放手，留給後面那兩頁，不在這裡展開。
+        */}
+        <Callout stepIndex={4} icon={ShieldQuestion} label="「執行」這一步，它會先問你" className="mt-6">
+          它要改哪個檔案、要裝什麼東西，動手之前會停下來等你按同意。
+          <strong className="text-slate-100">按之前先看它說要改的是哪一個檔案</strong>，
+          對不上就選不同意，把想改的講清楚再讓它跑一次。
+          <span className="mt-2 block text-slate-400">
+            一路按同意，等於沒有這道關卡。這個詢問可以整段關掉，也可以只放行一部分，
+            怎麼設定後面會專門講。
+          </span>
+        </Callout>
       </div>
     </SlideLayout>
   );

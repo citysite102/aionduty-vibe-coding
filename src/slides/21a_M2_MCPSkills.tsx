@@ -32,13 +32,13 @@ export default function Slide21a() {
             <div className="text-sky-200/70 text-sm mb-6 font-mono">標準化環境擴充 (Infrastructure)</div>
             
             <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-              一個開放標準協議，讓 AI 模型能安全地連線到本機或外部資料源。有了它，AI 才碰得到你的資料庫、雲端硬碟、專案管理工具。
+              一套開放的溝通規範，規定 AI 工具跟外部服務之間要怎麼互相說話。規範本身不含資料，也不會給出權限：你另外裝一個 MCP 伺服器（GitHub、資料庫、雲端硬碟），照這套規範接上去，並在接的時候自己授權，AI 才碰得到那個系統。
             </p>
 
             <div className="bg-slate-950 p-5 rounded-xl border border-sky-900/30 mb-6 relative">
               <div className="text-center font-bold text-slate-300 mb-3 border-b border-slate-800 pb-2">架構原理</div>
               <div className="flex items-center justify-between text-sm">
-                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">AI 模型<br/><span className="text-[11px] text-slate-500">Claude/Gemini</span></div>
+                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">AI 工具<br/><span className="text-[11px] text-slate-500">Claude Code、Cursor</span></div>
                 <div className="w-16 border-t-2 border-dashed border-sky-600/50 mx-2 relative">
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] text-sky-500 bg-slate-950 px-1">MCP</span>
                 </div>
@@ -47,7 +47,7 @@ export default function Slide21a() {
             </div>
 
             <div className="text-sm text-slate-400 mt-auto">
-              <strong>應用情境：</strong> 授權 AI 讀取你的 Google Drive, 操作 GitHub, 或是查詢資料庫。
+              <strong>應用情境：</strong> 接上 Google Drive、GitHub 或資料庫的 MCP 伺服器，AI 才讀得到那些資料。
             </div>
           </AnimatedBlock>
 
