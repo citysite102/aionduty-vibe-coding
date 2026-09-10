@@ -140,7 +140,6 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
             它記的東西裡，如果有你希望每個人都遵守的，搬進手冊。
-            先照這個粗略的分界走就好，
           </p>
         </AnimatedBlock>
 

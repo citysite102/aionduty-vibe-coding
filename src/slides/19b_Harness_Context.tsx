@@ -105,7 +105,7 @@ export default function SlideHarnessContext() {
           className="mt-6 rounded-2xl border px-6 py-4 bg-amber-500/5 border-amber-500/25"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">你每次對話要把多少東西送進去，而那些東西是要付錢的。</strong>
+            <strong className="text-slate-100">每次對話送進去多少東西，就付多少錢。</strong>
             手冊該寫多長、哪些東西不該常駐，算的都是這筆帳。
           </p>
         </AnimatedBlock>

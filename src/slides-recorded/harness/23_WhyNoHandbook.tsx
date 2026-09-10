@@ -49,7 +49,7 @@ export default function RecWhyHandbook() {
 
           <div className="rounded-2xl border border-emerald-500/25 bg-emerald-950/20 p-6 flex flex-col">
             <div className="text-slate-500 text-base mb-1">同一個專案，多了 CLAUDE.md</div>
-            <div className="text-emerald-300 text-2xl font-bold mb-5">三條全中</div>
+            <div className="text-emerald-300 text-2xl font-bold mb-5">這一次三條全中</div>
             <ul className="space-y-3 mt-auto">
               {HITS.map((h) => (
                 <li key={h} className="text-slate-200 text-lg leading-snug flex gap-3">

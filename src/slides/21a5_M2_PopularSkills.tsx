@@ -42,7 +42,7 @@ export default function SlidePopularSkills() {
             <p className="text-slate-300 text-sm leading-relaxed">
               <strong className="text-sky-400">Skill 就是「把一套做法打包好，裝上就能用」。</strong>
               需要時才載入，
-              這四個是最常被裝的，前面那三種裝法隨便挑一種都裝得起來。
+              這四個很常見。前面那三種裝法都行，社群的 Skill 有些會附自己的安裝指令，照它寫的做。
             </p>
           </div>
         </AnimatedBlock>

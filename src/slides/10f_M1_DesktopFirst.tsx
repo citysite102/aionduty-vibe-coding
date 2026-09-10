@@ -73,7 +73,7 @@ export default function SlideDesktopFirst() {
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這四步不用終端機，後面也都用得上這個畫面。先讓你看到成果，其他的等有東西跑出來再說。
+            這五步不用終端機，後面也都用得上這個畫面。先讓你看到成果，其他的等有東西跑出來再說。
           </p>
         </AnimatedBlock>
 

@@ -44,7 +44,7 @@ export default function SlideHarnessIntro() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2">
-              <span className="text-[11px] text-slate-500 font-bold font-mono">CORE CONCEPT: RAILWAYS & CHASSIS</span>
+              <span className="text-[11px] text-slate-500 font-bold font-mono">CORE CONCEPT: ENGINE & RAILS</span>
             </div>
           </AnimatedBlock>
         </div>

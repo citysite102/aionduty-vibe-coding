@@ -71,7 +71,7 @@ export default function Slide21f() {
           <AnimatedBlock stepIndex={2} className="bg-sky-950/20 border border-sky-900/40 p-5 rounded-xl">
             <h4 className="text-sky-400 font-bold mb-2">💡 規則可以邊做邊補</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
-              只要你在對話中告訴它：「以後請幫我記得這個規則」，它就能幫你把規則補進手冊，讓 Agent 之後自動照著走。
+              跟它說「把這條規矩寫進 CLAUDE.md」，它會幫你補上去。補完自己開檔案看一眼，確認它寫的跟你要的是同一件事。
             </p>
           </AnimatedBlock>
         </div>
@@ -95,7 +95,7 @@ export default function Slide21f() {
           </div>
 
           <p className="mt-3 text-slate-400 text-sm leading-relaxed">
-            這份是工程專案，但要看的是左邊那排章節：
+            這份是工程專案，但要看的是上面那份的五個章節：
             <strong className="text-slate-200">流程、外部連線、固定 SOP、分層、規範</strong>。
             換成報表或審閱專案，章節一樣，只是內容換掉。
           </p>

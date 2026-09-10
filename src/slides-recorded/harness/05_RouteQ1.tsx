@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'harness-05-route-q1',
   title: '規則放哪：會出事的，交給 Hook',
   script:
-    '第一個問題：違反了會出事，絕對不能發生嗎？如果是，交給 Hook 或 CI，就是前面看過的那兩道關卡。它們都不在對話裡，是程式在擋，不經過 AI 判斷，所以它忘不掉也繞不過。Hook 擋你這台機器，CI 擋整個團隊。像是不能把密碼或金鑰寫進程式碼裡，這種就屬於這一層。',
+    '第一個問題：違反了會出事，絕對不能發生嗎？如果是，交給 Hook 或 CI，就是前面看過的那兩道關卡。它們都不在對話裡，是程式在擋，不經過 AI 判斷，所以它忘不掉。擋得住多少，看你的範圍圈了哪些工具。Hook 擋你這台機器，CI 擋整個團隊。像是不能把密碼或金鑰寫進程式碼裡，這種就屬於這一層。',
   seconds: 42,
   from: 69,
 };
@@ -32,7 +32,7 @@ export default function RecRouteQ1() {
             <p className="text-sky-300 text-4xl font-bold mb-5 leading-snug">交給 Hook 或 CI</p>
 
             <p className="text-slate-400 text-xl leading-relaxed">
-              這兩道關卡都不在對話裡，是程式在擋，不經過 AI 判斷，所以它忘不掉也繞不過。Hook 擋你這台機器，CI 擋整個團隊。
+              這兩道關卡都不在對話裡，是程式在擋，不經過 AI 判斷，所以它忘不掉。擋得住多少，看你的範圍圈了哪些工具。Hook 擋你這台機器，CI 擋整個團隊。
             </p>
           </AnimatedBlock>
         </div>

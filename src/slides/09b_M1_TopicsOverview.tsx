@@ -22,7 +22,7 @@ export default function Slide09b() {
     <SlideLayout title="Vibe Coding 需要的軟體基礎知識" subtitle="Learning Roadmap" icon={Map}>
       <AnimatedBlock stepIndex={1} className="max-w-4xl mx-auto mb-8 text-center">
         <p className="text-slate-200 text-base leading-relaxed max-w-2xl mx-auto bg-sky-950/20 border border-sky-900/40 rounded-xl px-4 py-3">
-          前面那四步跑得動，靠的是下面這幾樣。不知道它們在做什麼，出事的時候就不知道要去哪一層找。
+          前面那幾步不用懂這些也跑得動。下面這幾樣是出事的時候，你才知道要去哪一層找。
         </p>
       </AnimatedBlock>
 

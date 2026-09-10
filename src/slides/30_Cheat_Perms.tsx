@@ -432,7 +432,7 @@ export default function SlideCheatPerms() {
 
             {/* Bottom Strategic Summary */}
             <div className="mt-4 p-4 bg-slate-950/60 rounded-2xl border border-slate-800 text-xs text-slate-300">
-              <span className="text-indigo-400 font-bold block mb-1">💡 跨平台控制思維：</span>
+              <span className="text-sky-400 font-bold block mb-1">💡 這兩邊怎麼切模式：</span>
               {activeTab === 'terminal' ? (
                 <span>
                   <code>Shift + Tab</code> 每按一下換一個。Pro 與 Max 方案<strong>開起來預設在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
@@ -441,7 +441,7 @@ export default function SlideCheatPerms() {
                   
                 </span>
               ) : (
-                <span>Web 網頁控制台這一邊是<strong>精細（Granular）的安全隔離</strong>，能個別開關特定資料夾、指令黑名單或沙箱行為。</span>
+                <span>網頁版不是四選一，是三個開關各自開關：<strong>讀取本機檔案、自動寫入、執行指令</strong>。</span>
               )}
             </div>
           </AnimatedBlock>
