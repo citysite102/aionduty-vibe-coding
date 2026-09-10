@@ -51,7 +51,7 @@ const BLOCKS = [
 export default function SlideCaseSpec() {
   return (
     <SlideLayout
-      title="一份能用的規格，有七塊"
+      title="一份規格要寫哪些欄位"
       subtitle="Spec Writing · 三個案例共用的同一份規格"
       icon={FileText}
     >

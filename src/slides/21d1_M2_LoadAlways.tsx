@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function SlideM2LoadAlways() {
   return (
-    <SlideLayout title="一直在的 CLAUDE.md，碰到那一區才載的 Rules" subtitle="Always-On vs Path-Bound" icon={PinIcon}>
+    <SlideLayout title="CLAUDE.md 一直在，Rules 碰到才載" subtitle="Always-On vs Path-Bound" icon={PinIcon}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">

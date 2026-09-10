@@ -53,8 +53,8 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 19, title: '錯誤訊息與 API 文件', anchor: '紅字不是壞事，它在告訴你哪裡卡住' },
   { live: 23, title: '前端、後端、資料庫與部署', anchor: '一次請求的完整流程：前端、後端與資料庫' },
   { live: 27, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
-  { live: 29, title: 'Claude Code 的介面、按鍵與指令', anchor: 'Claude Code 桌面版的畫面：只有底下的輸入框要你動' },
-  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證：Agent 做執行，驗證歸你' },
+  { live: 29, title: 'Claude Code 的介面、按鍵與指令', anchor: 'Claude Code 桌面版：你只要動輸入框' },
+  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證：驗證歸你' },
   // 起點刻意不是「叫它寫個小工具」那一頁：它是支線示範，當一支影片的第一格
   // 會讓學員以為這一單元在講寫腳本，其實在講邊界與收成。它留在上一單元收尾。
   { live: 37, title: 'Claude Code 的能力邊界與工具選擇', anchor: '哪些事它做得好，哪些你得自己來' },
@@ -74,7 +74,7 @@ export const UNIT_DEFS: UnitDef[] = [
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。
   { live: 66, title: '一份 CLAUDE.md 不夠用時：規則還能放哪幾層', anchor: '同一句話，有沒有手冊差在哪' },
-  { live: 67, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: '一直在的 CLAUDE.md，碰到那一區才載的 Rules' },
+  { live: 67, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
   { live: 72, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
 
   // ── 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 ──

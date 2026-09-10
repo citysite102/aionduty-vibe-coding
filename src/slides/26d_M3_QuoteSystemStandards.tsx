@@ -19,7 +19,7 @@ const RULES = [
 
 export default function SlideQuoteSystemStandards() {
   return (
-    <SlideLayout title="報價系統的規範寫在哪：docs 文件、設計準則、CLAUDE.md" subtitle="Project Harness" icon={FileCog}>
+    <SlideLayout title="規範寫在哪：docs、設計準則、CLAUDE.md" subtitle="Project Harness" icon={FileCog}>
       <div className="max-w-6xl mx-auto w-full pb-8 grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-5 items-stretch">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
           <div className="flex items-center gap-2.5 text-slate-100 font-bold mb-4">

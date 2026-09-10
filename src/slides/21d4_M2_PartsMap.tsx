@@ -104,7 +104,7 @@ const COLS =
 export default function SlideM2PartsMap() {
   return (
     <SlideLayout
-      title="手冊、Rules、Skill、Hook：誰叫它、什麼時候進來"
+      title="手冊、Rules、Skill、Hook 的載入時機"
       subtitle="The Parts at a Glance"
       icon={Network}
     >

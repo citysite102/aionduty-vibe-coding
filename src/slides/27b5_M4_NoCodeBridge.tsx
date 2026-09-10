@@ -8,7 +8,7 @@ const SKILL_PROMPT =
 export default function SlideNoCodeBridge() {
   return (
     <SlideLayout
-      title="不用讀程式碼的三種把關：Lint、型別、開瀏覽器點一次"
+      title="三種把關：Lint、型別、開瀏覽器點一次"
       subtitle="Automated Checks for Non-Developers"
       icon={ClipboardCheck}
     >

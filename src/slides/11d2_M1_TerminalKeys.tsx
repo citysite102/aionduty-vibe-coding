@@ -39,7 +39,7 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="選修：終端機的三種按鍵：模式切換、直通指令、喊停"
+      title="選修：模式切換、直通指令、喊停"
       subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
     >
