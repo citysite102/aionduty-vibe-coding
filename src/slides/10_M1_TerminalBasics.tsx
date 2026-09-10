@@ -69,7 +69,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'cat package.json',
     desc: '檢視檔案全部內容',
     icon: FileCode,
-    explanation: '📄 Concatenate：直接將指定檔案的完整內容「傾倒」在終端機畫面上。不需用編輯器開啟就能快速確認內容！',
+    explanation: '📄 Concatenate：直接將指定檔案的完整內容「傾倒」在終端機畫面上。不需用編輯器開啟就能快速確認內容。',
     output: [
       '{',
       '  "name": "hahow-vibe-coding-app",',
@@ -95,7 +95,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'grep "dependencies"',
     desc: '在檔案內篩選特定字串',
     icon: Search,
-    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」！讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，',
+    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」。讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，',
     output: [
       '  "dependencies": {'
     ]
@@ -105,7 +105,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'grep -rn "API" src/',
     desc: '全目錄遞迴搜尋關鍵字',
     icon: Search,
-    explanation: '📂 Recursive search with line numbers：深層、遞迴地搜尋 src/ 資料夾內「所有檔案」，找出哪些檔案、第幾行出現了 "API" 字串。這也是 AI Agent 最愛用的尋寶工具！',
+    explanation: '📂 Recursive search with line numbers：深層、遞迴地搜尋 src/ 資料夾內「所有檔案」，找出哪些檔案、第幾行出現了 "API" 字串。這也是 AI Agent 最常用來找東西的指令。',
     output: [
       'src/App.tsx:84:  const [apiKey, setApiKey] = useState("");',
       'src/slides/10c_M1_WebArch.tsx:206:  <SlideLayout title="前端與後端的 API 串接">',
@@ -240,11 +240,11 @@ export default function SlideTerminalBasics() {
           <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
             <div className="space-y-2">
               <p className="text-slate-300 text-sm leading-relaxed">
-                📢 終端機就是一個<strong className="text-sky-400">「用打字命令電腦」的視窗</strong>。以前我們要用滑鼠點開資料夾、用記事本打開檔案；現在只要輸入一行指令，電腦就會幫我們看檔案內容、找關鍵字、建資料夾。
+                📢 終端機就是一個<strong className="text-sky-400">「用打字命令電腦」的視窗</strong>。以前要用滑鼠點開資料夾、用記事本打開檔案；現在只要輸入一行指令，電腦就會幫你看檔案內容、找關鍵字、建資料夾。
               </p>
               <p className="text-xs text-slate-400 leading-relaxed">
                 💡 <strong>為什麼要學這些指令？跟做出網頁有什麼關係？</strong><br />
-                當我們請 AI Agent（例如 Claude Code / Cursor）幫我們寫程式時，AI 其實就是在背景用這些指令<strong>「幫我們點開檔案、搜尋關鍵字、建立資料夾」</strong>。你看得懂 <code>cat</code>（開檔）和 <code>grep</code>（篩選），就知道 AI 在你的電腦裡做什麼，合作起來更有默契！
+                你請 AI Agent（例如 Claude Code / Cursor）幫你寫程式的時候，它其實就是在背景用這些指令<strong>「點開檔案、搜尋關鍵字、建立資料夾」</strong>。你看得懂 <code>cat</code>（開檔）和 <code>grep</code>（篩選），就知道 AI 在你的電腦裡做了什麼。
               </p>
             </div>
             <span className="text-xs bg-slate-950 text-sky-400 font-mono px-2.5 py-1.5 rounded border border-sky-900/50 shrink-0 self-start sm:self-auto">
@@ -377,7 +377,7 @@ export default function SlideTerminalBasics() {
               <span>
                 {activeTab === 'commands'
                   ? ''
-                  : '點擊右方帶有「模擬鍵」的快速鍵，可以在模擬終端機上觸發對應行為！'}
+                  : '點擊右方帶有「模擬鍵」的快速鍵，可以在模擬終端機上觸發對應行為。'}
               </span>
             </div>
           </AnimatedBlock>

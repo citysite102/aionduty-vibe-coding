@@ -441,7 +441,7 @@ export default function SlideCheatPerms() {
                   
                 </span>
               ) : (
-                <span>在 Web 網頁控制台中，我們則享有<strong>精細（Granular）的安全隔離</strong>，能精細開關特定資料夾、指令黑名單或特定沙箱行為。</span>
+                <span>Web 網頁控制台這一邊是<strong>精細（Granular）的安全隔離</strong>，能個別開關特定資料夾、指令黑名單或沙箱行為。</span>
               )}
             </div>
           </AnimatedBlock>

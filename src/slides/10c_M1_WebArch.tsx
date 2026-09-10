@@ -50,7 +50,7 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     frontendDuties: [
       '呈現密碼輸入欄位，並驗證 Email 格式是否正確。',
       '使用者點擊「登入」時，立即觸發按鈕 Loading 狀態，防止重複發送。',
-      '收到後端傳來的 Token 後存起來（這裡用 localStorage 示意；正式產品建議改用 HttpOnly Cookie 較安全）。',
+      '收到後端傳來的登入憑證後存起來（這裡用 localStorage 示意；正式產品建議改用 HttpOnly Cookie 較安全）。',
       '將頁面導向至「學習儀表板」，並彈出登入成功通知。'
     ],
     backendDuties: [
@@ -68,13 +68,13 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
       requesting: '📤 發送請求：POST /api/login (攜帶帳號/密碼)...',
       processing: '📡 請求已送達後端，正在等待處理結果...',
       responding: '📥 收到回應封包，正在解析 JSON 資料...',
-      success: '🎉 登入成功！Token 儲存完畢，導向 Dashboard 畫面。'
+      success: '🎉 登入成功。登入憑證儲存完畢，導向 Dashboard 畫面。'
     },
     beLog: {
       idle: '🟢 API Server 啟動中，監聽連接埠 3000...',
       requesting: '🔔 收到新請求！準備解析 POST 請求主體...',
       processing: '⚙️ 處理中：正在比對密碼雜湊值，並檢索使用者資料庫...',
-      responding: '🚀 驗證成功！產生安全 JWT Token，準備回傳前端...',
+      responding: '🚀 驗證成功！產生安全 JWT 憑證，準備回傳前端...',
       success: '🟢 狀態碼 200 OK 發送完成。伺服器恢復閒置狀態。'
     }
   },
@@ -339,7 +339,7 @@ export default function Slide10c() {
                 
                 {/* Tech Tags */}
                 <div className="flex justify-center gap-1.5 mb-4">
-                  <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">React 18</span>
+                  <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">React 19</span>
                   <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Tailwind</span>
                   <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Browser</span>
                 </div>
@@ -472,7 +472,7 @@ export default function Slide10c() {
                 <div className="flex justify-center gap-1.5 mb-4">
                   <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Node.js</span>
                   <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Express</span>
-                  <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Postgres</span>
+                  <span className="px-1.5 py-0.5 bg-slate-950 text-slate-400 rounded text-xs font-mono border border-slate-800/80">Postgres（資料庫）</span>
                 </div>
               </div>
 

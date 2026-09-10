@@ -104,7 +104,7 @@ export default function SlideSkillInstall() {
 
         <Callout tone="warn" label="檔案明明建好了，它卻沒反應" stepIndex={5}>
           <strong className="text-slate-100">先重開一次對話。</strong>
-          新增的 Skill、子代理、規則檔，是在對話開始的時候掃進來的。
+          新增的 Skill 與規則檔，是在對話開始的時候掃進來的。
           你在對話中途建的檔案，這一輪它不會知道，輸入{' '}
           <code className="font-mono text-orange-300">/clear</code> 或關掉重開就會掃到。
           <span className="block mt-2 text-slate-400">

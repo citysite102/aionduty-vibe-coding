@@ -66,7 +66,6 @@ grep -rhoE --include="*.tsx" -- \
 |---|---|---|
 | `10c_M1_WebArch` | 前端 (Client) | 後端 (Server) |
 | `10c2_M1_WebArchDuties` | 前端負責 | 後端與資料庫 |
-| `06_Threads` | Thread A | Thread B |
 | `31_Cheat_Dials` | 旋鈕二：邊界大小 | 旋鈕一：監督程度 |
 
 曾經列在這裡當反例的兩頁（`09_M1_CodeIntro`、`13_M1_Example2`）都已經改完，現在全片沒有已知的違規 `indigo`。它們的共同毛病是：一頁裡只有一個東西被標成 `indigo`，另一邊是灰階，所以那不是對照，是下面說的「單一強調」，該用 `sky`。

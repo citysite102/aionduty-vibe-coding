@@ -194,7 +194,7 @@ export default function Slide10d() {
             <div className="flex items-start gap-3">
               <FileJson aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
               <p className="text-slate-300 text-sm leading-relaxed">
-                <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firebase。
+                <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firestore。
                 每一筆想放什麼就放什麼，開發的時候很快。代價是沒有人幫你把關，
                 而且要把好幾張表湊在一起查的時候會很吃力。
               </p>
