@@ -58,7 +58,7 @@ export default function SlideM2HandsOn() {
             親眼看 context 被吃掉
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            不要用聽的。做一次前後對照，數字自己會講話。
+            做一次前後對照，看兩邊的數字差多少。
           </p>
           <div className="space-y-2 text-sm">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">

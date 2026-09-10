@@ -80,7 +80,7 @@ export default function SlideSafety() {
               <div className="bg-emerald-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <ShieldCheck className="text-emerald-400" size={18} />
               </div>
-              <h3 className="text-base font-bold text-emerald-300 tracking-wide">4. 潑出去的水，一律設閘門</h3>
+              <h3 className="text-base font-bold text-emerald-300 tracking-wide">4. 收不回來的動作，一律留人類確認</h3>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
               專案內改壞了可以用 git 復原；但有些動作<strong className="text-slate-200">收不回來</strong>：

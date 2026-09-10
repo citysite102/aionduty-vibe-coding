@@ -93,8 +93,8 @@ export default function SlideRunItAgain() {
           })}
         </div>
 
-        <Callout tone="focus" label="哪幾件你已經會了" stepIndex={5}>
-          做事跟什麼時候停下來問你，你做計時器那一輪就做過了。剩下的是頭尾這三件：
+        <Callout tone="focus" label="頭尾這三件才是新的" stepIndex={5}>
+          中間那段做事與停下來問你，跟計時器那一輪一樣。頭尾這三件是這一輪才加進來的：
           <strong className="text-slate-100">自己拿輸入、留下具名產物、下次還叫得動。</strong>
           少了任何一個，它就只是幫你做完這一次。
         </Callout>

@@ -33,7 +33,7 @@ export default function SlideIntroVibe() {
               <ShieldCheck className="text-emerald-400 shrink-0 mt-0.5" size={18} />
               <div>
                 <strong className="text-slate-200 block text-base">從寫語法轉為「系統架構設計」</strong>
-                <span className="text-slate-500 text-sm">對於具備軟體與商業背景的夥伴，反而能站在更高的位置去設計軟體。</span>
+                <span className="text-slate-500 text-sm">有軟體與商業背景的人，可以把時間放在決定系統怎麼切、各塊之間怎麼接。</span>
               </div>
             </li>
             <li className="flex gap-3">

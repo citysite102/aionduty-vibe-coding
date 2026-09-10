@@ -27,8 +27,7 @@ export default function Slide10c3Deploy() {
           </div>
           <p className="text-slate-500 text-xs mt-3">中間差的這一步，就叫「部署 (Deploy)」。好消息是：<strong className="text-slate-400">你不用自己架伺服器，交給託管平台就好。</strong></p>
           <div className="mt-3 bg-sky-950/20 border border-sky-900/40 rounded-lg px-3.5 py-2.5 text-[11px] text-slate-400 leading-relaxed">
-            🔭 <strong className="text-sky-300">先記著這一頁。</strong>
-            課程最後你會把自己做的任務計時器走完這一步，拿到一個可以傳給別人的網址。
+            🔭 課程最後你會把自己做的任務計時器走完這一步，拿到一個可以傳給別人的網址。
           </div>
         </AnimatedBlock>
 

@@ -31,7 +31,7 @@ const STEP2_TEXT = '幫我加一個 5 分鐘的「補給時間」模式，樣式
 
 export default function SlideHandsOnPrompt() {
   return (
-    <SlideLayout title="跟著做：寫出真正能用的 CLAUDE.md" subtitle="Step-by-step Prompt" icon={CheckSquare}>
+    <SlideLayout title="寫出真正能用的 CLAUDE.md" subtitle="Step-by-step Prompt" icon={CheckSquare}>
       <div className="max-w-5xl mx-auto mt-1 space-y-4 pb-6">
 
         <AnimatedBlock

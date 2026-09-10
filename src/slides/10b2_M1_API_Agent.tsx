@@ -31,12 +31,12 @@ export default function Slide10b2() {
             <div className="mt-6 p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2.5">
               <div className="text-base font-bold text-sky-400 flex items-center gap-1.5">
                 <Sparkles size={16} />
-                <span>流程三部曲</span>
+                <span>三個步驟</span>
               </div>
               <ol className="text-sm text-slate-400 space-y-1.5 list-decimal list-inside font-medium">
                 <li><strong className="text-slate-300">給予網址：</strong>提供目標 API 的官方說明文件 URL</li>
                 <li><strong className="text-slate-300">動態查閱：</strong>Agent 自主發送請求並消化格式</li>
-                <li><strong className="text-slate-300">正確的程式碼：</strong>直接產出符合該 SDK 規範的腳本</li>
+                <li><strong className="text-slate-300">產出程式碼：</strong>照該 SDK 的規範寫出腳本</li>
               </ol>
             </div>
           </AnimatedBlock>

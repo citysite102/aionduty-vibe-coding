@@ -72,14 +72,13 @@ export default function SlideOutro() {
           <h2 className="text-2xl md:text-3xl font-black text-slate-100 mb-3 leading-tight">
             <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
-              現在寫下來的東西，會自己跑起來。
+              你講得出來的東西，它就做得出來。
             </span>
           </h2>
 
           <p className="text-slate-300 text-base leading-relaxed mb-4 max-w-3xl mx-auto">
-            過去我們的價值在於親手把每一件瑣事做完。<br/>
-            接下來的價值在於<strong className="text-white mx-1">「把判斷標準、流程與邊界講清楚」</strong>。<br/>
-            工具會一直換，但這件事練起來不會白費。
+            這門課練的是把判斷標準、流程與邊界寫成它讀得到的形式。<br/>
+            工具的名字會換，這三樣要寫的東西不會。
           </p>
 
           <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-2xl mx-auto border-t border-slate-800 pt-4">

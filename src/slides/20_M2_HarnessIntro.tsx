@@ -23,8 +23,8 @@ export default function SlideHarnessIntro() {
               </div>
               
               <h3 className="text-xl font-bold text-slate-100 leading-tight">
-                「表現不佳，往往不是模型不夠聰明，<br/>
-                <span className="text-sky-400">而是你給的『工作環境』太簡陋。</span>」
+                表現不好，多半不是模型不夠聰明，<br/>
+                <span className="text-sky-400">是你給它的工作環境太簡陋。</span>
               </h3>
               
               <p className="text-slate-300 text-xs leading-relaxed">

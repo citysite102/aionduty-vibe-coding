@@ -88,7 +88,7 @@ export default function SlideHarnessArchitecture() {
       <div className="pt-2 max-w-6xl mx-auto h-full flex flex-col">
         <div className="text-center mb-6">
           <p className="text-slate-300 text-lg mb-4">
-            很多人誤以為「AI 的表現完全取決於底層模型有多聰明」，但事實上：
+            AI 的表現不是只看底層模型有多聰明：
           </p>
           <div className="inline-block bg-slate-900 border border-slate-700 rounded-2xl px-12 py-6 shadow-xl">
             <span className="text-4xl font-mono font-bold text-slate-200">

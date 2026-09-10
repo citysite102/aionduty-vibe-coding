@@ -222,7 +222,7 @@ export default function SlideLoopEngineering() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">
                    別再自己當那個一直下提示詞的人，而是去設計一套會自動下提示詞的系統。
                 </p>
-                <p className="text-slate-500 text-[11px] text-right">— Boris Cherny (Anthropic Claude Code 負責人)</p>
+                <p className="text-slate-500 text-[11px] text-right">Boris Cherny (Anthropic Claude Code 負責人)</p>
               </div>
             </div>
 

@@ -209,7 +209,7 @@ export default function SlideWebArchDuties() {
                 <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5">
                   <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between">
                     <span>Response (伺服器傳回)</span>
-                    <span className="text-emerald-400 text-[11px] font-bold px-1.5 py-0.5 bg-emerald-950/85 rounded border border-emerald-900/50">🍜 熱騰騰餐點 ＋ 出菜明細</span>
+                    <span className="text-emerald-400 text-[11px] font-bold px-1.5 py-0.5 bg-emerald-950/85 rounded border border-emerald-900/50">🍜 出菜 ＋ 出菜明細</span>
                   </div>
                   <div className="text-xs font-mono text-emerald-400 font-bold mb-1">{activeData.respLabel}</div>
                   <div className="text-xs font-mono text-slate-300 bg-slate-950 p-2 rounded overflow-x-auto select-all border border-slate-900">

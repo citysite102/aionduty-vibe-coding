@@ -72,7 +72,7 @@ export default function SlideLLMPrompt() {
         <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
             要它排一份簡報的版型也是同一件事。
-            <strong className="text-slate-100">與其寫「做得專業一點」，不如貼三張你覺得好看的頁面進去。</strong>
+            <strong className="text-slate-100">「做得專業一點」它接不住。貼三張你覺得好看的頁面進去，它才有東西可以照。</strong>
             這份簡報的版型就是這樣來的。
           </p>
 

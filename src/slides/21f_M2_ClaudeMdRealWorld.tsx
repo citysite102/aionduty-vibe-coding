@@ -69,7 +69,7 @@ export default function Slide21f() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-sky-950/20 border border-sky-900/40 p-5 rounded-xl">
-            <h4 className="text-sky-400 font-bold mb-2">💡 解決方案：動態更新的 SOP</h4>
+            <h4 className="text-sky-400 font-bold mb-2">💡 規則可以邊做邊補</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
               只要你在對話中告訴它：「以後請幫我記得這個規則」，它就能幫你把規則補進手冊，讓 Agent 之後自動照著走。
             </p>

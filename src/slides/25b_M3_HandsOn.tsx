@@ -64,7 +64,7 @@ const STEPS = [
 export default function SlideM3HandsOn() {
   return (
     <SlideLayout title="動手做一個審查子代理" subtitle="Hands-on Reviewer" icon={Wrench}>
-      <LiveDemo kind="claude" note="跟著建一個，然後叫它檢查你的計時器" />
+      <LiveDemo kind="claude" note="建好之後，讓它審一次你的計時器" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto items-start pb-8">
 

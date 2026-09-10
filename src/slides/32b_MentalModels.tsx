@@ -12,7 +12,7 @@ export default function SlideMentalModels() {
             白名單 vs 黑名單 (Prompts)
           </h3>
           <p className="text-slate-300 text-sm mb-6 leading-relaxed">
-            設定規範時，與其告訴它「不要做什麼」，不如精確告訴它「只能做什麼」。
+            設定規範的時候寫「只能做什麼」，不要寫「不要做什麼」。
           </p>
           <div className="space-y-4">
             <div className="bg-red-950/20 border border-red-500/20 p-4 rounded-xl">
@@ -38,7 +38,7 @@ export default function SlideMentalModels() {
           
           <div className="flex-1 space-y-4">
             <div className="flex gap-4 items-start p-4 bg-slate-950 rounded-xl border border-slate-800">
-              <div className="bg-slate-800 text-slate-300 text-xs font-bold px-2 py-1 rounded">實習生模式</div>
+              <div className="bg-sky-900/50 text-sky-300 text-xs font-bold px-2 py-1 rounded border border-sky-500/30">開放式指派</div>
               <div>
                 <p className="text-slate-300 text-sm font-medium mb-1">探索期、不確定怎麼做時</p>
                 <p className="text-slate-500 text-xs">「你去幫我爬一下這個 API 看看會回傳什麼格式，寫個簡單的 script 印出來。」（給探索空間）</p>
@@ -46,7 +46,7 @@ export default function SlideMentalModels() {
             </div>
             
             <div className="flex gap-4 items-start p-4 bg-slate-950 rounded-xl border border-slate-800">
-              <div className="bg-indigo-900/50 text-indigo-300 text-xs font-bold px-2 py-1 rounded border border-indigo-500/30">資深工程師模式</div>
+              <div className="bg-indigo-900/50 text-indigo-300 text-xs font-bold px-2 py-1 rounded border border-indigo-500/30">規格式指派</div>
               <div>
                 <p className="text-slate-300 text-sm font-medium mb-1">確定期、需要穩定產出時</p>
                 <p className="text-slate-500 text-xs">「這是我寫好的介面與型別定義 (Interface)，請嚴格按照這個規格實作邏輯，不要改動現有架構。」（精確給定邊界）</p>

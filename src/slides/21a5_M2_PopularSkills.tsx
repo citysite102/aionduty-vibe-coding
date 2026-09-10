@@ -71,7 +71,7 @@ export default function SlidePopularSkills() {
               </div>
 
               <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                與其自己憋出一份完整規格，不如讓它<strong className="text-sky-300">「拷問」你</strong>：動工前把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
+                你不必自己先寫出完整規格，讓它<strong className="text-sky-300">「拷問」你</strong>：動工前把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
               </p>
 
               <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-3 font-mono text-xs text-emerald-400">

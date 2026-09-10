@@ -11,14 +11,13 @@ export default function SlidePricingAndROI() {
         <AnimatedBlock stepIndex={1}>
           {/* 前一頁講的是錢的兩種形狀，這一頁講的是帳單本身怎麼開，先把兩者接起來 */}
           <p className="text-slate-400 text-sm leading-relaxed mb-2">
-            知道錢花在哪之後，下一個問題是這筆錢怎麼繳。
           </p>
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-2 mb-1">
             <DollarSign className="text-sky-400" size={20} />
             「我有 Claude Pro 了，還需要另外付費嗎？」
           </h3>
           <p className="text-slate-300 text-sm leading-relaxed max-w-4xl">
-            其實，現在主流的 AI 軟體大多支援<strong>「官方網頁 Pro 訂閱直接登入」</strong>與<strong>「API 計量付費」</strong>這兩種模式！
+            現在主流的 AI 軟體大多支援<strong>「官方網頁 Pro 訂閱直接登入」</strong>與<strong>「API 計量付費」</strong>這兩種模式。
             搞懂這兩者的差異，你才知道自己的用量該走哪一種。<span className="text-xs text-slate-500 block mt-1">（* 費用皆為 2026 年中資訊。各家計價變動頻繁，尤其 Cursor 已多次改版，請務必以官方頁面為準）</span>
           </p>
         </AnimatedBlock>

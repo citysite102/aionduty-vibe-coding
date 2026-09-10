@@ -82,7 +82,7 @@ export function SeriesRail({
               done ? 'border-slate-800 bg-slate-900 text-slate-400' : 'border-slate-800/60 text-slate-700'
             }`}
           >
-            {done ? it : '—'}
+            {done ? it : '·'}
           </span>
         );
       })}
