@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowRight, Terminal, Activity, CheckCircle2, User } from 'lucide-react';
+import { ArrowRight, ArrowDown, Terminal, Activity, CheckCircle2, User } from 'lucide-react';
 
 export default function Slide01() {
   return (
@@ -60,9 +60,27 @@ export default function Slide01() {
           AI On Duty 系列
         </p>
 
-        {/* Main Glitch-like Title */}
-        <h1 className="text-6xl md:text-8xl font-black text-white italic tracking-wider mb-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          Vibe Coding
+        {/* Main Glitch-like Title：起點與目標狀態，對照見 04c_Intro_VibeVsAgentic */}
+        <h1 className="flex flex-col items-center mb-10">
+          <span className="text-5xl md:text-7xl font-black text-slate-300 italic tracking-wider">
+            Vibe Coding
+          </span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.6, ease: "easeOut" }}
+            className="text-sky-400 my-3"
+          >
+            <ArrowDown size={32} />
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.3, duration: 0.6, ease: "easeOut" }}
+            className="text-5xl md:text-7xl font-black text-white italic tracking-wider drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
+          >
+            Agentic Engineering
+          </motion.span>
         </h1>
         
         {/* Pill Subtitle */}
