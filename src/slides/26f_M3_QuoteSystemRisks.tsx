@@ -39,7 +39,7 @@ export default function SlideQuoteSystemRisks() {
   return (
     <SlideLayout title="中型專案最常卡在這五件事" subtitle="Failure Modes" icon={AlertTriangle}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
-        <div className={`grid grid-cols-1 md:grid-cols-5 gap-3 ${hoverIsolateGrid}`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${hoverIsolateGrid}`}>
           {RISKS.map((risk, index) => (
             <AnimatedBlock key={risk.title} stepIndex={index + 1} className={`rounded-lg border border-slate-800 bg-slate-950 p-4 flex flex-col ${hoverIsolateCard}`}>
               <div className="font-mono text-slate-600 text-xs mb-2">0{index + 1}</div>

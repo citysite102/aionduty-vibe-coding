@@ -76,7 +76,7 @@ export default function RecTransferCase() {
             這一段是預錄的，看影片的人沒辦法問「哪三個」，所以列出來。
           */}
           <p className="text-slate-300 text-3xl font-bold leading-snug mb-2">
-            跟程式無關，但<Key>三個條件全中</Key>
+            跟程式無關，但<Key>該寫一份手冊的條件都在</Key>
           </p>
           <p className="text-slate-500 text-lg leading-relaxed mb-4">
             重複發生　有你自己的規矩　每次都要重講
@@ -89,7 +89,7 @@ export default function RecTransferCase() {
             {[
               '每次都要重講的',
               '違反了會出事的',
-              '只有特定客戶適用的',
+              '只有特定情況適用的',
             ].map((q, i) => (
               <div key={q} className="rounded-xl border border-slate-800 bg-slate-900 px-5 py-4">
                 <div className="font-mono text-base text-slate-600 mb-1.5">0{i + 1}</div>

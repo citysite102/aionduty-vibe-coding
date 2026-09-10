@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { Terminal, Cpu, Share2, Award, AlertCircle, ArrowRight, CheckCircle2, Circle } from 'lucide-react';
+import { Terminal, Cpu, Share2, Award, AlertCircle, CheckCircle2, Circle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { OptionalTag } from '../components/OptionalTag';
 import { LiveDemo } from '../components/LiveDemo';
-import { motion } from 'motion/react';
 
 export default function SlideWarpTerminal() {
   const [activeTab, setActiveTab] = useState<'agent' | 'features'>('agent');
@@ -32,7 +31,7 @@ export default function SlideWarpTerminal() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-slate-200">像編輯器一樣好打字</h4>
-                  <p className="text-xs text-slate-400 mt-0.5">滑鼠點擊任意處定位、複製、貼上，甚至內建拼字檢查，不用背一堆 Ctrl 快捷鍵。</p>
+                  <p className="text-xs text-slate-400 mt-0.5">滑鼠點擊任意處定位、複製、貼上，還有內建拼字檢查，不用靠上一頁那幾個 Ctrl 鍵移動游標。</p>
                 </div>
               </AnimatedBlock>
 

@@ -62,7 +62,7 @@ export default function SlideQuoteSystemRequirements() {
 
         <AnimatedBlock stepIndex={6} className="rounded-2xl border px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-base leading-relaxed">
-            中型專案最常失控，不是因為 AI 不會寫，而是你一開始沒有說清楚「這一輪不處理什麼」。
+            中型專案最常失控的原因是，一開始沒有說清楚「這一輪不處理什麼」。
           </p>
         </AnimatedBlock>
       </div>

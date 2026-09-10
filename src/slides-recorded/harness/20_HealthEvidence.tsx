@@ -56,14 +56,6 @@ export default function RecHealthEvidence() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock
-          stepIndex={3}
-          className="rounded-2xl border px-7 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
-        >
-          <p className="text-slate-300 text-xl leading-relaxed">
-            勾到兩格才動手刪。只勾到一格的，先不要刪。
-          </p>
-        </AnimatedBlock>
       </RecPage>
     </SlideLayout>
   );

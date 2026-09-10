@@ -74,7 +74,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
       '{',
       '  "name": "hahow-vibe-coding-app",',
       '  "private": true,',
-      '  "version": "1.0.0",',
+      '  "version": "0.0.0",',
       '  "type": "module",',
       '  "scripts": {',
       '    "dev": "vite",',
@@ -82,10 +82,10 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
       '    "lint": "eslint ."',
       '  },',
       '  "dependencies": {',
-      '    "react": "^18.3.1",',
-      '    "react-dom": "^18.3.1",',
-      '    "motion": "^11.11.13",',
-      '    "lucide-react": "^0.454.0"',
+      '    "react": "^19.0.1",',
+      '    "react-dom": "^19.0.1",',
+      '    "motion": "^12.23.24",',
+      '    "lucide-react": "^0.546.0"',
       '  }',
       '}'
     ]
@@ -95,7 +95,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'grep "dependencies"',
     desc: '在檔案內篩選特定字串',
     icon: Search,
-    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」。讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，',
+    explanation: '🔍 Global Regular Expression Print：像一個「篩網/過濾器」。讀取 package.json 並篩選只輸出包含 "dependencies" 的那幾行，其餘全部不印。',
     output: [
       '  "dependencies": {'
     ]
@@ -108,7 +108,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     explanation: '📂 Recursive search with line numbers：深層、遞迴地搜尋 src/ 資料夾內「所有檔案」，找出哪些檔案、第幾行出現了 "API" 字串。這也是 AI Agent 最常用來找東西的指令。',
     output: [
       'src/App.tsx:84:  const [apiKey, setApiKey] = useState("");',
-      'src/slides/10c_M1_WebArch.tsx:206:  <SlideLayout title="前端與後端的 API 串接">',
+      'src/slides/10c_M1_WebArch.tsx:206:  <SlideLayout title="一次請求的完整流程：前端、後端與資料庫">',
       'src/slides/10c_M1_WebArch.tsx:277:  <p>負責發送 API 請求與接收回應</p>'
     ]
   },
@@ -118,10 +118,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     desc: '建立一個新的資料夾',
     icon: FolderPlus,
     explanation: '📁 Make Directory：建立一個新的空白資料夾。注意它成功時「什麼都不會顯示」，終端機的慣例是沉默即成功，沒有紅字就是做好了。要確認的話再打一次 ls。',
-    output: [
-      'guest@vibecoding-macbook:~/project$ ls src/',
-      'App.tsx      slides/      utils/'
-    ]
+    output: ['']
   }
 };
 
@@ -330,7 +327,7 @@ export default function SlideTerminalBasics() {
               {activeTab === 'shortcuts' && (
                 <div className="space-y-3 font-mono">
                   <p className="text-xs text-slate-400 font-sans leading-relaxed mb-1">
-                    終端機不像一般文書處理器，滑鼠是點不到特定字母的。以下是最常用、一定要會的鍵盤快捷鍵：
+                    終端機的預設行為是滑鼠點不到特定字母，所以有這幾個鍵：
                   </p>
 
                   {[

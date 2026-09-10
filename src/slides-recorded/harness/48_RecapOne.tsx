@@ -54,7 +54,7 @@ export default function RecRecap() {
         >
           <p className="text-slate-300 text-xl leading-relaxed">
             四件事都收在同一個地方：你的資料夾裡多了一個{' '}
-            <span className="font-mono text-slate-100">CLAUDE.md</span>。<Key>它跟著專案走</Key>。
+            <code className="font-mono text-orange-300">CLAUDE.md</code>。<Key>它跟著專案走</Key>。
           </p>
         </AnimatedBlock>
 

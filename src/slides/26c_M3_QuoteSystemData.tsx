@@ -6,7 +6,7 @@ const TABLES = [
   { name: 'customers', desc: '客戶公司、聯絡人、稅籍資訊', fields: ['id', 'name', 'contact_name', 'tax_id'] },
   { name: 'products', desc: '可報價品項與預設單價', fields: ['id', 'name', 'unit_price_cents', 'taxable'] },
   { name: 'quotes', desc: '報價單主檔、狀態與總額', fields: ['id', 'customer_id', 'valid_until', 'status', 'currency', 'payment_terms', 'discount_cents', 'tax_cents', 'total_cents'] },
-  { name: 'quote_items', desc: '每張報價單裡的明細列', fields: ['quote_id', 'product_id', 'quantity', 'unit_price_cents', 'line_total_cents'] },
+  { name: 'quote_items', desc: '每張報價單裡的明細列', fields: ['id', 'quote_id', 'product_id', 'quantity', 'unit_price_cents', 'line_total_cents'] },
 ];
 
 export default function SlideQuoteSystemData() {
@@ -18,7 +18,7 @@ export default function SlideQuoteSystemData() {
             資料模型先求穩，不要一開始就把所有情境塞進去。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            對初學者來說，先看懂「主檔」與「明細」的關係，比先學完整資料庫設計重要。
+            先看懂「主檔」與「明細」的關係，比先學完整資料庫設計重要。
           </p>
           {/* 沒碰過資料庫的人看到「表」會卡住，但他們每天都在用 Excel，這是同一個東西。 */}
           <p className="text-slate-400 text-sm leading-relaxed">

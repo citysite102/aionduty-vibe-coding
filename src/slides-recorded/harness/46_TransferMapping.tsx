@@ -11,7 +11,7 @@ import type { RecordedMeta } from '../types';
  * 改成用題號指，那個號碼在前三頁一直亮著，讀者接得回去。
  */
 const MAP = [
-  { line: '第 1 題', q: '那三條', to: '根目錄手冊', why: '每次都要重講的格式', hard: false },
+  { line: '第 1 題', q: '那三條', to: '根目錄手冊', why: '每次都要重講的格式，前面三種都不是，才留在根目錄', hard: false },
   { line: '第 2 題', q: '那一條', to: 'Hook', why: '外洩代價太高，文字擋不住', hard: true },
   { line: '第 3 題', q: '那一條', to: '子目錄', why: '只跟某個客戶有關', hard: false },
 ];

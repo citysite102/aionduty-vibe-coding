@@ -26,7 +26,7 @@ export default function RecWrite1() {
           stepFrom={2}
           bad="「不要用舊版的 React 寫法，不要用 var，不要改到我的 CSS。」"
           badNote="你擋掉三種，它還有第四種方式可以出錯。"
-          good="「一律使用 React Functional Components 與 Hooks，CSS 僅限修改 Tailwind classes。」"
+          good="「一律使用 React 函式元件，CSS 僅限修改 Tailwind classes。」"
           goodNote="把範圍框起來，範圍以外的它都不會去碰。"
         />
       </RecPage>

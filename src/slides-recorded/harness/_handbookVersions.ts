@@ -96,7 +96,7 @@ export const VERSIONS: { label: string; note: string; lines: Line[] }[] = [
   },
   {
     label: '定稿',
-    note: '從十四行變成十一行，但每一條都能被檢查。換到網頁版或桌面版，內容一個字都不用改。',
+    note: '從十四行變成十二行，但每一條都能被檢查。換到網頁版或桌面版，內容一個字都不用改。',
     lines: build(5),
   },
 ];

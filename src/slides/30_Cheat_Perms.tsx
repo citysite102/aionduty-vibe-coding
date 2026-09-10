@@ -36,7 +36,8 @@ export default function SlideCheatPerms() {
     }
   };
 
-  // Shift+Tab 在 Claude Code 裡只在這三個模式間輪替，bypassPermissions 要靠啟動參數，切不進去
+  // 這個模擬器只演 default → acceptEdits → plan 這三格。實際上 Pro/Max 開機在 auto，
+  // 按第一下才進 manual（default 的介面名稱），而且啟用的選用模式會插在 plan 後面。
   const cycleTerminalMode = () => {
     if (terminalMode === 'default') {
       setTerminalMode('auto-accept');
@@ -51,7 +52,7 @@ export default function SlideCheatPerms() {
   };
 
   return (
-    <SlideLayout title="Claude Code 的四個權限模式" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
+    <SlideLayout title="Claude Code 的六個權限模式" subtitle="Practice: Interactive Permission Modes & Control Interfaces" icon={Key}>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-2 items-stretch text-left pb-6">
 
@@ -434,10 +435,9 @@ export default function SlideCheatPerms() {
               <span className="text-indigo-400 font-bold block mb-1">💡 跨平台控制思維：</span>
               {activeTab === 'terminal' ? (
                 <span>
-                  <code>Shift + Tab</code> 平常只在 <strong>default（新版介面上叫 Manual）→ acceptEdits → plan</strong> 三個之間循環，目前是哪一種，輸入框下方會顯示。
-                  另外還有三種要用啟動參數才進得去：<code>auto</code>（全放行但有背景檢查）、
-                  <code>dontAsk</code>（只放行你事先核准的工具，是縮小邊界最實際的做法）、
-                  以及上面那個 <code>bypassPermissions</code>。
+                  <code>Shift + Tab</code> 每按一下換一個。Pro 與 Max 方案<strong>開起來預設在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
+                  啟用之後會插進循環、排在 <code>plan</code> 後面的：<code>auto</code>（全放行但有背景檢查）、
+                  以及 <code>bypassPermissions</code>。<code>dontAsk</code>（只放行你事先核准的工具，是縮小邊界最實際的做法）永遠不在循環裡，只能用啟動參數進去。
                   
                 </span>
               ) : (

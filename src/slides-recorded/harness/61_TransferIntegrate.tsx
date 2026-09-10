@@ -24,7 +24,7 @@ export const meta: RecordedMeta = {
   id: 'harness-61-transfer-integrate',
   title: '規矩寫完了，但你的資料不在這台電腦上',
   script:
-    '規矩解決完了，還有一件事：你的資料多半不在這台電腦上，它在 Notion、在雲端硬碟、在公司的系統裡。不用搬家，接上去就好。以 Notion 為例，照官方文件是三步：在終端機加入官方的 Notion 連線，回到 Claude Code 跑斜線 mcp 完成登入，再用斜線 context 看它佔了多少 token。串好之後你不用再複製貼上，它自己去查。這一頁是等你真的需要才回來看的，現在照著做不完也沒關係。',
+    '規矩解決完了，還有一件事：你的資料多半不在這台電腦上，它在 Notion、在雲端硬碟、在公司的系統裡。不用搬家，接上去就好。以 Notion 為例，照官方文件是三步：在終端機加入官方的 Notion 連線，回到 Claude Code 跑斜線 mcp 完成登入，再用斜線 context 看它佔了多少 token。串好之後你不用再複製貼上，它自己去查。沒有要接外部資料的話，這一頁可以先跳過，後面不會再用到它。',
   seconds: 45,
   from: 75,
 };

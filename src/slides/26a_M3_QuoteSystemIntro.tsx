@@ -10,8 +10,8 @@ const PIECES = [
   { n: '1', icon: FileText, title: '需求說明', note: '誰要用、用來完成哪一段工作' },
   { n: '2', icon: ArrowRightLeft, title: '產品結構', note: '由哪幾層組成、各層怎麼串' },
   { n: '3', icon: Database, title: '資料基礎', note: '客戶、品項、報價單與明細' },
-  { n: '4', icon: Palette, title: '設計規範', note: '表單、狀態、金額欄位與用字' },
-  { n: '5', icon: ShieldCheck, title: '審查子代理', note: '報價送出前，先找缺口' },
+  { n: '4', icon: Palette, title: '規範與審查', note: '表單、狀態、金額欄位，以及誰負責挑錯' },
+  { n: '5', icon: ShieldCheck, title: '推進與踩雷', note: '五個指令的順序，跟最常卡住的五件事' },
 ];
 
 export default function SlideQuoteSystemIntro() {
@@ -23,8 +23,7 @@ export default function SlideQuoteSystemIntro() {
             接下來用「客戶報價系統」做一次完整預演。
           </p>
           <p className="text-slate-400 text-base leading-relaxed">
-            這不是要取代任務計時器主作品，也不是要把全部功能做完。
-
+            這不是要取代任務計時器主作品。功能不做完，重點在走完一次順序。
           </p>
         </AnimatedBlock>
 

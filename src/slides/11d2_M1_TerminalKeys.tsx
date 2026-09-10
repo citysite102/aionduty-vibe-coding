@@ -17,7 +17,7 @@ const KEYS = [
     icon: ClipboardCheck,
     name: '執行模式切換器',
     key: 'Shift + Tab',
-    body: '在「每次都問」與「自動接受編輯」之間切換，輸入框下方會顯示目前模式（default ➔ acceptEdits ➔ plan 循環），你隨時可以收放它對專案的修改權限。',
+    body: '按一下換一個模式，狀態列會顯示目前是哪一個。Pro 與 Max 方案開起來預設在 auto（全自動），按第一下切到 manual（每一步都問你），之後依序是 acceptEdits（自動接受檔案修改）與 plan（只讀不改），再按回到 manual。',
     note: '其中的 plan 模式做的就是「先講怎麼做，不動手」。',
   },
   {
@@ -39,15 +39,14 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="選修：終端機才有的三種操作：模式切換、直通指令、喊停"
+      title="選修：終端機的三種按鍵：模式切換、直通指令、喊停"
       subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
     >
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這三種都是按鍵操作，<strong className="text-slate-100">不是指令</strong>，所以打 <span className="font-mono text-slate-200">/</span> 找不到它們，
-          而且只有在終端機裡按才有反應。
+          這三種在終端機裡都是按鍵。<strong className="text-slate-100">換模式桌面版也做得到</strong>，只是改用介面上的選單，不叫 <span className="font-mono text-slate-200">Shift + Tab</span>；直通指令那個是終端機獨有的。
         </AnimatedBlock>
 
         {KEYS.map((k, i) => {

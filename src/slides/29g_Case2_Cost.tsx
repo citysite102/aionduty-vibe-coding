@@ -94,7 +94,7 @@ export default function SlideCase2Cost() {
         <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">「反正 AI 會寫，我還需要懂嗎」</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            這個作品裡有八個地方，不懂就會卡住，而且卡住的時候你連問題該怎麼描述都不知道。四個例子：
+            這個作品裡有好幾個地方，不懂就會卡住，而且卡住的時候你連問題該怎麼描述都不知道。四個例子：
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             {SYMPTOMS.map((s) => (
