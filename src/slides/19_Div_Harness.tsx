@@ -10,6 +10,7 @@ export default function SlideDivHarness() {
         { label: '框架與成本', weight: 3, note: '零件、上下文、token 帳' },
         { label: '給它工具與邊界', weight: 3, note: 'MCP、Skills、權限' },
         { label: '寫出第一份手冊', weight: 7, note: '寫、確認讀到、避開廢話' },
+        { label: '零件放哪、真實專案怎麼用', weight: 5, note: '載入時機、資料夾位置、實例' },
       ]}
     />
   );

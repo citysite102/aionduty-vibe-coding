@@ -66,7 +66,9 @@ export const UNIT_DEFS: UnitDef[] = [
   // ── 章節五 Agent 運作框架與成本分析 ──
   { live: 45, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
   { live: 50, title: 'Token 計費與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
-  { live: 54, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '這門課要動手的三塊：工具、規則文件、把題目切小' },
+  // 5-2 收尾那三個浪費是下一頁「要動手的三塊」的鋪陳（見 11c3_M1_SpendLess 的註解），
+  // 所以路線圖那一頁留在 5-2 裡，5-3 從 MCP 與 Skills 真正開始的那一頁起算。
+  { live: 55, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
   { live: 60, title: '監督程度與權限模式', anchor: '監督與邊界' },
   { live: 62, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
@@ -85,6 +87,9 @@ export const UNIT_DEFS: UnitDef[] = [
   // 後兩題（太肥、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
   { live: 77, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
   { live: 80, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
+  // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
+  // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
+  { live: 80, part: 12, title: '規則分層的取捨與第一次分流', anchor: '保證越高的，改起來越麻煩' },
   { live: 81, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
@@ -102,8 +107,9 @@ export const UNIT_DEFS: UnitDef[] = [
   // 前半是四道邊界與煞車、後半才實際貼那段指令，學員在前半會一直等著看指令長什麼樣。
   // 合起來的順序是：先知道怎麼喊停與怎麼驗，再貼指令，再看它自己跑三輪。
   { live: 101, title: '工作交辦：目標、完成條件與邊界', anchor: 'Agent 循環開發流程與實戰案例' },
-  { live: 104, title: '自主循環的監控與介入時機', anchor: '它原地打轉的時候，你有四個動作可以做' },
-  { live: 112, title: '部署上線：從本機到公開網址', anchor: '幫計時器加上航行日誌' },
+  { live: 104, title: '介入時機、自動把關與安全邊界', anchor: '它原地打轉的時候，你有四個動作可以做' },
+  { live: 108, title: '自主循環實作：讓計時器自己跑完一輪', anchor: '讓計時器自己跑完一輪' },
+  { live: 113, title: '部署上線：從本機到公開網址', anchor: '你的專案現在只活在這台電腦裡' },
   // 三個完整案例。單元名稱直接用 Case 的名字，因為講者會在這裡打開那三份教學文件，
   // 影片標題和文件封面對得起來，學員才知道現在該翻哪一份。
   //
