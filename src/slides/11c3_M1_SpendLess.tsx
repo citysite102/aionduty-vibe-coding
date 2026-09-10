@@ -19,7 +19,7 @@ import { Callout } from '../components/Callout';
 const LEVERS = [
   {
     icon: Activity,
-    tag: '量',
+    tag: '看用量',
     cmd: '/usage',
     title: '先知道自己實際花多少',
     body: '跑過一次之後打它，看得到這次花了多少、額度什麼時候重置。沒有這個數字，後面調什麼都是憑感覺。',
@@ -27,7 +27,7 @@ const LEVERS = [
   },
   {
     icon: Gauge,
-    tag: '調',
+    tag: '調深淺',
     cmd: '/effort',
     title: '同一個模型裡，調它每次要想多久',
     body: '想得越久越貴。預設是 high，事情簡單的時候調到 low 或 medium，省下來的是實打實的 token。/model 換的是模型等級，/effort 是在同一個等級裡調深淺，兩個可以分開用。',
@@ -45,8 +45,8 @@ export default function SlideSpendLess() {
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這筆錢有兩個地方可以壓，順序不要反過來：
-          <strong className="text-slate-100">先知道自己實際花多少，再決定要不要調它想多久。</strong>
+          額度不夠用的時候，多數人第一個動作是換成小一點的模型。
+          <strong className="text-slate-100">先看帳，多半不用換。</strong>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

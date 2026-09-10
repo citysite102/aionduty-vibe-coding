@@ -86,10 +86,10 @@ export default function SlideROI() {
         {/* 主張 */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800">
           <p className="text-slate-100 text-lg leading-relaxed font-bold">
-            花這筆錢，換到的是把「驗證一個點子行不行」從三週壓到當天。
+            花這筆錢，換到的是把「驗證一個 Idea 行不行」從三週壓到當天。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-2">
-            外包最貴的往往不是報價，而是你得先寫需求、等排程、來回改，然後才知道這個點子行不行。
+            外包最貴的往往不是報價，而是你得先寫需求、等排程、來回改，然後才知道這個 Idea 行不行。
           </p>
         </AnimatedBlock>
 

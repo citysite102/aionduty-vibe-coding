@@ -91,7 +91,7 @@ export default function SlideIntroSpectrum() {
                 一句話生出前後端都有的網頁，可以直接上線，也可以把程式碼匯出帶走。
               </p>
             </div>
-            <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：快速驗證產品點子，準備好接續實踐開發</div>
+            <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：快速驗證產品 Idea，準備好接續實踐開發</div>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
