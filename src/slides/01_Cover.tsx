@@ -72,9 +72,7 @@ export default function Slide01() {
         </div>
         
         <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
-          不會寫程式也走得完，該懂的軟體概念課裡會講。
-          <br className="hidden md:block" />
-          做完你會有一個網址，可以直接傳給別人打開。
+          補上軟體基礎，建立一套自己能重複用的 AI 開發流程。
         </p>
 
         <motion.div 
