@@ -1,6 +1,5 @@
 import { TerminalSquare, ArrowRight, AlertTriangle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { CopyText } from '../components/CopyBlock';
 
 /*
  * 每一步都要有「做完之後你要看什麼」，否則學員照貼完五段，
@@ -63,7 +62,7 @@ export default function SlideQuoteSystemPrompts() {
                 <div className="flex items-start gap-3">
                   <ArrowRight aria-hidden="true" size={16} className="hidden md:block text-slate-700 shrink-0 mt-1" />
                   <div className="min-w-0">
-                    <CopyText text={step.prompt} />
+                    <p className="font-mono text-xs md:text-sm leading-relaxed text-slate-400 break-words">{step.prompt}</p>
                     <p className="mt-2 flex items-start gap-2 text-amber-200/70 text-xs leading-relaxed">
                       <AlertTriangle aria-hidden="true" size={13} className="text-amber-500 shrink-0 mt-0.5" />
                       {step.watch}

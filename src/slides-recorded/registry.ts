@@ -148,8 +148,11 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m43, Component: RecTransferQ2 },
     { meta: m44, Component: RecTransferQ3 },
     { meta: m46, Component: RecTransferMapping },
-    { meta: m61, Component: RecTransferIntegrate },
     { meta: m47, Component: RecTransferNextStep },
+    // 61 放在 47 之後：46 收在「三個問題問完」、47 開在「這三題跟工具無關」，
+    // 本來是接得上的一句話。而且它要學員開終端機打 claude mcp add，難度比整段高一階，
+    // 內容也不屬於單元名的「跨工具轉移與從零建立」。放最後當加分題。
+    { meta: m61, Component: RecTransferIntegrate },
   ],
   // index 86 = 原「你完成了哪四件事」
   86: [

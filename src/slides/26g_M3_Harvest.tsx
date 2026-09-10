@@ -87,7 +87,11 @@ export default function SlideM3Harvest() {
             <p className="text-slate-400 text-sm leading-relaxed">
               報價系統那個規模的分工，這一段只走過一次流程，沒有真的做出來。
               <span className="text-slate-200">那一段給你的是順序跟五個卡關的地方</span>，
-              回去照著同一個順序推，才是真的做過一次。
+              換成你自己的題目照同一個順序推，才是真的做過一次。
+              <span className="block mt-2 text-slate-500">
+                所以你手上那個審查子代理叫 <code className="font-mono text-orange-300">code-reviewer</code>，
+                掛在計時器底下；<code className="font-mono text-orange-300">quote-reviewer</code> 是報價系統那個情境裡的名字，沒有真的建。
+              </span>
             </p>
           </AnimatedBlock>
         </div>
