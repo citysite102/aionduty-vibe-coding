@@ -9,11 +9,10 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  */
 export default function SlidePillars() {
   return (
-    <SlideLayout title="這門課要動手的三塊：工具、規則文件、把題目切小" subtitle="What We Actually Build" icon={Layers}>
+    <SlideLayout title="Agent 的工具、規則文件與任務拆解" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
-        前面那六個零件裡，這門課真的會動手的是
-        <strong className="text-slate-200">工具</strong>與<strong className="text-slate-200">規則文件</strong>兩塊，
-        再加一件零件表沒列、但你每天都會用到的事：<strong className="text-slate-200">把大題目切小</strong>。
+        六個零件裡，前兩塊是你真的要建出檔案的，第三塊零件表沒列，
+        但你每次交代工作都會用到。<strong className="text-slate-200">模型換成更新的版本，這三塊照樣要做。</strong>
       </p>
       {/*
         第四塊沒有做成第四格，因為它不是「你要建的東西」，是你在建的過程中一直要轉的旋鈕。

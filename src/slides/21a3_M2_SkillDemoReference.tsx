@@ -23,7 +23,7 @@ const PARTS = [
 
 export default function Slide21a3SkillDemoReference() {
   return (
-    <SlideLayout title="給它看，還要叫得出每一塊的名字" subtitle="Reference and Vocabulary" icon={Compass}>
+    <SlideLayout title="參考設計與區塊名稱，讓指令指得準" subtitle="Reference and Vocabulary" icon={Compass}>
       <div className="mx-auto min-h-full w-full max-w-6xl space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
@@ -117,8 +117,8 @@ export default function Slide21a3SkillDemoReference() {
         </AnimatedBlock>
 
         <Callout stepIndex={4}>
-          <strong className="text-slate-100">Skill 決定它做得好不好，參考設計決定它做得像不像你要的那一種。</strong>
-          名字則決定你改不改得動：知道那塊叫什麼，才講得出要調哪裡。
+          <strong className="text-slate-100">Skill 讓它每次都照同一套做法做，參考設計管的是外觀。</strong>
+          真正決定你改不改得動的是名字：知道那塊叫什麼，才講得出要調哪裡。
         </Callout>
 
       </div>
