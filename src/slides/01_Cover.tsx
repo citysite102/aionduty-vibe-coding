@@ -55,24 +55,26 @@ export default function Slide01() {
           </div>
         </div>
         
+        {/* Series eyebrow */}
+        <p className="text-sm md:text-base text-slate-400 font-mono tracking-[0.35em] uppercase mb-5">
+          AI On Duty 系列
+        </p>
+
         {/* Main Glitch-like Title */}
-        <h1 className="text-6xl md:text-8xl font-black text-white italic tracking-wider mb-2 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          AI ON
-        </h1>
         <h1 className="text-6xl md:text-8xl font-black text-white italic tracking-wider mb-10 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-          DUTY
+          Vibe Coding
         </h1>
         
         {/* Pill Subtitle */}
         <div className="bg-gradient-to-r from-slate-100 via-white to-sky-100 text-slate-900 font-bold px-8 py-4 rounded-full text-xl md:text-2xl flex items-center justify-center shadow-[0_0_30px_rgba(56,189,248,0.4)] border-2 border-white/80 mb-10">
           <Terminal size={24} className="mr-3 text-sky-600" />
-          <span className="tracking-wide">Vibe Coding x Agentic Engineering</span>
+          <span className="tracking-wide">實戰：AI 開發流程完整指南</span>
         </div>
         
         <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
-          不用會寫程式。你要練的是把需求講清楚，然後驗收它做出來的東西。
+          不會寫程式也走得完，該懂的軟體概念課裡會講。
           <br className="hidden md:block" />
-          從第一個能跑的作品開始，親手做出一套自己的 AI 開發流程。
+          做完你會有一個網址，可以直接傳給別人打開。
         </p>
 
         <motion.div 

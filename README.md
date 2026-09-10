@@ -1,4 +1,4 @@
-# AI On Duty：Vibe Coding 補充單元教材
+# AI On Duty 系列｜Vibe Coding 實戰：AI 開發流程完整指南
 
 課程簡報。線上瀏覽：<https://citysite102.github.io/aionduty-vibe-coding/>
 
