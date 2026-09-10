@@ -89,7 +89,7 @@ export default function SlidePopularSkills() {
               <div className="mt-auto space-y-1.5 text-sm text-slate-400 leading-relaxed">
                 <p>• <strong className="text-slate-300">一次一題，等你答完才問下一題。</strong></p>
                 <p>• <strong className="text-slate-300">能自己查的它就去查，只把「決定」留給你。</strong></p>
-                <p>• 你沒說「我們有共識了」之前，它不會動手寫任何東西。</p>
+                <p>• 你沒說「我們有共識了」之前，它會先把問題問完才開始寫。</p>
                 <p>• 要自己打 <code className="text-orange-300">/grill-me</code> 才會啟動，它不會自己跳出來煩你。</p>
               </div>
             </div>

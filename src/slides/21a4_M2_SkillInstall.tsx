@@ -52,7 +52,7 @@ export default function SlideSkillInstall() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           三種來源做的是同一件事：<strong className="text-slate-100">把一份 SKILL.md 放到它找得到的地方。</strong>
-          所以某一種卡住的時候，換另一種也一樣會成功。
+          所以某一種卡住的時候，直接換另一種，不用在那一種上面耗。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

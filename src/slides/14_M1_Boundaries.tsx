@@ -71,7 +71,7 @@ export default function SlideBoundaries() {
         >
           <h3 className="text-xl font-bold text-rose-300 flex items-center gap-3 mb-5">
             <ShieldAlert aria-hidden="true" size={22} />
-            這幾件你得自己來
+            你得自己補的地方
           </h3>
           <ul className="space-y-4">
             {LIMITS.map((l) => (

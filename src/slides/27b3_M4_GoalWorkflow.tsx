@@ -101,7 +101,7 @@ export default function SlideGoalWorkflow() {
               </h3>
               
               <p className="text-xs text-slate-400 leading-relaxed mb-4">
-                只要這件事有<strong>「可以驗證的完成狀態」</strong>，就能用同一套方法交給 AI 去跑，跟你寫不寫程式無關。
+                <strong>完成標準寫得出來、灰色地帶有人把關</strong>，這件事就交得下去，跟你寫不寫程式無關。
               </p>
 
               {/* Tabs */}

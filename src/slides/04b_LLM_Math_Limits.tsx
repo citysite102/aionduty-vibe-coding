@@ -69,7 +69,7 @@ export default function SlideLLMMathLimits() {
         <div className="lg:col-span-6 flex flex-col space-y-4">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-400 text-sm leading-relaxed">
-              它把你的話換算成一個位置，再看記憶裡哪些做法離這個位置最近。<strong className="text-slate-200">離得越近的，它越可能拿來用。</strong>它沒有常識可以幫你判斷你真正想要哪一個，所以你講得夠不夠清楚，直接決定它會不會猜錯。
+              它把你的話換算成一個位置，再看記憶裡哪些做法離這個位置最近。<strong className="text-slate-200">離得越近的，它越可能拿來用。</strong>它沒有常識可以幫你判斷你真正想要哪一個，所以你講得越清楚，它猜錯的機會越小。
             </p>
           </AnimatedBlock>
 

@@ -114,7 +114,7 @@ const LoopEngineeringAnimation = () => {
                     <Bot className="text-sky-300" size={38} />
                   </div>
                   <span className="text-xs text-sky-400 mt-3 font-bold flex items-center gap-1.5">
-                    <RefreshCw size={12} /> 自主控制循環
+                    <RefreshCw size={12} /> 改一輪、驗一輪，自己重來
                   </span>
                 </div>
 
@@ -209,7 +209,7 @@ export default function SlideLoopEngineering() {
           <AnimatedBlock stepIndex={2} className="text-left bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg flex flex-col justify-between h-full">
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-4">
-                設計「自動調度」的控制系統
+                把「每一輪催它」交給系統，你只寫條件
               </h3>
               <p className="text-slate-300 text-base leading-relaxed font-medium mb-6">
                 Loop Engineering 的核心主張是：<strong className="text-sky-400 font-bold mx-1">把「反覆下提示」這件事交給系統，而不是自己一直手動做。</strong><br/><br/>

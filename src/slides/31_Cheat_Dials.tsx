@@ -106,7 +106,7 @@ export default function SlideCheatDials() {
           <div className="text-base font-bold text-slate-100 mb-2">兩個是分開的，不會一起動</div>
           <p className="text-slate-400 text-sm leading-relaxed">
             權限開很大、但每一步都問你，這樣可以。權限縮到最小、然後完全放手，這樣也可以。
-            <strong className="text-slate-300">還不熟的時候建議選後面那種</strong>，
+            <strong className="text-slate-300">還不熟的時候，建議把邊界縮到最小再放手</strong>，
             因為就算它整段跑歪，能壞的也就那一個資料夾。
             要小心的是兩個旋鈕都轉到底：權限全開，又懶得看它做了什麼。
           </p>

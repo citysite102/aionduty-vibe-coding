@@ -78,7 +78,7 @@ const GOOD_POINTS = [
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="同一批資料，兩種擺法" subtitle="Database & Schema Design" icon={Database}>
+    <SlideLayout title="同一批資料：全塞一張表，或拆表用 id 串起來" subtitle="Database & Schema Design" icon={Database}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
@@ -201,7 +201,7 @@ export default function Slide10d() {
             </div>
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            沒有特別理由就選 SQL。會不會出事，看的是上面那件事，不是你選了哪一種。
+            沒有特別理由就選 SQL。會不會出事，看的是資料有沒有拆開，不是你選了哪一種。
           </p>
         </AnimatedBlock>
       </div>

@@ -66,11 +66,8 @@ export default function SlideClaudeShortcuts() {
             className="bg-slate-900 border border-slate-800 rounded-3xl p-6 h-full flex flex-col justify-center"
           >
             <h3 className="text-xl font-bold text-slate-100 mb-3 leading-snug">
-              這三個各解掉一件事
+              不用打完整路徑、退得回上一步、貼圖給它看
             </h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              不用打完整路徑、做壞了可以退回去、有話直接貼圖給它看。
-            </p>
             <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-3 mt-4">
               桌面版跟終端機都適用。找不到的時候打{' '}
               <code className="font-mono text-orange-300">/help</code> 看一次，

@@ -20,7 +20,7 @@ export default function SlideM2ExtensionsCases2() {
               系統底層設定：如果 Claude 試圖執行 <code className="text-red-300 bg-red-900/30 px-1 rounded">rm -rf /</code> 或 <code className="text-red-300 bg-red-900/30 px-1 rounded">DROP TABLE</code> 等危險指令，強制阻擋並報錯。
             </p>
             <div className="text-slate-500 text-xs mt-3">
-              * 寫在 CLAUDE.md 說「不要刪除資料庫」它可能還是會被 Prompt Injection 騙過，Hook 則是在執行層徹底卡死。
+              * 寫在 CLAUDE.md 說「不要刪除資料庫」它可能還是會被 Prompt Injection 騙過，Hook 是在執行前直接擋掉，不經過它判斷，所以它想跳過也跳不掉。
             </div>
           </div>
         </AnimatedBlock>

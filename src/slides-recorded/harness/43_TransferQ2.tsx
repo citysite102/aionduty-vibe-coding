@@ -26,7 +26,7 @@ export default function RecTransferQ2() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
-          <p className="text-slate-300 text-3xl font-bold leading-snug">這些不要只寫進手冊，<Key>要找機制擋</Key></p>
+          <p className="text-slate-300 text-3xl font-bold leading-snug">這些不要只寫進手冊，<Key>要有一道程式在寄出前檢查</Key></p>
         </AnimatedBlock>
 
         <ProposalDraft stage={2} stepIndex={3} />

@@ -43,7 +43,7 @@ const PROMPT =
 
 export default function SlideM1Harvest() {
   return (
-    <SlideLayout title="先確認你手上有什麼" subtitle="What You Should Have" icon={PackageCheck}>
+    <SlideLayout title="這一章做完，你手上該有 mission-timer 與一個會動的計時器" subtitle="What You Should Have" icon={PackageCheck}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1}>

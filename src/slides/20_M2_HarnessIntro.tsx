@@ -28,7 +28,7 @@ export default function SlideHarnessIntro() {
               </h3>
               
               <p className="text-slate-300 text-xs leading-relaxed">
-                隨著各大頂尖模型的基礎能力（Claude、GPT、Gemini）落差逐漸縮小，<strong className="text-sky-300 font-bold">你為 AI 準備的「運作框架（Harness）」才是拉開產出差距的地方。</strong>
+                隨著各大頂尖模型的基礎能力（Claude、GPT、Gemini）差距縮小，<strong className="text-sky-300 font-bold">你為 AI 準備的「運作框架（Harness）」才是拉開產出差距的地方。</strong>
               </p>
 
               <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs space-y-3">

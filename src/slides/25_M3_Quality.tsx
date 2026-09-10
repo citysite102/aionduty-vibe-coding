@@ -49,9 +49,9 @@ export default function SlideQuality() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-8 text-center max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-sky-400 mb-4">這不是工程專用</h3>
+          <h3 className="text-2xl font-bold text-sky-400 mb-4">報價、客服回覆、教材、文案都設得起同一道</h3>
           <p className="text-slate-300 text-lg leading-relaxed">
-            Code Reviewer 只是最容易理解的例子。只要你能寫出檢查標準，就能養出報價審查、客服回覆審查、教材審查或品牌文案審查。
+            Code Reviewer 只是最容易理解的例子。Code Reviewer 只是最容易理解的例子。寫得出退回條件的地方都設得起：報價審查、客服回覆審查、教材審查、品牌文案審查。
           </p>
         </AnimatedBlock>
       </div>

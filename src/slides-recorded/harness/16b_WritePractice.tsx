@@ -41,7 +41,7 @@ export default function RecWritePractice() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
-          <FlowRow steps={['挑一條', '照五個改寫技巧看一遍', '改寫', '自己數一次']} />
+          <FlowRow steps={['挑一條', '照白名單、理由、例子、例外、一次一件看一遍', '改寫', '自己數一次']} />
         </AnimatedBlock>
 
         {/* 改完長什麼樣。這一組是整頁的重點，判準那句話留給口白 */}

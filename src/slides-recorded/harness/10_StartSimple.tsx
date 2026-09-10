@@ -14,7 +14,7 @@ export const meta: RecordedMeta = {
   id: 'harness-10-start-simple',
   title: '那要一開始就分好層嗎？',
   script:
-    '前面那四個問題排出來很像一張架構圖，但你不需要在開專案的第一天就把它設計好。實際情況是，幾乎所有專案都是從一份 CLAUDE.md 開始的，規則也是遇到問題才一條一條加上去。分層是後來才長出來的。什麼時候該分？有三個訊號：某條規則明顯只跟某一區有關；同一件事重複出錯、光是寫進手冊已經擋不住；或是檔案長到你自己都要找一下某條規則在哪裡。看到這些訊號，再回頭用那四個問題把它們送出去就好。',
+    '前面那四個問題排出來很像一張架構圖，但你不需要在開專案的第一天就把它設計好。實際情況是，一開始通常只需要一份 CLAUDE.md，規則也是遇到問題才一條一條加上去。分層是後來才長出來的。什麼時候該分？有三個訊號：某條規則明顯只跟某一區有關；同一件事重複出錯、光是寫進手冊已經擋不住；或是檔案長到你自己都要找一下某條規則在哪裡。看到這些訊號，再回頭用那四個問題把它們送出去就好。',
   seconds: 44,
   from: 69,
 };
@@ -26,7 +26,7 @@ export default function RecStartSimple() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-4xl font-bold leading-snug">不用。<Key>從一份開始就好</Key>。</p>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">
-            幾乎所有專案都是從一份 CLAUDE.md 開始的，規則也是遇到問題才一條一條加上去。分層是後來才長出來的。
+            一開始通常只需要一份 CLAUDE.md，規則也是遇到問題才一條一條加上去。分層是後來才長出來的。
           </p>
         </AnimatedBlock>
 

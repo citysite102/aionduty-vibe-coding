@@ -66,7 +66,7 @@ export default function SlideM2ExtensionsCases() {
               <li>使用 <code className="text-slate-300">git tag</code> 標記版號</li>
               <li>推送至遠端 <code className="text-slate-300">origin main</code></li>
             </ul>
-            <div className="text-emerald-500/80 text-xs mt-3 italic">「Claude，幫我跑一下版本發布流程。」它就會讀這份 Skill，照上面的步驟做。</div>
+            <div className="text-emerald-500/80 text-xs mt-3 italic">「Claude，幫我跑一下版本發布流程。」它會去找對得上的 Skill 展開來照做。沒觸發就直接點名：「用 release 這個 Skill」。</div>
           </div>
         </AnimatedBlock>
 

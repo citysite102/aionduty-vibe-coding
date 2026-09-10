@@ -12,7 +12,7 @@ const parts = [
     icon: FileCode,
     name: '規則文件',
     en: 'Rule Files',
-    desc: '定義 Agent 的角色定位與運作邊界。',
+    desc: '這個專案的規矩與慣例，寫成一份 CLAUDE.md，每次開對話都會被讀進去。',
     scope: 'core' as const,
     tag: '本課會動手',
   },
@@ -99,8 +99,8 @@ export default function SlideHarnessArchitecture() {
 
         <div className="max-w-4xl mx-auto text-center mb-6">
           <p className="text-slate-300 text-base">
-            這是<strong className="text-slate-100">業界完整版</strong>的六個零件。
-            知道每一個負責什麼，出問題的時候才知道要往哪一塊找。
+            這六個零件各管一件事。<strong className="text-slate-100">這堂課會動手的是前兩個</strong>，
+            其餘先知道它們負責什麼，後面碰到再回來。
           </p>
         </div>
 

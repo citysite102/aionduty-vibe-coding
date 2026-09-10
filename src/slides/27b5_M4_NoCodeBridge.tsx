@@ -18,7 +18,7 @@ export default function SlideNoCodeBridge() {
           <p className="text-slate-300 text-base leading-relaxed">
             前面說「要有客觀的完成標準，迴圈才知道自己做完了沒」。問題是，
             <strong className="text-slate-100">你不會看程式碼，那個標準要從哪裡來？</strong>
-            答案是：不用你來看。有東西會自動幫你把關，跑完給綠燈或紅字，AI 看得到同一份結果，紅字就自己回頭修。
+            答案是：不用你來看。Lint、型別檢查與瀏覽器實測會替你跑，跑完給綠燈或紅字，AI 看得到同一份結果，紅字就自己回頭修。
             <span className="block mt-2 text-slate-400">
               把關分兩種：一種是<strong className="text-slate-300">讀程式碼挑錯</strong>（下面兩個），一種是<strong className="text-slate-300">實際打開畫面點一次</strong>。
               你手上的計時器適用第二種，所以你要動手做的是那個。

@@ -84,7 +84,7 @@ export default function Slide21a2SkillDemoResume() {
             <p className="text-sm leading-relaxed text-slate-300">
               你不會寫版面，但你要驗收版面。
               <strong className="text-slate-100">看過的好版面不夠多，你只講得出「怪怪的」，講不出哪裡該改。</strong>
-              而且做出來的東西是要給別人看的，對方通常在讀完內容之前就先決定要不要讀。
+              而且做出來的東西是要給別人看的。
               平常存幾個喜歡的網站，要改的時候直接把截圖貼給它，比形容十句有用。
             </p>
           </div>

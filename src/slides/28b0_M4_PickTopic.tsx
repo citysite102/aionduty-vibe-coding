@@ -103,7 +103,7 @@ export default function SlidePickTopic() {
         <Callout tone="focus" label="內容自己給，格式讓它整理" stepIndex={7}>
           上面四種都是你先拿出自己的東西（舊報表、舊回覆、部門的規範），它只負責整理成固定格式。
           反過來讓它替你想內容，你會拿到一份<strong className="text-slate-100">自己驗不動的東西</strong>；
-          驗不動的時候，多數人不會退回去重來，而是直接往下送。
+          驗不動的東西，你只能選擇相信它，或整份重來。
           你負責的是講清楚什麼叫做完跟驗收，這一步就是在保住那個能力。
         </Callout>
 

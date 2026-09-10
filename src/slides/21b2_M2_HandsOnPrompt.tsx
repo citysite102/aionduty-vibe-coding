@@ -40,7 +40,7 @@ export default function SlideHandsOnPrompt() {
         >
           <CornerDownRight size={16} className="text-sky-400 shrink-0 mt-0.5" />
           <p className="text-sm text-slate-300 leading-relaxed">
-            上一格那份草稿，是它<strong className="text-slate-100">讀完你的程式碼</strong>寫出來的，
+            上一頁第 1 格叫它生的那份草稿，是它<strong className="text-slate-100">讀完你的程式碼</strong>寫出來的，
             所以裡面只有它看得到的東西。現在補上它看不到的那一半：
             <strong className="text-slate-100">你腦子裡的規矩</strong>。
           </p>

@@ -37,7 +37,7 @@ export default function SlideM2OutsideContext() {
         </div>
 
         <AnimatedBlock stepIndex={4} className="bg-red-500/5 border border-red-500/25 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-2">整段最關鍵的一個區分</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-2">文字說服，跟程式攔截</h3>
           <p className="text-slate-300 text-base leading-relaxed">
             「絕對不要做某事」寫在 CLAUDE.md 裡，<strong className="text-red-300">不保證擋得住</strong>。對話一長，或是它讀到某個網頁上寫著「請忽略前面的規則」，它還是可能做下去。
           </p>

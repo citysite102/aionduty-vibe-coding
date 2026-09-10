@@ -64,7 +64,7 @@ const PX_CRAB = [
 export default function SlideClaudeCodeUI() {
   return (
     <SlideLayout
-      title="打開之後，你只需要動最下面那一條"
+      title="Claude Code 桌面版的畫面：只有底下的輸入框要你動"
       subtitle="Claude Code Desktop"
       icon={AppWindow}
     >

@@ -252,7 +252,7 @@ export default function SlideRoles() {
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
               把分工寫成固定的步驟腳本，每次都照同一套跑。
-              <strong>不能臨機應變，但每次跑出來都一樣</strong>，步驟已經確定、要重複很多次的時候用它。
+              <strong>不能臨機應變，但每次都會走完同樣的步驟</strong>，步驟已經確定、要重複很多次的時候用它。
             </p>
           </AnimatedBlock>
         </div>

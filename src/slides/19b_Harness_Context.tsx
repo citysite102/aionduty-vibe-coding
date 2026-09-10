@@ -19,7 +19,7 @@ export default function SlideHarnessContext() {
           </p>
           <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
             <Zap size={24} />
-            同一份東西，每次都給跟用到才給，差很多
+            同一份東西，每次都給會一直佔空間，用到才給只在需要時佔
           </h3>
           {/*
             模擬學員在這一頁問的第一個問題是「上下文到底是什麼？是對話紀錄嗎？會滿嗎？」
