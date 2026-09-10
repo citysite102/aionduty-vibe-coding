@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 三個案例共用同一份課前作業，所以這兩頁（七塊、驗收條件）掛在案例一的單元裡，
+ * 三個案例共用同一份規格，所以這兩頁（七塊、驗收條件）掛在案例一的單元裡，
  * 但講的是三個案例都要交的那份規格。
  *
  * 第 3 塊標 sky，其餘七塊灰階：真實素材是唯一一塊 AI 補不出來的，
@@ -52,7 +52,7 @@ export default function SlideCaseSpec() {
   return (
     <SlideLayout
       title="一份能用的規格，有七塊"
-      subtitle="Spec Writing · 三個案例共用的課前作業"
+      subtitle="Spec Writing · 三個案例共用的同一份規格"
       icon={FileText}
     >
       <div className="max-w-6xl mx-auto space-y-5 pb-8">

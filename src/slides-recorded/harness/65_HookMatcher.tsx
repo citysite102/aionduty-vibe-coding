@@ -50,7 +50,7 @@ export default function RecHookMatcher() {
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           <div className="border-b border-slate-800 bg-slate-900 px-6 py-2.5 font-mono text-lg text-orange-300">
-            matcher: Write|Edit|MultiEdit
+            matcher: Write|Edit
           </div>
           <div className="px-6 py-5 flex flex-wrap gap-3">
             {TOOLS.map((t) => (

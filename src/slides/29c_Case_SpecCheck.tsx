@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 課前作業的第二頁。七塊裡最容易寫壞的就是驗收條件，所以單獨一頁。
+ * 那份規格的第二頁。七塊裡最容易寫壞的就是驗收條件，所以單獨一頁。
  * 正反對照，所以左欄 rose、右欄 emerald，這一頁只有這兩個色相。
  */
 const TRANSLATIONS = [

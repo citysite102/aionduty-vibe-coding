@@ -138,7 +138,7 @@ export default function SlideROI() {
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
             這一格的金額是<strong className="text-slate-400">走 API 計量</strong>的人實際會被扣的錢。
             <strong className="text-slate-400">走訂閱制（Pro／Max）的人不會看到這筆扣款</strong>，你付的是月費，
-            這個數字對你的意義是「這件事會吃掉多少額度」：像旗艦那一格五小時的來回，Pro 的五小時額度大概就用在這裡了。
+            這個數字對你的意義是「這件事會吃掉多少額度」：像內部管理工具那一格五小時的來回，Pro 的五小時額度大概就用在這裡了。
           </p>
           <p className="text-slate-500 text-xs mt-2 leading-relaxed">
             單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取約輸入的十分之一，匯率抓 32。

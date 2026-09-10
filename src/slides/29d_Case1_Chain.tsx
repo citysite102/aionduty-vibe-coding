@@ -83,7 +83,7 @@ export default function SlideCase1Chain() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">課前作業寫的那份規格，被拆成五塊分別用掉</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">前面那份規格，被拆成五塊分別用掉</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             驗收條件那一塊寫得夠具體，第 8 步才翻得成檢查規則。寫「要有質感」的人到那裡會卡住。
           </p>
@@ -119,7 +119,7 @@ export default function SlideCase1Chain() {
         </AnimatedBlock>
 
         <Callout tone="focus" label="換成你自己的專案，最少要留哪幾步" stepIndex={4}>
-          課前作業那份規格、第 5 步的設計規範、第 8 步的自動檢查。
+          前面那份規格、第 5 步的設計規範、第 8 步的自動檢查。
           <strong className="text-slate-100">少了第 8 步，前面寫的規則全部只是請它照做。</strong>
           其餘九步是這個網站的做法，換一個題目就會不一樣。
         </Callout>

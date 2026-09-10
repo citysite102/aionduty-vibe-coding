@@ -69,7 +69,7 @@ export default function SlideNoCodeBridge() {
         <AnimatedBlock stepIndex={4} className="bg-slate-900/60 border border-slate-800 rounded-3xl p-6">
           <h4 className="text-base font-bold text-slate-100 mb-1 flex items-center gap-2">
             <Terminal size={18} className="text-sky-400" />
-            那我的專案要怎麼跑這兩道關卡？
+            那我的專案要怎麼跑前面那兩道自動關卡？
           </h4>
           {/*
             這三步原本是 ESLint + npm run lint。問題有兩個：
@@ -122,7 +122,7 @@ export default function SlideNoCodeBridge() {
         <AnimatedBlock stepIndex={5} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-sm text-slate-400 leading-relaxed">
             
-            這兩道關卡是自動跑的，不必你懂程式。它們就是迴圈能自己往下跑的最低標準：紅字沒清掉，就不算做完。
+            Lint 與型別這兩道是自動跑的，不必你懂程式。它們就是迴圈能自己往下跑的最低標準：紅字沒清掉，就不算做完。
           </p>
         </AnimatedBlock>
 

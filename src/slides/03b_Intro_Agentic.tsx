@@ -26,10 +26,10 @@ export default function SlideIntroAgentic() {
             2026 年 4 月，Sequoia AI Ascent 的對談。
           </p>
           <p className="text-slate-300 text-lg leading-relaxed mb-3">
-            他的原話是：<strong className="text-sky-400 font-bold">「Vibe coding 把地板墊高，Agentic engineering 守住專業軟體的品質水準。」</strong>
+            他的原話是：<strong className="text-sky-400 font-bold">「Vibe coding 把地板墊高，Agentic engineering 是把天花板往上推。」</strong>
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            前者讓本來做不出軟體的人做得出來，後者處理的是「做得出來之後，怎麼確定它是對的」。
+            他另外一句話講得更直白：Agentic engineering 是在守住專業軟體的品質水準。前者讓本來做不出軟體的人做得出來，後者處理的是「做得出來之後，怎麼確定它是對的」。
             <strong className="text-slate-100">這門課兩個都會碰到</strong>：先用前者做出東西，再用後者把它變成敢交出去的東西。
           </p>
         </AnimatedBlock>

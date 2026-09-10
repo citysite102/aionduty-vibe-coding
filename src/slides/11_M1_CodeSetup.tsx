@@ -45,7 +45,7 @@ export default function SlideCodeSetup() {
             </div>
             <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
               <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Node.js</a>
-              <span className="text-xs text-slate-500">選 LTS 版本，需 18 以上，會一起裝好 npm</span>
+              <span className="text-xs text-slate-500">選 LTS 版本，需 22 以上，會一起裝好 npm</span>
             </div>
             <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
               <a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Git</a>
@@ -77,7 +77,7 @@ export default function SlideCodeSetup() {
             <div className="text-emerald-400">$ curl -fsSL https://claude.ai/install.sh | bash</div>
             <div className="text-slate-500 pt-1"># Windows（在 PowerShell 執行，不是 cmd）</div>
             <div className="text-emerald-400">&gt; irm https://claude.ai/install.ps1 | iex</div>
-            <div className="text-slate-500 pt-1"># 兩個平台通用的備案：用 npm（需 Node 18 以上）</div>
+            <div className="text-slate-500 pt-1"># 兩個平台通用的備案：用 npm（需 Node 22 以上）</div>
             <div className="text-emerald-400">$ npm install -g @anthropic-ai/claude-code</div>
             <div className="text-emerald-400 pt-1">$ claude<span className="text-slate-500">  # 首次啟動會引導登入，或輸入 /login</span></div>
           </div>

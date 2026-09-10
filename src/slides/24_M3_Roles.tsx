@@ -240,8 +240,7 @@ export default function SlideRoles() {
               <span className="text-[11px] font-mono text-slate-500">進階，知道有這回事就好</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              好幾個子代理同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，
-
+              好幾個子代理同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，那批檔案就是它們共用的白板。
               <strong>這一種個人專案幾乎用不到</strong>：白板要你自己設計和維護，而且你同時審核得了幾件事，就是它的上限。
             </p>
           </AnimatedBlock>

@@ -100,7 +100,7 @@ export default function SlideError() {
               <strong className="text-slate-100">Claude Code 的對話裡</strong>，它跑指令失敗的時候。桌面版跟終端機都一樣，這是你最常看到的。
             </li>
             <li>
-              <strong className="text-slate-100">瀏覽器</strong>，網頁打開怪怪的時候。按 <code className="font-mono text-slate-200">F12</code>（Mac 是 <code className="font-mono text-slate-200">Cmd + Opt + I</code>）開 Console 看。
+              <strong className="text-slate-100">瀏覽器</strong>，網頁打開怪怪的時候。按 <code className="font-mono text-slate-200">F12</code>（Mac 是 <code className="font-mono text-slate-200">Cmd + Opt + I</code>）開開發者工具，再點上方的 Console 頁籤。
             </li>
             <li>
               <strong className="text-slate-100">終端機</strong>，你自己在跑東西的時候。

@@ -339,7 +339,7 @@ export default function SlideTerminalBasics() {
                     { keys: ['Ctrl', 'A'], desc: '把游標移到本行最前面' },
                     { keys: ['Ctrl', 'E'], desc: '把游標移到本行最後面' },
                     { keys: ['Ctrl', 'U'], desc: '清空游標前面的所有輸入' },
-                    { keys: ['Tab'], desc: '' }
+                    { keys: ['Tab'], desc: '自動補全檔名或資料夾名稱，打一半按它' }
                   ].map((item, idx) => (
                     <div
                       key={idx}
