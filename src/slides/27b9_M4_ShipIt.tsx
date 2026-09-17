@@ -1,5 +1,14 @@
 import { Globe, Smartphone, Laptop, ArrowRight, Database } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
+
+/** 部署平台後台，學員真的需要認得的四個地方。名字用 Vercel 的叫法，其他家大同小異。 */
+const DASHBOARD = [
+  { name: 'Deployments', body: '每一次上線的紀錄。綠燈代表建置成功，紅燈點進去看最後幾行紅字，那就是它失敗的原因。' },
+  { name: 'Build Logs', body: '建置過程的完整輸出。網站打不開的時候，這裡通常已經寫清楚是缺了哪個套件或哪個檔案。' },
+  { name: 'Environment Variables', body: '金鑰與密碼放這裡。本機跑得動、線上壞掉，第一個要查的就是這一欄有沒有漏設。' },
+  { name: 'Functions / Runtime Logs', body: '網站跑起來之後出的錯記在這裡。建置成功但畫面是白的，答案幾乎都在這一頁。' },
+];
 
 export default function SlideShipIt() {
   return (
@@ -62,6 +71,28 @@ export default function SlideShipIt() {
             </div>
           </div>
         </AnimatedBlock>
+
+        {/*
+          部署交給 Agent 動手之後，學員唯一能自己確認的地方就是平台後台。
+          綠燈是「檔案送上去了」，不是「打開跑得動」，這兩件事差很遠而且最常搞混。
+        */}
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <h3 className="text-base font-bold text-slate-100 mb-4">部署交給它動手，但後台這四個地方你要自己看得懂</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {DASHBOARD.map((d) => (
+              <div key={d.name} className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <div className="font-mono text-sky-300 text-sm font-bold mb-1.5">{d.name}</div>
+                <p className="text-slate-400 text-xs leading-relaxed">{d.body}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedBlock>
+
+        <Callout tone="warn" label="綠燈不等於打得開" stepIndex={4}>
+          Deployments 那顆綠燈說的是「檔案送上去、建置沒有失敗」。
+          <strong className="text-slate-100">它不會幫你打開網站看一眼。</strong>
+          綠燈配上白畫面是最常見的組合，原因多半在 Functions 那一頁的錯誤紀錄裡。
+        </Callout>
 
       </div>
     </SlideLayout>

@@ -123,6 +123,7 @@ import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
+import Slide27b8e from './slides/27b8e_M4_DeployDoc';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
@@ -262,6 +263,7 @@ const LIVE_TITLES = [
   "金鑰和客戶資料不能跟著推上去",
   "把它變成一個網址",
   "手機打開，紀錄卻是空的",
+  "部署前，叫它寫一份 DEPLOY.md",
   "案例一：器 VESSEL",
   "一份規格要寫哪些欄位",
   "把形容詞翻成可以檢查的條件",
@@ -396,6 +398,7 @@ const LIVE_SLIDES = [
   Slide27b8c,
   Slide27b8d,
   Slide27b9,
+  Slide27b8e,
   SlideCase1Vessel,
   SlideCaseSpec,
   SlideCaseSpecCheck,

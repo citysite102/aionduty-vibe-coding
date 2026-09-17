@@ -14,7 +14,7 @@ export default function Slide10c3Deploy() {
               <Home className="text-slate-400 shrink-0 mt-0.5" size={20} />
               <div>
                 <strong className="text-slate-200 block mb-1 text-sm">在你的電腦上跑（本機）</strong>
-                <span className="text-slate-400 text-xs leading-relaxed">只有你這台電腦看得到，關掉就沒了，別人連不進來。</span>
+                <span className="text-slate-400 text-xs leading-relaxed">網址列那串 <code className="font-mono text-slate-300">localhost:5173</code>，<strong className="text-slate-300">localhost 的意思就是「這台電腦」</strong>。傳給別人，他的電腦會去找他自己那台，所以打不開。</span>
               </div>
             </div>
             <div className="border rounded-2xl p-4 flex gap-3 items-start bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">

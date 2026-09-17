@@ -115,11 +115,11 @@ export const UNIT_DEFS: UnitDef[] = [
   //
   // 案例一多一頁：規格怎麼寫是三個案例共用的課前作業，它沒有自己的單元，
   // 掛在第一個案例裡（第一次用到它的地方）。
-  { live: 117, title: '案例一：器 VESSEL', anchor: '案例一：器 VESSEL' },
-  { live: 121, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
-  { live: 124, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
-  { live: 127, title: '題目選擇與開工步驟', anchor: '回去之後，做哪一種題目' },
+  { live: 118, title: '案例一：器 VESSEL', anchor: '案例一：器 VESSEL' },
+  { live: 122, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
+  { live: 125, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
+  { live: 128, title: '題目選擇與開工步驟', anchor: '回去之後，做哪一種題目' },
 
   // ── 章節九 結語 ──
-  { live: 130, title: '結語：未來的工作者', anchor: '未來的工作者' },
+  { live: 131, title: '結語：未來的工作者', anchor: '未來的工作者' },
 ];
