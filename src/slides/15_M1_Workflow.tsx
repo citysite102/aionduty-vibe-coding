@@ -68,7 +68,7 @@ export default function SlideWorkflow() {
           <p className="text-lg leading-relaxed">
             <span className="text-sky-300 font-bold tracking-wider">探索 → 計畫 → 執行 → 驗證</span>
             <br/><br/>
-            以此循環不斷迭代。Agent 接手的是中間的「執行」，<br/>
+            以此循環不斷迭代。前兩步你跟它一起做，「執行」由它動手，<br/>
             <strong className="text-sky-400">而「驗證」是你的：先寫下什麼情況該出現什麼結果，再照著跑一次看對不對。</strong>
           </p>
         </AnimatedBlock>

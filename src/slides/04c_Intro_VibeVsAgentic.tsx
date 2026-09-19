@@ -92,6 +92,7 @@ export default function SlideVibeVsAgentic() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           三種模式都在用 AI，差別在兩件事：
           <strong className="text-slate-100">你事前把需求寫到多細，以及它做完之後有沒有人檢查。</strong>
+          中間那欄的「AI 輔助開發」是多數人現在的位置：看得懂它寫的，也會自己驗，但規範與驗收都還在你腦袋裡。
         </AnimatedBlock>
 
         <div className="grid grid-cols-[7rem_repeat(3,minmax(0,1fr))] gap-x-4 gap-y-2.5 items-stretch">

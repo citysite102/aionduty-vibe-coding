@@ -68,7 +68,7 @@ export default function Slide10e() {
 
         {/* Git 記的是「資料夾裡的文字檔每一版長什麼樣」，這一格把「哪些東西」攤開 */}
         <AnimatedBlock stepIndex={3}>
-          <div className="text-base font-bold text-slate-100 mb-3">它會記下資料夾裡的每一個文字檔</div>
+          <div className="text-base font-bold text-slate-100 mb-3">它會記下你沒排除掉的每一個文字檔</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {RECORDED.map((r) => {
               const Icon = r.icon;
@@ -115,7 +115,7 @@ export default function Slide10e() {
             </>
           }
         >
-          這些指令你不會自己打。跟 Claude 說「幫我存一個檔，說明寫某某」它就做完了，
+          這些操作你不會自己打。跟 Claude 說「幫我存一個檔，說明寫某某」它就做完了，
           <strong className="text-slate-200">但它把哪些檔案存進去了，是你要看的</strong>
           ，因為有些東西不能進版本紀錄，例如金鑰跟密碼。
         </Callout>

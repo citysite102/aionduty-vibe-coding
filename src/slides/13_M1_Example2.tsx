@@ -53,13 +53,18 @@ export default function SlideExample2() {
             </p>
             {/* 複製出去的版本不帶外層的「」，那兩個是排版用的，貼進去只會多兩個括號 */}
             <CopyAction text={PROMPT_TEXT} className="mt-3" />
+            {/* 標亮「先確認再執行」而不給理由，學員推不出來：那一條跟邊界不同，前面的課沒教過。 */}
+            <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+              為什麼這件事要先看對照表？<strong className="text-slate-400">改檔名是覆蓋掉原本那個，沒有 Git 可以退回去。</strong>
+              做完就蓋掉的動作，都值得先看一眼再放行。
+            </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={4} className="bg-sky-950/20 border border-sky-900/30 p-4 rounded-xl mt-4">
             <p className="text-sky-300 text-sm font-bold mb-2">💡 執行腳本的小提示</p>
             <p className="text-slate-400 text-xs leading-relaxed mb-2">腳本通常使用 Node.js 或 Python 執行，確保你已經安裝對應環境：</p>
             <div className="bg-black/40 p-2 rounded text-xs font-mono text-slate-300 border border-sky-900/50 space-y-1">
-               <span className="text-emerald-400"># 執行 Node.js（安裝時裝過的人才有，桌面版跳過的話請它幫你裝）</span><br/>
+               <span className="text-emerald-400"># 執行 Node.js（沒有的話請它幫你裝）</span><br/>
                $ node script.js<br/><br/>
                <span className="text-sky-400"># 執行 Python (請至 python.org 下載安裝)</span><br/>
                $ python script.py

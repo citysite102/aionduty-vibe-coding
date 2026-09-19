@@ -9,10 +9,10 @@ import {
   Lock, 
   ShoppingCart, 
   Search, 
-  CheckCircle2, 
-  ArrowRight, 
+
+
   Cpu, 
-  Database,
+
   Activity,
   Check
 } from 'lucide-react';
@@ -30,9 +30,6 @@ interface ScenarioData {
   reqDetail: string;
   respLabel: string;
   respDetail: string;
-  frontendDuties: string[];
-  backendDuties: string[];
-  dbDuties: string[];
   feLog: Record<AnimState, string>;
   beLog: Record<AnimState, string>;
 }
@@ -47,22 +44,6 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     reqDetail: '{"email":"samuel@hahow.in", "pw":"***"}',
     respLabel: 'Success (200 OK)',
     respDetail: '{"token": "eyJhbGci...", "user": "Samuel"}',
-    frontendDuties: [
-      '呈現密碼輸入欄位，並驗證 Email 格式是否正確。',
-      '使用者點擊「登入」時，立即觸發按鈕 Loading 狀態，防止重複發送。',
-      '收到後端傳來的登入憑證後存起來（這裡用 localStorage 示意；正式產品建議改用 HttpOnly Cookie 較安全）。',
-      '將頁面導向至「學習儀表板」，並彈出登入成功通知。'
-    ],
-    backendDuties: [
-      '安全接收並解析來自前端的 HTTP 登入請求封包。',
-      '在資料庫中比對該 Email 的密碼雜湊值 (Hash) 是否正確。',
-      '比對吻合後，簽發一個具有時效性的安全 JWT 憑證。',
-      '處理防刷機制 (Rate Limiting)，阻擋惡意帳密暴力破解。'
-    ],
-    dbDuties: [
-      '儲存經雜湊加密後的密碼安全欄位，絕不儲存明文。',
-      '查詢使用者資料，並記錄本次登入成功的時間、IP 與裝置。'
-    ],
     feLog: {
       idle: '⏳ 等待使用者點擊登入按鈕...',
       requesting: '📤 發送請求：POST /api/login (攜帶帳號/密碼)...',
@@ -87,22 +68,6 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     reqDetail: '{"items":[{"id":101, "qty":2}], "coupon":"AI50"}',
     respLabel: 'Order Created (201)',
     respDetail: '{"orderId": "ORD-2026-90", "payUrl": "https://..."}',
-    frontendDuties: [
-      '顯示精美的購物車清單、數量增減、折扣券套用與金額加總。',
-      '提供第三方金流 (如信用卡、Apple Pay) 的安全輸入介面。',
-      '按下結帳時，鎖定點擊並顯示刷卡進度條，避免使用者重複扣款。',
-      '成功後播放拉炮動畫，並將畫面上的購物車商品數歸零。'
-    ],
-    backendDuties: [
-      '從資料庫查詢即時庫存，確認商品庫存是否足夠。',
-      '計算最終金額，與 Stripe 或其他金流平台進行 API 串接扣款。',
-      '扣款成功後，在資料庫建立訂單，並更新商品主表的庫存。',
-      '同步發送電子郵件或通知信，並通知倉儲系統準備出貨。'
-    ],
-    dbDuties: [
-      '在 orders 資料庫中建立一筆全新的訂單與交易編號。',
-      '將商品表中 items 的 stock 庫存數減去購買量。'
-    ],
     feLog: {
       idle: '⏳ 等待使用者點擊確認結帳...',
       requesting: '📤 發送請求：POST /api/checkout (攜帶購物車商品與折扣券)...',
@@ -127,22 +92,6 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     reqDetail: '{"q": "AI", "category": "Books", "page": 1}',
     respLabel: 'Results (200 OK)',
     respDetail: '{"total": 42, "results": [{"id":4, "title":"AI學習..."}]}',
-    frontendDuties: [
-      '提供搜尋框與智慧下拉關鍵字推薦 (Debounced Autocomplete)。',
-      '提供分類切換、價格區間篩選與星等排序按鈕。',
-      '將後端回傳的陣列，以流暢的卡片網格 RWD 樣式渲染出來。',
-      '在頁面底部呈現精美分頁按鈕，或實作無限滾動載入。'
-    ],
-    backendDuties: [
-      '對資料庫進行 Full-text 全文檢索或 SQL 模糊搜尋查詢。',
-      '根據熱門程度、關聯權重、特價狀態進行排序計算。',
-      '實作 Cache 機制 (如 Redis)，避免熱門關鍵字重複轟炸資料庫。',
-      '執行分頁 (Pagination) 切割，限制一次只回傳 20 筆加速載入。'
-    ],
-    dbDuties: [
-      '在 books 表的 title 和 tag 欄位建立索引 (Index) 加速文字搜尋。',
-      '記錄最常被搜尋的關鍵字，供之後的推薦模型訓練。'
-    ],
     feLog: {
       idle: '⏳ 等待使用者輸入關鍵字並點擊搜尋...',
       requesting: '📤 發送請求：GET /api/search?q=AI...',
@@ -312,9 +261,9 @@ export default function Slide10c() {
             學員知道不用逐字讀，那些名詞就不會變成卡點。
           */}
           <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
-            下面三欄不用讀懂每一個字。
-            <strong className="text-slate-200">要看的只有一件事：同一件事會被拆成三層做。</strong>
-            之後你交代工作與驗收的時候，要知道問題可能落在哪一層。
+            下面這個模擬器不用讀懂每一個字。
+            <strong className="text-slate-200">要看的只有一件事：一次請求會經過前端、中間的來回、後端三個地方。</strong>
+            之後你交代工作與驗收的時候，要知道問題可能落在哪一段。
           </p>
 
           {/* SIMULATOR CONTAINER */}

@@ -60,7 +60,7 @@ export default function SlideIntroCases() {
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          拿同一件事來比比看：<strong className="text-slate-100">幫我處理報表。</strong>
+          同一件事，同一個 AI，做法不一樣結果差很多。拿它來比比看：<strong className="text-slate-100">幫我處理報表。</strong>
           三種用的都是同一個 AI，差別在它能不能碰到你的檔案，以及做完之後有沒有留下東西。
         </AnimatedBlock>
 

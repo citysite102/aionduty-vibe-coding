@@ -41,7 +41,7 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     frontendDuties: [
       '驗證 Email 格式，並呈現密碼輸入欄位。',
       '點擊「登入」時觸發 Loading 狀態，防止重複發送。',
-      '收到 Token 後安全儲存，並導向學習儀表板。'
+      '收到登入憑證後安全儲存，並導向學習儀表板。'
     ],
     backendDuties: [
       '接收並解析前端傳來的登入請求。',
@@ -108,7 +108,7 @@ export default function SlideWebArchDuties() {
   const activeData = scenarios[activeScenario];
 
   return (
-    <SlideLayout title="前端與後端各自負責什麼" subtitle="Web Architecture & Duties Split" icon={LayoutTemplate}>
+    <SlideLayout title="前端、API 與後端各自負責什麼" subtitle="Web Architecture & Duties Split" icon={LayoutTemplate}>
       <div className="flex flex-col items-stretch gap-5 max-w-6xl mx-auto w-full pb-8">
         
         {/* TOP SCENARIO SELECTOR */}

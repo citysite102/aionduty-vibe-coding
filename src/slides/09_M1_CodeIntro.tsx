@@ -112,7 +112,7 @@ export default function SlideCodeIntro() {
         <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-3.5 bg-slate-900 border-slate-800">
           <p className="text-slate-400 text-sm leading-relaxed">
             <strong className="text-slate-300">網頁版不是也能接東西嗎？</strong>可以，它接得上一些線上服務，
-            讀某個雲端資料庫、查某個平台上的資料。但那些東西都在網路上，
+            讀某個線上服務裡的資料、查某個平台上的東西。但那些東西都在網路上，
             它還是<strong className="text-slate-200">打不開你電腦裡的檔案</strong>，也不能在你的資料夾裡新增或修改任何東西。
             要做到那件事，工具得裝在你自己這台電腦上。
           </p>

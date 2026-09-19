@@ -36,7 +36,7 @@ const CASES = [
     title: '情境四：高度客製化的個人記帳工具',
     need: '想自己掌控每一個畫面細節與資料存放方式。',
     tone: 'agent' as const,
-    answer: '先用 Google AI Studio 這類工具打草稿，下載下來之後再用 Claude Code 接著改。',
+    answer: '先用 Google AI Studio 這類工具打草稿，下載下來放進你選的那個資料夾，再用 Claude Code 接著改。',
   },
   {
     title: '情境五：想了解目前實作的爬蟲邏輯',

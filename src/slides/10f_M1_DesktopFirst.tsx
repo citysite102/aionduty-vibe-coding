@@ -104,7 +104,7 @@ export default function SlideDesktopFirst() {
           <div className="text-sky-400 font-bold text-base mb-2">這一格不是簡化版</div>
           <p className="text-slate-300 text-base leading-relaxed">
             桌面版的 Code 頁籤跟終端機是<strong className="text-slate-100">同一個 Claude Code</strong>，只是換了介面。
-            同一份 CLAUDE.md、同一組斜線指令、一樣能跑測試與版本控制。旁邊的 Cowork 才是另一回事，那個之後會講。
+            同一份 CLAUDE.md、同一組斜線指令，版本控制也一樣跑得動。旁邊的 Cowork 才是另一回事，那個之後會講。
           </p>
         </AnimatedBlock>
       </div>

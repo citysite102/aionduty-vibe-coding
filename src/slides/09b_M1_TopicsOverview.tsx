@@ -1,4 +1,4 @@
-import { Map, TerminalSquare, Globe, LayoutTemplate, Database, GitCommit, Bot, AlertTriangle, Rocket } from 'lucide-react';
+import { Map, Globe, LayoutTemplate, Database, GitCommit, Bot, AlertTriangle, Rocket } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide09b() {
@@ -15,7 +15,7 @@ export default function Slide09b() {
     { id: 4, name: "資料庫", stuck: "關掉瀏覽器，剛存的就不見了", icon: Database, hands: null },
     { id: 5, name: "上線部署", stuck: "只有自己電腦打得開，傳不出去", icon: Rocket, hands: null },
     { id: 6, name: "Git 版控", stuck: "改壞了回不去上一版", icon: GitCommit, hands: null },
-    { id: 7, name: "Claude Code", stuck: "還在複製貼上，沒讓它自己動手", icon: Bot, hands: "桌面版" },
+    { id: 7, name: "Claude Code", stuck: "只會打字問它，不知道還能下什麼指令", icon: Bot, hands: "桌面版" },
   ];
 
   return (

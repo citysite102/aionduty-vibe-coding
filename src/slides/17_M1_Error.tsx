@@ -49,14 +49,14 @@ export default function SlideError() {
               </div>
               <div className="text-slate-500">
                 <span className="text-slate-600">● </span>
-                Bash(ls mission-tumer)
+                Bash(ls my-projcet)
               </div>
               <div className="rounded border border-rose-500/25 bg-rose-950/20 px-3 py-2 text-rose-300 leading-relaxed">
-                ls: mission-tumer: No such file or directory
+                ls: my-projcet: No such file or directory
               </div>
               <div className="text-slate-500 leading-relaxed">
                 <span className="text-slate-600">● </span>
-                資料夾名稱好像拼錯了，我改成 mission-timer 再試一次。
+                資料夾名稱好像拼錯了，我改成 my-project 再試一次。
               </div>
             </div>
 

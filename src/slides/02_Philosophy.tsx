@@ -30,13 +30,13 @@ const STAGES = [
   {
     n: '03',
     chapters: '章節五、六',
-    title: 'CLAUDE.md 設計邏輯與運作框架',
+    title: 'CLAUDE.md、運作框架與成本',
     desc: '把專案的規矩與慣例寫下來，讓 AI 每次進來都照同一套標準做事。',
   },
   {
     n: '04',
     chapters: '章節七、八',
-    title: 'Agent 團隊與開發循環架構',
+    title: 'Agent 分工、開發循環與三個實戰案例',
     desc: '建構多角色協作網路，與自動化開發循環，獨立交付軟體。',
   },
 ];

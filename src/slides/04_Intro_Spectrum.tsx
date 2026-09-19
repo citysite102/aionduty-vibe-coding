@@ -46,8 +46,8 @@ export default function SlideIntroSpectrum() {
     <SlideLayout title="照你的目標，挑一種 AI 工具" subtitle="Choosing the Right Tool" icon={Layers}>
       <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
         <p className="text-slate-400 text-sm mb-6 text-center">
-          從 1 到 5，程式碼愈來愈靠近你自己的電腦：第 1 格它看不到你的檔案，
-          第 5 格它直接在你的資料夾裡改檔案。檔案在你手上，你才有辦法寫下規矩要求它照著改。
+          從 1 到 5，它能自己動手的範圍愈來愈大：第 1 格只回你一段字，第 5 格直接在你的資料夾裡改檔案。
+          第 4 格的 Agent 也會自己動手，但它的手在雲端，不在你的電腦上。
         </p>
 
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ${hoverIsolateGrid}`}>
@@ -78,7 +78,7 @@ export default function SlideIntroSpectrum() {
                 講一句話就生出能用的網站。方便，但程式碼放在平台上，要客製就卡住。
               </p>
             </div>
-            <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：行銷活動頁、不會寫程式快速做出 MVP</div>
+            <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：行銷活動頁、不會寫程式，要快做出最小可用版本</div>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className={`bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col justify-between h-[210px] ${hoverIsolateCard}`}>
@@ -126,7 +126,7 @@ export default function SlideIntroSpectrum() {
             <div>
               <h3 className="text-lg font-bold text-slate-400 mb-1.5">6. 自己手寫 (The Baseline)</h3>
               <div className="flex flex-wrap gap-1.5 mb-3">
-                <ToolBadge name="純手寫程式" className="bg-slate-950 border-slate-800 text-slate-400" icon={Keyboard} />
+                <ToolBadge name="你親自把關的那幾塊" className="bg-slate-950 border-slate-800 text-slate-400" icon={Keyboard} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 不是不能用 AI，而是你決定哪些地方要親自把關。

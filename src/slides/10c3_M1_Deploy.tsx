@@ -131,7 +131,7 @@ export default function Slide10c3Deploy() {
           </div>
           <p className="text-slate-500 text-xs mt-2 leading-relaxed">
             這段指令長，是因為它把<strong className="text-slate-400">要做什麼、做完給我什麼、什麼時候該停下來</strong>都講完了。
-            指令寫得完整，來回就少。
+            指令寫得完整，來回就少。第 3 步那個 Git 是下一段的主題，這裡先知道它是「存一版並送上去」就好。
           </p>
           <p className="text-slate-500 text-xs mt-2 leading-relaxed border-t border-slate-800/60 pt-2">
             <strong className="text-slate-400">不是按一個鍵就好。</strong>

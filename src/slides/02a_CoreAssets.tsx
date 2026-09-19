@@ -36,7 +36,7 @@ const assets = [
     icon: Wrench,
     num: '3',
     title: '一套讓 AI 自己驗、自己修的做法',
-    desc: '你寫清楚什麼叫做完，它自己驗、沒過自己修，全過了才回來找你。再配一個只負責挑錯的審查角色。',
+    desc: '你寫清楚什麼叫做完，它自己驗、沒過自己修，全過了才回來找你。挑錯的工作交給另一個角色。',
     haveIcon: ShieldCheck,
     haveLabel: '一個角色',
     haveDir: '.claude/agents/',

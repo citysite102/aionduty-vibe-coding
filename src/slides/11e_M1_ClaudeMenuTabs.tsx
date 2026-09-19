@@ -37,7 +37,6 @@ const GROUPS = [
     items: [
       { cmd: '/permissions', desc: '設定允許與禁止的規則' },
       { cmd: '/model', desc: '換模型，控制花費最直接的手段' },
-      { cmd: '/rewind', desc: '退回這次對話的某個時間點' },
     ],
   },
   {
@@ -58,7 +57,7 @@ const GROUPS = [
     items: [
       { cmd: '/init', desc: '掃過專案，產出第一版 CLAUDE.md' },
       { cmd: '.claude/commands/', desc: '一個 .md 檔就是一個自訂指令' },
-      { cmd: '/agents', desc: '建立專責的子代理' },
+      { cmd: '/agents', desc: '列出目前有哪些子代理' },
     ],
   },
 ];

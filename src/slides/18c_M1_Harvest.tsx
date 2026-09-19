@@ -1,4 +1,4 @@
-import { PackageCheck, FolderOpen, MonitorPlay } from 'lucide-react';
+import { PackageCheck, FolderOpen, MonitorPlay, ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
@@ -23,6 +23,15 @@ const HAVE = [
         一個 <code className="font-mono text-slate-200">mission-timer</code> 資料夾，
         裡面有一個 <code className="font-mono text-slate-200">index.html</code>，
         整個計時器就是這一個檔案
+      </>
+    ),
+  },
+  {
+    icon: ShieldCheck,
+    text: (
+      <>
+        倒數進到你設定的那個門檻，畫面會照你自己寫的規格變。
+        按待機、按返航，行為也跟你寫的一樣
       </>
     ),
   },
@@ -82,7 +91,13 @@ export default function SlideM1Harvest() {
           </p>
         </AnimatedBlock>
 
-        <Callout tone="muted" label="還沒拿到的" stepIndex={4}>
+        <Callout tone="focus" label="有一條對不上的時候" stepIndex={4}>
+          把那個檔案打開，連同你當初寫的那段 prompt 一起貼回 Claude Code：
+          <strong className="text-slate-100">「我要的是這樣，現在是這樣，幫我看哪裡沒做到。」</strong>
+          這門課從頭到尾就是在練這個動作。
+        </Callout>
+
+        <Callout tone="muted" label="還沒拿到的" stepIndex={5}>
           <strong className="text-slate-200">可以傳給別人的上線網址，現在還沒有。</strong>
           它要先推上 GitHub，再接部署平台，那兩步還沒做。
           你現在這個只有自己這台電腦看得到。
