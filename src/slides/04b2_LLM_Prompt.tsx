@@ -94,8 +94,7 @@ export default function SlideLLMPrompt() {
           <div>
             <div className="text-base font-bold text-amber-300 mb-1.5">但參考圖要挑「它做得出來的」</div>
             <p className="text-slate-300 text-sm leading-relaxed mb-2">
-              上面那三張之所以有用，是因為版面、字級、色塊都能用程式畫出來。Claude 現在也有設計相關的 Skills，
-              接手這類版面的品質比以前好很多。<strong className="text-slate-200">但它是在寫程式畫版面，不是在生圖。</strong>
+              上面那三張之所以有用，是因為版面、字級、色塊都能用程式畫出來。Claude 處理這類版面的品質也比以前好很多。<strong className="text-slate-200">但它是在寫程式畫版面，不是在生圖。</strong>
             </p>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               你貼一張攝影作品或 3D 算圖過去，它只能用 CSS 去逼近，結果會不上不下，然後你會以為是自己不會用。

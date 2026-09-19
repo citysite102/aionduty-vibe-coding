@@ -52,7 +52,7 @@ export default function SlideIntroAgentic() {
             </p>
           </AnimatedBlock>
           <AnimatedBlock stepIndex={4} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
-            <div className="text-lg font-bold text-amber-400 font-mono mb-2">「Engineering」</div>
+            <div className="text-lg font-bold text-indigo-400 font-mono mb-2">「Engineering」</div>
             <p className="text-slate-300 text-base leading-relaxed">
               強調這依然是一門需要高度專業的學問，著重在規格定義、架構設計與邊界測試的把關。
             </p>

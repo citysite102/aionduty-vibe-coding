@@ -8,7 +8,7 @@ export default function SlideIntroVibe() {
         
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-xl p-8">
           <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
-            <Lightbulb className="text-amber-400" size={28} />
+            <Lightbulb className="text-sky-400" size={28} />
             <h3 className="text-2xl font-bold text-slate-100">完全交給感覺？</h3>
           </div>
           <p className="text-slate-300 text-lg leading-relaxed mb-6">
@@ -30,21 +30,21 @@ export default function SlideIntroVibe() {
           </div>
           <ul className="space-y-4">
             <li className="flex gap-3">
-              <ShieldCheck className="text-emerald-400 shrink-0 mt-0.5" size={18} />
+              <ShieldCheck className="text-slate-500 shrink-0 mt-0.5" size={18} />
               <div>
                 <strong className="text-slate-200 block text-base">從寫語法轉為「系統架構設計」</strong>
                 <span className="text-slate-500 text-sm">有軟體與商業背景的人，可以把時間放在決定系統怎麼切、各塊之間怎麼接。</span>
               </div>
             </li>
             <li className="flex gap-3">
-              <ShieldCheck className="text-emerald-400 shrink-0 mt-0.5" size={18} />
+              <ShieldCheck className="text-slate-500 shrink-0 mt-0.5" size={18} />
               <div>
                 <strong className="text-slate-200 block text-base">先把需求和驗收標準寫清楚，再交給 AI</strong>
-                <span className="text-slate-500 text-sm">先定義好程式的規格、想要的功能與驗收方式，再交由 AI 產出符合標準的程式碼與測試。</span>
+                <span className="text-slate-500 text-sm">先講清楚要做什麼、什麼情況算做完，再交給它動手。</span>
               </div>
             </li>
             <li className="flex gap-3">
-              <ShieldCheck className="text-emerald-400 shrink-0 mt-0.5" size={18} />
+              <ShieldCheck className="text-slate-500 shrink-0 mt-0.5" size={18} />
               <div>
                 <strong className="text-slate-200 block text-base">打磨與把關的責任依舊在你</strong>
                 <span className="text-slate-500 text-sm">AI 降低了實作成本，但商業邏輯的正確性與產品的精緻度，取決於你的標準。</span>

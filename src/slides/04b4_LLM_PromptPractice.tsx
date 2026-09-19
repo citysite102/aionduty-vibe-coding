@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Pencil } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
 
 /**
  * 這一頁原本只有兩句話，沒有附上被抱怨的那個東西。
@@ -114,6 +115,27 @@ export default function SlideLLMPromptPractice() {
             還是不確定，就把改寫後的句子連同那張圖一起貼給它，問它「你還需要猜哪些地方」。
           </p>
         </AnimatedBlock>
+
+        {/*
+          預錄自學沒有講師收答案，學員改完之後畫面上要有東西可以對照，
+          否則他判斷得出「還有沒有要猜的地方」，判斷不出「方向對不對」。
+          第一題有標準答案（紅色留給破壞性動作、主要動作要最顯眼），
+          那一條學員自己念句子念不出來。
+          只收第一題：兩題都收會把這一頁變成答案頁，第二題的重點是「講不清楚就貼圖」，
+          那個動作在上一頁已經示範過。
+        */}
+        <Callout tone="good" label="第一題的參考改法" stepIndex={5}>
+          <p className="leading-relaxed">
+            「訂單表單下面有三顆按鈕：儲存草稿、送出、取消。現在儲存草稿是紅底紅框，最搶眼。
+            請把送出改成主要按鈕，做成實心、最明顯的那一顆；儲存草稿改成跟取消一樣的次要樣式。
+            紅色留給刪除這種按下去會出事的動作。三顆按鈕上的文字不要改，表單其他地方不要動。」
+          </p>
+          <p className="mt-3 text-slate-400">
+            三個檢查點都在裡面：代稱換成三顆按鈕的名字、動作講到樣式的層級而不是「修一下」、
+            最後兩句是邊界。
+            <strong className="text-slate-100">你的版本用字不用一樣，但這三格要填得起來。</strong>
+          </p>
+        </Callout>
 
       </div>
     </SlideLayout>

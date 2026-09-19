@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { ArrowRight, CheckCircle2, AlertTriangle, FileCode2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MessageSquare, FileCode2 } from 'lucide-react';
 
 /**
  * 原本是三張各自獨立的卡，同一個問題（怎麼交代、怎麼驗、出錯怎麼辦）在三張卡裡
@@ -22,14 +22,14 @@ import { ArrowRight, CheckCircle2, AlertTriangle, FileCode2 } from 'lucide-react
 const MODES = [
   {
     name: 'Vibe Coding',
-    icon: AlertTriangle,
+    icon: MessageSquare,
     tag: null,
     filled: 1,
-    head: 'border-amber-500/25 bg-amber-500/5',
-    title: 'text-amber-300',
-    iconClass: 'text-amber-400 bg-amber-500/10 border-amber-500/25',
-    bar: 'bg-amber-400/70',
-    cell: 'border-amber-900/40 bg-amber-500/5',
+    head: 'border-slate-800 bg-slate-950',
+    title: 'text-slate-100',
+    iconClass: 'text-slate-400 bg-slate-800/60 border-slate-700',
+    bar: 'bg-slate-400/70',
+    cell: 'border-slate-800 bg-slate-900',
     prompt: '幫我加一個匯出按鈕',
     promptNote: '沒說加在哪一頁、匯出成什麼格式，它只能自己猜一個。',
     done: '「看起來會動」就好',
