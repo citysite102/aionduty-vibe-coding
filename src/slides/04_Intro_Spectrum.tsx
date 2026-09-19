@@ -141,10 +141,10 @@ export default function SlideIntroSpectrum() {
           className="mt-6 max-w-4xl mx-auto text-left"
           footnote="第 5 格的工具要付費方案，月費 20 美金起，或儲值 5 美金按用量計費。另外有些事要自己接：低程式碼平台通常內建託管資料庫，這是它們方便的原因；第 5 格要自己選一個資料庫服務接上去。這就是「方便」與「掌控」的取捨。"
         >
-          <strong className="text-sky-300">這門課從第 5 格開始，但學的東西不綁在這一格。</strong>
-          把需求講清楚的問法、把規矩寫成一份手冊讓 AI 每次照著做的架構，
-          <strong className="text-slate-100">換到第 2、3 格一樣用得上</strong>。
-          選第 5 格是因為程式碼在你自己的電腦裡，規矩寫下來之後看得到它有沒有照做，這件事在別人的平台上驗不了。
+          <strong className="text-sky-300">這門課從第 5 格開始。</strong>
+          把需求講清楚這件事，換到第 2、3 格一樣用得上。
+          <strong className="text-slate-100">選第 5 格的理由是程式碼在你自己的電腦裡</strong>：
+          規矩寫下來之後，你看得到它有沒有照做。別人的平台上驗不了這一步。
         </Callout>
       </div>
     </SlideLayout>
