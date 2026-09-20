@@ -18,6 +18,14 @@ export default function SlideIntroAgentic() {
             而他的結論是兩者互補，不是誰取代誰。查證出處：
             karpathy.bearblog.dev/sequoia-ascent-2026/（2026-04-30）。
             這是指名歸屬的引述，又擺在整堂課的定調位置，不能寫成他沒說過的話。
+
+            2026-09-20 再修第二段。原本是「前者讓⋯後者處理的是⋯先用前者做出東西，
+            再用後者⋯」，四個位置代稱（D-2 禁的那一類），而且「前者」離它指的那個
+            Vibe coding 隔了一整句，讀者要回頭數。改用引言自己的詞（地板／天花板），
+            指涉就不會飄。「講得更直白」也不準：「守住品質水準」比「把天花板往上推」
+            更抽象，它是更具體地說出目的，不是更白話，所以改成「說得更具體」。
+            結尾原本是「先用前者做出東西，再用後者把它變成敢交出去的東西」，
+            那句封面（1-1 Slide 1）已經講過一次，這裡只留順序。
           */}
           <h3 className="text-2xl font-black text-slate-100 mb-4">
             Andrej Karpathy：這兩個不是誰取代誰，是各做各的事
@@ -29,8 +37,8 @@ export default function SlideIntroAgentic() {
             他的原話是：<strong className="text-sky-400 font-bold">「Vibe coding 把地板墊高，Agentic engineering 是把天花板往上推。」</strong>
           </p>
           <p className="text-slate-300 text-lg leading-relaxed">
-            他另外一句話講得更直白：Agentic engineering 是在守住專業軟體的品質水準。前者讓本來做不出軟體的人做得出來，後者處理的是「做得出來之後，怎麼確定它是對的」。
-            <strong className="text-slate-100">這門課兩個都會碰到</strong>：先用前者做出東西，再用後者把它變成敢交出去的東西。
+            他另外一句說得更具體：Agentic engineering 是在守住專業軟體的品質水準。所以地板管的是做不做得出來，天花板管的是做出來之後怎麼確定它是對的。
+            <strong className="text-slate-100">這門課兩層都會走到</strong>，而且順序是先有地板。
           </p>
         </AnimatedBlock>
 
