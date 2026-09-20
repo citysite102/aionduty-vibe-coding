@@ -26,7 +26,7 @@ export default function Slide10c3Deploy() {
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-3">中間差的這一步，就叫「部署 (Deploy)」。好消息是：<strong className="text-slate-400">你不用自己架伺服器，交給託管平台就好。</strong></p>
-          <div className="mt-3 bg-sky-950/20 border border-sky-900/40 rounded-lg px-3.5 py-2.5 text-[11px] text-slate-400 leading-relaxed">
+          <div className="mt-3 bg-sky-950/20 border border-sky-900/40 rounded-lg px-3.5 py-2.5 text-xs text-slate-400 leading-relaxed">
             🔭 課程最後你會把自己做的任務計時器走完這一步，拿到一個可以傳給別人的網址。
           </div>
         </AnimatedBlock>
@@ -40,7 +40,7 @@ export default function Slide10c3Deploy() {
               <div className="p-2 bg-sky-500/10 text-sky-400 rounded-xl"><Globe size={20} /></div>
               <div>
                 <h4 className="text-base font-extrabold text-sky-400">放上網頁：Vercel</h4>
-                <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Frontend Hosting</span>
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-mono">Frontend Hosting</span>
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed mb-3">
@@ -75,7 +75,7 @@ export default function Slide10c3Deploy() {
             >
               vercel.com <ExternalLink size={12} />
             </a>
-            <div className="mt-auto text-[11px] text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
+            <div className="mt-auto text-xs text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
               適合：網頁前端、個人網站、作品集、小工具
               <span className="block text-slate-600 mt-1">
                 同類的還有{' '}
@@ -98,13 +98,13 @@ export default function Slide10c3Deploy() {
               <div className="p-2 bg-emerald-500/10 text-emerald-400 rounded-xl"><Database size={20} /></div>
               <div>
                 <h4 className="text-base font-extrabold text-emerald-400">要存資料 / 會員登入：Supabase</h4>
-                <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Managed Database</span>
+                <span className="text-xs text-slate-500 uppercase tracking-wider font-mono">Managed Database</span>
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed mb-3">
               <strong className="text-slate-100">Supabase 是什麼？</strong> 一個「現成可用的雲端資料庫 ＋ 會員登入」服務。你<strong className="text-emerald-300">不用自己架資料庫伺服器、不用管備份與維運</strong>。這正是繞過「資料庫很複雜」的方法：別自己架，用託管的。
             </p>
-            <div className="mt-auto text-[11px] text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
+            <div className="mt-auto text-xs text-slate-500 bg-slate-950 px-3 py-2 rounded border border-slate-800/60">
               適合：需要帳號登入、儲存貼文 / 訂單等長期資料的網站
               <span className="block text-slate-600 mt-1">（同類還有 Firebase，選一個熟悉即可）</span>
             </div>

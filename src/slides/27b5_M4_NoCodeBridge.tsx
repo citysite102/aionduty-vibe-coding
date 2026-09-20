@@ -2,6 +2,16 @@ import { ClipboardCheck, FileCheck2, Terminal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 
+/**
+ * ⚠️ 待查證。這一頁指名安裝 webapp-testing 這個 Skill，但畫面上沒有寫它從哪裡來。
+ * 學員裝不起來的時候，來源是唯一的線索。
+ *
+ * 本輪（2026-09-20）沒有重查。下次改版前要確認：
+ *   - webapp-testing 是官方市集、社群市集，還是要自己寫
+ *   - 確認後把來源補到畫面上（比照 Slide 57 寫 anthropics/claude-plugins-official 的格式）
+ * 查完把這段註解換成 C-1 的三行格式。
+ */
+
 const SKILL_PROMPT =
   '幫我安裝 webapp-testing 這個 Skill，裝完重開一次對話，然後告訴我怎麼叫它。';
 
@@ -16,12 +26,11 @@ export default function SlideNoCodeBridge() {
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
-            前面說「要有客觀的完成標準，迴圈才知道自己做完了沒」。問題是，
-            <strong className="text-slate-100">你不會看程式碼，那個標準要從哪裡來？</strong>
-            答案是：不用你來看。Lint、型別檢查與瀏覽器實測會替你跑，跑完給綠燈或紅字，AI 看得到同一份結果，紅字就自己回頭修。
+            <strong className="text-slate-100">完成標準不必你自己驗。</strong>
+            Lint、型別檢查與瀏覽器實測會替你跑，跑完是綠燈或紅字；AI 看得到同一份結果，紅字就自己回頭修。
             <span className="block mt-2 text-slate-400">
-              把關分兩種：一種是<strong className="text-slate-300">讀程式碼挑錯</strong>（下面兩個），一種是<strong className="text-slate-300">實際打開畫面點一次</strong>。
-              你手上的計時器適用第二種，所以你要動手做的是那個。
+              把關分兩種：<strong className="text-slate-300">讀程式碼挑錯</strong>（下面兩個），或<strong className="text-slate-300">實際打開畫面點一次</strong>。
+              你的計時器沒有前兩種跑得起來的結構，所以要動手做的是第三種。
             </span>
           </p>
         </AnimatedBlock>

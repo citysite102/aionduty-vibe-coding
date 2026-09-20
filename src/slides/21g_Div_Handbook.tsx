@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'live-82-div-handbook',
   title: '手冊（CLAUDE.md）的診斷、健檢與轉移',
   script:
-    '：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
+    '這一節從四個問題開始：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
   seconds: 22,
   kind: 'reference',
 };

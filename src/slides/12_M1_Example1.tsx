@@ -45,9 +45,9 @@ export default function SlideExample1() {
             <p className="text-slate-100 leading-relaxed font-medium text-sm mb-2">「{PROMPT}」</p>
             <CopyAction text={PROMPT} className="mb-3" />
 
-            <div className="space-y-2.5 text-[13px] leading-relaxed">
+            <div className="space-y-2.5 text-sm leading-relaxed">
               <div>
-                <div className="text-slate-500 text-[11px] font-bold mb-1">畫面</div>
+                <div className="text-slate-500 text-xs font-bold mb-1">畫面</div>
                 <ul className="text-slate-300 space-y-1 list-disc pl-4 marker:text-slate-600">
                   <li>25 分鐘倒數，等寬字體，放大置中</li>
                   <li>三個按鈕：<strong className="text-sky-300">發射、待機、返航</strong>。只有「發射」是實心主色，其他保持灰階</li>
@@ -55,7 +55,7 @@ export default function SlideExample1() {
                 </ul>
               </div>
               <div>
-                <div className="text-slate-500 text-[11px] font-bold mb-1">背景：從軌道上看星球</div>
+                <div className="text-slate-500 text-xs font-bold mb-1">背景：從軌道上看星球</div>
                 <ul className="text-slate-300 space-y-1 list-disc pl-4 marker:text-slate-600">
                   <li>星球用 canvas 畫成<strong className="text-amber-300">經緯排列的粒子點陣</strong>，只露出畫面下方一道弧</li>
                   <li>光源在左上。受光面亮、背面暗，<strong className="text-amber-300">越靠近輪廓的粒子要越亮</strong>，做出邊緣光</li>
@@ -106,7 +106,7 @@ export default function SlideExample1() {
                 <button
                   key={key}
                   onClick={() => setPlanet(key)}
-                  className={`px-2.5 py-1 rounded-full text-[11px] font-bold border transition-colors cursor-pointer ${
+                  className={`px-2.5 py-1 rounded-full text-xs font-bold border transition-colors cursor-pointer ${
                     planet === key
                       ? 'bg-slate-100/90 text-slate-900 border-slate-100/90'
                       : 'bg-slate-950/50 text-slate-400 border-slate-700/70 hover:text-slate-200 hover:border-slate-500'
@@ -133,7 +133,7 @@ export default function SlideExample1() {
                     <Rocket size={20} className="rotate-45 fill-sky-400/20" />
                   </div>
                 </div>
-                <div className="flex justify-between text-[11px] font-mono text-slate-500 mt-3">
+                <div className="flex justify-between text-xs font-mono text-slate-500 mt-3">
                   <span>啟程</span>
                   <span>抵達</span>
                 </div>

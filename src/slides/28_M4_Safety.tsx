@@ -2,9 +2,17 @@ import { AlertCircle, BrainCircuit, ShieldCheck, Flame, KeyRound, FileWarning, B
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsolate';
 
+/**
+ * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permissions。
+ * 當時的現況：Read(./.env) 是文件上原樣的寫法（規則對照表與「Block Claude's
+ * file tools from reading a file」那一節都用這個例子），這一頁的設定片段正確，
+ * 本輪沒有改內容。
+ * 下次改版前先重查那一節，不要憑印象改。
+ */
+
 export default function SlideSafety() {
   return (
-    <SlideLayout title="放手之前，先設好四道邊界" subtitle="Safety Protocols Before Autonomy" icon={AlertCircle}>
+    <SlideLayout title="放手之前，先設好五道邊界" subtitle="Safety Protocols Before Autonomy" icon={AlertCircle}>
 
       <div className="flex flex-col gap-4 max-w-6xl mx-auto mt-2">
         <AnimatedBlock stepIndex={1} className="bg-gradient-to-r from-slate-900 to-slate-950 p-5 md:p-6 rounded-3xl border border-slate-800 shadow-xl relative overflow-hidden">
@@ -90,6 +98,23 @@ export default function SlideSafety() {
               <span className="block mt-1.5 text-slate-400">最低成本的保險：動工前先 <code className="text-slate-200 bg-slate-950 px-1 rounded font-mono">git commit</code> 一次。</span>
             </p>
           </AnimatedBlock>
+
+          <AnimatedBlock stepIndex={6} className={`bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl ${hoverIsolateCardRing}`}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="bg-amber-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
+                <AlertCircle className="text-amber-400" size={18} />
+              </div>
+              <h3 className="text-base font-bold text-amber-300 tracking-wide">5. 在後台設用量上限</h3>
+            </div>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              它會自己跑，所以也會<strong className="text-slate-100">自己花錢</strong>。
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed mt-2">
+              前面四道管的是它會做什麼，這一道管的是它能花多少。設一個上限，帳單才不會在你睡覺的時候長大。
+              <span className="block mt-2 text-slate-500">還沒跑過的流程，先拿一小部分資料試跑，確認產出長得對再讓它跑完整批。</span>
+            </p>
+          </AnimatedBlock>
+
 
         </div>
       </div>

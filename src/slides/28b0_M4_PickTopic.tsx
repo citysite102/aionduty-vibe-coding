@@ -1,6 +1,7 @@
 import { Target, FileSpreadsheet, Globe, MessageSquareQuote, BookMarked } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 課後回饋裡「回去之後有什麼會擋住你」的第一名是「不知道從哪個題目開始」。
@@ -84,6 +85,7 @@ export default function SlidePickTopic() {
                     第一句這樣講
                   </div>
                   <p className="text-sky-100 text-sm leading-relaxed">{t.prompt}</p>
+                  <div className="mt-2 flex justify-end"><CopyAction text={t.prompt} /></div>
                 </div>
 
                 <p className="text-sm text-slate-400 leading-relaxed mt-3 pt-3 border-t border-slate-800">

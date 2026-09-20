@@ -4,6 +4,13 @@ import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
+/**
+ * 口白點名了「後面『手冊越寫越長怎麼整理』那一段」，指的是 harness/17_HealthOverview
+ * 到 harness/56_HandbookV3（章節六，中間隔了三十幾頁）。
+ * 這條線寫在 meta.script 裡，check:slides 掃不到，搬頁之後會安靜地指錯。
+ * 要動那一組的位置之前，先回來確認這句話還指得到（CLAUDE.md B-4）。
+ */
+
 export const meta: RecordedMeta = {
   id: 'harness-31-handbook-length',
   title: '一份手冊該寫多長？',

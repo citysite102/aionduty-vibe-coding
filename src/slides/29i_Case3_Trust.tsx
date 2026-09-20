@@ -14,13 +14,13 @@ const LAYERS = [
     name: '第一層：你能不能碰這張表',
     tone: 'sky',
     msg: 'permission denied for table reservations',
-    note: '整張表都不給你，連問都不用問',
+    note: '整張表都不給你，連問都不用問。去後台看那張表的存取設定。',
   },
   {
     name: '第二層：你能碰這張表的哪幾列',
     tone: 'indigo',
     msg: 'new row violates row-level security policy',
-    note: '表可以碰，但這一列不是你的',
+    note: '表可以碰，但這一列不是你的。回去看那條政策放行的條件對不對。',
   },
 ];
 

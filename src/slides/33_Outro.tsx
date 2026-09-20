@@ -90,6 +90,20 @@ export default function SlideOutro() {
           </p>
         </AnimatedBlock>
 
+        {/* 整門課的總產出。章節三與章節七各有一張收成樹，最後一頁要能指得出實物，
+            否則學員最後看到的只有三個未來方向，不是他手上已經有的東西。 */}
+        <div className="w-full max-w-6xl relative z-10 mt-4 rounded-2xl border border-slate-800 bg-slate-950/60 px-6 py-4 text-left">
+          <div className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-2">你的資料夾裡現在有</div>
+          <div className="font-mono text-sm text-slate-400 leading-relaxed">
+            <span className="text-slate-200">mission-timer/</span>
+            {'　'}index.html
+            {'　'}CLAUDE.md
+            {'　'}DEPLOY.md
+            {'　'}.claude/agents/code-reviewer.md
+            {'　'}.claude/settings.json
+          </div>
+        </div>
+
         {/* 收尾與 QR 並排。疊起來的話這一頁會超出畫面，而最後一頁沒有人會去捲 */}
         <div className="w-full max-w-6xl relative z-10 mt-1 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_290px] items-stretch">
         <AnimatedBlock stepIndex={2} className="min-w-0">

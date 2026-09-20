@@ -2,6 +2,16 @@ import { Globe, Smartphone, Laptop, ArrowRight, Database } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
+/**
+ * ⚠️ 待查證。這一頁列了部署平台後台的四個地方
+ * （Deployments、Build Logs、Environment Variables、Functions / Runtime Logs），
+ * 名稱用的是 Vercel 的叫法。平台介面改版頻繁，屬於 C-3 的那一類。
+ *
+ * 本輪（2026-09-20）沒有重查，要實際開一次後台看畫面才算數。
+ * 下次改版前連同 27b8d_M4_Deploy.tsx 的操作路徑一起走一遍。
+ * 查完把這段註解換成 C-1 的三行格式。
+ */
+
 /** 部署平台後台，學員真的需要認得的四個地方。名字用 Vercel 的叫法，其他家大同小異。 */
 const DASHBOARD = [
   { name: 'Deployments', body: '每一次上線的紀錄。綠燈代表建置成功，紅燈點進去看最後幾行紅字，那就是它失敗的原因。' },
@@ -30,7 +40,7 @@ export default function SlideShipIt() {
                 <span className="text-slate-200 text-xs font-bold">你的電腦</span>
               </div>
               <div className="text-emerald-300 text-2xl font-mono font-bold">12 趟</div>
-              <div className="text-slate-500 text-[11px] mt-1">連續出勤 5 天</div>
+              <div className="text-slate-500 text-xs mt-1">連續出勤 5 天</div>
             </div>
 
             <ArrowRight size={18} className="text-slate-600 mx-auto hidden md:block" />
@@ -41,7 +51,7 @@ export default function SlideShipIt() {
                 <span className="text-slate-200 text-xs font-bold">你的手機</span>
               </div>
               <div className="text-rose-300 text-2xl font-mono font-bold">0 趟</div>
-              <div className="text-slate-500 text-[11px] mt-1">連續出勤 0 天</div>
+              <div className="text-slate-500 text-xs mt-1">連續出勤 0 天</div>
             </div>
           </div>
 
@@ -66,8 +76,8 @@ export default function SlideShipIt() {
             <p className="text-slate-400 text-xs leading-relaxed">
               真的要接的話，用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這些設定工。
             </p>
-            <div className="mt-3 text-[11px] text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
-              接資料庫留作延伸練習。
+            <div className="mt-3 text-xs text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
+              接資料庫留作延伸練習。要起步的話跟它說：「幫我評估把這個計時器的紀錄改存到 Supabase 要做哪幾件事，先列步驟不要動檔案。」
             </div>
           </div>
         </AnimatedBlock>
@@ -77,7 +87,8 @@ export default function SlideShipIt() {
           綠燈是「檔案送上去了」，不是「打開跑得動」，這兩件事差很遠而且最常搞混。
         */}
         <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-4">部署交給它動手，但後台這四個地方你要自己看得懂</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">部署交給它動手，但後台這四個地方你要自己看得懂</h3>
+          <p className="text-xs text-slate-500 mb-4">名字用 Vercel 的叫法，其他家大同小異。</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {DASHBOARD.map((d) => (
               <div key={d.name} className="rounded-xl border border-slate-800 bg-slate-950 p-4">

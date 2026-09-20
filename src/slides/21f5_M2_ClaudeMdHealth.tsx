@@ -60,7 +60,7 @@ export default function SlideM2ClaudeMdHealth() {
                 {s.n}
               </div>
               <div>
-                <div className="text-slate-200 text-[15px] font-bold mb-1">{s.name}</div>
+                <div className="text-slate-200 text-sm font-bold mb-1">{s.name}</div>
                 <div className="text-slate-500 text-sm leading-relaxed">{s.desc}</div>
               </div>
             </AnimatedBlock>
@@ -75,7 +75,7 @@ export default function SlideM2ClaudeMdHealth() {
               {EVIDENCE.map((e) => (
                 <div key={e.name} className="bg-slate-950 border border-slate-800 rounded-lg px-4 py-3">
                   <div className="text-sky-400 font-bold text-sm mb-1">{e.name}</div>
-                  <div className="text-slate-400 text-[13px] leading-relaxed">{e.desc}</div>
+                  <div className="text-slate-400 text-sm leading-relaxed">{e.desc}</div>
                 </div>
               ))}
             </div>
@@ -85,7 +85,7 @@ export default function SlideM2ClaudeMdHealth() {
             <AlertTriangle size={20} className="text-amber-400 shrink-0 mt-0.5" />
             <div>
               <h4 className="text-base font-bold text-slate-100 mb-2">證據不足的時候，不要直接刪</h4>
-              <p className="text-slate-400 text-[13px] leading-relaxed">
+              <p className="text-slate-400 text-sm leading-relaxed">
                 兩個比較安全的做法：<strong className="text-slate-200">降級</strong>，把它從根目錄搬到子目錄，讓它只在相關的時候才載入；或<strong className="text-slate-200">標記觀察</strong>，在那一行後面註記日期，下一輪健檢再看。
               </p>
             </div>

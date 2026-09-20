@@ -45,7 +45,7 @@ export default function SlideM2ExtensionsCases() {
           </div>
 
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            上面那段 <code className="text-slate-400">---</code> 夾起來的，就是「這條規則管哪些檔案」。
+            上面那段用兩條橫線夾起來的設定叫 <strong className="text-slate-200">front matter</strong>，這裡寫的是「這條規則管哪些檔案」；<code className="text-orange-300">SKILL.md</code> 與子代理的檔案開頭也長這樣。
             <strong className="text-slate-300">rules 是資料夾名稱，檔名你自己取</strong>，內容就是純文字，不用寫成程式。
           </p>
         </AnimatedBlock>

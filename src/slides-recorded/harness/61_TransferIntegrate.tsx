@@ -5,6 +5,19 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * ⚠️ 待查證。這一頁寫死了一整行安裝指令與兩個官方文件網址，
+ * 是全片最容易整段失效的其中一頁（連參數都寫死了）。
+ *
+ * 本輪（2026-09-20）沒有重查。下次改版前要核對的是：
+ *   - claude mcp add --transport http notion https://mcp.notion.com/mcp
+ *     這一行的旗標與參數是否還有效
+ *   - /mcp 與 /context 兩個指令的行為（C-3 點名會改的那一類）
+ *   - code.claude.com/docs/en/mcp 的安裝那一節
+ *   - developers.notion.com/guides/mcp/get-started-with-mcp
+ * 查完把這段註解換成 C-1 的三行格式。
+ */
+
+/**
  * MCP 在前面只出現過一次就消失了。這一頁把它接回來，
  * 而且要接得夠具體：學員最常問的是「那我怎麼串我的 Notion」，
  * 所以直接把那三步寫出來，不要停在「接上 MCP 就好」。

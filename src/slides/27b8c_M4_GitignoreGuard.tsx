@@ -61,7 +61,8 @@ export default function SlideGitignoreGuard() {
           <div className="text-sky-400 font-bold text-base mb-2">這是你自己設的第一道機制</div>
           <p className="text-slate-300 text-base leading-relaxed">
             擋住這些檔案的東西叫 <code className="font-mono text-sky-300">.gitignore</code>。
-            列在裡面的檔案，git 根本不會碰。
+            列在裡面的檔案，git 根本不會碰。這份清單是你自己列的，
+            跟它說「<span className="text-slate-200">幫我建一份 .gitignore，把金鑰、環境設定與客戶資料擋掉</span>」它就幫你建好。
             這就是前面規則分流的第一格：<strong className="text-slate-100">會出事的交給機制，不要只寫進手冊</strong>。
             差別在於這次是程式在擋，不經過 AI 的判斷。
           </p>

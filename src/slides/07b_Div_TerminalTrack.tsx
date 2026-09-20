@@ -13,7 +13,7 @@ export default function SlideDivTerminalTrack() {
   return (
     <SectionDivider
       number="EXTRA"
-      subtitle="Optional: The Terminal Track"
+      subtitle="Optional: The Terminal Track ／ 跳過不影響後面的章節"
       title="選修：終端機與 Claude Code 安裝"
       roadmap={[
         { label: '終端機是什麼', weight: 3, note: '幾個指令，跟著打一次' },

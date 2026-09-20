@@ -76,7 +76,7 @@ export default function SlideQuoteSystemPrompts() {
 
         <AnimatedBlock stepIndex={7} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-base leading-relaxed">
-            這段先不教 SDD，也不要求完整測試。
+            這段先不教 SDD，也不要求完整測試，也不接真的資料庫。那要等你確定欄位不會再改了。
           </p>
         </AnimatedBlock>
       </div>

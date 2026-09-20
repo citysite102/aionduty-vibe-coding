@@ -61,7 +61,7 @@ export default function SlideWarpTerminal() {
             <p>
               💡 <strong>推薦理由：</strong>非工程師常對全黑的文字畫面感到陌生。Warp 的編輯操作跟一般文字編輯器接近，還附 AI 輔助，剛開始比較不會卡住。(支援 Mac / Linux / Windows)
             </p>
-            <p className="text-slate-500 border-t border-slate-900 pt-2 text-[11px]">
+            <p className="text-slate-500 border-t border-slate-900 pt-2 text-xs">
               ⚠️ <strong>重要提醒：</strong>前面教的指令（如 <code>pwd</code>, <code>ls</code>, <code>mkdir</code>）都是<strong>全平台通用的標準指令</strong>。Warp 只是讓你打字更舒服、提供 AI 輔助的工具，<strong>不裝也不影響後面的課程</strong>。
             </p>
           </AnimatedBlock>
@@ -69,7 +69,7 @@ export default function SlideWarpTerminal() {
 
         {/* Right column: Interactive high-fidelity Warp mockup (Image 2) */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <AnimatedBlock stepIndex={2} className="relative bg-[#09090b] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-full min-h-[460px]">
+          <AnimatedBlock stepIndex={1} className="relative bg-[#09090b] border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-full min-h-[460px]">
             
             {/* Mac Window Header */}
             <div className="bg-[#18181b] px-4 py-3 flex items-center justify-between border-b border-slate-800 shrink-0">
@@ -81,7 +81,7 @@ export default function SlideWarpTerminal() {
                   Add Popularity Indicator to Warp Drive Objects
                 </span>
               </div>
-              <div className="px-2 py-0.5 bg-slate-800 text-slate-400 text-[11px] font-mono rounded">
+              <div className="px-2 py-0.5 bg-slate-800 text-slate-400 text-xs font-mono rounded">
                 Warp Drive
               </div>
             </div>
@@ -97,12 +97,12 @@ export default function SlideWarpTerminal() {
                     <div className="text-slate-400 font-bold mb-1">Task 4: Update API route to calculate popularity scores</div>
                     <div className="flex items-center gap-2 text-emerald-400 bg-emerald-500/5 p-2 rounded border border-emerald-500/10 mb-1">
                       <CheckCircle2 size={14} className="shrink-0" />
-                      <span>Calculate popularity scores in API route <span className="text-[11px] bg-emerald-950 px-1 py-0.5 rounded font-semibold text-emerald-300 ml-1">+8 • -1</span></span>
+                      <span>Calculate popularity scores in API route <span className="text-xs bg-emerald-950 px-1 py-0.5 rounded font-semibold text-emerald-300 ml-1">+8 • -1</span></span>
                     </div>
-                    <div className="text-slate-600 pl-4 text-[12px] mb-2">Thought for 1 second &gt;</div>
+                    <div className="text-slate-600 pl-4 text-xs mb-2">Thought for 1 second &gt;</div>
                     <div className="flex items-center gap-2 text-emerald-400 pl-4">
                       <CheckCircle2 size={12} />
-                      <span className="text-[12px]">Completed Update API route to calculate popularity... (4/9)</span>
+                      <span className="text-xs">Completed Update API route to calculate popularity... (4/9)</span>
                     </div>
                   </div>
 
@@ -118,29 +118,29 @@ export default function SlideWarpTerminal() {
 
                   {/* Simulated interactive task popover */}
                   <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 shadow-xl space-y-1.5 max-w-[90%] mx-auto mt-2">
-                    <div className="text-slate-400 font-bold border-b border-slate-800 pb-1 mb-1 text-[11px] flex justify-between">
+                    <div className="text-slate-400 font-bold border-b border-slate-800 pb-1 mb-1 text-xs flex justify-between">
                       <span>TASKS RUNNING (4/9)</span>
                       <span className="text-sky-400">Warp Agent</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-emerald-400 text-[11px]">
+                    <div className="flex items-center gap-1.5 text-emerald-400 text-xs">
                       <CheckCircle2 size={10} /> <span>Create popularity utility functions</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-emerald-400 text-[11px]">
+                    <div className="flex items-center gap-1.5 text-emerald-400 text-xs">
                       <CheckCircle2 size={10} /> <span>Update ObjectData type with popularity</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-sky-400 text-[11px] font-semibold">
+                    <div className="flex items-center gap-1.5 text-sky-400 text-xs font-semibold">
                       <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
                       <span>Add popularity indicator to ObjectCard</span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                    <div className="flex items-center gap-1.5 text-slate-500 text-xs">
                       <Circle size={10} /> <span>Implement popularity sorting logic</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-slate-900">
-                  <div className="text-slate-600 text-[11px]">~/repos/do-things [main] 5• +152 -12</div>
-                  <div className="text-sky-400 text-[12px] flex items-center gap-1 mt-1">
+                  <div className="text-slate-600 text-xs">~/repos/do-things [main] 5• +152 -12</div>
+                  <div className="text-sky-400 text-xs flex items-center gap-1 mt-1">
                     <span className="text-slate-400">&gt;</span> Warp anything e.g. "Find and fix the error"
                   </div>
                 </div>
@@ -153,19 +153,19 @@ export default function SlideWarpTerminal() {
                     <AlertCircle size={12} className="text-sky-400" />
                     Problem Statement
                   </h4>
-                  <p className="text-slate-400 text-[12px] leading-relaxed mb-4">
+                  <p className="text-slate-400 text-xs leading-relaxed mb-4">
                     The site currently displays Warp Drive objects but lacks a way to highlight popular or trending objects. Users have no indication of which objects are more popular or worth exploring first.
                   </p>
 
                   <h4 className="text-slate-200 font-bold border-b border-slate-800 pb-1.5 mb-2">
                     Current State Overview
                   </h4>
-                  <p className="text-slate-400 text-[12px] leading-relaxed mb-4">
+                  <p className="text-slate-400 text-xs leading-relaxed mb-4">
                     Next.js app using TypeScript, Tailwind CSS, and shadcn/ui components. Objects loaded from YAML files.
                   </p>
                 </div>
 
-                <div className="text-right text-[11px] text-slate-500">
+                <div className="text-right text-xs text-slate-500">
                   <span>Warp.dev 官方 AI Agent 示範</span>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function SlideWarpTerminal() {
             </div>
 
             {/* Source Credit overlay at bottom */}
-            <div className="bg-[#111] border-t border-slate-800 px-4 py-2 text-center text-[11px] text-slate-500 flex justify-between items-center">
+            <div className="bg-[#111] border-t border-slate-800 px-4 py-2 text-center text-xs text-slate-500 flex justify-between items-center">
               <span>💡 Warp Terminal 獨特的「區塊」與 AI 整合介面</span>
               <span>
                 官方網站: <a href="https://www.warp.dev/" target="_blank" rel="noreferrer" className="text-sky-400 hover:underline">warp.dev</a>

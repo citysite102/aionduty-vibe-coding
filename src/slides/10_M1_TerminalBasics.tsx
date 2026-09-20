@@ -50,7 +50,7 @@ const COMMAND_TEMPLATES: Record<string, CommandData> = {
     label: 'cd',
     desc: '換到另一個資料夾',
     icon: Compass,
-    explanation: '🚶 Change Directory：把你「站的位置」換到指定的資料夾。安裝那一頁叫你「切到你想放作品的地方」，用的就是這一個。波浪號代表你的家目錄，所以 ~/Desktop 就是桌面。',
+    explanation: '🚶 Change Directory：把你「站的位置」換到指定的資料夾。等一下裝 Claude Code 的時候會叫你「切到你想放作品的地方」，用的就是這一個。波浪號代表你的家目錄，所以 ~/Desktop 就是桌面。',
     output: '（成功時什麼都不會顯示，再打一次 pwd 就會看到位置變了）'
   },
   ls: {
@@ -373,7 +373,7 @@ export default function SlideTerminalBasics() {
               <span className="text-sky-400 font-bold">💡 </span>
               <span>
                 {activeTab === 'commands'
-                  ? ''
+                  ? '按任何一顆，右邊的終端機會實際跑一次，底下那格會說明它做了什麼。'
                   : '點擊右方帶有「模擬鍵」的快速鍵，可以在模擬終端機上觸發對應行為。'}
               </span>
             </div>

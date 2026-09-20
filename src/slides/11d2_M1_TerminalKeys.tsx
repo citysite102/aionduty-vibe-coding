@@ -4,6 +4,17 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
+ * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permission-modes。
+ * 當時的現況：六個模式的設定值是 default（介面叫 Manual）、acceptEdits、plan、
+ * auto、dontAsk、bypassPermissions。Pro／Max／Team 開機在 auto，按第一下進 default，
+ * 之後 default → acceptEdits → plan → 回 default，選用模式插在 plan 後面。
+ * 這一頁寫的循環順序與預設值逐項吻合，本輪沒有改內容。
+ * 下次改版前先重查那一節，不要憑印象改。
+ *
+ * 這一組數值與 30_Cheat_Perms.tsx 同步，改一邊要改兩邊。
+ */
+
+/**
  * 從「Claude Code 核心按鍵與技巧」拆出來的三個。
  *
  * 那一頁原本五個混在一起，其中三個是終端機的按鍵綁定，桌面版按了沒有反應，

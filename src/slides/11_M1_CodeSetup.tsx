@@ -71,7 +71,7 @@ export default function SlideCodeSetup() {
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">1</span>
             安裝與啟動 Claude Code
           </h3>
-          <p className="text-slate-400 text-sm mb-3">官方首選是原生安裝器；若你已有 Node.js 也可用 npm。首次啟動會自動引導登入。</p>
+          <p className="text-slate-400 text-sm mb-3">官方首選是原生安裝器；若你已有 Node.js 也可用 npm。首次啟動會自動引導登入，用你原本那個 Claude 訂閱帳號就好，不要填 API 金鑰。</p>
           <div className="bg-black/50 p-3 rounded-lg font-mono text-xs border border-slate-800 space-y-2">
             <div className="text-slate-500"># macOS / Linux（在終端機執行）</div>
             <div className="text-emerald-400">$ curl -fsSL https://claude.ai/install.sh | bash</div>
@@ -89,9 +89,9 @@ export default function SlideCodeSetup() {
             切到你的專案，確認它讀得到
           </h3>
           <p className="text-slate-400 text-sm mb-3">
-            用 <code className="text-sky-300">cd</code> 切到你前面做計時器的那個{' '}
-            <code className="text-sky-300">mission-timer</code> 資料夾，輸入{' '}
-            <code className="text-sky-300">claude</code>，然後問它一句：
+            用 <code className="text-slate-300">cd</code> 切到你前面做計時器的那個{' '}
+            <code className="text-slate-300">mission-timer</code> 資料夾，輸入{' '}
+            <code className="text-orange-300">claude</code>，然後問它一句：
           </p>
           <div className="bg-black/50 p-4 rounded-lg border border-slate-800">
             <div className="flex gap-2 text-sm">
@@ -112,8 +112,8 @@ export default function SlideCodeSetup() {
           </h3>
           <p className="text-slate-400 text-sm mb-3">
             同一個資料夾，你今天用終端機、明天用桌面版都可以，它讀的是同一份檔案。
-            要離開終端機的對話，輸入 <code className="text-sky-300">/exit</code> 或按兩次{' '}
-            <code className="text-sky-300">Ctrl + C</code>。
+            要離開終端機的對話，輸入 <code className="text-orange-300">/exit</code> 或按兩次{' '}
+            <code className="text-slate-300">Ctrl + C</code>。
           </p>
           <p className="text-slate-500 text-xs leading-relaxed">
             裝到一半卡住也不影響你前面做的任何東西，回桌面版繼續就好。

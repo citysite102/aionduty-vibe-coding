@@ -91,7 +91,7 @@ export default function SlideProjectTypes() {
               </div>
 
               <div className="text-xs font-mono uppercase tracking-widest text-slate-600 mt-3 mb-2">
-                手冊寫什麼
+                手冊要定下來的是
               </div>
               <ul className="space-y-1 mb-4">
                 {c.rules.map((r) => (

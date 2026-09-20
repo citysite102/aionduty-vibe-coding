@@ -35,7 +35,7 @@ export default function SlideQuoteSystemData() {
               <p className="text-slate-400 text-sm leading-snug mb-3">{table.desc}</p>
               <div className="space-y-1">
                 {table.fields.map((field) => (
-                  <div key={field} className="rounded border border-slate-800 bg-slate-900 px-2 py-1 font-mono text-[11px] text-slate-500">
+                  <div key={field} className="rounded border border-slate-800 bg-slate-900 px-2 py-1 font-mono text-xs text-slate-500">
                     {field}
                   </div>
                 ))}

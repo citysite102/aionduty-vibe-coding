@@ -44,8 +44,8 @@ export default function SlideM2ContextCheck() {
             <div className="mt-4 pt-4 border-t border-slate-800">
               <div className="text-sky-400 font-bold mb-2">Memory files · /memory</div>
               <div className="space-y-1 text-slate-300">
-                <div>├ CLAUDE.md<span className="float-right text-slate-500">3.7k tokens</span></div>
-                <div>└ ~/.claude/CLAUDE.md<span className="float-right text-slate-500">126 tokens</span></div>
+                <div>├ CLAUDE.md<span className="text-slate-600"> ← 這個專案的</span><span className="float-right text-slate-500">3.7k tokens</span></div>
+                <div>└ ~/.claude/CLAUDE.md<span className="text-slate-600"> ← 全域，所有專案都吃得到</span><span className="float-right text-slate-500">126 tokens</span></div>
               </div>
             </div>
           </div>

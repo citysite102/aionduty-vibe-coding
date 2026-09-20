@@ -41,11 +41,11 @@ export default function SlideMissionLog() {
                 {FIELDS.map(f => (
                   <div key={f.name} className="flex gap-3 items-baseline bg-slate-950 border border-slate-800 rounded-lg px-3 py-2">
                     <code className="text-sky-300 text-xs font-mono shrink-0">{f.name}</code>
-                    <span className="text-slate-400 text-[11px] leading-relaxed">{f.desc}</span>
+                    <span className="text-slate-400 text-xs leading-relaxed">{f.desc}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
+              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
                 第三個欄位是最多人漏掉的。<strong className="text-slate-300">失敗也要記</strong>，不然你永遠不知道自己有多常放棄。
               </p>
             </AnimatedBlock>
@@ -56,12 +56,12 @@ export default function SlideMissionLog() {
               </h3>
               <div className="flex flex-wrap gap-2">
                 {DERIVED.map(d => (
-                  <span key={d} className="px-2.5 py-1 bg-emerald-500/5 text-emerald-300/90 border border-emerald-900/40 rounded-lg text-[11px] font-bold">
+                  <span key={d} className="px-2.5 py-1 bg-emerald-500/5 text-emerald-300/90 border border-emerald-900/40 rounded-lg text-xs font-bold">
                     {d}
                   </span>
                 ))}
               </div>
-              <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
+              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
                 你沒講清楚的話，它多半會直接存一個「今天完成 3 趟」的數字。那個數字遲早會跟實際紀錄對不上。
                 <strong className="text-slate-300">能算出來的就不要另外存一份。</strong>
               </p>
@@ -79,7 +79,7 @@ export default function SlideMissionLog() {
                 <strong className="text-slate-200">不用註冊、不用後端、不用付錢</strong>，一句話就有。
               </p>
               <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 relative">
-                <div className="absolute top-2.5 right-3 flex items-center gap-1 text-[11px] font-mono text-slate-500 uppercase tracking-wider font-bold">
+                <div className="absolute top-2.5 right-3 flex items-center gap-1 text-xs font-mono text-slate-500 uppercase tracking-wider font-bold">
                   <Terminal size={11} className="text-sky-400" /> Prompt
                 </div>
                 <p className="text-sky-300 text-xs leading-relaxed font-medium mt-1">
@@ -97,7 +97,7 @@ export default function SlideMissionLog() {
                 <p className="text-slate-300 text-xs leading-relaxed mb-2">
                   「連續出勤天數」是這裡面唯一會寫錯、而且用眼睛看不出來的東西。跨過午夜怎麼算？昨天沒做，今天該不該歸零？
                 </p>
-                <p className="text-slate-400 text-[11px] leading-relaxed">
+                <p className="text-slate-400 text-xs leading-relaxed">
                   你不用會寫這段程式。你要會問這句：
                   <span className="text-sky-300 font-bold">「我昨天沒做，今天打開，連續天數應該要歸零。你有處理嗎？寫個例子給我看。」</span>
                 </p>

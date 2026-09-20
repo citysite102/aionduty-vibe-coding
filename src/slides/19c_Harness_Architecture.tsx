@@ -1,6 +1,7 @@
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Settings, FileCode, Wrench, Shield, GitMerge, Link, Activity } from 'lucide-react';
 
+// D-4 防呆：這一頁「沙箱」與「運作框架」並排，Harness 一律譯「運作框架」，不要寫成「安全沙箱」。
 // 六大元件只有前兩塊是這堂課會動手的，指揮分工留到「讓 Agent 分工」那一章，其餘屬於團隊級配套。
 // 用 scope 控制視覺層級：本課主色、後續會回來講的灰、僅供認識最淡。
 //
@@ -36,14 +37,14 @@ const parts = [
     icon: Shield,
     name: '沙箱',
     en: 'Sandbox',
-    desc: '把它關在一個隔起來的地方跑，就算做壞了也弄不到你其他的東西。',
+    desc: '把它關在一個隔起來的地方跑，就算做壞了也弄不到你其他的東西。多半是公司或雲端平台幫你準備好的，你不用自己架。',
     scope: 'aware' as const,
     tag: '先認識就好',
   },
   {
     icon: Link,
     name: '自動關卡',
-    en: 'Hooks',
+    en: 'Hook',
     desc: '在固定時機自動跑的一段檢查，不經過 AI 判斷，所以它想跳過也跳不掉（例如存檔前擋下密碼）。',
     scope: 'later' as const,
     tag: '後面會動手做',
@@ -120,7 +121,7 @@ export default function SlideHarnessArchitecture() {
                   </div>
                   <div className="min-w-0">
                     <h4 className={`font-bold text-lg leading-tight ${s.name}`}>{p.name}</h4>
-                    <p className="text-slate-600 text-sm font-mono">{p.en}</p>
+                    <p className="text-slate-500 text-sm font-mono">{p.en}</p>
                   </div>
                   <span className={`ml-auto shrink-0 text-xs font-bold px-2 py-0.5 rounded-full border ${s.tag}`}>
                     {p.tag}

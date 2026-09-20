@@ -20,7 +20,7 @@ const WAYS = [
     icon: FolderPlus,
     tag: '最穩',
     name: '自己寫一個',
-    body: '一個資料夾加一個檔案就是一個 Skill，不用市集、不用網路，桌面版跟終端機都一樣。',
+    body: '一個資料夾加一個檔案就是一個 Skill，不用市集、不用網路，桌面版跟終端機都一樣。檔案開頭要有 name 與 description 兩個欄位，name 要跟資料夾一致。',
     how: '.claude/skills/名稱/SKILL.md',
     prompt: '「幫我建一個叫 weekly-report 的 Skill，內容是我每週整理報表的步驟：⋯」',
     accent: true,

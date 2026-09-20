@@ -10,6 +10,11 @@ import { Callout } from '../components/Callout';
  *   「不知道哪些屬於 md 哪些屬於 hook」→ 差別在觸發的是 Claude 還是系統。
  *   「不同 CLAUDE.md 裡面如何提取 skill」→ Skill 不是被手冊提取的，是 Claude 自己判斷要用。
  *
+ * 最後那個 Callout 的三題，在 harness/04b_RouteIntro 到 08_RouteQ4 展開成四題，
+ * 而且順序相反：那裡照「擋得住的程度」排（先問會不會出事），這裡照「要不要常駐」排。
+ * 多出來的那一題是「只在某一區嗎」，這裡塞在第一題的括號裡。
+ * 兩組互相呼應，改一邊要回頭看另一邊（B-4，check:slides 掃不到）。
+ *
  * 零件名一律 sky，檔案路徑裡屬於 Claude 的才上 orange，.github/ 不是 Claude 的，維持灰階。
  *
  * Rules 出現兩次是對的，不是重複：同樣放在 .claude/rules/ 底下，

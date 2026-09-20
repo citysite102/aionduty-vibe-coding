@@ -5,6 +5,13 @@ import { LiveDemo } from '../components/LiveDemo';
 import { Callout } from '../components/Callout';
 
 /**
+ * tools 欄位於 2026-09-20 查證（code.claude.com/docs/en/sub-agents）：
+ * 它是 allowlist，「Inherits every tool available to subagents if omitted」，
+ * 省略就是繼承全部。所以審查者要真的唯讀，這一行不能省。
+ * 另有 disallowedTools 與 permissionMode 可用，這一頁不展開。
+ */
+
+/**
  * 這一頁標題寫「動手做」，但原本沒有 LiveDemo，也沒有「叫它出場」與「怎麼看它有沒有用」
  * 這兩步，所以整個 M3 十幾頁下來學員手上不會多出任何東西。
  *
@@ -17,6 +24,7 @@ import { Callout } from '../components/Callout';
 const FRONTMATTER = `---
 name: code-reviewer
 description: 專門負責挑錯的資深工程師
+tools: Read, Grep, Glob
 ---
 檢查我改完的檔案。倒數的分鐘數不准寫死在程式裡，CLAUDE.md 要求集中成設定。
 逐條回覆，每條寫「通過」或「不通過」，不通過要指出檔案與第幾行。
@@ -122,7 +130,7 @@ export default function SlideM3HandsOn() {
               <div className="rounded-xl border px-4 py-3 bg-emerald-500/5 border-emerald-500/25 shadow-[0_0_32px_-12px_rgba(16,185,129,0.45)]">
                 <div className="text-emerald-300 text-sm font-bold mb-1.5">這樣才是審過了</div>
                 <p className="text-slate-300 text-sm leading-relaxed">
-                  「不通過。index.html 第 42 行寫死 25，CLAUDE.md 要求集中成設定。退回。」
+                  「不通過。index.html 的倒數設定那一行寫死 25，CLAUDE.md 要求集中成設定。退回。」
                 </p>
               </div>
             </div>

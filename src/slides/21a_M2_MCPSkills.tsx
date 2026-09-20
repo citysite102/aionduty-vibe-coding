@@ -1,6 +1,19 @@
 import { Layers, ExternalLink, Workflow, Server } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * 最後查證：2026-09-20，對照 agent-plugins.org 與 Google Developers Blog 的發布文。
+ * 當時的現況：官方站寫「Its initial Technical Steering Committee includes Core
+ * Maintainers from Amazon, Cursor, Microsoft, OpenAI, and Vercel」，Anthropic 與
+ * Claude Code 都不在維護者名單，官方站也沒有把 Claude Code 列為支援的 client。
+ * 所以這一頁「Claude Code 目前不在支援名單裡」仍然成立，本輪沒有改內容。
+ * 新資訊：Google 後來加入了 TSC，畫面上那五家是發布時的陣容。
+ *
+ * 二手新聞對這件事的說法互相矛盾（同一篇既說 Claude Code 保留自己的格式、
+ * 又說 plugins 裝得進去），這正是 C-2 的情況，一律以 agent-plugins.org 為準。
+ * 下次改版前先重查那一頁，不要憑印象改。
+ */
+
 export default function Slide21a() {
   return (
     <SlideLayout title="讓 AI 有工具可用：MCP 與 Skills" subtitle="Empowering AI: MCP & Skills" icon={Layers}>
@@ -10,9 +23,11 @@ export default function Slide21a() {
           讀者要自己從兩段說明裡歸納。這一句補上去，兩張卡才知道要對照什麼看。
 
           寫法改過一次：原本是「Skills 管它會做什麼」，那句不準。
-          Skills 不會讓 Agent 多出原本沒有的能力，它是一份寫好的做法（SKILL.md），
+          Skills 不會「自己」多出能力，它是一份寫好的做法（SKILL.md），
           用到才展開。真正會讓它多碰得到東西的是 MCP。講成「會做什麼」，
           學員會以為裝了 Skill 就能連到新的系統。
+          2026-09 再鬆一次：有些 Skill（例如網頁測試）要先有對應的工具才跑得動，
+          寫死成「不會多出能力」會跟 21a5 的網頁測試那一格打架。
         */}
         <p className="text-slate-300 font-medium text-base max-w-4xl">
           要讓 AI 從「只會聊天」變成「能真的做事」，它得先有辦法讀取環境、執行動作。
@@ -38,11 +53,11 @@ export default function Slide21a() {
             <div className="bg-slate-950 p-5 rounded-xl border border-sky-900/30 mb-6 relative">
               <div className="text-center font-bold text-slate-300 mb-3 border-b border-slate-800 pb-2">架構原理</div>
               <div className="flex items-center justify-between text-sm">
-                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">AI 工具<br/><span className="text-[11px] text-slate-500">Claude Code、Cursor</span></div>
+                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">AI 工具<br/><span className="text-xs text-slate-500">Claude Code、Cursor</span></div>
                 <div className="w-16 border-t-2 border-dashed border-sky-600/50 mx-2 relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] text-sky-500 bg-slate-950 px-1">MCP</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs text-sky-500 bg-slate-950 px-1">MCP</span>
                 </div>
-                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">伺服器<br/><span className="text-[11px] text-slate-500">GitHub, DB</span></div>
+                <div className="bg-slate-800 px-3 py-2 rounded text-sky-300 text-center flex-1">伺服器<br/><span className="text-xs text-slate-500">GitHub, DB</span></div>
               </div>
             </div>
 
@@ -60,17 +75,17 @@ export default function Slide21a() {
             <div className="text-emerald-200/70 text-sm mb-6 font-mono">工作流程封裝 (SOP)</div>
 
             <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-              把特定的「工作 SOP」寫成技能包（SKILL.md）。平常 AI 只載入它的名稱，需要時才展開完整步驟。跟 CLAUDE.md 的差別是：這一份平常不佔位置，叫到才進來。
+              把特定的「工作 SOP」寫成技能包（SKILL.md）。平常 AI 只載入它的名稱，需要時才展開完整步驟。跟 CLAUDE.md 的差別是：這一份平常不佔位置，叫到才進來。Skill 本身不會自己多出能力，有些會要求你先裝好它要用的工具。
             </p>
 
             <div className="bg-slate-950 p-5 rounded-xl border border-emerald-900/30 mb-6 relative">
               <div className="text-center font-bold text-slate-300 mb-3 border-b border-slate-800 pb-2">架構原理</div>
               <div className="flex items-center justify-between text-sm">
-                <div className="bg-slate-800 px-3 py-2 rounded text-emerald-300 text-center flex-1">AI Agent<br/><span className="text-[11px] text-slate-500">規劃與決策</span></div>
+                <div className="bg-slate-800 px-3 py-2 rounded text-emerald-300 text-center flex-1">AI Agent<br/><span className="text-xs text-slate-500">規劃與決策</span></div>
                 <div className="w-16 border-t-2 border-dashed border-emerald-600/50 mx-2 relative">
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-[11px] text-emerald-500 bg-slate-950 px-1">載入</span>
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs text-emerald-500 bg-slate-950 px-1">載入</span>
                 </div>
-                <div className="bg-slate-800 px-3 py-2 rounded text-emerald-300 text-center flex-1">技能包 (SKILL.md)<br/><span className="text-[11px] text-slate-500">步驟說明</span></div>
+                <div className="bg-slate-800 px-3 py-2 rounded text-emerald-300 text-center flex-1">技能包 (SKILL.md)<br/><span className="text-xs text-slate-500">步驟說明</span></div>
               </div>
             </div>
 

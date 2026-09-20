@@ -4,6 +4,16 @@ import { LiveDemo } from '../components/LiveDemo';
 import { Callout } from '../components/Callout';
 
 /**
+ * ⚠️ 待查證。這一頁寫死了兩家平台的操作路徑：
+ * Vercel 的登入與 Deploy 流程、GitHub Pages 的 Settings → Pages → Source 選分支。
+ * 平台介面改版比 API 還頻繁，屬於 CLAUDE.md C-3 的「各家部署平台」那一類。
+ *
+ * 本輪（2026-09-20）沒有重查。這一類沒辦法只靠文件確認，要實際開一次後台看畫面。
+ * 下次改版前連同 27b9_M4_ShipIt.tsx 的四個後台分頁名稱一起走一遍。
+ * 查完把這段註解換成 C-1 的三行格式。
+ */
+
+/**
  * 這一頁原本不存在，而整堂課第一頁賣的核心資產就是「一個有網址的作品」。
  *
  * 原本的狀況：推上 GitHub（前一頁）跟部署（下一頁開頭一段）都沒有 LiveDemo，

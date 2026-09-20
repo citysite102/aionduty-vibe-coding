@@ -18,7 +18,7 @@ const BLOCKS = [
   {
     name: '不做什麼',
     line: '別人都有、但你這次不要的東西',
-    pass: '至少三條，而且你說得出為什麼不要',
+    pass: '至少三條，而且你說得出為什麼不要。第一次寫不出三條，先做一版再回來補，案例一就是這樣長出來的',
   },
   {
     name: '真實素材',
@@ -66,7 +66,7 @@ export default function SlideCaseSpec() {
                 這不是它偷懶，是你沒有給它足夠的資訊，它只能用最常見的網站結構、文案與設計慣例。
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                規格要裝的，是<strong className="text-slate-200">它猜不到的那些事</strong>。
+                這份規格三個案例共用，後面兩個案例交的是同一份，只有內容不同。規格要裝的，是<strong className="text-slate-200">它猜不到的那些事</strong>。
               </p>
             </div>
             <ul className="space-y-2 rounded-xl border border-slate-800 bg-slate-950 p-4">

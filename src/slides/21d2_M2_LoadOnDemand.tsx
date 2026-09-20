@@ -7,7 +7,7 @@ const PARTS = [
     when: '平常只載名稱',
     what: '一套有步驟、用到才需要的 SOP 流程',
     where: '.claude/skills/名稱/SKILL.md',
-    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。2026 起 slash 指令也併進 Skill。',
+    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。要不要展開是 Claude 自己判斷的，你也可以直接點名。2026 起 slash 指令也併進 Skill。',
   },
   {
     name: 'Subagent',

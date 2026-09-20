@@ -7,6 +7,12 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 這一頁的 matcher 與工具清單，跟專案根目錄的 .claude/settings.json 綁在一起
+ * （那一條真的掛著的 Hook）。改設定要回來改這一頁，否則「照抄真的那一條」的承諾就破了。
+ * 2026-09-20 核對：實際是 Write|Edit|MultiEdit，當時投影片少了 MultiEdit，已補齊。
+ */
+
+/**
  * 第二層。這一層最容易被跳過，因為不寫它也能跑，只是會變成每一次都插手，
  * 然後你會開始覺得 Hook 很煩、想把它關掉。
  *
@@ -21,6 +27,7 @@ const TOOLS = [
   { name: 'Bash', keep: false },
   { name: 'Write', keep: true },
   { name: 'Edit', keep: true },
+  { name: 'MultiEdit', keep: true },
   { name: 'WebFetch', keep: false },
 ];
 
@@ -50,7 +57,7 @@ export default function RecHookMatcher() {
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           <div className="border-b border-slate-800 bg-slate-900 px-6 py-2.5 font-mono text-lg text-orange-300">
-            matcher: Write|Edit
+            matcher: Write|Edit|MultiEdit
           </div>
           <div className="px-6 py-5 flex flex-wrap gap-3">
             {TOOLS.map((t) => (
@@ -71,7 +78,7 @@ export default function RecHookMatcher() {
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-amber-900/40 bg-amber-950/20 px-7 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            範圍開太大會擋到不該擋的。這條原本沒有判斷檔案路徑，連專案自己的工具腳本都被擋了三次。
+            範圍開太大會擋到不該擋的。這條原本沒有判斷檔案路徑，連專案自己的工具腳本都被擋了三次。路徑得在下一層的指令裡自己判斷。
           </p>
         </AnimatedBlock>
       </RecPage>

@@ -10,7 +10,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 export default function SlidePillars() {
   return (
     <SlideLayout title="Agent 的工具、規則文件與任務拆解" subtitle="What We Actually Build" icon={Layers}>
-      <p className="text-slate-400 text-[15px] leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
+      <p className="text-slate-400 text-sm leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
         六個零件裡，前兩塊是你真的要建出檔案的，第三塊零件表沒列，
         但你每次交代工作都會用到。<strong className="text-slate-200">模型換成更新的版本，這三塊照樣要做。</strong>
       </p>
@@ -31,7 +31,8 @@ export default function SlidePillars() {
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">1</div>
             讓它有工具可用
           </h3>
-          <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
+          <p className="text-slate-300 mb-5 text-sm leading-relaxed">
+            <span className="text-slate-500">解的是上一頁第一個浪費：手上沒有對的工具。</span>
             查不到的東西它就會用猜的。給它真的能查、能動手的工具。
           </p>
           {/*
@@ -57,7 +58,8 @@ export default function SlidePillars() {
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">2</div>
             只給它需要的資料
           </h3>
-          <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
+          <p className="text-slate-300 mb-5 text-sm leading-relaxed">
+            <span className="text-slate-500">解的是第二個浪費：丟了一堆它用不到的資料。</span>
             該給的要給，但塞太多它會抓不到重點。
           </p>
           <div className="space-y-3">
@@ -81,7 +83,8 @@ export default function SlidePillars() {
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">3</div>
             把大題目切小
           </h3>
-          <p className="text-slate-300 mb-5 text-[15px] leading-relaxed">
+          <p className="text-slate-300 mb-5 text-sm leading-relaxed">
+            <span className="text-slate-500">解的是第三個浪費：一個題目一次交代太大。</span>
             一次交代太大，出錯的機會就變高。
           </p>
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">

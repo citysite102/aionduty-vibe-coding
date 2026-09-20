@@ -7,6 +7,13 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 最後查證：2026-09-20，對照 code.claude.com/docs/en/hooks 的 handler 清單。
+ * 當時的現況：正好五種，設定值是 command、http、mcp_tool、prompt、agent，
+ * 與這一頁的五格逐項相符，本輪沒有改內容。
+ * 下次改版前先重查那一節，不要憑印象改。
+ */
+
+/**
  * 第三層。五種攤開來是為了讓學員知道天花板在哪，但重點是第一種：
  * command 每個時機都支援，而且自己在終端機就測得出來。
  *

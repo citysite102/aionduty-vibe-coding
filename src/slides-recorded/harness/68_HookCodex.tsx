@@ -5,6 +5,14 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 最後查證：2026-09-20。Claude Code 那一欄已核對（code.claude.com/docs/en/hooks）：
+ * 事件 33 個、handler 5 種，與這一頁寫的「三十幾種」「五種」相符。
+ *
+ * ⚠️ Codex 那一欄本輪沒有重查（「十來種」「只有跑指令」）。它是別家產品，
+ * CLAUDE.md C-3 已經把這一頁列進最容易過期的清單，下次改版務必連它一起查。
+ */
+
+/**
  * 這一節的職務是轉移，所以 Hook 這一組也要收在「換一個工具還算不算數」。
  *
  * 版面刻意沿用前面三頁的三層詞彙（時機、範圍、動作）當左欄，

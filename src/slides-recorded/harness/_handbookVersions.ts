@@ -19,6 +19,7 @@ export type Line = {
 
 /** 需要被處理掉的那幾條，用文字當 key，才不會因為插行就對錯 */
 const TO_HOOK = '- 絕對不要刪掉我的檔案';
+const HOOK_REMINDER = '- 檔案刪除由 Hook 擋（見 .claude/settings.json）';
 const TO_DELETE = '- 一律用繁體中文回答';
 const TO_REWRITE = '- 畫面要好看，風格保持一致';
 const REWRITTEN = '- 背景固定 #020617，強調色只用一種，其他一律灰階';
@@ -49,9 +50,16 @@ function build(round: number): Line[] {
   const out: Line[] = [];
   for (const [text, kind] of DRAFT) {
     if (text === TO_HOOK) {
+      // 搬走之後手冊裡要留一行提醒，否則 Slide 66 與這一段口白講的
+      // 「在 Hook 擋掉，手冊裡只留一行提醒」就沒有示範到（學員會直接刪掉那一條）。
       if (round === 1) out.push({ text, state: 'added' });
-      else if (round === 2) out.push({ text, state: 'moved', to: '搬去 Hook' });
-      else if (round < 5) out.push({ text, state: 'moved', to: '在 Hook' });
+      else if (round === 2) {
+        out.push({ text, state: 'moved', to: '搬去 Hook' });
+        out.push({ text: HOOK_REMINDER, state: 'added' });
+      } else if (round < 5) {
+        out.push({ text, state: 'moved', to: '在 Hook' });
+        out.push({ text: HOOK_REMINDER });
+      } else out.push({ text: HOOK_REMINDER });
       continue;
     }
     if (text === TO_DELETE) {

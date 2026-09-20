@@ -5,7 +5,7 @@ import { CaseShot } from '../components/CaseShot';
 import tokyoLoopShot from '../../assets/cases/case-02-tokyo-loop.jpg';
 
 const ROUTE = [
-  { label: '起點', text: '一個空資料夾、十張你自己選的照片，以及一張寫下十個時刻各自長什麼樣的表' },
+  { label: '起點', text: '一個空資料夾、十張你自己選的照片，以及一張寫下十個時刻各自長什麼樣的表。照片可以是你自己拍的任何一個地方的一天，題目不必是東京' },
   { label: '過程', text: '先決定每件事交給套件還是自己算，再依序疊上資料、背景、照片、介面與面板' },
   { label: '產出', text: '一個捲動穿越的照片藝廊，以及一張換個專案還用得到的選型判斷表' },
 ];
@@ -73,7 +73,7 @@ export default function SlideCase2TokyoLoop() {
 
         <Callout tone="warn" label="這個案例有兩個終點" stepIndex={3}>
           手冊做到倒數第二步，照片、字體與套件全部來自三個外部網站，其中一個掛掉，整個作品不會啟動。
-          自己練習沒問題，對外就不行。
+          自己練習沒問題，對外就不行。任何要拿出去的東西都一樣：外部來源在你控制不到的地方。
           <strong className="text-slate-100">最後一步專門在做這件事</strong>：把三個外部來源收回自己的專案，
           加上打包步驟，真機測過、效能量過，做完才算可以當正式版的起點。
         </Callout>

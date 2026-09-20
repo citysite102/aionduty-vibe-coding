@@ -158,7 +158,7 @@ export default function SlideWebArchDuties() {
                 </div>
                 <div>
                   <h4 className="text-base font-extrabold text-sky-400 uppercase tracking-wide">前端負責 (UX & 介面)</h4>
-                  <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Client Side / UI</span>
+                  <span className="text-xs text-slate-500 uppercase tracking-wider font-mono">Client Side / UI</span>
                 </div>
               </div>
               
@@ -186,7 +186,7 @@ export default function SlideWebArchDuties() {
                 </div>
                 <div>
                   <h4 className="text-base font-extrabold text-emerald-400 uppercase tracking-wide">API 來回傳什麼</h4>
-                  <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Payload Contract</span>
+                  <span className="text-xs text-slate-500 uppercase tracking-wider font-mono">Payload Contract</span>
                 </div>
               </div>
               
@@ -196,9 +196,9 @@ export default function SlideWebArchDuties() {
 
               <div className="space-y-4 pt-1">
                 <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5">
-                  <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                  <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between">
                     <span>Request (瀏覽器傳出)</span>
-                    <span className="text-sky-400 text-[11px] font-bold px-1.5 py-0.5 bg-sky-950/85 rounded border border-sky-900/50">📋 顧客點單紙</span>
+                    <span className="text-sky-400 text-xs font-bold px-1.5 py-0.5 bg-sky-950/85 rounded border border-sky-900/50">📋 顧客點單紙</span>
                   </div>
                   <div className="text-xs font-mono text-sky-400 font-bold mb-1">{activeData.reqLabel}</div>
                   <div className="text-xs font-mono text-slate-300 bg-slate-950 p-2 rounded overflow-x-auto select-all border border-slate-900">
@@ -207,9 +207,9 @@ export default function SlideWebArchDuties() {
                 </div>
 
                 <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-3.5">
-                  <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                  <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-1.5 flex items-center justify-between">
                     <span>Response (伺服器傳回)</span>
-                    <span className="text-emerald-400 text-[11px] font-bold px-1.5 py-0.5 bg-emerald-950/85 rounded border border-emerald-900/50">🍜 出菜 ＋ 出菜明細</span>
+                    <span className="text-emerald-400 text-xs font-bold px-1.5 py-0.5 bg-emerald-950/85 rounded border border-emerald-900/50">🍜 出菜 ＋ 出菜明細</span>
                   </div>
                   <div className="text-xs font-mono text-emerald-400 font-bold mb-1">{activeData.respLabel}</div>
                   <div className="text-xs font-mono text-slate-300 bg-slate-950 p-2 rounded overflow-x-auto select-all border border-slate-900">
@@ -233,12 +233,12 @@ export default function SlideWebArchDuties() {
                 </div>
                 <div>
                   <h4 className="text-base font-extrabold text-indigo-400 uppercase tracking-wide">後端與資料庫 (邏輯)</h4>
-                  <span className="text-[11px] text-slate-500 uppercase tracking-wider font-mono">Server Side / SQL</span>
+                  <span className="text-xs text-slate-500 uppercase tracking-wider font-mono">Server Side / SQL</span>
                 </div>
               </div>
 
               <div className="mb-5">
-                <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
+                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
                   <Cpu size={11} className="text-indigo-400" /> 
                   <span>伺服器運算邏輯</span>
                 </div>
@@ -253,7 +253,7 @@ export default function SlideWebArchDuties() {
               </div>
 
               <div className="pt-4 border-t border-slate-800/50">
-                <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
+                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider mb-2 flex items-center gap-1.5 font-mono">
                   <Database size={11} className="text-indigo-400" /> 
                   <span>資料庫存取</span>
                 </div>

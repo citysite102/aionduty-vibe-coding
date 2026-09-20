@@ -144,9 +144,9 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // index 85 = 原「換成你的工作，手冊該寫什麼」
   85: [
     { meta: m41, Component: RecTransferCase },
-    { meta: m42, Component: RecTransferQ1 },
     { meta: m43, Component: RecTransferQ2 },
     { meta: m44, Component: RecTransferQ3 },
+    { meta: m42, Component: RecTransferQ1 },
     { meta: m46, Component: RecTransferMapping },
     { meta: m47, Component: RecTransferNextStep },
     // 61 放在 47 之後：46 收在「三個問題問完」、47 開在「這三題跟工具無關」，

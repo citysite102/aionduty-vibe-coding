@@ -27,7 +27,7 @@ export default function RecHealthOverview() {
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
       <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
-          <p className="text-slate-300 text-4xl font-bold leading-snug">五個步驟，<Key>順序不能換</Key></p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">五個步驟，<Key>順序不能換</Key><span className="block mt-2 text-slate-500 text-base">建議每三個月跑一次</span></p>
         </AnimatedBlock>
 
         {/* 上方流程軌已經列出五個步驟，這裡不再加表頭，只補分隔線把配對框起來 */}

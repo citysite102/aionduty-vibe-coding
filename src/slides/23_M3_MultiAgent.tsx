@@ -90,7 +90,7 @@ export default function SlideMultiAgent() {
                   </div>
                   <div className="min-w-0">
                     <div className="font-bold text-slate-100 text-base leading-tight">{r.name}</div>
-                    <div className="text-slate-600 text-[11px] font-mono">{r.en}</div>
+                    <div className="text-slate-600 text-xs font-mono">{r.en}</div>
                   </div>
                 </div>
 

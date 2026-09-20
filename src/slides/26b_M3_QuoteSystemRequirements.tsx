@@ -19,7 +19,7 @@ const BRIEF = [
   },
 ];
 
-const NON_GOALS = ['不用串金流', '不用做庫存扣帳', '不用做完整 CRM', '不用登入權限系統'];
+const NON_GOALS = ['不用串金流', '不用做庫存扣帳', '不用做完整 CRM', '不用做登入，角色先用切換的模擬'];
 
 export default function SlideQuoteSystemRequirements() {
   return (

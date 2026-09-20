@@ -7,7 +7,7 @@ const FILES = [
   { path: 'docs/data-model.md', note: '四張表與欄位說明' },
   { path: 'docs/api-contract.md', note: 'Request、Response 與錯誤格式' },
   { path: 'docs/ui-guidelines.md', note: '表單、列表、金額與狀態顯示' },
-  { path: '.claude/agents/quote-reviewer.md', note: '報價審查子代理' },
+  { path: '.claude/agents/quote-reviewer.md', note: '報價審查子代理。建法跟你剛才那個 code-reviewer 一樣，只有標準不同' },
 ];
 
 const RULES = [

@@ -50,7 +50,7 @@ const PARTS = [
       <>
         前面兩件事做好之後，下次不用重寫指令。把它包成一份{' '}
         <code className="font-mono text-orange-300">SKILL.md</code>
-        ，你說「用這個跑這個月的」它就展開。
+        ，你說「用這個跑這個月的」它就展開。跟它說：「把我們這一輪的做法整理成一份 SKILL.md，之後我說『用這個跑這個月的』你就照著做。」
       </>
     ),
     from: '對應 SKILL.md 那一種題目',

@@ -12,7 +12,7 @@ import type { RecordedMeta } from '../types';
  * 流程那一排把「掛」跟「測」放在同一條線上，因為 Hook 最常見的失敗不是寫錯，
  * 是掛上去之後從來沒被觸發過，而你以為它在守著。所以測試不是附註，是步驟之一。
  */
-const CHECKS = ['那個假金鑰真的被擋下來了嗎', '被擋的時候，有沒有一句話講清楚哪裡不行'];
+const CHECKS = ['那個假金鑰真的被擋下來了嗎', '被擋的時候，有沒有一句話講清楚哪裡不行', '它寫進哪一個檔案了（這一題該進專案的 .claude/settings.json）'];
 
 export const meta: RecordedMeta = {
   id: 'harness-67-hook-practice',

@@ -44,7 +44,7 @@ export default function SlideHarnessIntro() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800 flex items-center gap-2">
-              <span className="text-[11px] text-slate-500 font-bold font-mono">CORE CONCEPT: ENGINE & RAILS</span>
+              <span className="text-xs text-slate-500 font-bold font-mono">CORE CONCEPT: ENGINE & RAILS</span>
             </div>
           </AnimatedBlock>
         </div>
@@ -62,7 +62,7 @@ export default function SlideHarnessIntro() {
                 </h3>
                 <button 
                   onClick={() => setTriggerCount(c => c + 1)}
-                  className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg text-[11px] font-mono text-slate-400 hover:text-slate-200 flex items-center gap-1 transition-all"
+                  className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-mono text-slate-400 hover:text-slate-200 flex items-center gap-1 transition-all"
                 >
                   <RefreshCw size={10} />
                   重新模擬 (Re-simulate)
@@ -132,7 +132,6 @@ export default function SlideHarnessIntro() {
                             transition={{
                               duration: 1.8,
                               delay: i * 0.25,
-                              repeat: Infinity,
                               ease: "easeInOut"
                             }}
                           />
@@ -147,10 +146,10 @@ export default function SlideHarnessIntro() {
 
                       {/* Destination Chaos */}
                       <div className="flex flex-col gap-1 items-end shrink-0">
-                        <span className="text-[11px] font-mono text-red-400 font-bold bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20 flex items-center gap-1">
-                          幻覺程式碼 (404)
+                        <span className="text-xs font-mono text-red-400 font-bold bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20 flex items-center gap-1">
+                          ✗ 接不上的程式碼
                         </span>
-                        <span className="text-[11px] font-mono text-slate-500">無法理解檔案結構、瞎編 API</span>
+                        <span className="text-xs font-mono text-slate-500">無法理解檔案結構、瞎編 API</span>
                       </div>
                     </div>
                   </div>
@@ -189,7 +188,6 @@ export default function SlideHarnessIntro() {
                             transition={{
                               duration: 2.2,
                               delay: i * 0.6,
-                              repeat: Infinity,
                               ease: "linear"
                             }}
                           />
@@ -197,24 +195,24 @@ export default function SlideHarnessIntro() {
                       </div>
 
                       {/* Harness constraint node */}
-                      <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 text-sky-400 font-bold text-[11px] whitespace-nowrap shrink-0 border-2 border-sky-500/60 shadow-lg shadow-sky-500/15 z-10">
+                      <div className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 text-sky-400 font-bold text-xs whitespace-nowrap shrink-0 border-2 border-sky-500/60 shadow-lg shadow-sky-500/15 z-10">
                         <CheckCircle size={13} className="text-emerald-400 shrink-0" />
                         <span>SOP 檢查</span>
                       </div>
 
                       {/* Clean Output */}
                       <div className="flex flex-col gap-1 items-end shrink-0">
-                        <span className="text-[11px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
-                          編譯成功 (200 OK)
+                        <span className="text-xs font-mono text-emerald-400 font-bold bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20 flex items-center gap-1">
+                          ✓ 編譯通過
                         </span>
-                        <span className="text-[11px] font-mono text-slate-400">符合 CLAUDE.md，只動該動的檔案</span>
+                        <span className="text-xs font-mono text-slate-400">符合 CLAUDE.md，只動該動的檔案</span>
                       </div>
                     </div>
                   </div>
                 )}
 
                 {/* Sub-explanation */}
-                <div className="mt-4 pt-3 border-t border-slate-900 flex justify-between items-center text-[11px] font-mono">
+                <div className="mt-4 pt-3 border-t border-slate-900 flex justify-between items-center text-xs font-mono">
                   {activeTab === 'without' ? (
                     <>
                       <span className="text-red-400 font-bold flex items-center gap-1">

@@ -26,7 +26,7 @@ const SURFACES = [
   },
   {
     name: 'Claude Code',
-    where: '終端機，或桌面版的 Code 頁籤',
+    where: '終端機，或桌面版的 Code 頁籤（你前面一直在用的那個）',
     files: '整個專案資料夾',
     act: '能執行指令、跑測試、版控',
     lead: true,

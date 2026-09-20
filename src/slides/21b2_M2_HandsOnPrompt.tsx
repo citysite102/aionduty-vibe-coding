@@ -40,7 +40,7 @@ export default function SlideHandsOnPrompt() {
         >
           <CornerDownRight size={16} className="text-sky-400 shrink-0 mt-0.5" />
           <p className="text-sm text-slate-300 leading-relaxed">
-            上一頁第 1 格叫它生的那份草稿，是它<strong className="text-slate-100">讀完你的程式碼</strong>寫出來的，
+            上一頁第 1 格叫 Claude 生的那份草稿，是它<strong className="text-slate-100">讀完你的程式碼</strong>寫出來的，
             所以裡面只有它看得到的東西。現在補上它看不到的那一半：
             <strong className="text-slate-100">你腦子裡的規矩</strong>。
           </p>
@@ -92,11 +92,6 @@ export default function SlideHandsOnPrompt() {
           </AnimatedBlock>
 
         </div>
-
-        <Callout tone="muted" stepIndex={4}>
-          手上沒有計時器的話（前面沒做完也沒關係），開一個空資料夾，
-          把上面那四條改成你自己工作上真的有的規矩，一樣走得完這兩步。
-        </Callout>
 
       </div>
     </SlideLayout>

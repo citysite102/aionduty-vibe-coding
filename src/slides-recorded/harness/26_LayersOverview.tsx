@@ -31,13 +31,13 @@ const LAYERS = [
     path: 'src/xxx/CLAUDE.md',
     name: '子目錄',
     what: '那一區專屬的規矩，碰到才載入',
-    eg: '',
+    eg: '這一區的元件一律用 canvas 畫',
   },
   {
     path: './CLAUDE.local.md',
     name: '本機',
     what: '只有你這台機器成立的事',
-    eg: '',
+    eg: '我這台機器用的是 Windows',
   },
 ];
 

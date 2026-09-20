@@ -32,7 +32,7 @@ export default function SlideM2Recap() {
                 {i + 1}
               </div>
               <div>
-                <div className="text-slate-200 text-[15px] font-bold mb-1">{d.title}</div>
+                <div className="text-slate-200 text-sm font-bold mb-1">{d.title}</div>
                 <div className="text-slate-500 text-xs leading-relaxed">{d.desc}</div>
               </div>
             </AnimatedBlock>

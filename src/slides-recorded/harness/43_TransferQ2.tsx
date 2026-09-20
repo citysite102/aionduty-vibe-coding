@@ -10,7 +10,7 @@ export const meta: RecordedMeta = {
   id: 'harness-43-transfer-q2',
   title: '違反了會出事的，光寫進手冊擋不住',
   script:
-    '第二題：哪些事情違反了會出事？成本結構和利潤率不能出現在給客戶的檔案裡。這一條也會進手冊，但它不能只靠這一行。一次外洩的代價太高，光靠文字擋不住，這一條還需要程式幫忙擋。',
+    '第一題：哪些事情違反了會出事？成本結構和利潤率不能出現在給客戶的檔案裡。這是手冊的第一條，但它不能只靠這一行。一次外洩的代價太高，光靠文字擋不住，這一條還需要程式幫忙擋。',
   seconds: 38,
   from: 75,
 };
@@ -20,7 +20,7 @@ export default function RecTransferQ2() {
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={ShieldAlert}>
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
-          <div className="text-slate-500 text-base font-mono mb-3">第 2 題，共 3 題</div>
+          <div className="text-slate-500 text-base font-mono mb-3">第 1 題，共 3 題</div>
           <p className="text-slate-200 text-2xl leading-snug mb-4">哪些事情違反了會出事？</p>
           <AskFirst />
         </AnimatedBlock>
@@ -29,7 +29,7 @@ export default function RecTransferQ2() {
           <p className="text-slate-300 text-3xl font-bold leading-snug">這些不要只寫進手冊，<Key>要有一道程式在寄出前檢查</Key></p>
         </AnimatedBlock>
 
-        <ProposalDraft stage={2} stepIndex={3} />
+        <ProposalDraft stage={1} stepIndex={3} />
       </RecPage>
     </SlideLayout>
   );

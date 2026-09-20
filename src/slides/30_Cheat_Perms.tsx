@@ -3,13 +3,24 @@ import { Key, Terminal, Globe, Shield, ShieldAlert, Check, X, ArrowRight, Refres
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
+/**
+ * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permission-modes。
+ * 當時的現況：六個模式全部存在且名稱相符。acceptEdits 的官方說明是
+ * 「Reads, file edits, and common filesystem commands (mkdir, touch, mv, cp, etc.)」，
+ * 跟這一頁寫的一致。dontAsk 官方明講 "never appears in the cycle;
+ * set it with --permission-mode dontAsk"，也跟這一頁一致。
+ * 本輪沒有改內容。下次改版前先重查那一節，不要憑印象改。
+ *
+ * 這一組數值與 11d2_M1_TerminalKeys.tsx 同步，改一邊要改兩邊。
+ */
+
 const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
 
 export default function SlideCheatPerms() {
   const [activeTab, setActiveTab] = useState<'terminal' | 'web'>('terminal');
 
   // Terminal mockup interactive state
-  const [terminalMode, setTerminalMode] = useState<'default' | 'auto-accept' | 'plan' | 'bypass'>('default');
+  const [terminalMode, setTerminalMode] = useState<'default' | 'auto-accept' | 'plan' | 'auto' | 'dont-ask' | 'bypass'>('default');
 
   // Web UI mockup interactive states
   const [allowRead, setAllowRead] = useState(true);
@@ -38,6 +49,9 @@ export default function SlideCheatPerms() {
 
   // 這個模擬器只演 default → acceptEdits → plan 這三格。實際上 Pro/Max 開機在 auto，
   // 按第一下才進 manual（default 的介面名稱），而且啟用的選用模式會插在 plan 後面。
+  // 循環順序照官方文件（2026-09-20 查證）：default → acceptEdits → plan → auto → 回 default。
+  // 起始狀態刻意停在 default 而不是 auto：Pro/Max 實際開機在 auto，但讓第一眼看到全放行，
+  // 這一頁的第一印象就反了。dontAsk 不在循環裡（官方：never appears in the cycle）。
   const cycleTerminalMode = () => {
     if (terminalMode === 'default') {
       setTerminalMode('auto-accept');
@@ -45,6 +59,9 @@ export default function SlideCheatPerms() {
     } else if (terminalMode === 'auto-accept') {
       setTerminalMode('plan');
       applyWebPreset('strict');
+    } else if (terminalMode === 'plan') {
+      setTerminalMode('auto');
+      applyWebPreset('auto');
     } else {
       setTerminalMode('default');
       applyWebPreset('strict');
@@ -72,7 +89,7 @@ export default function SlideCheatPerms() {
                 兩頁只是前後相鄰。每一格補一行標它轉的是哪一個旋鈕，前一頁才不是講完就丟。
               */}
               <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                上一頁那兩個旋鈕，在 Claude Code 裡就是下面這四個模式。
+                上一頁那兩個旋鈕，在 Claude Code 裡就是下面這六個模式。
                 每一格最後一行標的，是它轉的哪一個。
               </p>
 
@@ -92,13 +109,13 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-sky-400 text-sm tracking-wide">預設 <code className="text-[11px] font-mono opacity-70">default</code></span>
+                    <span className="font-bold text-sky-400 text-sm tracking-wide">預設 <code className="text-xs font-mono opacity-70">default</code></span>
                     <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">最安全</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
                     修改檔案、執行終端機指令前會停下來徵求同意；純讀取不打擾。適合金流、認證設定或陌生專案。
                   </p>
-                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     旋鈕一 監督程度　每一步都先問
                   </div>
                 </button>
@@ -118,7 +135,7 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-emerald-400 text-sm tracking-wide">自動接受 <code className="text-[11px] font-mono opacity-70">acceptEdits</code></span>
+                    <span className="font-bold text-emerald-400 text-sm tracking-wide">自動接受 <code className="text-xs font-mono opacity-70">acceptEdits</code></span>
                     <span className="text-xs font-mono text-emerald-500/30 bg-emerald-950/20 px-1.5 py-0.5 rounded border border-emerald-900/30">熟悉專案後</span>
                   </div>
                   {/*
@@ -129,7 +146,7 @@ export default function SlideCheatPerms() {
                   <p className="text-xs text-slate-300 leading-relaxed">
                     改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp 這類搬檔案的指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
                   </p>
-                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     旋鈕一 監督程度　改檔案不問，跑指令還問
                   </div>
                 </button>
@@ -149,14 +166,66 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-amber-400 text-sm tracking-wide">計畫 <code className="text-[11px] font-mono opacity-70">plan</code></span>
+                    <span className="font-bold text-amber-400 text-sm tracking-wide">計畫 <code className="text-xs font-mono opacity-70">plan</code></span>
                     <span className="text-xs font-mono text-amber-500/30 bg-amber-950/20 px-1.5 py-0.5 rounded border border-amber-900/30">大重構推薦</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
                     它會翻專案、提出方案給你看，<strong className="text-slate-100">但不動任何檔案</strong>。適合先確認方向再放手做。
                   </p>
-                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     旋鈕二 邊界大小　縮到只能讀
+                  </div>
+                </button>
+
+                {/* Auto Mode Block */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTerminalMode('auto');
+                    applyWebPreset('auto');
+                  }}
+                  aria-pressed={terminalMode === 'auto'}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
+                    terminalMode === 'auto'
+                      ? 'bg-amber-500/10 border-amber-500/40 shadow'
+                      : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
+                  }`}
+                >
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="font-bold text-amber-400 text-sm tracking-wide">全自動 <code className="text-xs font-mono opacity-70">auto</code></span>
+                    <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">訂閱方案的預設</span>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    什麼都不問你，但每個動作會先經過一道背景檢查。Pro 與 Max 開機就在這一個，你按第一下 Shift + Tab 才會離開它。
+                  </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
+                    旋鈕一 監督程度　都不問，改由程式把關
+                  </div>
+                </button>
+
+                {/* Don't Ask Mode Block */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTerminalMode('dont-ask');
+                    applyWebPreset('strict');
+                  }}
+                  aria-pressed={terminalMode === 'dont-ask'}
+                  className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
+                    terminalMode === 'dont-ask'
+                      ? 'bg-slate-800/60 border-slate-600 shadow'
+                      : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
+                  }`}
+                >
+                  <div className="flex justify-between items-center mb-1">
+                    <span className="font-bold text-slate-200 text-sm tracking-wide">只放行你核准的 <code className="text-xs font-mono opacity-70">dontAsk</code></span>
+                    <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">不在循環裡</span>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    只跑你事先核准的工具，其餘一律擋下，而且不會停下來問你。它按不到，只能用啟動參數進去。
+                  </p>
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
+                    旋鈕二 邊界大小　縮到只剩你點名的工具
                   </div>
                 </button>
 
@@ -175,13 +244,13 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-red-400 text-sm tracking-wide">全放行 <code className="text-[11px] font-mono opacity-70">bypassPermissions</code></span>
+                    <span className="font-bold text-red-400 text-sm tracking-wide">全放行 <code className="text-xs font-mono opacity-70">bypassPermissions</code></span>
                     <span className="text-xs font-mono text-red-500/30 bg-red-950/20 px-1.5 py-0.5 rounded border border-red-900/30">⚠️ 僅限沙箱</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
                     無條件放行所有層級的操作，包含高危指令與檔案覆寫。<strong>僅限與外部隔離的 Docker 容器。</strong>
                   </p>
-                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-[11px] text-slate-500">
+                  <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     旋鈕一＋旋鈕二　兩個都轉到底
                   </div>
                 </button>
@@ -273,6 +342,12 @@ export default function SlideCheatPerms() {
                             )}
                             {terminalMode === 'plan' && (
                               <div className="text-amber-400">✓ 模式：plan：先讀懂再出方案，不寫入任何檔案</div>
+                            )}
+                            {terminalMode === 'auto' && (
+                              <div className="text-emerald-300">✓ 模式：auto：全放行，但每個動作先經過一道背景檢查</div>
+                            )}
+                            {terminalMode === 'dont-ask' && (
+                              <div className="text-slate-300">✓ 模式：dontAsk：只放行你事先核准的工具，其餘一律擋下，不會停下來問你</div>
                             )}
                             {terminalMode === 'bypass' && (
                               <div className="text-red-400">⚠ 模式：bypassPermissions：所有操作一律放行，不再詢問。請確認你在隔離容器裡</div>
@@ -436,8 +511,8 @@ export default function SlideCheatPerms() {
               {activeTab === 'terminal' ? (
                 <span>
                   <code>Shift + Tab</code> 每按一下換一個。Pro 與 Max 方案<strong>開起來預設在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
-                  啟用之後會插進循環、排在 <code>plan</code> 後面的：<code>auto</code>（全放行但有背景檢查）、
-                  以及 <code>bypassPermissions</code>。<code>dontAsk</code>（只放行你事先核准的工具，是縮小邊界最實際的做法）永遠不在循環裡，只能用啟動參數進去。
+                  上面六格裡，<code>auto</code> 與 <code>bypassPermissions</code> 啟用之後會插進循環、排在 <code>plan</code> 後面；
+                  <code>dontAsk</code> 永遠不在循環裡，按不到，只能用啟動參數進去。
                   
                 </span>
               ) : (

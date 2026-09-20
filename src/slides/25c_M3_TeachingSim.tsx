@@ -104,6 +104,10 @@ export default function SlideTeachingSim() {
             這次三個角色各出過一次錯：講師編了一句簡報上沒有的保證，
             學生說某頁「沒有下載連結」但其實有，觀察員第一段的結論下得太早。
             <strong className="text-slate-100">所以每一條指到具體位置的說法，都要回原檔查過才算數。</strong>
+            <span className="block mt-3 text-slate-400">
+              換成你的工作也是同一組：作者、讀者、觀察員。提案、教材、說明文件都跑得起來，
+              只有「讀者」那一個要設定成你真正的對象。
+            </span>
           </Callout>
         </div>
 

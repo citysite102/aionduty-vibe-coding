@@ -3,6 +3,22 @@ import { CreditCard, DollarSign, Cpu, CheckCircle, Shield, BatteryWarning } from
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
+/**
+ * 這一頁整頁都是價錢，屬於 CLAUDE.md C-3 最容易過期的那一類。
+ *
+ * 部分查證：2026-09-20，對照 claude.com/pricing。
+ * 已確認：Claude Pro $20／月、Max 5x $100／月，與這一頁相符。
+ * ⚠️ 未確認：Max 20x $200（該頁當時的抓取結果自相矛盾，兩個 Max 方案
+ * 都顯示 $100，明顯是解析問題，不足以推翻也不足以佐證）；
+ * API 最低儲值 $5；Cursor 約 $20／月；五小時滾動視窗與每週上限的機制。
+ *
+ * 下次改版前，這幾項要用瀏覽器親眼看一次：
+ *   - claude.com/pricing（Pro 與兩個 Max 方案）
+ *   - platform.claude.com（API 儲值下限）
+ *   - cursor.com/pricing（Cursor 改版最頻繁）
+ * 不要憑印象改，也不要只看二手新聞（C-2）。
+ */
+
 export default function SlidePricingAndROI() {
   return (
     <SlideLayout title="AI 程式工具的付費模式：訂閱制與計量付費" subtitle="Accounts, Subscriptions & API Pricing Guide" icon={CreditCard}>

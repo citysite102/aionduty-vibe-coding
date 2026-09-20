@@ -122,7 +122,7 @@ export default function SlideCheatDials() {
           stepIndex={5}
           footnote={
             <>
-              轉的方法不是兩根滑桿。Claude Code 把常用的組合做成四個模式，按{' '}
+              轉的方法不是兩根滑桿。Claude Code 把常用的組合做成幾個模式，按{' '}
               <code className="font-mono text-orange-300">Shift + Tab</code> 換。
             </>
           }
@@ -130,6 +130,7 @@ export default function SlideCheatDials() {
           回到前面那條判準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
           看得懂它改了什麼，監督那個旋鈕就可以往右轉。
           不會檢查的話，就把邊界縮小，讓它做錯了你也賠得起。
+          邊界要怎麼縮：限制它能用哪些工具，以及讓它只在一個資料夾裡工作。
         </Callout>
 
       </div>

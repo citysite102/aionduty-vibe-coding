@@ -10,7 +10,7 @@ const OrchestratorAnim = () => (
       className="absolute z-20 flex flex-col items-center justify-center w-24 h-24 bg-sky-950 border-2 border-sky-400 rounded-2xl shadow-[0_0_30px_rgba(56,189,248,0.3)]"
     >
       <Bot className="text-sky-400" size={36} />
-      <span className="text-[11px] text-sky-400 font-bold mt-1">指揮者</span>
+      <span className="text-xs text-sky-400 font-bold mt-1">指揮者</span>
     </motion.div>
 
     {/* Connecting Lines and animated tasks */}
@@ -192,7 +192,7 @@ export default function SlideRoles() {
   }
 
   return (
-    <SlideLayout title="一個人做不完的時候，怎麼分工" subtitle="Roles in Action" icon={Network}>
+    <SlideLayout title="把角色組起來的四種方式" subtitle="Roles in Action" icon={Network}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-6 items-stretch">
 
         <AnimatedBlock stepIndex={1} className={`w-full min-h-[400px] bg-slate-950 border ${borderColor} rounded-3xl ${bgGlow} transition-colors duration-1000 flex items-center justify-center relative overflow-hidden`}>
@@ -215,7 +215,7 @@ export default function SlideRoles() {
           <AnimatedBlock stepIndex={2} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 2 || currentStep === 1 ? 'border-sky-500/50 shadow-[0_0_20px_rgba(14,165,233,0.15)] bg-sky-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-sky-400 mb-1 flex justify-between items-center">
               <span>指揮者（Orchestrator）</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：邊做邊決定</span>
+              <span className="text-xs font-mono text-slate-500">適合：邊做邊決定</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
               它把大任務切成小塊、決定誰做、最後驗收。
@@ -225,11 +225,11 @@ export default function SlideRoles() {
 
           <AnimatedBlock stepIndex={3} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 3 ? 'border-indigo-500/50 shadow-[0_0_20px_rgba(129,140,248,0.15)] bg-indigo-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-indigo-400 mb-1 flex justify-between items-center">
-              <span>執行者（Subagent）</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：範圍明確的一件事</span>
+              <span>一次只派一個執行者</span>
+              <span className="text-xs font-mono text-slate-500">適合：範圍明確的一件事</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              派出去做一件事的子代理。<strong>它有自己的一份記憶，做完只回報結果</strong>，過程不佔主對話的空間。
+              指揮者一次只派一個子代理出去，做完收回來再派下一個。<strong>它有自己的一份記憶，做完只回報結果</strong>，過程不佔主對話的空間。
               <strong>規則清楚、不需要懂整體的活交給它</strong>，例如翻譯、跑語法檢查、改一批檔名。
             </p>
           </AnimatedBlock>
@@ -237,7 +237,7 @@ export default function SlideRoles() {
           <AnimatedBlock stepIndex={4} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 4 ? 'border-emerald-500/50 shadow-[0_0_20px_rgba(52,211,153,0.15)] bg-emerald-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-emerald-400 mb-1 flex justify-between items-center">
               <span>自治團隊 (Agent Swarm)</span>
-              <span className="text-[11px] font-mono text-slate-500">進階，知道有這回事就好</span>
+              <span className="text-xs font-mono text-slate-500">進階，知道有這回事就好</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
               好幾個子代理同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，那批檔案就是它們共用的白板。
@@ -248,7 +248,7 @@ export default function SlideRoles() {
           <AnimatedBlock stepIndex={5} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep >= 5 ? 'border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.15)] bg-amber-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-amber-400 mb-1 flex justify-between items-center">
               <span>流程腳本 (Workflow)</span>
-              <span className="text-[11px] font-mono text-slate-500">適合：每次都一樣的流程</span>
+              <span className="text-xs font-mono text-slate-500">適合：每次都一樣的流程</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
               把分工寫成固定的步驟腳本，每次都照同一套跑。

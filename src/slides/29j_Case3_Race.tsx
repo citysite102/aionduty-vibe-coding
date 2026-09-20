@@ -9,7 +9,7 @@ import { Callout } from '../components/Callout';
 const STEPS = [
   {
     n: '重現',
-    title: '開兩個瀏覽器，同時搶最後一個名額',
+    title: '開兩個瀏覽器、各自用一個測試帳號登入，同時搶最後一個名額',
     text: '兩筆都成功了，剩下的名額變成負的。',
   },
   {
@@ -46,7 +46,7 @@ export default function SlideCase3Race() {
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-2">
             原因是前端是先查再寫：兩個請求都在「還有一個位子」的那一刻查到了同一個數字，
-            然後各自寫進去。前端擋不住同時發生的兩個請求。
+            然後各自寫進去。前端擋不住同時發生的兩個請求。下面這三步就是前面那個循環，只是這次跑的人是你。
           </p>
         </AnimatedBlock>
 

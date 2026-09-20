@@ -10,6 +10,11 @@ import { memo } from 'react';
  * 網址若要換，重新產一次 path 再貼進來，不要手改。產生方式：
  *   npm i qrcode
  *   QRCode.create(網址, { errorCorrectionLevel: 'M' }) 取 modules，逐列合併成 path
+ *
+ * ⚠️ 待辦（2026-09-20 決議）：課程上架後，這裡要改成指向課程平台自己的回饋機制，
+ * 不再維護這份獨立表單。預錄影片可能播一兩年，表單掛掉的話最後一個畫面就是死連結。
+ * 換的時候 FEEDBACK_FORM_URL 與下面的 PATH 必須一起換，PATH 是照網址算出來的，
+ * 只改網址不改 PATH，QR 會指到舊的地方。
  */
 
 export const FEEDBACK_FORM_URL = 'https://forms.gle/HVP5WoYtfBY21JCq9';

@@ -141,7 +141,7 @@ export default function SlideROI() {
             這個數字對你的意義是「這件事會吃掉多少額度」：像內部管理工具那一格五小時的來回，Pro 的五小時額度大概就用在這裡了。
           </p>
           <p className="text-slate-500 text-xs mt-2 leading-relaxed">
-            單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取約輸入的十分之一，匯率抓 32。
+            單價是公告的：<strong className="text-slate-400">{PRICE_NOTE}</strong>，快取讀取（同一份東西第二次讀進去會便宜很多）約輸入的十分之一，匯率抓 32。
             用量是估的。
           </p>
         </AnimatedBlock>
@@ -161,16 +161,16 @@ export default function SlideROI() {
               </div>
               <div className="flex items-baseline gap-3">
                 <div>
-                  <div className="text-slate-500 text-[11px] mb-0.5">外包</div>
+                  <div className="text-slate-500 text-xs mb-0.5">外包</div>
                   <div className="text-slate-300 text-2xl font-bold font-mono">{c.leadTime}</div>
                 </div>
                 <div className="text-slate-700 text-xl">vs</div>
                 <div>
-                  <div className="text-emerald-400/70 text-[11px] mb-0.5">你自己做</div>
+                  <div className="text-emerald-400/70 text-xs mb-0.5">你自己做</div>
                   <div className="text-emerald-300 text-2xl font-bold font-mono">{c.yourLeadTime}</div>
                 </div>
               </div>
-              <p className="text-slate-500 text-[11px] mt-3 leading-relaxed">
+              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
                 外包那幾天大多在等，不是在做。
               </p>
             </div>
@@ -181,12 +181,12 @@ export default function SlideROI() {
               </div>
               <div className="flex items-baseline gap-3">
                 <div>
-                  <div className="text-slate-500 text-[11px] mb-0.5">外包（寫需求、驗收、來回）</div>
+                  <div className="text-slate-500 text-xs mb-0.5">外包（寫需求、驗收、來回）</div>
                   <div className="text-slate-300 text-2xl font-bold font-mono">數小時</div>
                 </div>
               </div>
               <div className="mt-3">
-                <div className="text-amber-400/80 text-[11px] mb-0.5">你自己做</div>
+                <div className="text-amber-400/80 text-xs mb-0.5">你自己做</div>
                 <div className="text-amber-300 text-2xl font-bold font-mono">{c.yourHours}</div>
               </div>
               <p className="text-slate-500 text-xs mt-3 leading-relaxed">

@@ -5,6 +5,12 @@ import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
+/**
+ * 這一版刪掉的「一律用繁體中文回答」，在 21d5_M2_FolderMap 是「該放家目錄」的正面例子。
+ * 兩邊不矛盾：它留在家目錄那一層，只是不要在專案手冊再寫一次。
+ * 兩頁相隔三十三頁，改動任何一邊都要回頭看另一邊。
+ */
+
 export const meta: RecordedMeta = {
   id: 'harness-56-handbook-v3',
   title: '健檢之後，刪掉一條',

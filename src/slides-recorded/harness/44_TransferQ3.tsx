@@ -10,7 +10,7 @@ export const meta: RecordedMeta = {
   id: 'harness-44-transfer-q3',
   title: '只有特定情況的，分到子目錄',
   script:
-    '第三題：哪些事情只有特定情況才適用？一個客戶要英文版、另一個不收 PDF，這種只跟某一個客戶有關的規矩不要全塞進同一份，不然它會越寫越長。分到子目錄，手冊裡只留一行指過去。',
+    '第二題：哪些事情只有特定情況才適用？一個客戶要英文版、另一個不收 PDF，這種只跟某一個客戶有關的規矩不要全塞進同一份，不然它會越寫越長。分到子目錄，手冊裡只留一行指過去。',
   seconds: 38,
   from: 75,
 };
@@ -20,7 +20,7 @@ export default function RecTransferQ3() {
     <SlideLayout title={meta.title} subtitle="Transfer It" icon={GitBranch}>
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
-          <div className="text-slate-500 text-base font-mono mb-3">第 3 題，共 3 題</div>
+          <div className="text-slate-500 text-base font-mono mb-3">第 2 題，共 3 題</div>
           <p className="text-slate-200 text-2xl leading-snug mb-4">哪些事情只有特定情況才適用？</p>
           <AskFirst />
         </AnimatedBlock>
@@ -33,7 +33,7 @@ export default function RecTransferQ3() {
           </p>
         </AnimatedBlock>
 
-        <ProposalDraft stage={3} stepIndex={3} />
+        <ProposalDraft stage={2} stepIndex={3} />
       </RecPage>
     </SlideLayout>
   );

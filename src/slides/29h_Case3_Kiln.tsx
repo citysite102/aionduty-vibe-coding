@@ -62,7 +62,8 @@ export default function SlideCase3Kiln() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-4">它和案例一是同一個品牌的兩個部分</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">它和案例一是同一個品牌的兩個部分</h3>
+          <p className="text-sm text-slate-400 mb-4">判斷基準：有帳號、有資料、有多人同時寫入，三個中一個就需要資料庫。</p>
           <div className="overflow-hidden rounded-xl border border-slate-800">
             <table className="w-full text-sm">
               <thead>

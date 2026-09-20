@@ -3,6 +3,11 @@ import { Presentation, Terminal, AlertTriangle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
+ * 節錄標的是章節編號（A-1、A-3、A-4）不是行號。原本寫死了 34／58／121 三個行號，
+ * 2026-09-20 核對時三個全錯（實際是 39／147／156）。CLAUDE.md 天天在改，
+ * 前面插一段行號就全位移，而且沒有任何檢查抓得到。章節編號穩得多，讀者也看得出
+ * 那是一份有結構的檔案。
+ *
  * 這一頁的價值在於它是真的。節錄一律照抄專案根目錄那份 CLAUDE.md，
  * 不要為了好看改寫，改寫過就跟其他頁的示範沒有差別了。
  *
@@ -14,22 +19,22 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  */
 const RULES = [
   {
-    line: 34,
+    line: 'A-1',
     before: '同一頁最多兩種強調色，',
     key: '沒有語意的地方就用灰階。',
     after: '',
     why: '一開始每頁配色都不一樣，翻起來像十個人各做各的。',
   },
   {
-    line: 121,
+    line: 'A-4',
     before: '只用內建色階。slate-850 這種色階',
     key: '不會報錯，typecheck 也會過，',
     after: '但邊框會直接不渲染。',
     why: '這個錯犯過三次，每次都花二十分鐘才找到。',
   },
   {
-    line: 58,
-    before: '禁止常駐無限動畫。特別注意 map 裡的條件式 class，',
+    line: 'A-3',
+    before: '特別注意 .map() 裡的條件式 class，',
     key: '一行程式可能生出七個閃爍點。',
     after: '',
     why: '後半句是後來補的。第一次只寫前半句，它照樣寫出了七個閃爍點。',
@@ -66,7 +71,7 @@ export default function SlideThisDeck() {
               {RULES.map((r) => (
                 <div key={r.line} className="px-5 py-4">
                   <div className="flex gap-4">
-                    <span className="font-mono text-xs text-slate-700 shrink-0 pt-1 tabular-nums">{r.line}</span>
+                    <span className="font-mono text-xs text-slate-600 shrink-0 pt-1">{r.line}</span>
                     <p className="font-mono text-sm leading-relaxed text-slate-400">
                       {r.before}
                       <strong className="text-sky-300 font-bold">{r.key}</strong>

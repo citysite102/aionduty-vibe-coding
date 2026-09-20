@@ -3,6 +3,11 @@ import { SlideLayout, AnimatedBlock, useSlide } from '../components/SlideLayout'
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 
+/**
+ * 收尾那句「這件事後面會專門講怎麼設限與怎麼喊停」指的是 28_M4_Safety（四頁之後），
+ * 中間隔著介入時機、把關與讀錯誤三個主題。搬頁之前先確認這句話還指得到（B-4）。
+ */
+
 const LoopEngineeringAnimation = () => {
   const { currentStep } = useSlide();
   // 預設跟著簡報節奏走：第一拍看「過去」，推進到第二拍自動切到「現在」。
@@ -59,12 +64,12 @@ const LoopEngineeringAnimation = () => {
                     <span className="absolute -top-3 -right-2 text-xs font-bold text-slate-600 font-mono">zzz</span>
                   </div>
                   <span className="text-xs text-slate-400 mt-2 font-bold">人類執行者</span>
-                  <span className="text-[11px] text-slate-500 mt-0.5">思考、打字、等待</span>
+                  <span className="text-xs text-slate-500 mt-0.5">思考、打字、等待</span>
                 </div>
 
                 {/* Arrow with typing packet */}
                 <div className="relative flex flex-col items-center">
-                  <span className="text-[11px] font-mono text-slate-500 mb-1">手動輸入 Prompt</span>
+                  <span className="text-xs font-mono text-slate-500 mb-1">手動輸入 Prompt</span>
                   <div className="flex items-center relative">
                     <ArrowRight className="text-slate-700" size={32} />
                     <div className="absolute left-1 w-2.5 h-2.5 bg-slate-500 rounded-full" />
@@ -77,7 +82,7 @@ const LoopEngineeringAnimation = () => {
                     <Bot className="text-slate-500" size={32} />
                   </div>
                   <span className="text-xs text-slate-400 mt-2 font-bold">AI 模型</span>
-                  <span className="text-[11px] text-slate-500 mt-0.5">單次回答後即停止</span>
+                  <span className="text-xs text-slate-500 mt-0.5">單次回答後即停止</span>
                 </div>
               </div>
 
@@ -169,7 +174,7 @@ const LoopEngineeringAnimation = () => {
                 <div className="bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-2xl flex items-center gap-3">
                   <Clock size={14} className="text-sky-400 shrink-0" />
                   <div className="text-left">
-                    <div className="text-[11px] font-mono text-sky-400 font-bold uppercase tracking-wider">
+                    <div className="text-xs font-mono text-sky-400 font-bold uppercase tracking-wider">
                       Test-Time Compute
                     </div>
                     <div className="text-xs text-slate-300 font-bold">多花時間反覆試、反覆檢查，換更高的正確率</div>
@@ -183,7 +188,7 @@ const LoopEngineeringAnimation = () => {
 
       {/* Narrative caption */}
       <div className="text-center text-xs text-slate-400 border-t border-slate-900 pt-4 z-10 flex justify-end items-center px-2">
-        <span className="text-sky-400 font-mono text-[11px] font-bold">PROMPT → CODE → TEST → FIX</span>
+        <span className="text-sky-400 font-mono text-xs font-bold">PROMPT → CODE → TEST → FIX</span>
       </div>
     </div>
   );
@@ -222,7 +227,7 @@ export default function SlideLoopEngineering() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">
                    別再自己當那個一直下提示詞的人，而是去設計一套會自動下提示詞的系統。
                 </p>
-                <p className="text-slate-500 text-[11px] text-right">Boris Cherny (Anthropic Claude Code 負責人)</p>
+                <p className="text-slate-500 text-xs text-right">Boris Cherny (Anthropic Claude Code 負責人)</p>
               </div>
             </div>
 

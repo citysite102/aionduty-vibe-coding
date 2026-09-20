@@ -61,7 +61,7 @@ export default function RecHookThreeLayers() {
               <span className="text-slate-600">時機</span>
             </div>
             <div className="flex gap-4 pl-6">
-              <span className="text-orange-300">matcher: Write|Edit</span>
+              <span className="text-orange-300">matcher: Write|Edit|MultiEdit</span>
               <span className="text-slate-600">範圍</span>
             </div>
             <div className="flex gap-4 pl-6">

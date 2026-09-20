@@ -3,6 +3,16 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
+ * 「回答一律用繁體中文」在這一頁是「該放家目錄」的正面例子，
+ * 而在 harness/56_HandbookV3 的成長軸上它被從專案手冊刪掉。
+ * 兩邊不矛盾：它留在家目錄那一層，只是不要在專案手冊再寫一次。
+ * 兩頁相隔三十三頁，改動任何一邊都要回頭看另一邊。
+ *
+ * 家目錄的 rules/ 與 settings.json 於 2026-09-20 查證過確實存在
+ * （code.claude.com/docs/en/memory 的 User-level rules 一節、docs/en/settings）。
+ */
+
+/**
  * 前一頁那張總表講的是「誰叫它、什麼時候進來」，這一頁講「放在哪一層」。
  * 兩件事分開講：一個是時間軸，一個是位置。
  *
@@ -18,6 +28,8 @@ const TREE = [
   { indent: 1, path: 'CLAUDE.md', note: '你個人的偏好，例如一律用繁體中文回答' },
   { indent: 1, path: 'skills/', note: '你自己每個專案都會用到的流程' },
   { indent: 1, path: 'agents/', note: '你慣用的子代理' },
+  { indent: 1, path: 'rules/', note: '你個人的規矩，每個專案都吃得到' },
+  { indent: 1, path: 'settings.json', note: '所有專案都會跑的關卡' },
   { indent: 0, path: '', note: '', spacer: true },
   { indent: 0, path: 'mission-timer/', note: '你的專案資料夾', head: 'project' as const },
   { indent: 1, path: 'index.html', note: '作品本身' },

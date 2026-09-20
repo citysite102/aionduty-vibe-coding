@@ -7,6 +7,15 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 最後查證：2026-09-20，對照 code.claude.com/docs/en/hooks 的事件清單。
+ * 當時的現況：官方支援 33 個事件，所以口白的「三十幾種」成立。
+ * 四格主事件（SessionStart、PreToolUse、PostToolUse、Stop）與底下六個
+ * （UserPromptSubmit、PostToolUseFailure、PermissionRequest、SubagentStop、
+ * PreCompact、SessionEnd）全部存在且拼法相符，本輪沒有改內容。
+ * 下次改版前先重查那一節，不要憑印象改。
+ */
+
+/**
  * 第一層。官方支援三十幾種時機，全列出來只會讓人放棄，
  * 所以按階段分四格，每格記一個，其餘等真的需要再查。
  *

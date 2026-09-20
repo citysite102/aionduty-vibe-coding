@@ -87,9 +87,9 @@ export default function RecTransferCase() {
 
           <div className="grid grid-cols-3 gap-4 mb-4">
             {[
-              '每次都要重講的',
               '違反了會出事的',
               '只有特定情況適用的',
+              '每次都要重講的',
             ].map((q, i) => (
               <div key={q} className="rounded-xl border border-slate-800 bg-slate-900 px-5 py-4">
                 <div className="font-mono text-base text-slate-600 mb-1.5">0{i + 1}</div>

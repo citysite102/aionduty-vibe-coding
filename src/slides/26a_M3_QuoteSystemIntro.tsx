@@ -23,7 +23,7 @@ export default function SlideQuoteSystemIntro() {
             接下來用「客戶報價系統」做一次完整預演。
           </p>
           <p className="text-slate-400 text-base leading-relaxed">
-            這不是要取代任務計時器主作品。功能不做完，重點在走完一次順序。
+            這不是要取代任務計時器主作品。功能不做完，重點在走完一次順序。這一段看流程就好，不用開新專案；後面那五段指令，等你要做比計時器大的東西時再回來抄。
           </p>
         </AnimatedBlock>
 

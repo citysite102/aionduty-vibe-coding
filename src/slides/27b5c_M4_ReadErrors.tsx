@@ -25,10 +25,10 @@ const CASES = [
     log: [
       { text: 'Uncaught TypeError: Cannot read', tone: 'text-red-400 font-bold' },
       { text: "properties of undefined (reading 'name')", tone: 'text-red-400 font-bold' },
-      { text: '    at PlanetCard (Planet.tsx:24)', tone: 'text-slate-500' }
+      { text: '    at renderPlanet (index.html:24)', tone: 'text-slate-500' }
     ],
     reads: [
-      { k: '在哪裡', v: 'Planet.tsx 這個檔案的第 24 行。' },
+      { k: '在哪裡', v: 'index.html 這個檔案的第 24 行。' },
       { k: '什麼事', v: '程式想拿一個叫 name 的東西，但它手上是空的。' },
       { k: '怎麼做', v: '常見原因是資料還沒回來就先畫。整段貼回去請它修。' }
     ]

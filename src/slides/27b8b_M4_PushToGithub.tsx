@@ -16,7 +16,7 @@ const LOSSES = [
 ];
 
 const PROMPT =
-  '幫我把這個專案推到 GitHub，設成 private。推之前先確認沒有把密碼或金鑰帶上去。';
+  '幫我把這個專案推到 GitHub。設成 private 還是 public 先問我。推之前先確認沒有把密碼或金鑰帶上去。';
 
 export default function SlidePushToGithub() {
   return (

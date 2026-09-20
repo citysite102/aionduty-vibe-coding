@@ -51,7 +51,7 @@ export default function RecAgentsMd() {
           </div>
           <p className="text-slate-400 text-xl leading-relaxed mt-4">
             改一份，兩個檔名同時更新。
-            <span className="text-slate-600 text-base ml-2 font-mono">（它實際做的是 ln -s CLAUDE.md AGENTS.md。Windows 一般帳號建不了捷徑，改在 CLAUDE.md 開頭寫一行 @AGENTS.md 匯入）</span>
+            <span className="text-slate-600 text-base ml-2 font-mono">（實際做的是 ln -s CLAUDE.md AGENTS.md。Windows 建不了捷徑，改在 CLAUDE.md 開頭寫 @AGENTS.md，「@」是整份併進來）</span>
           </p>
         </AnimatedBlock>
 

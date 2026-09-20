@@ -1,5 +1,6 @@
 import { PenTool } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
 import { CopyAction } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
@@ -142,6 +143,11 @@ export default function SlideM2HandsOn() {
             它記的東西裡，如果有你希望每個人都遵守的，搬進手冊。
           </p>
         </AnimatedBlock>
+
+        <Callout tone="muted" stepIndex={5}>
+          手上沒有計時器的話（前面沒做完也沒關係），開一個空資料夾，第 1 格改成跟它說
+          「幫我起一份空白的 CLAUDE.md」，後面三格照走。規矩換成你自己工作上真的有的那幾條就行。
+        </Callout>
 
       </div>
     </SlideLayout>

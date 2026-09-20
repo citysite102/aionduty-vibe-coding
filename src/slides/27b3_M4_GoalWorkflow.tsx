@@ -33,10 +33,13 @@ export default function SlideGoalWorkflow() {
         
         {/* Left Side: 5-step Workflow */}
         <div className="lg:col-span-7 space-y-4">
+          <p className="text-slate-500 text-sm leading-relaxed">
+            報價系統那五個指令，是把一個專案切成五次交代；這五步講的是每一次交代裡面要有什麼。
+          </p>
           <AnimatedBlock stepIndex={1} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">1</div>
             <div>
-              <h4 className="text-[15px] font-bold text-slate-100">挑重複、繁瑣，但「完成標準」很明確的事</h4>
+              <h4 className="text-sm font-bold text-slate-100">挑重複、繁瑣，但「完成標準」很明確的事</h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
 ❌「把這份報告寫好」<br/>
                 ✅「把 30 場逐字稿整理成清單，每筆填入客戶名、議題、期限」
@@ -47,7 +50,7 @@ export default function SlideGoalWorkflow() {
           <AnimatedBlock stepIndex={2} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">2</div>
             <div>
-              <h4 className="text-[15px] font-bold text-slate-100 flex items-center gap-1.5">
+              <h4 className="text-sm font-bold text-slate-100 flex items-center gap-1.5">
                 寫出客觀、可以被檢驗的停止條件（Done-when）
                 <Target size={12} className="text-amber-400" />
               </h4>
@@ -61,9 +64,9 @@ export default function SlideGoalWorkflow() {
           <AnimatedBlock stepIndex={3} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">3</div>
             <div>
-              <h4 className="text-[15px] font-bold text-slate-100">限制它能跑幾輪、能動哪些東西</h4>
+              <h4 className="text-sm font-bold text-slate-100">限制它能跑幾輪、能動哪些東西</h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
-✅「最多跑 8 輪」「只動這個資料夾」「超過就停下來回報」
+✅「最多跑 8 輪」「只動這個資料夾」「超過就停下來回報」<br /><span className="text-slate-500">這三句直接寫進你交代的那段話裡，它會照著停。</span>
               </p>
             </div>
           </AnimatedBlock>
@@ -71,7 +74,7 @@ export default function SlideGoalWorkflow() {
           <AnimatedBlock stepIndex={4} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">4</div>
             <div>
-              <h4 className="text-[15px] font-bold text-slate-100">講清楚遇到什麼要停下來問你（Human Gate）</h4>
+              <h4 className="text-sm font-bold text-slate-100">講清楚遇到什麼要停下來問你（Human Gate）</h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
 ✅「遇到合約、金額、客訴情緒，一律留白標記，等我確認」
               </p>
@@ -81,7 +84,7 @@ export default function SlideGoalWorkflow() {
           <AnimatedBlock stepIndex={5} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">5</div>
             <div>
-              <h4 className="text-[15px] font-bold text-slate-100">先讓它報一次計畫，你同意了再開跑</h4>
+              <h4 className="text-sm font-bold text-slate-100">先讓它報一次計畫，你同意了再開跑</h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
 先讓它說「我打算怎麼做」，你點頭再開跑。跑完親自抽查幾筆。
               </p>
@@ -130,19 +133,19 @@ export default function SlideGoalWorkflow() {
                 className="space-y-4"
               >
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-widest mb-1">任務描述</div>
+                  <div className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-1">任務描述</div>
                   <div className="text-xs text-slate-200 font-bold">{ROLE_EXAMPLES[selectedRole].task}</div>
                 </div>
 
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <div className="text-[11px] font-mono text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <div className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-1">
                     <CheckSquare size={12} /> 停止條件 (Done-when)
                   </div>
                   <div className="text-xs text-slate-300 leading-relaxed font-medium">{ROLE_EXAMPLES[selectedRole].doneWhen}</div>
                 </div>
 
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <div className="text-[11px] font-mono text-amber-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <div className="text-xs font-mono text-amber-400 uppercase tracking-widest mb-1 flex items-center gap-1">
                     <ShieldCheck size={12} /> 人類閘門 (Human Gate)
                   </div>
                   <div className="text-xs text-slate-400 leading-relaxed">{ROLE_EXAMPLES[selectedRole].gate}</div>
