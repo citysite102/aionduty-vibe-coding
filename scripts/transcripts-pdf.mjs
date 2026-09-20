@@ -292,6 +292,12 @@ const html = `<!doctype html>
   .todo strong { color: #334155; }
   .todo p, .todo li { orphans: 2; widows: 2; }
 
+  /* 待處理裡的引言（狀態橫幅、引用的投影片原文）不是要念的，
+     不能吃到上面那組逐字稿樣式 */
+  .todo blockquote { font-size: 9.4pt; line-height: 1.85; margin: .5em 0;
+                     padding: .55em 0 .55em .9em;
+                     border-left-color: #cbd5e1; background: #f8fafc; }
+
   /* 轉場那一塊：同樣要念，但標成接續用的顏色 */
   blockquote.cue-q { border-left-color: #d97706; background: #fffaf2; font-size: 11pt; }
 </style></head><body>
