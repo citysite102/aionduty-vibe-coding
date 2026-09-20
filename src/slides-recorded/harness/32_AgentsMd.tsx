@@ -23,7 +23,7 @@ export const meta: RecordedMeta = {
   id: 'harness-32-agents-md',
   title: '換成別家的工具，還讀得到嗎？',
   script:
-    '會有人擔心，寫了一份 CLAUDE.md，換成別家工具是不是要重寫。不用。AGENTS.md 是跨工具的共通檔名，Codex、Cursor 都會讀它。做法是建一個 AGENTS.md 的捷徑，指向同一份 CLAUDE.md，改一份兩邊同時更新，你不用自己打指令，跟它說一句就好。要補充的是，新版的 Claude Code 自己也讀得懂 AGENTS.md，但預設只在你沒有 CLAUDE.md 的時候才讀，所以你這種已經寫好手冊的情況，捷徑還是要做。',
+    '會有人擔心一件事：寫了一份 CLAUDE.md，換成別家工具是不是要整份重寫。不用。AGENTS.md 是跨工具的共通檔名，Codex、Cursor 都會讀它。做法是建一個 AGENTS.md 的捷徑，指向同一份 CLAUDE.md，改一份兩邊同時更新，你不用自己打指令，跟它說一句就好。要補充的是，新版的 Claude Code 自己也讀得懂 AGENTS.md，但預設只在你沒有 CLAUDE.md 的時候才讀，所以你這種已經寫好手冊的情況，捷徑還是要做。',
   seconds: 40,
   from: 55,
 };
