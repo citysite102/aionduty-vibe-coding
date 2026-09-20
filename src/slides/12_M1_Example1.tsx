@@ -69,6 +69,10 @@ export default function SlideExample1() {
 
           <AnimatedBlock stepIndex={5} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
             <p className="text-slate-400 text-xs leading-relaxed">
+              <strong className="text-slate-200">這一段算不算「一開口就要最終結果」？</strong>
+              差別在範圍跟驗收：一個檔案、一個畫面，而且每一條你都講得出做完長什麼樣。「幫我做一個 Facebook」兩個都沒有。
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
               <strong className="text-slate-200">別期待一次就長成右邊那樣。</strong>
               右邊那張圖不是第一次就長這樣：第一版星球太亮蓋住按鈕，第二版粒子排太密，疊出一圈一圈的干擾波紋，第三版才換成經緯排列。
               <strong className="text-slate-300">寫得越具體，需要的來回就越少，但不會變成零。</strong>
