@@ -1,4 +1,4 @@
-import { Terminal, Globe, Code2, Sparkles, MessageSquare } from 'lucide-react';
+import { Terminal, Globe, Code2, Sparkles } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide10b2() {

@@ -39,8 +39,21 @@ export default function SlideBenchmarks() {
           </p>
         </AnimatedBlock>
 
+        {/* Case 2: Anthropic */}
+        <AnimatedBlock stepIndex={3} className="bg-slate-900/50 border border-slate-800 rounded-2xl px-6 py-4 flex items-center gap-5">
+          <div className="text-slate-300 text-sm leading-relaxed flex-1">
+            <strong className="text-slate-100">Anthropic 內部：</strong>
+            新人從摸熟架構、裝好環境到能實際動工的時間
+          </div>
+          <div className="flex items-center gap-3 shrink-0 font-mono">
+            <span className="text-slate-500 text-sm line-through">2~3 週</span>
+            <span className="text-slate-600">→</span>
+            <span className="text-emerald-400 font-bold text-lg">2~3 天</span>
+          </div>
+        </AnimatedBlock>
+
         {/* The controversy */}
-        <AnimatedBlock stepIndex={3} className="bg-amber-950/15 border border-amber-900/40 rounded-2xl p-6">
+        <AnimatedBlock stepIndex={4} className="bg-amber-950/15 border border-amber-900/40 rounded-2xl p-6">
           <h3 className="text-base font-bold text-amber-300 mb-3 flex items-center gap-2">
             <Scale size={17} />
             但這個案例有爭議
@@ -61,18 +74,6 @@ export default function SlideBenchmarks() {
           </p>
         </AnimatedBlock>
 
-        {/* Case 2: Anthropic */}
-        <AnimatedBlock stepIndex={4} className="bg-slate-900/50 border border-slate-800 rounded-2xl px-6 py-4 flex items-center gap-5">
-          <div className="text-slate-300 text-sm leading-relaxed flex-1">
-            <strong className="text-slate-100">Anthropic 內部：</strong>
-            新人從摸熟架構、裝好環境到能實際動工的時間
-          </div>
-          <div className="flex items-center gap-3 shrink-0 font-mono">
-            <span className="text-slate-500 text-sm line-through">2~3 週</span>
-            <span className="text-slate-600">→</span>
-            <span className="text-emerald-400 font-bold text-lg">2~3 天</span>
-          </div>
-        </AnimatedBlock>
 
       </div>
     </SlideLayout>

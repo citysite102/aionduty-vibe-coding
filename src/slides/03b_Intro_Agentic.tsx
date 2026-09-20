@@ -48,13 +48,13 @@ export default function SlideIntroAgentic() {
           <AnimatedBlock stepIndex={3} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
             <div className="text-lg font-bold text-sky-400 font-mono mb-2">「Agentic」</div>
             <p className="text-slate-300 text-base leading-relaxed">
-              你多數時間不是自己在寫程式碼，而是在指揮、調度一群 Agent，並扮演核心監督者的角色。
+              你多數時間不是自己在寫程式碼，是在指揮一群 Agent，決定誰做什麼、做完由你收。
             </p>
           </AnimatedBlock>
           <AnimatedBlock stepIndex={4} className="bg-slate-950/60 p-6 rounded-2xl border border-slate-800/60">
             <div className="text-lg font-bold text-indigo-400 font-mono mb-2">「Engineering」</div>
             <p className="text-slate-300 text-base leading-relaxed">
-              強調這依然是一門需要高度專業的學問，著重在規格定義、架構設計與邊界測試的把關。
+              這依然是一門要專業的工作，只是你的專業換到了定規格、切架構，還有守住邊界。
             </p>
           </AnimatedBlock>
         </div>

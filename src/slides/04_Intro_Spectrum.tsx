@@ -88,7 +88,7 @@ export default function SlideIntroSpectrum() {
                 <ToolBadge name="Google AI Studio" href="https://aistudio.google.com" className="bg-slate-950 border-slate-800 text-slate-300" icon={Bot} />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
-                一句話生出前後端都有的網頁，可以直接上線，也可以把程式碼匯出帶走。
+                一句話生出一個完整的網頁，畫面跟背後存取資料的那一層都有，可以直接上線，也可以把程式碼匯出帶走。
               </p>
             </div>
             <div className="text-slate-500 text-xs bg-slate-950 px-3 py-2 rounded border border-slate-800/40">適合：快速驗證產品 Idea，準備好接續實踐開發</div>

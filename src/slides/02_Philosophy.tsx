@@ -55,6 +55,9 @@ export default function SlidePhilosophy() {
             <div className="text-slate-100 text-base font-bold leading-snug">
               能自己做出工具與網頁，而不只是會挑工具
             </div>
+            <div className="text-slate-400 text-sm mt-1.5 leading-snug">
+              下面四張卡是主課程，課前導讀與結語不算在內。
+            </div>
           </div>
         </AnimatedBlock>
 

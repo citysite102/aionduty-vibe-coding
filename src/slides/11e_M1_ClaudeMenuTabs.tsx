@@ -26,7 +26,7 @@ const GROUPS = [
     when: '搞不清楚狀況時',
     items: [
       { cmd: '/help', desc: '列出所有可用指令', key: true },
-      { cmd: '/context', desc: '對話還剩多少空間、手冊有沒有被讀到' },
+      { cmd: '/context', desc: '對話還剩多少空間、它這一輪讀進了哪些檔案' },
       { cmd: '/usage', desc: '這次花了多少、額度何時重置' },
     ],
   },
@@ -56,7 +56,7 @@ const GROUPS = [
     when: '同一段話講第三次時',
     items: [
       { cmd: '/init', desc: '掃過專案，產出第一版 CLAUDE.md' },
-      { cmd: '.claude/commands/', desc: '一個 .md 檔就是一個自訂指令' },
+      { cmd: '/你自己取的名字', desc: '在 .claude/commands/ 放一個 .md 檔，就多一個自訂指令' },
       { cmd: '/agents', desc: '列出目前有哪些子代理' },
     ],
   },

@@ -116,6 +116,12 @@ Slide 5-8 ／ 4 頁 ／ 章節二 Vibe Coding 與 Agentic Engineering
 
 ## 待處理
 
+> **狀態：已於 2026-09-20 逐條對照投影片驗過。** 多數在 commit `f3a70ad` 就處理掉了，
+> 但那一輪只改了 `src/slides/`，沒有回頭在這裡留記號，所以這一節一度看起來像整批沒做。
+> 下面保留的是當初發現問題時的描述，作為「這一頁為什麼長這樣」的紀錄，不是待辦。
+>
+> 這一輪補做的：第 4 條（`03b` 下方兩卡的書面語改口語）、第 6 條（右卡第一條不再預設讀者有軟體背景）。
+
 ### 1.【矛盾】Slide 8 把 Vibe Coding 畫成壞事，跟 Slide 7 的「不是誰取代誰」衝突
 
 - **已驗證**：`04c_Intro_VibeVsAgentic.tsx` 的 Vibe Coding 那欄是 `icon: AlertTriangle`，`head`／`title`／`iconClass`／`bar`／`cell` 五個位置全是 amber；Agentic Engineering 是打勾配 emerald 加「目標狀態」膠囊。三欄讀起來是一條往右升級的線。
