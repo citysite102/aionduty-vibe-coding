@@ -1,31 +1,38 @@
-import { Package, BookMarked, Rocket, Wrench, Globe, FileText, ShieldCheck } from 'lucide-react';
+import { Package, BookMarked, Rocket, Users, Globe, FileText, ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
- * 這一頁在賣的是「你會帶走什麼」，所以每一張卡的重點不是描述，是那個東西長什麼樣。
- * 三張卡最下面那一格是同一個位置、同一種處理：拿到手的東西。
- * 前兩項本來就指得出來（一組網址、一個檔案），第三項原本寫「一套做法」，
- * 學員無從判斷自己有沒有拿到，所以補上它真正的落點：那個審查角色的檔案。
+ * 這一頁在賣的是「你會帶走什麼」。三張卡的結構是「能力 ＋ 那個能力的證據」：
+ * 標題寫你因此會做什麼，最下面那一格寫它換來的那個打得開的檔案。
  *
- * 「修到測試過」也拿掉了。整堂課沒有人寫過一個測試，那是驗證不是測試。
+ * 2026-09-20 改成這個結構，之前是標題與底下那一格都在講同一個產物
+ * （標題「一個真的上線、有網址可以瀏覽的作品」／底格「一組網址」），
+ * 同一件事在同一張卡講兩次，所以半張卡是空的，整頁讀起來像只帶走三個檔案。
+ * 只講能力會掉回 D-2 的空心詞（「知道流程」學員驗不了），只講檔案就是上面那個問題，
+ * 所以兩個都要留，而且順序是能力在前、證據在後。**不要把標題改回產物名稱。**
+ *
+ * 卡 01 的流程只能寫畫面、資料、版本控制、部署。計時器沒有後端，
+ * 前後端資料庫是章節三教的知識，不是這個作品走過的路，寫進去就是過度承諾。
+ *
+ * 「修到測試過」早先也拿掉了。整堂課沒有人寫過一個測試，那是驗證不是測試。
  */
 const assets = [
   {
     icon: Rocket,
     num: '1',
-    title: '一個真的上線、有網址可以瀏覽的作品',
-    desc: '一個任務計時器。從第一行程式碼開始，一路做到部署上線，拿到一組託管平台給你的網址。',
+    title: '走完一次從需求到上線的完整流程',
+    desc: '一個任務計時器，從一句需求做到部署上線。畫面、資料怎麼存、每一版怎麼留、怎麼送上網路，你都實際走過一次。',
     haveIcon: Globe,
     haveLabel: '一組網址',
     haveDir: null,
     have: 'mission-timer.vercel.app',
-    note: '對方不用裝任何東西，打開瀏覽器就看得到。',
+    note: '東西壞掉的時候，你知道要去哪一層找。',
   },
   {
     icon: BookMarked,
     num: '2',
-    title: '專案專屬的 AI 指導手冊',
-    desc: '把專案的規範與慣例寫成一份檔案，每次開新對話它都會自動讀到，你不用再重講一遍。',
+    title: '把規範與限制寫成它讀得到的規則',
+    desc: '哪些不准用、按鈕要用哪一組詞、設定要集中放哪裡。腦子裡的規矩寫成檔案，而且寫成驗得出來的樣子。',
     haveIcon: FileText,
     haveLabel: '一個檔案',
     haveDir: 'mission-timer/',
@@ -33,10 +40,10 @@ const assets = [
     note: '檔案跟著專案走，換一台電腦、隔三個月回來，它都還在。',
   },
   {
-    icon: Wrench,
+    icon: Users,
     num: '3',
-    title: '一套讓 AI 自己驗、自己修的做法',
-    desc: '你寫清楚什麼叫做完，它自己驗、沒過自己修，全過了才回來找你。挑錯的工作交給另一個角色。',
+    title: '讓做的人跟驗的人分開',
+    desc: '你寫清楚什麼叫做完，主要那個 Agent 動手，換另一個角色來審，而且那個角色只准挑錯、不准自己改。',
     haveIcon: ShieldCheck,
     haveLabel: '一個角色',
     haveDir: '.claude/agents/',
@@ -47,12 +54,12 @@ const assets = [
 
 export default function SlideCoreAssets() {
   return (
-    <SlideLayout title="帶走：上線作品、專案手冊、審查角色" subtitle="What You'll Walk Away With" icon={Package}>
+    <SlideLayout title="帶走：流程、規範、分工，各配一個檔案" subtitle="What You'll Walk Away With" icon={Package}>
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col justify-center pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed mb-5">
-          整門課走完，你手上會多出三樣東西。
-          <strong className="text-slate-100">三樣都打得開、指得出來</strong>，不是「我好像懂了」。
+          整門課走完，你會多出三件做得到的事。
+          <strong className="text-slate-100">每一件都配一個打得開的檔案</strong>，不是「我好像懂了」。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
