@@ -149,7 +149,7 @@ const LIVE_TITLES = [
   "封面",
   "動手前的前置作業",
   "四個階段，從看懂走到自己做出來",
-  "帶走：流程、規範、分工，各配一個檔案",
+  "帶走流程、規範、分工與交付成果",
   "Vibe Coding 與 Agentic Engineering",
   "什麼是 Vibe Coding？",
   "Vibe Coding、Agentic Engineering、Agent",

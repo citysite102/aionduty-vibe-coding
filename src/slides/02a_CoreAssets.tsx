@@ -54,12 +54,12 @@ const assets = [
 
 export default function SlideCoreAssets() {
   return (
-    <SlideLayout title="帶走：流程、規範、分工，各配一個檔案" subtitle="What You'll Walk Away With" icon={Package}>
+    <SlideLayout title="帶走流程、規範、分工與交付成果" subtitle="What You'll Walk Away With" icon={Package}>
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col justify-center pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed mb-5">
-          整門課走完，你會多出三件做得到的事。
-          <strong className="text-slate-100">每一件都配一個打得開的檔案</strong>，不是「我好像懂了」。
+          整門課走完，下面這三件事你都會做。
+          每一件底下那一格，<strong className="text-slate-100">是做完之後手上真的多出來的東西</strong>。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
