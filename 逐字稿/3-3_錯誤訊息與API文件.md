@@ -1,6 +1,6 @@
 # 單元 3-3｜錯誤訊息與 API 文件
 
-Slide 20-23 ／ 4 頁 ／ 章節三 ／**動手**
+Slide 20-23 ／ 4 頁 ／ 章節三 Claude Code 實作與網頁開發基礎 ／ **動手**
 
 > **錄製註記**：Slide 21 與 Slide 23 都掛了「現在開瀏覽器」的膠囊，錄的時候要真的切畫面。Slide 23 的膠囊寫「拿畫面上那個網址開一次」，指的是假瀏覽器列上那個 `platform.claude.com/docs/en/api/messages`。
 

@@ -1,6 +1,6 @@
 # 單元 3-6｜Claude Code 的介面、按鍵與指令
 
-Slide 30-32 ／ 3 頁 ／ 章節三
+Slide 30-32 ／ 3 頁 ／ 章節三 Claude Code 實作與網頁開發基礎
 
 ---
 

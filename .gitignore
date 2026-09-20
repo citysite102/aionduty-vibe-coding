@@ -36,3 +36,6 @@ sim/archive/
 # 這兩個是這台電腦自己的（同意紀錄與掃描快取）。
 .impeccable/config.local.json
 .impeccable/hook.cache.json
+
+# 逐字稿 PDF 是 npm run pdf 產出來的衍生檔，不進版控
+逐字稿/*.pdf
