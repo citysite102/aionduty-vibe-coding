@@ -22,6 +22,12 @@ import { Callout } from '../components/Callout';
  * 終端機自成一段之後，那三個搬到這裡，主線那頁就不必再分兩種讀者。
  *
  * 按鍵一律 orange，那是 Claude Code 定義的操作，屬於 A-1 的專有名詞用法。
+ *
+ * 2026-09-21：`!` 那一個原本叫「直通終端機／直通指令」，那是這份簡報自己造的詞。
+ * 官方名稱是 Shell mode（code.claude.com/docs/en/interactive-mode 的 Input modes 表：
+ * 「`!` at start ／ Shell mode ／ Run a command directly, add its output to the session,
+ * and have Claude respond to it」）。順便補上原本漏掉的後半段：輸出會進到對話裡，
+ * 那才是它跟「另開一個終端機視窗自己打」的差別。
  */
 const KEYS = [
   {
@@ -33,10 +39,10 @@ const KEYS = [
   },
   {
     icon: Terminal,
-    name: '直通終端機',
-    key: '按 ! 鍵',
+    name: 'Shell 模式',
+    key: '行首打 !',
     body: '跟它講到一半想自己下一行指令（看目錄、測網路、跑編譯），在行首打一個 ! 接你的指令，例如 !git status，就直接執行，不用退出 Claude。',
-    note: null,
+    note: '重點不只是省一次切換：那行指令的輸出會留在這場對話裡，它看得到，所以你可以接著說「照這個結果處理」。'
   },
   {
     icon: Undo2,
@@ -50,14 +56,14 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="選修：模式切換、直通指令、喊停"
+      title="選修：模式切換、Shell 模式、喊停"
       subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
     >
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這三種在終端機裡都是按鍵。<strong className="text-slate-100">換模式桌面版也做得到</strong>，只是改用介面上的選單，不叫 <span className="font-mono text-slate-200">Shift + Tab</span>；直通指令那個是終端機獨有的。
+          這三種在終端機裡都是按鍵。<strong className="text-slate-100">換模式桌面版也做得到</strong>，只是改用介面上的選單，不叫 <span className="font-mono text-slate-200">Shift + Tab</span>；Shell 模式那個是終端機獨有的。
         </AnimatedBlock>
 
         {KEYS.map((k, i) => {

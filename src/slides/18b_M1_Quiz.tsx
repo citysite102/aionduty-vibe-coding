@@ -8,6 +8,11 @@ import { AskFirst } from '../components/AskFirst';
  *   agent  這一題要讀寫你電腦裡的真實檔案，才輪到 Claude Code
  * 顏色標的是這個分界，不是「哪一題比較好」。
  *
+ * 2026-09-21 校過第二輪：情境二改成 Lovable、Base44、v0 三個 AI App Builder，
+ * 並點明這類平台自己就做得出表單，不必再外接一個表單工具（原本的寫法會讓人
+ * 以為要串兩個東西）。情境四改成先在 Claude 的 Design 定版面再進 Claude Code，
+ * 這兩個產品名都會改，改版前先確認它們還在、名字還一樣。
+ *
  * 2026-09-21 校過一輪用詞：Apps Script 是在試算表裡開，不是「貼進表單」（表單是 Forms）；
  * 情境三與五的答案補上「先讀再動」與「只讀不改」，因為它們正是前一頁列的弱項
  * （範圍太大它會自己決定一堆你沒同意的做法）；情境四原本斷言某個工具可以下載產出，
@@ -29,7 +34,7 @@ const CASES = [
     title: '情境二：短期活動網頁，下週上線',
     need: '只收集與顯示資訊，不需要複雜功能。',
     tone: 'plain' as const,
-    answer: '用 AI App Builder（例如 v0）直接生成並上線，或用 Typeform 這類現成表單工具。',
+    answer: '用 AI App Builder 直接生成並上線，例如 Lovable、Base44、v0。這類平台本身就做得出表單與後台，多半不用再外接 Typeform。',
   },
   {
     title: '情境三：舊有系統新增「忘記密碼」',
@@ -41,7 +46,7 @@ const CASES = [
     title: '情境四：高度客製化的個人記帳工具',
     need: '想自己掌控每一個畫面細節與資料存放方式。',
     tone: 'agent' as const,
-    answer: '先用會直接生成畫面的工具（例如 Google AI Studio）打一版草稿，把產出的檔案放進你的專案資料夾，再用 Claude Code 接著改成你要的樣子。',
+    answer: '先在 Claude 的 Design 把畫面設計出一版，確定版面與流程之後再帶進 Claude Code 實作。你要的是掌控細節，所以草稿階段先不要讓它寫程式。',
   },
   {
     title: '情境五：想了解目前實作的爬蟲邏輯',

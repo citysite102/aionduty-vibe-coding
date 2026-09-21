@@ -15,11 +15,17 @@ import { Callout } from '../components/Callout';
  * prompt 的最後一行（headless: false）不要拿掉。學員第一次看到瀏覽器自己動起來，
  * 是這一頁唯一不能用講的東西，也是它跟上一頁最大的差別。
  *
- * 目標網址用的是練習站，不是真的新聞站。理由有兩個：真站會改版也會被全班同時打，
- * 而 quotes.toscrape.com 本來就是 Zyte 做給人練爬蟲用的沙盒。
- * 挑 /scroll 那一個端點是因為它的內容要捲動才載入，非開瀏覽器不可，
- * 正好是這一頁要講的事；books.toscrape.com 是純 HTML，用它反而證明不了為什麼要 Playwright。
- * 最後查證：2026-09-21，quotes.toscrape.com/scroll 回 200。
+ * 這一頁的例子是兩段式的，不要拆開或簡化成一段：清單走官方 API，內文才用 Playwright。
+ * 兩段合起來才證明得了「先找出口」不是一句原則，它就是同一支腳本的前半段。
+ *
+ * 最後查證：2026-09-21。
+ *   - news.ycombinator.com/robots.txt 當時寫著 Crawl-delay: 30，首頁本身沒有被 Disallow，
+ *     但每 30 秒抓一次等於抓 20 篇要等 10 分鐘。這是「為什麼用 API」最好的實證，
+ *     而且學員自己打得開那個檔案驗證。
+ *   - 官方 API 在 hacker-news.firebaseio.com/v0/（文件 github.com/HackerNews/API），
+ *     當時文件寫著沒有速率限制。
+ *   - 連出去的那些文章各是各的網站，沒有共通的 API，那一段才輪到瀏覽器。
+ * 下次改版前重抓那份 robots.txt，Crawl-delay 的數字會變。
  *
  * 「先找出口」那一塊不要拿掉，它排在 prompt 前面是刻意的。
  * 最後查證：2026-09-21。Hacker News 的官方 API 在 hacker-news.firebaseio.com/v0/
@@ -29,38 +35,36 @@ import { Callout } from '../components/Callout';
  * 這兩個舉例會過期，下次改版前重查 info.arxiv.org/help/api 與那份 GitHub 文件。
  */
 const PROMPT_LINES: { t: string; hi?: boolean }[] = [
-  { t: '幫我寫一個 Playwright 腳本，放在 scrape-practice 資料夾。' },
+  { t: '幫我寫一個腳本放在 hn-digest 資料夾，分兩段做。' },
   { t: '' },
-  { t: '目標頁面：https://quotes.toscrape.com/scroll' },
-  { t: '（這是專門給人練爬蟲的練習站，內容要往下捲才會載入）' },
+  { t: '第一段，拿清單。用官方 API，不要爬網頁：', hi: true },
+  { t: '打 hacker-news.firebaseio.com/v0/topstories.json 取前 20 個 id，' },
+  { t: '再逐個打 /v0/item/<id>.json，取 title、url、score。' },
   { t: '' },
-  { t: '1. 打開那一頁，等第一批內容出現再往下做' },
-  { t: '2. 往下捲到底，最多 5 次，每次等新的載入完再捲下一次' },
-  { t: '3. 抓每一則的內容、作者、標籤' },
-  { t: '4. 存成 quotes.csv，欄位是 author,quote,tags，用 UTF-8 with BOM，Excel 打開不要變亂碼' },
-  { t: '5. 跑完印出「共 N 則」' },
+  { t: '第二段，抓內文。這一段才用 Playwright：' },
+  { t: '1. 逐篇打開第一段拿到的 url，等內文出現' },
+  { t: '2. 抓正文的純文字，去掉導覽列、留言與廣告' },
+  { t: '3. 一篇存成一個 articles/<id>.txt' },
+  { t: '4. 每一篇之間停 2 秒', hi: true },
+  { t: '5. 沒有外連網址的（Ask HN 那種）或打不開的就跳過，不要讓整支掛掉' },
   { t: '' },
-  { t: '邊界：' },
-  { t: '- 只動這一個頁面，不要登入，不要跳到別的網域', hi: true },
-  { t: '- 每個動作之間停 1 秒', hi: true },
-  { t: '- 某一欄抓不到就留空，不要讓整支腳本掛掉' },
+  { t: '最後把 score、title、url 存成 digest.csv，用 UTF-8 with BOM。' },
   { t: '' },
   { t: '第一次用 headless: false 跑，我要看到瀏覽器真的在動。', hi: true },
 ];
 
 const PROMPT_TEXT = PROMPT_LINES.map((l) => l.t).join('\n');
 
-/** 右欄：練習站上看到的樣子，與抓完的 CSV。 */
+/** 右欄：清單長什麼樣，與跑完之後資料夾裡有什麼。 */
 const BEFORE = [
-  '「The world as we have created it…」 ─ Albert Einstein',
-  '「It is our choices…」 ─ J.K. Rowling',
-  '「There are only two ways…」 ─ Albert Einstein',
+  { score: 412, t: 'What Sun got wrong', host: 'bcantrill.dtrace.org' },
+  { score: 287, t: 'Show HN: 我做了一個⋯', host: 'github.com' },
+  { score: 153, t: 'Ask HN: 你們怎麼⋯', host: '（沒有外連網址）' },
 ];
 const AFTER = [
-  'author,quote,tags',
-  'Albert Einstein,"The world as we have created it…",change;thinking',
-  'J.K. Rowling,"It is our choices…",abilities;choices',
-  'Albert Einstein,"There are only two ways…",inspirational;life',
+  'digest.csv',
+  'articles/44921038.txt',
+  'articles/44920117.txt',
 ];
 
 export default function SlideExample3() {
@@ -92,25 +96,26 @@ export default function SlideExample3() {
             <p className="text-slate-400 text-sm leading-relaxed">
               現在多數網站的內容是<strong className="text-slate-300">你打開之後才由程式算出來的</strong>，
               直接去抓網頁原始碼只會拿到一個空殼。Playwright 是真的開一個瀏覽器、等畫面長出來再抓，
-              而且它能點、能填、能捲。右邊那一頁就是這種：不往下捲，後面那幾十則根本不會出現。
+              而且它能點、能填、能捲。Hacker News 連出去的那些文章什麼寫法都有，靠猜不如直接開一個瀏覽器把畫面上的字拿下來。
             </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <div className="text-base font-bold text-slate-100 mb-2">但動手之前，先找有沒有不用爬的路</div>
+            <div className="text-base font-bold text-slate-100 mb-2">先找有沒有不用爬的路</div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              問一句：這個網站有沒有 RSS 或 API？<strong className="text-slate-300">有的話就不要爬。</strong>
-              官方出口給的是整理好的資料，網站改版也不會壞；爬蟲是人家一改版就要重修。
+              Hacker News 自己就寫了答案。打開{' '}
+              <code className="font-mono text-slate-300">news.ycombinator.com/robots.txt</code>，
+              第一行是 <code className="font-mono text-slate-300">Crawl-delay: 30</code>，
+              <strong className="text-slate-300">意思是每 30 秒才准抓一次，抓 20 篇要等 10 分鐘。</strong>
             </p>
-            <ul className="mt-2.5 space-y-1.5 text-slate-400 text-sm leading-relaxed list-disc pl-4 marker:text-slate-600">
-              <li>多數新聞與部落格都有 RSS，網址後面接 <code className="font-mono text-slate-300">/feed</code> 或 <code className="font-mono text-slate-300">/rss</code> 試一次。</li>
-              <li>
-                技術社群多半有官方 API。想追 AI 趨勢的話，Hacker News 與 arXiv 都有，
-                而且都附文件與建議的呼叫頻率，不用自己猜。
-              </li>
-            </ul>
+            <p className="text-slate-400 text-sm leading-relaxed mt-2.5">
+              但它有官方 API，沒有這個限制。所以清單走 API。
+              至於那 20 篇連出去的文章，各是各的網站、沒有共通的出口，
+              <strong className="text-slate-300">那一段才輪到瀏覽器。</strong>
+            </p>
             <p className="text-slate-500 text-sm leading-relaxed mt-2.5">
-              兩邊都沒有的時候，才輪到下面這支腳本。
+              換成別的網站也是同一個順序：先看 RSS（網址後面接 <code className="font-mono text-slate-400">/feed</code>），
+              再看有沒有 API，都沒有才爬。這件事你不用自己查，問它就好。
             </p>
           </AnimatedBlock>
 
@@ -128,7 +133,9 @@ export default function SlideExample3() {
             <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
               Playwright 要另外裝，連同它自己那份瀏覽器。
               <strong className="text-slate-400">你不用先裝，跟它說「缺什麼就幫我裝」它會處理。</strong>
-              <br />跑得起來之後，把第一行的網址換成你自己要追的那一頁，其他幾乎不用改。
+              <br />
+              跑完回到對話框說「把 <code className="font-mono text-slate-400">articles</code> 裡那幾篇各用中文講三句給我」。
+              腳本負責把東西搬回來，讀懂是對話的事，兩邊不要混在一起。
             </p>
           </AnimatedBlock>
 
@@ -157,25 +164,26 @@ export default function SlideExample3() {
               <div className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-3">
                 網頁上看到的
               </div>
-              <div className="space-y-2 text-sm text-slate-300">
+              <div className="space-y-2.5 text-sm text-slate-300">
                 {BEFORE.map((b) => (
-                  <div key={b} className="border-b border-slate-800 pb-2">
-                    {b}
+                  <div key={b.t} className="flex items-baseline gap-2.5 border-b border-slate-800 pb-2.5">
+                    <span className="font-mono text-xs text-slate-500 shrink-0 w-8 text-right">{b.score}</span>
+                    <span className="min-w-0">
+                      {b.t}
+                      <span className="block font-mono text-xs text-slate-600">{b.host}</span>
+                    </span>
                   </div>
                 ))}
               </div>
-              <div className="mt-3 inline-block rounded-lg border border-slate-700 bg-slate-800/60 px-3 py-1.5 text-xs text-slate-400">
-                ⌄ 往下捲
-              </div>
-              <p className="text-slate-600 text-xs mt-2.5">捲到底，後面那幾十則才會載入</p>
+              <p className="text-slate-600 text-xs mt-2.5">第三則沒有外連網址，腳本會跳過</p>
             </div>
 
-            <div className="flex justify-center text-sky-500 text-sm">↓ 腳本自己開瀏覽器、自己按 ↓</div>
+            <div className="flex justify-center text-sky-500 text-sm">↓ API 拿清單，再逐篇開瀏覽器抓內文 ↓</div>
 
             <div className="rounded-2xl border border-sky-500/30 bg-slate-900/80 p-5">
               <div className="flex items-center gap-2 mb-3">
                 <Table2 size={14} className="text-sky-400" />
-                <span className="text-sky-400 text-xs font-bold uppercase tracking-wider">news.csv</span>
+                <span className="text-sky-400 text-xs font-bold uppercase tracking-wider">hn-digest/</span>
               </div>
               <div className="font-mono text-xs text-slate-300 space-y-1.5">
                 {AFTER.map((row, i) => (
@@ -186,7 +194,7 @@ export default function SlideExample3() {
                 <div className="text-slate-600">…</div>
               </div>
               <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
-                換成你自己要追的那一頁，下一週再跑一次就好，不用重講一遍。這就是上一頁說的
+            明天再跑一次就好，不用重講一遍。這就是上一頁說的
                 <strong className="text-slate-400">「產出一個能重複用的工具」</strong>。
               </p>
             </div>

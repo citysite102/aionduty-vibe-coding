@@ -71,23 +71,13 @@ export default function SlideExample2() {
             </div>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={5} className="border p-4 rounded-2xl mt-4 bg-slate-900 border-slate-800">
-            <p className="text-slate-300 text-base font-bold mb-1.5">「這個用 Cowork 不是也可以？」</p>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              可以。Cowork 綁上 <code className="text-slate-300">imgs</code> 那個資料夾就能改。
-              差別在產出物：腳本留得下來，下次換一百張圖再跑一次就好；Cowork 是這一次幫你做完，下次還要再講一遍。
-              這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 能做到哪裡，後面比較三個地方的時候會講。
-            </p>
-            <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-              同一類的還有：把一疊 PDF 合成一份、把十張試算表併成一張、整批轉檔或改圖片尺寸、
-              從一堆檔名裡把日期抓出來分資料夾。
-              <strong className="text-slate-400">判斷標準是這件事你會做第二次。</strong>
-            </p>
-          </AnimatedBlock>
         </div>
 
         {/* 靠上對齊左欄。置中的話，左欄一長，右邊這塊就會掉到畫面下半部 */}
-        <div className="flex justify-center items-start h-full pt-8 lg:pt-0">
+        {/* Cowork 那一塊 2026-09-21 從左欄搬過來：左欄有 prompt 加執行提示，
+            右欄只有一張對照圖，兩邊長度差太多。搬完這個容器要是 flex-col，
+            原本是橫向的 flex，兩個子元素會並排。 */}
+        <div className="flex flex-col h-full pt-8 lg:pt-0">
            <AnimatedBlock stepIndex={3} className="bg-sky-950/20 border border-sky-900/40 rounded-3xl p-6 relative overflow-hidden w-full">
              
              <div className="space-y-4">
@@ -123,6 +113,21 @@ export default function SlideExample2() {
                 </div>
              </div>
            </AnimatedBlock>
+
+           <AnimatedBlock stepIndex={5} className="border p-4 rounded-2xl mt-4 bg-slate-900 border-slate-800">
+             <p className="text-slate-300 text-base font-bold mb-1.5">「這個用 Cowork 不是也可以？」</p>
+             <p className="text-slate-400 text-sm leading-relaxed">
+               可以。Cowork 綁上 <code className="text-slate-300">imgs</code> 那個資料夾就能改。
+               差別在產出物：腳本留得下來，下次換一百張圖再跑一次就好；Cowork 是這一次幫你做完，下次還要再講一遍。
+               這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 能做到哪裡，後面比較三個地方的時候會講。
+             </p>
+             <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+               同一類的還有：把一疊 PDF 合成一份、把十張試算表併成一張、整批轉檔或改圖片尺寸、
+               從一堆檔名裡把日期抓出來分資料夾。
+               <strong className="text-slate-400">判斷標準是這件事你會做第二次。</strong>
+             </p>
+           </AnimatedBlock>
+
         </div>
 
       </div>
