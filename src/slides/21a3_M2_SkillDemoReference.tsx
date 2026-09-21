@@ -23,7 +23,7 @@ const PARTS = [
 
 export default function Slide21a3SkillDemoReference() {
   return (
-    <SlideLayout title="參考設計與區塊名稱，讓指令指得準" subtitle="Reference and Vocabulary" icon={Compass}>
+    <SlideLayout title="參考設計與區塊名稱，讓指令更精準" subtitle="Reference and Vocabulary" icon={Compass}>
       <div className="mx-auto min-h-full w-full max-w-6xl space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
@@ -89,7 +89,7 @@ export default function Slide21a3SkillDemoReference() {
           <div className="flex flex-col justify-center gap-3">
             <p className="text-sm leading-relaxed text-slate-300">
               網頁是一塊一塊拼起來的，每一塊都有通用的名字。
-              <strong className="text-slate-100">會叫名字，指令才指得準</strong>：
+              <strong className="text-slate-100">會叫名字，指令才精準</strong>：
               「Navigation Bar 改成捲動時固定在最上面」，比「上面那一條讓它黏著」少猜很多。
             </p>
             <p className="text-sm leading-relaxed text-slate-400">
