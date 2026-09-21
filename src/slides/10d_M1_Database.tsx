@@ -9,6 +9,12 @@ import { Callout } from '../components/Callout';
  * 理由：學員不會自己寫資料表，但 AI 會給他一張。他要判斷的是那張表能不能用，
  * 而 SQL / NoSQL 的分類幫不上這個忙。所以主體換成一張爛表跟拆好的表的對照，
  * SQL / NoSQL 降成最後一小塊，讓他聽到名字的時候對得上。
+ *
+ * 2026-09-21 開場補上「資料庫是什麼」。這個詞從 Slide 19 的七項基礎就開始出現，
+ * Slide 24 的模擬器也標著 Postgres，但全片從來沒有定義過它，Slide 24 的口白
+ * 甚至只說「Postgres 是資料庫」，那是循環定義。這一頁是它第一次當主角，
+ * 定義就放在這裡。用 Excel 當類比是刻意的：Slide 139（中型專案那一段的四張表）
+ * 也用同一個類比，那邊會回頭呼應這裡，兩邊的說法要一致，不要只改一邊。
  */
 
 /**
@@ -80,10 +86,19 @@ export default function Slide10d() {
   return (
     <SlideLayout title="全塞一張表，還是拆表用 id 串" subtitle="Database & Schema Design" icon={Database}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
-        <AnimatedBlock stepIndex={1}>
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
           <p className="text-slate-300 text-base leading-relaxed">
             網頁一關掉，剛才輸入的東西就沒了。要留住，就得寫進資料庫。
-            <strong className="text-slate-100">但寫進去只是第一步，同一批資料擺法不一樣，三個月後差很多。</strong>
+          </p>
+          <p className="mt-2.5 text-slate-300 text-base leading-relaxed">
+            <strong className="text-slate-100">資料庫就是一個專門用來長期放資料的地方</strong>，
+            長得很像 Excel：一張表，最上面那列是欄位名稱，底下每一列是一筆資料。
+            兩個地方不一樣：它會幫你擋掉填錯格式的資料，而且能讓兩張表互相對應。
+          </p>
+          <p className="mt-2.5 text-slate-400 text-base leading-relaxed">
+            <strong className="text-slate-200">但寫進去只是第一步。</strong>
+            同一批資料擺法不一樣，今天看起來一模一樣；
+            差別要等到你想改一筆客戶資料、或想算某一項賣了幾份的時候才冒出來。
           </p>
         </AnimatedBlock>
 
