@@ -5,7 +5,7 @@ import { Callout } from '../components/Callout';
 
 export default function Slide10b() {
   return (
-    <SlideLayout title="兩個程式要講話，得先講好格式" subtitle="API & JSON Fundamentals" icon={Database}>
+    <SlideLayout title="什麼是 API？" subtitle="API & JSON Fundamentals" icon={Database}>
       <LiveDemo kind="browser" note="下面那個網址現在就打得開，貼進網址列按 Enter 就看得到它回什麼" />
       <div className="flex flex-col gap-6 max-w-6xl mx-auto w-full pb-8">
         
@@ -31,7 +31,7 @@ export default function Slide10b() {
             <div>
               <h3 className="text-xl font-bold text-sky-400 mb-3 flex items-center gap-2">
                 <Globe size={22} className="text-sky-400" />
-                什麼是 API？
+                一支 API 長什麼樣
               </h3>
               <p className="text-slate-300 leading-relaxed text-base mb-4">
                 API 是<strong>一台電腦開給別人用的入口</strong>，在這個比喻裡就是那位服務生。

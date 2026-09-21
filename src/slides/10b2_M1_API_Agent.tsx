@@ -20,10 +20,10 @@ export default function Slide10b2() {
                 Agent Workflows
               </div>
               <p className="text-slate-300 text-base leading-relaxed mb-4">
-                過去串接 API 最花時間的，往往是翻閱厚重的官方英文手冊，搞懂正確的參數名稱與認證機制。
+                以前要接一支 API，最花時間的不是寫程式，是翻那份很厚的英文文件，搞懂欄位到底叫什麼名字、金鑰要怎麼帶。
               </p>
               <p className="text-slate-400 text-base leading-relaxed">
-                你可以將文件 URL 直接餵給 Claude Code，它會自動發送 HTTP 請求解析網頁、提取關鍵型別，寫出一份可以直接跑的呼叫程式碼。
+                現在你可以把文件的網址直接給 Claude Code。它會自己把那一頁讀完，抓出要填哪些欄位，寫出一段可以直接跑的程式碼。
                 它讀的是當下抓到的那一頁，抓錯版本或抓到別的頁面它不會告訴你，所以下一頁那四個定位點是你自己要對的。
               </p>
             </div>
@@ -34,9 +34,9 @@ export default function Slide10b2() {
                 <span>三個步驟</span>
               </div>
               <ol className="text-sm text-slate-400 space-y-1.5 list-decimal list-inside font-medium">
-                <li><strong className="text-slate-300">給予網址：</strong>提供目標 API 的官方說明文件 URL</li>
-                <li><strong className="text-slate-300">動態查閱：</strong>Agent 自主發送請求並消化格式</li>
-                <li><strong className="text-slate-300">產出程式碼：</strong>照該 SDK 的規範寫出腳本</li>
+                <li><strong className="text-slate-300">給網址：</strong>把那份官方文件的網址貼給它</li>
+                <li><strong className="text-slate-300">它自己去讀：</strong>Agent 把那一頁抓下來讀完</li>
+                <li><strong className="text-slate-300">寫出程式碼：</strong>照文件上的欄位名稱寫，不是自己編</li>
               </ol>
             </div>
           </AnimatedBlock>
@@ -48,7 +48,7 @@ export default function Slide10b2() {
             <div>
               <h3 className="text-base font-bold text-slate-300 mb-4 flex items-center gap-2">
                 <Code2 size={18} className="text-emerald-400" />
-                終端協作模擬：請 Agent 讀懂 Messages API
+                示範：請它讀完文件再動手
               </h3>
 
               <div className="bg-slate-950 rounded-2xl border border-slate-800 p-4 flex flex-col gap-3 font-mono text-sm max-h-[440px] overflow-y-auto custom-scrollbar">
@@ -67,7 +67,7 @@ export default function Slide10b2() {
                     <div className="text-xs text-sky-400 font-bold mb-2 flex items-center gap-1.5">
                       <Globe size={14}/> Fetching https://platform.claude.com/docs/en/api/messages...
                     </div>
-                    <p className="mb-3 text-sm text-slate-400">我已經順利下載並閱讀了 Anthropic Messages API 的文件。這是一個使用官方 <code>@anthropic-ai/sdk</code> 的照文件寫的實作：</p>
+                    <p className="mb-3 text-sm text-slate-400">我讀完 Messages API 的文件了。下面這段是照文件寫的，用的是官方套件 <code>@anthropic-ai/sdk</code>：</p>
 
                     {/*
                       模擬學員反應：零基礎的人看到這一塊會整個放空，然後接下來兩頁都跟不上。

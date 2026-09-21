@@ -39,18 +39,18 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     respLabel: 'Success (200 OK)',
     respDetail: '{"token": "eyJhbGci...", "user": "Samuel"}',
     frontendDuties: [
-      '驗證 Email 格式，並呈現密碼輸入欄位。',
-      '點擊「登入」時觸發 Loading 狀態，防止重複發送。',
-      '收到登入憑證後安全儲存，並導向學習儀表板。'
+      '先擋掉格式不對的 Email，再讓你輸入密碼。',
+      '按下登入之後按鈕轉圈圈，不讓你連按三次。',
+      '把後端發的通行證收好，然後把你帶到儀表板。'
     ],
     backendDuties: [
-      '接收並解析前端傳來的登入請求。',
-      '比對資料庫中的密碼雜湊值 (Hash) 是否正確。',
-      '比對吻合後簽發具時效性的 JWT 憑證。'
+      '收下前端送過來的帳號與密碼。',
+      '把你打的密碼算過一次，看跟資料庫存的那一組對不對得上。',
+      '對得上就發一張有期限的通行證給你。'
     ],
     dbDuties: [
-      '儲存經雜湊加密後的密碼安全欄位，絕不儲存明文。',
-      '查詢使用者資料，並記錄本次登入成功的時間、IP 與裝置。'
+      '密碼存的是算過的結果，不存你打的那串字。',
+      '查出你是誰，順便記下這次登入的時間、來源與裝置。'
     ]
   },
   cart: {
@@ -64,17 +64,17 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     respDetail: '{"orderId": "ORD-2026-90", "payUrl": "https://..."}',
     frontendDuties: [
       '顯示購物車清單、數量增減、折扣券與金額加總。',
-      '提供第三方金流 (信用卡、Apple Pay) 的安全輸入介面。',
-      '結帳時鎖定點擊並顯示進度條，避免重複扣款。'
+      '刷卡或 Apple Pay 的輸入畫面，由金流服務提供。',
+      '按下去就鎖住並顯示進度，免得你重複扣款。'
     ],
     backendDuties: [
       '查詢即時庫存，確認商品是否足夠。',
-      '計算最終金額，並與 Stripe 等金流平台串接扣款。',
+      '算出最後金額，交給金流平台扣款。',
       '扣款成功後建立訂單，並更新商品庫存。'
     ],
     dbDuties: [
-      '在 orders 資料庫中建立一筆全新的訂單與交易編號。',
-      '將商品表中 items 的 stock 庫存數減去購買量。'
+      '在訂單表新增一筆，給它一個訂單編號。',
+      '商品表的庫存數字，減掉這次買走的數量。'
     ]
   },
   search: {
@@ -87,18 +87,18 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     respLabel: 'Results (200 OK)',
     respDetail: '{"total": 42, "results": [{"id":4, "title":"AI學習..."}]}',
     frontendDuties: [
-      '提供搜尋框與智慧關鍵字推薦 (Autocomplete)。',
+      '搜尋框，還有你打到一半就跳出來的關鍵字建議。',
       '提供分類切換、價格區間篩選與星等排序。',
-      '將回傳結果以卡片網格 RWD 樣式渲染出來。'
+      '把結果排成一格一格的卡片，手機跟電腦都排得好看。'
     ],
     backendDuties: [
-      '對資料庫進行全文檢索或 SQL 模糊查詢。',
-      '依熱門度、關聯權重、特價狀態排序。',
-      '實作 Cache (如 Redis) 並分頁，加速載入。'
+      '去資料庫裡把書名或標籤符合的都撈出來。',
+      '照熱門程度、相關程度、有沒有特價排順序。',
+      '常被查的結果先存一份，並且分頁，下次比較快。'
     ],
     dbDuties: [
-      '在 books 表的 title 和 tag 欄位建立索引 (Index) 加速文字搜尋。',
-      '記錄最常被搜尋的關鍵字，供之後的推薦模型訓練。'
+      '先在書名跟標籤那兩欄建好目錄，找字才會快。',
+      '記下最常被搜尋的字，之後要做推薦會用到。'
     ]
   }
 };
@@ -269,7 +269,7 @@ export default function SlideWebArchDuties() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-slate-800/80 text-xs text-indigo-300/80 font-medium">
-              🎯 目標：處理安全、重度運算、保護商業邏輯與核心資料
+              🎯 目標：扛安全、扛重的運算、保護不能外流的資料
             </div>
           </AnimatedBlock>
 
