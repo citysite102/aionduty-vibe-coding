@@ -447,10 +447,10 @@ export default function Slide10c() {
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-xs font-mono">
               <div className="text-sky-300 bg-sky-950/20 px-2 py-1 rounded border border-sky-900/30">
-                <span className="text-slate-500 font-sans font-semibold">📋 Request (點單紙):</span> <code className="ml-1">{activeData.reqDetail}</code>
+                <span className="text-slate-500 font-sans font-semibold">📤 Request（送出去的）:</span> <code className="ml-1">{activeData.reqDetail}</code>
               </div>
               <div className="text-emerald-400 bg-emerald-950/20 px-2 py-1 rounded border border-emerald-900/30">
-                <span className="text-slate-500 font-sans font-semibold">🍜 Response (出菜):</span> <code className="ml-1">{activeData.respDetail}</code>
+                <span className="text-slate-500 font-sans font-semibold">📥 Response（回來的）:</span> <code className="ml-1">{activeData.respDetail}</code>
               </div>
             </div>
           </div>
