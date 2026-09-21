@@ -12,7 +12,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  */
 export default function SlideCodeSetup() {
   return (
-    <SlideLayout title="裝好終端機版，確認它讀得到你的專案" subtitle={<><OptionalTag /> Install and Verify</>} icon={Play}>
+    <SlideLayout title="Claude Code 終端機版本配置" subtitle={<><OptionalTag /> Install and Verify</>} icon={Play}>
       <LiveDemo kind="terminal" />
 
       <div className="max-w-6xl mx-auto mb-5">

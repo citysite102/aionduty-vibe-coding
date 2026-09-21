@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Play, AlertCircle, CheckCircle, ArrowRight, Zap, RefreshCw, Cpu, Activity } from 'lucide-react';
+import { Box, Play, AlertCircle, CheckCircle, ArrowRight, Zap, Cpu, Activity } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function SlideHarnessIntro() {
   const [activeTab, setActiveTab] = useState<'with' | 'without'>('with');
-  const [triggerCount, setTriggerCount] = useState(0);
 
   return (
     <SlideLayout title="什麼是運作框架（Harness）？" subtitle="What Is a Harness?" icon={Box}>
@@ -24,7 +23,7 @@ export default function SlideHarnessIntro() {
               
               <h3 className="text-xl font-bold text-slate-100 leading-tight">
                 表現不好，多半不是模型不夠聰明，<br/>
-                <span className="text-sky-400">是你給它的工作環境太簡陋。</span>
+                <span className="text-sky-400">是你沒給它該有的工作環境。</span>
               </h3>
               
               <p className="text-slate-300 text-xs leading-relaxed">
@@ -55,18 +54,11 @@ export default function SlideHarnessIntro() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-full blur-3xl pointer-events-none" />
             
             <div>
-              <div className="flex justify-between items-center mb-4">
+              <div className="mb-4">
                 <h3 className="text-sm font-bold text-slate-300 flex items-center gap-2">
                   <Activity size={16} className="text-sky-400" />
                   動態流程示意：軌道怎麼限制方向
                 </h3>
-                <button 
-                  onClick={() => setTriggerCount(c => c + 1)}
-                  className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-mono text-slate-400 hover:text-slate-200 flex items-center gap-1 transition-all"
-                >
-                  <RefreshCw size={10} />
-                  重新模擬 (Re-simulate)
-                </button>
               </div>
 
               {/* Tab Selector */}
@@ -120,7 +112,7 @@ export default function SlideHarnessIntro() {
                       <div className="absolute inset-x-12 inset-y-0 pointer-events-none overflow-hidden">
                         {[0, 1, 2, 3].map((i) => (
                           <motion.div
-                            key={`${triggerCount}-${i}`}
+                            key={i}
                             className="absolute w-2 h-2 rounded-full bg-red-400"
                             style={{ left: '10px', top: '50%' }}
                             animate={{
@@ -177,7 +169,7 @@ export default function SlideHarnessIntro() {
                       <div className="absolute inset-x-12 inset-y-0 pointer-events-none">
                         {[0, 1, 2].map((i) => (
                           <motion.div
-                            key={`${triggerCount}-${i}`}
+                            key={i}
                             className="absolute w-2.5 h-2.5 rounded-full bg-sky-400 shadow-lg shadow-sky-500/50"
                             style={{ top: 'calc(50% - 5px)' }}
                             animate={{

@@ -46,7 +46,7 @@ const KEYS = [
   },
   {
     icon: Undo2,
-    name: '喊停',
+    name: '終止執行',
     key: 'Esc ／ Esc Esc',
     body: '覺得方向不對，按一次 Esc 中斷它手上的動作，做到一半的東西會留著。輸入框空著時連按兩次 Esc，會跳出這次對話送出過的每一句話，選一個時間點退回去。',
     note: '連按兩次 Esc 做的事，跟輸入 /rewind 一樣。那個指令兩邊都能用。',
@@ -56,7 +56,7 @@ const KEYS = [
 export default function SlideTerminalKeys() {
   return (
     <SlideLayout
-      title="選修：模式切換、Shell 模式、喊停"
+      title="選修：模式切換、Shell 模式、終止執行"
       subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
     >

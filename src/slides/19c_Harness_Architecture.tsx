@@ -1,6 +1,11 @@
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Settings, FileCode, Wrench, Shield, GitMerge, Link, Activity } from 'lucide-react';
 
+// **這六塊是這門課的拆法，不是誰家的規格。** Anthropic 講的是 Agent = Model + Harness
+// 以及上下文工程，沒有發布過一份「Harness 的六大元件」清單。所以開頭那句話寫的是
+// 「這裡把它拆成六塊來看」，不要改成「Harness 由六個元件組成」那種斷言句，
+// 那會把一個教學用的分法講成業界定義。要增減零件是可以的，改的時候連同那句話一起看。
+//
 // D-4 防呆：這一頁「沙箱」與「運作框架」並排，Harness 一律譯「運作框架」，不要寫成「安全沙箱」。
 // 六大元件只有前兩塊是這堂課會動手的，指揮分工留到「讓 Agent 分工」那一章，其餘屬於團隊級配套。
 // 用 scope 控制視覺層級：本課主色、後續會回來講的灰、僅供認識最淡。
@@ -100,8 +105,9 @@ export default function SlideHarnessArchitecture() {
 
         <div className="max-w-4xl mx-auto text-center mb-6">
           <p className="text-slate-300 text-base">
-            這六個零件各管一件事。<strong className="text-slate-100">這堂課會動手的是前兩個</strong>，
-            其餘先知道它們負責什麼，後面碰到再回來。
+            Harness 不是一個東西，是一組配套。
+            <strong className="text-slate-100">這裡把它拆成六塊來看</strong>，每一塊管一件事。
+            右上角的標籤寫著哪些現在要學、哪些先知道名字就好。
           </p>
         </div>
 

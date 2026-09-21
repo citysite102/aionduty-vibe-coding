@@ -48,7 +48,11 @@ const PROMPT_LINES: { t: string; hi?: boolean }[] = [
   { t: '4. 每一篇之間停 2 秒', hi: true },
   { t: '5. 沒有外連網址的（Ask HN 那種）或打不開的就跳過，不要讓整支掛掉' },
   { t: '' },
-  { t: '最後把 score、title、url 存成 digest.csv，用 UTF-8 with BOM。' },
+  { t: '把 score、title、url 存成 digest.csv，用 UTF-8 with BOM。' },
+  { t: '' },
+  { t: '腳本跑完之後，你直接讀 articles 裡的內容，幫我寫一份 digest.md：', hi: true },
+  { t: '每一篇用中文三句話，講它在說什麼、為什麼有人推，附原始連結，' },
+  { t: '按 score 由高到低排。看不懂或抓壞的那幾篇直接標「抓失敗」，不要自己編。', hi: true },
   { t: '' },
   { t: '第一次用 headless: false 跑，我要看到瀏覽器真的在動。', hi: true },
 ];
@@ -62,6 +66,7 @@ const BEFORE = [
   { score: 153, t: 'Ask HN: 你們怎麼⋯', host: '（沒有外連網址）' },
 ];
 const AFTER = [
+  'digest.md  ← 中文摘要，按熱度排',
   'digest.csv',
   'articles/44921038.txt',
   'articles/44920117.txt',
@@ -134,8 +139,10 @@ export default function SlideExample3() {
               Playwright 要另外裝，連同它自己那份瀏覽器。
               <strong className="text-slate-400">你不用先裝，跟它說「缺什麼就幫我裝」它會處理。</strong>
               <br />
-              跑完回到對話框說「把 <code className="font-mono text-slate-400">articles</code> 裡那幾篇各用中文講三句給我」。
-              腳本負責把東西搬回來，讀懂是對話的事，兩邊不要混在一起。
+              最後拿到的是一份 <code className="font-mono text-slate-400">digest.md</code>，
+              二十篇的中文摘要按熱度排好。
+              <strong className="text-slate-400">腳本只負責把東西搬回來，讀懂是它在對話裡做的</strong>，
+              所以摘要不用寫進程式，也不用另外接一支 API。
             </p>
           </AnimatedBlock>
 
@@ -194,7 +201,7 @@ export default function SlideExample3() {
                 <div className="text-slate-600">…</div>
               </div>
               <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            明天再跑一次就好，不用重講一遍。這就是上一頁說的
+            明天再跑一次，拿到的就是當天的。這就是上一頁說的
                 <strong className="text-slate-400">「產出一個能重複用的工具」</strong>。
               </p>
             </div>

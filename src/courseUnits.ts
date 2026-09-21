@@ -61,7 +61,7 @@ export const UNIT_DEFS: UnitDef[] = [
 
   // ── 章節四 選修：終端機與 Claude Code 安裝 ──
   { live: 41, title: '選修：終端機與基本指令', anchor: '選修：終端機與 Claude Code 安裝' },
-  { live: 44, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: '裝好終端機版，確認它讀得到你的專案' },
+  { live: 44, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: 'Claude Code 終端機版本配置' },
 
   // ── 章節五 Agent 運作框架與成本分析 ──
   { live: 46, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
