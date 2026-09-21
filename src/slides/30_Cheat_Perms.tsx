@@ -4,12 +4,22 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
 /**
- * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permission-modes。
- * 當時的現況：六個模式全部存在且名稱相符。acceptEdits 的官方說明是
- * 「Reads, file edits, and common filesystem commands (mkdir, touch, mv, cp, etc.)」，
- * 跟這一頁寫的一致。dontAsk 官方明講 "never appears in the cycle;
- * set it with --permission-mode dontAsk"，也跟這一頁一致。
- * 本輪沒有改內容。下次改版前先重查那一節，不要憑印象改。
+ * 最後查證：2026-09-21，逐條對照 code.claude.com/docs/en/permission-modes。
+ * 當時的現況與這一頁的對應：
+ *   - 六個模式全部存在且設定值相符。
+ *   - `default` 的介面名稱是 **Manual**（原文：「The mode that reviews every action is
+ *     named Manual in the CLI ... Its config value is `default`」）。這一頁原本把它標成
+ *     「預設」，但同一頁的 auto 又標著「訂閱方案的預設」，兩個「預設」在同一張表上打架，
+ *     而且真正的起始模式是 auto。已改成「手動 manual」，設定值寫在內文裡。
+ *   - 起始模式：「On Pro, Max, and Team plans, the built-in starting permission mode is
+ *     auto mode.」原本只寫 Pro 與 Max，漏了 Team。
+ *   - acceptEdits：「Reads, file edits, and common filesystem commands (mkdir, touch,
+ *     mv, cp, etc.)」，跟這一頁一致。
+ *   - 循環：「From `auto`, the first press switches to `default`, and the cycle then runs
+ *     `default` → `acceptEdits` → `plan` → back to `default`. Optional modes ... slot in
+ *     after `plan`.」跟 cycleTerminalMode 一致。
+ *   - dontAsk 不在循環裡，要用 --permission-mode dontAsk 指定，跟這一頁一致。
+ * 下次改版前先重查那一節，不要憑印象改。
  *
  * 這一組數值與 11d2_M1_TerminalKeys.tsx 同步，改一邊要改兩邊。
  */
@@ -109,14 +119,14 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <div className="flex justify-between items-center mb-1">
-                    <span className="font-bold text-sky-400 text-sm tracking-wide">預設 <code className="text-xs font-mono opacity-70">default</code></span>
+                    <span className="font-bold text-sky-400 text-sm tracking-wide">手動 <code className="text-xs font-mono opacity-70">manual</code></span>
                     <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">最安全</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    修改檔案、執行終端機指令前會停下來徵求同意；純讀取不打擾。適合金流、認證設定或陌生專案。
+                    修改檔案、執行終端機指令前會停下來徵求同意；純讀取不打擾。設定值仍叫 <code className="font-mono">default</code>，介面上寫 Manual。適合金流、認證設定或陌生專案。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕一 監督程度　每一步都先問
+                    旋鈕一 監督程度　動手前都先問
                   </div>
                 </button>
 
@@ -196,7 +206,7 @@ export default function SlideCheatPerms() {
                     <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">訂閱方案的預設</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    什麼都不問你，但每個動作會先經過一道背景檢查。Pro 與 Max 開機就在這一個，你按第一下 Shift + Tab 才會離開它。
+                    多數動作不問你，改由另一個模型在背後檢查它跟你的要求對不對得上。Pro、Max 與 Team 開機就在這一個，按第一下 Shift + Tab 才會離開它。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     旋鈕一 監督程度　都不問，改由程式把關
@@ -510,7 +520,7 @@ export default function SlideCheatPerms() {
               <span className="text-sky-400 font-bold block mb-1">💡 這兩邊怎麼切模式：</span>
               {activeTab === 'terminal' ? (
                 <span>
-                  <code>Shift + Tab</code> 每按一下換一個。Pro 與 Max 方案<strong>開起來預設在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
+                  <code>Shift + Tab</code> 每按一下換一個。Pro、Max 與 Team 方案<strong>開起來在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
                   上面六格裡，<code>auto</code> 與 <code>bypassPermissions</code> 啟用之後會插進循環、排在 <code>plan</code> 後面；
                   <code>dontAsk</code> 永遠不在循環裡，按不到，只能用啟動參數進去。
                   

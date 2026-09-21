@@ -4,11 +4,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permission-modes。
+ * 最後查證：2026-09-21，逐條對照 code.claude.com/docs/en/permission-modes。
  * 當時的現況：六個模式的設定值是 default（介面叫 Manual）、acceptEdits、plan、
- * auto、dontAsk、bypassPermissions。Pro／Max／Team 開機在 auto，按第一下進 default，
+ * auto、dontAsk、bypassPermissions。Pro、Max 與 Team 開機在 auto，按第一下進 default，
  * 之後 default → acceptEdits → plan → 回 default，選用模式插在 plan 後面。
- * 這一頁寫的循環順序與預設值逐項吻合，本輪沒有改內容。
+ * 循環順序吻合。這一輪改了三處內文：原本寫「Pro 與 Max」漏了 Team；
+ * 原本把 manual 說成「每一步都問你」，但官方寫的是那個模式下 Reads only 不必核准，
+ * 所以讀檔不會問；acceptEdits 補上官方一併列出的 mkdir、mv、cp 這類檔案系統指令。
  * 下次改版前先重查那一節，不要憑印象改。
  *
  * 這一組數值與 30_Cheat_Perms.tsx 同步，改一邊要改兩邊。
@@ -34,7 +36,7 @@ const KEYS = [
     icon: ClipboardCheck,
     name: '執行模式切換器',
     key: 'Shift + Tab',
-    body: '按一下換一個模式，狀態列會顯示目前是哪一個。Pro 與 Max 方案開起來預設在 auto（全自動），按第一下切到 manual（每一步都問你），之後依序是 acceptEdits（自動接受檔案修改）與 plan（只讀不改），再按回到 manual。',
+    body: '按一下換一個模式，狀態列會顯示目前是哪一個。Pro、Max 與 Team 方案開起來在 auto（多數動作不問你，背後有另一個模型在檢查），按第一下切到 manual（讀檔不問，動手前都問你），之後依序是 acceptEdits（檔案編輯與 mkdir、mv、cp 這類指令免問）與 plan（只讀不改），再按回到 manual。',
     note: '其中的 plan 模式做的就是「先講怎麼做，不動手」。',
   },
   {
