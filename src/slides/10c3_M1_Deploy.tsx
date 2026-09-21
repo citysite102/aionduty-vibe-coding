@@ -1,5 +1,31 @@
-import { Rocket, Home, Store, Globe, Database, TerminalSquare, ExternalLink } from 'lucide-react';
+import { Rocket, Home, Store, Globe, Database, TerminalSquare, ExternalLink, KeyRound } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
+
+/**
+ * 金鑰那一塊（stepIndex 5）是 2026-09-21 補的。
+ *
+ * 補的理由：上面那段指令的第 2 步已經叫學員「把金鑰加進 .gitignore」，
+ * 但整頁沒有一句話說那之後金鑰要去哪裡。擋住它不進版控只是第一步，
+ * 上線之後程式還是要拿得到它，學員走到這裡一定會撞到這個缺口。
+ *
+ * 四段是一條路，不要拆成四個並列的提醒：本機的 .env、版控的 .gitignore、
+ * 平台的環境變數、以及不讓 AI 讀到的 deny。前三段是同一把金鑰換了三個存放
+ * 位置，第四段是另一個方向（擋的是 AI 不是擋人）。
+ *
+ * **最後那個但書不能拿掉。** 只講「放平台的環境變數就安全了」會教出錯的東西：
+ * 純前端的專案，打包之後那串字會跟著送到瀏覽器，使用者打開開發者工具就看得到。
+ * 真正的解法（可公開的金鑰靠服務端規則擋、不可外流的金鑰放後端）在案例三，
+ * 這裡只負責把缺口指出來，不在章節三講完。
+ *
+ * 用 muted 不用 warn：這一頁已經有 sky 與 emerald 兩個強調色，A-1 上限是兩種。
+ */
+const KEY_FLOW = [
+  { where: '你的電腦', how: '.env 這個檔案', note: '自己建一個，金鑰寫在裡面，只有你這台有。' },
+  { where: '推上 GitHub', how: '.gitignore 擋住它', note: '列進去之後，git 根本不會碰它，所以 repo 裡沒有金鑰。' },
+  { where: '上線之後', how: '平台後台的環境變數', note: '同一組金鑰在 Vercel 或 Supabase 的後台再填一次，平台執行的時候才餵給程式。' },
+  { where: '對 AI', how: 'settings.json 的 deny', note: '擋掉讀取 .env，它連看都看不到，也就不會順手貼進對話裡。' },
+];
 
 export default function Slide10c3Deploy() {
   return (
@@ -138,6 +164,37 @@ export default function Slide10c3Deploy() {
             Agent 能幫你跑完上面四步，但中間你要自己登入 GitHub 和 Vercel 授權，
             那是你的帳號，它沒有辦法代你點同意。真正省下來的是「不用學那些指令」，不是「完全不用動手」。
           </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-left">
+          <div className="flex items-center gap-2 mb-1">
+            <KeyRound className="text-slate-400" size={18} />
+            <h4 className="text-sm font-bold text-slate-200">那第 2 步擋下來的金鑰，後來去哪了？</h4>
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            擋住它不進版控只是第一步。上線之後程式還是要拿得到它，
+            所以<strong className="text-slate-200">金鑰不跟著程式碼走，它自己有一條路</strong>。
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+            {KEY_FLOW.map((k, i) => (
+              <div key={k.where} className="rounded-xl border border-slate-800 bg-slate-950 p-3.5">
+                <div className="font-mono text-xs text-slate-600 mb-1.5">0{i + 1}</div>
+                <div className="text-sm font-bold text-slate-200 leading-snug">{k.where}</div>
+                <div className="mt-1 font-mono text-xs text-slate-400 break-all">{k.how}</div>
+                <p className="mt-2 border-t border-slate-800 pt-2 text-xs leading-relaxed text-slate-500">
+                  {k.note}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <Callout tone="muted" label="但純前端的專案，金鑰藏不住" className="mt-4">
+            程式碼被送到瀏覽器的那一刻，裡面的字串使用者打開開發者工具就看得到，
+            放在平台的環境變數也一樣。所以需要金鑰的 API，要嘛用那種
+            <strong className="text-slate-200">本來就設計成可以公開</strong>的金鑰，靠服務那一端的規則限制它能做什麼；
+            要嘛就得有一層後端替你保管。案例三會實際走一次這個取捨。
+          </Callout>
         </AnimatedBlock>
 
       </div>
