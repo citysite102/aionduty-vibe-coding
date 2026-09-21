@@ -19,12 +19,17 @@ import { Callout } from '../components/Callout';
  * 這裡只負責把缺口指出來，不在章節三講完。
  *
  * 用 muted 不用 warn：這一頁已經有 sky 與 emerald 兩個強調色，A-1 上限是兩種。
+ *
+ * 2026-09-21 再補「你自己做／可以發包」的膠囊。缺口是：整頁在教怎麼發包，
+ * 學員很容易連這四段一起叫 AI 做，然後把金鑰貼進對話裡，剛好是這一塊要防的事。
+ * 界線是那串金鑰本人會不會經手，不是難不難：01 與 03 碰得到金鑰所以自己做，
+ * 02 與 04 只是改設定檔。膠囊走灰階，理由同上，這一頁的兩個強調色額度滿了。
  */
 const KEY_FLOW = [
-  { where: '你的電腦', how: '.env 這個檔案', note: '自己建一個，金鑰寫在裡面，只有你這台有。' },
-  { where: '推上 GitHub', how: '.gitignore 擋住它', note: '列進去之後，git 根本不會碰它，所以 repo 裡沒有金鑰。' },
-  { where: '上線之後', how: '平台後台的環境變數', note: '同一組金鑰在 Vercel 或 Supabase 的後台再填一次，平台執行的時候才餵給程式。' },
-  { where: '對 AI', how: 'settings.json 的 deny', note: '擋掉讀取 .env，它連看都看不到，也就不會順手貼進對話裡。' },
+  { where: '你的電腦', how: '.env 這個檔案', self: true, note: '檔案可以請 AI 建，但那串金鑰要自己填進去。' },
+  { where: '推上 GitHub', how: '.gitignore 擋住它', self: false, note: '列進去之後，git 根本不會碰它，所以 repo 裡沒有金鑰。' },
+  { where: '上線之後', how: '平台後台的環境變數', self: true, note: '在 Vercel 或 Supabase 的後台再填一次，執行的時候平台才餵給程式。那是你的帳號，AI 登不進去。' },
+  { where: '對 AI', how: 'settings.json 的 deny', self: false, note: '擋掉讀取 .env，它連看都看不到，也就不會順手貼進對話裡。' },
 ];
 
 export default function Slide10c3Deploy() {
@@ -174,12 +179,23 @@ export default function Slide10c3Deploy() {
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             擋住它不進版控只是第一步。上線之後程式還是要拿得到它，
             所以<strong className="text-slate-200">金鑰不跟著程式碼走，它自己有一條路</strong>。
+            這四段也不是都能發包：<strong className="text-slate-200">那串金鑰本人會經手的兩段自己動手</strong>，
+            把它貼進跟 AI 的對話，等於又送出去一次，而且留在對話紀錄裡。
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {KEY_FLOW.map((k, i) => (
               <div key={k.where} className="rounded-xl border border-slate-800 bg-slate-950 p-3.5">
-                <div className="font-mono text-xs text-slate-600 mb-1.5">0{i + 1}</div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="font-mono text-xs text-slate-600">0{i + 1}</span>
+                  <span className={`text-xs px-2 py-0.5 rounded ${
+                    k.self
+                      ? 'bg-slate-800 text-slate-200 font-bold'
+                      : 'border border-slate-800 text-slate-500'
+                  }`}>
+                    {k.self ? '你自己做' : '可以發包'}
+                  </span>
+                </div>
                 <div className="text-sm font-bold text-slate-200 leading-snug">{k.where}</div>
                 <div className="mt-1 font-mono text-xs text-slate-400 break-all">{k.how}</div>
                 <p className="mt-2 border-t border-slate-800 pt-2 text-xs leading-relaxed text-slate-500">

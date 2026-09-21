@@ -25,7 +25,6 @@ interface ScenarioData {
   id: 'login' | 'cart' | 'search';
   title: string;
   icon: any;
-  desc: string;
   reqLabel: string;
   reqDetail: string;
   respLabel: string;
@@ -39,7 +38,6 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     id: 'login',
     title: '登入驗證',
     icon: Lock,
-    desc: '當使用者在網頁上輸入帳號密碼並點擊「登入」時...',
     reqLabel: 'POST /api/login',
     reqDetail: '{"email":"samuel@hahow.in", "pw":"***"}',
     respLabel: 'Success (200 OK)',
@@ -63,7 +61,6 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     id: 'cart',
     title: '購物結帳',
     icon: ShoppingCart,
-    desc: '當使用者在購物車點擊「確認結帳」時...',
     reqLabel: 'POST /api/checkout',
     reqDetail: '{"items":[{"id":101, "qty":2}], "coupon":"AI50"}',
     respLabel: 'Order Created (201)',
@@ -87,13 +84,12 @@ const scenarios: Record<'login' | 'cart' | 'search', ScenarioData> = {
     id: 'search',
     title: '搜尋篩選',
     icon: Search,
-    desc: '當使用者在搜尋框輸入「AI 學習書籍」時...',
     reqLabel: 'GET /api/search?q=AI',
     reqDetail: '{"q": "AI", "category": "Books", "page": 1}',
     respLabel: 'Results (200 OK)',
     respDetail: '{"total": 42, "results": [{"id":4, "title":"AI學習..."}]}',
     feLog: {
-      idle: '⏳ 等待使用者輸入關鍵字並點擊搜尋...',
+      idle: '⏳ 等待使用者輸入關鍵字並點擊搜尋（打字時跳出的建議是另一支 API）...',
       requesting: '📤 發送請求：GET /api/search?q=AI...',
       processing: '📡 資料檢索中，顯示骨架畫面 (Skeleton Screen) 預覽...',
       responding: '📥 收到資料！包含 42 筆符合結果與分頁資訊...',
@@ -117,11 +113,13 @@ export default function Slide10c() {
   /*
    * 預設是自動循環播放，講者還在講、學員還在讀左邊的字，右邊已經自己跑完一輪了。
    * CLAUDE.md A-2 明文禁止用 setTimeout 驅動畫面內容切換，這裡正是那一條。
-   * 改成預設手動：按下按鈕才跑一次，跑完停住。要循環播放講者自己切。
+   * 改成預設手動：按下按鈕才跑一次，跑完停在 success 不自己重設。要循環播放講者自己切。
    */
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(false);
 
   const activeData = scenarios[activeScenario];
+  // 手動模式跑完會停在 success（畫面保留綠框與成功訊息），所以那個狀態也要能再按一次
+  const canTrigger = animState === 'idle' || animState === 'success';
 
   // Animation timeline coordinator
   useEffect(() => {
@@ -133,7 +131,7 @@ export default function Slide10c() {
       timer = setTimeout(() => setAnimState('responding'), 1500);
     } else if (animState === 'responding') {
       timer = setTimeout(() => setAnimState('success'), 1400);
-    } else if (animState === 'success') {
+    } else if (animState === 'success' && isAutoPlaying) {
       timer = setTimeout(() => {
         setAnimState('idle');
       }, 2000);
@@ -164,9 +162,8 @@ export default function Slide10c() {
         
         {/* Intro */}
         <AnimatedBlock stepIndex={1} className="w-full">
-          <p className="text-slate-300 text-sm md:text-base bg-slate-900/60 p-4 rounded-xl border border-slate-800 flex items-center justify-between">
-            <span>網頁是由 <strong className="text-sky-400 font-bold">前端 (Client)</strong> 透過 <strong className="text-emerald-400 font-bold">API 請求與回應</strong> 驅動 <strong className="text-indigo-400 font-bold">後端 (Server)</strong> 與資料庫協作運作的。</span>
-            <span className="text-xs bg-slate-800 text-slate-400 font-mono px-2 py-1 rounded border border-slate-700 hidden sm:inline-block">RWD Layout</span>
+          <p className="text-slate-300 text-sm md:text-base bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+            網頁是由 <strong className="text-sky-400 font-bold">前端 (Client)</strong> 透過 <strong className="text-emerald-400 font-bold">API 請求與回應</strong> 驅動 <strong className="text-indigo-400 font-bold">後端 (Server)</strong> 與資料庫協作運作的。
           </p>
         </AnimatedBlock>
 
@@ -241,16 +238,16 @@ export default function Slide10c() {
               <button
                 type="button"
                 onClick={triggerSimulation}
-                disabled={animState !== 'idle'}
-                aria-label={animState === 'idle' ? '手動發送 API 請求' : 'API 請求正在發送中'}
+                disabled={!canTrigger}
+                aria-label={canTrigger ? '手動發送 API 請求' : 'API 請求正在發送中'}
                 className={`text-xs px-4 py-1.5 rounded-lg font-bold border flex items-center gap-1.5 transition-colors duration-150 ${focusRing} ${
-                  animState === 'idle'
+                  canTrigger
                     ? 'bg-sky-500 text-slate-950 border-sky-400 hover:bg-sky-400 hover:scale-[1.03] shadow-[0_0_12px_rgba(14,165,233,0.3)]'
                     : 'bg-slate-900 text-slate-500 border-slate-800 cursor-not-allowed opacity-70'
                 }`}
               >
-                {animState === 'idle' ? <Play size={12} fill="currentColor" /> : <RotateCcw size={12} className="animate-spin" />}
-                <span>{animState === 'idle' ? '手動發送 API 請求' : '發送中...'}</span>
+                {canTrigger ? <Play size={12} fill="currentColor" /> : <RotateCcw size={12} className="animate-spin" />}
+                <span>{animState === 'success' ? '再跑一次' : animState === 'idle' ? '手動發送 API 請求' : '發送中...'}</span>
               </button>
             </div>
           </div>
@@ -263,7 +260,7 @@ export default function Slide10c() {
           <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-4">
             下面這個模擬器不用讀懂每一個字。
             <strong className="text-slate-200">要看的只有一件事：一次請求會經過前端、中間的來回、後端三個地方。</strong>
-            之後你交代工作與驗收的時候，要知道問題可能落在哪一段。
+            知道有這三段，描述問題的時候就講得出是「畫面沒反應」「送出去沒回來」還是「回來的資料不對」，而不是只說它壞了。
           </p>
 
           {/* SIMULATOR CONTAINER */}
