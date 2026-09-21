@@ -21,16 +21,16 @@ export default function SlideHarnessContext() {
           就是這樣寫的（主檔指到 src/remotion/CLAUDE.md），Slide 83 會把它攤開。
         */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
-          <p className="text-slate-300 text-lg leading-relaxed mb-3">
+          <p className="text-slate-300 text-base leading-relaxed mb-3">
             上一段你每開一次新對話，就得重講一次規矩。
             <strong className="text-sky-200">規則文件就是把那些話寫成一個檔案</strong>，
             它自己會被讀進去，你不用再講。
           </p>
-          <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
+          <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-lg">
             <Zap size={24} />
             但它裝不下全部，所以要挑什麼時候送什麼進去
           </h3>
-          <p className="text-slate-300 text-lg leading-relaxed">
+          <p className="text-slate-300 text-base leading-relaxed">
             送進去的那一整包東西叫<strong className="text-sky-200">上下文</strong>：
             你打的字、它讀過的檔案、前面來回過的對話，全部算在一起，就是它這一輪看得到的所有東西。
             它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
@@ -38,7 +38,7 @@ export default function SlideHarnessContext() {
           </p>
         </div>
 
-        <p className="text-slate-300 text-lg mb-8">
+        <p className="text-slate-300 text-base mb-6">
           東西進到上下文裡有三種時機。
         </p>
 
@@ -50,7 +50,7 @@ export default function SlideHarnessContext() {
               </div>
               <h3 className="text-xl font-bold text-slate-100">每次都給<br/><span className="text-sm text-slate-500 font-normal">Static Context</span></h3>
             </div>
-            <p className="text-slate-300 text-base leading-relaxed mb-6">
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
               每次開對話都整份讀進去的規範檔，例如 CLAUDE.md。就像必讀的<strong>員工手冊</strong>。
             </p>
             <div className="space-y-3 mt-auto">
@@ -70,7 +70,7 @@ export default function SlideHarnessContext() {
               </div>
               <h3 className="text-xl font-bold text-slate-100">用到才給<br/><span className="text-sm text-slate-500 font-normal">Dynamic Context</span></h3>
             </div>
-            <p className="text-slate-300 text-base leading-relaxed mb-6">
+            <p className="text-slate-300 text-sm leading-relaxed mb-6">
               當下才撈進來的資料，例如它自己去查回來的文件、跑完一個指令拿到的結果。
             </p>
             <div className="space-y-3 mt-auto">
@@ -93,7 +93,7 @@ export default function SlideHarnessContext() {
               </div>
               <h3 className="text-xl font-bold text-sky-300">先給目錄，用到才展開<br/><span className="text-sm text-sky-600/80 font-normal">混合式設計</span></h3>
             </div>
-            <p className="text-sky-100 text-base leading-relaxed mb-4">
+            <p className="text-sky-100 text-sm leading-relaxed mb-4">
               平常只讓它知道「有哪些東西可以叫」，各佔一行標題。真的用到那一個的時候，才把整份內容讀進來。
             </p>
             <p className="text-sky-100/80 text-sm leading-relaxed mb-5">

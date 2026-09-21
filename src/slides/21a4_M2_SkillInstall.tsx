@@ -51,8 +51,9 @@ export default function SlideSkillInstall() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          三種來源做的是同一件事：<strong className="text-slate-100">把一份 SKILL.md 放到它找得到的地方。</strong>
-          所以某一種卡住的時候，直接換另一種，不用在那一種上面耗。
+          這三種裝法的結果是同一個：
+          <strong className="text-slate-100">一份 <code className="font-mono text-orange-300">SKILL.md</code> 躺在它找得到的資料夾裡。</strong>
+          所以這一種裝不起來就換下一種，拿到的東西一樣。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

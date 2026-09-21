@@ -69,7 +69,7 @@ export const UNIT_DEFS: UnitDef[] = [
   // 是採購決策，跟運作框架沒有關係。現在第一支把一條線講完：
   // Harness 是什麼 → 由哪些東西組成 → 它怎麼影響成本 → 所以要做哪三個動作 → 規則文件。
   // 那兩頁採購決策連同「怎麼少花一點」搬到章節五最後，成為 5-8。
-  { live: 46, title: '運作框架（Harness）的組成、成本與三個動作', anchor: 'Agent 運作框架與成本分析' },
+  { live: 46, title: '運作框架（Harness）：六個零件、成本與規則文件', anchor: 'Agent 運作框架與成本分析' },
   { live: 53, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
   { live: 58, title: '監督程度與權限模式', anchor: '監督與邊界' },
   { live: 60, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
