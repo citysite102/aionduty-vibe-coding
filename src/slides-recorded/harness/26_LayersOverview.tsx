@@ -5,6 +5,14 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 最後查證：2026-09-22，對照 code.claude.com/docs/en/memory 的 CLAUDE.md 表格。
+ * 四層全部仍在文件上，`CLAUDE.local.md` **沒有被淘汰**，原文是
+ * 「Local instructions | ./CLAUDE.local.md | Personal project-specific preferences;
+ * add to .gitignore | Your sandbox URLs, preferred test data | Just you (current project)」。
+ * 這一層被質疑過（實務上少見），但它是真的，例子也照文件給的那兩個改過，
+ * 原本的「我這台機器用的是 Windows」其實比較像家目錄那一層的事。
+ * 下次改版前先重查那張表。
+ *
  * 原本一頁總覽加四頁各講一層，共五頁。但四層的差別只有三個欄位
  * （放哪、放什麼、什麼時候載入），一張表就講得完，分開講反而比不出來。
  *
@@ -37,7 +45,7 @@ const LAYERS = [
     path: './CLAUDE.local.md',
     name: '本機',
     what: '只有你這台機器成立的事',
-    eg: '我這台機器用的是 Windows',
+    eg: '我本機測試用的資料庫網址',
   },
 ];
 
@@ -45,7 +53,7 @@ export const meta: RecordedMeta = {
   id: 'harness-26-layers',
   title: '一份不夠用的時候，還能放哪',
   script:
-    '一份放在專案根目錄的手冊可以用很久，多數人一直到專案變大都不需要動它。真的要分，位置有四個。全域放在家目錄的 .claude 底下，放你跨所有專案的個人偏好，換到哪個專案都帶著。專案根目錄是整門課的主力，前面你寫的那份就是它，會進版本控制，團隊共用一份。子目錄那份平常不佔空間，動到那一區才讀進來。最後是 CLAUDE.local.md，不進版控，寫只有你這台機器成立的事。四個位置的原則只有一句：越靠近你正在改的檔案，講得越具體。',
+    '一份放在專案根目錄的手冊可以用很久，專案變大才需要分。位置有四個。家目錄那份放跨專案的個人偏好，例如回答一律用繁體中文。專案根目錄那份是主力，前面你寫的就是它，會進版控，團隊共用。子目錄那份動到那一區才讀進來，例如這一區的元件一律用 canvas 畫。最後是 CLAUDE.local.md，不進版控，寫只有你這台機器成立的事，例如你本機測試用的網址。原則只有一句：越靠近你正在改的檔案講得越具體，同一件事講法不同時，下面那層蓋過上面。',
   seconds: 45,
   from: 58,
 };
@@ -55,10 +63,10 @@ export default function RecLayers() {
     <SlideLayout title={meta.title} subtitle="Four Layers" icon={Layers}>
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-500 text-xl leading-relaxed mb-3">
+          <p className="text-slate-500 text-base leading-relaxed mb-3">
             一份可以用很久，專案變大才會用到分層。
           </p>
-          <p className="text-slate-300 text-3xl font-bold leading-snug">
+          <p className="text-slate-300 text-xl font-bold leading-snug">
             越靠近你正在改的檔案，<Key>講得越具體</Key>
           </p>
         </AnimatedBlock>
@@ -71,19 +79,19 @@ export default function RecLayers() {
               style={{ paddingLeft: `${24 + i * 20}px` }}
             >
               <div className="flex items-baseline gap-4">
-                <span className={`font-mono text-lg ${l.lead ? 'text-sky-300' : 'text-slate-400'}`}>{l.path}</span>
-                <span className={`text-base ${l.lead ? 'text-sky-400/80' : 'text-slate-600'}`}>{l.name}</span>
+                <span className={`font-mono text-base ${l.lead ? 'text-sky-300' : 'text-slate-400'}`}>{l.path}</span>
+                <span className={`text-sm ${l.lead ? 'text-sky-400/80' : 'text-slate-600'}`}>{l.name}</span>
               </div>
               <div className="flex items-baseline gap-4 mt-1">
-                <span className={`text-lg ${l.lead ? 'text-slate-200' : 'text-slate-400'}`}>{l.what}</span>
-                <span className="text-slate-600 text-base">{l.eg}</span>
+                <span className={`text-base ${l.lead ? 'text-slate-200' : 'text-slate-400'}`}>{l.what}</span>
+                <span className="text-slate-600 text-sm">{l.eg}</span>
               </div>
             </div>
           ))}
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="px-1">
-          <p className="text-slate-400 text-xl leading-relaxed">
+          <p className="text-slate-400 text-base leading-relaxed">
             💡 同一件事講法不同時，下面的蓋過上面的。
           </p>
         </AnimatedBlock>

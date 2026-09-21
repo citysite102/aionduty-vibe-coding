@@ -1,19 +1,25 @@
-import { Sparkles, Flame, FileText, Palette, FlaskConical, Puzzle } from 'lucide-react';
+import { Sparkles, Flame, FileText, Palette, FlaskConical } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
+
+/** 畫面印的與複製鈕拿到的是同一份（CLAUDE.md A-4）。 */
+const GRILL_PROMPT = '/grill-me 我想做一個任務計時器，動工前先把我還沒想清楚的地方問出來。';
 
 const MORE_SKILLS = [
   {
     icon: FileText,
     name: '文件處理',
     tag: 'pdf / docx / xlsx / pptx',
-    desc: '讓 Agent 直接讀寫與產出 PDF、Word、Excel、簡報，不用自己另存另貼。',
+    desc: '直接讀寫與產出 PDF、Word、Excel、簡報，不用自己另存另貼。市集是 anthropics/skills。',
+    prompt: '把這份 PDF 裡的數字整理成一份 Excel，一個月份一個分頁，最後加一頁總計。',
     color: 'sky',
   },
   {
     icon: Palette,
     name: '前端設計',
     tag: 'frontend-design',
-    desc: '避開一眼就看出是 AI 做的那種畫面：預設字體、紫色漸層、千篇一律的版型。你也可以直接指定要幾個方向：「同一個需求做三版，A 精簡、B 功能齊、C 大膽一點，我挑一個再往下做。」挑之前不要讓它先做完整個網站。',
+    desc: '避開一眼就看出是 AI 做的那種畫面：預設字體、紫色漸層、千篇一律的版型。',
+    prompt: '同一個需求先做三版靜態示意，A 精簡、B 功能齊、C 大膽一點，我挑一個再往下做，先不要做完整個網站。',
     color: 'emerald',
   },
   {
@@ -21,6 +27,7 @@ const MORE_SKILLS = [
     name: '網頁測試',
     tag: 'webapp-testing',
     desc: '自動開瀏覽器點來點去，驗證你的網頁功能真的能跑。',
+    prompt: '用 webapp-testing 開瀏覽器，把這五個功能各點過一次，逐題回報通過或失敗。',
     color: 'indigo',
   },
 ];
@@ -74,8 +81,14 @@ export default function SlidePopularSkills() {
                 你不必自己先寫出完整規格，讓它<strong className="text-sky-300">「拷問」你</strong>：動工前把你的計畫拆成一棵決策樹，逐一逼你把還沒想清楚的地方講明白。
               </p>
 
-              <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-3 font-mono text-xs text-emerald-400">
+              <div className="bg-slate-950/50 border border-slate-800/80 rounded-xl px-3 py-2.5 mb-2 font-mono text-xs text-emerald-400">
                 $ npx skills add mattpocock/skills --skill=grill-me
+              </div>
+
+              <div className="bg-slate-950/70 border border-slate-800 rounded-xl px-3 py-2.5 mb-3">
+                <div className="text-xs font-mono uppercase tracking-widest text-slate-600 mb-1">Prompt</div>
+                <p className="text-sky-100 text-sm leading-relaxed">{GRILL_PROMPT}</p>
+                <CopyAction text={GRILL_PROMPT} className="mt-2" />
               </div>
 
               <div className="bg-slate-950/70 border border-slate-800 rounded-2xl p-4 space-y-2 mb-3">
@@ -100,7 +113,7 @@ export default function SlidePopularSkills() {
             {MORE_SKILLS.map((skill, idx) => {
               const Icon = skill.icon;
               return (
-                <AnimatedBlock key={skill.name} stepIndex={3 + idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-left flex flex-1 items-center gap-4">
+                <AnimatedBlock key={skill.name} stepIndex={3 + idx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 text-left flex flex-1 items-start gap-4">
                   <div className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 ${COLOR_MAP[skill.color]}`}>
                     <Icon size={20} />
                   </div>
@@ -110,17 +123,15 @@ export default function SlidePopularSkills() {
                       <code className="text-xs font-mono text-orange-400/90">{skill.tag}</code>
                     </div>
                     <p className="text-slate-400 text-sm leading-relaxed">{skill.desc}</p>
+                    {/* 這三格空間有限，Prompt 只給一行，不套外框與複製鈕（那會多吃 60px，整頁撐破）。
+                        要複製的那一份在左邊 Grill Me 那一格。 */}
+                    <p className="mt-1.5 text-sky-100/90 text-sm leading-relaxed">
+                      <span className="text-slate-600">Prompt　</span>{skill.prompt}
+                    </p>
                   </div>
                 </AnimatedBlock>
               );
             })}
-
-            <AnimatedBlock stepIndex={6} className="bg-slate-950 border border-slate-800 rounded-2xl p-4 text-left flex items-start gap-3 mt-auto">
-              <Puzzle size={18} className="text-slate-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-slate-400 leading-relaxed">
-                挑選原則很單純：<strong className="text-slate-300">哪件事你常做又懶得每次交代，就找一個 Skill 幫你固定下來。</strong>
-              </p>
-            </AnimatedBlock>
           </div>
 
         </div>

@@ -20,6 +20,10 @@ import { Callout } from '../components/Callout';
  * Rules 出現兩次是對的，不是重複：同樣放在 .claude/rules/ 底下，
  * 開頭沒有寫適用範圍的跟 CLAUDE.md 一起載入，寫了範圍的才是碰到那一區才讀。
  * 原本只列一條放在「整場都在」那一帶，卻寫「動到那一區才讀」，自己跟自己打架。
+ *
+ * 2026-09-22 兩列改成對稱標籤（沒寫範圍／有寫範圍）。原本上面那列叫 Rules、
+ * 說明寫「開頭沒有指定範圍的那種」，讀者在表上第一次碰到「指定範圍」這個詞是在
+ * 一個否定句裡，而正面的定義要往下四列才出現。兩邊都把條件寫進名字就不用倒著讀。
  */
 const BANDS = [
   {
@@ -34,8 +38,8 @@ const BANDS = [
         claudeOwned: true,
       },
       {
-        name: 'Rules',
-        job: '拆出去的規矩，開頭沒有指定範圍的那種',
+        name: 'Rules（沒寫範圍）',
+        job: '從手冊拆出去的規矩，整個專案都適用',
         who: '自動，跟 CLAUDE.md 一起讀進來',
         where: '.claude/rules/名稱.md',
         claudeOwned: true,
@@ -61,8 +65,8 @@ const BANDS = [
         claudeOwned: true,
       },
       {
-        name: 'Rules（限定範圍）',
-        job: '同樣放 rules，但開頭寫了它只管哪一區',
+        name: 'Rules（有寫範圍）',
+        job: '同一個資料夾，但檔案開頭寫了它只管哪一區',
         who: '動到那一區的檔案才讀進來',
         where: '.claude/rules/名稱.md',
         claudeOwned: true,
@@ -165,8 +169,8 @@ export default function SlideM2PartsMap() {
               只有某一區要記得，就放 Rules。
             </li>
             <li>
-              <strong className="text-slate-100">偶爾才跑，但一跑就有固定步驟？</strong>
-              做成 Skill，平常不佔空間。
+              <strong className="text-slate-100">偶爾才跑，但每次步驟都一樣？</strong>
+              做成 Skill。平常只載它的名字，真的要跑才展開全文。
             </li>
             <li>
               <strong className="text-slate-100">絕對不能發生的嗎？</strong>

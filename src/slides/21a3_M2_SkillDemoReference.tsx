@@ -1,4 +1,4 @@
-import { Compass, CornerDownRight } from 'lucide-react';
+import { Compass } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { GenericMock, DesignedMock, ReferencedMock } from '../components/SiteMock';
@@ -36,8 +36,6 @@ export default function Slide21a3SkillDemoReference() {
               </span>
               <span className="text-sm text-slate-300">一張截圖、一個網址，或一份配色與字體的說明</span>
             </div>
-            <CornerDownRight size={16} className="shrink-0 text-slate-600" />
-            <span className="text-sm text-slate-400">接在上一版之後繼續講</span>
           </div>
 
           <div className="whitespace-pre-wrap rounded-lg border border-slate-800 bg-slate-950 p-4 font-mono text-sm leading-relaxed text-slate-300">
@@ -118,7 +116,7 @@ export default function Slide21a3SkillDemoReference() {
 
         <Callout stepIndex={4}>
           <strong className="text-slate-100">Skill 讓它每次都照同一套做法做，參考設計管的是外觀。</strong>
-          真正決定你改不改得動的是名字：知道那塊叫什麼，才講得出要調哪裡。
+          而名字管的是精準度：知道每一塊叫什麼，你才講得出要調哪裡，來回的次數也少。
         </Callout>
 
       </div>

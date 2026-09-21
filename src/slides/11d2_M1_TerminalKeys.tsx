@@ -6,7 +6,8 @@ import { Callout } from '../components/Callout';
 /**
  * 最後查證：2026-09-21，逐條對照 code.claude.com/docs/en/permission-modes。
  * 當時的現況：六個模式的設定值是 default（介面叫 Manual）、acceptEdits、plan、
- * auto、dontAsk、bypassPermissions。Pro、Max 與 Team 開機在 auto，按第一下進 default，
+ * auto、dontAsk、bypassPermissions。Pro、Max 與 Team 在終端機與 VS Code 開機在 auto
+ * （桌面版記的是上次在那個資料夾選的，不一定是 auto），按第一下進 default，
  * 之後 default → acceptEdits → plan → 回 default，選用模式插在 plan 後面。
  * 循環順序吻合。這一輪改了三處內文：原本寫「Pro 與 Max」漏了 Team；
  * 原本把 manual 說成「每一步都問你」，但官方寫的是那個模式下 Reads only 不必核准，

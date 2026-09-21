@@ -11,14 +11,15 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 要動格子順序之前先看那兩頁還在不在原位。
  *
  * 每一格開頭那句「它缺的是什麼」不要換成「解的是第 N 個浪費」：
- * 那份浪費清單（11c3_M1_SpendLess）現在排在章節五最後，學員讀到這裡還沒看過。
+ * 那份浪費清單原本在 11c3_M1_SpendLess，2026-09-22 連同另外兩頁採購決策整組移除了，
+ * 全片已經沒有那三個浪費，不要再拿它當這三格的骨架。
  */
 export default function SlidePillars() {
   return (
     <SlideLayout title="三個動作，提高每次交辦的效益" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-300 text-base leading-relaxed max-w-4xl mx-auto mt-2 mb-6 text-center">
-        同樣一件事交代出去，花多少、做得準不準，你能動的就是下面三件。
-        <strong className="text-slate-100">模型換成更新的版本，這三件照樣要做。</strong>
+        同一件事交代出去，結果準不準、花掉多少，你能調整的就是下面這三件。
+        <strong className="text-slate-100">換成更新的模型，這三件照樣要做。</strong>
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">
@@ -65,8 +66,8 @@ export default function SlidePillars() {
           */}
           <ul className="space-y-3">
             <li className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <strong className="text-sky-300 block mb-1.5">系統擴充 (MCP)</strong>
-              <span className="text-slate-400 text-sm leading-relaxed block">讓它碰得到你電腦以外的東西。</span>
+              <strong className="text-sky-300 block mb-1.5">外部連線 (MCP)</strong>
+              <span className="text-slate-400 text-sm leading-relaxed block">照 MCP 這套規範接上外部服務，它才碰得到你電腦以外的東西。</span>
             </li>
             <li className="bg-slate-950 p-4 rounded-xl border border-slate-800">
               <strong className="text-sky-300 block mb-1.5">專屬技能 (Skills)</strong>

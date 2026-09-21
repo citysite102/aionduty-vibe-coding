@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Play, AlertCircle, CheckCircle, ArrowRight, Zap, Cpu, Activity } from 'lucide-react';
+import { Box, Play, AlertCircle, CheckCircle, ArrowRight, Zap, Cpu, Activity, Lightbulb } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function SlideHarnessIntro() {
@@ -9,7 +10,7 @@ export default function SlideHarnessIntro() {
   return (
     <SlideLayout title="什麼是運作框架（Harness）？" subtitle="What Is a Harness?" icon={Box}>
       
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto mt-2 items-stretch text-left pb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch text-left">
         
         {/* Left Column: Conceptual Core */}
         <div className="lg:col-span-5 flex flex-col justify-between">
@@ -37,7 +38,7 @@ export default function SlideHarnessIntro() {
                 </div>
                 <div className="border-t border-slate-900 pt-2 flex gap-2.5">
                   <div className="text-sky-400 font-bold shrink-0">軌道＝運作框架：</div>
-                  <div className="text-slate-400">你事先準備好的東西：專案規範（CLAUDE.md）、能呼叫的工具（MCP）、可以動的範圍。同一顆模型，有沒有這一層，產出差很多。</div>
+                  <div className="text-slate-400">你事先準備好的東西：專案規範（CLAUDE.md）、能呼叫的工具、可以動的範圍。同一顆模型，有沒有這一層，產出差很多。</div>
                 </div>
               </div>
             </div>
@@ -141,7 +142,7 @@ export default function SlideHarnessIntro() {
                         <span className="text-xs font-mono text-red-400 font-bold bg-red-500/10 px-1.5 py-0.5 rounded border border-red-500/20 flex items-center gap-1">
                           ✗ 接不上的程式碼
                         </span>
-                        <span className="text-xs font-mono text-slate-500">無法理解檔案結構、瞎編 API</span>
+                        <span className="text-xs font-mono text-slate-500">無法理解檔案結構、自己湊一個 API 名稱</span>
                       </div>
                     </div>
                   </div>
@@ -217,25 +218,31 @@ export default function SlideHarnessIntro() {
                       <span className="text-sky-400 font-bold flex items-center gap-1">
                         🚀 軌道引導 (Rails)
                       </span>
-                      <span className="text-slate-400">帶入 CLAUDE.md 規範、搭配本機 MCP 工具、自動核對型別與程式碼。</span>
+                      <span className="text-slate-400">帶入 CLAUDE.md 規範、搭配接上的 MCP 伺服器、自動核對型別與程式碼。</span>
                     </>
                   )}
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-slate-950/40 rounded-2xl border border-slate-800 text-xs text-slate-300">
-              <span className="text-sky-400 font-bold block mb-1">💡 這代表什麼：</span>
-              {activeTab === 'without' ? (
-                <span>在沒有 CLAUDE.md 或 MCP 等 Harness 設定時，AI 只能像一般網頁對話框一樣瞎改，容易偏離，寫出跟專案架構衝突的多餘程式碼。</span>
-              ) : (
-                <span>把運作框架架乾淨（專案讀寫權、環境相依套件與明確規則），AI 就在對的範圍裡工作，<strong>比較常一次就寫出能編譯通過的程式碼</strong>。</span>
-              )}
-            </div>
           </AnimatedBlock>
         </div>
-        
+
       </div>
+
+      {/*
+        「這代表什麼」原本塞在右欄卡片的底部，字級 text-xs，跟上面的流程圖搶同一塊視線。
+        它其實是整頁的結論，所以拉出來獨立成一塊、放到最下面，並吃最後一個 stepIndex：
+        講者把兩個分頁都切過一輪之後再按出來。內容仍跟著分頁走，兩邊各講各的結論。
+      */}
+      <Callout tone="focus" icon={Lightbulb} label="這代表什麼" stepIndex={3} className="max-w-6xl mx-auto mt-3 text-left">
+        {activeTab === 'without' ? (
+          <>沒有 <code className="font-mono text-orange-300">CLAUDE.md</code>，也沒有接上任何工具的時候，AI 跟一般的網頁對話框沒什麼兩樣，容易寫出跟你專案架構衝突的多餘程式碼。</>
+        ) : (
+          <>把運作框架架乾淨（專案讀寫權、環境相依套件與明確規則），AI 就在對的範圍裡工作，<strong className="text-slate-100">比較常一次就寫出能編譯通過的程式碼</strong>。</>
+        )}
+      </Callout>
+
     </SlideLayout>
   );
 }

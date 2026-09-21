@@ -2,6 +2,8 @@ import { PackagePlus, FolderPlus, Store, MessageSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
+import pluginCommand from '../../assets/ui/plugin-command.png';
+import pluginDiscover from '../../assets/ui/plugin-discover.png';
 
 /**
  * 現場最卡的一頁，原本不存在。
@@ -18,42 +20,45 @@ import { Callout } from '../components/Callout';
 const WAYS = [
   {
     icon: FolderPlus,
-    tag: '最穩',
+    tag: '最穩，不用連網',
     name: '自己寫一個',
-    body: '一個資料夾加一個檔案就是一個 Skill，不用市集、不用網路，桌面版跟終端機都一樣。檔案開頭要有 name 與 description 兩個欄位，name 要跟資料夾一致。',
+    body: '一個資料夾放一個 SKILL.md 就是一個 Skill，不用市集也不用網路。檔案開頭要寫 name 與 description，name 要跟資料夾名稱一致。',
     how: '.claude/skills/名稱/SKILL.md',
     prompt: '「幫我建一個叫 weekly-report 的 Skill，內容是我每週整理報表的步驟：⋯」',
     accent: true,
+    shots: false,
   },
   {
     icon: Store,
-    tag: '裝現成的',
+    tag: '裝別人做好的',
     name: '從市集裝',
-    body: '官方市集是 anthropics/claude-plugins-official，社群也有自己的。',
-    how: '輸入 /plugin，選市集，挑一個裝',
+    body: '官方市集是 anthropics/claude-plugins-official。挑之前先看說明，知道它會做什麼再裝。',
+    how: '/plugin → Discover 分頁',
     prompt: null,
     accent: false,
+    shots: true,
   },
   {
     icon: MessageSquare,
-    tag: '懶人法',
+    tag: '不確定指令就用這個',
     name: '直接叫它裝',
     body: '你不確定該打哪個指令的時候，把名字給它就好，它會自己去找、自己放到對的位置。',
     how: null,
     prompt: '「幫我安裝 frontend-design 這個 Skill，裝完告訴我怎麼叫它。」',
     accent: false,
+    shots: false,
   },
 ];
 
 export default function SlideSkillInstall() {
   return (
-    <SlideLayout title="Skill 怎麼裝，怎麼知道它裝好了" subtitle="Installing a Skill" icon={PackagePlus}>
-      <div className="max-w-6xl mx-auto space-y-4 pb-6">
+    <SlideLayout title="Skill 的三種來源，怎麼確認它裝好了" subtitle="Installing a Skill" icon={PackagePlus}>
+      <div className="max-w-6xl mx-auto space-y-2 pb-2">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這三種裝法的結果是同一個：
-          <strong className="text-slate-100">一份 <code className="font-mono text-orange-300">SKILL.md</code> 躺在它找得到的資料夾裡。</strong>
-          所以這一種裝不起來就換下一種，拿到的東西一樣。
+          三種來源，最後拿到的都是同一個東西：
+          <strong className="text-slate-100">一份 <code className="font-mono text-orange-300">SKILL.md</code>，放在它找得到的資料夾裡。</strong>
+          差別只在這份檔案是你自己寫的，還是拿別人做好的。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -90,6 +95,26 @@ export default function SlideSkillInstall() {
                     {w.how}
                   </div>
                 )}
+                {/*
+                  實機截圖，不是示意圖。兩張合起來回答「打了 /plugin 之後會看到什麼」：
+                  上面是輸入框的樣子，下面是 Plugins 面板，重點在 Discover 那個分頁。
+                  第二張用 object-top 裁掉下半，完整放會把整頁撐高約 200px。
+                  換 Claude Code 版本之後畫面會變，要重截請一起換掉 assets/ui/ 那兩個檔案。
+                */}
+                {w.shots && (
+                  <div className="mt-auto space-y-2">
+                    <img
+                      src={pluginCommand}
+                      alt="Claude Code 的輸入框，打上 /plugin"
+                      className="w-full rounded-lg border border-slate-800"
+                    />
+                    <img
+                      src={pluginDiscover}
+                      alt="Plugins 面板，上方有 Yours 與 Discover 兩個分頁"
+                      className="w-full h-12 rounded-lg border border-slate-800 object-cover object-top"
+                    />
+                  </div>
+                )}
                 {w.prompt && (
                   <div className="mt-auto rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
                     <div className="text-xs font-mono uppercase tracking-widest text-slate-600 mb-1">Prompt</div>
@@ -103,14 +128,19 @@ export default function SlideSkillInstall() {
           })}
         </div>
 
+        {/*
+          這兩塊原本上下疊，加上市集截圖之後整頁超出可視高度（792 對 584）。
+          它們講的是同一件事的兩面（沒反應怎麼辦／怎麼確認它在），並排讀得通，
+          而且省下一整塊的高度。再往這一頁加東西之前先量一次。
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch">
         <Callout tone="warn" label="檔案明明建好了，它卻沒反應" stepIndex={5}>
           <strong className="text-slate-100">先重開一次對話。</strong>
-          新增的 Skill 與規則檔，是在對話開始的時候掃進來的。
-          你在對話中途建的檔案，這一輪它不會知道，輸入{' '}
-          <code className="font-mono text-orange-300">/clear</code> 或關掉重開就會掃到。
-          <span className="block mt-2 text-slate-400">
-            重開之後還是沒有，就檢查兩件事：資料夾名稱跟 SKILL.md 裡寫的 name 是不是一致，
-            以及檔案是不是真的放在 <code className="font-mono text-slate-300">.claude/skills/</code> 底下（那個資料夾預設是隱藏的）。
+          Skill 是在對話開始時掃進來的，中途建的這一輪它不知道。輸入{' '}
+          <code className="font-mono text-orange-300">/clear</code> 或關掉重開。
+          <span className="block mt-2 text-sm text-slate-400">
+            還是沒有，就檢查資料夾名稱跟 SKILL.md 裡的 name 一不一致，以及檔案在不在{' '}
+            <code className="font-mono text-slate-300">.claude/skills/</code>（預設隱藏）。
           </span>
         </Callout>
 
@@ -122,6 +152,7 @@ export default function SlideSkillInstall() {
             也可以輸入 <code className="font-mono text-orange-300">/context</code>，載進來的東西會列在裡面。
           </p>
         </AnimatedBlock>
+        </div>
 
       </div>
     </SlideLayout>

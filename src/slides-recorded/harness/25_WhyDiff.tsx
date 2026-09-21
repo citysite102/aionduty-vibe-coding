@@ -7,7 +7,7 @@ export const meta: RecordedMeta = {
   id: 'harness-25-why-diff',
   title: '規矩該存在哪：這次對話，還是這個專案',
   script:
-    '兩邊的差別不在它變聰明了，那是同一個模型。差別是那三條規矩換了一個存放的位置。這就是 CLAUDE.md 在做的事，把你的要求從這次對話搬到這個專案。沒有手冊的時候，規矩存在這次對話裡，對話關掉就沒了，下一輪要從頭再講一次。寫進 CLAUDE.md 之後，規矩存在這個專案裡，每一次新對話都從同一個起點開始，你不必再重新交代那三條。',
+    '兩邊的差別不在它變聰明了，那是同一個模型。差別是那三條規矩現在有一份固定的檔案，而那份檔案每次開新對話都會被自動讀進去。這就是 CLAUDE.md 在做的事，把你的要求從這次對話搬到這個專案。沒有手冊的時候，規矩只存在這次對話裡，對話關掉就沒了，下一輪要從頭再講一次。寫進 CLAUDE.md 之後，不管你開幾次、誰來開，載入的都是同一份，你不必再重新交代那三條。',
   seconds: 38,
   from: 55,
 };
@@ -18,19 +18,19 @@ export default function RecWhyDiff() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-3">
           
-          <p className="text-slate-100 text-4xl font-bold leading-snug">
+          <p className="text-slate-100 text-2xl font-bold leading-snug">
             把你的要求從這次對話，搬到這個專案
           </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
           <div className="flex items-baseline gap-5">
-            <span className="text-slate-500 text-lg shrink-0 w-32">存在對話裡</span>
-            <span className="text-slate-400 text-xl">關掉就沒了，下一輪重講一次</span>
+            <span className="text-slate-500 text-base shrink-0 w-32">存在對話裡</span>
+            <span className="text-slate-400 text-base">關掉就沒了，下一輪重講一次</span>
           </div>
           <div className="flex items-baseline gap-5">
-            <span className="text-sky-400 text-lg font-bold shrink-0 w-32">存在專案裡</span>
-            <span className="text-slate-300 text-xl">每次新對話都從同一個起點開始</span>
+            <span className="text-sky-400 text-base font-bold shrink-0 w-32">存在專案裡</span>
+            <span className="text-slate-300 text-base">每次新對話都從同一個起點開始</span>
           </div>
         </AnimatedBlock>
       </RecPage>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Key, Terminal, Globe, Shield, ShieldAlert, Check, X, ArrowRight, RefreshCw, Layers } from 'lucide-react';
+import { Key, Terminal, Globe, MonitorDot, Shield, ShieldAlert, Check, X, ArrowRight, RefreshCw, Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -13,6 +13,15 @@ import { motion, AnimatePresence } from 'motion/react';
  *     而且真正的起始模式是 auto。已改成「手動 manual」，設定值寫在內文裡。
  *   - 起始模式：「On Pro, Max, and Team plans, the built-in starting permission mode is
  *     auto mode.」原本只寫 Pro 與 Max，漏了 Team。
+ *   - 2026-09-22 再查一次，這一條有前提，原本寫得太滿：文件的表格那一列是
+ *     「A Pro, Max, or Team plan, **in a terminal or through the VS Code extension**」。
+ *     桌面版走的是另一套：模式「remembered per folder」，而且優先於 settings 的 defaultMode。
+ *     另外這幾種情況一律回 default：第一次裝好或升級後的第一個 session、feature flag 抓不到、
+ *     disableAutoMode、claude -p 與 SDK、Bedrock/Vertex/Foundry/gateway、Enterprise 與 Console API key。
+ *     版本也有門檻（macOS/Linux/WSL v2.1.228 以上，原生 Windows v2.1.233 以上），舊版一律 Manual。
+ *   - 網頁版（2026-09-22 改寫）：原本畫的是「三個開關」，現況是輸入框旁的模式下拉。
+ *     雲端工作階段只有 Auto、Accept edits、Plan，沒有 Manual（因為雲端不管哪個模式都先放行改檔案），
+ *     也不給 Bypass；遠端遙控本機的工作階段則是 Manual、Accept edits、Plan。
  *   - acceptEdits：「Reads, file edits, and common filesystem commands (mkdir, touch,
  *     mv, cp, etc.)」，跟這一頁一致。
  *   - 循環：「From `auto`, the first press switches to `default`, and the cycle then runs
@@ -22,40 +31,46 @@ import { motion, AnimatePresence } from 'motion/react';
  * 下次改版前先重查那一節，不要憑印象改。
  *
  * 這一組數值與 11d2_M1_TerminalKeys.tsx 同步，改一邊要改兩邊。
+ *
+ * 2026-09-22 補桌面版分頁。來源是實機截圖（不是文件）：輸入框左下角那個顯示 Auto 的
+ * 下拉打開之後，標題寫 Mode，底下依序是 Auto 1 / Manual 2 / Accept edits 3 / Plan 4，
+ * 每一個帶一行英文說明，最後一列 Bypass permissions 右邊是一個 Enable，不給編號。
+ * 也就是桌面版比終端機少了 dontAsk，而 bypass 要另外啟用，不在數字快捷鍵裡。
+ * C-3：介面位置這一類要開 app 對照，不能只看文件。下次改版前重截一次。
  */
+
+/**
+ * 桌面版輸入框那個 Mode 下拉的實際內容，2026-09-22 從 app 上抄下來的。
+ * 數字是鍵盤快捷鍵，Bypass permissions 沒有編號，右邊是一個 Enable。
+ */
+const DESKTOP_MODES = [
+  { name: 'Auto', note: 'Claude handles permission decisions', key: '1', current: true },
+  { name: 'Manual', note: 'Always ask before making changes', key: '2', current: false },
+  { name: 'Accept edits', note: 'Automatically accept all file edits', key: '3', current: false },
+  { name: 'Plan', note: 'Create a plan before making changes', key: '4', current: false },
+  { name: 'Bypass permissions', note: '要另外啟用，不在數字快捷鍵裡', key: null, current: false },
+];
+
+/**
+ * claude.ai/code 的雲端工作階段只給這三個，2026-09-22 從 app 截圖對照官方文件確認：
+ * 「Cloud sessions: Accept edits, Plan, and Auto. Accept edits corresponds to `default`
+ * mode: cloud sessions pre-approve file edits regardless of mode, so the dropdown shows
+ * Accept edits instead of Manual ... Bypass permissions isn't available.」
+ * （遠端遙控本機的那種工作階段不一樣，給的是 Manual、Accept edits、Plan。）
+ */
+const WEB_MODES = [
+  { name: 'Auto', note: 'Claude handles permission decisions', key: '1', current: true },
+  { name: 'Accept edits', note: 'Automatically accept all file edits', key: '2', current: false },
+  { name: 'Plan', note: 'Create a plan before making changes', key: '3', current: false },
+];
 
 const focusRing = 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950';
 
 export default function SlideCheatPerms() {
-  const [activeTab, setActiveTab] = useState<'terminal' | 'web'>('terminal');
+  const [activeTab, setActiveTab] = useState<'terminal' | 'desktop' | 'web'>('terminal');
 
   // Terminal mockup interactive state
   const [terminalMode, setTerminalMode] = useState<'default' | 'auto-accept' | 'plan' | 'auto' | 'dont-ask' | 'bypass'>('default');
-
-  // Web UI mockup interactive states
-  const [allowRead, setAllowRead] = useState(true);
-  const [allowWrite, setAllowWrite] = useState(false);
-  const [allowCommands, setAllowCommands] = useState(false);
-  const [sandboxEscalate, setSandboxEscalate] = useState(false);
-
-  const applyWebPreset = (preset: 'strict' | 'auto' | 'bypass') => {
-    if (preset === 'strict') {
-      setAllowRead(true);
-      setAllowWrite(false);
-      setAllowCommands(false);
-      setSandboxEscalate(false);
-    } else if (preset === 'auto') {
-      setAllowRead(true);
-      setAllowWrite(true);
-      setAllowCommands(false);
-      setSandboxEscalate(false);
-    } else if (preset === 'bypass') {
-      setAllowRead(true);
-      setAllowWrite(true);
-      setAllowCommands(true);
-      setSandboxEscalate(true);
-    }
-  };
 
   // 這個模擬器只演 default → acceptEdits → plan 這三格。實際上 Pro/Max 開機在 auto，
   // 按第一下才進 manual（default 的介面名稱），而且啟用的選用模式會插在 plan 後面。
@@ -65,16 +80,12 @@ export default function SlideCheatPerms() {
   const cycleTerminalMode = () => {
     if (terminalMode === 'default') {
       setTerminalMode('auto-accept');
-      applyWebPreset('auto');
     } else if (terminalMode === 'auto-accept') {
       setTerminalMode('plan');
-      applyWebPreset('strict');
     } else if (terminalMode === 'plan') {
       setTerminalMode('auto');
-      applyWebPreset('auto');
     } else {
       setTerminalMode('default');
-      applyWebPreset('strict');
     }
   };
 
@@ -96,7 +107,9 @@ export default function SlideCheatPerms() {
 
               {/*
                 上一頁花整頁建立「兩個旋鈕」那組心智模型，這一頁原本一次都沒用到，
-                兩頁只是前後相鄰。每一格補一行標它轉的是哪一個旋鈕，前一頁才不是講完就丟。
+                兩頁只是前後相鄰。每一格補一行標它調的是哪一個，前一頁才不是講完就丟。
+                2026-09-22 拿掉「旋鈕一／旋鈕二」這個代號，只留名字：代號本身不帶資訊，
+                讀者得回上一頁才知道一號是哪一個。
               */}
               <p className="text-xs text-slate-400 leading-relaxed mb-3">
                 上一頁那兩個旋鈕，在 Claude Code 裡就是下面這六個模式。
@@ -109,11 +122,10 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('default');
-                    applyWebPreset('strict');
                   }}
-                  aria-pressed={terminalMode === 'default' && !allowWrite}
+                  aria-pressed={terminalMode === 'default'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
-                    terminalMode === 'default' && !allowWrite
+                    terminalMode === 'default'
                       ? 'bg-sky-500/10 border-sky-500/40 shadow'
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
                   }`}
@@ -126,7 +138,7 @@ export default function SlideCheatPerms() {
                     修改檔案、執行終端機指令前會停下來徵求同意；純讀取不打擾。設定值仍叫 <code className="font-mono">default</code>，介面上寫 Manual。適合金流、認證設定或陌生專案。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕一 監督程度　動手前都先問
+                    監督程度　動手前都先問
                   </div>
                 </button>
 
@@ -135,11 +147,10 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('auto-accept');
-                    applyWebPreset('auto');
                   }}
-                  aria-pressed={terminalMode === 'auto-accept' && allowWrite && !allowCommands}
+                  aria-pressed={terminalMode === 'auto-accept'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
-                    terminalMode === 'auto-accept' && allowWrite && !allowCommands
+                    terminalMode === 'auto-accept'
                       ? 'bg-emerald-500/10 border-emerald-500/40 shadow'
                       : 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
                   }`}
@@ -157,7 +168,7 @@ export default function SlideCheatPerms() {
                     改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp 這類搬檔案的指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕一 監督程度　改檔案不問，跑指令還問
+                    監督程度　改檔案不問，跑指令還問
                   </div>
                 </button>
 
@@ -166,7 +177,6 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('plan');
-                    applyWebPreset('strict');
                   }}
                   aria-pressed={terminalMode === 'plan'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
@@ -183,7 +193,7 @@ export default function SlideCheatPerms() {
                     它會翻專案、提出方案給你看，<strong className="text-slate-100">但不動任何檔案</strong>。適合先確認方向再放手做。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕二 邊界大小　縮到只能讀
+                    邊界大小　縮到只能讀
                   </div>
                 </button>
 
@@ -192,7 +202,6 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('auto');
-                    applyWebPreset('auto');
                   }}
                   aria-pressed={terminalMode === 'auto'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
@@ -203,13 +212,13 @@ export default function SlideCheatPerms() {
                 >
                   <div className="flex justify-between items-center mb-1">
                     <span className="font-bold text-amber-400 text-sm tracking-wide">全自動 <code className="text-xs font-mono opacity-70">auto</code></span>
-                    <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">訂閱方案的預設</span>
+                    <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">終端機的起始模式</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    多數動作不問你，改由另一個模型在背後檢查它跟你的要求對不對得上。Pro、Max 與 Team 開機就在這一個，按第一下 Shift + Tab 才會離開它。
+                    多數動作不問你，改由另一個模型在背後檢查它跟你的要求對不對得上。Pro、Max 與 Team 方案<strong>在終端機與 VS Code</strong> 開機就在這一個，按第一下 Shift + Tab 離開。桌面版記的是你上次在那個資料夾選的模式，不一定是 auto。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕一 監督程度　都不問，改由程式把關
+                    監督程度　都不問，改由程式把關
                   </div>
                 </button>
 
@@ -218,7 +227,6 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('dont-ask');
-                    applyWebPreset('strict');
                   }}
                   aria-pressed={terminalMode === 'dont-ask'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
@@ -232,10 +240,10 @@ export default function SlideCheatPerms() {
                     <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">不在循環裡</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    只跑你事先核准的工具，其餘一律擋下，而且不會停下來問你。它按不到，只能用啟動參數進去。
+                    只跑三種：本來就不用問的（例如讀你資料夾裡的檔案）、你在設定檔 <code className="font-mono">permissions.allow</code> 裡寫好的那幾條、以及 Hook 放行的。其餘一律擋下，不會停下來問你。它按不到，只能用啟動參數進去。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕二 邊界大小　縮到只剩你點名的工具
+                    邊界大小　縮到只剩你點名的工具
                   </div>
                 </button>
 
@@ -244,7 +252,6 @@ export default function SlideCheatPerms() {
                   type="button"
                   onClick={() => {
                     setTerminalMode('bypass');
-                    applyWebPreset('bypass');
                   }}
                   aria-pressed={terminalMode === 'bypass'}
                   className={`w-full p-3 rounded-2xl border text-left transition-colors duration-150 ${focusRing} ${
@@ -261,7 +268,7 @@ export default function SlideCheatPerms() {
                     無條件放行所有層級的操作，包含高危指令與檔案覆寫。<strong>僅限與外部隔離的 Docker 容器。</strong>
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    旋鈕一＋旋鈕二　兩個都轉到底
+                    監督程度＋邊界大小　兩個都轉到底
                   </div>
                 </button>
               </div>
@@ -289,7 +296,20 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <Terminal size={14} />
-                  Terminal 版本 (CLI Indicator)
+                  終端機
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveTab('desktop')}
+                  aria-pressed={activeTab === 'desktop'}
+                  className={`flex-1 text-center py-2 text-xs font-bold rounded-lg transition-colors duration-150 flex items-center justify-center gap-1.5 ${focusRing} ${
+                    activeTab === 'desktop'
+                      ? 'bg-slate-800 text-sky-400 border border-slate-800'
+                      : 'text-slate-400 hover:text-slate-200'
+                  }`}
+                >
+                  <MonitorDot size={14} />
+                  桌面版
                 </button>
                 <button
                   type="button"
@@ -302,7 +322,7 @@ export default function SlideCheatPerms() {
                   }`}
                 >
                   <Globe size={14} />
-                  網頁版設定 (Cloud Web Console)
+                  網頁版
                 </button>
               </div>
 
@@ -357,7 +377,7 @@ export default function SlideCheatPerms() {
                               <div className="text-emerald-300">✓ 模式：auto：全放行，但每個動作先經過一道背景檢查</div>
                             )}
                             {terminalMode === 'dont-ask' && (
-                              <div className="text-slate-300">✓ 模式：dontAsk：只放行你事先核准的工具，其餘一律擋下，不會停下來問你</div>
+                              <div className="text-slate-300">✓ 模式：dontAsk：只放行 permissions.allow 寫好的那幾條，其餘一律擋下，不問</div>
                             )}
                             {terminalMode === 'bypass' && (
                               <div className="text-red-400">⚠ 模式：bypassPermissions：所有操作一律放行，不再詢問。請確認你在隔離容器裡</div>
@@ -393,121 +413,95 @@ export default function SlideCheatPerms() {
                         </div>
                       </div>
                     </motion.div>
+                  ) : activeTab === 'desktop' ? (
+                    /* DESKTOP APP MOCKUP：輸入框左下角的 Mode 下拉 */
+                    <motion.div
+                      key="desktop"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="bg-slate-950 rounded-2xl border border-slate-800 p-4 flex-1 flex flex-col relative min-h-[260px]"
+                    >
+                      <div className="text-xs text-slate-500 mb-3">
+                        輸入框左下角那個顯示 <span className="font-mono text-slate-300">Auto</span> 的下拉，點開長這樣
+                      </div>
+
+                      <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+                        <div className="text-xs text-slate-500 mb-2">Mode</div>
+                        <div className="space-y-1.5">
+                          {DESKTOP_MODES.map((m) => (
+                            <div
+                              key={m.name}
+                              className={`flex items-start justify-between gap-3 rounded-lg px-3 py-2 ${
+                                m.current ? 'bg-slate-800/70 border border-slate-700' : 'border border-transparent'
+                              }`}
+                            >
+                              <div className="min-w-0">
+                                <div className="text-sm font-bold text-slate-100 leading-tight">{m.name}</div>
+                                <div className="text-xs text-slate-500 leading-tight mt-0.5">{m.note}</div>
+                              </div>
+                              <div className="flex items-center gap-2 shrink-0">
+                                {m.current && <Check size={14} className="text-sky-400" />}
+                                {m.key ? (
+                                  <span className="font-mono text-xs text-slate-500">{m.key}</span>
+                                ) : (
+                                  <span className="rounded border border-slate-700 px-2 py-0.5 text-xs text-slate-400">Enable</span>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mt-3 text-xs text-slate-500 leading-relaxed">
+                        桌面版只到這四個加一個 Bypass，
+                        <span className="font-mono text-slate-400">dontAsk</span> 不在這裡，
+                        它只能用啟動參數指定。
+                      </div>
+                    </motion.div>
                   ) : (
-                    /* WEB VIEW MOCKUP */
+                    /* WEB VIEW MOCKUP：claude.ai/code 輸入框旁的模式下拉 */
                     <motion.div
                       key="web"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="bg-slate-950 rounded-2xl border border-slate-800 p-4 text-xs text-slate-300 flex-1 flex flex-col justify-between relative min-h-[260px]"
+                      className="bg-slate-950 rounded-2xl border border-slate-800 p-4 text-xs text-slate-300 flex-1 flex flex-col relative min-h-[260px]"
                     >
-                      <div>
-                        {/* Browser Bar */}
-                        <div className="flex items-center justify-between border-b border-slate-900 pb-2 mb-3 text-slate-500 text-xs font-mono">
-                          <span className="flex items-center gap-1">
-                            <span className="w-2 h-2 rounded-full bg-indigo-500/40" />
-                            <span className="ml-1">https://claude.ai/code</span>
-                          </span>
-                          <span className="text-indigo-400">介面為示意</span>
-                        </div>
+                      <div className="flex items-center justify-between border-b border-slate-900 pb-2 mb-3 text-slate-500 text-xs font-mono">
+                        <span className="flex items-center gap-1">
+                          <span className="w-2 h-2 rounded-full bg-indigo-500/40" />
+                          <span className="ml-1">https://claude.ai/code</span>
+                        </span>
+                        <span className="text-indigo-400">雲端工作階段</span>
+                      </div>
 
-                        {/* Quick web presets */}
-                        <div className="flex gap-2 mb-4">
-                          <button
-                            type="button"
-                            onClick={() => applyWebPreset('strict')}
-                            className={`flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800 transition-colors duration-150 ${focusRing}`}
-                            aria-label="套用嚴格安全設定"
-                          >
-                            🛡️ 嚴格安全
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => applyWebPreset('auto')}
-                            className={`flex-1 py-1 px-2 bg-slate-900 hover:bg-slate-800 text-xs font-bold text-slate-300 rounded border border-slate-800 transition-colors duration-150 ${focusRing}`}
-                            aria-label="套用自動核可設定"
-                          >
-                            ⚡ 自動核可
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => applyWebPreset('bypass')}
-                            className={`flex-1 py-1 px-2 bg-red-950/20 hover:bg-red-950/30 text-xs font-bold text-red-400 rounded border border-red-900/30 transition-colors duration-150 ${focusRing}`}
-                            aria-label="套用全放行示意設定"
-                          >
-                            ⚠️ Bypassed
-                          </button>
-                        </div>
-
-                        {/* Interactive Toggles */}
-                        <div className="space-y-2.5">
-                          {/* Toggle 1 */}
-                          <div className="flex justify-between items-center p-2 bg-slate-900/40 rounded-xl border border-slate-800">
-                            <div>
-                              <div className="font-bold text-slate-200 text-xs">允許 Agent 讀取本機檔案</div>
-                              <div className="text-xs text-slate-500">Read Files (CLAUDE.md, schema.ts)</div>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => setAllowRead(!allowRead)}
-                              role="switch"
-                              aria-checked={allowRead}
-                              aria-label="允許 Agent 讀取本機檔案"
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowRead ? 'bg-indigo-500' : 'bg-slate-800'}`}
+                      <div className="rounded-xl border border-slate-800 bg-slate-900/70 p-3">
+                        <div className="text-xs text-slate-500 mb-2">Mode</div>
+                        <div className="space-y-1.5">
+                          {WEB_MODES.map((m) => (
+                            <div
+                              key={m.name}
+                              className={`flex items-start justify-between gap-3 rounded-lg px-3 py-2 ${
+                                m.current ? 'bg-slate-800/70 border border-slate-700' : 'border border-transparent'
+                              }`}
                             >
-                              <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowRead ? 'translate-x-4' : 'translate-x-0'}`} />
-                            </button>
-                          </div>
-
-                          {/* Toggle 2 */}
-                          <div className="flex justify-between items-center p-2 bg-slate-900/40 rounded-xl border border-slate-800">
-                            <div>
-                              <div className="font-bold text-slate-200 text-xs">允許自動寫入並儲存檔案</div>
-                              <div className="text-xs text-slate-500">Write & Overwrite Files Directly</div>
+                              <div className="min-w-0">
+                                <div className="text-sm font-bold text-slate-100 leading-tight">{m.name}</div>
+                                <div className="text-xs text-slate-500 leading-tight mt-0.5">{m.note}</div>
+                              </div>
+                              <div className="flex items-center gap-2 shrink-0">
+                                {m.current && <Check size={14} className="text-indigo-400" />}
+                                <span className="font-mono text-xs text-slate-500">{m.key}</span>
+                              </div>
                             </div>
-                            <button
-                              type="button"
-                              onClick={() => setAllowWrite(!allowWrite)}
-                              role="switch"
-                              aria-checked={allowWrite}
-                              aria-label="允許自動寫入並儲存檔案"
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowWrite ? 'bg-indigo-500' : 'bg-slate-800'}`}
-                            >
-                              <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowWrite ? 'translate-x-4' : 'translate-x-0'}`} />
-                            </button>
-                          </div>
-
-                          {/* Toggle 3 */}
-                          <div className="flex justify-between items-center p-2 bg-slate-900/40 rounded-xl border border-slate-800">
-                            <div>
-                              <div className="font-bold text-slate-200 text-xs">執行 Bash 終端機指令無需詢問</div>
-                              <div className="text-xs text-slate-500">Run shell execution without approval</div>
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => setAllowCommands(!allowCommands)}
-                              role="switch"
-                              aria-checked={allowCommands}
-                              aria-label="執行 Bash 終端機指令無需詢問"
-                              className={`w-8 h-4 rounded-full p-0.5 transition-colors ${focusRing} ${allowCommands ? 'bg-indigo-500' : 'bg-slate-800'}`}
-                            >
-                              <div className={`w-3 h-3 rounded-full bg-white transition-transform ${allowCommands ? 'translate-x-4' : 'translate-x-0'}`} />
-                            </button>
-                          </div>
+                          ))}
                         </div>
                       </div>
 
-                      {/* Web UI Feedback statement */}
-                      <div className="text-xs text-slate-500 font-mono mt-3 border-t border-slate-900 pt-2 flex justify-between items-center">
-                        <span>安全性評估:</span>
-                        {allowCommands && allowWrite ? (
-                          <span className="text-red-400 font-bold">🔴 警告：防護已全面解除</span>
-                        ) : allowWrite ? (
-                          <span className="text-emerald-400 font-bold">🟢 日常設定：可寫檔、不能下指令</span>
-                        ) : (
-                          <span className="text-sky-400 font-bold">🔵 限制保護：唯讀觀察</span>
-                        )}
+                      <div className="mt-3 text-xs text-slate-500 leading-relaxed">
+                        這裡沒有 Manual。雲端跑的工作階段不管在哪個模式都會先放行改檔案，
+                        所以那一格直接顯示成 Accept edits。Bypass 也不給用。
                       </div>
                     </motion.div>
                   )}
@@ -517,8 +511,14 @@ export default function SlideCheatPerms() {
 
             {/* Bottom Strategic Summary */}
             <div className="mt-4 p-4 bg-slate-950/60 rounded-2xl border border-slate-800 text-xs text-slate-300">
-              <span className="text-sky-400 font-bold block mb-1">💡 這兩邊怎麼切模式：</span>
-              {activeTab === 'terminal' ? (
+              <span className="text-sky-400 font-bold block mb-1">💡 這三邊怎麼切模式：</span>
+              {activeTab === 'desktop' ? (
+                <span>
+                  桌面版不用背快捷鍵：點輸入框左下角那個 <code>Auto</code>，選單直接列出來，也可以按數字 1 到 4。
+                  桌面版跟終端機是同一個 Claude Code，模式的行為一樣，差別只在這裡用選的、那裡用{' '}
+                  <code>Shift + Tab</code> 循環。
+                </span>
+              ) : activeTab === 'terminal' ? (
                 <span>
                   <code>Shift + Tab</code> 每按一下換一個。Pro、Max 與 Team 方案<strong>開起來在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
                   上面六格裡，<code>auto</code> 與 <code>bypassPermissions</code> 啟用之後會插進循環、排在 <code>plan</code> 後面；
@@ -526,7 +526,10 @@ export default function SlideCheatPerms() {
                   
                 </span>
               ) : (
-                <span>網頁版不是四選一，是三個開關各自開關：<strong>讀取本機檔案、自動寫入、執行指令</strong>。</span>
+                <span>
+                  在 <code>claude.ai/code</code> 點輸入框旁的下拉。雲端工作階段只有 <strong>Auto、Accept edits、Plan</strong> 三個，
+                  沒有 Manual，也不給 Bypass。如果那個工作階段是遠端遙控你自己的電腦，選單換成 <strong>Manual、Accept edits、Plan</strong>。
+                </span>
               )}
             </div>
           </AnimatedBlock>

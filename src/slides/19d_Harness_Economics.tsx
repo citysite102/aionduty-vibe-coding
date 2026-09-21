@@ -10,22 +10,27 @@ export default function SlideHarnessEconomics() {
         **不要再把它搬回去。** 移走之後這一頁的開場一度變成「先把計價講完整」，
         接不到任何東西，學員手上沒有這個詞的定義就讀不下去。
       */}
-      <div className="pt-8 max-w-6xl mx-auto h-full flex flex-col">
+      <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
         {/*
           前一頁是六個零件，這一頁接著問那些零件怎麼影響你的帳單。
           2026-09-21 從原本的「Token 計費與付費模式」單元搬到這裡：零件講完就接成本，
           不要把整段計價插在 Harness 開頭。付費模式與外包比較那兩頁是採購決策，
-          跟運作框架沒有關係，已經搬到章節五最後。
+          跟運作框架沒有關係，2026-09-22 連同「怎麼少花一點」整組移除了。
+          所以 token 的定義只剩這一頁在講，不要再假設後面還有一段會補。
+        */}
+        {/*
+          2026-09-22 補上開場那半句。原本一上來就定義 token，標題卻是「Harness 對成本的影響」，
+          兩邊接不起來：讀者不知道為什麼講框架的段落要先教計價單位。
+          補的那句給的是因果（框架決定讀多少、來回幾次，那就是帳單），token 才變成它的單位。
         */}
         <p className="text-slate-300 text-lg leading-relaxed mb-3">
-          計價的單位叫 <strong className="text-slate-100">token</strong>，你可以粗略當成「字」，
-          中文一個字大約一到兩個 token。
-          <strong className="text-slate-100">你送進去的字與它吐回來的字，兩邊都計價</strong>，
-          它讀你專案讀進去的也算。
+          <strong className="text-slate-100">運作框架怎麼架，決定它每次要讀多少東西、來回幾次</strong>，
+          而這兩件事就是帳單本身。計價的單位叫 token，你可以粗略當成「字」，中文一個字大約一到兩個 token；
+          你送進去的字與它吐回來的字兩邊都計價，它讀你專案讀進去的也算。
         </p>
-        <p className="text-slate-400 text-base leading-relaxed mb-6">
-          所以這不是按時間算的。開著視窗發呆一小時不會花錢，它讀完你三十個檔案才會。
-          同樣一件事，花費會落在下面兩種形狀的其中一種。
+        <p className="text-slate-400 text-base leading-relaxed mb-4">
+          所以它不是按使用時間算錢，是按它讀進去與寫出來的量算。
+          下面兩欄，是同一件事的兩種花法。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col">

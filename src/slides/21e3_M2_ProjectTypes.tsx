@@ -11,6 +11,11 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * 專案該怎麼切也不要在這裡講，那是「一個專案該放多少東西？」那一頁的事，
  * 學員在這個位置還沒看過 Claude Projects。
  *
+ * 2026-09-22：知識庫那一格換成簡報。理由是它是四格裡唯一交不出產出的一格，
+ * 所以底下還得再加一個框替它解釋「它是其他三格的材料」，而那句講的是「專案怎麼切」，
+ * 正好是這一頁自己上面那條註解說「不要在這裡講」的東西。換成簡報之後四格結構一致，
+ * 那個框可以拿掉，而且直接接得上下一頁「這份簡報就是這樣做出來的」。
+ *
  * 三個判斷標準是這一頁真正要帶走的東西，四個案例只是套用結果。
  * 原本判斷標準只寫在頂端一行內文，視覺上比四張案例卡輕得多，
  * 學員記住的會是「有四種專案」而不是「怎麼判斷一件事能不能變成專案」。
@@ -31,10 +36,10 @@ const CASES = [
     mine: true,
   },
   {
-    kind: '知識庫',
-    subject: '散在各處的 SOP 與規格',
-    rules: ['新文件放哪一層', '檔名怎麼取', '每份開頭要有摘要'],
-    output: '一個問得動的資料夾，而且它會告訴你哪兩份文件互相矛盾',
+    kind: '簡報',
+    subject: '每個月要講的那份投影片',
+    rules: ['一頁只講一件事', '顏色只用主色加灰階', '標題要看得出這頁在講什麼'],
+    output: '一份不用重排版就能上台的投影片',
   },
   {
     kind: '文件審閱',
@@ -52,7 +57,7 @@ const CASES = [
 
 export default function SlideProjectTypes() {
   return (
-    <SlideLayout title="「專案」不是只有寫程式" subtitle="What Counts as a Project" icon={FolderTree}>
+    <SlideLayout title="同一套運作框架的不同使用情境" subtitle="What Counts as a Project" icon={FolderTree}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="space-y-3">
@@ -115,15 +120,9 @@ export default function SlideProjectTypes() {
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">知識庫那一格交不出東西</strong>，它是其他三格的材料。
-            同一批材料可以做成課程簡報，也可以做成策略報告，但那是兩個專案，規矩與產出格式都不同。
-            材料集中放一份，專案照產出切開。
-          </p>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={7} className="px-1">
-          <p className="text-slate-400 text-sm leading-relaxed">
-            四種的寫法一樣，難的是「第一條該寫什麼」。
+            四格的欄位一模一樣：<strong className="text-slate-100">手冊定規矩，專案交出一個固定格式的產出。</strong>
+            差別只在產出是一個網頁、一份投影片、一張對照表，還是一份報表。
+            <span className="block text-slate-400 text-sm mt-2">所以四種專案的手冊用的是同一套寫法。真正卡住人的是下一個問題：第一條規矩，你要從哪裡生出來。</span>
           </p>
         </AnimatedBlock>
 

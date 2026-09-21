@@ -1,7 +1,6 @@
 import { CheckSquare, CornerDownRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
-import { Callout } from '../components/Callout';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
@@ -85,9 +84,6 @@ export default function SlideHandsOnPrompt() {
             </div>
             <p className="text-slate-400 text-xs mt-3 leading-relaxed">
               重點在看它有沒有自己去讀那份手冊：按鈕文案有沒有跟上、有沒有偷塞一張外部圖片進來、分鐘數有沒有寫死在程式裡。
-            </p>
-            <p className="text-slate-300 text-sm mt-3 pt-2.5 border-t border-slate-800 leading-relaxed">
-              
             </p>
           </AnimatedBlock>
 

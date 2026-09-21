@@ -31,9 +31,9 @@ export default function Slide21a() {
         */}
         <p className="text-slate-300 font-medium text-base max-w-4xl">
           要讓 AI 從「只會聊天」變成「能真的做事」，它得先有辦法讀取環境、執行動作。
-          下面兩樣加的東西不一樣：
-          <strong className="text-sky-300">MCP 加的是它碰得到的範圍</strong>，
-          <strong className="text-emerald-300">Skills 加的是照著做的步驟</strong>。
+          下面兩條路加的東西不一樣：
+          <strong className="text-sky-300">照 MCP 接上一個服務，多的是它碰得到的範圍</strong>；
+          <strong className="text-emerald-300">裝一個 Skill，多的是它照著做的步驟</strong>。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">

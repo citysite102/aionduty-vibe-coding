@@ -46,9 +46,6 @@ import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
 import Slide11d2 from './slides/11d2_M1_TerminalKeys';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
-import Slide11c from './slides/11c_M1_PricingAndROI';
-import Slide11c2 from './slides/11c2_M1_ROI';
-import Slide11c3 from './slides/11c3_M1_SpendLess';
 import Slide12 from './slides/12_M1_Example1';
 import Slide12b from './slides/12b_M1_Challenge';
 import Slide12c from './slides/12c_M1_ApiHandsOn';
@@ -203,7 +200,7 @@ const LIVE_TITLES = [
   "讓 AI 有工具可用：MCP 與 Skills",
   "同一個個人網站，裝與不裝 Skill",
   "參考設計與區塊名稱，讓指令更精準",
-  "Skill 怎麼裝，怎麼知道它裝好了",
+  "Skill 的三種來源，怎麼確認它裝好了",
   "四個常用的 Skills",
   "監督與邊界",
   "Claude Code 的六個權限模式",
@@ -214,17 +211,14 @@ const LIVE_TITLES = [
   "CLAUDE.md 的作用、長度與分層",
   "CLAUDE.md 一直在，Rules 碰到才載",
   "Skill、Subagent、MCP：叫到才進來",
-  "光寫在手冊裡，擋不住",
+  "真的不能發生的事，交給 Hook 與 CI",
   "手冊、Rules、Skill、Hook 的載入時機",
-  "零件放在兩個地方：你的家目錄與專案資料夾",
+  "只有兩個位置：家目錄與專案資料夾",
   "零件實際怎麼用（一）：規範與流程",
   "零件實際怎麼用（二）：防線與調查",
-  "「專案」不是只有寫程式",
-  "真實專案裡的 CLAUDE.md 長什麼樣",
+  "同一套運作框架的不同使用情境",
+  "一直重講的那幾條，寫進 CLAUDE.md 長這樣",
   "這份簡報就是這樣做出來的",
-  "AI 程式工具的付費模式：訂閱制與計量付費",
-  "自己做跟外包，成本與交期差多少",
-  "怎麼少花一點：兩個指令與三個常見的浪費",
   "手冊（CLAUDE.md）的診斷、健檢與轉移",
   "手冊最常出的四個問題",
   "規則明明寫了，它卻沒照做",
@@ -358,9 +352,6 @@ const LIVE_SLIDES = [
   Slide21e3,
   Slide21f,
   Slide21f2,
-  Slide11c,
-  Slide11c2,
-  Slide11c3,
   SlideDivHandbook,
   Slide21f6,
   Slide21f3,
@@ -432,9 +423,9 @@ const SECTION_DEFS = [
   { start: 14, label: 'Claude Code 實作與網頁開發基礎' },
   { start: 41, label: '選修：終端機與 Claude Code 安裝' },
   { start: 46, label: 'Agent 運作框架與成本分析' },
-  { start: 78, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 88, label: 'Agent 分工與品質控管' },
-  { start: 102, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 75, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { start: 85, label: 'Agent 分工與品質控管' },
+  { start: 99, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

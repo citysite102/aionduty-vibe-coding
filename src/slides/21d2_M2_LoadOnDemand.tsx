@@ -1,3 +1,12 @@
+/**
+ * 最後查證：2026-09-22，對照 code.claude.com/docs/en/slash-commands。
+ * 原文：「Custom commands have been merged into skills. A file at
+ * `.claude/commands/deploy.md` and a skill at `.claude/skills/deploy/SKILL.md`
+ * both create `/deploy` and work the same way. Your existing `.claude/commands/`
+ * files keep working.」所以「併進 Skill」成立，而舊路徑仍然可用，不要寫成「已經廢止」。
+ * 原本寫「2026 起」，文件沒有給年份，那是推測，已拿掉。
+ * 下次改版前先重查那一節。
+ */
 import { Package } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
@@ -7,7 +16,7 @@ const PARTS = [
     when: '平常只載名稱',
     what: '一套有步驟、用到才需要的 SOP 流程',
     where: '.claude/skills/名稱/SKILL.md',
-    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。要不要展開是 Claude 自己判斷的，你也可以直接點名。2026 起 slash 指令也併進 Skill。',
+    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。要不要展開是 Claude 自己判斷的，你也可以直接點名。自訂的斜線指令已經併進 Skill。',
   },
   {
     name: 'Subagent',
@@ -19,9 +28,9 @@ const PARTS = [
   {
     name: 'MCP / Plugin',
     when: '連上才有',
-    what: 'MCP 連真實系統，Plugin 把設定打包',
+    what: 'MCP 是接真實系統的規範，Plugin 把設定打包',
     where: '不是自己寫檔案，是去接一個現成的服務',
-    desc: 'MCP 讓它能讀 Notion、開 GitHub Issue 這類外部系統。Plugin 是把前面這些整組打包，讓團隊共用同一份設定。',
+    desc: '照 MCP 接上 Notion、GitHub 的伺服器之後，它才讀得到、動得了那些系統。Plugin 是把前面這些整組打包，讓團隊共用同一份設定。',
   },
 ];
 

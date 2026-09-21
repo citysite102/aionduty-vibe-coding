@@ -48,7 +48,7 @@ const HEAD_STYLE = {
 
 export default function SlideFolderMap() {
   return (
-    <SlideLayout title="零件放在兩個地方：你的家目錄與專案資料夾" subtitle="Where Things Live" icon={FolderTree}>
+    <SlideLayout title="只有兩個位置：家目錄與專案資料夾" subtitle="Where Things Live" icon={FolderTree}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

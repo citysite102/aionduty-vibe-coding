@@ -100,14 +100,18 @@ const markCues = (html) =>
   html.replace(/(<p class="cue">[\s\S]*?<\/p>)\s*<blockquote>/g, '$1<blockquote class="cue-q">');
 
 /**
- * 「待處理」記的是投影片的問題，不是要念的字。整段包起來降一級，
- * 錄的人掃到那條分隔線就知道下面可以跳過。
+ * 「待處理」記的是投影片的問題，不是要念的字。
+ * 2026-09-22 改成整段不進 PDF（原本是降一級印出來）：這份 PDF 的用途是照著念，
+ * 那幾十段問題清單只會讓人翻很久。**來源的 .md 不動**，它們是「這一頁為什麼長這樣」
+ * 的紀錄，要看就看檔案。
  */
-const markTodo = (html) =>
-  html.replace(
-    /<h3([^>]*)>待處理<\/h3>([\s\S]*)$/,
-    '<section class="todo"><h3$1 class="todo-head">待處理</h3>$2</section>',
-  );
+function stripTodo(lines) {
+  const i = lines.findIndex((l) => /^##\s+待處理\s*$/.test(l));
+  if (i < 0) return lines;
+  // 把它前面那條分隔線也一起收掉，否則 PDF 尾巴會多一條沒有內容的線
+  const end = i > 0 && /^-{3,}$/.test(lines[i - 1].trim()) ? i - 1 : i;
+  return lines.slice(0, end);
+}
 
 /* ── 讀單元 ───────────────────────────────────────────────────── */
 
@@ -127,7 +131,7 @@ if (!files.length) {
 
 const units = files.map((f) => {
   const raw = readFileSync(join(SRC, f), 'utf8');
-  const lines = raw.split('\n');
+  const lines = stripTodo(raw.split('\n'));
   const head = lines[0].match(/^#\s*單元\s*(\S+)｜(.+)$/);
   if (!head) throw new Error(`${f}：第一行不是「# 單元 X-Y｜標題」`);
 
@@ -150,7 +154,7 @@ const units = files.map((f) => {
     chapter: cols[ci],
     tags: cols.slice(ci + 1),
     // 首行標題與表頭那一行改由版面自己排，內文從它們之後開始
-    html: markTodo(markCues(blocks(lines.slice(lines.indexOf(metaLine) + 1), slug).join('\n'))),
+    html: markCues(blocks(lines.slice(lines.indexOf(metaLine) + 1), slug).join('\n')),
   };
 });
 
@@ -283,20 +287,6 @@ const html = `<!doctype html>
   blockquote p { margin: .5em 0; }
   blockquote p:first-child { margin-top: 0; }
   blockquote p:last-child { margin-bottom: 0; }
-  /* 待處理：投影片的問題清單，不是要念的字，整段降一級 */
-  .todo { margin-top: 2.6em; padding-top: 1.1em; border-top: 1px solid #e3e8ef;
-          font-size: 9.4pt; line-height: 1.85; color: #475569; }
-  .todo h3.todo-head { background: none; color: #94a3b8; padding: 0;
-                       font-size: 9.4pt; letter-spacing: .16em; margin: 0 0 .2em; }
-  .todo h4 { font-size: 9.8pt; color: #334155; margin: 1.15em 0 .35em; }
-  .todo strong { color: #334155; }
-  .todo p, .todo li { orphans: 2; widows: 2; }
-
-  /* 待處理裡的引言（狀態橫幅、引用的投影片原文）不是要念的，
-     不能吃到上面那組逐字稿樣式 */
-  .todo blockquote { font-size: 9.4pt; line-height: 1.85; margin: .5em 0;
-                     padding: .55em 0 .55em .9em;
-                     border-left-color: #cbd5e1; background: #f8fafc; }
 
   /* 轉場那一塊：同樣要念，但標成接續用的顏色 */
   blockquote.cue-q { border-left-color: #d97706; background: #fffaf2; font-size: 11pt; }

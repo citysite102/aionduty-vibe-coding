@@ -14,6 +14,10 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  *     file paths, or debugging fixes」。原本舉的例子「這個專案怎麼跑測試」正好是
  *     它會跳過的那一類（package.json 裡就有），已換成它真的會記的。
  *   - `/memory` 可以瀏覽與編輯那些檔案，而且是純 markdown，跟這一格寫的一致。
+ *   - 2026-09-22 補查兩條：官方寫「Both are loaded at the start of every conversation」，
+ *     所以「一樣每次都載入」成立；存放位置是 `~/.claude/projects/<project>/memory/`，
+ *     在專案資料夾外面、也不進版控，所以「換一台電腦、換一個人接手就沒有了」成立。
+ *     這兩句被質疑過，查過是對的，不要憑感覺改掉。
  *   - **`/context` 的欄位名稱查不到「Free space」**。官方只說它給
  *     「a live breakdown by category with optimization suggestions」，
  *     所以第 2 格不再指名那個標籤，改成講要比的是什麼。介面字串最容易過期，
@@ -43,7 +47,7 @@ function Prompt({ text }: { text: string }) {
 export default function SlideM2HandsOn() {
   return (
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
-      <LiveDemo kind="claude" note="四格都做完，產出留著後面還會用" />
+      <LiveDemo kind="claude" note="四格做完會得到一份改過的 CLAUDE.md，下一頁接著用它" />
 
       <div className={`grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-6xl mx-auto items-stretch pb-8 ${hoverIsolateGrid}`}>
 
@@ -62,7 +66,7 @@ export default function SlideM2HandsOn() {
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
             先把草稿存成 <code className="font-mono text-orange-300">CLAUDE.md</code>。
-            下面三格都是在改這同一份檔案。
+            後面三格都是在改這同一份檔案。
           </p>
         </AnimatedBlock>
 
@@ -71,13 +75,19 @@ export default function SlideM2HandsOn() {
             <span className="font-mono text-xs text-slate-600">2</span>
             親眼看 context 被吃掉
           </h3>
+          {/*
+            2026-09-22：原本第一句就叫學員打 /context，但那是這一頁第一次出現這個指令，
+            學員不知道它是什麼、為什麼要打。先用一句話說清楚它做什麼，再給動作。
+          */}
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            做一次前後對照，看兩邊的數字差多少。
+            <code className="font-mono text-orange-300">/context</code>{' '}
+            會列出這次對話目前帶了哪些東西、各佔多少。
+            <span className="text-slate-300">讀檔案前後各打一次，那個差額就是這次讀進去的量。</span>
           </p>
           <div className="space-y-2 text-sm">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="font-mono text-orange-300 font-bold">/context</span>
-              <span className="text-slate-400"> ，記下它列出來的用量。</span>
+              <span className="text-slate-400"> 先打一次，記下它列出來的用量。</span>
             </div>
             <Prompt text="把 index.html 整份讀一遍，告訴我它有幾行。" />
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
@@ -102,12 +112,16 @@ export default function SlideM2HandsOn() {
             讓它先問，不要讓它先寫
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            拿一個你自己也還沒想清楚的需求：
-            <span className="text-slate-200">「我想知道自己今天完成幾趟任務」</span>。
+            拿一個你自己也還沒想清楚的需求。
           </p>
-          <Prompt text="這個需求我還沒想清楚。先不要寫程式，把你需要我決定的事情列出來問我。" />
+          {/*
+            需求本體一定要留在複製字串裡。它原本只寫在上面那行 <span> 裡，
+            學員按複製貼過去，Claude 收到的是「這個需求我還沒想清楚」而沒有需求本身，
+            它只會反問你在講哪一個。這是 CLAUDE.md A-4 記載過的同一種錯（12_M1_Example1）。
+          */}
+          <Prompt text="我想知道自己今天完成幾趟任務。這個需求我還沒想清楚，先不要寫程式，把你需要我決定的事情列出來問我。" />
           <p className="text-slate-500 text-xs leading-relaxed mt-3 mb-2">
-            它應該要問回這種等級的問題。你回答之前，自己也答不出來：
+            它應該要問回這種等級的問題：答案只有你決定得了，它讀程式碼讀不出來。
           </p>
           <ul className="space-y-1.5 text-sm text-slate-300">
             <li className="flex gap-2.5">
@@ -121,7 +135,7 @@ export default function SlideM2HandsOn() {
             </li>
           </ul>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            這三題你不回答，它就會自己選，而且不會告訴你它選了什麼。
+            這三題你不回答，它就會自己選，而且不一定會告訴你它選了什麼。
           </p>
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
@@ -158,8 +172,9 @@ export default function SlideM2HandsOn() {
         </AnimatedBlock>
 
         <Callout tone="muted" stepIndex={5}>
-          手上沒有計時器的話（前面沒做完也沒關係），開一個空資料夾，第 1 格改成跟它說
-          「幫我起一份空白的 CLAUDE.md」，後面三格照走。規矩換成你自己工作上真的有的那幾條就行。
+          手上沒有計時器的話，開一個空資料夾，四格這樣換：第 1 格跟它說「幫我起一份空白的 CLAUDE.md」，
+          規矩寫你自己工作上真的有的那幾條；第 2 格改讀手邊任何一個長一點的檔案；
+          第 3 格換成你工作上真的還沒想清楚的一個需求；第 4 格照走。
         </Callout>
 
       </div>

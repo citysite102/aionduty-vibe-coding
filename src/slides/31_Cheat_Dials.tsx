@@ -17,22 +17,22 @@ import { Callout } from '../components/Callout';
 const DIALS = [
   {
     icon: Eye,
-    n: '旋鈕一',
+    n: '要不要先問你',
     name: '監督程度',
     en: 'How often it asks',
     question: '它每做一件事，要不要先問過你？',
     ends: ['每一步都停下來等你按同意', '整段做完才回報'],
-    cost: '這個旋鈕決定你要花多少時間盯著它。',
+    cost: '監督程度決定你要花多少時間盯著它。',
     tone: 'sky' as const,
   },
   {
     icon: Fence,
-    n: '旋鈕二',
+    n: '碰得到多大範圍',
     name: '邊界大小',
     en: 'How far it can reach',
     question: '它碰得到的範圍有多大？',
     ends: ['只能讀，不能改任何東西', '能改整台電腦、能裝東西'],
-    cost: '這個旋鈕決定它做錯的時候，最壞會壞到什麼程度。',
+    cost: '邊界大小決定它做錯的時候，最壞會壞到什麼程度。',
     tone: 'indigo' as const,
   },
 ];
@@ -58,8 +58,9 @@ export default function SlideCheatDials() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          「放手讓它跑，會不會把我的東西改壞？」這件事你可以調，而且
-          <strong className="text-slate-100">有兩個旋鈕可以轉，它們各自獨立</strong>。
+          「放手讓它跑，會不會把我的東西改壞？」這件事是可以調整的。
+          <strong className="text-slate-100">兩個地方可以調：它要不要先問你，以及它碰得到多大範圍。</strong>
+          兩個各調各的，不會一起動。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -105,10 +106,10 @@ export default function SlideCheatDials() {
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
           <div className="text-base font-bold text-slate-100 mb-2">兩個是分開的，不會一起動</div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            權限開很大、但每一步都問你，這樣可以。權限縮到最小、然後完全放手，這樣也可以。
-            <strong className="text-slate-300">還不熟的時候，建議把邊界縮到最小再放手</strong>，
-            因為就算它整段跑歪，能壞的也就那一個資料夾。
-            要小心的是兩個旋鈕都轉到底：權限全開，又懶得看它做了什麼。
+            兩種組合都成立：碰得到很多、但每一步都先問你；或者只碰得到一個資料夾、然後完全放手。
+            <strong className="text-slate-300">還不熟的時候，先把邊界縮到最小再放手</strong>，
+            因為就算它整段跑歪，壞掉的也只有那一個資料夾。
+            真正危險的是兩個旋鈕都轉到底：碰得到全部，又沒在看它做了什麼。
           </p>
         </AnimatedBlock>
 
@@ -128,7 +129,7 @@ export default function SlideCheatDials() {
           }
         >
           回到前面那條判斷標準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
-          看得懂它改了什麼，監督那個旋鈕就可以往右轉。
+          看得懂它改了什麼，監督程度就可以放寬。
           不會檢查的話，就把邊界縮小，讓它做錯了你也賠得起。
           邊界要怎麼縮：限制它能用哪些工具，以及讓它只在一個資料夾裡工作。
         </Callout>
