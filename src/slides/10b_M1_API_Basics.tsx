@@ -6,7 +6,7 @@ import { Callout } from '../components/Callout';
 export default function Slide10b() {
   return (
     <SlideLayout title="兩個程式要講話，得先講好格式" subtitle="API & JSON Fundamentals" icon={Database}>
-      <LiveDemo kind="browser" note="這個網址的金鑰要自己申請才打得開，先看它的形狀就好" />
+      <LiveDemo kind="browser" note="下面那個網址現在就打得開，貼進網址列按 Enter 就看得到它回什麼" />
       <div className="flex flex-col gap-6 max-w-6xl mx-auto w-full pb-8">
         
         {/* TOP METAPHOR BANNER */}
@@ -31,11 +31,12 @@ export default function Slide10b() {
             <div>
               <h3 className="text-xl font-bold text-sky-400 mb-3 flex items-center gap-2">
                 <Globe size={22} className="text-sky-400" />
-                什麼是 API？（服務生）
+                什麼是 API？
               </h3>
               <p className="text-slate-300 leading-relaxed text-base mb-4">
-                API (應用程式介面) 就像是<strong>餐廳的服務生</strong>。
-                你（在瀏覽器這邊）向服務生點餐（發送 Request），服務生去廚房（另一台電腦）傳遞指令，最後端著菜與帳單（Response 格式資料）回到你面前。
+                API 是<strong>一台電腦開給別人用的入口</strong>，在這個比喻裡就是那位服務生。
+                你照它規定的格式送一張點單紙過去（Request），它把結果送回來（Response）。
+                它規定的是<strong>你要填哪些欄位</strong>，不管你用什麼方式送過去。
               </p>
               
               {/* Visual Request-Response Flow Diagram */}
@@ -57,10 +58,13 @@ export default function Slide10b() {
             </div>
 
             <div className="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 mt-5">
-              <div className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono mb-1">真實 API 連線網址 (點單地址)</div>
+              <div className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono mb-1">這是一支真的 API，現在就打得開</div>
               <code className="text-sm text-sky-300 font-mono break-all">
-                https://data.moenv.gov.tw/api/v2/aqx_p_432?api_key=your_key
+                https://api.open-meteo.com/v1/forecast?latitude=25.03&amp;longitude=121.56&amp;daily=sunrise,sunset&amp;timezone=Asia/Taipei
               </code>
+              <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                台北今天的日出與日落。貼進瀏覽器網址列按 Enter，你會直接看到右邊那種格式的東西。
+              </p>
             </div>
 
             {/*
@@ -76,10 +80,9 @@ export default function Slide10b() {
             <div className="bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 mt-3">
               <div className="text-xs text-slate-500 font-bold uppercase tracking-wider font-mono mb-1">開頭那個 https 是什麼</div>
               <p className="text-sm text-slate-400 leading-relaxed">
-                <code className="font-mono text-slate-300">http</code> 是兩台電腦講話的那套規矩：點單紙要寫哪些欄位、怎麼送過去、怎麼回話。
-                <code className="font-mono text-slate-300">https</code> 是同一套規矩，多包了一層加密。
-                走 http，中間經過的機器看得到你送了什麼；走 https，它們只看得到一堆亂碼。
-                <strong className="text-slate-300">帶金鑰的請求一律走 https</strong>，網址列那個鎖頭講的就是這件事。
+API 管的是<strong className="text-slate-300">內容</strong>，<code className="font-mono text-slate-300">http</code> 管的是<strong className="text-slate-300">怎麼送過去</strong>，那是所有網站共用的同一條路。
+                <code className="font-mono text-slate-300">https</code> 就是同一條路加了一層加密：走 http，中間經過的機器看得到你送了什麼；走 https，它們只看得到一堆亂碼。
+                <strong className="text-slate-300">所以網址裡只要有金鑰，一定要走 https</strong>，網址列那個鎖頭講的就是這件事。
               </p>
             </div>
           </AnimatedBlock>
@@ -94,7 +97,7 @@ export default function Slide10b() {
                 認識 JSON 格式（點單明細）
               </h3>
               <p className="text-slate-300 leading-relaxed text-base mb-4">
-                JSON 是一種<strong>「格式規格標準化的點單明細」</strong>。
+JSON 就是那張點單明細的<strong>固定格式</strong>，兩邊照同一份格子填。
               </p>
               
               <div className="grid grid-cols-2 gap-4">
@@ -131,23 +134,26 @@ export default function Slide10b() {
             </div>
 
             <div className="mt-5 text-sm text-slate-400 leading-relaxed">
-              💡 <strong>大白話：</strong> <code>"欄位鍵" : "欄位值"</code> 只是把事情列得清清楚楚，這樣電腦就不用去猜人類模糊的對話了。
+              形狀就這樣：一行一件事，冒號左邊是欄位的名字，右邊是值。兩邊照同一份格子填，才接得起來。
             </div>
           </AnimatedBlock>
 
         </div>
 
         {/*
-          金鑰安全原本要到「放手之前，先設好四道邊界」那一頁才講，但畫面上第一次出現金鑰是這裡
-          （上面那行 api_key=your_key），而學員回去自己申請 API 是這一頁之後就會發生的事。
+          金鑰安全原本要到「放手之前，先設好四道邊界」那一頁才講，但學員回去自己申請 API
+          是這一頁之後就會發生的事，所以規則放在他第一次需要它的地方。
+          2026-09-21 示範網址換成 api.open-meteo.com（免金鑰、當天實測回得了 JSON，
+          跟 12c_M1_ApiHandsOn 那一頁用的是同一支），原本那支環境部的要自己申請金鑰才打得開，
+          學員照著貼只會看到錯誤。金鑰因此改由這個 Callout 自己帶出來，不再靠網址裡的 your_key。
           所以規則放在第一次看到它的地方。完整的擋法（.env、settings.json 的 deny）留在那一頁，
           這裡只講三十秒講得完的部分。
 
           用 muted 不用 warn，是因為這一頁已經有 sky 與 emerald 兩個強調色（點單與出菜是一組對照），
           再上一個 amber 就變三種了。A-1 的上限是兩種。
         */}
-        <Callout tone="muted" label="網址裡的 your_key 是你的密碼" icon={KeyRound} stepIndex={4}>
-          多數 API 要先申請一組金鑰，那串字等於帳號密碼，別人拿到就能用你的額度、動你的資料。
+        <Callout tone="muted" label="多數 API 還要一把金鑰，那串字等於你的密碼" icon={KeyRound} stepIndex={4}>
+          上面那一支不用金鑰，所以你現在就打得開。多數 API 要先申請一組，接在網址後面或是放在 Header 裡。那串字等於帳號密碼，別人拿到就能用你的額度、動你的資料。
           <span className="mt-2 block text-slate-400">
             所以三件事：不要貼進聊天室或公開的頁面；不要跟著程式碼一起推上 GitHub；
             真的貼出去過就當它已經外洩，回後台重新產一組，舊的作廢。
