@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 
 export default function SlideWorkflow() {
   return (
-    <SlideLayout title="探索、計畫、執行、驗證：驗證歸你" subtitle="A Healthy Workflow" icon={RefreshCcw}>
+    <SlideLayout title="探索、計畫、執行、驗證" subtitle="A Healthy Workflow" icon={RefreshCcw}>
       <div className="w-full max-w-5xl mx-auto mt-4">
         
         <AnimatedBlock stepIndex={1} className="text-center mb-10">
@@ -81,12 +81,12 @@ export default function SlideWorkflow() {
           <p className="text-lg leading-relaxed mt-3">
             <strong className="text-sky-400">而驗收的標準要在動工之前就寫下來。</strong>
             在計畫那一步把「做完長什麼樣」一條一條列出來，
-            這張單子叫<strong className="text-slate-100">完成條件</strong>，
-            執行完再拿它逐條對。
+            這份清單叫<strong className="text-slate-100">完成條件</strong>，
+            執行完再拿它逐條核對。
           </p>
           <p className="text-base leading-relaxed mt-3 text-slate-400">
             順序反過來的話，你會照著它做出來的東西回頭寫標準，那就不是驗收了。
-            單子怎麼寫得夠具體，後面有一整段在練。
+            完成條件怎麼寫得夠具體，章節八有一整段專門處理。
           </p>
         </AnimatedBlock>
 

@@ -133,7 +133,7 @@ export function AnimatedBlock({
   const isVisible = stepIndex === undefined || currentStep >= stepIndex;
 
   // 這一塊剛亮起來時，把它整塊捲進可視範圍。
-  // 判準是「有沒有被切到」，不是「看不看得到」：底部被切掉一半也要捲，
+  // 判斷標準是「有沒有被切到」，不是「看不看得到」：底部被切掉一半也要捲，
   // 否則講者按下一步之後，新出現的內容只露出上緣，下半截留在摺線下面。
   useEffect(() => {
     if (stepIndex === undefined || currentStep !== stepIndex) return;

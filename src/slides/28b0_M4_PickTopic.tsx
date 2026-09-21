@@ -57,7 +57,7 @@ export default function SlidePickTopic() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          挑題目只有一個判準：<strong className="text-slate-100">選一件你這個月會做第二次的事。</strong>
+          挑題目只有一個判斷標準：<strong className="text-slate-100">選一件你這個月會做第二次的事。</strong>
           做第二次的時候，你才驗得出來它到底有沒有幫到你。
         </AnimatedBlock>
 

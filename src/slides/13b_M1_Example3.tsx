@@ -15,8 +15,11 @@ import { Callout } from '../components/Callout';
  * prompt 的最後一行（headless: false）不要拿掉。學員第一次看到瀏覽器自己動起來，
  * 是這一頁唯一不能用講的東西，也是它跟上一頁最大的差別。
  *
- * 目標網址刻意留成「換成你要追的那一頁」，不寫死一個真的站：
- * 寫死的話它會過期（C 章），而且等於指定全班去打同一個網站。
+ * 目標網址用的是練習站，不是真的新聞站。理由有兩個：真站會改版也會被全班同時打，
+ * 而 quotes.toscrape.com 本來就是 Zyte 做給人練爬蟲用的沙盒。
+ * 挑 /scroll 那一個端點是因為它的內容要捲動才載入，非開瀏覽器不可，
+ * 正好是這一頁要講的事；books.toscrape.com 是純 HTML，用它反而證明不了為什麼要 Playwright。
+ * 最後查證：2026-09-21，quotes.toscrape.com/scroll 回 200。
  *
  * 「先找出口」那一塊不要拿掉，它排在 prompt 前面是刻意的。
  * 最後查證：2026-09-21。Hacker News 的官方 API 在 hacker-news.firebaseio.com/v0/
@@ -26,18 +29,19 @@ import { Callout } from '../components/Callout';
  * 這兩個舉例會過期，下次改版前重查 info.arxiv.org/help/api 與那份 GitHub 文件。
  */
 const PROMPT_LINES: { t: string; hi?: boolean }[] = [
-  { t: '幫我寫一個 Playwright 腳本，放在 news-watch 資料夾。' },
+  { t: '幫我寫一個 Playwright 腳本，放在 scrape-practice 資料夾。' },
   { t: '' },
-  { t: '目標頁面：https://（換成你要追的那一頁）' },
+  { t: '目標頁面：https://quotes.toscrape.com/scroll' },
+  { t: '（這是專門給人練爬蟲的練習站，內容要往下捲才會載入）' },
   { t: '' },
-  { t: '1. 打開那一頁，等清單真的出現再往下做' },
-  { t: '2. 有「載入更多」的話最多按 5 次，每次等它載完再按下一次' },
-  { t: '3. 抓每一則的標題、日期、連結' },
-  { t: '4. 存成 news.csv，欄位是 date,title,url，用 UTF-8 with BOM，Excel 打開不要變亂碼' },
+  { t: '1. 打開那一頁，等第一批內容出現再往下做' },
+  { t: '2. 往下捲到底，最多 5 次，每次等新的載入完再捲下一次' },
+  { t: '3. 抓每一則的內容、作者、標籤' },
+  { t: '4. 存成 quotes.csv，欄位是 author,quote,tags，用 UTF-8 with BOM，Excel 打開不要變亂碼' },
   { t: '5. 跑完印出「共 N 則」' },
   { t: '' },
   { t: '邊界：' },
-  { t: '- 只動這一個公開頁面，不要登入，不要跳到別的網域', hi: true },
+  { t: '- 只動這一個頁面，不要登入，不要跳到別的網域', hi: true },
   { t: '- 每個動作之間停 1 秒', hi: true },
   { t: '- 某一欄抓不到就留空，不要讓整支腳本掛掉' },
   { t: '' },
@@ -46,13 +50,17 @@ const PROMPT_LINES: { t: string; hi?: boolean }[] = [
 
 const PROMPT_TEXT = PROMPT_LINES.map((l) => l.t).join('\n');
 
-/** 右欄：抓之前的網頁清單，與抓完的 CSV。 */
-const BEFORE = ['9/18  秋季新品發表會開放報名', '9/12  門市營業時間調整公告', '9/05  與 XX 品牌聯名系列上市'];
+/** 右欄：練習站上看到的樣子，與抓完的 CSV。 */
+const BEFORE = [
+  '「The world as we have created it…」 ─ Albert Einstein',
+  '「It is our choices…」 ─ J.K. Rowling',
+  '「There are only two ways…」 ─ Albert Einstein',
+];
 const AFTER = [
-  'date,title,url',
-  '2026-09-18,秋季新品發表會開放報名,https://…',
-  '2026-09-12,門市營業時間調整公告,https://…',
-  '2026-09-05,與 XX 品牌聯名系列上市,https://…',
+  'author,quote,tags',
+  'Albert Einstein,"The world as we have created it…",change;thinking',
+  'J.K. Rowling,"It is our choices…",abilities;choices',
+  'Albert Einstein,"There are only two ways…",inspirational;life',
 ];
 
 export default function SlideExample3() {
@@ -84,7 +92,7 @@ export default function SlideExample3() {
             <p className="text-slate-400 text-sm leading-relaxed">
               現在多數網站的內容是<strong className="text-slate-300">你打開之後才由程式算出來的</strong>，
               直接去抓網頁原始碼只會拿到一個空殼。Playwright 是真的開一個瀏覽器、等畫面長出來再抓，
-              而且它能點、能填、能捲。上面那個「載入更多」按鈕，就是非得有人去按才看得到後面的資料。
+              而且它能點、能填、能捲。右邊那一頁就是這種：不往下捲，後面那幾十則根本不會出現。
             </p>
           </AnimatedBlock>
 
@@ -106,7 +114,7 @@ export default function SlideExample3() {
             </p>
           </AnimatedBlock>
 
-          <AnimatedBlock stepIndex={6} className="bg-slate-900 border border-slate-700 p-5 rounded-2xl">
+          <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-700 p-5 rounded-2xl">
             <div className="text-slate-500 text-xs font-bold mb-2.5">Prompt</div>
             <pre className="font-mono text-xs leading-relaxed whitespace-pre-wrap text-slate-300">
               {PROMPT_LINES.map((l, i) => (
@@ -120,6 +128,7 @@ export default function SlideExample3() {
             <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
               Playwright 要另外裝，連同它自己那份瀏覽器。
               <strong className="text-slate-400">你不用先裝，跟它說「缺什麼就幫我裝」它會處理。</strong>
+              <br />跑得起來之後，把第一行的網址換成你自己要追的那一頁，其他幾乎不用改。
             </p>
           </AnimatedBlock>
 
@@ -142,7 +151,7 @@ export default function SlideExample3() {
         </div>
 
         <div className="flex justify-center items-start h-full pt-6 lg:pt-0">
-          <AnimatedBlock stepIndex={4} className="w-full space-y-4">
+          <AnimatedBlock stepIndex={2} className="w-full space-y-4">
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
               <div className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-3">
@@ -156,9 +165,9 @@ export default function SlideExample3() {
                 ))}
               </div>
               <div className="mt-3 inline-block rounded-lg border border-slate-700 bg-slate-800/60 px-3 py-1.5 text-xs text-slate-400">
-                載入更多 ▾
+                ⌄ 往下捲
               </div>
-              <p className="text-slate-600 text-xs mt-2.5">要按下去，後面那幾十則才會出現</p>
+              <p className="text-slate-600 text-xs mt-2.5">捲到底，後面那幾十則才會載入</p>
             </div>
 
             <div className="flex justify-center text-sky-500 text-sm">↓ 腳本自己開瀏覽器、自己按 ↓</div>
@@ -177,7 +186,7 @@ export default function SlideExample3() {
                 <div className="text-slate-600">…</div>
               </div>
               <p className="text-slate-500 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
-                下一週再跑一次就好，不用重講一遍。這就是上一頁說的
+                換成你自己要追的那一頁，下一週再跑一次就好，不用重講一遍。這就是上一頁說的
                 <strong className="text-slate-400">「產出一個能重複用的工具」</strong>。
               </p>
             </div>

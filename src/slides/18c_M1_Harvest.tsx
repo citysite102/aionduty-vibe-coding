@@ -7,7 +7,7 @@ import { Callout } from '../components/Callout';
  * 章節三的收成頁。
  *
  * 模擬授課跑出來的問題：整個章節三有四頁叫學員動手，沒有一頁給「成功長什麼樣」，
- * 所以講者到最後也不知道有多少人真的做出東西。這一頁就是那個判準。
+ * 所以講者到最後也不知道有多少人真的做出東西。這一頁就是那個判斷標準。
  *
  * 清單同時兌現前面欠的兩張支票：存檔（版本控制那一頁說「第一件事就是存檔」，
  * 但沒教怎麼存）、上線網址（部署那一頁說「最後會走完這一步」，實際上在章節八）。
@@ -16,7 +16,10 @@ import { Callout } from '../components/Callout';
  * 卡的不是 GitHub：**這一頁的指令只在本機建 repository 與 commit，完全沒碰到 GitHub**，
  * 真正會擋住第一次 commit 的是 git 還不知道你是誰。GitHub 的帳號授權要到章節八
  * 推上去那一頁才會遇到，所以這裡只先打一支預防針，不在這裡教授權。
- * 章節八的 27b8b_M4_PushToGithub 目前沒有任何一句講授權，那是另一個缺口。
+ * 2026-09-21 另外拿掉了頁尾「還沒拿到的」那一塊。它講的是學員現在沒有的東西
+ * （上線網址、GitHub 那一份），對驗收自己手上有什麼沒有幫助，而且 GitHub 授權
+ * 那幾句在這裡是預告，學員要等到章節八才用得上。整段移到 27b8b_M4_PushToGithub，
+ * 也就是真的會撞到授權的那一頁。
  *
  * 這裡只列學員手上真的會有的檔案。CLAUDE.md 曾經列過，但到這一頁為止它只被
  * 產出來看過一眼，沒有講過那是什麼，列進驗收清單學員無從判斷自己有沒有做到。
@@ -63,7 +66,7 @@ export default function SlideM1Harvest() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            這一章做完，下面兩件事應該都成立。
+            這一章做完，你的電腦裡應該有下面這些東西，而且每一條都驗得出來。
           </p>
         </AnimatedBlock>
 
@@ -113,15 +116,6 @@ export default function SlideM1Harvest() {
           </span>
         </Callout>
 
-        <Callout tone="muted" label="還沒拿到的" stepIndex={6}>
-          <strong className="text-slate-200">可以傳給別人的上線網址，現在還沒有。</strong>
-          剛才那一次存檔只存在你的電腦裡，沒有上傳到任何地方。
-          它要先推上 GitHub，再接部署平台，那兩步在章節八。
-          <span className="mt-2 block text-slate-400">
-            推上去的時候會遇到這一頁沒有的一件事：GitHub 要確認是你本人。
-            它會停下來要你到瀏覽器登入並按同意，跟前面講部署授權那一段是同一回事，
-            那一下它代不了你。</span>
-        </Callout>
 
       </div>
     </SlideLayout>

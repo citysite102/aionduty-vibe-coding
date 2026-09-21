@@ -100,7 +100,7 @@ export default function SlideFutureEngineering() {
             所以難的不是這兩個詞，是分辨自己寫的是規格還是願望
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            判準只有一個：<strong className="text-slate-200">它驗完之後，你能不能指著畫面說「這題過了」。</strong>
+            判斷標準只有一個：<strong className="text-slate-200">它驗完之後，你能不能指著畫面說「這題過了」。</strong>
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

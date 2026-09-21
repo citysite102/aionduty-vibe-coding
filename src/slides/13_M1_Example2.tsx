@@ -81,7 +81,7 @@ export default function SlideExample2() {
             <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
               同一類的還有：把一疊 PDF 合成一份、把十張試算表併成一張、整批轉檔或改圖片尺寸、
               從一堆檔名裡把日期抓出來分資料夾。
-              <strong className="text-slate-400">判準是這件事你會做第二次。</strong>
+              <strong className="text-slate-400">判斷標準是這件事你會做第二次。</strong>
             </p>
           </AnimatedBlock>
         </div>

@@ -64,7 +64,7 @@ const CHECKS = [
 
 export default function SlideChallenge() {
   return (
-    <SlideLayout title="換你寫一次" subtitle="Your Turn: Say It Precisely" icon={Target}>
+    <SlideLayout title="給予精準的開發指令" subtitle="Your Turn: Say It Precisely" icon={Target}>
       <LiveDemo kind="claude" note="先自己寫一版，對完下面四題再送出" />
 
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">

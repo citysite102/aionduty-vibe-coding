@@ -54,7 +54,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 23, title: '前端、後端、資料庫與部署', anchor: '一次請求的完整流程：前端、後端與資料庫' },
   { live: 28, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
   { live: 30, title: 'Claude Code 的介面與指令', anchor: 'Claude Code 桌面版' },
-  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證：驗證歸你' },
+  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證' },
   // 起點刻意不是「叫它寫個小工具」那一頁：它是支線示範，當一支影片的第一格
   // 會讓學員以為這一單元在講寫腳本，其實在講邊界與收成。它留在上一單元收尾。
   { live: 38, title: 'Claude Code 的能力邊界與工具選擇', anchor: '哪些事它做得好，哪些你得自己來' },

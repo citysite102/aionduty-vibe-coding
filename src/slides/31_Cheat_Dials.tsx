@@ -127,7 +127,7 @@ export default function SlideCheatDials() {
             </>
           }
         >
-          回到前面那條判準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
+          回到前面那條判斷標準：<strong className="text-slate-100">你驗得動多少，就放多少。</strong>
           看得懂它改了什麼，監督那個旋鈕就可以往右轉。
           不會檢查的話，就把邊界縮小，讓它做錯了你也賠得起。
           邊界要怎麼縮：限制它能用哪些工具，以及讓它只在一個資料夾裡工作。

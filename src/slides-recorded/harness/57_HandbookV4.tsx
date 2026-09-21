@@ -26,7 +26,7 @@ export default function RecHandbookV4() {
             <Key>做完了它自己也不知道有沒有達成</Key>，你也沒辦法指著結果說它違規。
           </p>
           <p className="text-slate-400 text-lg leading-relaxed">
-            改法是把你心裡的標準寫出來。判準只有一句：另一個人只看結果，能不能回答「有做到」或「沒做到」。
+            改法是把你心裡的標準寫出來。判斷標準只有一句：另一個人只看結果，能不能回答「有做到」或「沒做到」。
           </p>
         </AnimatedBlock>
       </RecPage>

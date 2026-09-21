@@ -1,6 +1,7 @@
-import { CloudUpload, HardDrive, Laptop2, Send, Terminal } from 'lucide-react';
+import { CloudUpload, HardDrive, Laptop2, Send, Terminal, KeyRound } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
+import { Callout } from '../components/Callout';
 import { LiveDemo } from '../components/LiveDemo';
 
 /**
@@ -8,6 +9,14 @@ import { LiveDemo } from '../components/LiveDemo';
  *
  * GitHub 在這份簡報前面出現過三次（部署、版本控制、出貨的 prompt），
  * 但都沒有被定義。這一頁補上定義，下一頁補上判斷。
+ *
+ * 2026-09-21 補授權那一塊。原本整頁只寫「你不用打任何 git 指令」，
+ * 但第一次推上去一定會停在授權，而學員在這之前看到的每一步都是它自己做完的，
+ * 所以停下來的時候他會以為壞掉了。這一頁是全片第一次真的要他去瀏覽器登入別人的服務。
+ *
+ * 三條刻意不寫成操作步驟（不列指令、不列按鈕位置）：GitHub 的登入流程與
+ * Claude Code 用哪一種方式認證都會改，寫死就會過期（C 章）。寫的是
+ * 「會發生什麼、那一下為什麼要你自己來」，這三件不會變。
  */
 const LOSSES = [
   { icon: HardDrive, t: '硬碟壞了', d: '整個專案跟著沒了，沒有第二份。' },
@@ -72,6 +81,31 @@ export default function SlidePushToGithub() {
             你不用打任何 git 指令。它會自己建好、推上去，然後把網址給你。桌面版的 Code 頁籤右下角也有按鈕可以按。
           </p>
         </AnimatedBlock>
+
+        <Callout tone="warn" icon={KeyRound} label="它會停在這裡等你，那不是壞掉" stepIndex={5}>
+          前面每一步都是它自己做完的，所以第一次推的時候它停下來，多數人以為出錯了。
+          <strong className="text-slate-100">沒有出錯，是 GitHub 要確認你是本人。</strong>
+          三件事只有你做得到：
+          <ul className="mt-2.5 space-y-1.5 list-disc pl-4 marker:text-amber-500/60">
+            <li>
+              <strong className="text-slate-100">要先有一個 GitHub 帳號。</strong>
+              還沒有的話現在去 <span className="font-mono text-slate-300">github.com</span> 註冊一個，免費。
+            </li>
+            <li>
+              <strong className="text-slate-100">第一次要在瀏覽器登入並按同意。</strong>
+              它會給你一段文字或一個連結，照著做完再回到對話框跟它說好了。
+              這一步跟部署那一段講的授權是同一回事，你的帳號它代不了。
+            </li>
+            <li>
+              <strong className="text-slate-100">private 還是 public 要你決定。</strong>
+              上面那句 prompt 已經叫它先問你。裡面有客戶資料或還沒公開的東西就選 private，
+              之後隨時改得回來。
+            </li>
+          </ul>
+          <span className="mt-3 block text-slate-400">
+            卡住的時候把它給你的那段訊息整段貼回去，跟它說「我看不懂，告訴我現在要點哪裡」。
+          </span>
+        </Callout>
       </div>
     </SlideLayout>
   );

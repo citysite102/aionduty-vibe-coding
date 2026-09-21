@@ -72,7 +72,7 @@ export default function SlideCaseSpecCheck() {
           </ul>
         </AnimatedBlock>
 
-        <Callout tone="good" label="判準" stepIndex={2}>
+        <Callout tone="good" label="判斷標準" stepIndex={2}>
           每一條都要回答得出「怎麼證明它過了？」。機器檢查得了的算，
           <strong className="text-slate-100">人眼一秒判斷得了的也算</strong>，像「拿掉 logo 還認得出是陶藝工作室」那一條。
           寫「要有質感」的人，到了要裝自動檢查那一步會發現根本寫不出規則。

@@ -5,7 +5,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 章節七的收成頁。M1 與 M2 各有一頁，M3 原本沒有，所以整段十幾頁講完，
  * 學員說不出自己手上多了什麼，講者也不知道有多少人真的建出那個子代理。
  *
- * 判準跟 18c_M1_Harvest 一樣：只列學員打得開、指得出來的東西。
+ * 判斷標準跟 18c_M1_Harvest 一樣：只列學員打得開、指得出來的東西。
  * 「懂了分工的概念」不列，那個無從判斷自己有沒有做到。
  *
  * 最後那個動作是這一段的收尾：不寫進 CLAUDE.md，審查子代理下次就不會出場。
@@ -32,7 +32,7 @@ const DONE = [
 
 export default function SlideM3Harvest() {
   return (
-    <SlideLayout title="審查子代理、一次實測、一個判準" subtitle="Module 3 Recap" icon={PackageCheck}>
+    <SlideLayout title="審查子代理、一次實測、一個判斷標準" subtitle="Module 3 Recap" icon={PackageCheck}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
 
         <div className="space-y-3">
