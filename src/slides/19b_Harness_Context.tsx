@@ -3,38 +3,39 @@ import { Database, FileText, Zap, BookOpen } from 'lucide-react';
 
 export default function SlideHarnessContext() {
   return (
-    <SlideLayout title="上下文工程：每次都給，還是用到才給" subtitle="Context Engineering" icon={BookOpen}>
+    <SlideLayout title="為什麼需要規則文件？" subtitle="Context Engineering" icon={BookOpen}>
       <div className="pt-6 max-w-6xl mx-auto min-h-full flex flex-col">
         {/*
-          接縫改過兩次。第一次是把「餵對輸入＋驗證輸出」拿掉，因為整頁三張卡都在講輸入。
-          第二次（現在這版）是把順序倒過來：原本先定義「上下文」再回頭接前一頁的零件，
-          學員讀到的順序是「陌生名詞 → 細節主張 → 才知道為什麼講這個」，所以覺得跳題。
-          現在第一句就從前一頁的零件接下去，名詞留到讀者已經知道在講什麼之後才給。
+          這一頁改過三次。前兩次都在調「上下文」這個名詞什麼時候給。
+          2026-09-21 這一版把問題換掉了：標題從「上下文工程」改成「為什麼需要規則文件？」。
+          理由是學員在這個位置還沒寫過任何一份規則文件，先問他要怎麼配置上下文，
+          等於在回答一個他還沒有的問題。現在的順序是：為什麼要有這份文件 →
+          它裝不下全部 → 所以有三種載入時機 → 而決定時機這件事本身就寫在這份文件裡。
+
+          **最後那一塊（規則文件自己指路）不要拿掉。** 沒有它，三種時機只是一張分類表，
+          學員不知道那跟他等一下要寫的 CLAUDE.md 有什麼關係。這份簡報自己的 CLAUDE.md
+          就是這樣寫的（主檔指到 src/remotion/CLAUDE.md），Slide 83 會把它攤開。
         */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
           <p className="text-slate-300 text-lg leading-relaxed mb-3">
-            前一頁六個零件裡的第一個是<strong className="text-sky-200">規則文件</strong>。
-            難的不只是寫什麼，還有<strong className="text-sky-200">什麼時候把它送進去</strong>：
-            送太多它抓不到重點，送太少它就用猜的。
+            上一段你每開一次新對話，就得重講一次規矩。
+            <strong className="text-sky-200">規則文件就是把那些話寫成一個檔案</strong>，
+            它自己會被讀進去，你不用再講。
           </p>
           <h3 className="text-sky-300 font-bold mb-3 flex items-center gap-2 text-xl">
             <Zap size={24} />
-            同一份東西，每次都給會一直佔空間，用到才給只在需要時佔
+            但它裝不下全部，所以要挑什麼時候送什麼進去
           </h3>
-          {/*
-            模擬學員在這一頁問的第一個問題是「上下文到底是什麼？是對話紀錄嗎？會滿嗎？」
-            整頁的標題就是這個詞，卻從來沒有人定義過它。先給一句白話再往下講。
-          */}
           <p className="text-slate-300 text-lg leading-relaxed">
             送進去的那一整包東西叫<strong className="text-sky-200">上下文</strong>：
             你打的字、它讀過的檔案、前面來回過的對話，全部算在一起，就是它這一輪看得到的所有東西。
             它一次只裝得下這麼多，<strong className="text-slate-100">會滿</strong>，滿了就得丟掉一些。
-            決定什麼時候送什麼進去，這件事叫上下文工程：每次都給，還是用到才給。
+            所以規則文件不是寫越多越好，<strong className="text-slate-100">寫進去的每一個字，每次對話都會被送一次</strong>。
           </p>
         </div>
 
         <p className="text-slate-300 text-lg mb-8">
-          下面三種是它拿到資料的三種時機。
+          東西進到上下文裡有三種時機。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 flex-grow">
@@ -102,11 +103,17 @@ export default function SlideHarnessContext() {
 
         <AnimatedBlock
           stepIndex={4}
-          className="mt-6 rounded-2xl border px-6 py-4 bg-amber-500/5 border-amber-500/25"
+          className="mt-6 rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">每次對話送進去多少東西，就付多少錢。</strong>
-            手冊該寫多長、哪些東西不該常駐，算的都是這筆帳。
+            回到第一個問題：規則文件為什麼重要？因為
+            <strong className="text-slate-100">決定「什麼時候讀哪一份」的那幾句話，本身就寫在它裡面。</strong>
+            它可以只留常態規矩，再寫一行「改到某一塊的時候，去讀另一份」，
+            那一份平常就不佔位置。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">
+            所以它是整個運作框架的入口，也是你唯一每次都會被讀到的地方。
+            後面那幾頁在練的就是這件事：哪些留在裡面、哪些寫成指路。
           </p>
         </AnimatedBlock>
       </div>

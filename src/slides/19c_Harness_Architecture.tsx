@@ -7,86 +7,51 @@ import { Settings, FileCode, Wrench, Shield, GitMerge, Link, Activity } from 'lu
 // 那會把一個教學用的分法講成業界定義。要增減零件是可以的，改的時候連同那句話一起看。
 //
 // D-4 防呆：這一頁「沙箱」與「運作框架」並排，Harness 一律譯「運作框架」，不要寫成「安全沙箱」。
-// 六大元件只有前兩塊是這堂課會動手的，指揮分工留到「讓 Agent 分工」那一章，其餘屬於團隊級配套。
-// 用 scope 控制視覺層級：本課主色、後續會回來講的灰、僅供認識最淡。
-//
-// Hooks 是 later 不是 aware：這一段接下來有八頁把它當成建議做法在用
-// （P56 擋刪除指令、P60 真的不能發生的事、P68 規則分流的第一個去處），
-// 而且分流那一組裡就有一頁在示範怎麼寫。標成「先認識就好」跟後面對不上。
+// 2026-09-21 拿掉每一格的「本課會動手／後面會回來講／先認識就好」標籤與對應的
+// 視覺分級（scope 與三組 styles）。六塊現在一律平等。
+// 拿掉的理由：這一頁的職務是「Harness 由哪些東西組成」，標籤講的是課程安排，
+// 兩件事混在同一張卡上，學員第一眼讀到的是「哪些可以跳過」而不是「這塊在管什麼」。
+// 哪些會動手，讓講者在口白裡說，不要印在卡片上。要加回來之前先想清楚它解決什麼問題。
 const parts = [
   {
     icon: FileCode,
     name: '規則文件',
     en: 'Rule Files',
     desc: '這個專案的規矩與慣例，寫成一份 CLAUDE.md，每次開對話都會被讀進去。',
-    scope: 'core' as const,
-    tag: '本課會動手',
   },
   {
     icon: Wrench,
     name: '工具',
     en: 'Tools',
     desc: '它能動的東西：讀寫檔案、跑指令，或接上外面的系統。沒給工具，它就只能跟你講話。',
-    scope: 'core' as const,
-    tag: '本課會動手',
   },
   {
     icon: GitMerge,
     name: '指揮分工',
     en: 'Orchestration',
     desc: '同時有好幾個子代理在跑的時候，誰做哪一塊、誰要等誰做完。',
-    scope: 'later' as const,
-    tag: '後面會回來講',
   },
   {
     icon: Shield,
     name: '沙箱',
     en: 'Sandbox',
     desc: '把它關在一個隔起來的地方跑，就算做壞了也弄不到你其他的東西。多半是公司或雲端平台幫你準備好的，你不用自己架。',
-    scope: 'aware' as const,
-    tag: '先認識就好',
   },
   {
     icon: Link,
     name: '自動關卡',
     en: 'Hook',
     desc: '在固定時機自動跑的一段檢查，不經過 AI 判斷，所以它想跳過也跳不掉（例如存檔前擋下密碼）。',
-    scope: 'later' as const,
-    tag: '後面會動手做',
   },
   {
     icon: Activity,
     name: '事後查得到',
     en: 'Observability',
     desc: '事後查得到它做過什麼、走過哪些步驟、花掉多少額度。',
-    scope: 'aware' as const,
-    tag: '先認識就好',
   },
 ];
 
-const styles = {
-  core: {
-    card: 'bg-slate-900 border-sky-900/50',
-    iconBox: 'bg-sky-500/10 text-sky-400',
-    name: 'text-slate-100',
-    desc: 'text-slate-400',
-    tag: 'bg-sky-500/10 text-sky-400 border-sky-900/50',
-  },
-  later: {
-    card: 'bg-slate-900 border-slate-800',
-    iconBox: 'bg-slate-800 text-slate-400',
-    name: 'text-slate-200',
-    desc: 'text-slate-500',
-    tag: 'bg-slate-800 text-slate-400 border-slate-700',
-  },
-  aware: {
-    card: 'bg-slate-900/40 border-slate-800/60',
-    iconBox: 'bg-slate-800/50 text-slate-600',
-    name: 'text-slate-400',
-    desc: 'text-slate-600',
-    tag: 'bg-slate-800/50 text-slate-600 border-slate-800',
-  },
-};
+const cardStyle = 'bg-slate-900 border-slate-800';
 
 export default function SlideHarnessArchitecture() {
   return (
@@ -107,33 +72,28 @@ export default function SlideHarnessArchitecture() {
           <p className="text-slate-300 text-base">
             Harness 不是一個東西，是一組配套。
             <strong className="text-slate-100">這裡把它拆成六塊來看</strong>，每一塊管一件事。
-            右上角的標籤寫著哪些現在要學、哪些先知道名字就好。
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 flex-grow">
           {parts.map((p, i) => {
             const Icon = p.icon;
-            const s = styles[p.scope];
             return (
               <AnimatedBlock
                 key={p.en}
                 stepIndex={i + 1}
-                className={`border rounded-xl p-6 flex flex-col transition-colors ${s.card}`}
+                className={`border rounded-xl p-6 flex flex-col ${cardStyle}`}
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <div className={`p-3 rounded-lg shrink-0 ${s.iconBox}`}>
+                  <div className="p-3 rounded-lg shrink-0 bg-slate-800 text-slate-400">
                     <Icon size={24} />
                   </div>
                   <div className="min-w-0">
-                    <h4 className={`font-bold text-lg leading-tight ${s.name}`}>{p.name}</h4>
+                    <h4 className="font-bold text-lg leading-tight text-slate-100">{p.name}</h4>
                     <p className="text-slate-500 text-sm font-mono">{p.en}</p>
                   </div>
-                  <span className={`ml-auto shrink-0 text-xs font-bold px-2 py-0.5 rounded-full border ${s.tag}`}>
-                    {p.tag}
-                  </span>
                 </div>
-                <p className={`text-base leading-relaxed ${s.desc}`}>{p.desc}</p>
+                <p className="text-slate-400 text-base leading-relaxed">{p.desc}</p>
               </AnimatedBlock>
             );
           })}

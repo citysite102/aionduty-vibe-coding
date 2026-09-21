@@ -4,14 +4,26 @@ import { DollarSign, TrendingDown, TrendingUp, AlertCircle, Factory } from 'luci
 export default function SlideHarnessEconomics() {
   return (
     <SlideLayout title="兩種花錢的方式：邊做邊花，還是先花再省" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
+      {/*
+        token 的定義本來在 Slide 48 的頁尾，2026-09-21 從那裡移除（那一頁的職務是
+        「這一段要解掉什麼」，不是解釋名詞），改放在這裡，也就是整個單元的第一頁。
+        **不要再把它搬回去。** 移走之後這一頁的開場一度變成「先把計價講完整」，
+        接不到任何東西，學員手上沒有這個詞的定義就讀不下去。
+      */}
       <div className="pt-8 max-w-6xl mx-auto h-full flex flex-col">
         {/*
           前一頁收在「送進去的東西是要付錢的」，這一頁原本直接開兩張卡，
           那筆錢是怎麼算的沒有人接。先用一句把帳單接起來再展開。
         */}
-        <p className="text-slate-300 text-lg leading-relaxed mb-6">
-          那筆錢怎麼算：<strong className="text-slate-100">你送進去的字與它吐回來的字，兩邊都計價</strong>。
-          所以同樣一件事，花費會落在下面兩種形狀的其中一種。
+        <p className="text-slate-300 text-lg leading-relaxed mb-3">
+          計價的單位叫 <strong className="text-slate-100">token</strong>，你可以粗略當成「字」，
+          中文一個字大約一到兩個 token。
+          <strong className="text-slate-100">你送進去的字與它吐回來的字，兩邊都計價</strong>，
+          它讀你專案讀進去的也算。
+        </p>
+        <p className="text-slate-400 text-base leading-relaxed mb-6">
+          所以這不是按時間算的。開著視窗發呆一小時不會花錢，它讀完你三十個檔案才會。
+          同樣一件事，花費會落在下面兩種形狀的其中一種。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col">
