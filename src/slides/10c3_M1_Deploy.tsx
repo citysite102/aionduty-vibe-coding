@@ -18,6 +18,10 @@ import { Callout } from '../components/Callout';
  * 真正的解法（可公開的金鑰靠服務端規則擋、不可外流的金鑰放後端）在案例三，
  * 這裡只負責把缺口指出來，不在章節三講完。
  *
+ * 第 02 格那句「它是一份你自己列的清單」不要拿掉。`.gitignore` 全片第一次出現就在這一頁，
+ * 而它真正被定義是在章節八的 27b8c，中間隔了一百多頁。Slide 30 的 Git playground 也只寫
+ * 「.gitignore 擋著」四個字，靠的就是這裡先講過。
+ *
  * 用 muted 不用 warn：這一頁已經有 sky 與 emerald 兩個強調色，A-1 上限是兩種。
  *
  * 2026-09-21 再補「你自己做／可以發包」的膠囊。缺口是：整頁在教怎麼發包，
@@ -27,7 +31,7 @@ import { Callout } from '../components/Callout';
  */
 const KEY_FLOW = [
   { where: '你的電腦', how: '.env 這個檔案', self: true, note: '檔案可以請 AI 建，但那串金鑰要自己填進去。' },
-  { where: '推上 GitHub', how: '.gitignore 擋住它', self: false, note: '列進去之後，git 根本不會碰它，所以 repo 裡沒有金鑰。' },
+  { where: '推上 GitHub', how: '.gitignore 擋住它', self: false, note: '它是一份你自己列的清單，寫進去的檔案 git 根本不會碰，所以 repo 裡沒有金鑰。' },
   { where: '上線之後', how: '平台後台的環境變數', self: true, note: '在 Vercel 或 Supabase 的後台再填一次，執行的時候平台才餵給程式。那是你的帳號，AI 登不進去。' },
   { where: '對 AI', how: 'settings.json 的 deny', self: false, note: '擋掉讀取 .env，它連看都看不到，也就不會順手貼進對話裡。' },
 ];

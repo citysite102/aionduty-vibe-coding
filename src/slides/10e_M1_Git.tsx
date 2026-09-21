@@ -14,6 +14,9 @@ import { Callout } from '../components/Callout';
  *
  * 「記的不只是程式碼」是這門課特別要講的：學員之後寫的手冊、Skill、子代理設定
  * 全都是文字檔，全都會一起進版本紀錄。章節五開始改手冊的時候要靠這件事。
+ *
+ * branch 的說明 2026-09-21 搬到下一頁。Git 的詞彙（add / commit / push / pull）
+ * 全部集中在 playground 那一頁，branch 留在這裡是孤零零的一個名詞。
  */
 const RECORDED = [
   {
@@ -66,9 +69,11 @@ export default function Slide10e() {
           </p>
         </AnimatedBlock>
 
-        {/* Git 記的是「資料夾裡的文字檔每一版長什麼樣」，這一格把「哪些東西」攤開 */}
+        {/* Git 記的是「資料夾裡每一個沒被排除的檔案每一版長什麼樣」，這一格把「哪些東西」攤開。
+            標題不要寫成「每一個文字檔」：圖片、字型、音樂檔一樣進版本紀錄，寫成文字檔會讓
+            學員以為 public/ 底下那些東西沒被備份到。四格要講的「不只是程式碼」標題已經有了。 */}
         <AnimatedBlock stepIndex={3}>
-          <div className="text-base font-bold text-slate-100 mb-3">它會記下你沒排除掉的每一個文字檔</div>
+          <div className="text-base font-bold text-slate-100 mb-3">它會記下你沒排除掉的每一個檔案</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {RECORDED.map((r) => {
               const Icon = r.icon;
@@ -104,20 +109,13 @@ export default function Slide10e() {
           </p>
         </AnimatedBlock>
 
-        <Callout
-          tone="muted"
-          stepIndex={5}
-          footnote={
-            <>
-              另外會看到 <span className="font-mono text-slate-400">branch</span>
-              （分支）這個字，意思是從主線分出一條獨立的線去試新東西，搞砸了也不影響主線。
-              這門課用不到，看到的時候知道是這個意思就好。
-            </>
-          }
-        >
-          這些操作你不會自己打。跟 Claude 說「幫我存一個檔，說明寫某某」它就做完了，
-          <strong className="text-slate-200">但它把哪些檔案存進去了，是你要看的</strong>
-          ，因為有些東西不能進版本紀錄，例如金鑰跟密碼。
+        <Callout tone="muted" stepIndex={5}>
+          這些操作你不會自己打，但有兩件事要你講：
+          <strong className="text-slate-200">這次存哪幾個檔案，說明寫什麼</strong>
+          。例如「把 <code className="font-mono text-slate-300">index.html</code> 和{' '}
+          <code className="font-mono text-slate-300">style.css</code> 這次的修改存成一版，
+          說明寫『換掉按鈕的顏色』」。存完再問一句「這一版存進去的是哪些檔案」，
+          因為有些東西不能進版本紀錄，例如金鑰跟密碼。
         </Callout>
 
       </div>

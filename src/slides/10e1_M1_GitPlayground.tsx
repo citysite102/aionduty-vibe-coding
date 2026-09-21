@@ -520,7 +520,7 @@ export default function Slide10e1() {
               </div>
             ) : (
               <p className="text-slate-500 text-sm leading-relaxed">
-                三個檔案現在都跟存檔點一樣，沒有東西要存。
+                三個檔案都沒有被改過，所以現在沒有東西要存。
               </p>
             )}
           </div>
@@ -541,6 +541,13 @@ export default function Slide10e1() {
         >
           <strong className="text-slate-100">commit 一百次，沒有 push，備份份數還是零。</strong>
           存檔點再多，沒送上去就跟你的資料夾在同一台電腦上，那台壞了就一起沒了。
+        </Callout>
+
+        {/* branch 從上一頁搬過來。Git 的詞彙集中在這一頁，它在上一頁是孤立的一個名詞 */}
+        <Callout tone="muted" stepIndex={5}>
+          還有一個字你會看到：<span className="font-mono text-slate-300">branch</span>
+          （分支），從主線分出一條獨立的線去試新東西，搞砸了也不影響主線。
+          這門課不會叫你自己開分支，看到的時候知道是這個意思就好。
         </Callout>
 
       </div>

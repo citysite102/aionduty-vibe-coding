@@ -16,6 +16,11 @@ import { Callout } from '../components/Callout';
  *
  * Excel 的類比要跟後面那一頁四張表（中型專案演練）的說法一致，改一邊就要改兩邊。
  *
+ * **第二張卡不要退回「Excel 做不到跨表對應」的講法。** 試算表用 VLOOKUP 就做得到，
+ * 講師自己抓到這一點。差別在誰來保證它一直成立：Excel 那條公式是你寫的，來源被刪掉
+ * 就變錯誤值；資料庫的關係是宣告過的，它自己擋。兩張卡因此是同一個軸線（規則誰守），
+ * 區塊標頭寫的就是這件事，改卡片的時候標頭要一起看。
+ *
  * 2026-09-21：這一頁原本用「擺法」「兩張表互相對應」講這件事，但那兩個詞在這裡
  * 還沒有具體所指，要到下一頁才畫得出來。改成直接把那個問句寫出來（姓名電話抄在
  * 每一筆訂單裡，還是另開客戶表），但**不要給答案**，答案是下一頁整頁的工作。
@@ -32,8 +37,8 @@ const DIFFS = [
   },
   {
     icon: Link2,
-    title: '兩張表可以互相對應',
-    body: 'Excel 的兩個分頁各自獨立。資料庫的訂單表可以只記一個客戶編號，姓名電話留在客戶表那一邊。',
+    title: '它不讓兩張表對不起來',
+    body: 'Excel 用 VLOOKUP 也查得到另一張表，但那是你寫的一條公式，來源那一列被刪掉就變成錯誤值。資料庫是一開始就講好訂單要對到客戶，之後你想寫一筆指向不存在客戶的訂單，它不收。',
   },
 ];
 
@@ -53,7 +58,7 @@ export default function SlideDatabaseWhat() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="space-y-3">
-          <div className="text-slate-400 text-sm font-bold">剩下那兩成，就是它跟 Excel 不一樣的地方</div>
+          <div className="text-slate-400 text-sm font-bold">剩下那兩成，差在規則是你守還是它守</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {DIFFS.map((d) => {
               const Icon = d.icon;
@@ -77,21 +82,24 @@ export default function SlideDatabaseWhat() {
               <Table aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
               <p className="text-slate-300 text-sm leading-relaxed">
                 <strong className="text-slate-100">關聯式（SQL）</strong>：PostgreSQL、MySQL。
-                每張表有哪些欄位要先講好，之後想改比較麻煩。好處是它會幫你擋掉對不起來的資料。
-                訂單、金流這種不能錯的東西用它。
+                每張表有哪些欄位、哪幾欄必填，要先講好，之後想改欄位比較麻煩。
+                換來的是它會退掉不合規矩的資料：數字欄位塞了一句中文、必填的沒填、訂單指到一個不存在的客戶。
+                它還保證一件事要嘛全做完、要嘛整個不算，例如扣庫存、建訂單、記一筆帳，中間斷掉不會只做一半。
               </p>
             </div>
             <div className="flex items-start gap-3">
               <FileJson aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
               <p className="text-slate-300 text-sm leading-relaxed">
                 <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firestore。
-                每一筆想放什麼就放什麼，開發的時候很快。代價是沒有人幫你把關，
+                每一筆想放什麼就放什麼，欄位不用先講好，改需求的時候很快。
+                代價是左邊那些保護預設都不在，要自己在程式裡補，漏掉一個地方就寫進去了。
                 而且要把好幾張表湊在一起查的時候會很吃力。
               </p>
             </div>
           </div>
           <p className="mt-4 border-t border-slate-800 pt-3 text-slate-400 text-sm leading-relaxed">
-            沒有特別理由就選 SQL。這兩個名字你現在不用挑，知道它們指的是同一類東西的兩種做法就好。
+            沒有特別理由就選 SQL，訂單、金流、庫存這種寫錯了要人去善後的尤其是。
+            這兩個名字你現在不用挑，知道它們指的是同一類東西的兩種做法就好。
           </p>
         </AnimatedBlock>
 
