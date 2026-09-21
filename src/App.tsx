@@ -44,7 +44,6 @@ import Slide10e1 from './slides/10e1_M1_GitPlayground';
 import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
-import Slide11d from './slides/11d_M1_ClaudeShortcuts';
 import Slide11d2 from './slides/11d2_M1_TerminalKeys';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide11c from './slides/11c_M1_PricingAndROI';
@@ -54,6 +53,7 @@ import Slide12 from './slides/12_M1_Example1';
 import Slide12b from './slides/12b_M1_Challenge';
 import Slide12c from './slides/12c_M1_ApiHandsOn';
 import Slide13 from './slides/13_M1_Example2';
+import Slide13b from './slides/13b_M1_Example3';
 import Slide14 from './slides/14_M1_Boundaries';
 import Slide15 from './slides/15_M1_Workflow';
 import Slide17 from './slides/17_M1_Error';
@@ -178,13 +178,13 @@ const LIVE_TITLES = [
   "Git 幫你記下每一版，不只是程式碼",
   "按按看，檔案怎麼從資料夾走到 GitHub",
   "Claude Code 桌面版：你只要動輸入框",
-  "Claude Code 的按鍵：補全、退回、貼圖",
   "Claude Code 指令的四種類型",
   "探索、計畫、執行、驗證：驗證歸你",
   "做出你的第一個作品",
   "換你寫一次",
   "讓計時器去外面拿一筆資料",
   "叫它寫個小工具，幫你做雜事",
+  "爬蟲：讓腳本自己開瀏覽器，抓成一張表",
   "哪些事它做得好，哪些你得自己來",
   "該用什麼工具？",
   "你手上該有：mission-timer 與會動的計時器",
@@ -314,13 +314,13 @@ const LIVE_SLIDES = [
   Slide10e,
   Slide10e1,
   Slide11b,
-  Slide11d,
   Slide11e,
   Slide15,
   Slide12,
   Slide12b,
   Slide12c,
   Slide13,
+  Slide13b,
   Slide14,
   Slide18b,
   Slide18c,

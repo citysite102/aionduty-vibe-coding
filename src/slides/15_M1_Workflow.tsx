@@ -64,28 +64,58 @@ export default function SlideWorkflow() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="text-center text-slate-300 max-w-3xl mx-auto bg-slate-900/50 py-6 px-10 rounded-xl border border-slate-800">
+        {/*
+          這一塊不要再放一次「探索 → 計畫 → 執行 → 驗證」的箭頭，上面四格就是它。
+          也不要寫「以此循環不斷迭代」，膠囊已經說了會轉回去。
+          留下來的是四格自己講不出來的那件事：哪幾步有你、驗證到底要做什麼。
+        */}
+        <AnimatedBlock stepIndex={3} className="text-slate-300 max-w-3xl mx-auto bg-slate-900/50 py-6 px-8 rounded-xl border border-slate-800">
           <p className="text-lg leading-relaxed">
-            <span className="text-sky-300 font-bold tracking-wider">探索 → 計畫 → 執行 → 驗證</span>
-            <br/><br/>
-            以此循環不斷迭代。前兩步你跟它一起做，「執行」由它動手，<br/>
-            <strong className="text-sky-400">而「驗證」是你的：先寫下什麼情況該出現什麼結果，再照著跑一次看對不對。</strong>
+            四步裡只有執行是它一個人做。探索跟計畫你要在場，驗證整個是你的。
+          </p>
+          <p className="text-lg leading-relaxed mt-3">
+            <strong className="text-sky-400">而驗證不是打開來看一眼：先寫下什麼情況該出現什麼結果，再照著跑一次。</strong>
           </p>
         </AnimatedBlock>
 
         {/*
           這一頁是學員第一次真的讓它動自己的檔案（下一頁就開始做第一個作品）之前的最後一頁。
-          權限模式那兩頁在幾十頁之後，中間這一整段他都在按同意，卻沒人跟他說按下去代表什麼。
-          這裡只補他當下需要的那一句：它會先問、你看過再按。
-          模式怎麼切、能不能整段放手，留給後面那兩頁，不在這裡展開。
+
+          最後查證：2026-09-21，對照 code.claude.com/docs/en/permission-modes。
+          **這一塊原本寫「執行這一步，它會先問你」，那是錯的。** 官方文件當時的原文是
+          「On Pro, Max, and Team plans, the built-in starting permission mode is auto mode」，
+          而這門課 Slide 18 推薦的就是 Claude Pro，所以學員打開來預設就不會每一步問他。
+          每一步都問的是 Manual（設定值仍叫 default）。auto mode 底下仍會停下來問的，
+          文件列在 Actions no mode auto-approves，包含明確的 ask 規則、要使用者回答的工具、
+          以及刪到關鍵路徑的 rm。
+          權限模式的名稱與行為是 CLAUDE.md C-3 點名最會過期的一類，下次改版前先重查那一頁。
+
+          這裡只給他當下用得到的：預設多半不問、停下來的時候長什麼樣、想每一步都看怎麼切。
+          模式的完整比較留給後面那兩頁，不在這裡展開。
         */}
-        <Callout stepIndex={4} icon={ShieldQuestion} label="「執行」這一步，它會先問你" className="mt-6">
-          它要改哪個檔案、要裝什麼東西，動手之前會停下來等你按同意。
-          <strong className="text-slate-100">按之前先看它說要改的是哪一個檔案</strong>，
-          對不上就選不同意，把想改的講清楚再讓它跑一次。
-          <span className="mt-2 block text-slate-400">
-            一路按同意，等於沒有這道關卡。這個詢問可以整段關掉，也可以只放行一部分，
-            怎麼設定後面會專門講。
+        <Callout
+          tone="muted"
+          stepIndex={4}
+          icon={ShieldQuestion}
+          label="它不一定每一步都問你"
+          className="mt-6"
+        >
+          Claude Pro 開起來預設是<strong className="text-slate-100">自動模式</strong>，多數動作它自己做完，
+          背後由另一個模型檢查這個動作跟你要求的對不對得上。想要每一步都自己看過再放行，
+          切到<strong className="text-slate-100">手動模式</strong>：桌面版在輸入框旁邊的模式選單，
+          終端機按 <code className="font-mono text-slate-300">Shift + Tab</code> 輪流切。
+          <span className="mt-3 block rounded-lg border border-slate-800 bg-slate-950 p-3.5 font-mono text-sm leading-relaxed">
+            <span className="block text-slate-400">Edit file</span>
+            <span className="block text-slate-300">mission-timer/index.html</span>
+            <span className="mt-2 block text-slate-500">Do you want to make this edit?</span>
+            <span className="mt-1.5 block text-slate-300">&#10095; 1. Yes</span>
+            <span className="block text-slate-500">&nbsp;&nbsp;2. Yes, and don't ask again</span>
+            <span className="block text-slate-500">&nbsp;&nbsp;3. No, tell Claude what to do differently</span>
+          </span>
+          <span className="mt-3 block text-slate-400">
+            停下來的時候長這樣（示意）。
+            <strong className="text-slate-200">按之前先看第二行，那是它要動的檔案</strong>，
+            對不上就選 3，把你想改的講清楚再讓它跑一次。
           </span>
         </Callout>
       </div>

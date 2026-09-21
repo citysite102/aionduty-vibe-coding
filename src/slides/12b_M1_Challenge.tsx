@@ -16,6 +16,12 @@ import { LiveDemo } from '../components/LiveDemo';
  * 這四種都是模糊 prompt 一定會漏、而且漏了就會看出來的地方。
  *
  * 這一頁不提供正確的 prompt，提供的是「哪些地方沒講就會出事」。
+ *
+ * 底下的 /rewind 是 2026-09-21 從原本那一頁獨立的按鍵頁搬過來的。
+ * 那一頁列了 @、/rewind、貼圖三個技巧，但整個章節三沒有任何一頁用到前兩個，
+ * 等於一頁「你等一下用不到的技巧」卡在動手流程中間。三個各自歸位之後那頁就刪了：
+ * 貼圖在 12_M1_Example1 的參考圖那一句，@ 在 21a2_M2_SkillDemoResume（那一頁
+ * 本來就在用 @resume.md），/rewind 在這裡，因為這一頁本來就會做壞。
  */
 const TRAPS = [
   {
@@ -109,7 +115,15 @@ export default function SlideChallenge() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
+          <p className="text-slate-400 text-sm leading-relaxed">
+            <strong className="text-slate-200">改到一半覺得越改越亂，打 <code className="font-mono text-slate-300">/rewind</code>。</strong>
+            它會列出你這次對話送出過的每一句話，選一個時間點就能退回去，程式碼跟對話可以分開退。
+            但它只管得到 Claude 自己改的檔案，用指令刪掉、搬走的救不回來。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={6} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <div className="text-sky-400 text-base font-bold mb-2">怎麼知道它真的照做了</div>
           <p className="text-slate-300 text-base leading-relaxed mb-3">
             <strong className="text-slate-100">上面那四題，你寫進去幾條就按幾條。</strong>

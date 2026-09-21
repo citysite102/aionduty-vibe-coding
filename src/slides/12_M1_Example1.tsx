@@ -9,8 +9,43 @@ const PLANET_ORDER: PlanetKey[] = ['earth', 'mars', 'moon', 'jupiter', 'saturn']
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
-const PROMPT =
+/**
+ * 規格只有這一份。畫面上印的清單與複製鈕拿到的字，都從這裡長出來。
+ *
+ * 原本 PROMPT 只有開頭那一句，底下的畫面／背景兩段規格寫死在 JSX 裡，
+ * 所以學員按複製只拿到一句話，做出來的東西跟右邊那張圖差很遠。
+ * 要改規格就改這裡，不要再把條目寫回 JSX。
+ */
+const SPEC: { head: string; items: string[] }[] = [
+  {
+    head: '畫面',
+    items: [
+      '25 分鐘倒數，等寬字體，放大置中',
+      '三個按鈕：發射、待機、返航。只有「發射」是實心主色，其他保持灰階',
+      '一條細進度條，一艘小火箭沿著進度往前移動',
+    ],
+  },
+  {
+    head: '背景：從軌道上看星球',
+    items: [
+      '星球用 canvas 畫成經緯排列的粒子點陣，只露出畫面下方一道弧',
+      '光源在左上。受光面亮、背面暗，越靠近輪廓的粒子要越亮，做出邊緣光',
+      '地平線外緣加一圈大氣輝光',
+      '星星座標固定寫死，重繪時不可以跳動',
+    ],
+  },
+];
+
+const OPENING =
   '請開一個 mission-timer 資料夾，在裡面建立一個單頁的任務計時器，一個 index.html 就好。';
+
+const CLOSING = '不要引用任何外部圖片。';
+
+const PROMPT = [
+  OPENING,
+  ...SPEC.map((g) => `${g.head}\n${g.items.map((t) => `- ${t}`).join('\n')}`),
+  CLOSING,
+].join('\n\n');
 
 export default function SlideExample1() {
   const [planet, setPlanet] = useState<PlanetKey>('earth');
@@ -42,29 +77,26 @@ export default function SlideExample1() {
               <Terminal size={14} /> Prompt
             </div>
 
-            <p className="text-slate-100 leading-relaxed font-medium text-sm mb-2">「{PROMPT}」</p>
-            <CopyAction text={PROMPT} className="mb-3" />
+            <p className="text-slate-100 leading-relaxed font-medium text-sm mb-2">{OPENING}</p>
 
-            <div className="space-y-2.5 text-sm leading-relaxed">
-              <div>
-                <div className="text-slate-500 text-xs font-bold mb-1">畫面</div>
-                <ul className="text-slate-300 space-y-1 list-disc pl-4 marker:text-slate-600">
-                  <li>25 分鐘倒數，等寬字體，放大置中</li>
-                  <li>三個按鈕：<strong className="text-sky-300">發射、待機、返航</strong>。只有「發射」是實心主色，其他保持灰階</li>
-                  <li>一條細進度條，一艘小火箭沿著進度往前移動</li>
-                </ul>
-              </div>
-              <div>
-                <div className="text-slate-500 text-xs font-bold mb-1">背景：從軌道上看星球</div>
-                <ul className="text-slate-300 space-y-1 list-disc pl-4 marker:text-slate-600">
-                  <li>星球用 canvas 畫成<strong className="text-amber-300">經緯排列的粒子點陣</strong>，只露出畫面下方一道弧</li>
-                  <li>光源在左上。受光面亮、背面暗，<strong className="text-amber-300">越靠近輪廓的粒子要越亮</strong>，做出邊緣光</li>
-                  <li>地平線外緣加一圈大氣輝光</li>
-                  <li>星星座標固定寫死，重繪時不可以跳動</li>
-                </ul>
-              </div>
-              <p className="text-amber-300 font-bold pt-1">不要引用任何外部圖片。</p>
+            <div className="space-y-2.5 text-sm leading-relaxed mb-3">
+              {SPEC.map((g) => (
+                <div key={g.head}>
+                  <div className="text-slate-500 text-xs font-bold mb-1">{g.head}</div>
+                  <ul className="text-slate-300 space-y-1 list-disc pl-4 marker:text-slate-600">
+                    {g.items.map((t) => (
+                      <li key={t}>{t}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+              <p className="text-slate-300 font-bold pt-1">{CLOSING}</p>
             </div>
+
+            <CopyAction text={PROMPT} />
+            <p className="text-slate-500 text-xs leading-relaxed mt-2">
+              複製鈕拿到的是<strong className="text-slate-400">上面整段</strong>，包含底下每一條規格。
+            </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={5} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
@@ -78,7 +110,8 @@ export default function SlideExample1() {
               <strong className="text-slate-300">寫得越具體，需要的來回就越少，但不會變成零。</strong>
             </p>
             <p className="text-slate-500 text-xs leading-relaxed border-t border-slate-800 pt-2.5">
-              🖼️ 心裡已經有畫面的話，把參考圖一起拖進輸入框貼給它。
+              🖼️ <strong className="text-slate-400">右邊那張圖就可以直接截圖貼給它。</strong>
+              文字描述得再細，都不如一張圖準，這是前面「講不清楚的直接給它看」那一頁的做法。
             </p>
           </AnimatedBlock>
         </div>

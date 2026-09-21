@@ -8,6 +8,15 @@ import { LiveDemo } from '../components/LiveDemo';
  *
  * 桌面版的 Code 頁籤跟終端機是同一個 Claude Code，不是 Cowork。
  * 所以卡在安裝的人留在這裡也能把後面每一段走完，不必砍任何內容。
+ *
+ * 最後查證：2026-09-21。官方文件（code.claude.com/docs/en/desktop）當時仍寫著
+ * 「three tabs: Chat, Cowork, Code」，但實機畫面上 Code 已經變成左上角的 </> 圖示，
+ * Chat 與 Cowork 則是輸入框上的切換。兩種版面都寫進步驟 3，學員照哪一版都找得到。
+ * 下次改版前先開一次 app 對照，不要只看文件。
+ *
+ * 左側列那一塊只負責「先不用管」，不要在這裡展開 Projects、Artifacts 是什麼。
+ * 三個介面（網頁版／Cowork／Claude Code）的完整比較是章節五 21h2 與 harness/33 的職務，
+ * 在這裡講等於同一批內容開兩頁（B-5），也會把這一頁「先做出東西」的節奏打斷。
  */
 const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
   {
@@ -39,7 +48,16 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
       </>
     ),
   },
-  { icon: AppWindow, label: '切到 Code 頁籤', desc: '上面有 Chat、Cowork、Code 三個，要開的是最右邊那個。' },
+  {
+    icon: AppWindow,
+    label: '切到 Code',
+    desc: (
+      <>
+        左上角那個 <code className="font-mono text-slate-300">&lt;/&gt;</code> 圖示就是 Code，按它。
+        有些版本把 Chat、Cowork、Code 做成上面三個頁籤，那就選 Code 那一個。
+      </>
+    ),
+  },
   {
     icon: FolderOpen,
     label: '選一個資料夾',
@@ -97,14 +115,35 @@ export default function SlideDesktopFirst() {
           })}
         </AnimatedBlock>
 
+        {/*
+          左側列的定位。學員一打開就看到這一排，沒人跟他說可以不管，
+          他會以為那些是必經的步驟。只給「先不用管」與 Cowork 一句話的定位，
+          展開是章節五的事。
+        */}
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5 text-left">
+          <div className="text-base font-bold text-slate-100 mb-2">左邊那一排先不用管</div>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            打開之後左側會有一排 Projects、Artifacts、Scheduled、Design、Customize。
+            <strong className="text-slate-300">那些是 Claude 對話那一側的功能，跟你現在要做的事沒有關係。</strong>
+            要用到的時候會回來講。
+          </p>
+          <p className="text-slate-400 text-sm leading-relaxed border-t border-slate-800 pt-3">
+            輸入框上還有一個 <strong className="text-slate-200">Chat ／ Cowork</strong> 的切換。
+            Chat 是一般對話；Cowork 是讓它綁一個資料夾、自己跑比較長的工作，
+            <strong className="text-slate-300">能讀能寫，但不執行指令</strong>。
+            這門課走 Code，因為後面要跑的版本控制、驗收與部署，Cowork 做不到。
+            三個地方的差別，章節五會攤開比一次。
+          </p>
+        </AnimatedBlock>
+
         <AnimatedBlock
-          stepIndex={3}
+          stepIndex={4}
           className="rounded-2xl border px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <div className="text-sky-400 font-bold text-base mb-2">這一格不是簡化版</div>
           <p className="text-slate-300 text-base leading-relaxed">
             桌面版的 Code 頁籤跟終端機是<strong className="text-slate-100">同一個 Claude Code</strong>，只是換了介面。
-            你在這裡學的每一個操作，換到終端機都不用重學。旁邊的 Cowork 才是另一回事，那個之後會講。
+            你在這裡學的每一個操作，換到終端機都不用重學。
           </p>
         </AnimatedBlock>
       </div>

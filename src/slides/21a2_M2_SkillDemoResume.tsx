@@ -44,6 +44,7 @@ export default function Slide21a2SkillDemoResume() {
 
           <p className="mt-2.5 text-sm leading-relaxed text-slate-400">
             指到檔名而不是「這份」，講明不要動什麼，說好做完先給我看。三件事都寫進去，它就不用猜。
+            檔名不用自己打全，<strong className="text-slate-300">輸入框打一個 <code className="font-mono text-orange-300">@</code> 就會跳出選單讓你挑</strong>。
           </p>
         </AnimatedBlock>
 
