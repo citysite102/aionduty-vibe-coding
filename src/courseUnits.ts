@@ -63,7 +63,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 41, title: '選修：終端機與基本指令', anchor: '選修：終端機與 Claude Code 安裝' },
   { live: 44, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: 'Claude Code 終端機版本配置' },
 
-  // ── 章節五 Agent 運作框架與成本分析 ──
+  // ── 章節五 Agent 運作框架與 CLAUDE.md ──
   // 2026-09-21 重排：原本是「Harness 六個零件」與「Token 計費與付費模式」兩支。
   // 問題是 Harness 才開個頭就整段切進計價，而計價那一支裡有兩頁（付費模式、外包比較）
   // 是採購決策，跟運作框架沒有關係。現在第一支把一條線講完：
@@ -72,7 +72,7 @@ export const UNIT_DEFS: UnitDef[] = [
   // 2026-09-22 整組移除：那三頁講的是採購決策與帳單，跟這一章在教的運作框架接不起來，
   // 而且擺在章末會讓整章收在「錢」上，不是收在「你手上那份手冊」。
   // 檔案是 11c、11c2、11c3，要找回來去 git 歷史裡翻。
-  { live: 46, title: '運作框架（Harness）：六個零件、成本與規則文件', anchor: 'Agent 運作框架與成本分析' },
+  { live: 46, title: '運作框架（Harness）：六個零件、成本與規則文件', anchor: 'Agent 運作框架與 CLAUDE.md' },
   { live: 53, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
   { live: 58, title: '監督程度與權限模式', anchor: '監督與邊界' },
   { live: 60, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },

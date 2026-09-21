@@ -1,6 +1,6 @@
 # 單元 5-5｜CLAUDE.md 的分層、長度與跨工具相容
 
-Slide 65-70 ／ 6 頁 ／ 章節五 Agent 運作框架與成本分析
+Slide 65-70 ／ 6 頁 ／ 章節五 Agent 運作框架與 CLAUDE.md
 
 > **這個單元開始，逐字稿的來源變了。**
 > Slide 65 起的頁面是**預錄拆頁**（`src/slides-recorded/`），它們的檔案裡本來就有一份 `meta.script`，那才是錄製時真正要念的字，而且 `npm run check:rec` 會按「中文字數＋英文詞數×2」去算它的長度、每頁 45 秒為上限。

@@ -117,7 +117,7 @@ npm run pdf      # → 逐字稿/逐字稿全集.pdf
 | | 3-8 Claude Code 的能力邊界與工具選擇 | Slide 39-41 | 初稿 |
 | 四 選修：終端機與安裝 | 4-1 選修：終端機與基本指令 | Slide 42-44 | 初稿 |
 | | 4-2 選修：Claude Code 安裝與終端機專屬操作 | Slide 45-46 | 初稿 |
-| 五 Agent 運作框架與成本分析 | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 47-53 | 初稿 |
+| 五 Agent 運作框架與 CLAUDE.md | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 47-53 | 初稿 |
 | | 5-2 MCP 與 Skills：Agent 的工具擴充 | Slide 54-58 | 初稿 |
 | | 5-3 監督程度與權限模式 | Slide 59-60 | 初稿 |
 | | 5-4 第一份 CLAUDE.md 實作 | Slide 61-64 | 初稿 |
