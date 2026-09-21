@@ -87,8 +87,8 @@ export default function SlideClaudeMenuTabs() {
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            打 <span className="font-mono text-slate-100">/</span> 會跳出一長串指令，不用背。
-            照「你現在想幹嘛」分成四類，需要時再回來查就好。
+            輸入框打一個 <span className="font-mono text-slate-100">/</span>，會跳出幾十個指令。
+            它們解決的狀況只有四種。
           </p>
         </AnimatedBlock>
 

@@ -3,6 +3,7 @@ import { Layout, Check, Terminal, Lightbulb, Rocket } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 import { SpaceCanvas, PLANETS, type PlanetKey } from '../components/SpaceCanvas';
+import refParticlePlanet from '../../assets/design-refs/ref-particle-planet.png';
 
 const PLANET_ORDER: PlanetKey[] = ['earth', 'mars', 'moon', 'jupiter', 'saturn'];
 
@@ -51,7 +52,7 @@ export default function SlideExample1() {
   const [planet, setPlanet] = useState<PlanetKey>('earth');
 
   return (
-    <SlideLayout title="做出你的第一個作品" subtitle="Example 1: Mission Timer" icon={Layout}>
+    <SlideLayout title="正式版計時器：把畫面寫成一份規格" subtitle="Example 1: Mission Timer" icon={Layout}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-start min-h-full">
 
         <div className="flex flex-col space-y-6">
@@ -100,6 +101,11 @@ export default function SlideExample1() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={5} className="bg-slate-950/50 border border-slate-800 rounded-xl px-5 py-4 space-y-2.5">
+            <img
+              src={refParticlePlanet}
+              alt="黑底上由密集白色小點構成的星系，中央最亮、往外逐漸稀疏"
+              className="w-full h-24 object-cover rounded-lg border border-slate-800"
+            />
             <p className="text-slate-400 text-xs leading-relaxed">
               <strong className="text-slate-200">這一段算不算「一開口就要最終結果」？</strong>
               差別在範圍跟驗收：一個檔案、一個畫面，而且每一條你都講得出做完長什麼樣。「幫我做一個 Facebook」兩個都沒有。
@@ -110,8 +116,9 @@ export default function SlideExample1() {
               <strong className="text-slate-300">寫得越具體，需要的來回就越少，但不會變成零。</strong>
             </p>
             <p className="text-slate-500 text-xs leading-relaxed border-t border-slate-800 pt-2.5">
-              🖼️ <strong className="text-slate-400">右邊那張圖就可以直接截圖貼給它。</strong>
-              文字描述得再細，都不如一張圖準，這是前面「講不清楚的直接給它看」那一頁的做法。
+              🖼️ <strong className="text-slate-400">連同這張參考圖一起貼進輸入框。</strong>
+              「經緯排列的粒子點陣」這句話，沒有圖它多半會做成一顆漸層球。
+              前面「講不清楚的直接給它看」那一頁用的就是這張。
             </p>
           </AnimatedBlock>
         </div>

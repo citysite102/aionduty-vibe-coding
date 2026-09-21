@@ -31,7 +31,7 @@ export default function SlideWorkflow() {
                 <FileEdit size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">2. 計畫</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">提出修改方案、確認實作步驟</p>
+              <p className="text-slate-400 text-xs leading-relaxed">提出做法與步驟，<strong className="text-slate-300">並且現在就寫下「做完長什麼樣」</strong></p>
             </div>
 
             {/* Step 3 */}
@@ -49,7 +49,7 @@ export default function SlideWorkflow() {
                 <CheckCircle2 size={24} />
               </div>
               <h3 className="text-lg font-bold text-slate-200 mb-2">4. 驗證</h3>
-              <p className="text-slate-400 text-xs leading-relaxed">跑一次、看結果對不對、不對就回頭修</p>
+              <p className="text-slate-400 text-xs leading-relaxed">拿第 2 步那張單子逐條對，不對就回頭修</p>
             </div>
             
             {/* Connecting lines for desktop */}
@@ -67,14 +67,26 @@ export default function SlideWorkflow() {
         {/*
           這一塊不要再放一次「探索 → 計畫 → 執行 → 驗證」的箭頭，上面四格就是它。
           也不要寫「以此循環不斷迭代」，膠囊已經說了會轉回去。
-          留下來的是四格自己講不出來的那件事：哪幾步有你、驗證到底要做什麼。
+
+          **完成條件屬於第 2 步，不是第 4 步。** 原本這裡寫「驗證是你的：先寫下什麼情況該
+          出現什麼結果，再照著跑一次」，順序講對了，但位置沒講，讀起來像是驗的時候才動筆。
+          寫在動工之後就不叫標準了，你會照著已經做出來的東西回頭寫單子。
+          四格裡第 2 步與第 4 步的說明現在互相指涉，改一邊要改兩邊。
+          完成條件怎麼寫得夠具體，是章節八 8-1 的職務，這裡只負責把它放對位置。
         */}
         <AnimatedBlock stepIndex={3} className="text-slate-300 max-w-3xl mx-auto bg-slate-900/50 py-6 px-8 rounded-xl border border-slate-800">
           <p className="text-lg leading-relaxed">
             四步裡只有執行是它一個人做。探索跟計畫你要在場，驗證整個是你的。
           </p>
           <p className="text-lg leading-relaxed mt-3">
-            <strong className="text-sky-400">而驗證不是打開來看一眼：先寫下什麼情況該出現什麼結果，再照著跑一次。</strong>
+            <strong className="text-sky-400">而驗收的標準要在動工之前就寫下來。</strong>
+            在計畫那一步把「做完長什麼樣」一條一條列出來，
+            這張單子叫<strong className="text-slate-100">完成條件</strong>，
+            執行完再拿它逐條對。
+          </p>
+          <p className="text-base leading-relaxed mt-3 text-slate-400">
+            順序反過來的話，你會照著它做出來的東西回頭寫標準，那就不是驗收了。
+            單子怎麼寫得夠具體，後面有一整段在練。
           </p>
         </AnimatedBlock>
 

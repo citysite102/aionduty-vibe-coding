@@ -12,6 +12,12 @@ import { Callout } from '../components/Callout';
  * 清單同時兌現前面欠的兩張支票：存檔（版本控制那一頁說「第一件事就是存檔」，
  * 但沒教怎麼存）、上線網址（部署那一頁說「最後會走完這一步」，實際上在章節八）。
  *
+ * 2026-09-21 補「存不起來的時候」。講師回報學員在這一步常卡在權限，查下去發現
+ * 卡的不是 GitHub：**這一頁的指令只在本機建 repository 與 commit，完全沒碰到 GitHub**，
+ * 真正會擋住第一次 commit 的是 git 還不知道你是誰。GitHub 的帳號授權要到章節八
+ * 推上去那一頁才會遇到，所以這裡只先打一支預防針，不在這裡教授權。
+ * 章節八的 27b8b_M4_PushToGithub 目前沒有任何一句講授權，那是另一個缺口。
+ *
  * 這裡只列學員手上真的會有的檔案。CLAUDE.md 曾經列過，但到這一頁為止它只被
  * 產出來看過一眼，沒有講過那是什麼，列進驗收清單學員無從判斷自己有沒有做到。
  */
@@ -52,7 +58,7 @@ const PROMPT =
 
 export default function SlideM1Harvest() {
   return (
-    <SlideLayout title="你手上該有：mission-timer 與會動的計時器" subtitle="What You Should Have" icon={PackageCheck}>
+    <SlideLayout title="目前為止的專案進度" subtitle="What You Should Have" icon={PackageCheck}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1}>
@@ -97,10 +103,24 @@ export default function SlideM1Harvest() {
           這門課從頭到尾就是在練這個動作。
         </Callout>
 
-        <Callout tone="muted" label="還沒拿到的" stepIndex={5}>
+        <Callout tone="warn" label="存不起來的時候" stepIndex={5}>
+          最常見的是它回一段紅字，說 git 不知道你是誰，要你設定名字與 email。
+          <strong className="text-slate-100">那不是你做錯，是這台電腦第一次用 git。</strong>
+          把整段紅字貼回去，跟它說「幫我設定好再重跑一次」就結束了。
+          <span className="mt-2 block text-slate-400">
+            另一種是它根本找不到 git。這時候跟它說「幫我確認這台電腦有沒有 git，沒有的話告訴我怎麼裝」，
+            照它給的步驟走。Windows 比較常遇到。
+          </span>
+        </Callout>
+
+        <Callout tone="muted" label="還沒拿到的" stepIndex={6}>
           <strong className="text-slate-200">可以傳給別人的上線網址，現在還沒有。</strong>
-          它要先推上 GitHub，再接部署平台，那兩步還沒做。
-          你現在這個只有自己這台電腦看得到。
+          剛才那一次存檔只存在你的電腦裡，沒有上傳到任何地方。
+          它要先推上 GitHub，再接部署平台，那兩步在章節八。
+          <span className="mt-2 block text-slate-400">
+            推上去的時候會遇到這一頁沒有的一件事：GitHub 要確認是你本人。
+            它會停下來要你到瀏覽器登入並按同意，跟前面講部署授權那一段是同一回事，
+            那一下它代不了你。</span>
         </Callout>
 
       </div>

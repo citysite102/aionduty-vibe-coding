@@ -80,10 +80,9 @@ export default function SlideChallenge() {
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
-            如果你只打「<span className="text-slate-300">時間快到的時候提醒我一下</span>」，
-            大概會拿到這幾種其中一種：跳一個 alert 擋住整個畫面、整頁變紅、加一個閃爍動畫，
-            或是它認為進度條已經夠明顯了，什麼都沒改。
-            <strong className="text-slate-200">這四種都不算它做錯，是你沒講。</strong>
+            你打「<span className="text-slate-300">時間快到的時候提醒我一下</span>」，它會自己挑一個做法。
+            可能是跳一個 alert 擋住畫面，可能是整頁變紅，也可能它覺得進度條已經夠明顯，什麼都沒改。
+            <strong className="text-slate-200">你拿到哪一個，取決於它猜中沒有。</strong>
           </p>
         </AnimatedBlock>
 

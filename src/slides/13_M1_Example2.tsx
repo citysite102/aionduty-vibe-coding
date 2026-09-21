@@ -23,7 +23,7 @@ export default function SlideExample2() {
         <div className="flex flex-col justify-start space-y-6">
           <AnimatedBlock stepIndex={1}>
             <div className="inline-block mb-3 px-2.5 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-xs font-bold text-slate-400">
-              支線示範，跟你的任務計時器無關
+              補充範例
             </div>
             <h3 className="text-2xl font-bold text-sky-400 mb-4 flex items-center gap-3">
               <TextCursorInput size={24} className="text-sky-400" />
@@ -77,6 +77,11 @@ export default function SlideExample2() {
               可以。Cowork 綁上 <code className="text-slate-300">imgs</code> 那個資料夾就能改。
               差別在產出物：腳本留得下來，下次換一百張圖再跑一次就好；Cowork 是這一次幫你做完，下次還要再講一遍。
               這一頁要示範的是<strong className="text-slate-200">產出一個能重複用的工具</strong>，不是比誰改得快。Cowork 能做到哪裡，後面比較三個地方的時候會講。
+            </p>
+            <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+              同一類的還有：把一疊 PDF 合成一份、把十張試算表併成一張、整批轉檔或改圖片尺寸、
+              從一堆檔名裡把日期抓出來分資料夾。
+              <strong className="text-slate-400">判準是這件事你會做第二次。</strong>
             </p>
           </AnimatedBlock>
         </div>
