@@ -12,6 +12,10 @@ export default function SlideHarnessContext() {
           等於在回答一個他還沒有的問題。現在的順序是：為什麼要有這份文件 →
           它裝不下全部 → 所以有三種載入時機 → 而決定時機這件事本身就寫在這份文件裡。
 
+          第三格講的是「先給目錄、用到才展開」這個做法本身，不要縮回去只講 Agent Skills。
+          走這條路的至少有五種（子資料夾的 CLAUDE.md、Rules、Skill、Subagent、MCP），
+          而 Slide 74、75 就是照這個分的。只寫 Skill 的話，學員到那兩頁會以為是新東西。
+
           **最後那一塊（規則文件自己指路）不要拿掉。** 沒有它，三種時機只是一張分類表，
           學員不知道那跟他等一下要寫的 CLAUDE.md 有什麼關係。這份簡報自己的 CLAUDE.md
           就是這樣寫的（主檔指到 src/remotion/CLAUDE.md），Slide 83 會把它攤開。
@@ -87,10 +91,15 @@ export default function SlideHarnessContext() {
               <div className="p-3 bg-sky-900/50 rounded-xl text-sky-300">
                 <Zap size={24} />
               </div>
-              <h3 className="text-xl font-bold text-sky-300">Agent Skills<br/><span className="text-sm text-sky-600/80 font-normal">混合式設計</span></h3>
+              <h3 className="text-xl font-bold text-sky-300">先給目錄，用到才展開<br/><span className="text-sm text-sky-600/80 font-normal">混合式設計</span></h3>
             </div>
-            <p className="text-sky-100 text-base leading-relaxed mb-6">
-              平常只讓它知道「有哪些 Skill 可以用」，各佔一行標題。真的用到那一個的時候，才把整份內容讀進來。
+            <p className="text-sky-100 text-base leading-relaxed mb-4">
+              平常只讓它知道「有哪些東西可以叫」，各佔一行標題。真的用到那一個的時候，才把整份內容讀進來。
+            </p>
+            <p className="text-sky-100/80 text-sm leading-relaxed mb-5">
+              走這條路的不只一種：子資料夾裡的 <code className="font-mono">CLAUDE.md</code>、
+              碰到特定檔案才載的 Rules、Skill、Subagent、MCP，都是「先掛著名字，叫到才進來」。
+              <span className="text-sky-200/70">哪一個什麼時候進來，後面有一整頁在分。</span>
             </p>
             <div className="mt-auto bg-sky-950/50 p-4 rounded-xl border border-sky-900/50">
               <p className="text-sm text-sky-200">
