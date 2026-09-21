@@ -84,7 +84,7 @@ const GOOD_POINTS = [
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="全塞一張表，還是拆表用 id 串" subtitle="Database & Schema Design" icon={Database}>
+    <SlideLayout title="資料庫：全塞一張表，還是拆開用 id 串" subtitle="Database & Schema Design" icon={Database}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
           <p className="text-slate-300 text-base leading-relaxed">
