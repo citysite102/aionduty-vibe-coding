@@ -118,7 +118,7 @@ sky 膠囊「現在開桌面版」／五張步驟卡：下載桌面版／登入�
 
 > **結果**：無須處理，當初就是查證結論。
 
-agent 懷疑這是失效承諾。**team-lead 查證：全片有講**，在 `harness/33_SurfaceIntro`（Slide 119，章節六的三欄對照表，Cowork 與 Claude Code 並列）。承諾成立，只是隔了 90 頁。
+agent 懷疑這是失效承諾。**team-lead 查證：全片有講**，在 `harness/33_SurfaceIntro`（Slide 120，章節六的三欄對照表，Cowork 與 Claude Code 並列）。承諾成立，只是隔了 90 頁。
 
 ### 3.【缺漏】`10f_M1_DesktopFirst:107` 一次帶進三個還沒定義的名詞
 

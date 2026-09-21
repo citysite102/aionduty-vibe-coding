@@ -1,20 +1,18 @@
 import type { ReactNode } from 'react';
-import { Database, Table, FileJson, AlertTriangle, Check } from 'lucide-react';
+import { Database, AlertTriangle, Check } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 資料庫這一頁的重點不是 SQL 與 NoSQL 的差別，是「同一批資料，擺法不同差在哪」。
+ * 這一頁只做一件事：同一批資料，擺得好跟擺不好差在哪。
  *
- * 理由：學員不會自己寫資料表，但 AI 會給他一張。他要判斷的是那張表能不能用，
- * 而 SQL / NoSQL 的分類幫不上這個忙。所以主體換成一張爛表跟拆好的表的對照，
- * SQL / NoSQL 降成最後一小塊，讓他聽到名字的時候對得上。
+ * 2026-09-21 從這裡拆出「什麼是資料庫」（10d0_M1_DatabaseWhat）。
+ * 定義、SQL / NoSQL、以及「你不用會寫 SQL」那三塊都搬去那一頁了，
+ * 因為它們講的是資料庫這個東西本身，不是資料怎麼擺。**不要搬回來。**
  *
- * 2026-09-21 開場補上「資料庫是什麼」。這個詞從 Slide 19 的七項基礎就開始出現，
- * Slide 24 的模擬器也標著 Postgres，但全片從來沒有定義過它，Slide 24 的口白
- * 甚至只說「Postgres 是資料庫」，那是循環定義。這一頁是它第一次當主角，
- * 定義就放在這裡。用 Excel 當類比是刻意的：Slide 139（中型專案那一段的四張表）
- * 也用同一個類比，那邊會回頭呼應這裡，兩邊的說法要一致，不要只改一邊。
+ * 學員不會自己寫資料表，但 AI 會給他一張。他要判斷的是那張表能不能用，
+ * 所以這一頁的收尾是一個數得出來的動作（同一個人的名字有沒有出現在兩列以上），
+ * 不是一句「看得懂就擋得下來」那種他驗不了的話。
  */
 
 /**
@@ -84,22 +82,11 @@ const GOOD_POINTS = [
 
 export default function Slide10d() {
   return (
-    <SlideLayout title="資料庫：全塞一張表，還是拆開用 id 串" subtitle="Database & Schema Design" icon={Database}>
+    <SlideLayout title="資料庫裡的資料怎麼擺" subtitle="Database & Schema Design" icon={Database}>
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
-        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
-          <p className="text-slate-300 text-base leading-relaxed">
-            網頁一關掉，剛才輸入的東西就沒了。要留住，就得寫進資料庫。
-          </p>
-          <p className="mt-2.5 text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">資料庫就是一個專門用來長期放資料的地方</strong>，
-            長得很像 Excel：一張表，最上面那列是欄位名稱，底下每一列是一筆資料。
-            兩個地方不一樣：它會幫你擋掉填錯格式的資料，而且能讓兩張表互相對應。
-          </p>
-          <p className="mt-2.5 text-slate-400 text-base leading-relaxed">
-            <strong className="text-slate-200">但寫進去只是第一步。</strong>
-            同一批資料擺法不一樣，今天看起來一模一樣；
-            差別要等到你想改一筆客戶資料、或想算某一項賣了幾份的時候才冒出來。
-          </p>
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
+          同一批資料，擺法不一樣，今天看起來一模一樣。
+          <strong className="text-slate-100">差別要等到你想改一筆客戶資料、或想算某一項賣了幾份的時候才冒出來。</strong>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
@@ -181,44 +168,19 @@ export default function Slide10d() {
         <Callout
           stepIndex={4}
           tone="good"
-          label="所以你要看得懂的是這個"
+          label="它給你一張表的時候，數這一件事就好"
           footnote={
             <>
-              可以這樣講：「客戶資料不要重複寫在每一筆訂單裡，拆成一張客戶表，訂單用 id 指過去。
+              是的話這樣講：「客戶資料不要重複寫在每一筆訂單裡，拆成一張客戶表，訂單用 id 指過去。
               客戶被刪掉的時候，他的訂單要一起刪嗎，你有處理嗎？」
             </>
           }
         >
-          你不用會寫 SQL。但 AI 不會主動問你要哪一種，你只說「幫我做一個訂單系統」，
-          它給你的很可能就是那張什麼都塞在一起的表。
-          <strong className="text-slate-100">看得懂它給的表，你才擋得下來</strong>。
+          <strong className="text-slate-100">同一個人的名字，有沒有出現在兩列以上？</strong>
+          有，就是左邊那一種，叫它拆。
           等到資料存了三個月才發現，表要重拆，已經寫進去的每一筆也要跟著搬。
         </Callout>
 
-        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
-          <div className="text-slate-400 text-sm font-bold mb-3">兩種資料庫，先認得名字就好</div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3">
-              <Table aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
-              <p className="text-slate-300 text-sm leading-relaxed">
-                <strong className="text-slate-100">關聯式（SQL）</strong>：PostgreSQL、MySQL。
-                每張表有哪些欄位要先講好，之後想改比較麻煩。好處是它會幫你擋掉對不起來的資料。
-                上面那種拆表就是它的做法，訂單、金流這種不能錯的東西用它。
-              </p>
-            </div>
-            <div className="flex items-start gap-3">
-              <FileJson aria-hidden="true" size={20} className="shrink-0 mt-0.5 text-slate-500" />
-              <p className="text-slate-300 text-sm leading-relaxed">
-                <strong className="text-slate-100">非關聯式（NoSQL）</strong>：MongoDB、Firestore。
-                每一筆想放什麼就放什麼，開發的時候很快。代價是沒有人幫你把關，
-                而且要把好幾張表湊在一起查的時候會很吃力。
-              </p>
-            </div>
-          </div>
-          <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            沒有特別理由就選 SQL。會不會出事，看的是資料有沒有拆開，不是你選了哪一種。
-          </p>
-        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

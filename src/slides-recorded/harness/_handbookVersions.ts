@@ -50,7 +50,7 @@ function build(round: number): Line[] {
   const out: Line[] = [];
   for (const [text, kind] of DRAFT) {
     if (text === TO_HOOK) {
-      // 搬走之後手冊裡要留一行提醒，否則 Slide 66 與這一段口白講的
+      // 搬走之後手冊裡要留一行提醒，否則 Slide 67 與這一段口白講的
       // 「在 Hook 擋掉，手冊裡只留一行提醒」就沒有示範到（學員會直接刪掉那一條）。
       if (round === 1) out.push({ text, state: 'added' });
       else if (round === 2) {

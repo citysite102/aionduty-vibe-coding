@@ -8,7 +8,7 @@ import { CopyAction } from '../components/CopyBlock';
  *
  * 本輪（2026-09-20）沒有重查。下次改版前要確認：
  *   - webapp-testing 是官方市集、社群市集，還是要自己寫
- *   - 確認後把來源補到畫面上（比照 Slide 57 寫 anthropics/claude-plugins-official 的格式）
+ *   - 確認後把來源補到畫面上（比照 Slide 58 寫 anthropics/claude-plugins-official 的格式）
  * 查完把這段註解換成 C-1 的三行格式。
  */
 

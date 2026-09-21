@@ -37,6 +37,7 @@ import Slide10b3 from './slides/10b3_M1_API_Docs';
 import Slide10c from './slides/10c_M1_WebArch';
 import Slide10c2 from './slides/10c2_M1_WebArchDuties';
 import Slide10c3 from './slides/10c3_M1_Deploy';
+import Slide10d0 from './slides/10d0_M1_DatabaseWhat';
 import Slide10d from './slides/10d_M1_Database';
 import Slide10e from './slides/10e_M1_Git';
 import Slide10e1 from './slides/10e1_M1_GitPlayground';
@@ -171,7 +172,8 @@ const LIVE_TITLES = [
   "API 文件四項重點",
   "一次請求的完整流程：前端、後端與資料庫",
   "前端、API 與後端各自負責什麼",
-  "資料庫：全塞一張表，還是拆開用 id 串",
+  "什麼是資料庫？",
+  "資料庫裡的資料怎麼擺",
   "從本機到上線：交給託管平台",
   "Git 幫你記下每一版，不只是程式碼",
   "按按看，檔案怎麼從資料夾走到 GitHub",
@@ -306,6 +308,7 @@ const LIVE_SLIDES = [
   Slide10b3,
   Slide10c,
   Slide10c2,
+  Slide10d0,
   Slide10d,
   Slide10c3,
   Slide10e,
@@ -427,11 +430,11 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 4, label: 'Vibe Coding 與 Agentic Engineering' },
   { start: 14, label: 'Claude Code 實作與網頁開發基礎' },
-  { start: 40, label: '選修：終端機與 Claude Code 安裝' },
-  { start: 45, label: 'Agent 運作框架與成本分析' },
-  { start: 77, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 87, label: 'Agent 分工與品質控管' },
-  { start: 101, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 41, label: '選修：終端機與 Claude Code 安裝' },
+  { start: 46, label: 'Agent 運作框架與成本分析' },
+  { start: 78, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { start: 88, label: 'Agent 分工與品質控管' },
+  { start: 102, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

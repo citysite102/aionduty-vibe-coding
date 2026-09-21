@@ -52,30 +52,30 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 17, title: 'Claude 桌面版實作與七項基礎總覽', anchor: '先用桌面版做出第一個東西' },
   { live: 19, title: '錯誤訊息與 API 文件', anchor: '紅字不是壞事，它在告訴你哪裡卡住' },
   { live: 23, title: '前端、後端、資料庫與部署', anchor: '一次請求的完整流程：前端、後端與資料庫' },
-  { live: 27, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
-  { live: 29, title: 'Claude Code 的介面、按鍵與指令', anchor: 'Claude Code 桌面版：你只要動輸入框' },
-  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證：驗證歸你' },
+  { live: 28, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
+  { live: 30, title: 'Claude Code 的介面、按鍵與指令', anchor: 'Claude Code 桌面版：你只要動輸入框' },
+  { live: 33, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證：驗證歸你' },
   // 起點刻意不是「叫它寫個小工具」那一頁：它是支線示範，當一支影片的第一格
   // 會讓學員以為這一單元在講寫腳本，其實在講邊界與收成。它留在上一單元收尾。
-  { live: 37, title: 'Claude Code 的能力邊界與工具選擇', anchor: '哪些事它做得好，哪些你得自己來' },
+  { live: 38, title: 'Claude Code 的能力邊界與工具選擇', anchor: '哪些事它做得好，哪些你得自己來' },
 
   // ── 章節四 選修：終端機與 Claude Code 安裝 ──
-  { live: 40, title: '選修：終端機與基本指令', anchor: '選修：終端機與 Claude Code 安裝' },
-  { live: 43, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: '裝好終端機版，確認它讀得到你的專案' },
+  { live: 41, title: '選修：終端機與基本指令', anchor: '選修：終端機與 Claude Code 安裝' },
+  { live: 44, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: '裝好終端機版，確認它讀得到你的專案' },
 
   // ── 章節五 Agent 運作框架與成本分析 ──
-  { live: 45, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
-  { live: 50, title: 'Token 計費與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
+  { live: 46, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
+  { live: 51, title: 'Token 計費與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
   // 5-2 收尾那三個浪費是下一頁「要動手的三塊」的鋪陳（見 11c3_M1_SpendLess 的註解），
   // 所以路線圖那一頁留在 5-2 裡，5-3 從 MCP 與 Skills 真正開始的那一頁起算。
-  { live: 55, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
-  { live: 60, title: '監督程度與權限模式', anchor: '監督與邊界' },
-  { live: 62, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
+  { live: 56, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
+  { live: 61, title: '監督程度與權限模式', anchor: '監督與邊界' },
+  { live: 63, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。
-  { live: 66, title: '一份 CLAUDE.md 不夠用時：規則還能放哪幾層', anchor: '同一句話，有沒有手冊差在哪' },
-  { live: 67, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
-  { live: 72, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
+  { live: 67, title: '一份 CLAUDE.md 不夠用時：規則還能放哪幾層', anchor: '同一句話，有沒有手冊差在哪' },
+  { live: 68, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
+  { live: 73, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
 
   // ── 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 ──
   // Hook 那七頁自成一個單元。它夾在分流四問與「保證越高改起來越麻煩」中間，
@@ -85,41 +85,41 @@ export const UNIT_DEFS: UnitDef[] = [
   // 代價是原本一支「四個問題」被切成前後兩段。這樣反而比較好：
   // 四個問題本來就是四件事，前兩題（沒生效、放哪層）講的是位置，
   // 後兩題（太肥、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
-  { live: 77, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { live: 80, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
+  { live: 78, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { live: 81, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
-  { live: 80, part: 12, title: '規則分層的取捨與第一次分流', anchor: '保證越高的，改起來越麻煩' },
-  { live: 81, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
+  { live: 81, part: 12, title: '規則分層的取捨與第一次分流', anchor: '保證越高的，改起來越麻煩' },
+  { live: 82, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
-  { live: 83, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '三個地方，差別只有兩件事' },
+  { live: 84, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '三個地方，差別只有兩件事' },
 
   // ── 章節七 Agent 分工與品質控管 ──
-  { live: 87, title: 'Agent 分工：三個角色與四種模式', anchor: 'Agent 分工與品質控管' },
-  { live: 90, title: '品質防線：審查子代理實作', anchor: '設一道會退回的品質防線' },
+  { live: 88, title: 'Agent 分工：三個角色與四種模式', anchor: 'Agent 分工與品質控管' },
+  { live: 91, title: '品質防線：審查子代理實作', anchor: '設一道會退回的品質防線' },
   // 原本切成「拆解」與「推進」兩支，但前半只給規格檔、後半才給指令，
   // 學員在前半會一直等著看指令長什麼樣。合起來就是一次完整的中型專案走法。
-  { live: 93, title: '中型專案演練：需求拆解與指令設計', anchor: '把分工放進一個中型專案' },
+  { live: 94, title: '中型專案演練：需求拆解與指令設計', anchor: '把分工放進一個中型專案' },
 
   // ── 章節八 Agent 循環開發流程與實戰案例 ──
   // 8-2 吃掉原本分開的「放手前的準備」與「真的跑一輪」。分開講的時候，
   // 前半是四道邊界與煞車、後半才實際貼那段指令，學員在前半會一直等著看指令長什麼樣。
   // 合起來的順序是：先知道怎麼喊停與怎麼驗，再貼指令，再看它自己跑三輪。
-  { live: 101, title: '工作交辦：目標、完成條件與邊界', anchor: 'Agent 循環開發流程與實戰案例' },
-  { live: 104, title: '介入時機、自動把關與安全邊界', anchor: '它原地打轉的時候，你有四個動作可以做' },
-  { live: 108, title: '自主循環實作：讓計時器自己跑完一輪', anchor: '讓計時器自己跑完一輪' },
-  { live: 113, title: '部署上線：從本機到公開網址', anchor: '你的專案現在只活在這台電腦裡' },
+  { live: 102, title: '工作交辦：目標、完成條件與邊界', anchor: 'Agent 循環開發流程與實戰案例' },
+  { live: 105, title: '介入時機、自動把關與安全邊界', anchor: '它原地打轉的時候，你有四個動作可以做' },
+  { live: 109, title: '自主循環實作：讓計時器自己跑完一輪', anchor: '讓計時器自己跑完一輪' },
+  { live: 114, title: '部署上線：從本機到公開網址', anchor: '你的專案現在只活在這台電腦裡' },
   // 三個完整案例。單元名稱直接用 Case 的名字，因為講者會在這裡打開那三份教學文件，
   // 影片標題和文件封面對得起來，學員才知道現在該翻哪一份。
   //
   // 案例一多一頁：規格怎麼寫是三個案例共用的課前作業，它沒有自己的單元，
   // 掛在第一個案例裡（第一次用到它的地方）。
-  { live: 118, title: '案例一：器 VESSEL', anchor: '案例一：器 VESSEL' },
-  { live: 122, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
-  { live: 125, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
-  { live: 128, title: '題目選擇與開工步驟', anchor: '回去之後，做哪一種題目' },
+  { live: 119, title: '案例一：器 VESSEL', anchor: '案例一：器 VESSEL' },
+  { live: 123, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
+  { live: 126, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
+  { live: 129, title: '題目選擇與開工步驟', anchor: '回去之後，做哪一種題目' },
 
   // ── 章節九 結語 ──
-  { live: 131, title: '結語：未來的工作者', anchor: '未來的工作者' },
+  { live: 132, title: '結語：未來的工作者', anchor: '未來的工作者' },
 ];
