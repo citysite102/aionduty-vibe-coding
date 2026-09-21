@@ -2,37 +2,60 @@ import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /*
- * 開頭那句的順序要跟下面三格一致。原本寫「規則文件與工具」，但格子是
- * 1 工具、2 規則文件、3 切小，兩邊對不上，學員讀完第一句再看格子會先愣一下。
- * 改的是句子不是格子：下一頁（21a）整頁在講 MCP 與 Skills，也就是第 1 格的工具，
- * 格子的順序是對的，動格子會連下一頁一起斷掉。
+ * 2026-09-21 大改。這一頁原本在成本那一段的最後，三格各自對應上一頁列的
+ * 「三個浪費」，開頭卻在講六個零件與第四塊權限，兩個框架疊在一起，
+ * 三格跟開頭讀起來沒有關係。現在開頭只講這三格本身。
+ *
+ * **格子順序換過：1 規則文件、2 工具、3 切小。** 這是照著後面的教學順序排的，
+ * 下一頁是「為什麼需要規則文件」，再下一頁才是 MCP 與 Skills。
+ * 要動格子順序之前先看那兩頁還在不在原位。
+ *
+ * 每一格開頭那句「它缺的是什麼」不要換成「解的是第 N 個浪費」：
+ * 那份浪費清單（11c3_M1_SpendLess）現在排在章節五最後，學員讀到這裡還沒看過。
  */
 export default function SlidePillars() {
   return (
-    <SlideLayout title="Agent 的工具、規則文件與任務拆解" subtitle="What We Actually Build" icon={Layers}>
-      <p className="text-slate-400 text-sm leading-relaxed max-w-4xl mx-auto mt-2 mb-5 text-center">
-        六個零件裡，前兩塊是你真的要建出檔案的，第三塊零件表沒列，
-        但你每次交代工作都會用到。<strong className="text-slate-200">模型換成更新的版本，這三塊照樣要做。</strong>
-      </p>
-      {/*
-        第四塊沒有做成第四格，因為它不是「你要建的東西」，是你在建的過程中一直要轉的旋鈕。
-        但它一定要在這張地圖上：學員拿這一頁當進度表，走到監督與邊界那兩頁會找不到自己在哪。
-      */}
-      <p className="text-slate-500 text-sm leading-relaxed max-w-4xl mx-auto mb-5 text-center">
-        工具講完會先插一段<strong className="text-slate-300">權限與邊界</strong>，那是六個零件裡的第四塊：
-        手給出去了，你得知道怎麼收緊它碰得到的範圍，再往下動手才安全。
+    <SlideLayout title="三個動作，提高每次交辦的效益" subtitle="What We Actually Build" icon={Layers}>
+      <p className="text-slate-300 text-base leading-relaxed max-w-4xl mx-auto mt-2 mb-6 text-center">
+        同樣一件事交代出去，花多少、做得準不準，你能動的就是下面三件。
+        <strong className="text-slate-100">模型換成更新的版本，這三件照樣要做。</strong>
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 max-w-6xl mx-auto items-stretch">
 
-        {/* 一、工具 */}
+        {/* 一、規則文件與 context */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
             <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">1</div>
+            只給它需要的資料
+          </h3>
+          <p className="text-slate-300 mb-5 text-sm leading-relaxed">
+            <span className="text-slate-500">它缺的是你的規矩。</span>
+            該給的要給，但塞太多它會抓不到重點。
+          </p>
+          <div className="space-y-3">
+            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span className="text-sky-300 font-bold block mb-1.5">專案手冊 (CLAUDE.md)</span>
+              <span className="text-slate-400 text-sm leading-relaxed block">把規矩和命名習慣定下來。</span>
+            </div>
+            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
+              <span className="text-sky-300 font-bold block mb-1.5">壓縮與清理</span>
+              <span className="text-slate-400 text-sm leading-relaxed block">
+                對話快滿時系統會把先前內容摘要後重開，也可以手動下 <code className="text-slate-300">/compact</code>。
+                這個過程會掉細節。
+              </span>
+            </div>
+          </div>
+        </AnimatedBlock>
+
+        {/* 二、工具 */}
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
+          <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
+            <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">2</div>
             讓它有工具可用
           </h3>
           <p className="text-slate-300 mb-5 text-sm leading-relaxed">
-            <span className="text-slate-500">解的是上一頁第一個浪費：手上沒有對的工具。</span>
+            <span className="text-slate-500">它缺的是手。</span>
             查不到的東西它就會用猜的。給它真的能查、能動手的工具。
           </p>
           {/*
@@ -52,31 +75,6 @@ export default function SlidePillars() {
           </ul>
         </AnimatedBlock>
 
-        {/* 二、規則文件與 context */}
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
-          <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-base">2</div>
-            只給它需要的資料
-          </h3>
-          <p className="text-slate-300 mb-5 text-sm leading-relaxed">
-            <span className="text-slate-500">解的是第二個浪費：丟了一堆它用不到的資料。</span>
-            該給的要給，但塞太多它會抓不到重點。
-          </p>
-          <div className="space-y-3">
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span className="text-sky-300 font-bold block mb-1.5">專案手冊 (CLAUDE.md)</span>
-              <span className="text-slate-400 text-sm leading-relaxed block">把規矩和命名習慣定下來。</span>
-            </div>
-            <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-              <span className="text-sky-300 font-bold block mb-1.5">壓縮與清理</span>
-              <span className="text-slate-400 text-sm leading-relaxed block">
-                對話快滿時系統會把先前內容摘要後重開，也可以手動下 <code className="text-slate-300">/compact</code>。
-                這個過程會掉細節。
-              </span>
-            </div>
-          </div>
-        </AnimatedBlock>
-
         {/* 三、把大題目切小 */}
         <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg flex flex-col">
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-3 mb-3">
@@ -84,7 +82,7 @@ export default function SlidePillars() {
             把大題目切小
           </h3>
           <p className="text-slate-300 mb-5 text-sm leading-relaxed">
-            <span className="text-slate-500">解的是第三個浪費：一個題目一次交代太大。</span>
+            <span className="text-slate-500">它缺的是範圍。</span>
             一次交代太大，出錯的機會就變高。
           </p>
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">

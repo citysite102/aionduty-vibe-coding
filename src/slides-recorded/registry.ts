@@ -61,8 +61,8 @@ import RecHandbookV5, { meta as m58 } from './harness/58_HandbookV5';
  * 現場與預錄共用這一份，差別只在錄製時加上 ?clean=1 隱藏操作列。
  */
 export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
-  // index 67 = 原「CLAUDE.md 的作用、長度與分層」
-  67: [
+  // index 64 = 原「CLAUDE.md 的作用、長度與分層」
+  64: [
     { meta: m23, Component: RecWhyNoHandbook },
     { meta: m25, Component: RecWhyDiff },
     { meta: m26, Component: RecLayersOverview },

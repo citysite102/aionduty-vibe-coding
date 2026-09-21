@@ -3,7 +3,7 @@ import { DollarSign, TrendingDown, TrendingUp, AlertCircle, Factory } from 'luci
 
 export default function SlideHarnessEconomics() {
   return (
-    <SlideLayout title="兩種花錢的方式：邊做邊花，還是先花再省" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
+    <SlideLayout title="Harness 對成本的影響" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
       {/*
         token 的定義本來在 Slide 48 的頁尾，2026-09-21 從那裡移除（那一頁的職務是
         「這一段要解掉什麼」，不是解釋名詞），改放在這裡，也就是整個單元的第一頁。
@@ -12,8 +12,10 @@ export default function SlideHarnessEconomics() {
       */}
       <div className="pt-8 max-w-6xl mx-auto h-full flex flex-col">
         {/*
-          前一頁收在「送進去的東西是要付錢的」，這一頁原本直接開兩張卡，
-          那筆錢是怎麼算的沒有人接。先用一句把帳單接起來再展開。
+          前一頁是六個零件，這一頁接著問那些零件怎麼影響你的帳單。
+          2026-09-21 從原本的「Token 計費與付費模式」單元搬到這裡：零件講完就接成本，
+          不要把整段計價插在 Harness 開頭。付費模式與外包比較那兩頁是採購決策，
+          跟運作框架沒有關係，已經搬到章節五最後。
         */}
         <p className="text-slate-300 text-lg leading-relaxed mb-3">
           計價的單位叫 <strong className="text-slate-100">token</strong>，你可以粗略當成「字」，

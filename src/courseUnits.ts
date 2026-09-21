@@ -64,18 +64,21 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 44, title: '選修：Claude Code 安裝與終端機專屬操作', anchor: 'Claude Code 終端機版本配置' },
 
   // ── 章節五 Agent 運作框架與成本分析 ──
-  { live: 46, title: '運作框架（Harness）與它的六個零件', anchor: 'Agent 運作框架與成本分析' },
-  { live: 51, title: 'Token 計費與付費模式', anchor: '兩種花錢的方式：邊做邊花，還是先花再省' },
-  // 5-2 收尾那三個浪費是下一頁「要動手的三塊」的鋪陳（見 11c3_M1_SpendLess 的註解），
-  // 所以路線圖那一頁留在 5-2 裡，5-3 從 MCP 與 Skills 真正開始的那一頁起算。
-  { live: 56, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
-  { live: 61, title: '監督程度與權限模式', anchor: '監督與邊界' },
-  { live: 63, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
+  // 2026-09-21 重排：原本是「Harness 六個零件」與「Token 計費與付費模式」兩支。
+  // 問題是 Harness 才開個頭就整段切進計價，而計價那一支裡有兩頁（付費模式、外包比較）
+  // 是採購決策，跟運作框架沒有關係。現在第一支把一條線講完：
+  // Harness 是什麼 → 由哪些東西組成 → 它怎麼影響成本 → 所以要做哪三個動作 → 規則文件。
+  // 那兩頁採購決策連同「怎麼少花一點」搬到章節五最後，成為 5-8。
+  { live: 46, title: '運作框架（Harness）的組成、成本與三個動作', anchor: 'Agent 運作框架與成本分析' },
+  { live: 53, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
+  { live: 58, title: '監督程度與權限模式', anchor: '監督與邊界' },
+  { live: 60, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。
-  { live: 67, title: '一份 CLAUDE.md 不夠用時：規則還能放哪幾層', anchor: '同一句話，有沒有手冊差在哪' },
-  { live: 68, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
-  { live: 73, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
+  { live: 64, title: '一份 CLAUDE.md 不夠用時：規則還能放哪幾層', anchor: '同一句話，有沒有手冊差在哪' },
+  { live: 65, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
+  { live: 70, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
+  { live: 75, title: '付費模式與成本控制', anchor: 'AI 程式工具的付費模式：訂閱制與計量付費' },
 
   // ── 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 ──
   // Hook 那七頁自成一個單元。它夾在分流四問與「保證越高改起來越麻煩」中間，

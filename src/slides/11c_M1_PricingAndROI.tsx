@@ -25,7 +25,8 @@ export default function SlidePricingAndROI() {
       <div className="max-w-6xl mx-auto mt-2 text-left space-y-6 pb-6">
 
         <AnimatedBlock stepIndex={1}>
-          {/* 前一頁講的是錢的兩種形狀，這一頁講的是帳單本身怎麼開，先把兩者接起來 */}
+          {/* 2026-09-21 搬到章節五最後。前面那一段已經講過 token 怎麼算，
+              這一頁處理的是另一件事：你到底該買哪一種方案。 */}
           <p className="text-slate-400 text-sm leading-relaxed mb-2">
           </p>
           <h3 className="text-xl font-bold text-slate-100 flex items-center gap-2 mb-1">
