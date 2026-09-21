@@ -6,6 +6,19 @@ import { LiveDemo } from '../components/LiveDemo';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
+ * 最後查證：2026-09-21，對照 code.claude.com/docs/en/memory 與 /context-window。
+ * 當時的現況：
+ *   - auto memory「is on by default」，所以第 4 格的「預設就開著」成立。
+ *   - 它存的四類是 user、feedback、project、reference，而官方明講
+ *     「Claude skips anything it can derive from the codebase, such as architecture,
+ *     file paths, or debugging fixes」。原本舉的例子「這個專案怎麼跑測試」正好是
+ *     它會跳過的那一類（package.json 裡就有），已換成它真的會記的。
+ *   - `/memory` 可以瀏覽與編輯那些檔案，而且是純 markdown，跟這一格寫的一致。
+ *   - **`/context` 的欄位名稱查不到「Free space」**。官方只說它給
+ *     「a live breakdown by category with optimization suggestions」，
+ *     所以第 2 格不再指名那個標籤，改成講要比的是什麼。介面字串最容易過期，
+ *     下次改版前自己打一次 /context 對照，不要照抄舊截圖。
+ *
  * 這一頁是動手頁，所以每一格都要有可以直接貼的東西，不是描述「你應該做什麼」。
  *
  * 第三格特別注意：不要把拆解的答案直接印出來。
@@ -64,12 +77,12 @@ export default function SlideM2HandsOn() {
           <div className="space-y-2 text-sm">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="font-mono text-orange-300 font-bold">/context</span>
-              <span className="text-slate-400"> ，記下 Free space 那個百分比。</span>
+              <span className="text-slate-400"> ，記下它列出來的用量。</span>
             </div>
             <Prompt text="把 index.html 整份讀一遍，告訴我它有幾行。" />
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="font-mono text-orange-300 font-bold">/context</span>
-              <span className="text-slate-400"> 再打一次，看少了多少。</span>
+              <span className="text-slate-400"> 再打一次，比一下多吃掉多少。</span>
             </div>
           </div>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
@@ -122,7 +135,7 @@ export default function SlideM2HandsOn() {
             它自己也在記，去看它記了什麼
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            除了你寫的 CLAUDE.md，Claude Code 還會自己存筆記，預設就開著。兩者分工不同：
+            除了你寫的 CLAUDE.md，Claude Code 還會自己存筆記，預設就開著，而且一樣每次都載入。兩者分工不同：
           </p>
           <div className="space-y-2 text-sm mb-3">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
@@ -131,7 +144,7 @@ export default function SlideM2HandsOn() {
             </div>
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="text-orange-300 font-bold">auto memory</span>
-              <span className="text-slate-400">：它自己學到的。你糾正過它的事、這個專案怎麼跑測試。</span>
+              <span className="text-slate-400">：它自己學到的。你糾正過它的事、你偏好的做法、這個專案做過的決定。</span>
             </div>
           </div>
           <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5 text-sm">

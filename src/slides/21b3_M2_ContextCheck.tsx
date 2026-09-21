@@ -1,4 +1,16 @@
 import { ScanLine } from 'lucide-react';
+
+/**
+ * 最後查證：2026-09-21，對照 code.claude.com/docs/en/memory。
+ * 當時的現況：
+ *   - `/context` 裡列手冊的那一段官方叫 **Memory files**（原文：「`/memory` and the
+ *     **Memory files** list in `/context`」）。原本寫「答案在最下面那一段」，
+ *     那是位置，改版就會錯；現在指名那一段的名字。
+ *   - 第 3 點的「200 行」有官方出處：「**Size**: target under 200 lines per CLAUDE.md
+ *     file. Longer files consume more context and reduce adherence.」
+ *     所以它不是這門課的個人意見，改版時不要當成可以隨手調的數字。
+ * 下次改版前先重查那一頁。
+ */
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 const READINGS = [
@@ -15,7 +27,7 @@ const READINGS = [
   {
     n: '3',
     q: '佔多大？',
-    desc: '手冊越長，越後面的規矩越容易被當成背景。實務上建議一份控制在 200 行以內。',
+    desc: '手冊越長，越後面的規矩越容易被當成背景。官方建議一份控制在 200 行以內，超過就用路徑規則拆開，讓它只在動到對應檔案時才載入。',
   },
 ];
 
@@ -26,7 +38,7 @@ export default function SlideM2ContextCheck() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
-            手冊寫完了，但它這一輪有沒有真的被讀進去？在對話框輸入 <code className="text-orange-300 font-mono">/context</code>，答案在最下面那一段。
+            手冊寫完了，但它這一輪有沒有真的被讀進去？在對話框輸入 <code className="text-orange-300 font-mono">/context</code>，找 <strong className="text-slate-200">Memory files</strong> 那一段。
           </p>
           <div className="bg-slate-950 border border-slate-800 rounded-2xl p-5 font-mono text-xs shadow-xl">
             <div className="flex gap-2 mb-4">
@@ -34,7 +46,10 @@ export default function SlideM2ContextCheck() {
               <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
               <span className="w-2.5 h-2.5 rounded-full bg-slate-700" />
             </div>
-            <div className="text-slate-200 font-bold mb-3">Context Usage</div>
+            <div className="flex items-baseline justify-between mb-3">
+              <span className="text-slate-200 font-bold">Context Usage</span>
+              <span className="text-slate-600 text-xs">示意，數字與欄位以你打出來的為準</span>
+            </div>
             <div className="space-y-1 text-slate-500">
               <div>System prompt <span className="float-right">5.1k (0.5%)</span></div>
               <div>System tools <span className="float-right">16.9k (1.7%)</span></div>
