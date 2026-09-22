@@ -37,5 +37,10 @@ sim/archive/
 .impeccable/config.local.json
 .impeccable/hook.cache.json
 
-# 逐字稿 PDF 是 npm run pdf 產出來的衍生檔，不進版控
-逐字稿/*.pdf
+# 逐字稿 PDF（npm run pdf 產出）2026-09-22 起進版控，讓沒有開發環境的人
+# 直接在 repo 裡拿得到最新的一份。它是衍生檔，唯一的真相來源仍是 逐字稿/*.md。
+#
+# 代價要知道：它是 6.9 MB 的二進位檔，PDF 幾乎沒有 delta 壓縮，
+# 每 commit 一次就多存一整份。所以**不要每改一句就重新產一次進版控**，
+# 累積到一個段落再跑 npm run pdf 並跟著那一批改動一起 commit。
+# 只有 PDF 變動、markdown 沒動的 commit 沒有意義。
