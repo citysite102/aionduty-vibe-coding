@@ -23,7 +23,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  */
 const TESTS = [
   { q: '會重複做嗎？', no: '只做一次的事，當場交代就好，不用寫手冊' },
-  { q: '你有自己的規矩嗎？', no: '沒有偏好的話，它怎麼做都行' },
+  { q: '你有自己的規則嗎？', no: '沒有偏好的話，它怎麼做都行' },
   { q: '產出要一致嗎？', no: '每次長得不一樣也沒差的，不需要固定下來' },
 ];
 
@@ -120,9 +120,9 @@ export default function SlideProjectTypes() {
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            四格的欄位一模一樣：<strong className="text-slate-100">手冊定規矩，專案交出一個固定格式的產出。</strong>
+            四格的欄位一模一樣：<strong className="text-slate-100">手冊定規則，專案交出一個固定格式的產出。</strong>
             差別只在產出是一個網頁、一份投影片、一張對照表，還是一份報表。
-            <span className="block text-slate-400 text-sm mt-2">所以四種專案的手冊用的是同一套寫法。真正卡住人的是下一個問題：第一條規矩，你要從哪裡生出來。</span>
+            <span className="block text-slate-400 text-sm mt-2">所以四種專案的手冊用的是同一套寫法。真正卡住人的是下一個問題：第一條規則，你要從哪裡生出來。</span>
           </p>
         </AnimatedBlock>
 

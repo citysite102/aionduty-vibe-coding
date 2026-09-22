@@ -22,7 +22,7 @@ const parts = [
     icon: FileCode,
     name: '規則文件',
     en: 'Rule Files',
-    desc: '這個專案的規矩與慣例，寫成一份 CLAUDE.md，每次開對話都會被讀進去。',
+    desc: '這個專案的規則與慣例，寫成一份 CLAUDE.md，每次開對話都會被讀進去。',
   },
   {
     icon: Wrench,

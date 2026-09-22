@@ -37,7 +37,7 @@ export default function RecHandbookV5() {
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
           <div className="text-sky-400 text-base font-bold mb-2">💡 自己驗一次</div>
           <p className="text-slate-300 text-lg leading-relaxed">
-            把這份貼進 Claude Projects 的指令欄，丟同一句需求，看它會不會照著同樣的規矩回答。
+            把這份貼進 Claude Projects 的指令欄，丟同一句需求，看它會不會照著同樣的規則回答。
           </p>
         </AnimatedBlock>
       </RecPage>

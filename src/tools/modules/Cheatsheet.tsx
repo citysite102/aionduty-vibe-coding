@@ -83,7 +83,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         from: '動手：四格',
       },
       {
-        when: '把新的規矩補進既有的手冊，不要蓋掉舊的',
+        when: '把新的規則補進既有的手冊，不要蓋掉舊的',
         kind: 'say',
         text: '請在 CLAUDE.md 補上下面這幾條，原本已經有的不要動，以後每次進來都要遵守。',
         watch: '底下接你自己那幾條，一行一條。',

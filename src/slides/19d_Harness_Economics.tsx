@@ -1,6 +1,15 @@
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { DollarSign, TrendingDown, TrendingUp, AlertCircle, Factory } from 'lucide-react';
 
+/*
+ * 最後查證：2026-09-22，對照 platform.claude.com/docs/en/about-claude/models/overview 的價目表。
+ * 當時的現況：輸出的每 token 單價一律是輸入的 5 倍，整條產品線都一致
+ * （Opus $5／$25、Sonnet $3／$15、Haiku $1／$5，單位都是每百萬 token）。
+ * 所以寫倍率不寫絕對金額，換代也不容易過期。
+ * **只查了 Anthropic 一家，所以句子裡要留著「Claude 的」那三個字。** 別家不是五倍，
+ * 寫成「各家的牌價」就超出查證範圍了，而這門課在前一頁才點名過 Codex 與 Gemini。
+ * 下次改版前先重查那張表，倍率變了才動這一句，不要憑印象改。
+ */
 export default function SlideHarnessEconomics() {
   return (
     <SlideLayout title="Harness 對成本的影響" subtitle="Token Economics: Capex vs Opex" icon={DollarSign}>
@@ -10,7 +19,7 @@ export default function SlideHarnessEconomics() {
         **不要再把它搬回去。** 移走之後這一頁的開場一度變成「先把計價講完整」，
         接不到任何東西，學員手上沒有這個詞的定義就讀不下去。
       */}
-      <div className="pt-4 max-w-6xl mx-auto h-full flex flex-col">
+      <div className="pt-4 max-w-6xl mx-auto min-h-full flex flex-col">
         {/*
           前一頁是六個零件，這一頁接著問那些零件怎麼影響你的帳單。
           2026-09-21 從原本的「Token 計費與付費模式」單元搬到這裡：零件講完就接成本，
@@ -24,13 +33,15 @@ export default function SlideHarnessEconomics() {
           補的那句給的是因果（框架決定讀多少、來回幾次，那就是帳單），token 才變成它的單位。
         */}
         <p className="text-slate-300 text-lg leading-relaxed mb-3">
-          <strong className="text-slate-100">運作框架怎麼架，決定它每次要讀多少東西、來回幾次</strong>，
-          而這兩件事就是帳單本身。計價的單位叫 token，你可以粗略當成「字」，中文一個字大約一到兩個 token；
+          <strong className="text-slate-100">運作框架怎麼架，決定它每次要讀多少東西、來回改幾次</strong>，
+          讀得多、改得多，花的就多。計價的單位叫 token，你可以粗略當成「字」，中文一個字大約一到兩個 token；
           你送進去的字與它吐回來的字兩邊都計價，它讀你專案讀進去的也算。
         </p>
         <p className="text-slate-400 text-base leading-relaxed mb-4">
-          所以它不是按使用時間算錢，是按它讀進去與寫出來的量算。
-          下面兩欄，是同一件事的兩種花法。
+          兩邊的單價不一樣，<strong className="text-slate-200">Claude 的輸出是輸入的五倍</strong>；
+          但量體相反，讀專案讀進去的那一批通常最大，所以兩邊都要顧。
+          它也不是按使用時間算錢，是按它讀進去與寫出來的量算。
+          下面兩欄，是做出同一個東西的兩種花法。
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 flex-grow">
           <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col">
@@ -51,7 +62,7 @@ export default function SlideHarnessEconomics() {
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
-                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">額度燒得快：</strong>沒有規矩也沒有檢查，它做錯了你要一輪一輪叫它重做，每一輪都在花錢。</span>
+                <span className="text-slate-400 text-base leading-relaxed"><strong className="text-slate-200">額度燒得快：</strong>沒有規則也沒有檢查，它做錯了你要一輪一輪叫它重做，每一輪都在花錢。</span>
               </li>
               <li className="flex items-start gap-4">
                 <AlertCircle size={20} className="text-amber-500 shrink-0 mt-1" />
@@ -76,7 +87,7 @@ export default function SlideHarnessEconomics() {
             </div>
 
             <p className="text-slate-300 text-lg leading-relaxed mb-8">
-              一開始要先花時間：想清楚東西怎麼組起來、寫下規矩、加上會自己跑的檢查。這一段是純付出，還看不到成果。
+              一開始要先花時間：想清楚東西怎麼組起來、寫下規則、加上會自己跑的檢查。這一段是純付出，還看不到成果。
             </p>
             
             <div className="bg-sky-950/20 p-6 rounded-xl border border-sky-900/40 flex items-start gap-5">

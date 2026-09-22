@@ -32,7 +32,7 @@ const assets = [
     icon: BookMarked,
     num: '2',
     title: '把規範與限制寫成它讀得到的規則',
-    desc: '哪些不准用、按鈕要用哪一組詞、設定要集中放哪裡。腦子裡的規矩寫成檔案，而且寫成驗得出來的樣子。',
+    desc: '哪些不准用、按鈕要用哪一組詞、設定要集中放哪裡。腦子裡的規則寫成檔案，而且寫成驗得出來的樣子。',
     haveIcon: FileText,
     haveLabel: '一個檔案',
     haveDir: 'mission-timer/',

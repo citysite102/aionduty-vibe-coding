@@ -83,7 +83,7 @@ export default function SlideM2Recap() {
             </div>
             <p className="text-slate-500 text-xs leading-relaxed">
               CLAUDE.md 模板、規則歸位判斷卡、五步健檢檢查表，另有可直接列印的 A4 版本。
-              回去之後把模板複製到你手上真正在跑的專案，填完跑一次 <code className="text-sky-300 font-mono">/context</code> 確認它在。
+              回去之後把模板複製到你手上真正在跑的專案，填完跑一次 <code className="font-mono text-orange-300">/context</code> 確認它在。
             </p>
           </AnimatedBlock>
         </div>

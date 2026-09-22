@@ -22,7 +22,7 @@ export default function SlideHarnessContext() {
         */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
           <p className="text-slate-300 text-base leading-relaxed mb-3">
-            你每開一次新對話，就得重講一次規矩。
+            你每開一次新對話，就得重講一次規則。
             <strong className="text-sky-200">規則文件就是把那些話寫成一個檔案</strong>，
             它自己會被讀進去，你不用再講。
           </p>
@@ -51,7 +51,7 @@ export default function SlideHarnessContext() {
               <h3 className="text-xl font-bold text-slate-100">每次都給<br/><span className="text-sm text-slate-500 font-normal">Static Context</span></h3>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">
-              每次開對話都整份讀進去的規範檔，例如 CLAUDE.md。就像必讀的<strong>員工手冊</strong>。
+              每次開對話都整份讀進去的規則文件，例如 CLAUDE.md。就像必讀的<strong>員工手冊</strong>。
             </p>
             <div className="space-y-3 mt-auto">
               <div className="text-sm text-emerald-400 bg-emerald-950/30 px-4 py-3 rounded-lg border border-emerald-900/50">
@@ -117,7 +117,7 @@ export default function SlideHarnessContext() {
           <p className="text-slate-300 text-base leading-relaxed">
             回到第一個問題：規則文件為什麼重要？因為
             <strong className="text-slate-100">決定「什麼時候讀哪一份」的那幾句話，本身就寫在它裡面。</strong>
-            它可以只留常態規矩，再寫一行「改到某一塊的時候，去讀另一份」，
+            它可以只留常態規則，再寫一行「改到某一塊的時候，去讀另一份」，
             那一份平常就不佔位置。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">

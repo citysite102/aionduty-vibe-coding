@@ -38,7 +38,7 @@ const LAYERS = [
   {
     path: 'src/xxx/CLAUDE.md',
     name: '子目錄',
-    what: '那一區專屬的規矩，碰到才載入',
+    what: '那一區專屬的規則，碰到才載入',
     eg: '這一區的元件一律用 canvas 畫',
   },
   {

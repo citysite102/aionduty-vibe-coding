@@ -26,7 +26,7 @@ const NEXT = [
   },
   {
     icon: Users,
-    title: '把規矩交給團隊',
+    title: '把規則交給團隊',
     body: (
       <>
         把你寫的{' '}

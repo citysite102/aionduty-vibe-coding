@@ -8,7 +8,7 @@ export const meta: RecordedMeta = {
   id: 'harness-09-route-principles',
   title: '四個去處：保證程度、修改成本',
   script:
-    '規則有四個去處：Hook 或 CI、子目錄的 rules、Skill、根目錄的 CLAUDE.md。共同的取捨是：擋得越死的，改起來越麻煩。Hook 在你設的範圍裡一定會執行，代價是要動設定檔，CI 還要開一次 PR 讓整個團隊一起改。反過來，CLAUDE.md 裡的規則就是一行文字，隨時能改，代價是它不保證會被照做。所以不是越硬越好，看那條規矩值不值得。第二個原則：同一條規則不要放兩個地方，已經有 Hook 在擋的事，文字版就是重複的，健檢時最容易刪掉的就是那一批。',
+    '規則有四個去處：Hook 或 CI、子目錄的 rules、Skill、根目錄的 CLAUDE.md。共同的取捨是：擋得越死的，改起來越麻煩。Hook 在你設的範圍裡一定會執行，代價是要動設定檔，CI 還要開一次 PR 讓整個團隊一起改。反過來，CLAUDE.md 裡的規則就是一行文字，隨時能改，代價是它不保證會被照做。所以不是越硬越好，看那條規則值不值得。第二個原則：同一條規則不要放兩個地方，已經有 Hook 在擋的事，文字版就是重複的，健檢時最容易刪掉的就是那一批。',
   seconds: 44,
   from: 69,
 };
@@ -46,7 +46,7 @@ export default function RecRoutePrinciples() {
 
         <AnimatedBlock stepIndex={2} className="border rounded-2xl px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-xl leading-relaxed">
-            💡 不是越硬越好，是<Key>那條規矩值不值得付那個改動成本</Key>。同一條也不要放兩個地方。
+            💡 不是越硬越好，是<Key>那條規則值不值得付那個改動成本</Key>。同一條也不要放兩個地方。
           </p>
         </AnimatedBlock>
       </RecPage>

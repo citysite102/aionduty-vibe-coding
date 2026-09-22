@@ -175,8 +175,8 @@ export default function SlideClaudeMenuTabs() {
           <p className="text-slate-400 text-base leading-relaxed mt-3 pt-3 border-t border-slate-800">
             <code className="font-mono text-orange-300">/compact</code>
             會把前面的對話壓成一段摘要再繼續。壓縮會掉東西，
-            <strong className="text-slate-200">你跟它講好的規矩可能就在那一次不見了，畫面上不會有提示</strong>。
-            所以規矩要寫成檔案，不要靠它記。
+            <strong className="text-slate-200">你跟它講好的規則可能就在那一次不見了，畫面上不會有提示</strong>。
+            所以規則要寫成檔案，不要靠它記。
             那個檔案叫 <code className="font-mono text-orange-300">CLAUDE.md</code>，後面有一整段講它。
           </p>
         </AnimatedBlock>

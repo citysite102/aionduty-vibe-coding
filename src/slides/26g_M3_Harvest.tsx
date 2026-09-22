@@ -55,7 +55,7 @@ export default function SlideM3Harvest() {
           <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl px-5 py-4">
             <div className="text-base font-bold text-slate-100 mb-2">現在做一件事：讓它下次還會出場</div>
             <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              子代理不會自己監聽。這條規矩沒寫下來，明天重開一個對話它就不會出現。
+              子代理不會自己監聽。這條規則沒寫下來，明天重開一個對話它就不會出現。
             </p>
             <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-4 py-3">
               <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>

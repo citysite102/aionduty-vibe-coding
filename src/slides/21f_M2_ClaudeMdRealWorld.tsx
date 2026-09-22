@@ -45,13 +45,13 @@ function lineClass(line: string) {
 
 export default function Slide21f() {
   return (
-    <SlideLayout title="第一條規矩從哪裡來，手冊有哪五個章節" subtitle="Real-World Application" icon={Zap}>
+    <SlideLayout title="第一條規則從哪裡來，手冊有哪五個章節" subtitle="Real-World Application" icon={Zap}>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 mt-6">
         
         <div className="flex-1 space-y-6">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              第一條規矩不用想，只要回想：你已經重講過很多次的那句話，就是第一條。這件事跟你做的是哪一種專案無關。
+              第一條規則不用想，只要回想：你已經重講過很多次的那句話，就是第一條。這件事跟你做的是哪一種專案無關。
             </p>
             <ul className="space-y-3">
               {PAINS.map((p) => (
@@ -71,7 +71,7 @@ export default function Slide21f() {
           <AnimatedBlock stepIndex={2} className="bg-sky-950/20 border border-sky-900/40 p-5 rounded-xl">
             <h4 className="text-sky-400 font-bold mb-2">💡 規則可以邊做邊補</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
-              跟它說「把這條規矩寫進 CLAUDE.md」，它會幫你補上去。補完自己開檔案看一眼，確認它寫的跟你要的是同一件事。
+              跟它說「把這條規則寫進 CLAUDE.md」，它會幫你補上去。補完自己開檔案看一眼，確認它寫的跟你要的是同一件事。
             </p>
           </AnimatedBlock>
         </div>

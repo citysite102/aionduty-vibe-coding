@@ -61,7 +61,7 @@ export default function SlideM2HandsOn() {
           </p>
           <Prompt text="讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。" />
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規矩，那幾條它猜不到。
+            它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規則，那幾條它猜不到。
           </p>
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
@@ -140,7 +140,7 @@ export default function SlideM2HandsOn() {
           </p>
           <p className="text-slate-400 text-xs leading-relaxed mt-3 pt-2.5 border-t border-slate-800">
             <strong className="text-slate-300">做完這格：</strong>
-            你剛剛做的那三個決定，就是三條新規矩。補進手冊，下次它不用再問一遍。
+            你剛剛做的那三個決定，就是三條新規則。補進手冊，下次它不用再問一遍。
           </p>
         </AnimatedBlock>
 
@@ -155,7 +155,7 @@ export default function SlideM2HandsOn() {
           <div className="space-y-2 text-sm mb-3">
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="text-orange-300 font-bold">CLAUDE.md</span>
-              <span className="text-slate-400">：你寫的規矩。「一律用繁體中文」這種。</span>
+              <span className="text-slate-400">：你寫的規則。「一律用繁體中文」這種。</span>
             </div>
             <div className="rounded-lg bg-slate-950 border border-slate-800 px-3.5 py-2.5">
               <span className="text-orange-300 font-bold">auto memory</span>
@@ -174,7 +174,7 @@ export default function SlideM2HandsOn() {
 
         <Callout tone="muted" stepIndex={5}>
           手上沒有計時器的話，開一個空資料夾，四格這樣換：第 1 格跟它說「幫我起一份空白的 CLAUDE.md」，
-          規矩寫你自己工作上真的有的那幾條；第 2 格改讀手邊任何一個長一點的檔案；
+          規則寫你自己工作上真的有的那幾條；第 2 格改讀手邊任何一個長一點的檔案；
           第 3 格換成你工作上真的還沒想清楚的一個需求；第 4 格照走。
         </Callout>
 

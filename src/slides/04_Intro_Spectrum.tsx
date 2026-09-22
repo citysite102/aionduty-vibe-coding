@@ -144,7 +144,7 @@ export default function SlideIntroSpectrum() {
           <strong className="text-sky-300">這門課從第 5 格開始。</strong>
           把需求講清楚這件事，換到第 2、3 格一樣用得上。
           <strong className="text-slate-100">選第 5 格的理由是程式碼在你自己的電腦裡</strong>：
-          規矩寫下來之後，你看得到它有沒有照做。別人的平台上驗不了這一步。
+          規則寫下來之後，你看得到它有沒有照做。別人的平台上驗不了這一步。
         </Callout>
       </div>
     </SlideLayout>

@@ -15,7 +15,7 @@ export default function SlideM2LoadAlways() {
             <span className="text-sky-400 font-bold text-lg">CLAUDE.md</span>
             <span className="text-slate-500 text-xs font-mono">整場都在</span>
           </div>
-          <div className="text-slate-200 text-sm font-bold mb-1">永遠都要記得的事實與規矩</div>
+          <div className="text-slate-200 text-sm font-bold mb-1">永遠都要記得的事實與規則</div>
           <p className="text-slate-500 text-sm leading-relaxed">
             session 一開始就載入，壓縮對話之後還會自動重讀，不會掉。代價是它從頭到尾都佔著空間。
           </p>

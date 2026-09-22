@@ -27,7 +27,7 @@ npm run lint     # 型別檢查（tsc --noEmit）
 
 它不是簡報軟體做的，是一個 React + Tailwind 的網頁專案，整份都在終端機裡用 Claude Code 改出來的。做法寫在簡報第 57 頁，規範本身放在 [`CLAUDE.md`](./CLAUDE.md)：畫布、配色、字體、動態原則的負面清單，以及新增或搬動投影片時要走的檢查清單。
 
-`.claude/settings.json` 裡有一個 PreToolUse hook，會擋掉中文破折號。這類「我一定會忘記提醒」的規矩，交給程式擋比較可靠。
+`.claude/settings.json` 裡有一個 PreToolUse hook，會擋掉中文破折號。這類「我一定會忘記提醒」的規則，交給程式擋比較可靠。
 
 ## 專案結構
 

@@ -41,7 +41,7 @@ export default function SlideHandsOnPrompt() {
           <p className="text-sm text-slate-300 leading-relaxed">
             上一頁第 1 格叫 Claude 生的那份草稿，是它<strong className="text-slate-100">讀完你的程式碼</strong>寫出來的，
             所以裡面只有它看得到的東西。現在補上它看不到的那一半：
-            <strong className="text-slate-100">你腦子裡的規矩</strong>。
+            <strong className="text-slate-100">你腦子裡的規則</strong>。
           </p>
         </AnimatedBlock>
 

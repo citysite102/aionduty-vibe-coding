@@ -12,7 +12,7 @@ const HINTS = [
   },
   {
     q: '哪些事情只有特定情況才適用？',
-    a: '這些分出去，不要塞進同一份手冊。例如只有對外版本才需要的規矩。',
+    a: '這些分出去，不要塞進同一份手冊。例如只有對外版本才需要的規則。',
   },
 ];
 
@@ -29,7 +29,7 @@ export default function SlideM2TransferQuiz() {
               你每週要把三場會議的逐字稿整理成一份紀錄，寄給同一群人。
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
-              這件事跟程式無關，但它符合前面所有條件：重複發生、有你自己的規矩、每次都要重講一遍。
+              這件事跟程式無關，但它符合前面所有條件：重複發生、有你自己的規則、每次都要重講一遍。
             </p>
             <p className="text-slate-300 text-sm leading-relaxed mt-4 pt-4 border-t border-slate-800">
               如果要交給 Claude 做，<strong className="text-sky-400">你的手冊會寫什麼？</strong>
@@ -64,12 +64,12 @@ export default function SlideM2TransferQuiz() {
               <div>輸出固定四段：決議、待辦、負責人、期限</div>
               <div>待辦一定要有負責人，沒有就寫「未指定」</div>
               <div>不要寫進電話、地址這類個資</div>
-              <div>對外版本的規矩另外放，見 external.md</div>
+              <div>對外版本的規則另外放，見 external.md</div>
             </div>
             <ul className="text-slate-400 text-xs leading-relaxed space-y-2">
               <li><span className="text-slate-200">前兩行</span>來自第一題，是你每次都要重講的格式。</li>
               <li><span className="text-slate-200">第三行</span>來自第二題，但它其實不該只寫在這裡，個資外洩的代價太高，應該再加一道機制擋。</li>
-              <li><span className="text-slate-200">第四行</span>來自第三題，對外版本的規矩分出去，這份手冊才不會越長越肥。</li>
+              <li><span className="text-slate-200">第四行</span>來自第三題，對外版本的規則分出去，這份手冊才不會越長越肥。</li>
             </ul>
           </div>
         </AnimatedBlock>

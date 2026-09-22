@@ -21,7 +21,7 @@ export default function SlideM2OutsideContext() {
         */}
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
           前面兩頁那些零件，不管是寫成檔案的手冊、Rules、Skill，還是接上去的 MCP，
-          <strong className="text-slate-200">最後都要經過 AI 判斷</strong>：它得讀到、也得決定要照做，你的規矩才會生效。
+          <strong className="text-slate-200">最後都要經過 AI 判斷</strong>：它得讀到、也得決定要照做，你的規則才會生效。
           這一頁的兩個不一樣，<strong className="text-slate-200">它們是程式在跑，不經過 AI 判斷</strong>，所以連進 context 都不用。
         </AnimatedBlock>
 

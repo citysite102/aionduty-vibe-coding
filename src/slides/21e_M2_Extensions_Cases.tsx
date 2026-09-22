@@ -9,7 +9,7 @@ export default function SlideM2ExtensionsCases() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-lg">
           <h3 className="text-xl font-bold flex items-center gap-3 text-sky-400 mb-4 border-b border-slate-800 pb-3">
             <Briefcase size={20} />
-            情境一：整個專案一套規矩，某一區再加嚴
+            情境一：整個專案一套規則，某一區再加嚴
           </h3>
           <p className="text-slate-300 text-sm mb-3">
             你希望整個專案有統一的風格，但有一個資料夾特別容易出事，要更嚴的限制。

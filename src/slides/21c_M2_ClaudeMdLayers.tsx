@@ -22,7 +22,7 @@ export default function SlideClaudeMdLayers() {
                 <li>順手塞了一張外部圖片當背景</li>
                 <li>分鐘數又寫死在程式碼裡</li>
               </ul>
-              <p className="text-slate-500 text-xs mt-3">這三條規矩你上一輪都交代過了。開新對話之後它並不記得。</p>
+              <p className="text-slate-500 text-xs mt-3">這三條規則你上一輪都交代過了。開新對話之後它並不記得。</p>
             </div>
             <div className="bg-slate-900 border border-emerald-900/40 rounded-xl p-4">
               <div className="text-emerald-400 text-xs font-bold mb-2">有 CLAUDE.md</div>
@@ -76,7 +76,7 @@ export default function SlideClaudeMdLayers() {
               子目錄 / feature 底下
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-2">
-              某一塊專屬的規矩。
+              某一塊專屬的規則。
             </p>
             <div className="text-sky-400 text-xs bg-sky-950/30 p-2 rounded border border-sky-500/20">
               重點是它「碰到才載入」，只有當 Claude 動到那一區的檔案時才讀進來，平常不佔 context。
@@ -98,7 +98,7 @@ export default function SlideClaudeMdLayers() {
           <div className="w-8 h-8 rounded-full bg-sky-500/20 flex items-center justify-center shrink-0">💡</div>
           <div>
              <p className="text-slate-300 text-sm leading-relaxed">
-               <strong>小提醒：</strong>一份別超過約 200 行，太長遵循度會掉；<code className="text-sky-300">/init</code> 可以幫你生第一版。<br/>
+               <strong>小提醒：</strong>一份別超過約 200 行，太長遵循度會掉；<code className="font-mono text-orange-300">/init</code> 可以幫你生第一版。<br/>
                跨工具的話 <strong>AGENTS.md</strong> 是共通標準，把 CLAUDE.md symlink 成 AGENTS.md，Codex、Cursor 都能讀同一份。
              </p>
              <p className="text-slate-500 text-xs mt-3">

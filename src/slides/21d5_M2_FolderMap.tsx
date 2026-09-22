@@ -28,16 +28,16 @@ const TREE = [
   { indent: 1, path: 'CLAUDE.md', note: '你個人的偏好，例如一律用繁體中文回答' },
   { indent: 1, path: 'skills/', note: '你自己每個專案都會用到的流程' },
   { indent: 1, path: 'agents/', note: '你慣用的子代理' },
-  { indent: 1, path: 'rules/', note: '你個人的規矩，每個專案都吃得到' },
+  { indent: 1, path: 'rules/', note: '你個人的規則，每個專案都吃得到' },
   { indent: 1, path: 'settings.json', note: '所有專案都會跑的關卡' },
   { indent: 0, path: '', note: '', spacer: true },
   { indent: 0, path: 'mission-timer/', note: '你的專案資料夾', head: 'project' as const },
   { indent: 1, path: 'index.html', note: '作品本身' },
-  { indent: 1, path: 'CLAUDE.md', note: '這個專案的規矩，進版控，團隊共用' },
+  { indent: 1, path: 'CLAUDE.md', note: '這個專案的規則，進版控，團隊共用' },
   { indent: 1, path: '.claude/', note: '這個專案專屬的配件' },
   { indent: 2, path: 'skills/', note: '只有這個專案要跑的流程' },
   { indent: 2, path: 'agents/', note: '只有這個專案要用的子代理' },
-  { indent: 2, path: 'rules/', note: '只管某一區檔案的規矩' },
+  { indent: 2, path: 'rules/', note: '只管某一區檔案的規則' },
   { indent: 2, path: 'settings.json', note: '自動關卡（Hook）寫在這裡' },
 ];
 
@@ -100,7 +100,7 @@ export default function SlideFolderMap() {
             <div className="text-base font-bold text-sky-300 mb-2">什麼該放專案</div>
             <p className="text-slate-400 text-sm leading-relaxed">
               換一個專案就不成立的事。這個案子的命名慣例、配色、不准做什麼。
-              <strong className="text-slate-300"> 它跟著專案走</strong>，別人 clone 下來就有同一份規矩。
+              <strong className="text-slate-300"> 它跟著專案走</strong>，別人 clone 下來就有同一份規則。
             </p>
           </AnimatedBlock>
         </div>
@@ -109,7 +109,7 @@ export default function SlideFolderMap() {
           那一份是<strong className="text-slate-100">每個專案、每一次對話都會被讀進去</strong>的，
           寫得越長，它每次開工都先揹著一堆跟這個案子無關的東西，還每次都在花錢。
           <span className="block mt-2 text-slate-400">
-            判斷方式：這條規矩換一個專案還成立嗎？不成立就往專案那邊放。
+            判斷方式：這條規則換一個專案還成立嗎？不成立就往專案那邊放。
             只有某一區檔案要遵守嗎？那連專案的 CLAUDE.md 都不該進，寫成{' '}
             <code className="font-mono text-orange-300">.claude/rules/</code> 底下的一個檔案，動到那一區才載入。
           </span>

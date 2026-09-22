@@ -100,7 +100,7 @@ export default function SlideCodeSetup() {
             </div>
           </div>
           <p className="text-slate-500 text-xs mt-3 leading-relaxed">
-            它應該要認得你的 <code className="text-slate-400">index.html</code>。之後你寫了規矩，它在這裡一樣讀得到。
+            它應該要認得你的 <code className="text-slate-400">index.html</code>。之後你寫了規則，它在這裡一樣讀得到。
             
           </p>
         </AnimatedBlock>

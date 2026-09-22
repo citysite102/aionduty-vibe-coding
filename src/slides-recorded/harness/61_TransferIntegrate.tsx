@@ -35,9 +35,9 @@ const DOCS = [
 
 export const meta: RecordedMeta = {
   id: 'harness-61-transfer-integrate',
-  title: '規矩寫完了，但你的資料不在這台電腦上',
+  title: '規則寫完了，但你的資料不在這台電腦上',
   script:
-    '規矩解決完了，還有一件事很實際：你的資料多半不在這台電腦上，它在 Notion、雲端硬碟或公司的系統裡。不用搬家，接上去就好。以 Notion 為例是三步：在終端機加入官方的 Notion 連線，回到 Claude Code 跑斜線 mcp 完成登入，再用斜線 mcp 跟斜線 context 確認接上了沒、佔掉多少 token。這幾行指令會改版，跑之前先對一次官方文件。串好之後你不用再複製貼上，它自己去查。沒有要接外部資料的話，這一頁可以先跳過，後面不會再用到它。',
+    '規則解決完了，還有一件事很實際：你的資料多半不在這台電腦上，它在 Notion、雲端硬碟或公司的系統裡。不用搬家，接上去就好。以 Notion 為例是三步：在終端機加入官方的 Notion 連線，回到 Claude Code 跑斜線 mcp 完成登入，再用斜線 mcp 跟斜線 context 確認接上了沒、佔掉多少 token。這幾行指令會改版，跑之前先對一次官方文件。串好之後你不用再複製貼上，它自己去查。沒有要接外部資料的話，這一頁可以先跳過，後面不會再用到它。',
   seconds: 45,
   from: 75,
 };
@@ -47,9 +47,9 @@ export default function RecTransferIntegrate() {
     <SlideLayout title={meta.title} subtitle="Plug It In" icon={Plug}>
       <RecPage className="space-y-5">
         {/*
-          原本第一句就跳到 Notion，但前一頁收在「五行規矩各自該怎麼擋」，
+          原本第一句就跳到 Notion，但前一頁收在「五行規則各自該怎麼擋」，
           讀者不知道為什麼突然講起串工具。標題的「那我怎麼串⋯」也在回應一個
-          前面沒有被提出的問題。先講清楚這裡換了一個維度：前面處理規矩，這裡處理資料。
+          前面沒有被提出的問題。先講清楚這裡換了一個維度：前面處理規則，這裡處理資料。
         */}
         {/*
           這一段講的是「不是程式的工作也用得上」，而這一頁要學員去終端機加連線、跑 OAuth，
@@ -57,7 +57,7 @@ export default function RecTransferIntegrate() {
         */}
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-2">
-            規矩解決完了，還有一件事：你的資料多半不在這台電腦上。
+            規則解決完了，還有一件事：你的資料多半不在這台電腦上。
             不用搬家，接上去就好，以 Notion 為例：
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">

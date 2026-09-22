@@ -9,9 +9,9 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * （原本寫「放章節五最後那個付費單元」，那三頁 2026-09-22 已整組移除。）
  *
  * 第四列原本是「不知道一個月要多少錢／算得出量級也知道怎麼壓」。這一頁的標題是
- * 「每次開新對話，你都要重講一次規矩」，前三列都在講規矩，第四列跳到錢，
+ * 「每次開新對話，你都要重講一次規則」，前三列都在講規則，第四列跳到錢，
  * 讀起來像硬塞進來的。錢確實是這一章的內容（Slide 51 整頁在講），但它要接得上這一頁的框。
- * 改成從規矩接到載入：規矩越多、每次帶進去的東西越多，那正是成本的來源，
+ * 改成從規則接到載入：規則越多、每次帶進去的東西越多，那正是成本的來源，
  * 也是後面「載入時機與存放位置」那個單元在處理的事。
  *
  * 原本是左右兩張卡各列三點，兩欄之間沒有對應關係，
@@ -26,7 +26,7 @@ const PAIRS = [
     after: '一份 CLAUDE.md，新對話自動讀進去',
   },
   {
-    now: '那幾條規矩，你已經重貼過很多次',
+    now: '那幾條規則，你已經重貼過很多次',
     after: '寫一次就好，之後每次都在',
   },
   {
@@ -34,14 +34,14 @@ const PAIRS = [
     after: '知道先查哪一層，也知道怎麼確認它讀到了',
   },
   {
-    now: '規矩越寫越多，但你不知道它每次讀進去多少',
+    now: '規則越寫越多，但你不知道它每次讀進去多少',
     after: '看得出這次帶了哪些東西進去，也知道哪些可以不要一直帶著',
   },
 ];
 
 export default function SlideM2SectionGoal() {
   return (
-    <SlideLayout title="每次開新對話，你都要重講一次規矩" subtitle="What This Module Fixes" icon={Repeat}>
+    <SlideLayout title="每次開新對話，你都要重講一次規則" subtitle="What This Module Fixes" icon={Repeat}>
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">
@@ -52,7 +52,7 @@ export default function SlideM2SectionGoal() {
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-x-4 px-6 py-3 border-b border-slate-800 bg-slate-950">
             <div className="text-sm font-bold tracking-wide text-slate-400">現在</div>
             <div className="w-4" />
-            <div className="text-sm font-bold tracking-wide text-sky-400">這一段結束時</div>
+            <div className="text-sm font-bold tracking-wide text-sky-400">加上框架之後</div>
           </div>
 
           {PAIRS.map((p, i) => (

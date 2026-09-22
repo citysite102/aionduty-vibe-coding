@@ -31,7 +31,7 @@ export const meta: RecordedMeta = {
   id: 'harness-31-handbook-length',
   title: '一份手冊該寫多長？',
   script:
-    '再來是文件大小的問題。一份大約控制在 200 行以內，這是官方文件給的目標值，不是硬規定：越長，被遵守的比例越低，因為規矩越多，每一條分到的份量就越少。所以手冊變長的時候，動作不是接著往下加，是回頭整理。那要砍哪些？先砍三類。第一類，它讀程式碼就查得到的，像是用了哪些套件、檔案放在哪。第二類，只在某一區成立的，搬到剛才講的子目錄那一層，動到那一區才載入。第三類，寫了也驗不出來的，例如回覆要專業一點，那種留著只佔位置。另外第一版不必從零寫，輸入斜線 init，它會讀過你的專案生一份草稿。但它只寫得出現況，不是規矩，所以拿到草稿第一件事是改，不是存。',
+    '再來是文件大小的問題。一份大約控制在 200 行以內，這是官方文件給的目標值，不是硬規定：越長，被遵守的比例越低，因為規則越多，每一條分到的份量就越少。所以手冊變長的時候，動作不是接著往下加，是回頭整理。那要砍哪些？先砍三類。第一類，它讀程式碼就查得到的，像是用了哪些套件、檔案放在哪。第二類，只在某一區成立的，搬到剛才講的子目錄那一層，動到那一區才載入。第三類，寫了也驗不出來的，例如回覆要專業一點，那種留著只佔位置。另外第一版不必從零寫，輸入斜線 init，它會讀過你的專案生一份草稿。但它只寫得出現況，不是規則，所以拿到草稿第一件事是改，不是存。',
   seconds: 60,
   from: 55,
 };
@@ -43,7 +43,7 @@ export default function RecHandbookLength() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-2xl font-bold leading-snug">一份大約 <Key>200 行以內</Key></p>
           <p className="text-slate-400 text-base leading-relaxed mt-4">
-            越長被遵守的比例越低。規矩越多，每一條分到的份量就越少。
+            越長被遵守的比例越低。規則越多，每一條分到的份量就越少。
           </p>
         </AnimatedBlock>
 
@@ -68,7 +68,7 @@ export default function RecHandbookLength() {
         <AnimatedBlock stepIndex={4} className="flex items-baseline gap-4 px-2">
           <span className="text-slate-500 text-sm shrink-0">第一版</span>
           <span className="text-slate-300 text-base">
-            用 <code className="text-sky-300 font-mono">/init</code> 生一份草稿，你在上面改
+            用 <code className="font-mono text-orange-300">/init</code> 生一份草稿，你在上面改
           </span>
         </AnimatedBlock>
       </RecPage>

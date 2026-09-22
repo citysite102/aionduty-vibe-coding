@@ -32,14 +32,14 @@ const BANDS = [
     rows: [
       {
         name: 'CLAUDE.md',
-        job: '這個專案的規矩與慣例',
+        job: '這個專案的規則與慣例',
         who: '自動，開場就讀',
         where: 'CLAUDE.md',
         claudeOwned: true,
       },
       {
         name: 'Rules（沒寫範圍）',
-        job: '從手冊拆出去的規矩，整個專案都適用',
+        job: '從手冊拆出去的規則，整個專案都適用',
         who: '自動，跟 CLAUDE.md 一起讀進來',
         where: '.claude/rules/名稱.md',
         claudeOwned: true,

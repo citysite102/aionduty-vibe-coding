@@ -31,18 +31,18 @@ export default function SlidePillars() {
             只給它需要的資料
           </h3>
           <p className="text-slate-300 mb-5 text-sm leading-relaxed">
-            <span className="text-slate-500">它缺的是你的規矩。</span>
+            <span className="text-slate-500">它缺的是你的規則。</span>
             該給的要給，但塞太多它會抓不到重點。
           </p>
           <div className="space-y-3">
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
               <span className="text-sky-300 font-bold block mb-1.5">專案手冊 (CLAUDE.md)</span>
-              <span className="text-slate-400 text-sm leading-relaxed block">把規矩和命名習慣定下來。</span>
+              <span className="text-slate-400 text-sm leading-relaxed block">把規則和命名習慣定下來。</span>
             </div>
             <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
               <span className="text-sky-300 font-bold block mb-1.5">壓縮與清理</span>
               <span className="text-slate-400 text-sm leading-relaxed block">
-                對話快滿時系統會把先前內容摘要後重開，也可以手動下 <code className="text-slate-300">/compact</code>。
+                對話快滿時系統會把先前內容摘要後重開，也可以手動下 <code className="font-mono text-orange-300">/compact</code>。
                 這個過程會掉細節。
               </span>
             </div>
@@ -99,6 +99,11 @@ export default function SlidePillars() {
               <li>畫面上要怎麼呈現</li>
             </ul>
           </div>
+          <p className="text-slate-400 text-sm leading-relaxed mt-4">
+            切到什麼程度才夠？
+            <strong className="text-slate-200">每一段你都說得出「拿什麼進去、交出什麼出來」</strong>
+            就夠小了。
+          </p>
         </AnimatedBlock>
 
       </div>

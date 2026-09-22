@@ -27,7 +27,7 @@ const RECORDED = [
   {
     icon: BookMarked,
     label: 'CLAUDE.md',
-    body: '你寫給 AI 的規矩。改了哪一條、什麼時候改的，都查得到。',
+    body: '你寫給 AI 的規則。改了哪一條、什麼時候改的，都查得到。',
     mono: true,
   },
   {
@@ -104,7 +104,7 @@ export default function Slide10e() {
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
           <div className="text-base font-bold text-slate-100 mb-1.5">為什麼要留著這些紀錄</div>
           <p className="text-slate-400 text-sm leading-relaxed">
-            規矩會越改越多，總有一次會改壞。有紀錄，你查得到是哪一次改的、那一次改了什麼、跟現在差在哪，然後退回上一版。
+            規則會越改越多，總有一次會改壞。有紀錄，你查得到是哪一次改的、那一次改了什麼、跟現在差在哪，然後退回上一版。
             沒紀錄，你只能靠印象猜自己上禮拜寫了什麼。
           </p>
         </AnimatedBlock>

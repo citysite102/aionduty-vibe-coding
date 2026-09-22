@@ -63,7 +63,7 @@ const TABS = [
     label: 'CLAUDE.md 產生器',
     sub: '含 AGENTS.md 怎麼接',
     from: '階段二',
-    when: '開一個新專案的第一件事。或是你發現自己每次開新對話都在重講同樣的規矩。',
+    when: '開一個新專案的第一件事。或是你發現自己每次開新對話都在重講同樣的規則。',
     Component: ClaudeMdBuilder,
   },
   {
@@ -81,7 +81,7 @@ const TABS = [
     label: '規則歸位器',
     sub: '這條該放哪一層',
     from: '階段二',
-    when: '想到一條新規矩，但不確定要寫進手冊、分到子目錄、做成 Skill 還是用 Hook 擋。',
+    when: '想到一條新規則，但不確定要寫進手冊、分到子目錄、做成 Skill 還是用 Hook 擋。',
     Component: RuleRouter,
   },
   {

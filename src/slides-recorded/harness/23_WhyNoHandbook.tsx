@@ -21,7 +21,7 @@ export const meta: RecordedMeta = {
   id: 'harness-23-why-handbook',
   title: '同一句需求，兩種產出：有手冊、沒手冊',
   script:
-    '回到我們的計時器專案。同一句指令丟兩次，差別只有有沒有一份 CLAUDE.md。指令是「幫我加一個 5 分鐘的休息模式」，兩次都沒提任何規矩。左邊是還沒寫手冊的時候。你看那顆按鈕，它寫「開始休息」，不是我們定的那套航太語彙。背景它自己塞了一張外部圖片。分鐘數也是直接寫死在程式碼裡面。我們那三條規矩，一條都沒踩到。右邊只多了一份 CLAUDE.md。按鈕它自己叫「補給」，圖片沒有去外面找，分鐘數也放到最上面的設定區了。',
+    '回到我們的計時器專案。同一句指令丟兩次，差別只有有沒有一份 CLAUDE.md。指令是「幫我加一個 5 分鐘的休息模式」，兩次都沒提任何規則。左邊是還沒寫手冊的時候。你看那顆按鈕，它寫「開始休息」，不是我們定的那套航太語彙。背景它自己塞了一張外部圖片。分鐘數也是直接寫死在程式碼裡面。我們那三條規則，一條都沒踩到。右邊只多了一份 CLAUDE.md。按鈕它自己叫「補給」，圖片沒有去外面找，分鐘數也放到最上面的設定區了。',
   seconds: 42,
   from: 55,
 };
@@ -31,7 +31,7 @@ export default function RecWhyHandbook() {
     <SlideLayout title={meta.title} subtitle="Why a Handbook" icon={GitCompareArrows}>
       <RecPage className="space-y-6">
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-7 py-5">
-          <div className="text-slate-500 text-sm font-mono mb-3">兩次都丟同一句，都沒提任何規矩</div>
+          <div className="text-slate-500 text-sm font-mono mb-3">兩次都丟同一句，都沒提任何規則</div>
           <p className="text-sky-300 text-lg leading-snug border-l-2 border-sky-500/50 pl-5">
             幫我加一個 5 分鐘的休息模式。
           </p>

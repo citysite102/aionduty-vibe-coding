@@ -116,7 +116,7 @@ export default function SlideChallenge() {
 
         <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
-            <strong className="text-slate-200">改到一半覺得越改越亂，打 <code className="font-mono text-slate-300">/rewind</code>。</strong>
+            <strong className="text-slate-200">改到一半覺得越改越亂，打 <code className="font-mono text-orange-300">/rewind</code>。</strong>
             它會列出你這次對話送出過的每一句話，選一個時間點就能退回去，程式碼跟對話可以分開退。
             但它只管得到 Claude 自己改的檔案，用指令刪掉、搬走的救不回來。
           </p>

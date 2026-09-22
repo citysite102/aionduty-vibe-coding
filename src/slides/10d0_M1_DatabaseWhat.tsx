@@ -18,7 +18,7 @@ import { Callout } from '../components/Callout';
  *
  * **第二張卡不要退回「Excel 做不到跨表對應」的講法。** 試算表用 VLOOKUP 就做得到，
  * 講師自己抓到這一點。差別在誰來保證它一直成立：Excel 那條公式是你寫的，來源被刪掉
- * 就變錯誤值；資料庫的關係是宣告過的，它自己擋。兩張卡因此是同一個軸線（規則誰守），
+ * 就變錯誤值；資料庫的關係是宣告過的，它自己擋。兩張卡因此是同一個軸線（把關誰做），
  * 區塊標頭寫的就是這件事，改卡片的時候標頭要一起看。
  *
  * 2026-09-21：這一頁原本用「擺法」「兩張表互相對應」講這件事，但那兩個詞在這裡
@@ -58,7 +58,7 @@ export default function SlideDatabaseWhat() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="space-y-3">
-          <div className="text-slate-400 text-sm font-bold">剩下那兩成，差在規則是你守還是它守</div>
+          <div className="text-slate-400 text-sm font-bold">剩下那兩成，差在把關的是你還是它</div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {DIFFS.map((d) => {
               const Icon = d.icon;
@@ -83,7 +83,7 @@ export default function SlideDatabaseWhat() {
               <p className="text-slate-300 text-sm leading-relaxed">
                 <strong className="text-slate-100">關聯式（SQL）</strong>：PostgreSQL、MySQL。
                 每張表有哪些欄位、哪幾欄必填，要先講好，之後想改欄位比較麻煩。
-                換來的是它會退掉不合規矩的資料：數字欄位塞了一句中文、必填的沒填、訂單指到一個不存在的客戶。
+                換來的是它會退件：數字欄位塞了一句中文、必填的沒填、訂單指到一個不存在的客戶。
                 它還保證一件事要嘛全做完、要嘛整個不算，例如扣庫存、建訂單、記一筆帳，中間斷掉不會只做一半。
               </p>
             </div>
