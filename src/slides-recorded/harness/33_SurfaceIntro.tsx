@@ -5,6 +5,14 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
+ * 最後查證：2026-09-22，以實機為準（C-3 那一條：介面位置不能只看官方文件）。
+ * 當時的現況：Cowork **不是頁籤**，它是輸入框上的 Chat／Cowork 切換；
+ * Code 在左上角的 `</>` 圖示，只有某些版本還是上面三個頁籤。
+ * `10f_M1_DesktopFirst` 2026-09-21 就改過了，這一頁漏掉，2026-09-22 補上。
+ * 所以這三列的「在哪」一律不寫 UI 元件的名字，只寫怎麼切到那個模式。
+ */
+
+/**
  * 原本這一塊是五頁：一頁問「要重學嗎」，三頁各講一個地方，一頁補網頁版的介面。
  * 但那三頁的結構完全一樣，都是拿同樣兩個問題去問，一頁一個答案。
  * 三頁分開講，學員反而看不出它們的差別在哪，因為沒有並排。
@@ -20,13 +28,13 @@ const SURFACES = [
   },
   {
     name: 'Cowork',
-    where: '桌面版的一個頁籤',
+    where: '桌面版，輸入框上切到 Cowork',
     files: '你綁的那一個資料夾',
     act: '能讀能寫，不執行指令',
   },
   {
     name: 'Claude Code',
-    where: '終端機，或桌面版的 Code 頁籤（你前面一直在用的那個）',
+    where: '終端機，或桌面版的 Code（你前面一直在用的那個）',
     files: '整個專案資料夾',
     act: '能執行指令、跑測試、版控',
     lead: true,
@@ -35,7 +43,7 @@ const SURFACES = [
 
 export const meta: RecordedMeta = {
   id: 'harness-33-surface-intro',
-  title: '網頁、Cowork、Claude Code 差在哪兩件事',
+  title: '網頁、Cowork、Claude Code 差在哪',
   script:
     'CLAUDE.md 是 Claude Code 在讀的檔案，但你不會每天都開它，有時候只是想在網頁上問一句話。換到別的地方，前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手。網頁版只看得到你上傳的檔案，桌面版的 Cowork 綁一個資料夾、能讀能寫但不執行指令，Claude Code 整個專案都能讀，也能跑測試跟版本控制，那就是你前面一直在用的那個。',
   seconds: 44,

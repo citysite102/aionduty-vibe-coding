@@ -55,6 +55,11 @@ export default function SlideFolderMap() {
           位置只有兩個：<strong className="text-indigo-300">你的家目錄</strong>，跟
           <strong className="text-sky-300">你的專案資料夾</strong>。
           兩邊的結構長得一樣，差別在<strong className="text-slate-100">誰會看到、什麼時候載入</strong>。
+          <br />
+          <span className="text-sm text-slate-400">
+            家目錄是你這個使用者在這台電腦上的根資料夾，Mac 在 <code className="font-mono">/Users/你的名字</code>、
+            Windows 在 <code className="font-mono">C:\Users\你的名字</code>，路徑裡的 <code className="font-mono">~</code> 就是它。
+          </span>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">

@@ -51,7 +51,7 @@ export default function Slide21f() {
         <div className="flex-1 space-y-6">
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-lg leading-relaxed mb-4">
-              沒寫下來的規矩，每次都要重講一次。這件事跟你做的是哪一種專案無關。
+              第一條規矩不用想，只要回想：你已經重講過很多次的那句話，就是第一條。這件事跟你做的是哪一種專案無關。
             </p>
             <ul className="space-y-3">
               {PAINS.map((p) => (
@@ -97,7 +97,7 @@ export default function Slide21f() {
           <p className="mt-3 text-slate-400 text-sm leading-relaxed">
             這份是工程專案，但要看的是上面那份的五個章節：
             <strong className="text-slate-200">流程、外部連線、固定 SOP、分層、規範</strong>。
-            換成報表或審閱專案，章節一樣，只是內容換掉。
+            開新手冊不用從空白開始：先把這五個標題打上去，再一格一格想你有什麼要寫。
           </p>
         </AnimatedBlock>
 

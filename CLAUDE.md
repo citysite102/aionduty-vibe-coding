@@ -621,6 +621,12 @@ for p in list(pathlib.Path('src/slides').glob('*.tsx'))+list(pathlib.Path('src/s
 "
 ```
 
+**預錄拆頁的實際上限比 40 低，是 36。** 它的標題字級比現場頁大。2026-09-22 實機驗過：
+`harness/33_SurfaceIntro` 38 寬會折行，而既有的 `61_TransferIntegrate` 與 `25_WhyDiff`（都是 36）
+剛好塞滿一行。所以 `src/slides-recorded/` 的 `meta.title` **抓 36**，現場頁才是 40。
+上面那段 python 只量得出 40 那一條，預錄頁要自己多看一眼；不確定就起 `npm run dev`
+開 `?slide=N&step=9&clean=1` 看一次，那比推算可靠。
+
 **砍的方式是刪掉可以從內容推得出來的部分，不是換回代稱**，否則會退回上一節那三種毛病。可以刪的通常是這幾類：
 
 | 刪什麼 | 例 |
