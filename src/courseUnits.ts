@@ -94,7 +94,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 78, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
-  { live: 78, part: 12, title: '規則放哪一層：四個去處的取捨', anchor: '四個去處：保證程度、修改成本' },
+  { live: 78, part: 12, title: '規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨', anchor: '四個去處：保證程度、修改成本' },
   { live: 79, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。

@@ -126,7 +126,7 @@ npm run pdf      # → 逐字稿/逐字稿全集.pdf
 | | 5-7 運作框架在真實專案的應用 | Slide 76-80 | 初稿 |
 | 六 手冊的診斷、健檢與轉移 | 6-1 規則失效的三種原因與規則分層 | Slide 81-91 | 初稿（照抄 `meta.script`） |
 | | 6-2 Hook：用程式強制執行規則 | Slide 92-98 | 初稿（照抄 `meta.script`） |
-| | 6-3 規則放哪一層：四個去處的取捨 | Slide 99-101 | 初稿（照抄 `meta.script`） |
+| | 6-3 規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨 | Slide 99-101 | 初稿（照抄 `meta.script`） |
 | | 6-4 CLAUDE.md 健檢流程與規則寫法 | Slide 102-116 | 初稿（照抄 `meta.script`） |
 | | 6-5 CLAUDE.md 的跨工具轉移與從零建立 | Slide 117-127 | 初稿（照抄 `meta.script`） |
 | 七 Agent 分工與品質控管 | 7-1 Agent 分工：三個角色與四種模式 | Slide 128-130 | 初稿 |
