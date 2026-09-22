@@ -88,7 +88,7 @@ export const VERSIONS: { label: string; note: string; lines: Line[] }[] = [
     lines: build(1),
   },
   {
-    label: '分流之後',
+    label: '搬走一條之後',
     note: '「絕對不要刪掉我的檔案」違反了會出事，這種不能只靠手冊。搬去 Hook，讓程式擋。',
     lines: build(2),
   },

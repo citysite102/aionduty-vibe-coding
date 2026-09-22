@@ -70,7 +70,11 @@ export default function Slide32() {
           <strong className="text-slate-100">換工具要重學的只有名字</strong>，你要準備的東西沒有變。
         </AnimatedBlock>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800">
+        {/* 整張表（含外框與表頭）跟第一列同時出現，都掛 stepIndex 2。
+            原本外框與表頭都沒掛 AnimatedBlock，所以按第一下之前畫面上是
+            一個空的大框加一排欄位名。跟 21d4_M2_PartsMap 同一個毛病，
+            但那一頁每一列自己有邊框、沒有共用外框，所以只補表頭就夠。 */}
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800">
           <div className="grid grid-cols-[11rem_1fr_1fr] gap-5 px-6 py-3 font-mono text-xs uppercase tracking-widest text-slate-500">
             <span>這件事</span>
             <span className="text-orange-400">Claude Code 叫它</span>
@@ -93,7 +97,7 @@ export default function Slide32() {
               </AnimatedBlock>
             );
           })}
-        </div>
+        </AnimatedBlock>
 
         <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">

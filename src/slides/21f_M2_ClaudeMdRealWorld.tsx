@@ -45,7 +45,7 @@ function lineClass(line: string) {
 
 export default function Slide21f() {
   return (
-    <SlideLayout title="寫程式、報表、文件審閱：三種手冊怎麼寫" subtitle="Real-World Application" icon={Zap}>
+    <SlideLayout title="第一條規矩從哪裡來，手冊有哪五個章節" subtitle="Real-World Application" icon={Zap}>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 mt-6">
         
         <div className="flex-1 space-y-6">

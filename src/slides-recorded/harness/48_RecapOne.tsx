@@ -17,10 +17,10 @@ import type { RecordedMeta } from '../types';
  * 而且畫面上也給不出實際網址，學員回頭翻講義的時候用不到。
  */
 const DONE = [
-  { n: '1', t: '沒照做時先查哪裡', d: '先分辨是哪一種，不是再加一條。' },
-  { n: '2', t: '規則該送去哪', d: '四題照順序問，第一個答「是」的就是它的去處。' },
-  { n: '3', t: '太肥了怎麼整理', d: '五步，先刪再搬。' },
-  { n: '4', t: '每一條怎麼寫', d: '六個寫法，寫成看得出做到沒有。' },
+  { n: '1', t: '沒照做時先查哪裡', d: '三種：沒被載入、被埋在後面、沒辦法檢查。' },
+  { n: '2', t: '規則該送去哪', d: '會出事→Hook、某一區→子目錄、有步驟→Skill、其餘→根目錄。' },
+  { n: '3', t: '太肥了怎麼整理', d: '五步：盤點、減法、分流、加法、修剪。先刪再搬。' },
+  { n: '4', t: '每一條怎麼寫', d: '白名單、探索空間、理由、例子、例外、一次一件。' },
 ];
 
 export const meta: RecordedMeta = {
@@ -54,7 +54,7 @@ export default function RecRecap() {
         >
           <p className="text-slate-300 text-xl leading-relaxed">
             四件事都收在同一個地方：你的資料夾裡多了一個{' '}
-            <code className="font-mono text-orange-300">CLAUDE.md</code>。<Key>它跟著專案走</Key>。
+            <code className="font-mono text-orange-300">CLAUDE.md</code>。<Key>它跟著專案走</Key>，換台電腦、換人接手，規矩都還在。
           </p>
         </AnimatedBlock>
 

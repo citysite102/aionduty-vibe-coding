@@ -33,8 +33,8 @@ export const meta: RecordedMeta = {
   id: 'harness-68-hook-codex',
   title: '同一條 Hook 搬到 Codex',
   script:
-    '換一個工具還算不算數？Codex 也有 Hook，也是這三層，差別是每一層可以選的比較少。時機 Claude Code 開三十幾種，Codex 目前是十來種。動作差最多，Claude Code 有五種，Codex 只有跑指令，所以交給模型判斷、派子代理去查那些搬不過去。但你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。兩邊都還在改版，掛之前查一次文件。所以不用背名稱，要練的是講清楚：什麼時候檢查、管哪一次、做什麼。',
-  seconds: 40,
+    '換一個工具還算不算數？Codex 也有 Hook，也是這三層，不過每一層可以挑的選項比 Claude Code 少。時機 Claude Code 開三十幾種，Codex 目前是十來種。動作差最多，Claude Code 有五種，Codex 只有跑指令，所以交給模型判斷、派子代理去查那些搬不過去。但你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。兩邊都還在改版，掛之前查一次文件。所以不用背名稱，要練的是講清楚：什麼時候檢查、管哪一次、做什麼。',
+  seconds: 42,
 };
 
 export default function RecHookCodex() {
@@ -43,7 +43,7 @@ export default function RecHookCodex() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
-            Codex 也是這三層，<Key>可以選的比較少</Key>
+            Codex 也是這三層，<Key>每一層可以挑的選項比較少</Key>
           </p>
         </AnimatedBlock>
 
