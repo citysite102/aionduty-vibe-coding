@@ -55,7 +55,8 @@ export default function Slide21a() {
             <div className="text-sky-200/70 text-sm mb-6 font-mono">標準化環境擴充 (Infrastructure)</div>
             
             <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
-              一套開放的溝通規範，規定 AI 工具跟外部服務之間要怎麼互相說話。規範本身不含資料，也不會給出權限：你另外裝一個 MCP 伺服器（GitHub、資料庫、雲端硬碟），照這套規範接上去，並在接的時候自己授權，AI 才碰得到那個系統。
+              一套開放的溝通規範，規定 AI 工具跟外部服務之間要怎麼互相說話。規範本身不含資料，也不會給出權限：你要另外接一個 MCP 伺服器。
+              <strong className="text-slate-100">那是別人已經做好的</strong>，GitHub、Notion、資料庫、雲端硬碟都有現成的，你不用自己寫；把它接上去、在接的時候自己授權，AI 才碰得到那個系統。
             </p>
 
             <div className="bg-slate-950 p-5 rounded-xl border border-sky-900/30 mb-6 relative">
@@ -70,7 +71,7 @@ export default function Slide21a() {
             </div>
 
             <div className="text-sm text-slate-400 mt-auto">
-              <strong>應用情境：</strong> 接上 Google Drive、GitHub 或資料庫的 MCP 伺服器，AI 才讀得到那些資料。
+              <strong>應用情境：</strong> 接上 Google Drive、GitHub 或資料庫現成的 MCP 伺服器，AI 才讀得到那些資料。
             </div>
           </AnimatedBlock>
 

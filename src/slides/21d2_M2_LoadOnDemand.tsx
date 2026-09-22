@@ -30,7 +30,7 @@ const PARTS = [
     when: '連上才有',
     what: 'MCP 是接真實系統的規範，Plugin 把設定打包',
     where: '不是自己寫檔案，是去接一個現成的服務',
-    desc: '照 MCP 接上 Notion、GitHub 的伺服器之後，它才讀得到、動得了那些系統。Plugin 是把前面這些整組打包，讓團隊共用同一份設定。',
+    desc: '照 MCP 接上 Notion、GitHub 那些現成的伺服器之後，它才讀得到、動得了那些系統。你不用自己寫一個。Plugin 是把前面這些整組打包，讓團隊共用同一份設定。',
   },
 ];
 
@@ -56,7 +56,7 @@ export default function SlideM2LoadOnDemand() {
             <div className="text-slate-200 text-sm font-bold mb-1">{p.what}</div>
             <p className="text-slate-500 text-sm leading-relaxed mb-2">{p.desc}</p>
             <div className="text-slate-500 text-sm border-t border-slate-800 pt-2">
-              寫在哪：<span className="font-mono text-slate-400">{p.where}</span>
+              放在哪：<span className="font-mono text-slate-400">{p.where}</span>
             </div>
           </AnimatedBlock>
         ))}
