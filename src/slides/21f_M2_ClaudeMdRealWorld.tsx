@@ -11,8 +11,9 @@ const CLAUDE_MD = `# 專案架構與開發紀律
 - 測試通過後才能 commit，指令：\`npm run test\`。
 
 ## 2. 外部連線 (MCP)
-- 需要讀取 Notion 規格時，請透過 Notion MCP 取得最新需求文件。
-- 處理 GitHub Issues 時，請透過 GitHub MCP 取得錯誤回報的詳細內容。
+- 要確認需求規格時，用 Notion MCP 讀「產品需求」資料庫裡對應的那一頁，
+  不要照你記得的版本做。
+- 處理 GitHub Issues 時，用 GitHub MCP 把那一則的完整內容讀回來再開始。
 
 ## 3. 流程 SOP (Skills)
 - 遇到資料庫 Schema 變動，請使用 db-migration Skill，遵照裡面的 SOP 執行。
@@ -45,7 +46,7 @@ function lineClass(line: string) {
 
 export default function Slide21f() {
   return (
-    <SlideLayout title="第一條規則從哪裡來，手冊有哪五個章節" subtitle="Real-World Application" icon={Zap}>
+    <SlideLayout title="第一條規則從哪裡來，示範手冊的五個章節" subtitle="Real-World Application" icon={Zap}>
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8 mt-6">
         
         <div className="flex-1 space-y-6">
@@ -97,7 +98,9 @@ export default function Slide21f() {
           <p className="mt-3 text-slate-400 text-sm leading-relaxed">
             這份是工程專案，但要看的是上面那份的五個章節：
             <strong className="text-slate-200">流程、外部連線、固定 SOP、分層、規範</strong>。
-            開新手冊不用從空白開始：先把這五個標題打上去，再一格一格想你有什麼要寫。
+            開新手冊不用從空白開始，拿這幾個標題當起手式，一格一格想你有什麼要寫。
+            <strong className="text-slate-300">五個不是規定</strong>，
+            用不到的章節就不要留，你的專案多半不會五個都有。
           </p>
         </AnimatedBlock>
 

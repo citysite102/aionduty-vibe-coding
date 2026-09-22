@@ -40,7 +40,7 @@ export default function SlideM2ExtensionsCases() {
                 　- &quot;src/api/**&quot;<br/>
                 ---
               </div>
-              <span className="text-slate-400 text-sm">「這個資料夾裡的每一支程式，都要先確認使用者已經登入才能繼續。」</span>
+              <span className="text-slate-400 text-sm">「你在這個資料夾寫的每一個 API，第一件事都要先檢查使用者登入了沒。沒登入就直接回錯誤，不要往下做。」</span>
             </div>
           </div>
 
