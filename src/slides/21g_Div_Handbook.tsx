@@ -28,7 +28,7 @@ export default function SlideDivHandbook() {
       subtitle="Diagnose, Audit, Transfer"
       title="手冊（CLAUDE.md）的診斷、健檢與轉移"
       roadmap={[
-        { label: '四個常見問題', weight: 8, note: '沒生效、放哪層、太肥、怎麼寫' },
+        { label: '四個常見問題', weight: 8, note: '沒生效、放哪層、太長、怎麼寫' },
         { label: '換個工具或介面', weight: 2, note: '網頁、Cowork、Claude Code；跨工具的名詞' },
         { label: '換成你的工作', weight: 3, note: '不是程式也用得上' },
       ]}

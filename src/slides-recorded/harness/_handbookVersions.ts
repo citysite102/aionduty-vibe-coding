@@ -104,7 +104,7 @@ export const VERSIONS: { label: string; note: string; lines: Line[] }[] = [
   },
   {
     label: '定稿',
-    note: '從十四行變成十三行，但每一條都能被檢查。換到網頁版或桌面版，內容一個字都不用改。',
+    note: '每一條都能被檢查了。它這麼短是因為那個計時器就這麼大，不是短比較好。換到網頁版或桌面版，內容一個字都不用改。',
     lines: build(5),
   },
 ];

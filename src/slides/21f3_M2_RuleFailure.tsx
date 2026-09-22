@@ -68,7 +68,7 @@ export default function SlideM2RuleFailure() {
             ))}
           </ol>
           <p className="text-amber-300/90 text-xs leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            這五種的處理方式不一樣。跳過診斷直接再加一條規則，檔案只會更肥，原本的問題還在。
+            這五種的處理方式不一樣。跳過診斷直接再加一條規則，檔案只會越來越長，原本的問題還在。
           </p>
         </AnimatedBlock>
 

@@ -69,7 +69,7 @@ export default function SlideM2TransferQuiz() {
             <ul className="text-slate-400 text-xs leading-relaxed space-y-2">
               <li><span className="text-slate-200">前兩行</span>來自第一題，是你每次都要重講的格式。</li>
               <li><span className="text-slate-200">第三行</span>來自第二題，但它其實不該只寫在這裡，個資外洩的代價太高，應該再加一道機制擋。</li>
-              <li><span className="text-slate-200">第四行</span>來自第三題，對外版本的規則分出去，這份手冊才不會越長越肥。</li>
+              <li><span className="text-slate-200">第四行</span>來自第三題，對外版本的規則分出去，這份手冊才不會一直長下去。</li>
             </ul>
           </div>
         </AnimatedBlock>

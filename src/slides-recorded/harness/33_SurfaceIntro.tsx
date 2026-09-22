@@ -45,8 +45,8 @@ export const meta: RecordedMeta = {
   id: 'harness-33-surface-intro',
   title: '網頁、Cowork、Claude Code 差在哪',
   script:
-    'CLAUDE.md 是 Claude Code 在讀的檔案，但你不會每天都開它，有時候只是想在網頁上問一句話。換到別的地方，前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手，表上那兩欄就是這兩件。網頁版要用的話，在 claude.ai 開一個 Project，把手冊的內容貼進它的指令欄，那一欄每次對話都會帶上；上傳成檔案也可以，但那要它自己去讀。',
-  seconds: 41,
+    '到這裡，你手上已經有一份自己的 CLAUDE.md 了。它是放在你電腦上的一個檔案，而且只有 Claude Code 讀得到。可是你不會每天都開終端機，有時候只是想在網頁上問一句話。那前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手，表上那兩欄就是這兩件。網頁版要用的話，在 claude.ai 開一個 Project，把手冊的內容貼進專案指示那一欄，它每次對話都會帶上。',
+  seconds: 45,
   from: 72,
 };
 
@@ -56,8 +56,8 @@ export default function RecSurfaceIntro() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-3">
-            <code className="font-mono text-orange-300">CLAUDE.md</code> 是 Claude Code 在讀的檔案，
-            但你不會每天都開它。改用網頁版，要重學嗎？
+            你手上那份 <code className="font-mono text-orange-300">CLAUDE.md</code>{' '}
+            放在自己的電腦上，只有 Claude Code 讀得到。想改用網頁版問一句話，要重學嗎？
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             不用。寫法三個地方通用，<Key>差別只在它碰得到什麼</Key>

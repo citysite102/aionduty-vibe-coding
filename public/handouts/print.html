@@ -192,7 +192,7 @@ npm run dev</pre>
   </p>
 
   <h2>第 1 步　盤點</h2>
-  <p class="note">把每一條規則抄下來，標上它是為了解決哪一次的問題。想不起來的打問號。</p>
+  <p class="note">不用自己抄。把健檢指令貼給它，讓它列出每一條規則和它當初在解決什麼，你只圈出想不起來的。這些理由留在對話裡，不要回頭寫進 CLAUDE.md，不然手冊會越健檢越長。下表只抄打問號的那幾條。</p>
   <table>
     <tr><th style="width:34px">#</th><th>規則</th><th style="width:38%">為了解決哪一次的問題</th></tr>
     <tr><td>1</td><td class="blank"></td><td></td></tr>
@@ -208,15 +208,15 @@ npm run dev</pre>
   <div class="callout">
     <p style="margin:0"><strong>先刪再搬，順序不要反。</strong>不然會把該刪的東西搬到別處，繼續佔位。</p>
   </div>
-  <p class="note">每一條打問號的規則，用這三種證據判斷。至少要有兩種成立才刪。</p>
+  <p class="note">哪幾條該刪，可以先讓它框出候選：「看我們最近幾次的對話，這份 CLAUDE.md 裡有哪幾條你其實沒用上，或是我一直要重講？」它框出來的是候選名單，不是判決。</p>
   <ul class="check">
-    <li><strong>現場證據</strong>　最近的對話裡，它真的違反過這條嗎？從來沒違反過的規則，可能是在防一個不存在的問題。</li>
-    <li><strong>機制證據</strong>　這件事已經有 Hook、CI 或 lint 在擋嗎？有的話，文字版就是重複的。</li>
-    <li><strong>時效證據</strong>　規則綁的那個資料夾、指令、流程還在嗎？專案改過名字，規則常常沒跟著改。</li>
+    <li><strong>已經有程式在擋了</strong>　Hook、CI 或 lint 本來就會報這個錯，手冊裡這一條只是再說一次，刪掉照樣不會發生。<strong>可以直接刪。</strong></li>
+    <li><strong>它管的那個東西不見了</strong>　規則綁的那個資料夾、指令、流程已經改名或砍掉了，這條規則現在是空的。<strong>可以直接刪。</strong></li>
+    <li><strong>從來沒看它違反過</strong>　這個不算理由。可能是它一直有照做，也可能這種情況根本沒發生過，光看這一點分不出來是哪一個。</li>
   </ul>
   <p class="note">
-    <strong>證據不足的時候不要直接刪。</strong>
-    改成降級（從根目錄搬到子目錄，只在相關時載入），或標記觀察（註記日期，下一輪再看）。
+    <strong>說不準的，先降級或標日期。</strong>
+    降級是從根目錄的 CLAUDE.md 剪下來，貼到只管那一區的 <code>.claude/rules/</code>；標記觀察是在那一行後面加一個日期，註明是哪個月標的，下一輪健檢再看。
   </p>
   <p>刪掉 <span class="fill sm"></span> 條，降級 <span class="fill sm"></span> 條，標記觀察 <span class="fill sm"></span> 條。</p>
 
