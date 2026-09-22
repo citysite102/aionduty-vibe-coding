@@ -53,9 +53,9 @@ const BY_UNIT = [
     title: '寫出會被讀到的手冊',
     tools: [
       { id: 'claude-md', label: 'CLAUDE.md 產生器' },
-      { id: 'router', label: '規則分流器' },
+      { id: 'router', label: '規則歸位器' },
     ],
-    note: '先產一份手冊，之後每次想「這條要不要寫進去」的時候，用分流器問四題。',
+    note: '先產一份手冊，之後每次想「這條要不要寫進去」的時候，用歸位器問四題。',
   },
   {
     unit: '階段三',
@@ -135,7 +135,7 @@ export default function Start({ go = () => {} }: { go?: (id: string) => void }) 
           ))}
         </div>
         <Note>
-          回去之後也用得到，尤其是分流器跟 Done-when 檢查器。那兩件事不會因為課程結束就不用判斷。
+          回去之後也用得到，尤其是歸位器跟 Done-when 檢查器。那兩件事不會因為課程結束就不用判斷。
         </Note>
       </Panel>
 

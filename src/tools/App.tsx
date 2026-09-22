@@ -78,7 +78,7 @@ const TABS = [
   {
     id: 'router',
     icon: Signpost,
-    label: '規則分流器',
+    label: '規則歸位器',
     sub: '這條該放哪一層',
     from: '階段二',
     when: '想到一條新規矩，但不確定要寫進手冊、分到子目錄、做成 Skill 還是用 Hook 擋。',
@@ -210,7 +210,7 @@ export default function App() {
           </p>
           <p>
             要印出來放在手邊的四份講義（
-            <code className="font-mono">CLAUDE.md</code> 模板、規則分流判斷卡、五步健檢表、錯誤訊息對照表）在
+            <code className="font-mono">CLAUDE.md</code> 模板、規則歸位判斷卡、五步健檢表、錯誤訊息對照表）在
             <a
               href="../handouts/"
               className="ml-1 inline-flex items-center gap-1.5 text-sky-400 hover:text-sky-300"

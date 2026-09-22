@@ -9,7 +9,7 @@ export const meta: RecordedMeta = {
   id: 'harness-19-health-subtract',
   title: '手冊健檢：先刪再搬',
   script:
-    '第二步是減法。這一步最容易被跳過，因為刪東西比加東西難決定，而且刪錯了好像要負責。但順序一定是先刪再搬：你如果先分流再減法，會把本來該刪掉的規則搬到子目錄，然後它在那裡繼續佔著空間，下次健檢又要再處理一次。',
+    '第二步是減法。這一步最容易被跳過，因為刪東西比加東西難決定，而且刪錯了好像要負責。但順序一定是先刪再搬：你如果先歸位再減法，會把本來該刪掉的規則搬到子目錄，然後它在那裡繼續佔著空間，下次健檢又要再處理一次。',
   seconds: 32,
   from: 69,
 };
@@ -33,7 +33,7 @@ export default function RecHealthSubtract() {
 
         <AnimatedBlock stepIndex={3} className="mt-5 bg-amber-500/5 border border-amber-500/20 rounded-2xl px-6 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            ⚠️ 如果先分流再減法，你會把本來該刪的規則搬到子目錄，然後在那裡繼續佔著空間，下次健檢又要處理一次。
+            ⚠️ 如果先歸位再減法，你會把本來該刪的規則搬到子目錄，然後在那裡繼續佔著空間，下次健檢又要處理一次。
           </p>
         </AnimatedBlock>
       </RecPage>

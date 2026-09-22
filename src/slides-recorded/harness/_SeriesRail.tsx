@@ -23,7 +23,7 @@ export const FAIL_RAIL = {
  */
 export const HEALTH_RAIL = {
   label: '五步',
-  items: ['盤點', '減法', '分流', '加法', '修剪'],
+  items: ['盤點', '減法', '歸位', '加法', '修剪'],
 };
 
 /** Hook 的三層，一層一頁。跟 ROUTE_RAIL 同一個作用：讓人知道自己在第幾層。 */

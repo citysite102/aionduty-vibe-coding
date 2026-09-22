@@ -31,7 +31,7 @@ export default function RecStartSimple() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
-          <div className="text-sky-400 text-lg font-bold mb-4">看到這三個訊號，再回頭分流</div>
+          <div className="text-sky-400 text-lg font-bold mb-4">看到這三個訊號，再回頭歸位</div>
           <ul className="space-y-3">
             {SIGNALS.map((s) => (
               <li key={s} className="text-slate-300 text-xl leading-relaxed flex gap-4">

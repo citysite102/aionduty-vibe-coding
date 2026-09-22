@@ -78,7 +78,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m04, Component: RecDiagnose },
   ],
   // index 78 = 原「規則該放哪一層，以及 Hook 的寫法」
-  // Hook 那一組（62 到 68）夾在分流四問與「保證越高改起來越麻煩」之間。
+  // Hook 那一組（62 到 68）夾在歸位四問與「保證越高改起來越麻煩」之間。
   //
   // 位置試過排在四問之前，不行：前一組的收尾是「所以下一步先決定位置」，
   // 接著就跳去講 Hook 的三層設定，那句承接語會指到不相干的地方（B-4）。
