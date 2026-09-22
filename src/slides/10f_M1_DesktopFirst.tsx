@@ -83,7 +83,7 @@ const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
 export default function SlideDesktopFirst() {
   return (
     <SlideLayout
-      title="先用桌面版做出第一個東西"
+      title="桌面版五步，從下載到講第一句話"
       subtitle="Desktop First, Terminal Next"
       icon={AppWindow}
     >

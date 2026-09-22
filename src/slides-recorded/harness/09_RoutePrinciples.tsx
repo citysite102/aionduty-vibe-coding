@@ -6,7 +6,7 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-09-route-principles',
-  title: '保證越高的，改起來越麻煩',
+  title: '四個去處：保證程度、修改成本',
   script:
     '規則有四個去處：Hook 或 CI、子目錄的 rules、Skill、根目錄的 CLAUDE.md。共同的取捨是：擋得越死的，改起來越麻煩。Hook 在你設的範圍裡一定會執行，代價是要動設定檔，CI 還要開一次 PR 讓整個團隊一起改。反過來，CLAUDE.md 裡的規則就是一行文字，隨時能改，代價是它不保證會被照做。所以不是越硬越好，看那條規矩值不值得。第二個原則：同一條規則不要放兩個地方，已經有 Hook 在擋的事，文字版就是重複的，健檢時最容易刪掉的就是那一批。',
   seconds: 44,
@@ -14,7 +14,7 @@ export const meta: RecordedMeta = {
 };
 
 const LAYERS = [
-  { name: 'Hook / CI', sure: '一定會執行', cost: '動設定檔，CI 還要團隊一起改', strong: true },
+  { name: 'Hook / CI', sure: '範圍內一定會執行', cost: '動設定檔，CI 還要團隊一起改', strong: true },
   { name: '子目錄 rules', sure: '碰到那一區才載入', cost: '改一行文字' },
   { name: 'Skill', sure: '用到才展開', cost: '改一個檔案' },
   { name: '根目錄 CLAUDE.md', sure: '不保證照做', cost: '改一行文字' },

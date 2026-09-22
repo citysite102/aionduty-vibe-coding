@@ -48,7 +48,7 @@ const MORE = [
 
 export const meta: RecordedMeta = {
   id: 'harness-64-hook-events',
-  title: '第一層：每個階段先記一個',
+  title: 'Hook 第一層：時機，每個階段記一個',
   script:
     '第一層是時機。官方支援三十幾種，你不用背，按階段各記一個就夠。接到指令是 SessionStart，開新對話或接續舊紀錄的時候。工具執行前是 PreToolUse，它準備動手但還沒動。工具跑完是 PostToolUse，東西已經寫進去了，適合自動排版這種補動作。收尾是 Stop，它覺得做完了，適合在這裡驗一次，沒過就叫它回去改。常用的還有六個，需要的時候再查。這十個裡面只有工具執行前擋得住，因為那時候它還沒動手，其他都是事情發生完才觸發，只能事後補做。',
   seconds: 44,

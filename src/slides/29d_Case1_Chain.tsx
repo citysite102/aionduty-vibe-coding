@@ -46,7 +46,7 @@ const JUDGEMENTS = [
 export default function SlideCase1Chain() {
   return (
     <SlideLayout
-      title="十二步，每一步做完手上多了什麼"
+      title="器 VESSEL 的十二步，每一步的產出"
       subtitle="Case 01 · 從一份規格到一個公開網址"
       icon={ListChecks}
     >

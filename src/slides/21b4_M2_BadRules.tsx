@@ -17,14 +17,14 @@ const CASES = [
   {
     bad: '照之前的做法，維持原本的風格',
     why: '「之前」是哪一次？它不知道。你心裡想的那一版，它沒有辦法回頭找。',
-    good: '直接把那個做法寫出來，或指名檔案：按鈕樣式參考 src/components/Button.tsx。',
+    good: '直接把那個做法寫出來，或指名檔案：以後新增按鈕一律照 src/components/Button.tsx 改。',
     type: '指涉不明',
   },
 ];
 
 export default function SlideM2BadRules() {
   return (
-    <SlideLayout title="這三種寫法，寫了等於沒寫" subtitle="Rules That Do Nothing" icon={XCircle}>
+    <SlideLayout title="常見的三種錯誤規則寫法" subtitle="Rules That Do Nothing" icon={XCircle}>
       <div className="max-w-6xl mx-auto space-y-3 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">
@@ -64,10 +64,10 @@ export default function SlideM2BadRules() {
         */}
         <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-slate-900 border-slate-800 space-y-1.5">
           <p className="text-slate-400 text-base leading-relaxed">
-            檢查方法只有一個：<strong className="text-slate-200">只看程式碼，你能不能回答「有」或「沒有」。</strong>你自己答不出來的，它也答不出來。
+            檢查方法分兩步。第一步自己答一次：<strong className="text-slate-200">只看做出來的東西，你能不能回答「有做到」或「沒做到」。</strong>「回覆要專業一點」答不出來，「不要用驚嘆號」數一下就答得出來。
           </p>
           <p className="text-slate-400 text-base leading-relaxed">
-            還是不確定，就把那句話貼給它，問「照這句話，你要怎麼判斷自己做到了沒」。
+            第二步，還是不確定就把那句話貼給它，問「照這句話，你要怎麼判斷自己做到了沒」。
             它只能回答「我會注意」，這條就是寫了等於沒寫。
           </p>
         </AnimatedBlock>

@@ -53,7 +53,7 @@ const LIMITS = [
 
 export default function SlideBoundaries() {
   return (
-    <SlideLayout title="哪些事它做得好，哪些你得自己來" subtitle="Capabilities & Boundaries" icon={Compass}>
+    <SlideLayout title="Claude Code 做得好與做不好的事" subtitle="Capabilities & Boundaries" icon={Compass}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto pt-4 pb-8 items-start">
 
         <AnimatedBlock

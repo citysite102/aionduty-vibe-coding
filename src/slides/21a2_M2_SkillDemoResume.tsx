@@ -29,14 +29,14 @@ export default function Slide21a2SkillDemoResume() {
           <div className="mb-3 flex flex-wrap items-center gap-3">
             <div className="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-950 px-3 py-1.5">
               <FileText size={16} className="shrink-0 text-slate-500" />
-              <span className="text-sm text-slate-300">履歷存成一個檔案，放進專案資料夾</span>
+              <span className="text-sm text-slate-300">手上那份履歷 PDF，放進專案資料夾</span>
             </div>
             <CornerDownRight size={16} className="shrink-0 text-slate-600" />
             <span className="text-sm text-slate-400">兩邊用完全同一段話</span>
           </div>
 
           <div className="whitespace-pre-wrap rounded-lg border border-slate-800 bg-slate-950 p-4 font-mono text-sm leading-relaxed text-slate-300">
-            {`用 @resume.md 這份履歷做一個單頁的個人網站。
+            {`用 @resume.pdf 這份履歷做一個單頁的個人網站。
 1. 內容只用履歷裡寫的，沒有的不要自己補，也不要做成多頁
 2. 只新增 index.html 與 style.css，資料夾裡其他檔案不要動
 3. 做完先在本機開起來給我看，我確認版面之後你再繼續調`}

@@ -192,7 +192,7 @@ export default function SlideRoles() {
   }
 
   return (
-    <SlideLayout title="把角色組起來的四種方式" subtitle="Roles in Action" icon={Network}>
+    <SlideLayout title="指揮者、單一執行者、自治團隊、流程腳本" subtitle="Roles in Action" icon={Network}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-6 items-stretch">
 
         <AnimatedBlock stepIndex={1} className={`w-full min-h-[400px] bg-slate-950 border ${borderColor} rounded-3xl ${bgGlow} transition-colors duration-1000 flex items-center justify-center relative overflow-hidden`}>

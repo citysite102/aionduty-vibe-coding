@@ -41,7 +41,7 @@ const STEPS = [
 
 export default function SlideQuoteSystemPrompts() {
   return (
-    <SlideLayout title="用五個指令推進" subtitle="Step by Step" icon={TerminalSquare}>
+    <SlideLayout title="報價系統的五個指令：從規格到驗收" subtitle="Step by Step" icon={TerminalSquare}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-4">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">

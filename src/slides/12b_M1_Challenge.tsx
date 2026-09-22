@@ -21,7 +21,7 @@ import { LiveDemo } from '../components/LiveDemo';
  * 那一頁列了 @、/rewind、貼圖三個技巧，但整個章節三沒有任何一頁用到前兩個，
  * 等於一頁「你等一下用不到的技巧」卡在動手流程中間。三個各自歸位之後那頁就刪了：
  * 貼圖在 12_M1_Example1 的參考圖那一句，@ 在 21a2_M2_SkillDemoResume（那一頁
- * 本來就在用 @resume.md），/rewind 在這裡，因為這一頁本來就會做壞。
+ * 本來就在用 @resume.pdf），/rewind 在這裡，因為這一頁本來就會做壞。
  */
 const TRAPS = [
   {
@@ -64,7 +64,7 @@ const CHECKS = [
 
 export default function SlideChallenge() {
   return (
-    <SlideLayout title="給予精準的開發指令" subtitle="Your Turn: Say It Precisely" icon={Target}>
+    <SlideLayout title="四個沒講清楚就會被它自己決定的地方" subtitle="Your Turn: Say It Precisely" icon={Target}>
       <LiveDemo kind="claude" note="先自己寫一版，對完下面四題再送出" />
 
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">

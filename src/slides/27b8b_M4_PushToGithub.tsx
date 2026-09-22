@@ -30,7 +30,7 @@ const PROMPT =
 export default function SlidePushToGithub() {
   return (
     <SlideLayout
-      title="你的專案現在只活在這台電腦裡"
+      title="把專案推上 GitHub，它才不只在這台電腦"
       subtitle="Push It to GitHub"
       icon={CloudUpload}
     >

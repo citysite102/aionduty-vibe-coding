@@ -14,7 +14,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * 2026-09-22：知識庫那一格換成簡報。理由是它是四格裡唯一交不出產出的一格，
  * 所以底下還得再加一個框替它解釋「它是其他三格的材料」，而那句講的是「專案怎麼切」，
  * 正好是這一頁自己上面那條註解說「不要在這裡講」的東西。換成簡報之後四格結構一致，
- * 那個框可以拿掉，而且直接接得上下一頁「這份簡報就是這樣做出來的」。
+ * 那個框可以拿掉，而且直接接得上「這份簡報自己的規則與製作流程」那一頁。
  *
  * 三個判斷標準是這一頁真正要帶走的東西，四個案例只是套用結果。
  * 原本判斷標準只寫在頂端一行內文，視覺上比四張案例卡輕得多，
@@ -57,7 +57,7 @@ const CASES = [
 
 export default function SlideProjectTypes() {
   return (
-    <SlideLayout title="同一套運作框架的不同使用情境" subtitle="What Counts as a Project" icon={FolderTree}>
+    <SlideLayout title="三題判斷這件工作要不要寫手冊" subtitle="What Counts as a Project" icon={FolderTree}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="space-y-3">

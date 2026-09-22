@@ -1,6 +1,17 @@
 import { ListChecks } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * 這一頁是未拆版，實際播的是 `slides-recorded/harness/48_RecapOne.tsx`
+ * （`registry.ts` 的 REPLACEMENTS 換掉了它），所以畫面上不會出現。
+ *
+ * 2026-09-22：標題原本寫「四件事」，但這一頁的 `DONE` 只有三筆，畫面會印出 1、2、3。
+ * 第四件（太肥了怎麼整理）是拆頁的時候才加進 `48_RecapOne` 的。
+ * 這裡改成「三件事」讓它跟自己的內容一致，**沒有補第四筆**：
+ * 補了要連右欄的 `stepIndex` 一起重編，而這一頁永遠不會被播到。
+ * 要看現行版本的四件事去 `48_RecapOne`。
+ */
+
 const DONE = [
   {
     title: '寫出一份會被讀到的手冊',
@@ -18,7 +29,7 @@ const DONE = [
 
 export default function SlideM2Recap() {
   return (
-    <SlideLayout title="你完成了哪四件事" subtitle="Module 2 Recap" icon={ListChecks}>
+    <SlideLayout title="你完成了哪三件事" subtitle="Module 2 Recap" icon={ListChecks}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
 
         <div className="space-y-3">

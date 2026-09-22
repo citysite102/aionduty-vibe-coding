@@ -30,7 +30,7 @@ const CASES = [
     reads: [
       { k: '在哪裡', v: 'index.html 這個檔案的第 24 行。' },
       { k: '什麼事', v: '程式想拿一個叫 name 的東西，但它手上是空的。' },
-      { k: '怎麼做', v: '常見原因是資料還沒回來就先畫。整段貼回去請它修。' }
+      { k: '怎麼做', v: '最常見的原因是資料還沒回來就先畫。整段貼回去請它修。' }
     ]
   }
 ];
@@ -44,7 +44,7 @@ const ASKS = [
 export default function SlideReadErrors() {
   return (
     <SlideLayout
-      title="紅字在跟你說三件事"
+      title="紅字要讀的三件事：在哪裡、什麼事、怎麼做"
       subtitle="Reading Error Messages Without Reading Code"
       icon={AlertOctagon}
     >

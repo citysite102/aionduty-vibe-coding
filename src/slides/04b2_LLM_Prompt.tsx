@@ -28,7 +28,7 @@ const DESIGN_REFS = [
 
 export default function SlideLLMPrompt() {
   return (
-    <SlideLayout title="講不清楚的，直接給 AI 看" subtitle="Show, Don't Describe" icon={ImageIcon}>
+    <SlideLayout title="講不清楚的版面，直接給 AI 看參考圖" subtitle="Show, Don't Describe" icon={ImageIcon}>
       <div className="max-w-5xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-sm leading-relaxed">

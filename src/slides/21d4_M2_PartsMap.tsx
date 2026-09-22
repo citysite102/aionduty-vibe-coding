@@ -124,12 +124,15 @@ export default function SlideM2PartsMap() {
           什麼時候進來，決定了它佔掉多少空間。有些根本不進對話，那種它想跳過也跳不掉。
         </AnimatedBlock>
 
-        <div className={`${COLS} px-5 text-xs uppercase tracking-widest text-slate-500`}>
+        {/* 欄位標題要跟第一段表格同時出現（stepIndex 2）。
+            它原本沒掛 AnimatedBlock，所以按第一下之前就浮在頁標題底下，
+            下面一整片是空的。 */}
+        <AnimatedBlock stepIndex={2} className={`${COLS} px-5 text-xs uppercase tracking-widest text-slate-500`}>
           <div>零件</div>
           <div>它負責什麼</div>
           <div>誰叫它出來</div>
           <div>放在哪</div>
-        </div>
+        </AnimatedBlock>
 
         {BANDS.map((band, i) => (
           <AnimatedBlock

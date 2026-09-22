@@ -114,7 +114,7 @@ export default function SlideCheatPerms() {
               */}
               <p className="text-xs text-slate-400 leading-relaxed mb-3">
                 上一頁那兩件事，監督程度與邊界大小，在 Claude Code 裡就是下面這六個模式。
-                每一格最後一行標的，是它轉的哪一個。
+                每一格最後一行標的，是它調的是哪一個。
               </p>
 
               <div className="space-y-3">
@@ -269,7 +269,7 @@ export default function SlideCheatPerms() {
                     無條件放行所有層級的操作，包含高危指令與檔案覆寫。<strong>僅限與外部隔離的 Docker 容器。</strong>
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
-                    監督程度＋邊界大小　兩個都轉到底
+                    監督程度＋邊界大小　兩個都放到最寬
                   </div>
                 </button>
               </div>

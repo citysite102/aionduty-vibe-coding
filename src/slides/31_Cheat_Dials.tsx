@@ -109,21 +109,21 @@ export default function SlideCheatDials() {
             兩種組合都成立：碰得到很多、但每一步都先問你；或者只碰得到一個資料夾、然後完全放手。
             <strong className="text-slate-300">還不熟的時候，先把邊界縮到最小再放手</strong>，
             因為就算它整段跑歪，壞掉的也只有那一個資料夾。
-            真正危險的是監督程度與邊界大小都轉到底：碰得到全部，又沒在看它做了什麼。
+            真正危險的是監督程度放到最鬆、邊界又開到最大：碰得到全部，又沒在看它做了什麼。
           </p>
         </AnimatedBlock>
 
         {/*
-          這一頁原本只講「要轉到哪」，沒講「怎麼轉」，學員讀完會卡在
+          這一頁原本只講「要放多寬」，沒講「實際上怎麼調」，學員讀完會卡在
           「那我實際上要點什麼」。補一句講機制，下一頁的速查表才接得上。
         */}
         <Callout
           tone="focus"
-          label="怎麼決定要轉到哪"
+          label="怎麼決定放多寬"
           stepIndex={5}
           footnote={
             <>
-              轉的方法不是兩根滑桿。Claude Code 把常用的組合做成幾個模式，按{' '}
+              調的方法不是兩根滑桿。Claude Code 把常用的組合做成幾個模式，按{' '}
               <code className="font-mono text-orange-300">Shift + Tab</code> 換。
             </>
           }

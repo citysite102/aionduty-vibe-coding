@@ -33,7 +33,7 @@ const READINGS = [
 
 export default function SlideM2ContextCheck() {
   return (
-    <SlideLayout title="怎麼確認它真的讀到了" subtitle="Verify with /context" icon={ScanLine}>
+    <SlideLayout title="用 /context 確認 CLAUDE.md 真的載入了" subtitle="Verify with /context" icon={ScanLine}>
       <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-6 max-w-6xl mx-auto items-start pb-4">
 
         <AnimatedBlock stepIndex={1}>

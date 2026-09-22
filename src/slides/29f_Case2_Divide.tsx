@@ -45,7 +45,7 @@ const JOBS = [
 
 export default function SlideCase2Divide() {
   return (
-    <SlideLayout title="哪些交給套件，哪些自己算" subtitle="Case 02 · 進階的動畫效果怎麼做出來" icon={Split}>
+    <SlideLayout title="時間與動畫，哪些交給套件哪些自己算" subtitle="Case 02 · 進階的動畫效果怎麼做出來" icon={Split}>
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">

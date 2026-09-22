@@ -69,7 +69,7 @@ const DRILLS: { prompt: string; mock: ReactNode; caption: string; nudge: string 
 
 export default function SlideLLMPromptPractice() {
   return (
-    <SlideLayout title="換你改這兩句" subtitle="Try It Yourself" icon={Pencil}>
+    <SlideLayout title="換你改這兩句模糊的需求描述" subtitle="Try It Yourself" icon={Pencil}>
       <div className="max-w-5xl mx-auto space-y-5 pb-4">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">

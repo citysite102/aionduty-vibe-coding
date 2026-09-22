@@ -12,7 +12,10 @@ import { ArrowRight, CheckCircle2, MessageSquare, FileCode2 } from 'lucide-react
  * 對句加疑問詞收尾，讀起來像廣告文案。同一件事直接講就好，不要對稱、不要留疑問。
  * 第二列是全頁重點，同一個需求寫成三種樣子，那是學員唯一能自己複製的差別。
  *
- * 顏色兩種：amber 是「幾乎沒有結構」那一端，emerald 是目標狀態，中間維持灰階。
+ * 強調色只有 emerald 一種，標的是目標狀態那一欄；另外兩欄全灰階。
+ * Vibe Coding 那一欄原本是 amber 加警告圖示，2026-09 拿掉了（A-1：amber 只在有風險
+ * 要提示時用，而且 Slide 7 才引 Karpathy 說「這兩個不是誰取代誰」，不能隔一頁就把
+ * 左欄畫成待淘汰的那一端）。**不要再把 amber 加回來。**
  *
  * 這頁是直的一欄一欄開：step 2 是 Vibe Coding 那欄，3、4 各再加一欄。
  * 左邊的題目欄與橫線是表格的骨架，原本沒包 AnimatedBlock，所以翻到這一頁

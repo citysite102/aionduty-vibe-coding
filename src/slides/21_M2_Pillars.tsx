@@ -16,7 +16,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  */
 export default function SlidePillars() {
   return (
-    <SlideLayout title="三個動作，提高每次交辦的效益" subtitle="What We Actually Build" icon={Layers}>
+    <SlideLayout title="三個動作，提高 Agent 任務的效益" subtitle="What We Actually Build" icon={Layers}>
       <p className="text-slate-300 text-base leading-relaxed max-w-4xl mx-auto mt-2 mb-6 text-center">
         同一件事交代出去，結果準不準、花掉多少，你能調整的就是下面這三件。
         <strong className="text-slate-100">換成更新的模型，這三件照樣要做。</strong>

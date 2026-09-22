@@ -23,7 +23,7 @@ const NON_GOALS = ['不用串金流', '不用做庫存扣帳', '不用做完整 
 
 export default function SlideQuoteSystemRequirements() {
   return (
-    <SlideLayout title="先把需求說成一頁" subtitle="Project Brief" icon={ClipboardList}>
+    <SlideLayout title="報價系統要給誰用、做什麼、填什麼" subtitle="Project Brief" icon={ClipboardList}>
       <div className="max-w-5xl mx-auto w-full pb-8 space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-6">
           <p className="text-slate-100 text-xl font-bold leading-snug">

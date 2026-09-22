@@ -49,7 +49,7 @@ const INIT_STEPS: { n: string; t: React.ReactNode; d: string }[] = [
 
 export default function SlideThisDeck() {
   return (
-    <SlideLayout title="這份簡報就是這樣做出來的" subtitle="How This Deck Was Built" icon={Presentation}>
+    <SlideLayout title="這份簡報自己的規則與製作流程" subtitle="How This Deck Was Built" icon={Presentation}>
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1}>

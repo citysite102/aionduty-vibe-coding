@@ -2,6 +2,14 @@ import { Layers, ExternalLink, Workflow, Server } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
+ * MCP 的來歷與治理（只在口白裡，畫面上沒有）：
+ * 最後查證：2026-09-22，對照 blog.modelcontextprotocol.io 的
+ * 2025-12-09「MCP joins the Agentic AI Foundation」與 anthropic.com 同日的發布文。
+ * 當時的現況：原文寫「Anthropic is donating MCP to the Agentic AI Foundation,
+ * a directed fund under the Linux Foundation, co-founded by Anthropic, Block and OpenAI」。
+ * 逐字稿 5-2 的 Slide 54 就是照這一句講的。基金會的成員名單會變，
+ * 下次改版前先重查那一頁，不要憑印象改。
+ *
  * 最後查證：2026-09-20，對照 agent-plugins.org 與 Google Developers Blog 的發布文。
  * 當時的現況：官方站寫「Its initial Technical Steering Committee includes Core
  * Maintainers from Amazon, Cursor, Microsoft, OpenAI, and Vercel」，Anthropic 與

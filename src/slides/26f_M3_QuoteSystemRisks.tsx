@@ -37,7 +37,7 @@ const RISKS = [
 
 export default function SlideQuoteSystemRisks() {
   return (
-    <SlideLayout title="中型專案最常卡在這五件事" subtitle="Failure Modes" icon={AlertTriangle}>
+    <SlideLayout title="中型專案的五個卡點：從需求長大到畫面走偏" subtitle="Failure Modes" icon={AlertTriangle}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${hoverIsolateGrid}`}>
           {RISKS.map((risk, index) => (

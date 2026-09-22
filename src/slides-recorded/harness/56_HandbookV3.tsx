@@ -13,7 +13,7 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-56-handbook-v3',
-  title: '健檢之後，刪掉一條',
+  title: '手冊 v3：健檢之後刪掉重複的那一條',
   script:
     '五步健檢跑完，程式那一區的一律用繁體中文回答被刪了。不是它不對，是它已經寫在全域手冊裡，每個專案都適用。同一條寫在兩個地方，改的時候你只會改到其中一份，另一份就變成錯的。留在上面那一層就好。',
   seconds: 30,

@@ -113,6 +113,41 @@ function stripTodo(lines) {
   return lines.slice(0, end);
 }
 
+/**
+ * 檔頭那幾塊引言是**維護說明**，不是要念的字：「這個單元的逐字稿照抄 meta.script」、
+ * 「這一段改走現場頁的字級」、「來源」這一類，講的是這個 repo 怎麼運作。
+ * 2026-09-22 起不進 PDF（來源的 .md 不動）。
+ *
+ * **只剝掉第一張 Slide 之前的引言，而且留下「錄製註記」那一塊**：
+ * 那一塊寫的是錄的時候該停在哪、先點哪一個分頁，照著念的人需要它。
+ */
+function stripFileNotes(lines) {
+  const first = lines.findIndex((l) => /^##\s/.test(l));
+  if (first < 0) return lines;
+  const head = [];
+  let block = [];
+  const flush = () => {
+    if (block.length && block.some((l) => l.includes('錄製註記'))) head.push(...block);
+    block = [];
+  };
+  for (const l of lines.slice(0, first)) {
+    if (l.startsWith('>')) block.push(l);
+    else {
+      flush();
+      head.push(l);
+    }
+  }
+  flush();
+  // 引言被剝掉之後可能留下連續空行與一條孤立的分隔線，收乾淨
+  const tidy = [];
+  for (const l of head) {
+    if (!l.trim() && !tidy.at(-1)?.trim()) continue;
+    tidy.push(l);
+  }
+  while (tidy.length && (!tidy.at(-1).trim() || /^-{3,}$/.test(tidy.at(-1).trim()))) tidy.pop();
+  return [...tidy, '', '---', '', ...lines.slice(first)];
+}
+
 /* ── 讀單元 ───────────────────────────────────────────────────── */
 
 const files = readdirSync(SRC)
@@ -131,7 +166,7 @@ if (!files.length) {
 
 const units = files.map((f) => {
   const raw = readFileSync(join(SRC, f), 'utf8');
-  const lines = stripTodo(raw.split('\n'));
+  const lines = stripFileNotes(stripTodo(raw.split('\n')));
   const head = lines[0].match(/^#\s*單元\s*(\S+)｜(.+)$/);
   if (!head) throw new Error(`${f}：第一行不是「# 單元 X-Y｜標題」`);
 

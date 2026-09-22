@@ -48,7 +48,7 @@ const COLOR_MAP: Record<string, string> = {
 
 export default function Slide10b3() {
   return (
-    <SlideLayout title="API 文件四項重點" subtitle="How to Read API Docs" icon={BookOpen}>
+    <SlideLayout title="讀 API 文件：端點、認證、參數、範例" subtitle="How to Read API Docs" icon={BookOpen}>
       <LiveDemo kind="browser" note="打開任何一份 API 文件，四項自己找找看" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-2 items-stretch max-w-6xl mx-auto pb-8">
 

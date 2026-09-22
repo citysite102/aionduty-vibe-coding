@@ -26,10 +26,10 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-32-agents-md',
-  title: '換成別家的工具，還讀得到嗎？',
+  title: '換成 Codex 或 Cursor，手冊還讀得到嗎',
   script:
-    '會有人擔心一件事：寫了一份 CLAUDE.md，換成別家工具是不是要整份重寫。不用。AGENTS.md 是跨工具的共通檔名，Codex、Cursor 都會讀它。做法是在專案裡建一個 AGENTS.md，做成指向同一份 CLAUDE.md 的捷徑，你不用自己打指令，把畫面上那句話跟它說就好。為什麼是捷徑，不是複製成兩份？因為兩份分開之後，你只會記得改其中一份，過一陣子兩邊的規矩就不一樣了，而你不會知道該信哪一份。Windows 上建不了捷徑的話，改成在 CLAUDE.md 開頭寫一行 at AGENTS.md，那個符號的意思是把整份併進來。最後補一件事：新版的 Claude Code 自己也讀得懂 AGENTS.md，但預設只在你沒有 CLAUDE.md 的時候才讀，所以你這種已經寫好手冊的情況，捷徑還是要做。',
-  seconds: 61,
+    '有些夥伴可能會想說：寫了一份 CLAUDE.md，換成別家工具是不是要整份重寫。不用。其實還有一個叫做 AGENTS.md 的檔案，它是跨工具的共通檔名，Codex、Cursor 都會讀。它最早是 OpenAI、Google、Cursor 幾家各自在做，後來收斂成同一個開放格式，現在跟 MCP 歸在同一個基金會底下。做法是在專案裡建一個 AGENTS.md，讓它指向同一份 CLAUDE.md。這個東西叫符號連結，英文是 symbolic link，指令是畫面上那一行，你不用自己打，把那句話跟它說就好。為什麼是連結，不是複製成兩份？兩份分開之後你只會記得改其中一份，過一陣子兩邊的規矩就不一樣，而你不知道該信哪一份。連結只有一份本體，改哪一邊都是同一個檔案。Windows 上建符號連結要管理員權限，嫌麻煩就用替代做法：在 CLAUDE.md 開頭寫一行 at AGENTS.md，那個符號的意思是把整份併進來。最後補一件事：新版的 Claude Code 自己也讀得懂 AGENTS.md，但預設只在你沒有 CLAUDE.md 的時候才讀。你已經寫好手冊了，所以那個連結還是要做。',
+  seconds: 85,
   from: 55,
 };
 
@@ -56,7 +56,7 @@ export default function RecAgentsMd() {
           </div>
           <p className="text-slate-400 text-base leading-relaxed mt-4">
             改一份，兩個檔名同時更新。
-            <span className="text-slate-600 text-sm ml-2 font-mono">（實際做的是 ln -s CLAUDE.md AGENTS.md。Windows 建不了捷徑，改在 CLAUDE.md 開頭寫 @AGENTS.md，「@」是整份併進來）</span>
+            <span className="text-slate-600 text-sm ml-2 font-mono">（符號連結：ln -s CLAUDE.md AGENTS.md。Windows 需管理員權限，替代做法是在 CLAUDE.md 開頭寫 @AGENTS.md）</span>
           </p>
         </AnimatedBlock>
 

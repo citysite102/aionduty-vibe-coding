@@ -73,7 +73,7 @@ const STUCK = [
 
 export default function SlideDeploy() {
   return (
-    <SlideLayout title="把它變成一個網址" subtitle="Ship It, For Real" icon={Rocket}>
+    <SlideLayout title="部署上線：Vercel 與 GitHub Pages 兩條路" subtitle="Ship It, For Real" icon={Rocket}>
       <LiveDemo kind="claude" note="這一步做完你就有網址了" />
 
       <div className="max-w-6xl mx-auto space-y-4 pb-8">

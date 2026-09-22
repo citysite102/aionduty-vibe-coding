@@ -63,7 +63,7 @@ const TONES = {
 
 export default function Slide18b() {
   return (
-    <SlideLayout title="該用什麼工具？" subtitle="Scenario Quiz" icon={HelpCircle}>
+    <SlideLayout title="該用對話框還是 Claude Code？五個情境" subtitle="Scenario Quiz" icon={HelpCircle}>
       <div className="max-w-5xl mx-auto min-h-full flex flex-col justify-center pb-4">
         <p className="text-slate-300 text-xl mb-2 text-center leading-relaxed">
           這五題，你覺得該用<strong className="text-slate-100">對話框或現成的無程式碼工具</strong>，

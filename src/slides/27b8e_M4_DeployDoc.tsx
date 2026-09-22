@@ -5,7 +5,7 @@ import { CopyText } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
- * 這一頁接在「把它變成一個網址」與「手機打開，紀錄卻是空的」後面。
+ * 這一頁接在「部署上線：Vercel 與 GitHub Pages 兩條路」與「手機打開，紀錄卻是空的」後面。
  *
  * 為什麼要有它：前面兩頁走的是計時器這一個題目，路線是寫死的（純前端、推上去、
  * 選 Vercel 或 GitHub Pages）。但學員接下來要做的是自己的題目，那個題目可能有

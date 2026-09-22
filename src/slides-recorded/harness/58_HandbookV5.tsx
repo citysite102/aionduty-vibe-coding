@@ -7,7 +7,7 @@ import type { RecordedMeta } from '../types';
 
 export const meta: RecordedMeta = {
   id: 'harness-58-handbook-v5',
-  title: '換個地方，一個字都不用改',
+  title: '手冊定稿：十三行，換個介面照用',
   script:
     '這份檔案到這裡定型了。從十四行變成十三行，少掉的那一行是併回全域手冊的那一條。搬去 Hook 的那一條沒有消失，它換成一行指向 .claude/settings.json 的提醒。注意它是變短的，不是變長的。換到網頁版把它整份貼進指令欄，換到桌面版綁上同一個資料夾，內容一個字都不用改。想自己驗一次，就把這份貼進 Claude Projects 的指令欄，丟同一句需求，看它會不會照著同樣的規矩回答。',
   seconds: 37,

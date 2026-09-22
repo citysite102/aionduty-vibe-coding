@@ -16,7 +16,7 @@ import { Callout } from '../components/Callout';
  * 前一頁那張總表講的是「誰叫它、什麼時候進來」，這一頁講「放在哪一層」。
  * 兩件事分開講：一個是時間軸，一個是位置。
  *
- * CLAUDE.md 的四個層級在預錄那一段講過（一份不夠用的時候還能放哪），
+ * CLAUDE.md 的四個層級在預錄那一段講過（`CLAUDE.md` 可以放的四個位置），
  * 這裡不重複那四層，補的是那一頁沒有的東西：同樣兩個位置底下，
  * 除了 CLAUDE.md 還放得下 skills、agents、rules，而且兩邊的取捨不一樣。
  *
@@ -48,7 +48,7 @@ const HEAD_STYLE = {
 
 export default function SlideFolderMap() {
   return (
-    <SlideLayout title="只有兩個位置：家目錄與專案資料夾" subtitle="Where Things Live" icon={FolderTree}>
+    <SlideLayout title="零件放哪：家目錄與專案資料夾" subtitle="Where Things Live" icon={FolderTree}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

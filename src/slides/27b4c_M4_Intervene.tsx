@@ -31,7 +31,7 @@ const MOVES = [
 export default function SlideIntervene() {
   return (
     <SlideLayout
-      title="它原地打轉的時候，你有四個動作可以做"
+      title="Agent 原地打轉時能做的四個動作"
       subtitle="Manual Intervention When the Loop Gets Stuck"
       icon={Hand}
     >

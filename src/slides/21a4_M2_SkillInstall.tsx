@@ -6,6 +6,15 @@ import pluginCommand from '../../assets/ui/plugin-command.png';
 import pluginDiscover from '../../assets/ui/plugin-discover.png';
 
 /**
+ * 最後查證：2026-09-22，對照 code.claude.com/docs/en/skills 的 Skill 檔案結構那一節。
+ * 當時的現況：`SKILL.md` 是唯一必要的檔案，但原文寫「Skills can include multiple files
+ * in their directory」，可以附參考文件、範例與腳本，那些檔案不會每次載入，
+ * 由 `SKILL.md` 裡的連結說明哪一份什麼時候讀（官方另建議 `SKILL.md` 控制在 500 行以內）。
+ * 所以這一頁不要寫成「一個 Skill 就是一個檔案」，逐字稿 5-2 的 Slide 57 也照這個講。
+ * 下次改版前先重查那一節。
+ */
+
+/**
  * 現場最卡的一頁，原本不存在。
  *
  * Skill 前面兩頁都在講「裝了差在哪」，但怎麼裝只有一行註腳寫「用 /plugin 裝」，
@@ -57,7 +66,7 @@ export default function SlideSkillInstall() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           三種來源，最後拿到的都是同一個東西：
-          <strong className="text-slate-100">一份 <code className="font-mono text-orange-300">SKILL.md</code>，放在它找得到的資料夾裡。</strong>
+          <strong className="text-slate-100">一個放在它找得到的位置的資料夾，裡面一定有一份 <code className="font-mono text-orange-300">SKILL.md</code>。</strong>
           差別只在這份檔案是你自己寫的，還是拿別人做好的。
         </AnimatedBlock>
 

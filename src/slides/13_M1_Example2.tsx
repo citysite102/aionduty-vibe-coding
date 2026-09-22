@@ -17,7 +17,7 @@ const PROMPT_TEXT = PROMPT_PARTS.map((p) => p.t).join('');
 
 export default function SlideExample2() {
   return (
-    <SlideLayout title="叫它寫個小工具，幫你做雜事" subtitle="Example 2: Automation Script" icon={FolderSync}>
+    <SlideLayout title="叫它寫一個批次改檔名的 Node.js 腳本" subtitle="Example 2: Automation Script" icon={FolderSync}>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-stretch min-h-full">
         
         <div className="flex flex-col justify-start space-y-6">

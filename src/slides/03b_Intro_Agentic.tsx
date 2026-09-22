@@ -48,7 +48,15 @@ export default function SlideIntroAgentic() {
             你現在用的對話框，是你問一句、它回一段字，真正要照著做的還是你自己。
             <strong className="text-slate-100">Agent 是你交代一件事，它自己去開檔案、跑指令、改東西，做完回報結果給你。</strong>
             差別只有一個：它有沒有手。這門課都會用到這個詞，指的都是這件事。
-            <span className="block mt-2 text-slate-400">它開的是你電腦裡真正的檔案，但預設會在改檔案、跑指令之前停下來問你，只有讀取不打擾。要放寬到什麼程度是你決定的。</span>
+            {/*
+              2026-09-22 修一個事實錯誤。原本寫「預設會在改檔案、跑指令之前停下來問你」，
+              但 code.claude.com/docs/en/permission-modes 的 Which mode a session starts in
+              寫著「On Pro, Max, and Team plans, the built-in starting permission mode is
+              auto mode」，而這門課推薦的就是 Claude Pro。同一個錯在 `15_M1_Workflow`
+              已經修過（那一頁的檔頭註解記著），這一頁漏掉，所以兩頁互相矛盾。
+              措辭跟 `15_M1_Workflow` 的 Callout 對齊，不要各寫一套。
+            */}
+            <span className="block mt-2 text-slate-400">它開的是你電腦裡真正的檔案。預設多數動作它自己做完，不會每一步問你；想自己一步一步放行，切到手動模式。要放到多寬是你決定的。</span>
           </p>
         </AnimatedBlock>
 

@@ -49,15 +49,15 @@ export const UNIT_DEFS: UnitDef[] = [
 
   // ── 章節三 Claude Code 實作與網頁開發基礎 ──
   { live: 14, title: 'Agent 的價值與實測表現', anchor: 'Claude Code 實作與網頁開發基礎' },
-  { live: 17, title: 'Claude 桌面版實作與七項基礎總覽', anchor: '先用桌面版做出第一個東西' },
+  { live: 17, title: 'Claude 桌面版實作與七項基礎總覽', anchor: '桌面版五步，從下載到講第一句話' },
   { live: 19, title: '錯誤訊息與 API 文件', anchor: '紅字不是壞事，它在告訴你哪裡卡住' },
   { live: 23, title: '前端、後端、資料庫與部署', anchor: '一次請求的完整流程：前端、後端與資料庫' },
   { live: 28, title: 'Git：版本控制', anchor: 'Git 幫你記下每一版，不只是程式碼' },
   { live: 30, title: 'Claude Code 的介面與指令', anchor: 'Claude Code 桌面版' },
-  { live: 32, title: '漸進式開發：第一個作品', anchor: '探索、計畫、執行、驗證' },
+  { live: 32, title: '漸進式開發：第一個作品', anchor: 'Agent 的一輪：探索、計畫、執行、驗證' },
   // 起點刻意不是「叫它寫個小工具」那一頁：它是支線示範，當一支影片的第一格
   // 會讓學員以為這一單元在講寫腳本，其實在講邊界與收成。它留在上一單元收尾。
-  { live: 38, title: 'Claude Code 的能力邊界與工具選擇', anchor: '哪些事它做得好，哪些你得自己來' },
+  { live: 38, title: 'Claude Code 的能力邊界與工具選擇', anchor: 'Claude Code 做得好與做不好的事' },
 
   // ── 章節四 選修：終端機與 Claude Code 安裝 ──
   { live: 41, title: '選修：終端機與基本指令', anchor: '選修：終端機與 Claude Code 安裝' },
@@ -78,8 +78,8 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 60, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。
-  { live: 64, title: 'CLAUDE.md 的分層、長度與跨工具相容', anchor: '同一句話，有沒有手冊差在哪' },
-  { live: 65, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: 'CLAUDE.md 一直在，Rules 碰到才載' },
+  { live: 64, title: 'CLAUDE.md 的分層、長度與跨工具相容', anchor: '同一句需求，兩種產出：有手冊、沒手冊' },
+  { live: 65, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: '根目錄的手冊整場都在，Rules 碰到才載' },
   { live: 70, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
 
   // ── 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 ──
@@ -94,7 +94,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 78, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
-  { live: 78, part: 12, title: '規則分層的取捨與第一次分流', anchor: '保證越高的，改起來越麻煩' },
+  { live: 78, part: 12, title: '規則分層的取捨與第一次分流', anchor: '四個去處：保證程度、修改成本' },
   { live: 79, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
@@ -112,9 +112,9 @@ export const UNIT_DEFS: UnitDef[] = [
   // 前半是四道邊界與煞車、後半才實際貼那段指令，學員在前半會一直等著看指令長什麼樣。
   // 合起來的順序是：先知道怎麼喊停與怎麼驗，再貼指令，再看它自己跑三輪。
   { live: 99, title: '工作交辦：目標、完成條件與邊界', anchor: 'Agent 循環開發流程與實戰案例' },
-  { live: 102, title: '介入時機、自動把關與安全邊界', anchor: '它原地打轉的時候，你有四個動作可以做' },
+  { live: 102, title: '介入時機、自動把關與安全邊界', anchor: 'Agent 原地打轉時能做的四個動作' },
   { live: 106, title: '自主循環實作：讓計時器自己跑完一輪', anchor: '讓計時器自己跑完一輪' },
-  { live: 111, title: '部署上線：從本機到公開網址', anchor: '你的專案現在只活在這台電腦裡' },
+  { live: 111, title: '部署上線：從本機到公開網址', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
   // 三個完整案例。單元名稱直接用 Case 的名字，因為講者會在這裡打開那三份教學文件，
   // 影片標題和文件封面對得起來，學員才知道現在該翻哪一份。
   //
