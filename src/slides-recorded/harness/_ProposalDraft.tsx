@@ -1,7 +1,7 @@
 import { AnimatedBlock } from '../../components/SlideLayout';
 
 /**
- * 客戶提案手冊在轉移演練裡的四個階段。
+ * 客戶提案手冊在轉移演練裡的三個階段。
  *
  * 累積順序照分流那四題（先問會不會出事），與 04b_RouteIntro 一致，
  * 所以最硬的那一條先進檔案，每次都要重講的格式規則最後才補上。

@@ -39,7 +39,7 @@ export default function SlideM2LoadAlways() {
 
         <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-400 text-base leading-relaxed">
-            兩者的差別只有一個：<strong className="text-slate-200">要不要一直在。</strong>能綁定範圍的就綁定，不要全部往根目錄堆。這也是為什麼一份 CLAUDE.md 建議別超過約 200 行。
+            兩者的差別只有一個：<strong className="text-slate-200">要不要一直在。</strong>能綁定範圍的就綁定，不要全部往根目錄堆。這也是為什麼官方建議一份 CLAUDE.md 控制在 200 行以內。
           </p>
         </AnimatedBlock>
 

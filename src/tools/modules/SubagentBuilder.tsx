@@ -78,7 +78,7 @@ export default function SubagentBuilder() {
           </div>
         </Panel>
 
-        <Panel title="改成你的標準" desc="檢查項目一行一條，寫成別人只看結果就答得出有或沒有的句子。">
+        <Panel title="改成你的標準" desc="檢查項目一行一條，寫成只看結果、你就答得出有或沒有的句子。">
           <div className="space-y-6">
             <Field label="名字" hint="檔名會用它，英文小寫加連字號">
               <TextInput value={p.name} onChange={(e) => setP({ ...p, name: e.target.value })} />

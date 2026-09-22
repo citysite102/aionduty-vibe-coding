@@ -18,8 +18,8 @@ export const meta: RecordedMeta = {
   id: 'harness-67-hook-practice',
   title: '換你掛一條 Hook',
   script:
-    '換你動手掛一條。回到第一題那個例子：金鑰絕對不能寫進程式碼。你不用自己編設定檔，把這句話交給它：每次你要寫檔案之前，先檢查內容裡有沒有 API 金鑰，有就擋下來，掛完故意寫一個假的測一次給我看。三層它會自己填，你要盯的是最後那一步。最常見的失敗不是寫錯，是它從來沒被觸發過，而你不會發現。驗收兩件事：假金鑰真的被擋下來了嗎，被擋的時候有沒有講清楚哪裡不行。那句理由是寫給它看的，它會拿著理由再試一次。',
-  seconds: 45,
+    '回到分流第一題：金鑰不能寫進程式碼。設定檔不用你自己編，把畫面上那句交給它。三層它會自己填，你要盯的是測試。最常見的失敗不是寫錯，是它從來沒被觸發過，而你不會發現。驗收三件事：假金鑰真的被擋下來了嗎，被擋的時候有沒有講清楚哪裡不行，還有它把設定寫進哪一個檔案。這一題該進專案的 settings.json，掉在家目錄，以後每個專案都會被檢查。',
+  seconds: 36,
 };
 
 export default function RecHookPractice() {
@@ -44,7 +44,7 @@ export default function RecHookPractice() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-7 py-5">
-          <div className="text-slate-500 text-base mb-3">驗收只有兩件事</div>
+          <div className="text-slate-500 text-base mb-3">驗收三件事</div>
           <div className="space-y-2">
             {CHECKS.map((c) => (
               <p key={c} className="text-slate-300 text-xl leading-relaxed">

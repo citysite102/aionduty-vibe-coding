@@ -50,8 +50,8 @@ function build(round: number): Line[] {
   const out: Line[] = [];
   for (const [text, kind] of DRAFT) {
     if (text === TO_HOOK) {
-      // 搬走之後手冊裡要留一行提醒，否則 Slide 67 與這一段口白講的
-      // 「在 Hook 擋掉，手冊裡只留一行提醒」就沒有示範到（學員會直接刪掉那一條）。
+      // 搬走之後手冊裡要留一行提醒，否則 `21b4_M2_BadRules` 那一格的「手冊裡只留一行提醒」
+      // 與 `55_HandbookV2` 的口白就沒有示範到（學員會直接刪掉那一條）。
       if (round === 1) out.push({ text, state: 'added' });
       else if (round === 2) {
         out.push({ text, state: 'moved', to: '搬去 Hook' });
@@ -99,12 +99,12 @@ export const VERSIONS: { label: string; note: string; lines: Line[] }[] = [
   },
   {
     label: '改寫之後',
-    note: '「畫面要好看」無法判定，它做完自己也不知道有沒有達成。換成別人只看結果就能回答有或沒有的寫法。',
+    note: '「畫面要好看」無法判定，它做完自己也不知道有沒有達成。換成只看做出來的東西，你就能回答有或沒有的寫法。',
     lines: build(4),
   },
   {
     label: '定稿',
-    note: '從十四行變成十二行，但每一條都能被檢查。換到網頁版或桌面版，內容一個字都不用改。',
+    note: '從十四行變成十三行，但每一條都能被檢查。換到網頁版或桌面版，內容一個字都不用改。',
     lines: build(5),
   },
 ];

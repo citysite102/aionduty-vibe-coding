@@ -9,13 +9,13 @@ export const meta: RecordedMeta = {
   id: 'live-82-div-handbook',
   title: '手冊（CLAUDE.md）的診斷、健檢與轉移',
   script:
-    'Hello，我是 Samuel，接下來進到第六章。這一章從四個問題開始，而這四題不是我排出來的，是你自己動手寫一份手冊之後，會照這個順序撞上的：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。最後把同一套方法搬到不是程式的工作上。',
-  seconds: 22,
+    'Hello，我是 Samuel，接下來進到第六章。到這裡你手上已經有一份 CLAUDE.md 了，這一章處理的是寫了之後會遇到的四個問題：為什麼沒生效、規則該放哪、越寫越長怎麼辦、每一條到底怎麼寫。四題有答案之後，同一份手冊換到網頁版、Cowork 跟別家工具上怎麼用，最後搬到不是程式的工作上。',
+  seconds: 28,
   kind: 'reference',
 };
 
 /**
- * 從這裡開始幾乎全是預錄頁（現場 3 頁，預錄 42 頁），跟前半以現場講解為主的節奏不同，
+ * 從這裡開始幾乎全是預錄頁（現場 3 頁，預錄 44 頁），跟前半以現場講解為主的節奏不同，
  * 所以獨立成一節，讓講者與學員都知道換了一種上課形式。
  *
  * number 沿用 MODULE 2：這一節仍屬階段 03，只是後半段。
@@ -29,6 +29,7 @@ export default function SlideDivHandbook() {
       title="手冊（CLAUDE.md）的診斷、健檢與轉移"
       roadmap={[
         { label: '四個常見問題', weight: 8, note: '沒生效、放哪層、太肥、怎麼寫' },
+        { label: '換個工具或介面', weight: 2, note: '網頁、Cowork、Claude Code；跨工具的名詞' },
         { label: '換成你的工作', weight: 3, note: '不是程式也用得上' },
       ]}
     />

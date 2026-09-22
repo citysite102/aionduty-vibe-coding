@@ -72,7 +72,7 @@ export default function SlideCheatPerms() {
   // Terminal mockup interactive state
   const [terminalMode, setTerminalMode] = useState<'default' | 'auto-accept' | 'plan' | 'auto' | 'dont-ask' | 'bypass'>('default');
 
-  // 這個模擬器只演 default → acceptEdits → plan 這三格。實際上 Pro/Max 開機在 auto，
+  // 這個模擬器演 default → acceptEdits → plan → auto 這四格。實際上 Pro/Max 開機在 auto，
   // 按第一下才進 manual（default 的介面名稱），而且啟用的選用模式會插在 plan 後面。
   // 循環順序照官方文件（2026-09-20 查證）：default → acceptEdits → plan → auto → 回 default。
   // 起始狀態刻意停在 default 而不是 auto：Pro/Max 實際開機在 auto，但讓第一眼看到全放行，
@@ -106,13 +106,14 @@ export default function SlideCheatPerms() {
               </div>
 
               {/*
-                上一頁花整頁建立「兩個旋鈕」那組心智模型，這一頁原本一次都沒用到，
+                上一頁花整頁建立「監督程度」與「邊界大小」那組對照，這一頁原本一次都沒用到，
                 兩頁只是前後相鄰。每一格補一行標它調的是哪一個，前一頁才不是講完就丟。
                 2026-09-22 拿掉「旋鈕一／旋鈕二」這個代號，只留名字：代號本身不帶資訊，
-                讀者得回上一頁才知道一號是哪一個。
+                讀者得回上一頁才知道一號是哪一個。同一輪把「旋鈕」這個詞本身也從畫面上清掉，
+                兩頁現在都只講監督程度與邊界大小。
               */}
               <p className="text-xs text-slate-400 leading-relaxed mb-3">
-                上一頁那兩個旋鈕，在 Claude Code 裡就是下面這六個模式。
+                上一頁那兩件事，監督程度與邊界大小，在 Claude Code 裡就是下面這六個模式。
                 每一格最後一行標的，是它轉的哪一個。
               </p>
 

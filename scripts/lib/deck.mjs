@@ -46,7 +46,11 @@ export function readDeck() {
   for (const f of readdirSync(dir)) {
     if (!f.endsWith('.tsx')) continue;
     const s = readFileSync(`${dir}/${f}`, 'utf8');
-    const title = s.match(/title:\s*'([^']*)'/)?.[1];
+    // meta 裡的 title 優先。檔案上方的資料陣列（例如 03_FailCantFollow 的 CASES）
+    // 也會有 title，排在 meta 前面就會被先抓到，錄製清單上就變成卡片標題。
+    const title =
+      s.match(/export const meta[\s\S]*?title:\s*'([^']*)'/)?.[1] ??
+      s.match(/title:\s*'([^']*)'/)?.[1];
     if (title) metaByFile[f] = { title, file: `${dir}/${f}` };
   }
   const metaVarFile = {};

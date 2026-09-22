@@ -98,7 +98,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 79, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊健檢：五步，順序不能換' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
-  { live: 81, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '三個地方，差別只有兩件事' },
+  { live: 81, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '網頁、Cowork、Claude Code 差在哪兩件事' },
 
   // ── 章節七 Agent 分工與品質控管 ──
   { live: 85, title: 'Agent 分工：三個角色與四種模式', anchor: 'Agent 分工與品質控管' },

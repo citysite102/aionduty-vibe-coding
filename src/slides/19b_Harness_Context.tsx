@@ -14,15 +14,15 @@ export default function SlideHarnessContext() {
 
           第三格講的是「先給目錄、用到才展開」這個做法本身，不要縮回去只講 Agent Skills。
           走這條路的至少有五種（子資料夾的 CLAUDE.md、Rules、Skill、Subagent、MCP），
-          而 Slide 74、75 就是照這個分的。只寫 Skill 的話，學員到那兩頁會以為是新東西。
+          而 Slide 71、72 與 74 就是照這個分的。只寫 Skill 的話，學員到那幾頁會以為是新東西。
 
           **最後那一塊（規則文件自己指路）不要拿掉。** 沒有它，三種時機只是一張分類表，
           學員不知道那跟他等一下要寫的 CLAUDE.md 有什麼關係。這份簡報自己的 CLAUDE.md
-          就是這樣寫的（主檔指到 src/remotion/CLAUDE.md），Slide 83 會把它攤開。
+          就是這樣寫的（主檔指到 src/remotion/CLAUDE.md），Slide 80 節錄的就是那份檔案。
         */}
         <div className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-6 mb-6">
           <p className="text-slate-300 text-base leading-relaxed mb-3">
-            上一段你每開一次新對話，就得重講一次規矩。
+            你每開一次新對話，就得重講一次規矩。
             <strong className="text-sky-200">規則文件就是把那些話寫成一個檔案</strong>，
             它自己會被讀進去，你不用再講。
           </p>
@@ -122,7 +122,6 @@ export default function SlideHarnessContext() {
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">
             所以它是整個運作框架的入口，也是你唯一每次都會被讀到的地方。
-            後面那幾頁在練的就是這件事：哪些留在裡面、哪些寫成指路。
           </p>
         </AnimatedBlock>
       </div>

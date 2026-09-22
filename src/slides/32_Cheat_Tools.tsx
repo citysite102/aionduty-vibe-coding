@@ -5,13 +5,16 @@ import type { RecordedMeta } from '../slides-recorded/types';
 /**
  * 速查表，學員會停在上面逐列對照，所以 kind 標 reference，不套 160 字與 45 秒。
  * 口白照樣要有，否則錄影時這一頁無聲。
+ *
+ * `id` 裡的數字不是頁碼（B-2b）：那是建檔當時的頁次，這一頁現在是 Slide 119。
+ * 沒有任何程式讀那個欄位，搬頁時不用跟著改。
  */
 export const meta: RecordedMeta = {
   id: 'live-118-cheat-tools',
   title: '跨工具名詞對照表',
   script:
-    '前面講的都是 Claude Code，換一家會不會白學？不會，這四件事換到 Cursor、Codex 或別家一樣成立，換工具要重學的只有名字。專案規則手冊在這裡叫 CLAUDE.md，別家叫 AGENTS.md，或者放在 Cursor 的 rules 資料夾底下，內容幾乎不用改。先想再動手，這裡是 plan 模式，別家叫 Chat-only 或 Ask。分工派工，這裡叫子代理，別家叫 Agent Teams 或 Role。自己跑自己修，這裡是寫好完成條件讓它自己驗，別家叫 Autonomous Loop 或 Goal-oriented Loop。到新工具的第一天，你要找的就是這四個東西放在哪裡。',
-  seconds: 52,
+    '前面講的都是 Claude Code，換一家會不會白學？不會，這四件事換到 Cursor、Codex 或別家一樣成立，換工具要重學的只有名字。專案規則手冊在這裡叫 CLAUDE.md，別家叫 AGENTS.md，或者放在 Cursor 的 rules 資料夾底下，內容幾乎不用改。先想再動手，這裡是 plan 模式，別家叫 Chat-only 或 Ask。分工派工，這裡叫子代理，別家叫 Agent Teams 或 Role。自己跑自己修，這裡是寫好完成條件讓它自己驗，別家叫 Autonomous Loop 或 Goal-oriented Loop。到新工具的第一天，你要找的就是這四個東西放在哪裡；找不到的那一項，通常代表那個工具還沒做。',
+  seconds: 58,
   kind: 'reference',
 };
 

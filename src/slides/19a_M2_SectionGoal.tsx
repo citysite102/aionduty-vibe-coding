@@ -45,7 +45,7 @@ export default function SlideM2SectionGoal() {
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="text-slate-400 text-base leading-relaxed">
-          上一段你做出了計時器。它現在的樣子，是你一次次下指令、看結果、再修回來的。
+          你在章節三做出來的那個計時器，現在的樣子是你一次次下指令、看結果、再修回來的。
         </AnimatedBlock>
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900 overflow-hidden">

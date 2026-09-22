@@ -76,8 +76,9 @@ export default function SlideM2HandsOn() {
             親眼看 context 被吃掉
           </h3>
           {/*
-            2026-09-22：原本第一句就叫學員打 /context，但那是這一頁第一次出現這個指令，
-            學員不知道它是什麼、為什麼要打。先用一句話說清楚它做什麼，再給動作。
+            2026-09-22：原本第一句就叫學員打 /context。Slide 57（`21a4_M2_SkillInstall`）雖然
+            提過一次「也可以輸入 /context，載進來的東西會列在裡面」，但那裡沒說它是什麼、
+            為什麼要打。先用一句話說清楚它做什麼，再給動作。
           */}
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
             <code className="font-mono text-orange-300">/context</code>{' '}

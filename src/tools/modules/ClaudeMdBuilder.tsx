@@ -97,7 +97,7 @@ export default function ClaudeMdBuilder() {
 
         <Panel title="這個專案自己的規矩" desc="只有這個專案適用的東西寫這裡，一行一條。">
           <div className="space-y-6">
-            <Field label="寫法與樣式" hint="寫成別人只看結果就能回答有或沒有的句子">
+            <Field label="寫法與樣式" hint="寫成只看結果、你就能回答有或沒有的句子">
               <TextArea rows={3} value={style} onChange={(e) => setStyle(e.target.value)} />
             </Field>
             <Field label="不要做" hint="踩過一次的坑寫在這裡，它下次才不會再踩">
