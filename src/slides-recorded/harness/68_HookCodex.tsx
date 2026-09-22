@@ -18,6 +18,11 @@ import type { RecordedMeta } from '../types';
  * 版面刻意沿用前面三頁的三層詞彙（時機、範圍、動作）當左欄，
  * 學員看到的不是一張新的比較表，是同一條線再走一次，只是換成別家的格子。
  *
+ * 但 `ROWS` 實際只有時機與動作兩列，範圍那一層沒比。2026-09-22 發現大字寫著
+ * 「也是這三層」而表上只有兩列，畫面補了一句「表上比的是時機與動作這兩層」。
+ * **要補那一列得先查 Codex 的 matcher 現況**，而上面那個 ⚠️ 說明它本輪沒重查，
+ * 所以沒有憑推測填。下次查證 Codex 的時候一起補。
+ *
  * 數字只用來說明一件事：三層的想法兩邊一樣，差的是格子多寡。
  * 兩邊都會改版，所以畫面上一定要留那句「掛之前查一次文件」，
  * 否則這一頁明年就是錯的，而且錯得很有自信。
@@ -44,6 +49,9 @@ export default function RecHookCodex() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             Codex 也是這三層，<Key>每一層可以挑的選項比較少</Key>
+          </p>
+          <p className="text-slate-500 text-base mt-2">
+            表上比的是時機與動作這兩層。
           </p>
         </AnimatedBlock>
 
