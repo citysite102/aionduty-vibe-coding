@@ -7,7 +7,7 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * **口白刻意超過 45 秒（123 秒），不要砍回去。** 理由同 62_HookHowTo。
+ * **口白刻意超過 45 秒（177 秒），不要砍回去。** 理由同 62_HookHowTo。
  * 另外 2026-09-23 修掉一個接續問題：原本開頭是「第二層是範圍，這一層最常被跳過。
  * 時機到了，這一輪它可能在讀檔案⋯」，「時機到了」是接前一頁的詞但沒有交代，
  * 講師回饋「前後有點不夠白話，教學口吻太怪了」。現在先問「為什麼需要它」再回答。
@@ -46,8 +46,8 @@ export const meta: RecordedMeta = {
   id: 'harness-65-hook-matcher',
   title: 'Hook 第二層：條件，只留你要管的工具',
   script:
-    '第二層是範圍，也是最多人直接跳過的一層。先講為什麼需要它。上一層你選的時機是「它動手之前」。問題是，Claude 一輪對話裡會動手很多次：讀一個檔案是一次，跑一行指令是一次，寫一個檔案也是一次。每一次它動手之前，都會停下來問你這條 Hook：這一次要不要管？第二層就是在回答這個問題。畫面上六個就是它常用的那幾種工具。Read 是讀一個檔案，Bash 是跑一行指令，WebFetch 是去抓一個網頁；Write 是整個檔案重寫一次，Edit 是換掉檔案裡某一處，MultiEdit 是一次換好幾處。這份簡報掛的那一條只留後面三個，因為那三個都是在動我的檔案。這樣 Claude 讀東西、查資料的時候就不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。還有一件事很容易誤會：範圍只挑得到工具，挑不到資料夾。你寫 Write，意思是「只要它在寫檔案就要管」，不管它寫的是哪一個資料夾。那如果我只想管某一個資料夾呢？那就在這條 Hook 裡再加一行 if，像畫面上這一行：Edit 括號 src 斜線 api 斜線兩顆星，意思是只有改到 src 底下 api 那個資料夾的檔案，才要檢查。這件事我自己踩過。這份簡報有一支小程式，工作是檢查簡報裡有沒有用到被禁的字，而它要比對那個字，裡面就必須寫出那個字。結果 Hook 一看到就把它擋下來，連擋三次，因為那條 Hook 當時只挑了工具，沒有限定資料夾。',
-  seconds: 123,
+    '第二層是範圍，也是最多人直接跳過的一層。先講為什麼需要它。上一層你選的時機是「它動手之前」。問題是，Claude 一輪對話裡會動手很多次：讀一個檔案是一次，跑一行指令是一次，寫一個檔案也是一次。每一次它動手之前，都會停下來問你這條 Hook：這一次要不要管？第二層就是在回答這個問題。舉個實際的例子你就有畫面了。假設你的時機選了「工具執行前」，然後你跟 Claude 說：幫我把計時器的按鈕文字改成補給。它接下來會做好幾件事。第一，它要先讀 index.html 看現在長什麼樣，這是一次動手，你這條 Hook 被叫起來一次。第二，它可能跑一行指令看看資料夾裡有什麼檔案，Hook 又被叫起來一次。第三，它才真的改那個檔案，Hook 第三次被叫起來。你其實只想檢查最後那一次，前面兩次它只是在看東西。範圍那一行就是在這裡把前面兩次放掉。畫面上那六個是 Claude 手上的工具，不是時機，這裡要分清楚：時機是上一層選的，這一層挑的是工具。六個分別是：Read，它用來讀一個檔案；Bash，用來跑一行指令；WebFetch，用來抓一個網頁；Write，用來把整個檔案重寫一次；Edit，用來換掉檔案裡某一處；MultiEdit，用來一次換好幾處。這份簡報掛的那一條只留後面三個，因為那三個都是在動我的檔案。這樣 Claude 讀東西、查資料的時候就不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。還有一件事很容易誤會：範圍只挑得到工具，挑不到資料夾。你寫 Write，意思是「只要它在寫檔案就要管」，不管它寫的是哪一個資料夾。那如果我只想管某一個資料夾呢？那就在這條 Hook 裡再加一行 if，像畫面上這一行：Edit 括號 src 斜線 api 斜線兩顆星，意思是只有改到 src 底下 api 那個資料夾的檔案，才要檢查。這件事我自己踩過。這份簡報有一支小程式，工作是檢查簡報裡有沒有用到被禁的字，而它要比對那個字，裡面就必須寫出那個字。結果 Hook 一看到就把它擋下來，連擋三次，因為那條 Hook 當時只挑了工具，沒有限定資料夾。',
+  seconds: 177,
 };
 
 export default function RecHookMatcher() {
@@ -70,8 +70,11 @@ export default function RecHookMatcher() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
-          <div className="border-b border-slate-800 bg-slate-900 px-6 py-2.5 font-mono text-lg text-orange-300">
-            matcher: Write|Edit|MultiEdit
+          <div className="border-b border-slate-800 bg-slate-900 px-6 py-2.5">
+            <div className="font-mono text-lg text-orange-300">matcher: Write|Edit|MultiEdit</div>
+            <div className="text-slate-500 text-base mt-1">
+              底下六個是工具，不是時機。
+            </div>
           </div>
           <div className="px-6 py-5 grid grid-cols-3 gap-3">
             {TOOLS.map((t) => (
