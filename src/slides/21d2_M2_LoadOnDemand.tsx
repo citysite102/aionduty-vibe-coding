@@ -5,18 +5,31 @@
  * both create `/deploy` and work the same way. Your existing `.claude/commands/`
  * files keep working.」所以「併進 Skill」成立，而舊路徑仍然可用，不要寫成「已經廢止」。
  * 原本寫「2026 起」，文件沒有給年份，那是推測，已拿掉。
+ * 2026-10-03 重查同一節，整段文字一字未變，仍然成立。
+ * 同一輪把這件事從 Skill 那一格的一句話（「自訂的斜線指令已經併進 Skill」）
+ * 攤成一個獨立的小框，兩條路徑並排。原因是逐字稿念得出新舊兩個位置，
+ * 畫面上只有結論，學員聽到路徑卻看不到，手上有 `.claude/commands/` 的人也不知道自己要不要改。
  * 下次改版前先重查那一節。
  */
 import { Package } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
-const PARTS = [
+const PARTS: {
+  name: string;
+  when: string;
+  what: string;
+  where: string;
+  desc: string;
+  /** 只有 Skill 要帶這一塊：自訂斜線指令併進 Skill 之後，新舊兩種放法的對照 */
+  slash?: boolean;
+}[] = [
   {
     name: 'Skill',
     when: '平常只載名稱',
     what: '一套有步驟、用到才需要的 SOP 流程',
     where: '.claude/skills/名稱/SKILL.md',
-    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。要不要展開是 Claude 自己判斷的，你也可以直接點名。自訂的斜線指令已經併進 Skill。',
+    desc: '名稱先進來讓它知道有這個東西，真的要跑那套流程時才展開全文。要不要展開是 Claude 自己判斷的，你也可以直接點名。',
+    slash: true,
   },
   {
     name: 'Subagent',
@@ -58,6 +71,23 @@ export default function SlideM2LoadOnDemand() {
             <div className="text-slate-500 text-sm border-t border-slate-800 pt-2">
               放在哪：<span className="font-mono text-slate-400">{p.where}</span>
             </div>
+            {p.slash && (
+              <div className="mt-3 rounded-lg border border-slate-800 bg-slate-950 px-3.5 py-3">
+                <p className="text-slate-400 text-sm leading-relaxed mb-2">
+                  把自己常用的一段話存成斜線指令，打{' '}
+                  <code className="font-mono text-orange-300">/deploy</code>{' '}
+                  就跑一套部署流程，這個功能現在併進 Skill 了。
+                </p>
+                <div className="font-mono text-xs leading-relaxed space-y-1">
+                  <div className="text-slate-500">舊的放法　<span className="text-slate-400">.claude/commands/deploy.md</span></div>
+                  <div className="text-slate-500">新的放法　<span className="text-slate-400">.claude/skills/deploy/SKILL.md</span></div>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mt-2">
+                  兩種都打得出 <code className="font-mono text-orange-300">/deploy</code>，跑起來一樣。
+                  手上已經有 <code className="font-mono text-orange-300">.claude/commands/</code> 的檔案不用改。
+                </p>
+              </div>
+            )}
           </AnimatedBlock>
         ))}
 
