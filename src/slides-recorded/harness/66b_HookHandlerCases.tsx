@@ -93,7 +93,7 @@ export const meta: RecordedMeta = {
     '五個看完你會發現，時機跟範圍是照情境決定的，動作才是你真正在挑的那一個。' +
     '最後補 if 的三種寫法：只管某個資料夾底下的，寫 Edit 括號 src 斜線 api 斜線兩顆星；只管某種副檔名的，寫 Edit 括號星點 ts；不管它在哪一層、只要資料夾叫 secrets 就管，前面加兩顆星。' +
     '這裡有一個地雷：括號前面那個字一律寫 Edit。Edit 在這裡涵蓋所有會動到檔案的工具，Write 跟 MultiEdit 那幾次也算在裡面。你如果照直覺寫成 Write 括號，不會報錯，但那一行永遠不會被拿去比對，等於你以為限定了、其實沒有。' +
-    '還有，前兩種動作跑的是確定的規則，後兩種要判斷，判斷就有判斷錯的時候，也比較慢。所以從跑指令開始，真的寫不成規則了再往下換。',
+    '那它查完之後呢？五種的回報方式是一樣的，只有三種結果：放行；擋下來並附一句理由，Claude 會看到那句理由，換個做法再來一次；或是不擋，只補一段訊息給它參考。而擋得住與否看的是時機那一層，不是動作那一層：動手之前擋得住，動手之後就只能補救。最後，前兩種動作跑的是確定的規則，後兩種要判斷，判斷就有判斷錯的時候，也比較慢。所以從跑指令開始，真的寫不成規則了再往下換。',
   seconds: 150,
   // 速查性質：五段設定是給學員停下來照抄的，所以不套 160 字與 45 秒
   // （跟 32_Cheat_Tools 同一個理由）。錄的時候一段一段帶過去，不要一次展開。
@@ -168,7 +168,19 @@ export default function RecHookHandlerCases() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={7} className="px-1">
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
+          <div className="text-slate-100 text-lg font-bold mb-2">那它查完之後呢？</div>
+          <p className="text-slate-400 text-base leading-relaxed">
+            五種的回報方式是一樣的，只有三種結果：<strong className="text-slate-200">放行</strong>；
+            <strong className="text-slate-200">擋下來並附一句理由</strong>，Claude 會看到那句理由，換個做法再來一次；
+            或是<strong className="text-slate-200">不擋，只補一段訊息</strong>給它參考。
+          </p>
+          <p className="text-slate-500 text-base leading-relaxed mt-2">
+            擋得住與否看的是時機那一層，不是動作那一層：動手之前擋得住，動手之後就只能補救。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={8} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
             💡 時機與範圍是情境決定的，動作才是你在挑的。前兩種跑確定的規則，後兩種要判斷，所以從跑指令開始。
           </p>

@@ -19,6 +19,10 @@ import type { RecordedMeta } from '../types';
  */
 
 /**
+ * 2026-10-03 標題從「同一條 Hook 搬到 Codex」改成「Codex 也有 Hook，一樣是這三層」。
+ * 舊標題預設了「Codex 有 Hook」這件事，但學員第一個反應是問「Codex 也適用嗎」，
+ * 標題沒有回答那一題，他會帶著疑問讀整頁。新標題把答案放在標題上，內文才在講差在哪。
+ *
  * 這一節的職務是轉移，所以 Hook 這一組也要收在「換一個工具還算不算數」。
  *
  * 版面刻意沿用前面三頁的三層詞彙（時機、範圍、動作）當左欄，
@@ -40,7 +44,7 @@ const ROWS = [
 
 export const meta: RecordedMeta = {
   id: 'harness-68-hook-codex',
-  title: '同一條 Hook 搬到 Codex',
+  title: 'Codex 也有 Hook，一樣是這三層',
   script:
     '換一個工具還算不算數？Codex 也有 Hook，也是這三層，連欄位的名字都一樣，差別在每一層可以挑的選項比較少。時機，Claude Code 三十三種，Codex 十二種。範圍兩邊一樣，都是比對工具的名稱。動作差最多：Claude Code 五種，Codex 支援跑指令跟呼叫 MCP 工具這兩種，交給模型判斷、派子代理去查那兩種會被略過。但你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。兩邊都還在改版，掛之前查一次文件。所以不用背名稱，要練的是講清楚：什麼時候檢查、管哪一次、做什麼。',
   seconds: 48,

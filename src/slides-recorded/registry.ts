@@ -156,7 +156,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     // 內容也不屬於單元名的「跨工具轉移與從零建立」。放最後當加分題。
     { meta: m61, Component: RecTransferIntegrate },
   ],
-  // index 84 = 原「你完成了哪三件事」
+  // index 84 = 原「手冊的四個成果，收在同一個檔案裡」
   84: [
     { meta: m48, Component: RecRecapOne },
   ],
