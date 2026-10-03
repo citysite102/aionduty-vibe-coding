@@ -43,7 +43,7 @@ export default function SlideMultiAgent() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-100 text-2xl font-bold leading-snug mb-2">
-            任務一大，一個 Agent 從頭做到尾就容易出錯。
+            一個 Agent 從頭做到尾，任務一大就容易出錯。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mb-3">
             它得同時記著整份規格、正在改的那個檔案、還有哪幾項沒驗。
@@ -56,10 +56,14 @@ export default function SlideMultiAgent() {
           */}
           <p className="text-slate-400 text-base leading-relaxed">
             下面那兩個標著 <span className="font-mono text-slate-300">Subagent</span> 的，中文叫
-            <strong className="text-slate-200">子代理</strong>：
-            你派它出去做一件事，<strong className="text-slate-200">它自己那一段來回不會回到你的對話裡，只把結論交回來</strong>。
-            跟你自己另外開一個對話問，差在兩件事：那邊的答案你得自己複製貼回來，子代理是主 session 直接派、直接收；
-            而那邊問過的每一句都留在那個對話裡佔空間，子代理的來回不佔你這一邊的。
+            <strong className="text-slate-200">子代理</strong>。你派它去做一件事，
+            <strong className="text-slate-200">它自己做完，只把結論交回來</strong>，中間翻了幾個檔案、試了幾次，都不會進到你的對話裡。
+            <span className="block mt-2">
+              舉個樣子：它讀了二十個檔案才找到那一行，那二十次讀取留在它那邊，回到你這裡的只有「問題在第 42 行」這一句。
+            </span>
+            <span className="block mt-2">
+              那跟你自己另外開一個視窗問，差在哪？兩件事：那邊的答案要你自己複製貼回來，子代理是直接交回來；而且它中間做的事不佔你這邊的空間。
+            </span>
           </p>
         </AnimatedBlock>
 
@@ -112,10 +116,23 @@ export default function SlideMultiAgent() {
           })}
         </div>
 
+        {/*
+          2026-10-04：原本寫「這三個角色都在 Claude Code 裡面，不用另外裝東西」，
+          講師看不懂（「本來就存在裡面？」）。病灶是「在裡面」沒說是什麼意思 ——
+          它不是三個已經存在的東西躺在某處，而是你不用安裝、不用註冊，
+          指揮者就是你現在在對話的那一個，另外兩個用一句話就叫得出來。
+          改成寫出「你要做什麼才會有它們」，那才是學員接下來真的會做的事。
+        */}
         <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
-            這三個角色都在 Claude Code 裡面，不用另外裝東西。
-            審查者也可以指定別家的模型，這樣它不會沿用執行者的思路，但那是進階選項。
+            <strong className="text-slate-200">不用安裝、不用註冊任何東西。</strong>
+            指揮者就是你現在在對話的那一個；另外兩個你講一句話就叫得出來
+            （「請一個子代理去檢查 index.html」），常用的那種再寫成
+            <span className="font-mono text-slate-300"> .claude/agents/ </span>
+            底下一個檔案，之後點名就出場，後面那一頁會動手做一個。
+          </p>
+          <p className="text-slate-500 text-sm leading-relaxed mt-2">
+            進階一點的：審查者可以指定用別家的模型，它就不會沿用執行者的思路。現在不用管。
           </p>
         </AnimatedBlock>
 

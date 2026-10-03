@@ -55,7 +55,7 @@ export const meta: RecordedMeta = {
     '第一項，專案規則手冊。在這裡叫 CLAUDE.md，跨工具的共通檔名是 AGENTS.md，就是你前面做過符號連結的那一個，官網上列著三十種左右的工具都讀它。Cursor 另外有自己的 rules 資料夾。' +
     '第二項，先想再動手，這一項連名字都一樣：Cursor 跟 Codex 也叫 Plan mode，Codex 打斜線 plan 或按 Shift Tab 進去。' +
     '第三項，分工派工。這裡叫子代理，Cursor 也叫 subagents，放在它的 agents 資料夾；VS Code 的 Copilot 則是自訂 agent，副檔名是點 agent 點 md。' +
-    '第四項比較特別：自己跑自己修沒有共通的名字。你要找的是能不能不互動地跑完一輪，Claude Code 是 claude 減 p，Codex 是 codex exec。' +
+    '第四項比較特別：自己跑自己修沒有共通的名字。你要找的是這個模式：給它一句話，它自己跑完，中間不用你一直回。這一項你不用現在去試，知道它叫什麼就好：Claude Code 是 claude 減 p，Codex 是 codex exec。' +
     '四個都找到就接得上，找不到的那一項通常代表那個工具還沒做。畫面下面附了查證的出處，這幾家改版很快，用之前先對一次。',
   seconds: 72,
   kind: 'reference',
@@ -101,8 +101,8 @@ const ROWS = [
     icon: Play,
     concept: '自己跑、自己修',
     claude: '寫好完成條件，讓它自己驗自己修',
-    others: '沒有共通名稱。要找的是不互動跑完一輪的模式：claude -p、codex exec',
-    why: '名字每家都不一樣，甚至沒有名字，但要你給的東西都一樣：目標、完成條件、邊界。',
+    others: '沒有共通的名字（Claude Code：claude -p／Codex：codex exec）',
+    why: '要找的是「給它一句話，它自己跑完，中間不用你回」的那個模式。名字每家都不一樣，甚至沒有名字，但要你給的東西都一樣：目標、完成條件、邊界。',
   },
 ];
 
