@@ -17,6 +17,12 @@ import { CopyAction } from '../components/CopyBlock';
  * 「CLAUDE.md 整場都在」。Slide 67 的四層位置表是這一句的出處。
  * Slide 74 的總表把兩種分開列，改這一頁的時候回頭看那一張，不要讓兩邊打架。
  *
+ * 2026-10-03 補一句「哪一種用在什麼時候」。這一頁是全片第一次兩種同時出現，
+ * 而它原本只比載入時機（兩者相同），所以學員讀完會問「那我該用哪一個」。
+ * 判斷標準只有一條：**範圍剛好等於一個資料夾，就放那個資料夾的 CLAUDE.md；
+ * 要跨資料夾或只管某一種副檔名，才用 Rules 的 `paths`。** 同一條也寫在 Slide 89
+ * （那一頁展開成兩張卡，是學員真的在做決定的地方），改一邊要改兩邊。
+ *
  * 2026-10-03 補開場。原本第一句直接講「分類的方式是它什麼時候被載進來」，
  * 但讀者在這一頁才第一次看到 Rules 這個名字，下一頁又冒出 Skill、子代理與 MCP，
  * 不知道這些是哪來的、要去哪裡。開場改成先點名剩下要講的幾樣，再給三個載入時機的膠囊，
@@ -66,7 +72,11 @@ export default function SlideM2LoadAlways() {
           <div className="text-slate-200 text-sm font-bold mb-1">永遠都要記得的事實與規則</div>
           <p className="text-slate-500 text-sm leading-relaxed">
             放在專案根目錄的那一份，session 一開始就載入，壓縮對話之後還會自動重讀，不會掉。代價是它從頭到尾都佔著空間。
-            <span className="block mt-2">子目錄裡的那一份不是，它跟底下的 Rules 一樣，動到那一區才讀進來。</span>
+            <span className="block mt-2">
+              子目錄裡的那一份不是，它跟底下的 Rules 一樣，動到那一區才讀進來。
+              那一份管的範圍就是它所在的資料夾，不用另外寫；要跨資料夾或只管某一種副檔名，才用底下 Rules 的{' '}
+              <code className="font-mono text-slate-400">paths</code>。
+            </span>
           </p>
         </AnimatedBlock>
 

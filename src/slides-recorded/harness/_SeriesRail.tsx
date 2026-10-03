@@ -7,7 +7,9 @@ import { useSlide } from '../../components/SlideLayout';
  */
 export const ROUTE_RAIL = {
   label: '依序四題',
-  items: ['Hook 或 CI', '子目錄', 'Skill', '根目錄'],
+  // 第二格原本叫「子目錄」，2026-10-03 改成「綁那一區」：那一題的答案有兩種寫法
+  // （子目錄的 CLAUDE.md、`.claude/rules/` 寫 paths），只寫子目錄會漏掉另一種。
+  items: ['Hook 或 CI', '綁那一區', 'Skill', '根目錄'],
 };
 
 export const FAIL_RAIL = {
