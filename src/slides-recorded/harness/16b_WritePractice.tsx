@@ -28,10 +28,10 @@ const CHECK = [
  */
 export const meta: RecordedMeta = {
   id: 'harness-16b-write-practice',
-  title: '怎麼改寫你手冊裡最模糊的那一條',
+  title: '如何改寫模糊的規則？',
   script:
     '換你動手改一條。打開你自己那份手冊，挑最模糊的那一條，多半就是帶形容詞的那一句。判斷標準只有一個：只看做出來的東西，你能不能回答有做到或沒做到。畫面要好看，答不出來，因為每個人的好看不一樣。改成一頁最多兩種強調色，數一數就答得出來。把你那一條交給它：這是我手冊裡的一條，照白名單、理由、例子、例外、一次一件幫我改寫（探索空間那一條看的是時機，不在這一輪）。改完先自己數一次，數得出來才算改好。',
-  seconds: 40,
+  seconds: 43,
 };
 
 export default function RecWritePractice() {

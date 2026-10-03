@@ -11,12 +11,8 @@ import RecRouteQ3, { meta as m07 } from './harness/07_RouteQ3';
 import RecRouteQ4, { meta as m08 } from './harness/08_RouteQ4';
 import RecRoutePrinciples, { meta as m09 } from './harness/09_RoutePrinciples';
 import RecStartSimple, { meta as m10 } from './harness/10_StartSimple';
-import RecWrite1, { meta as m11 } from './harness/11_WriteWhitelist';
-import RecWrite2, { meta as m12 } from './harness/12_WriteLatitude';
-import RecWrite3, { meta as m13 } from './harness/13_WriteWhy';
-import RecWrite4, { meta as m14 } from './harness/14_WriteExample';
-import RecWrite5, { meta as m15 } from './harness/15_WriteException';
-import RecWrite6, { meta as m16 } from './harness/16_WriteOneThing';
+import RecWriteScope, { meta as m11 } from './harness/11_WriteScope';
+import RecWriteBasis, { meta as m12 } from './harness/12_WriteBasis';
 import RecWritePractice, { meta as m16b } from './harness/16b_WritePractice';
 import RecHealthOverview, { meta as m17 } from './harness/17_HealthOverview';
 import RecHealthInventory, { meta as m18 } from './harness/18_HealthInventory';
@@ -122,15 +118,13 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m56, Component: RecHandbookV3 },
   ],
   // index 80 = 原「怎麼把話講對：白名單與探索空間」
-  // 12_WriteLatitude（留探索空間）本來漏在外面：檔案寫好了、母頁標題也點名它，
-  // 但 registry 沒有 import，所以那一頁從來沒有播過，六個寫法只播得出五個。補回來。
+  // 六個寫法技巧原本一個技巧一頁（11_WriteWhitelist 到 16_WriteOneThing，六頁共用同一個
+  // _DontDo 元件、版面一模一樣）。2026-10-04 併成兩頁：11_WriteScope 管「這條規則管到哪裡」，
+  // 12_WriteBasis 管「它推不出來的時候靠什麼」。六組的原文一字沒改，只是三條並排。
+  // 理由寫在 _TipRows.tsx 的檔頭。**不要為了「一個技巧一頁比較好錄」再拆回去。**
   80: [
-    { meta: m11, Component: RecWrite1 },
-    { meta: m12, Component: RecWrite2 },
-    { meta: m13, Component: RecWrite3 },
-    { meta: m14, Component: RecWrite4 },
-    { meta: m15, Component: RecWrite5 },
-    { meta: m16, Component: RecWrite6 },
+    { meta: m11, Component: RecWriteScope },
+    { meta: m12, Component: RecWriteBasis },
     { meta: m57, Component: RecHandbookV4 },
     // 六個寫法講完原本就停在這裡，整組沒有動手的頁面。
     // 57 是拿示範手冊改一條，16b 是換成學員自己那份：先看別人改，再改自己的。
