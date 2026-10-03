@@ -8,6 +8,12 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * Read, Write, or Edit tool on a file matching the pattern, not on every tool use」。
  * 要注意的是**沒寫 `paths` 的規則檔是開場就載入的**（「Rules without a `paths` field are loaded
  * unconditionally」），所以標題那句「Rules 碰到才載」只對有寫範圍的那種成立。
+ *
+ * 標題的「根目錄」不是贅字，拿掉會變錯的：同一份文件寫「CLAUDE.md and CLAUDE.local.md files
+ * in the directory hierarchy above the working directory are loaded at launch. Files in
+ * subdirectories load on demand when Claude reads files in those directories.」
+ * 子目錄裡的那一份跟 Rules 同一種行為，所以卡片內文也要帶著這個限定，不要寫成
+ * 「CLAUDE.md 整場都在」。Slide 67 的四層位置表是這一句的出處。
  * Slide 74 的總表把兩種分開列，改這一頁的時候回頭看那一張，不要讓兩邊打架。
  *
  * 2026-10-03 補開場。原本第一句直接講「分類的方式是它什麼時候被載進來」，
@@ -40,7 +46,8 @@ export default function SlideM2LoadAlways() {
           </div>
           <div className="text-slate-200 text-sm font-bold mb-1">永遠都要記得的事實與規則</div>
           <p className="text-slate-500 text-sm leading-relaxed">
-            session 一開始就載入，壓縮對話之後還會自動重讀，不會掉。代價是它從頭到尾都佔著空間。
+            放在專案根目錄的那一份，session 一開始就載入，壓縮對話之後還會自動重讀，不會掉。代價是它從頭到尾都佔著空間。
+            <span className="block mt-2">子目錄裡的那一份不是，它跟底下的 Rules 一樣，動到那一區才讀進來。</span>
           </p>
         </AnimatedBlock>
 
