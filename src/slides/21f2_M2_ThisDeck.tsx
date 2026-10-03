@@ -164,6 +164,11 @@ export default function SlideThisDeck() {
                 <div className="mt-1">{'{'} clause: &apos;D-1&apos;, label: &apos;中文破折號&apos;,</div>
                 <div>&nbsp;&nbsp;fix: &apos;改用「，」「。」「：」或（）括號&apos; {'}'}</div>
               </div>
+              <p className="text-slate-500 text-xs leading-relaxed mt-2.5">
+                <code className="font-mono text-slate-400">.mjs</code> 跟{' '}
+                <code className="font-mono text-slate-400">.js</code> 一樣是 JavaScript 檔案。
+                這支不用你自己寫，叫它寫就好，章節六會動手掛一條。
+              </p>
             </div>
             <div>
               <p className="text-slate-400 text-sm leading-relaxed mb-2.5">
