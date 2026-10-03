@@ -26,6 +26,16 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   - 破折號那條（D-1 第 452 行）的 Hook 現在有實測證據，寫在 D 章第 492 行：
  *     「D-1 的破折號有 hook 擋著，從來沒被違反過；沒有檢查的那幾類一直在長回來。」
  *     左欄頁尾那一句就是照這一段寫的，它同時是章節六 Hook 那一段的伏筆。
+ *   - 2026-10-03 第三條從 A-3 的「.map() 裡的條件式 class」換成 B-3 的「不要寫絕對頁碼」。
+ *     原因是前者要先懂 .map() 跟 class 才讀得懂，這一頁的讀者多數不寫程式，
+ *     而這一頁要證明的是「規則從哪裡來」，不是秀規則有多技術。B-3 不用背景知識，
+ *     由來也同樣具體（「這一段共 14 頁」真的寫過，插頁之後全錯，而且沒有檢查抓得到）。
+ *   - 同一輪把 Hook 從頁尾一句話攤成一整塊，程式照抄現況：
+ *     `.claude/settings.json` 的 matcher 是 `Write|Edit|MultiEdit`，command 指向
+ *     `scripts/slide-guard.mjs`；右邊那段被擋的訊息照抄那支腳本 permissionDecisionReason
+ *     的輸出格式。那支腳本現在擋七類（破折號、色階、間距、animate class、色相、左側色條⋯），
+ *     畫面上只舉破折號那一條，因為它是這一頁唯一講過的。
+ *     **改那支腳本的時候要回頭看這一頁**，它是照抄的。
  *   - 開場補了子目錄手冊：`src/remotion/CLAUDE.md` 真的存在，而且前面幾頁才教過分層，
  *     這一頁拿自己當證據最省事。那個檔案如果哪天被刪掉，這一句要跟著拿掉。
  */
@@ -45,11 +55,11 @@ const RULES = [
     why: '手冊把它跟 py-0.2、animate-spin-slow 歸成同一種病：拼錯不會壞，只會安靜地什麼都不做。',
   },
   {
-    line: 'A-3',
-    before: '特別注意 .map() 裡的條件式 class，',
-    key: '一行程式可能生出七個閃爍點。',
+    line: 'B-3',
+    before: '投影片內文不要寫絕對頁碼或頁數。插頁之後全部會失效，而且畫面右下角一直顯示著正確的編號，',
+    key: '兩邊對不上比沒寫更糟。',
     after: '',
-    why: '後半句是後來補的。第一次只寫前半句，它照樣寫出了七個閃爍點。',
+    why: '「這一段共 14 頁」這種句子真的寫過，插了幾頁之後全錯，而且沒有任何檢查抓得到。',
   },
 ];
 
@@ -104,12 +114,8 @@ export default function SlideThisDeck() {
 
             <div className="border-t border-slate-800 bg-slate-900/60 px-5 py-3.5">
               <p className="text-slate-400 text-xs leading-relaxed">
-                還有一條沒寫在這裡：<strong className="text-slate-200">中文不要用破折號。</strong>
-                這一條做成 Hook，用程式擋。
-                <span className="block mt-1.5">
-                  差別是看得出來的：有 Hook 擋的這一條到今天沒有被違反過，
-                  只靠文字寫在手冊裡的那幾條，一直在長回來。
-                </span>
+                這三條都是寫成文字、每次請它自己遵守的。
+                <strong className="text-slate-200">還有一類不這樣做</strong>，底下那一塊就是。
               </p>
             </div>
           </AnimatedBlock>
@@ -140,8 +146,44 @@ export default function SlideThisDeck() {
 
         </div>
 
+        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
+          <div className="flex items-baseline gap-3 border-b border-slate-800 bg-slate-900 px-5 py-2.5">
+            <span className="font-mono text-sm text-slate-300">Hook</span>
+            <span className="text-xs text-slate-600">中文不要用破折號，這一條不寫在手冊裡</span>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 px-5 py-4">
+            <div>
+              <p className="text-slate-400 text-sm leading-relaxed mb-2.5">
+                規則寫成程式，掛在「要寫檔案之前」這個時機上。
+              </p>
+              <div className="rounded-lg bg-slate-900 border border-slate-800 px-3.5 py-3 font-mono text-xs leading-relaxed text-slate-400">
+                <div className="text-orange-300">.claude/settings.json</div>
+                <div className="mt-1">&quot;matcher&quot;: &quot;Write|Edit|MultiEdit&quot;</div>
+                <div>&quot;command&quot;: &quot;node scripts/slide-guard.mjs&quot;</div>
+                <div className="mt-2.5 text-slate-500">slide-guard.mjs 裡那一條長這樣：</div>
+                <div className="mt-1">{'{'} clause: &apos;D-1&apos;, label: &apos;中文破折號&apos;,</div>
+                <div>&nbsp;&nbsp;fix: &apos;改用「，」「。」「：」或（）括號&apos; {'}'}</div>
+              </div>
+            </div>
+            <div>
+              <p className="text-slate-400 text-sm leading-relaxed mb-2.5">
+                它要是寫了，檔案根本存不進去，收到的是這段：
+              </p>
+              <div className="rounded-lg bg-slate-900 border border-slate-800 px-3.5 py-3 font-mono text-xs leading-relaxed text-slate-400">
+                <div>這次寫入違反 CLAUDE.md⋯</div>
+                <div className="mt-1 text-slate-300">・D-1 中文破折號：改用「，」「。」「：」或（）括號</div>
+                <div className="mt-1">改掉再寫一次。</div>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed mt-3">
+                <strong className="text-slate-200">差別是看得出來的</strong>：
+                有 Hook 擋的這一條到今天沒有被違反過，只靠文字寫在手冊裡的那幾條，一直在長回來。
+              </p>
+            </div>
+          </div>
+        </AnimatedBlock>
+
         <AnimatedBlock
-          stepIndex={4}
+          stepIndex={5}
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
