@@ -1,6 +1,5 @@
 import { GitCompareArrows } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
-import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -13,6 +12,12 @@ import type { RecordedMeta } from '../types';
  * 前後翻頁看等於要靠記憶去比，比不出來。左右並排才看得到差別。
  *
  * 兩欄同時出現（共用 stepIndex 2），因為它們是同一個語意單元。
+ *
+ * 2026-10-03 拿掉原本的收尾「不是它變聰明，是那三條換了存放的位置」。三個理由：
+ * 那句話是下一頁（`25_WhyDiff`）口白的第一句，兩頁連著播會聽到兩次；
+ * 這一頁的轉場是「那這個差別到底是什麼造成的」，先把答案寫在畫面上，那一問就空了；
+ * 而「換了存放的位置」在這一頁沒有交代過它原本存在哪，讀者接不上。
+ * 這一頁的職務就是把對照擺出來，為什麼留給下一頁。
  */
 const MISSES = ['按鈕寫成「開始休息」', '塞了一張外部圖片當背景', '分鐘數又寫死在程式碼裡'];
 const HITS = ['按鈕自己叫「補給」', '沒有引用任何外部圖片', '分鐘數加在最上面的設定區'];
@@ -63,12 +68,6 @@ export default function RecWhyHandbook() {
               ))}
             </ul>
           </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3} className="px-1">
-          <p className="text-slate-300 text-lg font-bold leading-snug">
-            不是它變聰明，是<Key>那三條換了存放的位置</Key>。
-          </p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>
