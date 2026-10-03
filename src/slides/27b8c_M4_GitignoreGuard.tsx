@@ -96,13 +96,13 @@ export default function SlideGitignoreGuard() {
             <li className="flex gap-2.5">
               <span className="text-slate-600 shrink-0">2</span>
               <span>
-                <strong className="text-slate-300">關鍵字</strong>：變數名稱叫 password、api_key、token，後面又接著一串字。
+                <strong className="text-slate-300">旁邊的名字</strong>：那串字前面寫著 password、api_key、token 這類字眼。
               </span>
             </li>
             <li className="flex gap-2.5">
               <span className="text-slate-600 shrink-0">3</span>
               <span>
-                <strong className="text-slate-300">亂度</strong>：一長串沒有規律、唸不出來的英數字，本來就不像人寫的文字。
+                <strong className="text-slate-300">像不像亂碼</strong>：一長串沒有規律、唸不出來的英數字，本來就不像人會寫的文字。
               </span>
             </li>
           </ul>
@@ -111,7 +111,7 @@ export default function SlideGitignoreGuard() {
             公開的專案免費，而且掃的是整段歷史紀錄，不是只看這一次。偵測到的時候它會直接把那一次推送擋掉，並告訴你擋在哪一行。
           </p>
           <p className="text-slate-500 text-sm leading-relaxed mt-2">
-            但它認得的是「長得像金鑰的字串」。你自己取的那種人類密碼，它只能靠第 2 點去猜，猜不到就漏了。
+            但它認得的是「長得像金鑰的字串」。你自己取的那種好記的密碼，它只能靠第 2 點去猜，猜不到就漏了。
             <strong className="text-slate-300">所以真正的解法是一開始就不要寫進程式碼</strong>，放進{' '}
             <code className="font-mono text-slate-300">.env</code> 再用{' '}
             <code className="font-mono text-sky-300">.gitignore</code> 擋住，掃描只是最後一道。
