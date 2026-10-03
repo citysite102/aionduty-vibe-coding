@@ -59,10 +59,17 @@ export const meta: RecordedMeta = {
 /**
  * 中間那一欄是它答得出來的（它讀得到現在的程式碼），右欄是只有你答得出來的。
  * 右欄留空的那一列，畫面上會顯示成問號標記。
+ *
+ * **兩條規則都取自學員自己那份手冊**（`_handbookVersions.ts` 的 v1）。
+ * 2026-10-04 換掉的原因有兩個：原本用「禁用 inline style」對「src/ 底下沒找到，有在生效」，
+ * 一、那一格沒說「沒找到」的是什麼，讀起來接不起來（講師：「為什麼禁用 inline style
+ * 和這個相關？」）；二、inline style 與 src/ 都是只有工程師看得懂的字（CLAUDE.md D-2），
+ * 而這一段的學員手上就有兩條白話的規則可以用。中間那一欄現在也寫出它翻了哪個檔案，
+ * 「它答得出來」才有依據。**換例子的時候一樣要從學員手上那份手冊挑。**
  */
 const ROWS: [string, string, string][] = [
-  ['禁用 inline style', 'src/ 底下沒找到，有在生效', '記得，上次改版樣式打架'],
-  ['按鈕用航太語彙', '按鈕文字都是發射、返航這類', ''],
+  ['倒數分鐘數集中成設定', '翻過 index.html，寫在最上面，有照做', '記得，不然每次改都要翻半天'],
+  ['按鈕文案：發射、待機、返航', '按鈕文字就是這幾個，有照做', ''],
 ];
 
 export default function RecHealthInventory() {
@@ -97,8 +104,7 @@ export default function RecHealthInventory() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="mt-5 text-slate-400 text-xl leading-relaxed px-1">
-          右欄是<strong className="text-slate-200">你自己填的</strong>，想不起來就打問號。
-          別讓它猜：它會給一個很合理的理由，而你會拿去決定刪不刪。
+          右欄是<strong className="text-slate-200">你自己填的</strong>，想不起來就打問號。別讓它猜。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="mt-5 rounded-2xl border border-amber-500/20 bg-amber-500/5 px-6 py-5">

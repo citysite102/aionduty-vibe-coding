@@ -28,6 +28,7 @@ import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
 import RecTransferAnswers, { meta as m42 } from './harness/42_TransferAnswers';
+import RecTransferHarness, { meta as m45 } from './harness/45_TransferHarness';
 import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep';
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
 import RecTransferIntegrate, { meta as m61 } from './harness/61_TransferIntegrate';
@@ -142,6 +143,10 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     // 對照表的三行分開放在三頁的時候，學員要自己記著前兩題才對得起來。
     // 文字一字沒改，理由寫在 42_TransferAnswers.tsx 的檔頭。**不要拆回去。**
     { meta: m42, Component: RecTransferAnswers },
+    // 2026-10-04 新增：同一份提案工作對回運作框架那六塊。這一段原本只換了「規則文件」
+    // 一個零件，學員會以為「換成我的工作 ＝ 寫一份 CLAUDE.md」。理由寫在
+    // 45_TransferHarness.tsx 的檔頭。**六塊的名字沿用 Slide 50，不要在這裡自創分法。**
+    { meta: m45, Component: RecTransferHarness },
     { meta: m47, Component: RecTransferNextStep },
     // 61 放在 47 之後：46 收在「三個問題問完」、47 開在「這三題跟工具無關」，
     // 本來是接得上的一句話。而且它要學員開終端機打 claude mcp add，難度比整段高一階，
