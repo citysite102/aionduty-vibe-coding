@@ -98,6 +98,7 @@ import Slide32b from './slides/32b_MentalModels';
 import SlideDivTeam from './slides/22_Div_MultiAgent';
 import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
+import Slide24b from './slides/24b_M3_Workflows';
 import Slide25 from './slides/25_M3_Quality';
 import Slide25b from './slides/25b_M3_HandsOn';
 import Slide25c from './slides/25c_M3_TeachingSim';
@@ -232,6 +233,7 @@ const LIVE_TITLES = [
   "Agent 分工與品質控管",
   "三個角色：指揮者、執行者、審查者",
   "指揮者、單一執行者、自治團隊、流程腳本",
+  "一次派很多個子代理：workflow 怎麼用",
   "設一道會退回的品質防線",
   "動手做一個審查子代理",
   "用講師、學生、觀察員跑一次教學模擬",
@@ -365,6 +367,7 @@ const LIVE_SLIDES = [
   SlideDivTeam,
   Slide23,
   Slide24,
+  Slide24b,
   Slide25,
   Slide25b,
   Slide25c,
@@ -425,7 +428,7 @@ const SECTION_DEFS = [
   { start: 46, label: 'Agent 運作框架與 CLAUDE.md' },
   { start: 75, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
   { start: 85, label: 'Agent 分工與品質控管' },
-  { start: 99, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 100, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

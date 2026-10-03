@@ -253,6 +253,7 @@ export default function SlideRoles() {
             <p className="text-slate-300 text-xs leading-relaxed">
               把分工寫成固定的步驟腳本，每次都照同一套跑。
               <strong>不能臨機應變，但每次都會走完同樣的步驟</strong>，步驟已經確定、要重複很多次的時候用它。
+              <strong>這一種 Claude Code 現在有內建的做法，腳本不用你自己寫。</strong>
             </p>
           </AnimatedBlock>
         </div>
