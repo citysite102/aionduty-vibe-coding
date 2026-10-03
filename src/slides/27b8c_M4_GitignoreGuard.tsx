@@ -6,6 +6,18 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *
  * .gitignore 是學員親手設的第一道「機制」，不是寫給 AI 看的規則，
  * 所以這一頁刻意回扣規則歸位的第一格。
+ *
+ * 2026-10-03 補「它怎麼知道那是金鑰」那一塊。來源是學員在章節六會問的同一題：
+ * 「不能把密碼或金鑰寫進程式碼裡」這種規則，程式真的判斷得出來嗎？
+ * 最後查證 2026-10-03，對照 docs.github.com 的 About secret scanning 與 About push protection：
+ *   - 「scans your entire Git history on all branches of your repository for hardcoded
+ *     credentials, including API keys, passwords, tokens, and other known secret types」
+ *   - partner patterns（各家服務的固定長相，掃到會通知供應商撤銷）＋ custom patterns（自訂正規式）
+ *   - 公開 repo「Secret scanning runs automatically for free」
+ *   - push protection：「When push protection detects a potential secret during a push attempt,
+ *     it will block the push and provide a detailed message explaining the reason for the block.」
+ * 限制那一句是這一塊的重點，不要砍：它認得的是「長得像金鑰的字串」，
+ * 自己取的人類密碼要靠變數名稱那類關鍵字規則去猜，會漏。所以根本解是不要寫進程式碼。
  */
 const NEVER_PUSH = ['.env（放金鑰的那個檔案）', 'API 金鑰、資料庫密碼', '客戶名單、個資、還沒公開的合約'];
 
@@ -68,7 +80,45 @@ export default function SlideGitignoreGuard() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <div className="text-slate-100 font-bold text-base mb-2">它怎麼知道那串字是金鑰？</div>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            這種檢查不是看得懂你的密碼，是比對長相。三種做法疊在一起：
+          </p>
+          <ul className="space-y-2 text-slate-400 text-sm leading-relaxed">
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">1</span>
+              <span>
+                <strong className="text-slate-300">固定格式</strong>：各家服務的金鑰有自己的開頭與長度，有的還帶檢查碼，
+                所以一看就認得出是哪一家的。GitHub 認得的這一組叫 partner patterns，掃到還會通知那家服務把它作廢。
+              </span>
+            </li>
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">2</span>
+              <span>
+                <strong className="text-slate-300">關鍵字</strong>：變數名稱叫 password、api_key、token，後面又接著一串字。
+              </span>
+            </li>
+            <li className="flex gap-2.5">
+              <span className="text-slate-600 shrink-0">3</span>
+              <span>
+                <strong className="text-slate-300">亂度</strong>：一長串沒有規律、唸不出來的英數字，本來就不像人寫的文字。
+              </span>
+            </li>
+          </ul>
+          <p className="text-slate-400 text-sm leading-relaxed mt-3">
+            跑的位置有兩個：掛在你機器上的檢查可以在推出去之前就擋下來；GitHub 那邊也會自己掃，
+            公開的專案免費，而且掃的是整段歷史紀錄，不是只看這一次。偵測到的時候它會直接把那一次推送擋掉，並告訴你擋在哪一行。
+          </p>
+          <p className="text-slate-500 text-sm leading-relaxed mt-2">
+            但它認得的是「長得像金鑰的字串」。你自己取的那種人類密碼，它只能靠第 2 點去猜，猜不到就漏了。
+            <strong className="text-slate-300">所以真正的解法是一開始就不要寫進程式碼</strong>，放進{' '}
+            <code className="font-mono text-slate-300">.env</code> 再用{' '}
+            <code className="font-mono text-sky-300">.gitignore</code> 擋住，掃描只是最後一道。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <p className="text-slate-400 text-sm leading-relaxed">
             推上去之後，Vercel 綁一次 GitHub 就好。之後你只要說「幫我更新上線」，它推完，網站自己跟著換新版。
           </p>

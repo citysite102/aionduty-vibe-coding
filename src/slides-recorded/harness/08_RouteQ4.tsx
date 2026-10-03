@@ -9,8 +9,8 @@ export const meta: RecordedMeta = {
   id: 'harness-08-route-q4',
   title: '規則放哪：以上皆非，才進根目錄',
   script:
-    '第四個問題：如果前面三個都答不是，而且這件事每一輪都要記得，這時候才寫進根目錄。注意它排在最後，不是最前面。很多人一拿到規則就直接往這裡塞，因為這裡最好寫，手冊就是這樣越寫越長的。像是按鈕文案的用字習慣、檔案怎麼命名，這種沒有範圍、也擋不住、但每次都要記得的，才適合放這裡。',
-  seconds: 30,
+    '第四個問題：如果前面三個都答不是，而且這件事每一輪都要記得，這時候才寫進根目錄。注意它排在最後，不是最前面。很多人一拿到規則就直接往這裡塞，因為這裡最好寫，手冊就是這樣越寫越長的。像是按鈕文案的用字習慣、檔案怎麼命名，這種沒有範圍、也擋不住、但每次都要記得的，才適合放這裡。那如果四題都答不是呢？那就不用寫，當場跟它講一句就好。只發生一次的事寫進手冊，你會為它每一輪都付一次錢。',
+  seconds: 38,
   from: 69,
 };
 
@@ -39,6 +39,18 @@ export default function RecRouteQ4() {
         <AnimatedBlock stepIndex={3} className="mt-5 flex items-baseline gap-4 px-2">
           <span className="text-slate-500 text-base shrink-0">例如</span>
           <span className="text-slate-300 text-xl">按鈕文案的用字習慣、檔案怎麼命名</span>
+        </AnimatedBlock>
+
+        {/*
+          2026-10-03 補第五種情況。四題照順序問完，學員會問「那四題都不是呢」，
+          而原本四頁都沒有回答。答案是不用寫，當場講一句就好，
+          這一句也是章節六健檢「先砍哪三類」的前提，兩邊要對得起來。
+        */}
+        <AnimatedBlock stepIndex={4} className="mt-4 rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
+          <p className="text-slate-300 text-xl leading-relaxed">
+            四題都答不是呢？<strong className="text-slate-100">那就不用寫，當場講一句就好。</strong>
+            只發生一次的事寫進手冊，你會為它每一輪都付一次錢。
+          </p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

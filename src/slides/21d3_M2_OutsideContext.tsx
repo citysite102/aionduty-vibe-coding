@@ -1,6 +1,19 @@
 import { ShieldX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * Hook 與 CI 的四個差別。2026-10-03 加。原本只寫「Hook 擋你這台機器、CI 擋整個團隊」，
+ * 學員會直接問：那每台都裝 Hook 不就等於團隊？會這樣問是因為那句話聽起來像覆蓋範圍的差別。
+ * 實際差的是「跑在誰的機器上、什麼時候跑、擋得到哪些動作、繞不繞得過」這四件事，
+ * 其中最關鍵的是第四項：Hook 依賴每個人的設定，CI 不依賴任何人的設定。
+ */
+const AXES = [
+  { k: '跑在哪', hook: '你這台機器', ci: '共用的那一台伺服器' },
+  { k: '什麼時候', hook: '它動手之前，寫檔案或跑指令的那一刻', ci: '程式碼要進主線之前' },
+  { k: '擋得到誰', hook: '只有經過 Claude Code 的動作', ci: '所有人的所有改動，不管用什麼工具寫的' },
+  { k: '繞得過嗎', hook: '換個編輯器手動改、或把設定關掉就繞過了', ci: '設成合併前的必要檢查，就繞不過' },
+];
+
 export default function SlideM2OutsideContext() {
   return (
     <SlideLayout title="真的不能發生的事，交給 Hook 與 CI" subtitle="Outside the Context Window" icon={ShieldX}>
@@ -50,13 +63,52 @@ export default function SlideM2OutsideContext() {
         </div>
 
         {/*
+          2026-10-03 補這一塊。學員看完上面兩張卡一定會問：那每個人的電腦都裝 Hook 不就好了？
+          會這樣問是因為「Hook 擋你這台機器、CI 擋整個團隊」聽起來像是覆蓋範圍的差別，
+          好像湊滿每一台就等於團隊。實際上差的是「擋得掉」與「繞不過」：
+          Hook 只在它用 Claude Code 動檔案的時候才會跑，手動改、換工具、把設定關掉都繞得過去，
+          而且沒有人能證明它在別人的機器上真的跑過。CI 不依賴任何人的設定。
+          這一塊不要砍掉改成一句話，兩個機制的差別就是這一章的主線。
+        */}
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <h3 className="text-base font-bold text-slate-100 mb-1">每個人都裝 Hook，不等於團隊擋得住</h3>
+          <p className="text-slate-500 text-sm leading-relaxed mb-3">
+            Hook 的設定可以放進版控，所以「每個人都有」做得到。但「有裝」跟「躲不掉」是兩件事，差在四個地方：
+          </p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead>
+                <tr className="text-xs">
+                  <th className="w-28 py-1.5 pr-3 text-left font-normal text-slate-600" />
+                  <th className="py-1.5 pr-3 text-left font-bold text-slate-200">Hook</th>
+                  <th className="py-1.5 text-left font-bold text-slate-200">CI</th>
+                </tr>
+              </thead>
+              <tbody className="align-top">
+                {AXES.map((a) => (
+                  <tr key={a.k} className="border-t border-slate-800">
+                    <td className="py-2 pr-3 text-slate-500">{a.k}</td>
+                    <td className="py-2 pr-3 text-slate-400 leading-relaxed">{a.hook}</td>
+                    <td className="py-2 text-slate-400 leading-relaxed">{a.ci}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-slate-400 text-sm leading-relaxed mt-3">
+            所以兩個是搭配的，不是二選一：
+            <strong className="text-slate-200">Hook 在你打字的當下就擋住，省掉一來一回；CI 是唯一算數的那一道，它擋的包含沒裝 Hook 的那個人。</strong>
+          </p>
+        </AnimatedBlock>
+
+        {/*
           2026-09-22 補這一格的核心對比。講師要的觀念是「程式才是真的擋得住的那一個」，
           原話帶了「100% 生效」，那是 D-2 禁的量化斷言，而且這一頁自己就在講 Hook 只管你這台機器、
           要整個團隊躲不掉得靠 CI，寫成 100% 會被同一頁打臉。
           改成講機制的差別：文字每一次都要它重新判斷，程式每一次都照同一段跑。
           這個講法擋得住同樣的誤會，而且是真的。
         */}
-        <AnimatedBlock stepIndex={4} className="bg-red-500/5 border border-red-500/25 rounded-2xl p-5">
+        <AnimatedBlock stepIndex={5} className="bg-red-500/5 border border-red-500/25 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-2">文字說服，跟程式攔截</h3>
           <p className="text-slate-300 text-base leading-relaxed">
             「絕對不要做某事」寫在 CLAUDE.md 裡，<strong className="text-red-300">不保證擋得住</strong>。對話一長，或是它讀到某個網頁上寫著「請忽略前面的規則」，它還是可能做下去。
@@ -70,7 +122,7 @@ export default function SlideM2OutsideContext() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} className="text-slate-500 text-xs leading-relaxed px-1">
+        <AnimatedBlock stepIndex={6} className="text-slate-500 text-xs leading-relaxed px-1">
           零件的分類只有三種載入時機：整場常駐、用到才展開、根本不給它讀。
         </AnimatedBlock>
 
