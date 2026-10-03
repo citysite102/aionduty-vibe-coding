@@ -27,10 +27,7 @@ import RecHandbookLength, { meta as m31 } from './harness/31_HandbookLength';
 import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
-import RecTransferQ1, { meta as m42 } from './harness/42_TransferQ1';
-import RecTransferQ2, { meta as m43 } from './harness/43_TransferQ2';
-import RecTransferQ3, { meta as m44 } from './harness/44_TransferQ3';
-import RecTransferMapping, { meta as m46 } from './harness/46_TransferMapping';
+import RecTransferAnswers, { meta as m42 } from './harness/42_TransferAnswers';
 import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep';
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
 import RecTransferIntegrate, { meta as m61 } from './harness/61_TransferIntegrate';
@@ -140,10 +137,11 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // index 83 = 原「換成你的工作，手冊該寫什麼」
   83: [
     { meta: m41, Component: RecTransferCase },
-    { meta: m43, Component: RecTransferQ2 },
-    { meta: m44, Component: RecTransferQ3 },
-    { meta: m42, Component: RecTransferQ1 },
-    { meta: m46, Component: RecTransferMapping },
+    // 2026-10-04：原本三題各一頁（43、44、42）再加一頁對照表（46），四頁併成一頁。
+    // 三頁的結構完全一樣，而學員三十頁前才看過同一個形狀的「規則該放哪」四問；
+    // 對照表的三行分開放在三頁的時候，學員要自己記著前兩題才對得起來。
+    // 文字一字沒改，理由寫在 42_TransferAnswers.tsx 的檔頭。**不要拆回去。**
+    { meta: m42, Component: RecTransferAnswers },
     { meta: m47, Component: RecTransferNextStep },
     // 61 放在 47 之後：46 收在「三個問題問完」、47 開在「這三題跟工具無關」，
     // 本來是接得上的一句話。而且它要學員開終端機打 claude mcp add，難度比整段高一階，
