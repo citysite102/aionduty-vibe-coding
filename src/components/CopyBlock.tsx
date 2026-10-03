@@ -8,8 +8,9 @@ import { Check, Copy } from 'lucide-react';
  * 本身，而且課程改成預錄自學之後沒有講者可以口頭說「右上角有複製鈕」，
  * 打擊面大一點比較不會漏。
  *
- * **一定要是真的 <button> 元素。** App.tsx 的 handleContainerClick 靠
- * `closest('button, a')` 決定要不要翻頁，用 div 加 onClick 的話點一下複製會順便跳頁。
+ * **維持真的 <button> 元素。** 2026-10-03 之前 App.tsx 有 handleContainerClick，
+ * 點畫面任何空白處就翻頁，靠 `closest('button, a')` 放行這一塊；現在點畫面不翻頁了，
+ * 所以這一條不再是會跳頁的風險，但 button 本身還有鍵盤操作與可及性的理由，不要換成 div。
  *
  * 剪貼簿 API 在非 HTTPS 或權限被鎖的瀏覽器會丟例外（公司配的機器常見），
  * 所以留了 textarea + execCommand 的退路，跟 src/tools/ui.tsx 的 CopyButton 同一套。

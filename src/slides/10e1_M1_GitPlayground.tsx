@@ -473,7 +473,7 @@ export default function Slide10e1() {
           </div>
         </AnimatedBlock>
 
-        {/* 指令列。按鈕不會推進投影片，App 的 handleContainerClick 放行 button */}
+        {/* 指令列 */}
         <AnimatedBlock stepIndex={3} className="border-2 border-slate-800 bg-slate-950 p-4">
           <div className="flex flex-wrap items-center gap-2">
             {BUTTONS.map((b) => {

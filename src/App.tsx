@@ -568,21 +568,16 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [next, prev, timerActive]);
 
-  const handleContainerClick = (e: React.MouseEvent) => {
-    if (timerActive) return;
-    // 點投影片裡的按鈕與連結時不要推進。連結一併放行，否則點外部連結會開新分頁，
-    // 底下卻偷偷跳掉一格，講者切回來位置就不對了。放在這裡是為了讓之後新增的連結
-    // 自動適用，不必每個 <a> 都記得補一次 stopPropagation。
-    if ((e.target as HTMLElement).closest('button, a')) return;
-    next(true);
-  };
+  // 點畫面不推進，推進只吃鍵盤（空白鍵、→、Enter）與操作列上那兩顆箭頭。
+  // 原本點任何空白處就 next()，但講者在台上常要反白一句話來指，
+  // 一放開滑鼠就會多跳出一塊，而且跳掉的那一塊沒有辦法用「上一步」收回到原本的位置。
+  // 要加回來的話，至少要先排除 window.getSelection() 有選取範圍的情況。
 
   const CurrentSlide = SLIDES[current];
 
   return (
     <div 
       className="w-screen h-screen bg-[#020617] text-slate-200 overflow-hidden flex flex-col font-sans relative selection:bg-sky-500/30"
-      onClick={handleContainerClick}
     >
       {/* Background Grid & Glows */}
       <div className="absolute inset-0 bg-grid-slate-900 [mask-image:radial-gradient(ellipse_at_center,white,transparent_80%)] pointer-events-none" />
