@@ -91,7 +91,7 @@ export const UNIT_DEFS: UnitDef[] = [
   // 四個問題本來就是四件事，前兩題（沒生效、放哪層）講的是位置，
   // 後兩題（太長、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
   { live: 75, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { live: 78, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是程式在擋，不是它記得' },
+  { live: 78, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是什麼，可以拿它做什麼' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
   { live: 78, part: 12, title: '規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨', anchor: '規則的四個去處，各自適合放什麼' },
