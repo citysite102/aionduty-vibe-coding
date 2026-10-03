@@ -2,6 +2,27 @@ import { Network, Bot, Users, Activity, FileCode2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock, useSlide } from '../components/SlideLayout';
 import { motion, AnimatePresence } from 'motion/react';
 
+/**
+ * 第三、四種模式最後查證：2026-10-03，對照 code.claude.com/docs/en/agent-teams 與
+ * code.claude.com/docs/en/workflows。
+ *
+ * 自治團隊那一格 2026-10-03 改寫過，原本寫的是「它們不會互相對話，共同讀寫同一批檔案，
+ * 那批檔案就是共用的白板，白板要你自己設計和維護」。那是舊的做法，現在官方文件寫的是
+ * 「Teammates message each other directly」，協調走的是自動產生的共用任務清單與信箱
+ * （`~/.claude/teams/`），不用自己設計。
+ *
+ * 新寫法要守住的三件事：
+ *   1. 它是實驗功能，**預設關閉**（「Agent teams are experimental and disabled by default.
+ *      Enable them by setting CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1」）。學員照著試會打不開，
+ *      這一句不能省。
+ *   2. 每一個隊友都是一份完整的 Claude Code，「use significantly more tokens than a single
+ *      session」，官方建議從 3 到 5 個開始。
+ *   3. 「你驗得動多少就只能放手多少」這個教學論點不變，文件的 Monitor and steer 也是這個意思。
+ *
+ * 第四種「流程腳本」現在有內建做法（dynamic workflows），展開在下一頁 24b_M3_Workflows。
+ * 兩頁一起搬（B-4）。
+ */
+
 const OrchestratorAnim = () => (
   <div className="relative w-full h-full flex items-center justify-center min-h-[350px]">
     {/* Central Orchestrator */}
@@ -236,12 +257,13 @@ export default function SlideRoles() {
 
           <AnimatedBlock stepIndex={4} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep === 4 ? 'border-emerald-500/50 shadow-[0_0_20px_rgba(52,211,153,0.15)] bg-emerald-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-emerald-400 mb-1 flex justify-between items-center">
-              <span>自治團隊 (Agent Swarm)</span>
-              <span className="text-xs font-mono text-slate-500">進階，知道有這回事就好</span>
+              <span>自治團隊 (Agent Teams)</span>
+              <span className="text-xs font-mono text-slate-500">實驗功能，預設是關的</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              好幾個子代理同時做，各自認領任務。<strong>它們不會互相對話</strong>，而是共同讀寫同一批檔案，那批檔案就是它們共用的白板。
-              <strong>這一種個人專案幾乎用不到</strong>：白板要你自己設計和維護，而且你同時審核得了幾件事，就是它的上限。
+              好幾個完整的 Claude Code 同時跑，共用一張任務清單各自認領，<strong>而且彼此可以直接傳訊息、互相挑戰</strong>。
+              要先設一個環境變數才打得開。<strong>這一種個人專案幾乎用不到</strong>：每一個隊友都是一份完整的 Claude，token 吃得兇，
+              而且你同時審核得了幾件事，就是它的上限。
             </p>
           </AnimatedBlock>
 
