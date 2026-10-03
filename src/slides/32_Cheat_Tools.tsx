@@ -6,11 +6,29 @@ import type { RecordedMeta } from '../slides-recorded/types';
  * 速查表，學員會停在上面逐列對照，所以 kind 標 reference，不套 160 字與 45 秒。
  * 口白照樣要有，否則錄影時這一頁無聲。
  *
- * `id` 裡的數字不是頁碼（B-2b）：那是建檔當時的頁次，這一頁現在是 Slide 119。
+ * `id` 裡的數字不是頁碼（B-2b）：那是建檔當時的頁次，這一頁現在是 Slide 116。
  * 沒有任何程式讀那個欄位，搬頁時不用跟著改。
  *
  * ── C-1 ──────────────────────────────────────────────
- * 最後查證：2026-09-23，右欄逐列對照下列官方文件：
+ * 最後查證：2026-10-04，四列右欄逐項重查過，全部仍然成立。這一輪查到的變動：
+ *   - agents.md 的標語現在是「A simple, open format for guiding coding agents, used by over
+ *     60k open-source projects」，列出來的工具約三十種（原本口白寫「二十幾種」，已改成
+ *     「三十種左右」）。仍由 Linux Foundation 底下的 Agentic AI Foundation 維護。
+ *   - Codex 的文件網域換了：developers.openai.com/codex 會 308 轉到 learn.chatgpt.com/docs。
+ *     SOURCES 那一行仍印舊網址，因為轉址會自己過去，而舊網址學員比較認得；下一輪如果
+ *     轉址失效再換。
+ *   - `codex exec` 仍是非互動模式，官方原文「Use `codex exec` (or the short form `codex e`)
+ *     for scripted or CI-style runs that should finish without human interaction」。短指令
+ *     `codex e` 沒有寫進畫面，一列塞兩個指令會變雜訊。
+ *   - Codex 的 Plan mode：官方的 developer commands 只列了 `/plan`，Shift + Tab 的出處是
+ *     openai/codex 的 PR #4769（標題就寫著 read-only, iterative planning (Shift+Tab)）與數個
+ *     issue。畫面兩個都給，所以學員按哪一個都進得去。
+ *   - Cursor 的 AGENTS.md 現在支援巢狀（放子目錄、與上層合併、越具體越優先），跟這門課
+ *     Slide 71 教的子目錄 CLAUDE.md 同一種行為。這一頁沒寫，因為它要比的是名字不是行為。
+ *   - Cursor 的 subagents 文件另外提到它也認 `.claude/agents/` 與 `.codex/agents/`。
+ *     同樣沒寫進畫面，一列只放那一家自己的位置就夠。
+ *
+ * 2026-09-23 那一輪的原始查證紀錄：
  *   - agents.md：「A simple, open format for guiding coding agents」，列出二十幾種支援的工具，
  *     現由 Linux Foundation 底下的 Agentic AI Foundation 維護。
  *   - cursor.com/docs/context/rules：「Project rules live in `.cursor/rules` as `.mdc` files」，
@@ -33,7 +51,12 @@ export const meta: RecordedMeta = {
   id: 'live-118-cheat-tools',
   title: '跨工具名詞對照表',
   script:
-    '前面講的都是 Claude Code，換一家會不會白學？不會，這四件事換到 Cursor、Codex 或別家一樣成立。專案規則手冊在這裡叫 CLAUDE.md，跨工具的共通檔名是 AGENTS.md，二十幾種工具都讀它，Cursor 另外有自己的 rules 資料夾。先想再動手這一項，連名字都一樣：Cursor 跟 Codex 也叫 Plan mode，Codex 打斜線 plan 或按 Shift Tab 進去。分工派工，這裡叫子代理，Cursor 也叫 subagents，放在它的 agents 資料夾，VS Code 的 Copilot 則是自訂 agent。最後一項比較特別：自己跑自己修沒有共通的名字，你要找的是能不能不互動地跑完一輪，Claude Code 是 claude 減 p，Codex 是 codex exec。到新工具的第一天，你要找的就是這四個東西放在哪裡；找不到的那一項，通常代表那個工具還沒做。畫面下面附了查證的出處，這幾家改版很快，用之前先對一次。',
+    '到新工具的第一天，你要找的是這四個東西放在哪裡：手冊叫什麼名字、怎麼切到只想不動手、怎麼派子任務、完成條件寫在哪。前面講的都是 Claude Code，但這四件事換到 Cursor、Codex 或別家一樣成立，換的只有名字，而且有一項連名字都一樣。' +
+    '第一項，專案規則手冊。在這裡叫 CLAUDE.md，跨工具的共通檔名是 AGENTS.md，就是你前面做過符號連結的那一個，官網上列著三十種左右的工具都讀它。Cursor 另外有自己的 rules 資料夾。' +
+    '第二項，先想再動手，這一項連名字都一樣：Cursor 跟 Codex 也叫 Plan mode，Codex 打斜線 plan 或按 Shift Tab 進去。' +
+    '第三項，分工派工。這裡叫子代理，Cursor 也叫 subagents，放在它的 agents 資料夾；VS Code 的 Copilot 則是自訂 agent，副檔名是點 agent 點 md。' +
+    '第四項比較特別：自己跑自己修沒有共通的名字。你要找的是能不能不互動地跑完一輪，Claude Code 是 claude 減 p，Codex 是 codex exec。' +
+    '四個都找到就接得上，找不到的那一項通常代表那個工具還沒做。畫面下面附了查證的出處，這幾家改版很快，用之前先對一次。',
   seconds: 72,
   kind: 'reference',
 };
@@ -55,8 +78,10 @@ const ROWS = [
     icon: FileText,
     concept: '專案規則手冊',
     claude: 'CLAUDE.md',
-    others: 'AGENTS.md（跨工具共通，二十幾種都讀）、.cursor/rules/ 的 .mdc（Cursor）',
-    why: '換工具的時候，內容幾乎不用改，改的是檔名跟放的位置。',
+    // why 留空：原本寫「換工具的時候，內容幾乎不用改，改的是檔名跟放的位置」，
+    // 但 Slide 69（harness/32_AgentsMd）整頁在講 AGENTS.md 與符號連結，這一列再講一次是濃縮重複。
+    others: 'AGENTS.md（前面做過連結的那一個）、.cursor/rules/ 的 .mdc（Cursor）',
+    why: '',
   },
   {
     icon: Sliders,
@@ -90,8 +115,9 @@ export default function Slide32() {
       <div className="max-w-6xl mx-auto w-full space-y-3 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-sm leading-relaxed">
-          前面講的都是 Claude Code，但這四件事換到 Cursor、Codex 或別家一樣成立。
-          <strong className="text-slate-100">換工具要重學的只有名字</strong>，有一項連名字都一樣。
+          到新工具的第一天，你要找的是這四個東西放在哪裡：
+          <strong className="text-slate-100">手冊叫什麼名字、怎麼切到只想不動手、怎麼派子任務、完成條件寫在哪。</strong>
+          前面講的都是 Claude Code，但這四件事換到 Cursor、Codex 或別家一樣成立，換的只有名字，有一項連名字都一樣。
         </AnimatedBlock>
 
         {/* 整張表（含外框與表頭）跟第一列同時出現，都掛 stepIndex 2。
@@ -117,7 +143,7 @@ export default function Slide32() {
                   <span className="font-mono text-sm text-orange-300 leading-relaxed">{r.claude}</span>
                   <span className="font-mono text-sm text-slate-300 leading-relaxed">{r.others}</span>
                 </div>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1.5">{r.why}</p>
+                {r.why && <p className="text-slate-500 text-sm leading-relaxed mt-1.5">{r.why}</p>}
               </AnimatedBlock>
             );
           })}
@@ -125,15 +151,13 @@ export default function Slide32() {
 
         <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-3.5">
           <p className="text-slate-400 text-sm leading-relaxed">
-            所以到新工具的第一天，你要找的是這四個東西放在哪裡：
-            <strong className="text-slate-200">手冊叫什麼名字、怎麼切到只想不動手、怎麼派子任務、完成條件寫在哪。</strong>
-            找到就接得上，找不到的那一項通常代表那個工具還沒做。
+            四個都找到就接得上，<strong className="text-slate-200">找不到的那一項，通常代表那個工具還沒做。</strong>
           </p>
           {/* 右欄全是別人家的產品名稱，改版很快。出處印在畫面上，學員自己查得到，
               也逼下一個改這一頁的人去對一次（C-1）。併在這一塊裡，不另起一個 AnimatedBlock，
               多一塊就會把整頁推出可視範圍。 */}
           <p className="font-mono text-xs text-slate-600 leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">
-            出處（2026-09-23 查證）：{SOURCES.join('、')}
+            出處（2026-10-04 查證）：{SOURCES.join('、')}
           </p>
         </AnimatedBlock>
 

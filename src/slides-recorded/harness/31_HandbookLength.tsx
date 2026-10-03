@@ -7,8 +7,12 @@ import type { RecordedMeta } from '../types';
 /**
  * 這一頁只給「變長了就回頭整理」跟先砍哪三類，實際的整理演練在
  * harness/17_HealthOverview 到 harness/56_HandbookV3（章節六，中間隔了三十幾頁）。
- * 2026-09-22 改口白之後，這一頁不再點名那一段，所以搬頁不會指錯；
- * 但兩邊教的「先砍哪些」要一致，動那一組之前先回來對一次。
+ * 2026-10-04：原本這一頁還列著「整理的時候先砍這三類」，那三類正好是章節六健檢五步裡
+ * 減法、歸位、修剪各一條的濃縮答案。先把結論講完，學員走到那一段就只剩重複。
+ * **同一個判斷這一頁自己做過一次**：17_HealthOverview 的檔頭記著它刪掉一塊 callout 的理由是
+ * 「那句話就是第二步那一頁整頁的主張，預告先把結論講完，走到那一頁時只剩重複」。
+ * 所以那三類刪掉，這一頁的職務收回到長度本身（200 行、越長被遵守的比例越低、第一版用 /init），
+ * 整理的方法整段留給章節六。口白改成指路到章節六，不要再把那三類寫回來。
  *
  * 200 行的出處：官方文件 code.claude.com/docs/en/memory 的「**Size**: target under 200 lines
  * per CLAUDE.md file」（查證日期與原文記在 21b3_M2_ContextCheck.tsx 的檔頭）。它是官方給的
@@ -21,18 +25,12 @@ import type { RecordedMeta } from '../types';
  * 要動的話，動的是「這一段要不要拆成兩支影片」，不是把內容削短。
  */
 
-const CUT_FIRST = [
-  '它讀程式碼就查得到的：用了哪些套件、檔案放在哪',
-  '只在某一區成立的：搬到子目錄那一層，動到才載入',
-  '寫了也驗不出來的：像「回覆要專業一點」',
-];
-
 export const meta: RecordedMeta = {
   id: 'harness-31-handbook-length',
   title: '一份手冊該寫多長？',
   script:
-    '再來是文件大小的問題。一份大約控制在 200 行以內，這是官方文件給的目標值，不是硬規定：越長，被遵守的比例越低，因為規則越多，每一條分到的份量就越少。所以手冊變長的時候，動作不是接著往下加，是回頭整理。那要砍哪些？先砍三類。第一類，它讀程式碼就查得到的，像是用了哪些套件、檔案放在哪。第二類，只在某一區成立的，搬到剛才講的子目錄那一層，動到那一區才載入。第三類，寫了也驗不出來的，例如回覆要專業一點，那種留著只佔位置。另外第一版不必從零寫，輸入斜線 init，它會讀過你的專案生一份草稿。但它只寫得出現況，不是規則，所以拿到草稿第一件事是改，不是存。',
-  seconds: 60,
+    '再來是文件大小的問題。一份大約控制在 200 行以內，這是官方文件給的目標值，不是硬規定：越長，被遵守的比例越低，因為規則越多，每一條分到的份量就越少。所以手冊變長的時候，動作不是接著往下加，是回頭整理。怎麼整理？那是一整套流程，章節六會整段講，連要砍哪幾類、順序為什麼不能換都在那裡。這一頁你只要先記住那個動作：變長了就回頭整理，不是再往下加。另外第一版不必從零寫，輸入斜線 init，它會讀過你的專案生一份草稿。但它只寫得出現況，不是規則，所以拿到草稿第一件事是改，不是存。',
+  seconds: 52,
   from: 55,
 };
 
@@ -53,19 +51,7 @@ export default function RecHandbookLength() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
-          <p className="text-slate-500 text-sm mb-3">整理的時候先砍這三類</p>
-          <ul className="space-y-2 text-slate-300 text-base leading-relaxed">
-            {CUT_FIRST.map((t) => (
-              <li key={t} className="flex gap-3">
-                <span className="text-slate-600 shrink-0">·</span>
-                {t}
-              </li>
-            ))}
-          </ul>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={4} className="flex items-baseline gap-4 px-2">
+        <AnimatedBlock stepIndex={3} className="flex items-baseline gap-4 px-2">
           <span className="text-slate-500 text-sm shrink-0">第一版</span>
           <span className="text-slate-300 text-base">
             用 <code className="font-mono text-orange-300">/init</code> 生一份草稿，你在上面改

@@ -17,6 +17,11 @@ import type { RecordedMeta } from '../types';
  * 想再加東西之前先開 ?slide=118&step=9&clean=1 看一次，多一塊就會被推出畫面，
  * 而預錄頁看不到就等於沒有。
  *
+ * 2026-10-04 瘦身。表頭原本寫「帶去別的地方，內容一個字都不用改」，而「不用重學／一個字都不用改」
+ * 這個承諾上一頁（33_SurfaceIntro）跟下一頁（32_Cheat_Tools）各講過一次，連著三頁同一句。
+ * 表頭改成動作本身，口白也拿掉結尾那句「內容一個字都不用改」，三列的內容沒動。
+ * 這一頁真正獨有的是成長軸的收尾那一句（長出來、整理掉、再長出來），口白裡那一段要念滿。
+ *
  * 最後查證：2026-09-23。Claude Projects 放常駐指示那一欄，官方說明文件寫的是
  * project instructions（support.claude.com/en/articles/9517075-what-are-projects），
  * 中文介面上的實際字樣本輪沒有開實機對過，錄影前看一眼再念。
@@ -26,8 +31,10 @@ export const meta: RecordedMeta = {
   id: 'harness-58-handbook-v5',
   title: '手冊定稿：三個介面各怎麼帶過去',
   script:
-    '這份檔案到這裡定型了。少掉的那一條是併回全域手冊的那一條，搬去 Hook 的那一條也沒有消失，換成一行指向 .claude/settings.json 的提醒。它這麼短是因為那個計時器就這麼大，不是因為短比較好。你自己的專案會比它長，但不會一直長下去：長出來、整理掉、再長出來。接下來把它帶去別的地方，三個介面各一個動作。Claude Code 本來就在讀。桌面版切到 Cowork，綁上同一個資料夾。網頁版在 claude.ai 開一個 Project，整份貼進專案指示那一欄。內容一個字都不用改。',
-  seconds: 45,
+    '這份檔案到這裡定型了。少掉的那一條是併回全域手冊的那一條，搬去 Hook 的那一條也沒有消失，換成一行指向 .claude/settings.json 的提醒。' +
+    '它這麼短是因為那個計時器就這麼大，不是因為短比較好。你自己的專案會比它長，但不會一直長下去：長出來、整理掉、再長出來。這一條成長軸走到這裡就收完了，五個版本你都看過了。' +
+    '最後是把它帶去別的地方，三個介面各一個動作，手要動什麼都寫在那三列上。Claude Code 本來就在讀。桌面版切到 Cowork，綁上同一個資料夾。網頁版在 claude.ai 開一個 Project，整份貼進專案指示那一欄。',
+  seconds: 51,
   from: 71,
 };
 
@@ -51,7 +58,7 @@ export default function RecHandbookV5() {
         */}
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           <div className="border-b border-slate-800 bg-slate-900 px-7 py-2 text-sm text-slate-500">
-            帶去別的地方，<Key>內容一個字都不用改</Key>
+帶去別的地方，<Key>各做一件事</Key>
           </div>
           {CARRY.map((c) => (
             <div
