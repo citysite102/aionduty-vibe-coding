@@ -44,6 +44,13 @@ function Prompt({ text }: { text: string }) {
   );
 }
 
+/**
+ * 沒做過計時器的人用這一份接著做。檔案在 public/handouts/，跟著 GitHub Pages 一起部署，
+ * 原始來源是講師 Google Drive 上的 mission-timer-project（已拿掉 .git 與 .claude/launch.json，
+ * 後者寫死了講師自己的路徑）。改檔案要同時更新 public/handouts/index.html 那張卡。
+ */
+const SAMPLE_URL = 'https://citysite102.github.io/aionduty-vibe-coding/handouts/';
+
 export default function SlideM2HandsOn() {
   return (
     <SlideLayout title="動手搭建運作框架" subtitle="Hands-on Harness" icon={PenTool}>
@@ -173,9 +180,20 @@ export default function SlideM2HandsOn() {
         </AnimatedBlock>
 
         <Callout tone="muted" stepIndex={5}>
-          手上沒有計時器的話，開一個空資料夾，四格這樣換：第 1 格跟它說「幫我起一份空白的 CLAUDE.md」，
-          規則寫你自己工作上真的有的那幾條；第 2 格改讀手邊任何一個長一點的檔案；
-          第 3 格換成你工作上真的還沒想清楚的一個需求；第 4 格照走。
+          <p className="mb-2.5">
+            手上沒有計時器的話，到講義頁下載最後那一份範例專案（<code className="font-mono text-slate-300">mission-timer-project.zip</code>），
+            解壓縮之後用 Claude Code 打開那個資料夾，上面四格照原樣走一遍，
+            第 2 格要讀的 <code className="font-mono text-slate-300">index.html</code> 就在裡面。
+          </p>
+          <a
+            href={SAMPLE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono text-xs text-sky-300 break-all hover:underline"
+          >
+            {SAMPLE_URL.replace('https://', '')}
+          </a>
+          <CopyAction text={SAMPLE_URL} className="mt-2" />
         </Callout>
 
       </div>
