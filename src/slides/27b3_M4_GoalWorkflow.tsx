@@ -55,7 +55,7 @@ export default function SlideGoalWorkflow() {
                 <Target size={12} className="text-amber-400" />
               </h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
-只用查得到的事實，不用形容詞。<br/>
+只看做出來的東西，你能不能回答「有做到」或「沒做到」。<br/>
                 ✅「每筆都有 X、Y、Z 三個欄位，沒有空白或『待確認』」
               </p>
             </div>

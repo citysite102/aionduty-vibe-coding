@@ -157,7 +157,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
 （一句話，一次一個功能）
 
 【什麼叫做完】以下每一題都要通過
-1. （用眼睛看得出來的事實）
+1. （答得出「有做到」或「沒做到」的事實）
 2. 瀏覽器 Console 沒有紅字
 
 【怎麼驗】

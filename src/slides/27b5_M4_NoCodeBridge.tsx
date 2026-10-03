@@ -108,7 +108,7 @@ export default function SlideNoCodeBridge() {
                 「三顆按鈕都點得到、點下去大字會變、瀏覽器 Console 沒有紅字。」
               </p>
               <p className="text-xs text-slate-500 leading-relaxed mt-2">
-                不要寫「操作要順暢」，那種它驗不動。
+                不要寫「要能正常使用」，那種它驗不動。
               </p>
             </div>
 
