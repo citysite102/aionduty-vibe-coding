@@ -16,21 +16,33 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *
  * 每一條拆成三段：規則原文、句子裡真正的重點（sky）、這條的由來（amber）。
  * 學員最缺的不是規則範例，是「規則從哪裡來」，答案都一樣：出過一次事。
+ *
+ * 2026-10-03 逐條對回專案根目錄的 CLAUDE.md（這一頁的節錄必須跟那份一字不差）：
+ *   - A-1 第 39 行：「**同一頁最多兩種強調色**（`orange` 與成對的 `red`／`emerald` 不計入⋯）。
+ *     沒有語意的地方就用灰階，顏色越少越乾淨。」括號裡的豁免是後來補的，畫面上放不下，
+ *     節錄只取主句與後半句，**不要改寫**。
+ *   - A-4 第 156 行：原文現在舉兩個例子（`slate-850`、`sky-350`），節錄跟著補上第二個。
+ *   - A-3 第 147 行：一字未變。
+ *   - 破折號那條（D-1 第 452 行）的 Hook 現在有實測證據，寫在 D 章第 492 行：
+ *     「D-1 的破折號有 hook 擋著，從來沒被違反過；沒有檢查的那幾類一直在長回來。」
+ *     左欄頁尾那一句就是照這一段寫的，它同時是章節六 Hook 那一段的伏筆。
+ *   - 開場補了子目錄手冊：`src/remotion/CLAUDE.md` 真的存在，而且前面幾頁才教過分層，
+ *     這一頁拿自己當證據最省事。那個檔案如果哪天被刪掉，這一句要跟著拿掉。
  */
 const RULES = [
   {
     line: 'A-1',
-    before: '同一頁最多兩種強調色，',
-    key: '沒有語意的地方就用灰階。',
-    after: '',
+    before: '同一頁最多兩種強調色。',
+    key: '沒有語意的地方就用灰階，',
+    after: '顏色越少越乾淨。',
     why: '一開始每頁配色都不一樣，翻起來像十個人各做各的。',
   },
   {
     line: 'A-4',
-    before: '只用內建色階。slate-850 這種色階',
+    before: '只用內建色階。slate-850、sky-350 這類不存在的色階',
     key: '不會報錯，typecheck 也會過，',
     after: '但邊框會直接不渲染。',
-    why: '這個錯犯過三次，每次都花二十分鐘才找到。',
+    why: '手冊把它跟 py-0.2、animate-spin-slow 歸成同一種病：拼錯不會壞，只會安靜地什麼都不做。',
   },
   {
     line: 'A-3',
@@ -56,6 +68,9 @@ export default function SlideThisDeck() {
           <p className="text-slate-300 text-base leading-relaxed">
             你現在看到的這一整份<strong className="text-sky-300">是一個網頁專案</strong>，
             不是簡報軟體做的。下面這三條是從它的 <code className="font-mono text-orange-300">CLAUDE.md</code> 直接複製出來的。
+            <span className="block mt-2 text-slate-400 text-sm">
+              它不只一份：做動畫那一區的資料夾底下還有一份，動到那一區才會載入，就是前面講的分層。
+            </span>
           </p>
         </AnimatedBlock>
 
@@ -90,8 +105,11 @@ export default function SlideThisDeck() {
             <div className="border-t border-slate-800 bg-slate-900/60 px-5 py-3.5">
               <p className="text-slate-400 text-xs leading-relaxed">
                 還有一條沒寫在這裡：<strong className="text-slate-200">中文不要用破折號。</strong>
-                寫進手冊沒用，它會忘，所以做成 Hook 擋下來。
-                
+                這一條做成 Hook，用程式擋。
+                <span className="block mt-1.5">
+                  差別是看得出來的：有 Hook 擋的這一條到今天沒有被違反過，
+                  只靠文字寫在手冊裡的那幾條，一直在長回來。
+                </span>
               </p>
             </div>
           </AnimatedBlock>
