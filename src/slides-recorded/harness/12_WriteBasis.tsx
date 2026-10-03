@@ -52,8 +52,11 @@ export const meta: RecordedMeta = {
     '第四條，寫下理由，不要只寫規則。規則永遠寫不完，一定會有你沒想到的情況。拿你手冊裡那一條當例子：按鈕文案要用航太語彙，後面列了發射、待機、返航、補給。那出現清單以外的按鈕呢？它就不知道該叫什麼了。但如果你加一句因為這是太空任務主題的計時器，它就有依據可以自己延伸。理由比清單耐用，因為清單列不到的情況，理由還推得出來。' +
     '第五條，給一個範例，勝過三行描述。你寫中文請避免中國大陸慣用詞，聽起來很清楚，問題是哪些字算慣用詞，它的認定跟你不一樣，而你不會知道它認的是哪一套。改成附一張對照表，一鍵改成依實際操作描述、上手改成熟悉、技術棧改成技術堆疊，它就有具體樣本可以比對。風格類、語氣類的規則尤其需要範例，因為那種標準本來就很難用文字描述。' +
     '第六條，把例外一起寫進去。規則寫得越絕對，它套得越死，而且會套到你沒預期的地方。你寫禁止使用常駐的無限動畫，它可能連該有的載入指示也一起拿掉，然後你要回頭一條一條解釋。改成：禁止常駐的無限動畫，例外是真的要表達系統正在運轉的時候，全頁最多留一組，而且必須慢速、低對比。寫了例外，它才知道哪些情況不算違規。' +
-    '六條講完了。最後補一句：這六條不是只能用在 CLAUDE.md 上。舉一個你手上已經有的東西，那個 code-reviewer 子代理。你寫給它的標準如果是「幫我看一下有沒有問題」，那就是第一條沒做到：你只說了要它看，沒說只能看哪幾件。照第一條改寫成「只檢查這三件：倒數的分鐘數有沒有寫死在程式裡、有沒有引用外部圖片、瀏覽器 Console 有沒有紅字」，它回給你的東西會完全不一樣。所以凡是你寫給它看的規則，都適用這六條。',
-  seconds: 142,
+    '六條講完了。最後補一句：這六條不是只能用在 CLAUDE.md 上。你平常交代事情的那一句話也算，而且差別馬上看得到。' +
+    '你說「幫我看一下有沒有問題」，它會回你「看起來沒什麼問題」。那不是它偷懶，是你沒說要看哪些，它只能整體看一眼。' +
+    '換成「只檢查這三件：有沒有寫死的數字、有沒有引用外部圖片、Console 有沒有紅字」，它就會一條一條回你哪一件過、哪一件沒過。' +
+    '差的就是第一條，講清楚只能做什麼。所以這六條不是手冊專用的寫作規則，是你每次交代事情都用得上的。',
+  seconds: 159,
   kind: 'reference',
   from: 70,
 };
@@ -71,9 +74,22 @@ export default function RecWriteBasis() {
         <TipRows tips={TIPS} stepFrom={2} />
 
         <AnimatedBlock stepIndex={5} className="border rounded-2xl px-6 py-5 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
-          <p className="text-slate-300 text-xl leading-relaxed">
-            💡 凡是你寫給它看的規則都適用。拿你那個 code-reviewer 來說：
-            「幫我看一下有沒有問題」就是第一條沒做到，改成「只檢查這三件：倒數的分鐘數有沒有寫死、有沒有引用外部圖片、Console 有沒有紅字」，它回你的東西會完全不一樣。
+          <p className="text-slate-300 text-xl leading-relaxed mb-3">
+            💡 這六條不只用在 <code className="font-mono text-orange-300">CLAUDE.md</code>。
+            你平常交代事情的那句話也算。
+          </p>
+          <div className="space-y-2.5">
+            <div className="flex flex-wrap items-baseline gap-x-3">
+              <span className="text-slate-400 text-lg">你說「幫我看一下有沒有問題」</span>
+              <span className="text-slate-500 text-lg">→ 它回「看起來沒什麼問題」</span>
+            </div>
+            <div className="flex flex-wrap items-baseline gap-x-3">
+              <span className="text-slate-100 text-lg">你說「只檢查這三件：有沒有寫死的數字、有沒有引用外部圖片、Console 有沒有紅字」</span>
+              <span className="text-slate-300 text-lg">→ 它逐條回你哪一件過、哪一件沒過</span>
+            </div>
+          </div>
+          <p className="text-slate-400 text-lg leading-relaxed mt-3">
+            差的就是第一條：講清楚只能做什麼。
           </p>
         </AnimatedBlock>
       </RecPage>
