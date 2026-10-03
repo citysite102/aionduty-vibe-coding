@@ -37,8 +37,13 @@ export default function SlideM2BadRules() {
             stepIndex={i + 2}
             className="bg-slate-900 border border-slate-800 rounded-2xl p-5"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-5">
-              <div>
+            {/*
+              分隔線要落在正中間，所以兩邊的內縮各自寫在自己那一欄，grid 本身不留 gap。
+              原本是 gap-5 再加右欄的 pl-5：間距看起來對稱，但右欄的文字寬度少了那 20px，
+              分隔線也跟著偏右 10px，兩欄的字就對不齊。橫排時（非 lg）維持原本的上下間距。
+            */}
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_1fr] lg:gap-0">
+              <div className="lg:pr-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-red-400 font-mono text-xs">✕</span>
                   <span className="text-slate-500 text-xs font-mono uppercase tracking-widest">{c.type}</span>
