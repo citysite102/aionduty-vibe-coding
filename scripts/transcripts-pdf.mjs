@@ -148,6 +148,27 @@ function stripFileNotes(lines) {
   return [...tidy, '', '---', '', ...lines.slice(first)];
 }
 
+/**
+ * 「畫面」那一欄寫的是這一頁長什麼樣，用途是改投影片的時候回來核對（CLAUDE.md B-6c），
+ * 不是要念的字。照著念的人眼前就有投影片，不需要再讀一段文字描述同一張圖，
+ * 而它夾在小標與逐字稿中間，每一頁都要先跳過它才找得到要念的那一段。
+ * 2026-10-03 起整段不進 PDF。**來源的 .md 不動**，核對還是只能靠它。
+ */
+function stripScreen(lines) {
+  const out = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].trim() !== '**畫面**') {
+      out.push(lines[i]);
+      continue;
+    }
+    i++; // 跳過標題那一行
+    while (i < lines.length && lines[i].trim()) i++; // 再跳過它底下那一段
+    while (out.length && !out.at(-1).trim()) out.pop(); // 收掉前面留下的空行
+    out.push('');
+  }
+  return out;
+}
+
 /* ── 讀單元 ───────────────────────────────────────────────────── */
 
 const files = readdirSync(SRC)
@@ -166,7 +187,7 @@ if (!files.length) {
 
 const units = files.map((f) => {
   const raw = readFileSync(join(SRC, f), 'utf8');
-  const lines = stripFileNotes(stripTodo(raw.split('\n')));
+  const lines = stripFileNotes(stripScreen(stripTodo(raw.split("\n"))));
   const head = lines[0].match(/^#\s*單元\s*(\S+)｜(.+)$/);
   if (!head) throw new Error(`${f}：第一行不是「# 單元 X-Y｜標題」`);
 
