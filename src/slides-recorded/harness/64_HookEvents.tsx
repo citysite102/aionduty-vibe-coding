@@ -7,13 +7,20 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * **口白刻意超過 45 秒（67 秒），不要砍回去。** 理由同 62_HookHowTo：
+ * **口白刻意超過 45 秒（76 秒），不要砍回去。** 理由同 62_HookHowTo：
  * 這一組要講得比原本細。原本四個時機各一句帶過，現在每一個都說明它適合掛什麼。
  * 「只有工具執行前擋得住」是這一頁唯一非記不可的一句，留在最後。
  */
 /**
- * 最後查證：2026-09-20，對照 code.claude.com/docs/en/hooks 的事件清單。
- * 當時的現況：官方支援 33 個事件，所以口白的「三十幾種」成立。
+ * 最後查證：2026-10-03，對照 code.claude.com/docs/en/hooks 的事件清單與 exit code 2 對照表。
+ * 當時的現況：官方的事件清單仍是 33 個，所以「三十幾種」成立。
+ *
+ * 2026-10-03 修掉一個錯誤的斷言。原本畫面與口白都寫「十個裡面只有工具執行前擋得住，
+ * 其他都是事後才觸發」，但官方那張表寫著 UserPromptSubmit（Blocks the prompt）、
+ * Stop（Prevents Claude from stopping）、SubagentStop、PreCompact 都 Can block，
+ * 而且同一段口白自己才說 Stop「沒過就叫它回去改」，等於自打臉（CLAUDE.md D-2）。
+ * 正確的收窄說法是：**擋得住「那一個動作」的只有 PreToolUse**，Stop 擋得住的是「結束」。
+ * PermissionRequest 不吃 exit code 2，要用 decision 物件，這一頁沒展開，不要寫成它擋得住。
  * 四格主事件（SessionStart、PreToolUse、PostToolUse、Stop）與底下六個
  * （UserPromptSubmit、PostToolUseFailure、PermissionRequest、SubagentStop、
  * PreCompact、SessionEnd）全部存在且拼法相符，本輪沒有改內容。
@@ -55,8 +62,8 @@ export const meta: RecordedMeta = {
   id: 'harness-64-hook-events',
   title: 'Hook 第一層：時機，每個階段記一個',
   script:
-    '第一層是時機，也就是這段檢查要在什麼時候跑。官方支援三十幾種，你完全不用背，照一輪對話的四個階段各記一個就夠了。第一個，你剛開一個新對話，或者接續昨天那一段，這個時機叫 SessionStart，適合每次開工都要先講一次的東西。第二個，它準備要動手了但還沒動，叫 PreToolUse，這是四個裡面最重要的。第三個，它做完了，檔案已經寫進去，叫 PostToolUse，適合事後補一刀，例如自動排版。第四個，它覺得整件事做完要收工了，叫 Stop，適合在這裡驗收一次，沒過就叫它回去改。常用的還有六個，畫面下面列著，需要的時候再查就好。這裡有一個關鍵：這幾個裡面，只有工具執行前那一個擋得住，因為那時候它還沒動手。其他三個都是事情已經發生才觸發，你只能事後補救，不能阻止。',
-  seconds: 67,
+    '第一層是時機，也就是這段檢查要在什麼時候跑。官方支援三十幾種，你完全不用背，照一輪對話的四個階段各記一個就夠了。第一個，你剛開一個新對話，或者接續昨天那一段，這個時機叫 SessionStart，適合每次開工都要先講一次的東西。第二個，它準備要動手了但還沒動，叫 PreToolUse，這是四個裡面最重要的。第三個，它做完了，檔案已經寫進去，叫 PostToolUse，適合事後補一刀，例如自動排版。第四個，它覺得整件事做完要收工了，叫 Stop，適合在這裡驗收一次，沒過就叫它回去改。常用的還有六個，畫面下面列著，需要的時候再查就好。這裡有一個關鍵：要擋住一個動作本身，只有工具執行前那一個做得到，因為那時候它還沒動手。工具執行後是事情已經發生，只能補救。收尾那一個也擋得住，但它擋的是「結束」，不是那個動作，所以它的用途是把它叫回去繼續做，不是阻止它做。',
+  seconds: 76,
 };
 
 export default function RecHookEvents() {
@@ -89,7 +96,7 @@ export default function RecHookEvents() {
 
         <AnimatedBlock stepIndex={4} className="px-1">
           <p className="text-slate-400 text-xl leading-relaxed">
-            💡 十個裡面只有工具執行前擋得住，那時候它還沒動手。其他都是事後才觸發。
+            💡 要擋住一個動作，只有工具執行前做得到。收尾那一個擋的是「結束」，用途是把它叫回去繼續做。
           </p>
         </AnimatedBlock>
       </RecPage>

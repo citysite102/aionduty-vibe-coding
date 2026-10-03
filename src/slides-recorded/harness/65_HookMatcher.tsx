@@ -7,12 +7,17 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * **口白刻意超過 45 秒（69 秒），不要砍回去。** 理由同 62_HookHowTo。
+ * **口白刻意超過 45 秒（80 秒），不要砍回去。** 理由同 62_HookHowTo。
  * 另外 2026-09-23 修掉一個接續問題：原本開頭是「第二層是範圍，這一層最常被跳過。
  * 時機到了，這一輪它可能在讀檔案⋯」，「時機到了」是接前一頁的詞但沒有交代，
  * 講師回饋「前後有點不夠白話，教學口吻太怪了」。現在先問「為什麼需要它」再回答。
  */
 /**
+ * 最後查證：2026-10-03，對照 code.claude.com/docs/en/hooks。matcher 只比對工具名這點仍然成立，
+ * 但「要限定資料夾只能在指令裡自己判斷」已經過期：現在 handler 上有 `if` 欄位，用 permission rule
+ * 語法同時比對工具名與參數（文件原文舉的例子是「`"Edit(*.ts)"` runs only for TypeScript files」）。
+ * 這一頁改成兩條路都講：有 if 可以宣告式地縮，沒用 if 才需要在指令裡自己判斷。
+ *
  * 這一頁的 matcher 與工具清單，跟專案根目錄的 .claude/settings.json 綁在一起
  * （那一條真的掛著的 Hook）。改設定要回來改這一頁，否則「照抄真的那一條」的承諾就破了。
  * 2026-09-20 核對：實際是 Write|Edit|MultiEdit，當時投影片少了 MultiEdit，已補齊。
@@ -41,8 +46,8 @@ export const meta: RecordedMeta = {
   id: 'harness-65-hook-matcher',
   title: 'Hook 第二層：條件，只留你要管的工具',
   script:
-    '第二層是範圍，也是最多人直接跳過的一層。為什麼需要它？因為你剛才選的那個時機，一輪對話裡會來很多次。以工具執行前來說，它可能正要讀一個檔案、可能要跑一行指令、也可能真的要寫檔案，每一次都會經過你這條 Hook。範圍那一行的作用，就是從裡面挑出你真正要檢查的那幾種。這份簡報掛的那一條寫了 Write、Edit、MultiEdit，所以只有寫檔案跟改檔案會被攔下來看一眼，它讀東西的時候不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。還有一個容易誤會的地方：它管的是哪一個工具，不是哪一個資料夾。這條一開始沒有判斷路徑，結果連專案自己的工具腳本都被擋了三次。要限定資料夾，得在下一層的指令裡自己判斷。',
-  seconds: 69,
+    '第二層是範圍，也是最多人直接跳過的一層。為什麼需要它？因為你剛才選的那個時機，一輪對話裡會來很多次。以工具執行前來說，它可能正要讀一個檔案、可能要跑一行指令、也可能真的要寫檔案，每一次都會經過你這條 Hook。範圍那一行的作用，就是從裡面挑出你真正要檢查的那幾種。這份簡報掛的那一條寫了 Write、Edit、MultiEdit，所以只有寫檔案跟改檔案會被攔下來看一眼，它讀東西的時候不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。還有一個容易誤會的地方：範圍那一行管的是哪一個工具，不是哪一個資料夾。這條一開始沒有判斷路徑，結果連專案自己的工具腳本都被擋了三次。要再按資料夾或副檔名縮一次，現在有一個叫 if 的欄位可以寫，例如只管 ts 結尾的檔案；不用它的話，就得在下一層的指令裡自己判斷路徑。',
+  seconds: 80,
 };
 
 export default function RecHookMatcher() {
@@ -84,7 +89,11 @@ export default function RecHookMatcher() {
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-amber-900/40 bg-amber-950/20 px-7 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            範圍開太大會擋到不該擋的。這條原本沒有判斷檔案路徑，連專案自己的工具腳本都被擋了三次。路徑得在下一層的指令裡自己判斷。
+            範圍開太大會擋到不該擋的。這條原本沒有判斷檔案路徑，連專案自己的工具腳本都被擋了三次。
+            <span className="block mt-2">
+              要再按資料夾或副檔名縮一次，用 <code className="font-mono text-orange-300">if</code> 這個欄位
+              （例如 <code className="font-mono text-slate-300">Edit(*.ts)</code>）；不用它就得在下一層的指令裡自己判斷路徑。
+            </span>
           </p>
         </AnimatedBlock>
       </RecPage>

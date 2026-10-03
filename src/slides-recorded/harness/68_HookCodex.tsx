@@ -5,11 +5,17 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * 最後查證：2026-09-20。Claude Code 那一欄已核對（code.claude.com/docs/en/hooks）：
- * 事件 33 個、handler 5 種，與這一頁寫的「三十幾種」「五種」相符。
+ * 最後查證：2026-10-03，兩欄都重查過。
+ *   - Claude Code（code.claude.com/docs/en/hooks）：事件 33 個、handler 5 種。
+ *   - Codex（learn.chatgpt.com/docs/hooks，原網址 developers.openai.com/codex/hooks 會轉過去）：
+ *     事件 12 個；handler 原文寫「"command" and "mcp_tool" handlers are supported.
+ *     `prompt` and `agent` handlers are parsed but skipped.」；matcher 原文寫
+ *     「The `matcher` field is a regex string that filters when hooks fire.」，
+ *     PreToolUse／PostToolUse 依工具名過濾。
  *
- * ⚠️ Codex 那一欄本輪沒有重查（「十來種」「只有跑指令」）。它是別家產品，
- * CLAUDE.md C-3 已經把這一頁列進最容易過期的清單，下次改版務必連它一起查。
+ * 2026-10-03 修掉兩個過期的說法：Codex 不是「只有跑指令」（mcp_tool 也支援），
+ * 而且它有 matcher，所以原本缺的「範圍」那一列補上了，檔頭那段「沒重查所以不補」的警告移除。
+ * C-3 仍然把這一頁列為最容易過期，下次改版兩欄都要再查一次。
  */
 
 /**
@@ -18,10 +24,7 @@ import type { RecordedMeta } from '../types';
  * 版面刻意沿用前面三頁的三層詞彙（時機、範圍、動作）當左欄，
  * 學員看到的不是一張新的比較表，是同一條線再走一次，只是換成別家的格子。
  *
- * 但 `ROWS` 實際只有時機與動作兩列，範圍那一層沒比。2026-09-22 發現大字寫著
- * 「也是這三層」而表上只有兩列，畫面補了一句「表上比的是時機與動作這兩層」。
- * **要補那一列得先查 Codex 的 matcher 現況**，而上面那個 ⚠️ 說明它本輪沒重查，
- * 所以沒有憑推測填。下次查證 Codex 的時候一起補。
+ * 三列就是三層，2026-10-03 補齊（之前缺「範圍」那一列，因為當時沒查 Codex 的 matcher）。
  *
  * 數字只用來說明一件事：三層的想法兩邊一樣，差的是格子多寡。
  * 兩邊都會改版，所以畫面上一定要留那句「掛之前查一次文件」，
@@ -30,16 +33,17 @@ import type { RecordedMeta } from '../types';
  * 成對對照，所以 Claude Code 用 sky、Codex 用 indigo（A-1）。
  */
 const ROWS = [
-  { layer: '時機', cc: '三十幾種', codex: '十來種' },
-  { layer: '動作', cc: '五種', codex: '只有跑指令' },
+  { layer: '時機', cc: '三十三種', codex: '十二種' },
+  { layer: '範圍', cc: '比對工具名稱', codex: '一樣比對工具名稱' },
+  { layer: '動作', cc: '五種', codex: '兩種：跑指令、呼叫 MCP 工具' },
 ];
 
 export const meta: RecordedMeta = {
   id: 'harness-68-hook-codex',
   title: '同一條 Hook 搬到 Codex',
   script:
-    '換一個工具還算不算數？Codex 也有 Hook，也是這三層，不過每一層可以挑的選項比 Claude Code 少。時機 Claude Code 開三十幾種，Codex 目前是十來種。動作差最多，Claude Code 有五種，Codex 只有跑指令，所以交給模型判斷、派子代理去查那些搬不過去。但你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。兩邊都還在改版，掛之前查一次文件。所以不用背名稱，要練的是講清楚：什麼時候檢查、管哪一次、做什麼。',
-  seconds: 42,
+    '換一個工具還算不算數？Codex 也有 Hook，也是這三層，連欄位的名字都一樣，差別在每一層可以挑的選項比較少。時機，Claude Code 三十三種，Codex 十二種。範圍兩邊一樣，都是比對工具的名稱。動作差最多：Claude Code 五種，Codex 支援跑指令跟呼叫 MCP 工具這兩種，交給模型判斷、派子代理去查那兩種會被略過。但你剛掛的那一條用工具執行前，動作是跑指令，兩邊都有，搬得過去。兩邊都還在改版，掛之前查一次文件。所以不用背名稱，要練的是講清楚：什麼時候檢查、管哪一次、做什麼。',
+  seconds: 48,
 };
 
 export default function RecHookCodex() {
@@ -50,9 +54,7 @@ export default function RecHookCodex() {
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             Codex 也是這三層，<Key>每一層可以挑的選項比較少</Key>
           </p>
-          <p className="text-slate-500 text-base mt-2">
-            表上比的是時機與動作這兩層。
-          </p>
+
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">

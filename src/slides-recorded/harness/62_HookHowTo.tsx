@@ -6,7 +6,7 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * **口白刻意超過 45 秒（90 秒），不要砍回去。** 2026-09-23 講師回饋：
+ * **口白刻意超過 45 秒（103 秒），不要砍回去。** 2026-09-23 講師回饋：
  * 「單元 6-2 是希望更詳細的說明 Hook 可以如何使用，因為許多學員對這件事情比較陌生。」
  * 原本這一頁只用一句抽象的「違反了會出事的，還有每一次都要做的」交代用途，
  * 學員聽完仍然不知道自己會拿它做什麼。現在補了四個具體用途（擋金鑰、擋回不來的指令、
@@ -14,6 +14,13 @@ import type { RecordedMeta } from '../types';
  * 不是把用途刪掉（CLAUDE.md A-4）。
  */
 /**
+ * 2026-10-03 兩處修正：
+ *   1. 大字原本是「手冊是請它記得，Hook 是程式在擋」，那是 D-2 禁的對仗句型，
+ *      而且兩邊都用比喻，沒有講出機制。改成講它的身分：它不是寫給 AI 看的。
+ *   2. settings.json 原本直接出現在卡片上，畫面與口白都沒有交代那是什麼檔案，
+ *      學員會卡在「這個東西哪來的」。現在卡片標成 .claude/settings.json 並加一行
+ *      「寫給工具看的，Hook 就放這裡」，口白也補上它在哪個資料夾。
+ *
  * Hook 這一組的第一頁，職務只有三件事：為什麼需要它、它憑什麼一定會執行、
  * 什麼時候才值得掛。怎麼寫、有哪些時機、範圍、動作各自往後一頁，這一頁不列設定欄位。
  *
@@ -32,8 +39,8 @@ export const meta: RecordedMeta = {
   id: 'harness-62-hook-why',
   title: 'Hook 是程式在擋，不是它記得',
   script:
-    '規則歸位的四個去處，第一個是 Hook。這個東西多數人沒碰過，所以先講它到底是什麼。手冊是請它記得，而它可能沒讀到，也可能讀到了還是漏掉。Hook 完全不一樣，你寫一段設定，擋的動作是工具自己做的，跟它記不記得沒有關係。流程是這樣：你交代一件事，它動手之前先停下來，把當下要做的事交給你那段設定檢查一次，說可以才過得去。被擋的時候它會看到你寫的理由，然後自己換一個寫法再來。這份簡報就掛著一條：寫檔案之前先看有沒有中文破折號，有就退回去。那實際上可以拿它來做什麼？講幾個常見的。第一，金鑰或密碼寫進程式碼，存檔之前擋下來，這是最多人掛的一條。第二，動到正式環境的資料庫、或者刪掉整個資料夾這種回不來的指令，直接不准。第三，每次存檔之後自動跑排版，這種不是擋，是幫你補一個你一定會忘記的動作。第四，它說做完了的時候自動跑一次測試，沒過就叫它回去改。判斷標準兩個：違反了會出事的，還有每一次都要做、但你一定會忘記提醒的。',
-  seconds: 90,
+    '規則歸位的四個去處，第一個是 Hook。這個東西多數人沒碰過，所以先講它到底是什麼。差別在這段話是寫給誰看的。手冊是寫給它看的，它可能沒讀到，也可能讀到了還是漏掉。Hook 不是寫給它看的，是寫給工具看的：你把設定寫在專案的 .claude 資料夾底下一個叫 settings.json 的檔案裡，擋的動作是工具自己做的，跟它記不記得沒有關係，它也沒有不照做的選項。流程是這樣：你交代一件事，它動手之前先停下來，把當下要做的事交給你那段設定檢查一次，說可以才過得去。被擋的時候它會看到你寫的理由，然後自己換一個寫法再來。這份簡報就掛著一條：寫檔案之前先看有沒有中文破折號，有就退回去。那實際上可以拿它來做什麼？講幾個常見的。第一，金鑰或密碼寫進程式碼，存檔之前擋下來，這是最多人掛的一條。第二，動到正式環境的資料庫、或者刪掉整個資料夾這種回不來的指令，直接不准。第三，每次存檔之後自動跑排版，這種不是擋，是幫你補一個你一定會忘記的動作。第四，它說做完了的時候自動跑一次測試，沒過就叫它回去改。判斷標準兩個：違反了會出事的，還有每一次都要做、但你一定會忘記提醒的。',
+  seconds: 103,
   from: 68,
 };
 
@@ -43,18 +50,23 @@ export default function RecHookHowTo() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
-            手冊是請它記得，<Key>Hook 是程式在擋</Key>
+            Hook 不是寫給它看的，<Key>是工具自己會跑的一段檢查</Key>
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="grid grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <div className="font-mono text-base text-orange-300 mb-2">CLAUDE.md</div>
-            <p className="text-slate-400 text-lg leading-relaxed">可能沒讀到，讀到了也可能漏掉</p>
-          </div>
-          <div className="rounded-2xl border border-sky-500/25 bg-sky-500/5 p-6">
-            <div className="font-mono text-base text-orange-300 mb-2">settings.json</div>
-            <p className="text-sky-100 text-lg leading-relaxed">你寫設定，工具自己執行</p>
+        <AnimatedBlock stepIndex={2}>
+          <div className="text-slate-500 text-base mb-3">兩份檔案，寫給不同的對象看</div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+              <div className="font-mono text-base text-orange-300 mb-1">CLAUDE.md</div>
+              <div className="text-slate-500 text-base mb-2">寫給它看的</div>
+              <p className="text-slate-400 text-lg leading-relaxed">可能沒讀到，讀到了也可能漏掉</p>
+            </div>
+            <div className="rounded-2xl border border-sky-500/25 bg-sky-500/5 p-6">
+              <div className="font-mono text-base text-orange-300 mb-1">.claude/settings.json</div>
+              <div className="text-slate-500 text-base mb-2">寫給工具看的，Hook 就放這裡</div>
+              <p className="text-sky-100 text-lg leading-relaxed">它沒有不照做的選項</p>
+            </div>
           </div>
         </AnimatedBlock>
 
