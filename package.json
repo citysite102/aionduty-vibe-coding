@@ -14,7 +14,8 @@
     "check:words": "node scripts/check-words.mjs",
     "map": "node scripts/slide-map.mjs",
     "units": "node scripts/course-units.mjs",
-    "pdf": "node scripts/transcripts-pdf.mjs"
+    "pdf": "node scripts/transcripts-pdf.mjs",
+    "check:transcripts": "node scripts/check-transcripts.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
