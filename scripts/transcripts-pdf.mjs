@@ -118,26 +118,15 @@ function stripTodo(lines) {
  * 「這一段改走現場頁的字級」、「來源」這一類，講的是這個 repo 怎麼運作。
  * 2026-09-22 起不進 PDF（來源的 .md 不動）。
  *
- * **只剝掉第一張 Slide 之前的引言，而且留下「錄製註記」那一塊**：
- * 那一塊寫的是錄的時候該停在哪、先點哪一個分頁，照著念的人需要它。
+ * **只剝掉第一張 Slide 之前的引言。** 2026-10-03 起連「錄製註記」那一塊也剝掉：
+ * 它寫的是哪一頁有動畫、哪個 `stepIndex` 要一步一步走、哪幾個分頁要點過，
+ * 講的是這個 repo 怎麼運作，而且整塊塞在單元開頭，念的人要先捲過它才看得到第一頁。
+ * 要錄之前先看一次的話，看 `.md`。
  */
 function stripFileNotes(lines) {
   const first = lines.findIndex((l) => /^##\s/.test(l));
   if (first < 0) return lines;
-  const head = [];
-  let block = [];
-  const flush = () => {
-    if (block.length && block.some((l) => l.includes('錄製註記'))) head.push(...block);
-    block = [];
-  };
-  for (const l of lines.slice(0, first)) {
-    if (l.startsWith('>')) block.push(l);
-    else {
-      flush();
-      head.push(l);
-    }
-  }
-  flush();
+  const head = lines.slice(0, first).filter((l) => !l.startsWith('>'));
   // 引言被剝掉之後可能留下連續空行與一條孤立的分隔線，收乾淨
   const tidy = [];
   for (const l of head) {
