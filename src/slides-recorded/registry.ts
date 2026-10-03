@@ -43,6 +43,7 @@ import RecHookThreeLayers, { meta as m63 } from './harness/63_HookThreeLayers';
 import RecHookEvents, { meta as m64 } from './harness/64_HookEvents';
 import RecHookMatcher, { meta as m65 } from './harness/65_HookMatcher';
 import RecHookHandler, { meta as m66 } from './harness/66_HookHandler';
+import RecHookHandlerCases, { meta as m66b } from './harness/66b_HookHandlerCases';
 import RecHookPractice, { meta as m67 } from './harness/67_HookPractice';
 import RecHookCodex, { meta as m68 } from './harness/68_HookCodex';
 import RecHandbookV1, { meta as m54 } from './harness/54_HandbookV1';
@@ -103,6 +104,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m64, Component: RecHookEvents },
     { meta: m65, Component: RecHookMatcher },
     { meta: m66, Component: RecHookHandler },
+    { meta: m66b, Component: RecHookHandlerCases },
     { meta: m67, Component: RecHookPractice },
     { meta: m68, Component: RecHookCodex },
     { meta: m09, Component: RecRoutePrinciples },

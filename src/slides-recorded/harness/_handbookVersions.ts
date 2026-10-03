@@ -19,7 +19,6 @@ export type Line = {
 
 /** 需要被處理掉的那幾條，用文字當 key，才不會因為插行就對錯 */
 const TO_HOOK = '- 絕對不要刪掉我的檔案';
-const HOOK_REMINDER = '- 檔案刪除由 Hook 擋（見 .claude/settings.json）';
 const TO_DELETE = '- 一律用繁體中文回答';
 const TO_REWRITE = '- 畫面要好看，風格保持一致';
 const REWRITTEN = '- 背景固定 #020617，強調色只用一種，其他一律灰階';
@@ -50,16 +49,13 @@ function build(round: number): Line[] {
   const out: Line[] = [];
   for (const [text, kind] of DRAFT) {
     if (text === TO_HOOK) {
-      // 搬走之後手冊裡要留一行提醒，否則 `21b4_M2_BadRules` 那一格的「手冊裡只留一行提醒」
-      // 與 `55_HandbookV2` 的口白就沒有示範到（學員會直接刪掉那一條）。
+      // 2026-10-03：搬去 Hook 之後手冊裡**不留提醒**。原本留一行「檔案刪除由 Hook 擋」，
+      // 但那條規則已經由程式在擋，文字版就是重複的，而手冊每一輪都要被讀一次。
+      // 這也是 09_RoutePrinciples（同一條規則不要放兩個地方）與 20_HealthEvidence
+      // （已經有程式在擋的可以直接刪）教的同一件事，留著等於課程自己示範了一個該刪的東西。
       if (round === 1) out.push({ text, state: 'added' });
-      else if (round === 2) {
-        out.push({ text, state: 'moved', to: '搬去 Hook' });
-        out.push({ text: HOOK_REMINDER, state: 'added' });
-      } else if (round < 5) {
-        out.push({ text, state: 'moved', to: '在 Hook' });
-        out.push({ text: HOOK_REMINDER });
-      } else out.push({ text: HOOK_REMINDER });
+      else if (round === 2) out.push({ text, state: 'moved', to: '搬去 Hook' });
+      // round 3 以後整條不出現：它已經不在手冊裡了
       continue;
     }
     if (text === TO_DELETE) {
