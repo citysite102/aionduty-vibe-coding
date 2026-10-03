@@ -1,5 +1,11 @@
 import { Briefcase, FileWarning, Search } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
+
+/** 情境四要給一句真的叫得動的話，光看兩個零件的名字學員不知道怎麼開口。畫面印的跟複製到的同一份（A-4）。 */
+const INVESTIGATE =
+  '客訴系統上編號 123 那一張單，幫我讀進來。' +
+  '然後派一個子代理去翻這三個月的出貨紀錄，只要回報哪一批出問題、建議怎麼處理，中間過程不用給我。';
 
 /**
  * 2026-10-03 兩個情境都改寫成不寫程式的人也讀得懂的版本，理由跟 Slide 76 同一個：
@@ -64,8 +70,17 @@ export default function SlideM2ExtensionsCases2() {
               </span>
             </div>
           </div>
+          <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5 mt-3">
+            <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
+            <p className="text-sky-100 text-sm leading-relaxed">「{INVESTIGATE}」</p>
+            <CopyAction text={INVESTIGATE} className="mt-2" />
+          </div>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
-            工程上是同一件事，只是換了系統名字：MCP 連上 GitHub 讀那則錯誤回報，子代理去翻伺服器的紀錄檔，回報一句根因與修法。
+            你不用說出「MCP」這三個字。那個連線裝好、授權過一次之後，它要拿那張單自己就會走過去；
+            <strong className="text-slate-300">要它分頭去查才需要你講出來</strong>，不然它會自己一筆一筆讀，然後把你的對話塞爆。
+            <span className="block mt-1.5">
+              工程上是同一件事，只是換了系統名字：連上 GitHub 讀那則錯誤回報，子代理去翻伺服器的紀錄檔，回報一句根因與修法。
+            </span>
           </p>
         </AnimatedBlock>
 

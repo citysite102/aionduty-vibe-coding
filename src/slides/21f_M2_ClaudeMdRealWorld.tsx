@@ -1,5 +1,11 @@
 import { FileCode2, Zap, AlertTriangle } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
+
+/** 定期回收 auto memory 的那一段指令。畫面印的跟複製到的是同一份字串（A-4）。 */
+const HARVEST =
+  '看一下你最近記下來的筆記，把我重複糾正過的事情列出來。' +
+  '哪幾條應該寫進 CLAUDE.md？先列給我看，不要直接改檔案。';
 
 // 用字串保存，逐行 render。直接把換行寫在 JSX 裡的話，JSX 會把行與行之間的
 // 換行摺成一個空格，整份 md 會擠成一大段。
@@ -70,14 +76,31 @@ export default function Slide21f() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={2} className="bg-sky-950/20 border border-sky-900/40 p-5 rounded-xl">
-            <h4 className="text-sky-400 font-bold mb-2">💡 規則可以邊做邊補</h4>
+            <h4 className="text-sky-400 font-bold mb-2">規則可以邊做邊補</h4>
             <p className="text-slate-400 text-sm leading-relaxed">
               跟它說「把這條規則寫進 CLAUDE.md」，它會幫你補上去。補完自己開檔案看一眼，確認它寫的跟你要的是同一件事。
             </p>
           </AnimatedBlock>
+
+          <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 p-5 rounded-xl">
+            <h4 className="text-slate-100 font-bold mb-2">還有一份你沒在寫的：它自己的筆記</h4>
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              你糾正過它的事，它會自己記下來（<code className="font-mono text-orange-300">/memory</code> 看得到）。
+              一個段落做完，或是你發現自己又糾正了同一件事的時候，叫它整理一次：
+            </p>
+            <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
+              <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">Prompt</div>
+              <p className="text-sky-100 text-sm leading-relaxed">「{HARVEST}」</p>
+              <CopyAction text={HARVEST} className="mt-2" />
+            </div>
+            <p className="text-slate-500 text-xs leading-relaxed mt-3">
+              重複出現的那幾條才值得進手冊。它的筆記是它自己的，換一台電腦、換一個人接手就沒了；
+              寫進手冊才跟著專案走。
+            </p>
+          </AnimatedBlock>
         </div>
 
-        <AnimatedBlock stepIndex={3} className="flex-1">
+        <AnimatedBlock stepIndex={4} className="flex-1">
           <div className="bg-slate-900 border border-slate-700 rounded-xl overflow-hidden shadow-2xl">
             <div className="bg-slate-800 px-4 py-2 border-b border-slate-700 flex items-center gap-2">
               <FileCode2 size={16} className="text-sky-400" />
