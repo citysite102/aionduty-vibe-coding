@@ -1,5 +1,6 @@
 import { PinIcon } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 最後查證：2026-10-03，對照 code.claude.com/docs/en/memory 的 Organize rules with `.claude/rules/`。
@@ -22,6 +23,24 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 當下這一種亮起來（這是 D-2 說的「進度交給視覺元件」，不要寫成「接下來三頁講這個」）。
  * 膠囊的字跟 Slide 72、73 的標題一致，讀者翻過去對得起來。
  */
+const MAKE_RULE =
+  '幫我在 .claude/rules/ 底下建一條規則，檔名 timer-ui.md。' +
+  '開頭的 paths 照我現在的資料夾結構填，只在改到計時器畫面那個檔案的時候才生效。' +
+  '規則內容：這一區的畫面一律自己用 canvas 畫，不要引用外部圖片或字型。' +
+  '先不要存檔，貼出來給我看。';
+
+const TRY_RULE = '幫計時器加一個星空背景。';
+
+function RulePrompt({ label, text }: { label: string; text: string }) {
+  return (
+    <div className="rounded-lg border border-sky-900/50 bg-sky-950/20 px-3.5 py-2.5">
+      <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">{label}</div>
+      <p className="text-sky-100 text-sm leading-relaxed">「{text}」</p>
+      <CopyAction text={text} className="mt-2" />
+    </div>
+  );
+}
+
 export default function SlideM2LoadAlways() {
   return (
     <SlideLayout title="根目錄的手冊整場都在，Rules 碰到才載" subtitle="Always-On vs Path-Bound" icon={PinIcon}>
@@ -69,7 +88,22 @@ export default function SlideM2LoadAlways() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={4} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+        <AnimatedBlock stepIndex={4} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div className="text-slate-200 text-sm font-bold mb-3">在你的計時器專案上試一次</div>
+          <div className="space-y-3">
+            <RulePrompt label="Prompt 1：建規則" text={MAKE_RULE} />
+            <p className="text-slate-500 text-sm leading-relaxed">
+              <code className="font-mono text-slate-400">paths</code> 那一行讓它自己填，它看得到你的資料夾結構。存檔之前先確認它寫的範圍是你要的那一區。
+            </p>
+            <RulePrompt label="Prompt 2：看效果" text={TRY_RULE} />
+            <p className="text-slate-500 text-sm leading-relaxed">
+              這一句你一個字都沒提規則，但它動到的是計時器那個檔案，規則這時候才被讀進來，
+              所以背景會是它自己畫的，不會去外面抓一張圖。想看反面，就把 <code className="font-mono text-slate-400">paths</code> 改成別的資料夾再問一次同一句。
+            </p>
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={5} className="border rounded-2xl px-5 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-400 text-base leading-relaxed">
             兩者的差別只有一個：<strong className="text-slate-200">要不要一直在。</strong>能綁定範圍的就綁定，不要全部往根目錄堆。這也是為什麼官方建議一份 CLAUDE.md 控制在 200 行以內。
           </p>
