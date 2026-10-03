@@ -58,7 +58,8 @@ export default function SlideMultiAgent() {
             下面那兩個標著 <span className="font-mono text-slate-300">Subagent</span> 的，中文叫
             <strong className="text-slate-200">子代理</strong>：
             你派它出去做一件事，<strong className="text-slate-200">它自己那一段來回不會回到你的對話裡，只把結論交回來</strong>。
-            跟你自己另外開一個對話問的差別就在這：那邊的東西你得自己搬回來，子代理是主 session 直接派、直接收。
+            跟你自己另外開一個對話問，差在兩件事：那邊的答案你得自己複製貼回來，子代理是主 session 直接派、直接收；
+            而那邊問過的每一句都留在那個對話裡佔空間，子代理的來回不佔你這一邊的。
           </p>
         </AnimatedBlock>
 
