@@ -7,7 +7,7 @@ import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
 /**
- * **口白刻意超過 45 秒（120 秒），不要砍回去。** 理由同 62_HookHowTo。
+ * **口白刻意超過 45 秒（96 秒），不要砍回去。** 理由同 62_HookHowTo。
  * 另外 2026-09-23 修掉一個接續問題：原本開頭是「第二層是範圍，這一層最常被跳過。
  * 時機到了，這一輪它可能在讀檔案⋯」，「時機到了」是接前一頁的詞但沒有交代，
  * 講師回饋「前後有點不夠白話，教學口吻太怪了」。現在先問「為什麼需要它」再回答。
@@ -33,13 +33,6 @@ import type { RecordedMeta } from '../types';
  * 最後那一段是真的發生過：原本那條 hook 沒有限定資料夾，結果擋掉一支必須拿
  * 破折號當比對樣式的工具腳本，一連擋三次。學員記不住抽象的原則，記得住這種事。
  */
-/** `if` 的寫法照 permission rule 語法（code.claude.com/docs/en/permissions），2026-10-03 查證。 */
-const SCOPES = [
-  { code: 'if: Edit(src/api/**)', note: '只管這個資料夾底下的檔案' },
-  { code: 'if: Edit(*.ts)', note: '只管這種副檔名' },
-  { code: 'if: Edit(**/secrets/**)', note: '不管在哪一層，只要資料夾叫 secrets' },
-];
-
 const TOOLS = [
   { name: 'Read', keep: false },
   { name: 'Bash', keep: false },
@@ -53,8 +46,8 @@ export const meta: RecordedMeta = {
   id: 'harness-65-hook-matcher',
   title: 'Hook 第二層：條件，只留你要管的工具',
   script:
-    '第二層是範圍，也是最多人直接跳過的一層。為什麼需要它？因為你剛才選的那個時機，一輪對話裡會來很多次。以工具執行前來說，它可能正要讀一個檔案、可能要跑一行指令、也可能真的要寫檔案，每一次都會經過你這條 Hook。範圍那一行的作用，就是從裡面挑出你真正要檢查的那幾種。這份簡報掛的那一條寫了三個：Write 是整個檔案寫下去，Edit 是改其中一段，MultiEdit 是一次改同一個檔案的好幾段。三個都是在動你的檔案，所以三個都要管；Claude 讀東西的時候就不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。這裡最容易誤會：範圍那一行挑的是工具，不是資料夾。那要怎麼限定資料夾？在同一條 Hook 裡多寫一個 if。畫面上三種寫法你可以直接抄：只管某個資料夾底下的，寫 Edit 括號 src 斜線 api 斜線星星星；只管某種副檔名的，寫 Edit 括號星點 ts；不管它在哪一層、只要資料夾叫 secrets 就管，前面加兩顆星。有一個地雷：路徑一律寫 Edit，連它用 Write 或 MultiEdit 那幾次也算進去；寫成 Write 括號不會報錯，但那一條不會被拿去比對，你會以為自己限定了，其實沒有。不想用 if 的話，就得在下一層那支檢查裡自己判斷路徑，這份簡報那一支就是這樣寫的。這條一開始沒有挑檔案，結果連專案自己的工具腳本都被擋了三次。',
-  seconds: 120,
+    '第二層是範圍，也是最多人直接跳過的一層。為什麼需要它？因為你剛才選的那個時機，一輪對話裡會來很多次。以工具執行前來說，它可能正要讀一個檔案、可能要跑一行指令、也可能真的要寫檔案，每一次都會經過你這條 Hook。範圍那一行的作用，就是從裡面挑出你真正要檢查的那幾種。這份簡報掛的那一條寫了三個工具。Write 是整個檔案重寫一次，Edit 是把檔案裡某一處的文字換掉，MultiEdit 是一次換好幾處。三個都是在動你的檔案，所以三個都要管；Claude 讀東西的時候就不會被打擾。不寫這一行也能跑，但代價是它每一次動作都插手一遍，煩到最後你會自己把它關掉。這裡最容易誤會：範圍那一行挑的是工具，不是資料夾。那要怎麼限定資料夾？在同一條 Hook 裡多寫一個 if，像畫面上這個，只管 src 底下 api 那個資料夾。下一頁的五個例子裡會再用到兩次，連它的地雷一起講。不想用 if 的話，就得在下一層那支檢查裡自己判斷路徑，這份簡報那一支就是這樣寫的。這條一開始沒有挑檔案，結果連專案自己的工具腳本都被擋了三次。',
+  seconds: 96,
 };
 
 export default function RecHookMatcher() {
@@ -78,7 +71,7 @@ export default function RecHookMatcher() {
             matcher: Write|Edit|MultiEdit
           </div>
           <div className="px-6 pt-4 text-slate-500 text-base leading-relaxed">
-            Write 整個寫下去、Edit 改一段、MultiEdit 一次改好幾段，都在動你的檔案。
+            Write 整個檔案重寫一次，Edit 換掉檔案裡某一處，MultiEdit 一次換好幾處。
           </div>
           <div className="px-6 py-5 flex flex-wrap gap-3">
             {TOOLS.map((t) => (
@@ -100,20 +93,15 @@ export default function RecHookMatcher() {
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-7 py-5">
           <div className="text-slate-100 text-xl font-bold mb-1">要再縮到某個資料夾或某種檔案</div>
           <p className="text-slate-500 text-base leading-relaxed mb-3">
-            範圍那一行只挑工具。要挑檔案，多寫一個{' '}
+            範圍那一行只挑工具。要挑檔案，在同一條 Hook 裡多寫一個{' '}
             <code className="font-mono text-orange-300">if</code>：
           </p>
-          <div className="font-mono text-lg leading-relaxed space-y-1.5">
-            {SCOPES.map((s) => (
-              <div key={s.code} className="flex flex-wrap items-baseline gap-x-4">
-                <span className="text-orange-300">{s.code}</span>
-                <span className="font-sans text-slate-500 text-base">{s.note}</span>
-              </div>
-            ))}
+          <div className="font-mono text-lg flex flex-wrap items-baseline gap-x-4">
+            <span className="text-orange-300">if: Edit(src/api/**)</span>
+            <span className="font-sans text-slate-500 text-base">只管這個資料夾底下的檔案</span>
           </div>
           <p className="text-slate-500 text-base leading-relaxed mt-3">
-            路徑一律寫 <code className="font-mono text-slate-300">Edit(...)</code>，Write 與 MultiEdit 那幾次也算。
-            寫成 <code className="font-mono text-slate-300">Write(...)</code> 不報錯，但不會被比對。
+            下一頁的例子裡會再用到兩次。
           </p>
         </AnimatedBlock>
 
