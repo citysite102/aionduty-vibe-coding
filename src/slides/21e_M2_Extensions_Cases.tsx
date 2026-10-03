@@ -1,6 +1,21 @@
 import { Briefcase, Rocket } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * 情境二的 Skill 最後查證：2026-10-03，對照 code.claude.com/docs/en/skills 的 frontmatter 一覽。
+ * 當時的現況：
+ *   - `description` 是「Claude uses this to decide when to apply the skill」，也就是它自動判斷
+ *     要不要用的唯一依據，官方把它標成 Recommended，並建議「Put the key use case first」、
+ *     用使用者真的會講的字（「Be specific: include keywords users naturally say」）。
+ *   - `name` 是「Command name shown in the / menu. Defaults to the directory name.」
+ *     所以資料夾叫 release，斜線指令就是 /release。
+ *
+ * 2026-10-03 補上 frontmatter。原本這一格只列四個步驟，看不出 Skill 跟「一段寫下來的 SOP」
+ * 差在哪：差別就在 description，它是被自動叫出來的開關。少了那一行，
+ * 學員照著做會寫出一個永遠要自己點名才會動的 Skill，而頁尾那句「它會去找對得上的 Skill」
+ * 也會變得沒有根據。
+ */
+
 export default function SlideM2ExtensionsCases() {
   return (
     <SlideLayout title="零件實際怎麼用（一）：規範與流程" subtitle="Real-world Scenarios for Extensions" icon={Briefcase}>
@@ -59,15 +74,30 @@ export default function SlideM2ExtensionsCases() {
             準備發布新版本，這是一套有順序的 SOP，不希望每次都要重新交代。
           </p>
           <div className="bg-slate-950 p-4 rounded-lg border border-emerald-900/30">
-            <span className="text-emerald-300 font-bold text-xs block mb-2">Skill (版本發布流程 SOP)</span>
+            <span className="font-mono text-orange-300 text-xs block mb-2">.claude/skills/release/SKILL.md</span>
+            <div className="text-slate-500 text-xs font-mono leading-relaxed mb-3">
+              ---<br />
+              name: release<br />
+              description: <span className="text-slate-300">發布新版本時使用。跑測試、更新版號、打 tag、推上遠端。</span><br />
+              ---
+            </div>
             <ul className="text-slate-400 text-sm space-y-1 list-decimal pl-4">
               <li>執行 <code className="text-slate-300">npm run test</code> 確保測試全過</li>
               <li>更新 <code className="text-slate-300">package.json</code> 版本號</li>
               <li>使用 <code className="text-slate-300">git tag</code> 標記版號</li>
               <li>推送至遠端 <code className="text-slate-300">origin main</code></li>
             </ul>
-            <div className="text-emerald-500/80 text-xs mt-3 italic">「Claude，幫我跑一下版本發布流程。」它會去找對得上的 Skill 展開來照做。沒觸發就直接點名：「用 release 這個 Skill」。</div>
           </div>
+
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            <strong className="text-slate-300">description 那一行是它自己決定要不要用這個 Skill 的依據</strong>，
+            所以要寫「什麼情況會用到」，而且用你平常真的會講的字，不是只寫它做了什麼。
+            你說「幫我跑一下版本發布流程」，它比對的就是那一句。
+            <span className="block mt-1.5">
+              資料夾名稱就是它的名字，所以這一個也可以直接點名：
+              <code className="font-mono text-orange-300">/release</code>。
+            </span>
+          </p>
         </AnimatedBlock>
 
       </div>
