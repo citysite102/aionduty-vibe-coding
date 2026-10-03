@@ -23,6 +23,12 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  *     所以第 2 格不再指名那個標籤，改成講要比的是什麼。介面字串最容易過期，
  *     下次改版前自己打一次 /context 對照，不要照抄舊截圖。
  *
+ * 第 1 格的 `/init` 那一句，最後查證：2026-10-03，對照 code.claude.com/docs/en/commands。
+ * 當時的現況：表格那一列寫「Initialize project with a `CLAUDE.md` guide」，上面的工作流程段
+ * 也寫「**First session in a repo.** Run `/init` to generate a starter `CLAUDE.md`」，
+ * 所以「現成的專案直接打也可以」成立。它是直接產出檔案，沒有「先給你看」這一步，
+ * 這就是這一格不用它的理由。學員看過章節三的指令清單，到這裡一定會問為什麼不打 `/init`。
+ *
  * 這一頁是動手頁，所以每一格都要有可以直接貼的東西，不是描述「你應該做什麼」。
  *
  * 第三格特別注意：不要把拆解的答案直接印出來。
@@ -45,11 +51,15 @@ function Prompt({ text }: { text: string }) {
 }
 
 /**
- * 沒做過計時器的人用這一份接著做。檔案在 public/handouts/，跟著 GitHub Pages 一起部署，
- * 原始來源是講師 Google Drive 上的 mission-timer-project（已拿掉 .git 與 .claude/launch.json，
- * 後者寫死了講師自己的路徑）。改檔案要同時更新 public/handouts/index.html 那張卡。
+ * 沒做過計時器的人用這一份接著做。2026-10-03 實測：未登入也下載得到
+ * （Code → Download ZIP，等同 /archive/refs/heads/main.zip，15 KB）。
+ *
+ * 要學員打開的是 zip 裡面的 `mission-timer` 資料夾，不是解壓縮後的最外層。
+ * 最外層還有一個只做轉址的五行 `index.html`，從那裡開工的話，第 2 格叫它讀
+ * `index.html` 會讀到那五行，context 的落差就看不出來，那一格的證據沒了。
+ * 同一份也列在 public/handouts/index.html 的最後一張卡。
  */
-const SAMPLE_URL = 'https://citysite102.github.io/aionduty-vibe-coding/handouts/';
+const SAMPLE_URL = 'https://github.com/citysite102/mission-timer-v2';
 
 export default function SlideM2HandsOn() {
   return (
@@ -67,6 +77,12 @@ export default function SlideM2HandsOn() {
             把你做計時器時一句一句盯出來的東西，變成它每次都會讀到的檔案。
           </p>
           <Prompt text="讀一遍這個專案，幫我寫一份 CLAUDE.md。先不要存檔，貼出來給我看。" />
+          <p className="text-slate-500 text-xs leading-relaxed mt-3">
+            <code className="font-mono text-orange-300">/init</code>{' '}
+            做的就是這件事，現成的專案直接打也可以。差別是它產完就把{' '}
+            <code className="font-mono text-orange-300">CLAUDE.md</code>{' '}
+            寫進去了；這裡自己打，是為了多那半句「先不要存檔，貼出來給我看」。
+          </p>
           <p className="text-slate-500 text-xs leading-relaxed mt-3">
             它寫完你一定要改。它只看得到程式碼，看不到你腦裡的規則，那幾條它猜不到。
           </p>
@@ -181,9 +197,9 @@ export default function SlideM2HandsOn() {
 
         <Callout tone="muted" stepIndex={5}>
           <p className="mb-2.5">
-            手上沒有計時器的話，到講義頁下載最後那一份範例專案（<code className="font-mono text-slate-300">mission-timer-project.zip</code>），
-            解壓縮之後用 Claude Code 打開那個資料夾，上面四格照原樣走一遍，
-            第 2 格要讀的 <code className="font-mono text-slate-300">index.html</code> 就在裡面。
+            手上沒有計時器的話，到這個網址按綠色的 Code，選 Download ZIP，不用登入。
+            解壓縮之後用 Claude Code 打開裡面的 <code className="font-mono text-slate-300">mission-timer</code> 資料夾
+            （第 2 格要讀的 <code className="font-mono text-slate-300">index.html</code> 在那一層），上面四格照原樣走一遍。
           </p>
           <a
             href={SAMPLE_URL}
