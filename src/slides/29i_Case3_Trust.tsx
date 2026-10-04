@@ -58,7 +58,17 @@ export default function SlideCase3Trust() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-4">擋人的規則有兩層，錯誤訊息不一樣</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-2">擋人的規則有兩層，錯誤訊息不一樣</h3>
+          {/*
+            2026-10-04：這一頁是全片對不寫程式的人最陡的一頁。前一次碰資料庫是
+            〈資料庫先只講四張表〉的「一張表就是一個 Excel 分頁」，下一次就是這兩段英文原文。
+            中間補一階白話，兩層各給一個櫃子的說法；原文保留，因為那是學員唯一能分辨
+            卡在哪一層的線索，但要明說不用背。**不要把這兩段原文換成翻譯。**
+          */}
+          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            第一層問的是「你能不能開這個櫃子」，第二層問的是「櫃子裡哪幾份是你的」。
+            底下那兩段英文是它實際會回你的訊息，<strong className="text-slate-300">不用背，認得出是哪一層就夠了</strong>。
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {LAYERS.map((l) => (
               <div
@@ -84,7 +94,7 @@ export default function SlideCase3Trust() {
             ))}
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
-            手冊裡把第二層的每一條規則叫做「政策」。
+            第二層底下的每一條規則，資料庫那邊叫它「政策」。
           </p>
           <p className="text-slate-300 text-sm leading-relaxed mt-4">
             第二層打開之後<strong className="text-slate-100">預設是全部拒絕</strong>，

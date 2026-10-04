@@ -28,6 +28,7 @@ import RecAgentsMd, { meta as m32 } from './harness/32_AgentsMd';
 import RecSurfaceIntro, { meta as m33 } from './harness/33_SurfaceIntro';
 import RecTransferCase, { meta as m41 } from './harness/41_TransferCase';
 import RecTransferAnswers, { meta as m42 } from './harness/42_TransferAnswers';
+import RecTransferHook, { meta as m43 } from './harness/43_TransferHook';
 import RecTransferHarness, { meta as m45 } from './harness/45_TransferHarness';
 import RecTransferNextStep, { meta as m47 } from './harness/47_TransferNextStep';
 import RecRecapOne, { meta as m48 } from './harness/48_RecapOne';
@@ -56,8 +57,8 @@ import RecHandbookV5, { meta as m58 } from './harness/58_HandbookV5';
  * 現場與預錄共用這一份，差別只在錄製時加上 ?clean=1 隱藏操作列。
  */
 export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
-  // index 64 = 原「CLAUDE.md 的作用、長度與分層」
-  64: [
+  // index 66 = 原「CLAUDE.md 的作用、長度與分層」
+  66: [
     { meta: m23, Component: RecWhyNoHandbook },
     { meta: m25, Component: RecWhyDiff },
     { meta: m26, Component: RecLayersOverview },
@@ -65,14 +66,14 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m32, Component: RecAgentsMd },
     { meta: m54, Component: RecHandbookV1 },
   ],
-  // index 77 = 原「規則明明寫了，它卻沒照做」
-  77: [
+  // index 79 = 原「規則明明寫了，它卻沒照做」
+  79: [
     { meta: m01, Component: RecFailNotLoaded },
     { meta: m02, Component: RecFailBuried },
     { meta: m03, Component: RecFailCantFollow },
     { meta: m04, Component: RecDiagnose },
   ],
-  // index 78 = 原「規則該放哪一層，以及 Hook 的寫法」
+  // index 80 = 原「規則該放哪一層，以及 Hook 的寫法」
   // Hook 那一組（62 到 68）夾在歸位四問與「保證越高改起來越麻煩」之間。
   //
   // 位置試過排在四問之前，不行：前一組的收尾是「所以下一步先決定位置」，
@@ -85,7 +86,7 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
   // 現在拆成七頁：為什麼（62）、三層骨架（63）、三層各一頁（64 到 66）、
   // 動手掛一條（67）、換成 Codex 還算不算數（68）。
   // 最後那一頁是這一節的職務，這一節本來就是疑難雜症與轉移。
-  78: [
+  80: [
     // 四題原本直接從第一題開始，方法寫成第一題頁面上的一行引言。
     // 那讓第一頁要同時交代方法與第一題，份量跟後面三頁不一樣。方法獨立一頁。
     { meta: m04b, Component: RecRouteIntro },
@@ -105,8 +106,8 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m10, Component: RecStartSimple },
     { meta: m55, Component: RecHandbookV2 },
   ],
-  // index 79 = 原「手冊越寫越長，怎麼整理」
-  79: [
+  // index 81 = 原「手冊越寫越長，怎麼整理」
+  81: [
     { meta: m17, Component: RecHealthOverview },
     { meta: m18, Component: RecHealthInventory },
     { meta: m19, Component: RecHealthSubtract },
@@ -115,46 +116,56 @@ export const REPLACEMENTS: Record<number, RecordedSlide[]> = {
     { meta: m22, Component: RecHealthRest },
     { meta: m56, Component: RecHandbookV3 },
   ],
-  // index 80 = 原「怎麼把話講對：白名單與探索空間」
+  // index 82 = 原「怎麼把話講對：白名單與探索空間」
   // 六個寫法技巧原本一個技巧一頁（11_WriteWhitelist 到 16_WriteOneThing，六頁共用同一個
   // _DontDo 元件、版面一模一樣）。2026-10-04 併成兩頁：11_WriteScope 管「這條規則管到哪裡」，
   // 12_WriteBasis 管「它推不出來的時候靠什麼」。六組的原文一字沒改，只是三條並排。
   // 理由寫在 _TipRows.tsx 的檔頭。**不要為了「一個技巧一頁比較好錄」再拆回去。**
-  80: [
+  82: [
     { meta: m11, Component: RecWriteScope },
     { meta: m12, Component: RecWriteBasis },
-    { meta: m57, Component: RecHandbookV4 },
-    // 六個寫法講完原本就停在這裡，整組沒有動手的頁面。
-    // 57 是拿示範手冊改一條，16b 是換成學員自己那份：先看別人改，再改自己的。
+    // 2026-10-04 兩頁調換（講師）。原本是 57（示範手冊改一條）在前、16b（換你改自己那份）在後。
+    // 改成動手在前、示範在後：六個技巧剛講完，學員手上有判斷標準，先自己改一條；
+    // 57 變成「我這邊改出來長這樣」的對照，而不是照抄的範本。
+    // **兩頁的承接語互相指著對方**（16b 檔頭、57 的開場與收尾），要換回去的話那三處要一起改。
     { meta: m16b, Component: RecWritePractice },
+    { meta: m57, Component: RecHandbookV4 },
   ],
-  // index 81 = 原「同一套手冊，換個地方用」
+  // index 83 = 原「同一套手冊，換個地方用」
   // 原本排在這一組前面的「專屬知識庫與分身」已經拆進來：
   // 介面示意接在網頁版後面，「為什麼不直接開新對話」接在收尾前面。
-  81: [
+  83: [
     { meta: m33, Component: RecSurfaceIntro },
     { meta: m58, Component: RecHandbookV5 },
   ],
-  // index 83 = 原「換成你的工作，手冊該寫什麼」
-  83: [
+  // index 85 = 原「換成你的工作，手冊該寫什麼」
+  85: [
     { meta: m41, Component: RecTransferCase },
     // 2026-10-04：原本三題各一頁（43、44、42）再加一頁對照表（46），四頁併成一頁。
     // 三頁的結構完全一樣，而學員三十頁前才看過同一個形狀的「規則該放哪」四問；
     // 對照表的三行分開放在三頁的時候，學員要自己記著前兩題才對得起來。
     // 文字一字沒改，理由寫在 42_TransferAnswers.tsx 的檔頭。**不要拆回去。**
     { meta: m42, Component: RecTransferAnswers },
+    // 2026-10-04 新增：第 1 題答完「要用程式擋」之後，真的把那條 Hook 掛上去。
+    // 做法照 67_HookPractice 的形狀（給一句話、Claude 去寫設定、學員測），不要貼 JSON。
+    // 它掛好之後，45_TransferHarness 的「自動關卡」那一列才是「剛剛掛好了」。
+    { meta: m43, Component: RecTransferHook },
     // 2026-10-04 新增：同一份提案工作對回運作框架那六塊。這一段原本只換了「規則文件」
     // 一個零件，學員會以為「換成我的工作 ＝ 寫一份 CLAUDE.md」。理由寫在
     // 45_TransferHarness.tsx 的檔頭。**六塊的名字沿用 Slide 50，不要在這裡自創分法。**
     { meta: m45, Component: RecTransferHarness },
-    { meta: m47, Component: RecTransferNextStep },
-    // 61 放在 47 之後：46 收在「三個問題問完」、47 開在「這三題跟工具無關」，
-    // 本來是接得上的一句話。而且它要學員開終端機打 claude mcp add，難度比整段高一階，
-    // 內容也不屬於單元名的「跨工具轉移與從零建立」。放最後當加分題。
+    // 2026-10-04 調換（講師）：61（工具：接 Notion ＋ 包 Skill）移到 47 之前。
+    // 原本 61 在最後當加分題，理由是它要開終端機打 claude mcp add，難度比整段高一階。
+    // 但 45_TransferHarness 的六塊對照表把「工具」標成「還沒做」，而 47 是整段的收尾
+    //（換成你自己的工作怎麼開始）。工具擺在收尾後面，等於表上那一格要等到收完才補，
+    // 而且 47 講完「換成你自己的」又跳回提案這個例子。現在順序是：
+    // 六塊對照 → 把工具那一格補完 → 才換成你自己的工作。
+    // **這兩頁的轉場互相指著對方，要換回去的話那三句要一起改。**
     { meta: m61, Component: RecTransferIntegrate },
+    { meta: m47, Component: RecTransferNextStep },
   ],
-  // index 84 = 原「手冊的四個成果，收在同一個檔案裡」
-  84: [
+  // index 86 = 原「手冊的四個成果，收在同一個檔案裡」
+  86: [
     { meta: m48, Component: RecRecapOne },
   ],
 };

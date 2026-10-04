@@ -103,48 +103,48 @@ npm run pdf      # → 逐字稿/逐字稿全集.pdf
 
 | 章節 | 單元 | 範圍 | 狀態 |
 |---|---|---|---|
-| 一 課前導讀 | 1-1 課程總覽與課前準備 | Slide 1-4 | 初稿 |
-| 二 Vibe Coding 與 Agentic Engineering | 2-1 Vibe Coding 與 Agentic Engineering 的差別 | Slide 5-8 | 初稿 |
-| | 2-2 AI 開發工具的六種類型與選用時機 | Slide 9-10 | 初稿 |
-| | 2-3 AI 的運作原理與需求描述 | Slide 11-14 | 初稿 |
-| 三 Claude Code 實作與網頁開發基礎 | 3-1 Agent 的價值與實測表現 | Slide 15-17 | 初稿 |
-| | 3-2 Claude 桌面版實作與七項基礎總覽 | Slide 18-19 | 初稿 |
-| | 3-3 錯誤訊息與 API 文件 | Slide 20-23 | 初稿 |
-| | 3-4 前端、後端、資料庫與部署 | Slide 24-28 | 初稿 |
-| | 3-5 Git：版本控制 | Slide 29-30 | 初稿 |
-| | 3-6 Claude Code 的介面與指令 | Slide 31-32 | 初稿 |
-| | 3-7 漸進式開發：第一個作品 | Slide 33-38 | 初稿 |
-| | 3-8 Claude Code 的能力邊界與工具選擇 | Slide 39-41 | 初稿 |
-| 四 選修：終端機與安裝 | 4-1 選修：終端機與基本指令 | Slide 42-44 | 初稿 |
-| | 4-2 選修：Claude Code 安裝與終端機專屬操作 | Slide 45-46 | 初稿 |
-| 五 Agent 運作框架與 CLAUDE.md | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 47-53 | 初稿 |
-| | 5-2 MCP 與 Skills：Agent 的工具擴充 | Slide 54-58 | 初稿 |
-| | 5-3 監督程度與權限模式 | Slide 59-60 | 初稿 |
-| | 5-4 第一份 CLAUDE.md 實作 | Slide 61-64 | 初稿 |
-| | 5-5 CLAUDE.md 的分層、長度與跨工具相容 | Slide 65-70 | 初稿 |
-| | 5-6 CLAUDE.md、Skill 與 MCP 的載入時機與存放位置 | Slide 71-75 | 初稿（照抄 `meta.script`） |
-| | 5-7 運作框架在真實專案的應用 | Slide 76-80 | 初稿 |
-| 六 手冊的診斷、健檢與轉移 | 6-1 規則失效的三種原因與規則分層 | Slide 81-91 | 初稿（照抄 `meta.script`） |
-| | 6-2 Hook：用程式強制執行規則 | Slide 92-99 | 初稿（照抄 `meta.script`） |
-| | 6-3 規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨 | Slide 100-102 | 初稿（照抄 `meta.script`） |
-| | 6-4 CLAUDE.md 健檢流程與規則寫法 | Slide 103-117 | 初稿（照抄 `meta.script`） |
-| | 6-5 CLAUDE.md 的跨工具轉移與從零建立 | Slide 118-128 | 初稿（照抄 `meta.script`） |
-| 七 Agent 分工與品質控管 | 7-1 Agent 分工：三個角色與四種模式 | Slide 129-132 | 初稿 |
-| | 7-2 品質防線：審查子代理實作 | Slide 133-135 | 初稿 |
-| | 7-3 中型專案演練：需求拆解與指令設計 | Slide 136-143 | 初稿 |
-| 八 Agent 循環開發流程與實戰案例 | 8-1 工作交辦：目標、完成條件與邊界 | Slide 144-146 | 初稿 |
-| | 8-2 介入時機、自動把關與安全邊界 | Slide 147-150 | 初稿 |
-| | 8-3 自主循環實作：讓計時器自己跑完一輪 | Slide 151-155 | 初稿 |
-| | 8-4 部署上線：從本機到公開網址 | Slide 156-160 | 初稿 |
-| | 8-5 案例一：器 VESSEL | Slide 161-164 | 初稿 |
-| | 8-6 案例二：東京環状 24 時 | Slide 165-167 | 初稿 |
-| | 8-7 案例三：開窯預約 | Slide 168-170 | 初稿 |
-| | 8-8 題目選擇與開工步驟 | Slide 171-173 | 初稿 |
-| 九 結語 | 9-1 結語：未來的工作者 | Slide 174 | 初稿 |
+| 章節一 課前導讀 | 1-1 課程總覽與課前準備 | Slide 1-4 | 初稿 |
+| 章節二 Vibe Coding 與 Agentic Engineering | 2-1 Vibe Coding 與 Agentic Engineering 的差別 | Slide 5-8 | 初稿 |
+|  | 2-2 AI 開發工具的六種類型與選用時機 | Slide 9-10 | 初稿 |
+|  | 2-3 AI 的運作原理與需求描述 | Slide 11-15 | 初稿 |
+| 章節三 Claude Code 實作與網頁開發基礎 | 3-1 Agent 的價值與實測表現 | Slide 16-18 | 初稿 |
+|  | 3-2 Claude 桌面版實作與七項基礎總覽 | Slide 19-20 | 初稿 |
+|  | 3-3 錯誤訊息與 API 文件 | Slide 21-24 | 初稿 |
+|  | 3-4 前端、後端、資料庫與部署 | Slide 25-29 | 初稿 |
+|  | 3-5 Git：版本控制 | Slide 30-31 | 初稿 |
+|  | 3-6 Claude Code 的介面與指令 | Slide 32-34 | 初稿 |
+|  | 3-7 漸進式開發：第一個作品 | Slide 35-40 | 初稿 |
+|  | 3-8 Claude Code 的能力邊界與工具選擇 | Slide 41-43 | 初稿 |
+| 章節四 選修：終端機與 Claude Code 安裝 | 4-1 選修：終端機與基本指令 | Slide 44-46 | 初稿 |
+|  | 4-2 選修：Claude Code 安裝與終端機專屬操作 | Slide 47-48 | 初稿 |
+| 章節五 Agent 運作框架與 CLAUDE.md | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 49-55 | 初稿 |
+|  | 5-2 MCP 與 Skills：Agent 的工具擴充 | Slide 56-60 | 初稿 |
+|  | 5-3 監督程度與權限模式 | Slide 61-62 | 初稿 |
+|  | 5-4 第一份 CLAUDE.md 實作 | Slide 63-66 | 初稿 |
+|  | 5-5 CLAUDE.md 的分層、長度與跨工具相容 | Slide 67-72 | 初稿 |
+|  | 5-6 CLAUDE.md、Skill 與 MCP 的載入時機與存放位置 | Slide 73-77 | 初稿（照抄 `meta.script`） |
+|  | 5-7 運作框架在真實專案的應用 | Slide 78-82 | 初稿 |
+| 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 | 6-1 規則失效的三種原因與規則分層 | Slide 83-93 | 初稿（照抄 `meta.script`） |
+|  | 6-2 Hook：用程式強制執行規則 | Slide 94-101 | 初稿（照抄 `meta.script`） |
+|  | 6-3 規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨 | Slide 102-104 | 初稿（照抄 `meta.script`） |
+|  | 6-4 CLAUDE.md 健檢流程與規則寫法 | Slide 105-115 | 初稿（照抄 `meta.script`） |
+|  | 6-5 CLAUDE.md 的跨工具轉移與從零建立 | Slide 116-125 | 初稿（照抄 `meta.script`） |
+| 章節七 Agent 分工與品質控管 | 7-1 Agent 分工：三個角色與四種模式 | Slide 126-130 | 初稿 |
+|  | 7-2 品質防線：審查子代理實作 | Slide 131-134 | 初稿 |
+|  | 7-3 中型專案演練：需求拆解與指令設計 | Slide 135-142 | 初稿 |
+| 章節八 Agent 循環開發流程與實戰案例 | 8-1 工作交辦：目標、完成條件與邊界 | Slide 143-145 | 初稿 |
+|  | 8-2 介入時機、自動把關與安全邊界 | Slide 146-149 | 初稿 |
+|  | 8-3 自主循環實作：讓計時器自己跑完一輪 | Slide 150-154 | 初稿 |
+|  | 8-4 部署上線：從本機到公開網址 | Slide 155-159 | 初稿 |
+|  | 8-5 案例一：器 VESSEL | Slide 160-163 | 初稿 |
+|  | 8-6 案例二：東京環状 24 時 | Slide 164-166 | 初稿 |
+|  | 8-7 案例三：開窯預約 | Slide 167-169 | 初稿 |
+|  | 8-8 題目選擇與開工步驟 | Slide 170-172 | 初稿 |
+| 章節九 結語 | 9-1 結語：未來的工作者 | Slide 173-173 | 初稿 |
 
 ## 預錄拆頁的逐字稿，照抄 `meta.script`
 
-Slide 68 起有 53 頁是預錄拆頁（`src/slides-recorded/`），它們的檔案裡本來就有一份 `meta.script`，那才是錄製時要念的字，而且 `npm run check:rec` 會按「中文字數 ＋ 英文詞數 × 2」算長度，每頁上限 45 秒。
+Slide 67 起有 46 頁是預錄拆頁（`src/slides-recorded/`），它們的檔案裡本來就有一份 `meta.script`，那才是錄製時要念的字，而且 `npm run check:rec` 會按「中文字數 ＋ 英文詞數 × 2」算長度，每頁上限 45 秒。
 
 **這些頁面的逐字稿一律照抄 `meta.script`，不另外寫一份。** 理由是 CLAUDE.md A-4 記過的同一個坑：口白長度是從 `script` 算出來的，這裡另寫一份更長的版本等於製造第二份真相，而且錄的人照著唸會超時。
 

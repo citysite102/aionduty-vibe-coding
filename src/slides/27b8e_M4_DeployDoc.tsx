@@ -54,7 +54,7 @@ const PROMPT = `讀完這個專案，幫我寫一份 DEPLOY.md，回答四件事
 
 export default function SlideDeployDoc() {
   return (
-    <SlideLayout title="部署前，叫它寫一份 DEPLOY.md" subtitle="Deployment Diagnosis" icon={FileSearch}>
+    <SlideLayout title="DEPLOY.md：服務、資料、排程、金鑰" subtitle="Deployment Diagnosis" icon={FileSearch}>
       <LiveDemo kind="claude" note="做完你會有一份 DEPLOY.md，列著會先撞牆的三件事" />
 
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">

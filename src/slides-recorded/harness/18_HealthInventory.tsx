@@ -36,12 +36,20 @@ import type { RecordedMeta } from '../types';
  */
 
 /**
- * 2026-10-04：講師兩個問題，病根是同一個 —— 這一頁沒說清楚誰做哪一半。
+ * 2026-10-04：講師兩個問題，病根是同一個：這一頁沒說清楚誰做哪一半。
  *   「這一步讓它列給你看，你只圈出想不起來的」看不懂，是透過 Prompt 要求它整理嗎？
  *   「想不起來的先打問號」是 AI 自己打問號？
  * 答案是：**表是它列的，問號是你打的**。原本大字只寫「讓它列給你看」，沒有接回上一頁那段指令；
  * 「想不起來」的主詞也沒寫出來（是你想不起來，不是它）。現在三處都寫明動作歸誰：
  * 大字、step 3 那一句、以及口白。**不要再把主詞省掉。**
+ */
+/**
+ * 2026-10-04（第三輪）講師：「同學會困惑這個是不是要自己填寫，然後要填寫在哪裡？」
+ * 病根是這一頁只說了誰答，沒說**在哪裡答**。學員看到一張畫好格線的表，
+ * 預設它是一份發下來要填的表單，於是卡在「我要去哪裡開這個檔案」。
+ * 三處補上：表頭每一欄掛「Claude 列／Claude 答／你答」的標籤、
+ * step 3 明說這張表是印在對話視窗裡的、口白補一句直接接著在對話裡回它。
+ * **不要把「在對話裡回」這一句省掉**，它是這一頁唯一說明操作位置的地方。
  */
 export const meta: RecordedMeta = {
   id: 'harness-18-health-inventory',
@@ -50,9 +58,12 @@ export const meta: RecordedMeta = {
     '第一步是盤點。先把上一頁那段指令貼進去，它會把你手冊裡每一條規則列成一張表，然後在中間那一欄寫上它從現在的程式碼看得出什麼。' +
     '這裡要說清楚它答得出什麼、答不出什麼。中間那一欄它答得出來，因為它讀得到你的檔案：禁用 inline style 這一條，它可以去翻一遍，回你「我在 src 底下沒找到任何 inline style，這一條有在生效」。' +
     '右邊那一欄它答不出來。當初為什麼加這一條，是一段只有你在場的歷史，它沒看過。所以上一頁那段指令裡有半句「不要猜我當初為什麼寫」，那一句是故意加的。你不擋它，它會給你一個聽起來非常合理的理由，而你會相信，然後拿那個理由去決定要不要刪掉這一條。' +
-    '所以右邊那一欄是你自己填的。禁用 inline style，你想起來是上次改版樣式打架，那就寫上去。按鈕用航太語彙，你想不起來，那就打一個問號。畫面上那個問號是你打的，不是它打的。' +
+    '所以右邊那一欄要你自己答。畫面上那段可以直接貼過去，它會照那張表一條一條問你。倒數分鐘數集中成設定這一條，你想起來是因為每次改都要翻半天，那就回一句上去。按鈕文案那一條你想不起來，那就回一個問號。你不用另外開檔案或開試算表，整件事就在對話裡完成。為什麼非得你答？因為下一步要決定刪哪幾條，而答得出理由的那幾條先留著，標了問號的那幾條才是要處理的對象。畫面上那個問號是你打的，不是 Claude 打的。' +
     '打了問號不代表要刪，先標著就好，那幾條就是下一步要處理的對象。這裡有一件事要注意：盤點列出來的是來龍去脈，像是哪一次出事、當時誰說的，這些留在對話裡給你看就好，不要整段貼回 CLAUDE.md。健檢是要讓手冊變短，每一條後面再掛一段歷史，下一輪只會更長。那跟後面會講的「規則要寫出為什麼」會不會衝突？不會，差別在長度跟用途：寫進手冊的是一句它推得出下一步的理由，例如因為這是太空任務主題；不用寫進去的是那件事的經過。',
-  seconds: 87,
+  seconds: 140,
+  // 多了一段給學員複製的追問指令（見上面第四輪那段註解），壓不回 160 字，
+  // 理由同 17_HealthOverview：那段字串要自己說得通，縮短就失去它的用處。
+  kind: 'reference',
   from: 69,
 };
 
@@ -83,10 +94,21 @@ export default function RecHealthInventory() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900">
-          <div className="grid grid-cols-[1fr_1.4fr_1.2fr] border-b border-slate-800 bg-slate-950/60 font-mono text-base text-slate-500">
-            <div className="px-6 py-3">規則</div>
-            <div className="border-l border-slate-800 px-6 py-3">它從程式碼看得出什麼</div>
-            <div className="border-l border-slate-800 px-6 py-3">你還記得當初為什麼加嗎</div>
+          <div className="grid grid-cols-[1fr_1.4fr_1.2fr] border-b border-slate-800 bg-slate-950/60 text-base text-slate-500">
+            {([['Claude 列', '規則'], ['Claude 答', '它從程式碼看得出什麼'], ['你答', '你還記得當初為什麼加嗎']] as [string, string][]).map(
+              ([who, label], i) => (
+                <div key={label} className={`px-6 py-3 ${i ? 'border-l border-slate-800' : ''}`}>
+                  <span
+                    className={`mr-2 rounded px-1.5 py-0.5 text-sm ${
+                      who === '你答' ? 'bg-sky-500/15 text-sky-300' : 'bg-slate-800 text-slate-400'
+                    }`}
+                  >
+                    {who}
+                  </span>
+                  <span className="font-mono">{label}</span>
+                </div>
+              ),
+            )}
           </div>
           {ROWS.map(([rule, found, why], i) => (
             <div key={rule} className={`grid grid-cols-[1fr_1.4fr_1.2fr] ${i ? 'border-t border-slate-800' : ''}`}>
@@ -103,14 +125,28 @@ export default function RecHealthInventory() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="mt-5 text-slate-400 text-xl leading-relaxed px-1">
-          右欄是<strong className="text-slate-200">你自己填的</strong>，想不起來就打問號。別讓它猜。
+        {/*
+          2026-10-04（第四輪）講師兩句：「這句話太 AI」「我也不懂為什麼一定要我答，
+          而且要我答勢必就要有 Prompt 給 AI 才對」。兩個都對：
+          原本那句只交代了位置，沒說答了要幹嘛；而學員手上沒有任何一句可以讓它開始問。
+          現在換成一段可以直接貼的追問指令，加一句講清楚問號的用途。
+          **這段 Prompt 是接在上一頁那張表後面用的**，字串裡要自己說得通（A-4）。
+        */}
+        <AnimatedBlock stepIndex={3} className="mt-5 rounded-2xl border border-sky-900/50 bg-sky-950/20 px-6 py-4">
+          <div className="text-base font-mono uppercase tracking-widest text-sky-500 mb-2.5">Prompt</div>
+          <p className="text-sky-100 text-lg leading-relaxed">
+            「照你剛才列的那張表，一條一條問我當初為什麼加這一條。
+            我答得出來就記下來，答不出來的標一個問號，不要替我補理由。」
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mt-3 pt-3 border-t border-sky-900/50">
+            答得出來的那幾條先留著；標了問號的，就是下一步減法要先看的。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="mt-5 rounded-2xl border border-amber-500/20 bg-amber-500/5 px-6 py-5">
           <p className="text-slate-300 text-xl leading-relaxed">
-            ⚠️ 這張清單留在對話裡，不要回頭寫進 <code className="font-mono text-orange-300">CLAUDE.md</code>。
-            健檢是要讓手冊變短，每一條再加一段來由，下一輪只會更長。
+            ⚠️ 這張清單留在對話裡，不要回頭寫進 <code className="font-mono text-orange-300">CLAUDE.md</code>，
+            否則手冊只會越整理越長。
           </p>
         </AnimatedBlock>
       </RecPage>

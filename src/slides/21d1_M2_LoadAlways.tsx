@@ -4,10 +4,10 @@ import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 最後查證：2026-10-03，對照 code.claude.com/docs/en/memory 的 Organize rules with `.claude/rules/`。
- * 當時的現況：規則檔是放在 `.claude/rules/` 底下的 `.md`，檔名自取、可以放子資料夾；
+ * 當時的現況：規則文件是放在 `.claude/rules/` 底下的 `.md`，檔名自取、可以放子資料夾；
  * `paths` 寫在 YAML frontmatter 裡，文件原文「Path-scoped rules trigger when Claude uses the
  * Read, Write, or Edit tool on a file matching the pattern, not on every tool use」。
- * 要注意的是**沒寫 `paths` 的規則檔是開場就載入的**（「Rules without a `paths` field are loaded
+ * 要注意的是**沒寫 `paths` 的規則文件是開場就載入的**（「Rules without a `paths` field are loaded
  * unconditionally」），所以標題那句「Rules 碰到才載」只對有寫範圍的那種成立。
  *
  * 標題的「根目錄」不是贅字，拿掉會變錯的：同一份文件寫「CLAUDE.md and CLAUDE.local.md files

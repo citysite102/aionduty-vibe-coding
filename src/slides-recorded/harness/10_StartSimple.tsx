@@ -14,7 +14,7 @@ export const meta: RecordedMeta = {
   id: 'harness-10-start-simple',
   title: '一開始要不要就分層？先寫一份再說',
   script:
-    '前面那四個問題排出來很像一張架構圖，但你不需要在第一天就把它設計好。一開始通常只需要一份 CLAUDE.md，規則也是遇到問題才一條一條加上去，分層是後來才長出來的。什麼時候該分？有三個訊號：某條規則明顯只跟某一區有關；同一件事重複出錯、光是寫進手冊已經擋不住，這一種就是診斷裡答得出來卻做錯那一格；或是檔案長到你自己都要找一下某條規則在哪裡。看到這些訊號，再回頭用那四個問題把它們送出去就好。',
+    '前面那四個問題排出來很像一張架構圖，但你不需要在第一天就把它設計好。一開始通常只需要一份 CLAUDE.md，規則也是遇到問題才一條一條加上去，分層是後來才長出來的。什麼時候該分？有三種情況：某條規則明顯只跟某一區有關；同一件事重複出錯、光是寫進手冊已經擋不住，這一種就是診斷裡答得出來卻做錯那一格；或是檔案長到你自己都要找一下某條規則在哪裡。碰到這幾種情況，再回頭用那四個問題把它們送出去就好。',
   seconds: 44,
   from: 69,
 };
@@ -31,7 +31,7 @@ export default function RecStartSimple() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-7">
-          <div className="text-sky-400 text-lg font-bold mb-4">看到這三個訊號，再回頭歸位</div>
+          <div className="text-sky-400 text-lg font-bold mb-4">碰到這三種情況，再回頭歸位</div>
           <ul className="space-y-3">
             {SIGNALS.map((s) => (
               <li key={s} className="text-slate-300 text-xl leading-relaxed flex gap-4">

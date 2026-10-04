@@ -46,25 +46,44 @@ export default function SlideMultiAgent() {
             一個 Agent 從頭做到尾，任務一大就容易出錯。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mb-3">
-            它得同時記著整份規格、正在改的那個檔案、還有哪幾項沒驗。
-            東西一多，最先掉的通常是最後那項。所以把它拆成三個角色。
+            它得同時記著整份規格、正在改的那個檔案、還有哪幾項沒驗。東西一多，最先掉的通常是最後那項。
+          </p>
+          {/*
+            2026-10-04（講師）：這一章從頭到尾在做 Multi-Agent，但中文從來沒有講出這個名字，
+            學員不知道自己正在學的是一個有名字的做法。分節頁的 roadmap 第一塊同一輪改成
+            「從一個 Agent 變成一組」。**這兩句不要刪，它是整章的題目。**
+            名字只在這裡出現一次，後面各頁照舊講「分工」「角色」，不要到處貼英文。
+          */}
+          <p className="text-slate-300 text-base leading-relaxed mb-4">
+            所以這一章換一種做法：同一件事不再由一個 Agent 從頭做到尾，
+            而是<strong className="text-slate-100">切給好幾個 Agent，一個做一段</strong>。
+            這種做法叫<strong className="text-slate-100">多代理協作（Multi-Agent）</strong>，
+            而你還是只對著一個對話框講話，分出去的那幾個由它派。
           </p>
           {/*
             「子代理」在這一頁之前已經出現過十幾次，但沒有一頁正面定義它。
             模擬學員的原話：「子代理跟我直接開一個新對話問它，有什麼不一樣？」
             那正是要回答的問題，答案是它的對話不會回到你這邊，只回結論。
+
+            2026-10-04（講師）：原本這一塊是三段連續的長文，整段逐字抄自口白，
+            連「舉個樣子」這種講話才會用的詞都印上去了。畫面上要留的是讀得完的定義與
+            一個對照，講的那一份留在逐字稿。**不要再把口白整段貼回畫面。**
           */}
-          <p className="text-slate-400 text-base leading-relaxed">
-            下面那兩個標著 <span className="font-mono text-slate-300">Subagent</span> 的，中文叫
-            <strong className="text-slate-200">子代理</strong>。你派它去做一件事，
-            <strong className="text-slate-200">它自己做完，只把結論交回來</strong>，中間翻了幾個檔案、試了幾次，都不會進到你的對話裡。
-            <span className="block mt-2">
-              舉個樣子：它讀了二十個檔案才找到那一行，那二十次讀取留在它那邊，回到你這裡的只有「問題在第 42 行」這一句。
-            </span>
-            <span className="block mt-2">
-              那跟你自己另外開一個視窗問，差在哪？兩件事：那邊的答案要你自己複製貼回來，子代理是直接交回來；而且它中間做的事不佔你這邊的空間。
-            </span>
-          </p>
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
+            <p className="text-slate-300 text-base leading-relaxed">
+              標著 <span className="font-mono text-slate-300">Subagent</span> 的中文叫
+              <strong className="text-slate-100">子代理</strong>：派它做一件事，
+              <strong className="text-slate-100">它自己做完，只把結論交回來</strong>。
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 mt-3 pt-3 border-t border-slate-800">
+              <p className="text-slate-500 text-sm leading-relaxed">
+                它讀了二十個檔案才找到那一行，你這邊只會收到「問題在第 42 行」。
+              </p>
+              <p className="text-slate-500 text-sm leading-relaxed">
+                跟自己另開一個視窗問的差別：結論直接交回來，不用你複製貼上。
+              </p>
+            </div>
+          </div>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
@@ -118,7 +137,7 @@ export default function SlideMultiAgent() {
 
         {/*
           2026-10-04：原本寫「這三個角色都在 Claude Code 裡面，不用另外裝東西」，
-          講師看不懂（「本來就存在裡面？」）。病灶是「在裡面」沒說是什麼意思 ——
+          講師看不懂（「本來就存在裡面？」）。病灶是「在裡面」沒說是什麼意思：
           它不是三個已經存在的東西躺在某處，而是你不用安裝、不用註冊，
           指揮者就是你現在在對話的那一個，另外兩個用一句話就叫得出來。
           改成寫出「你要做什麼才會有它們」，那才是學員接下來真的會做的事。
@@ -144,8 +163,22 @@ export default function SlideMultiAgent() {
             實際要決定的只有一件事：
           </p>
           <p className="text-slate-100 text-xl font-bold leading-snug">
-            每一件子任務由你親自派，還是讓主 session 自己決定派給誰？
+            子任務你一個一個派，還是把整件事交代完，讓指揮者自己拆、自己派？
           </p>
+          {/*
+            2026-10-04（講師）：原本寫「每一件子任務由你親自派，還是讓主 session
+            自己決定派給誰」。兩個問題：「主 session」是這一頁上面才剛對應到「指揮者」的
+            英文說法，換個詞讀者要自己接；而且光讀這一句看不出兩邊實際差在你打什麼字。
+            底下兩句就是兩邊各打一次給他看。
+          */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3 pt-3 border-t border-sky-500/20">
+            <p className="text-slate-400 text-sm leading-relaxed">
+              你派：<span className="text-slate-200">「先讓一個子代理去檢查 index.html。」</span>
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              它派：<span className="text-slate-200">「把這個頁面做完，再檢查一遍。」</span>中間要分幾個子代理由它決定。
+            </p>
+          </div>
         </AnimatedBlock>
 
       </div>

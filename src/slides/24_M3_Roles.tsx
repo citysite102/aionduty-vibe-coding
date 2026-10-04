@@ -1,8 +1,15 @@
 import { Network, Bot, Users, Activity, FileCode2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock, useSlide } from '../components/SlideLayout';
+import { Fragment } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 /**
+ * **A-3 的無限動畫在這一頁是刻意保留的，2026-10-04 講師決定，不要再改。**
+ * 這一頁有三組 `repeat: Infinity`（指揮者圖的任務往外、結果飛回來，以及自治團隊那組擴散圈），
+ * 嚴格說超過 A-3「全頁最多一組」的例外額度。逐字稿 7-1 的錄製註記與待處理區都記過這一條。
+ * 不改的理由是那三組就是左半那張圖本身，拆掉等於換掉整頁的視覺。
+ * 錄的時候念完就走，不要停在這一頁等它跑完一輪。
+ *
  * 第三、四種模式最後查證：2026-10-03，對照 code.claude.com/docs/en/agent-teams 與
  * code.claude.com/docs/en/workflows。
  *
@@ -19,8 +26,15 @@ import { motion, AnimatePresence } from 'motion/react';
  *      session」，官方建議從 3 到 5 個開始。
  *   3. 「你驗得動多少就只能放手多少」這個教學論點不變，文件的 Monitor and steer 也是這個意思。
  *
- * 第四種「流程腳本」現在有內建做法（dynamic workflows），展開在下一頁 24b_M3_Workflows。
- * 兩頁一起搬（B-4）。
+ * 第四種「流程腳本」現在有內建做法（dynamic workflows），展開在 24b_M3_Workflows
+ * （它是什麼）與 24c_M3_WorkflowUse（什麼時候用、怎麼叫）。三頁一起搬（B-4）。
+ *
+ * 2026-10-04（講師）：第四格原本寫「不能臨機應變，但每次都會走完同樣的步驟」，
+ * 只講到「固定」，沒講到它為什麼值得用。學員翻到下一頁看到的例子是「一次派出幾十個」，
+ * 兩頁對不起來。現在這一格的軸線改成**誰決定下一步**（前三種 Claude 現場決定、
+ * 這一種寫在腳本裡），並明講那件事換到的東西是規模與形狀固定。
+ * 左半的流程腳本動畫同一輪改成「三個階段，每個階段同時派好幾個」，
+ * 原本三個方塊串一排會讓人以為它只是把事情排成順序。**改這一格要連動畫一起看。**
  */
 
 const OrchestratorAnim = () => (
@@ -162,30 +176,41 @@ const SwarmAnim = () => (
 );
 
 const WorkflowAnim = () => (
-  <div className="relative w-full h-full flex flex-col items-center justify-center gap-6">
-    <div className="flex gap-4">
-       {[0, 1, 2].map(i => (
-         <motion.div
-           key={i}
-           initial={{ opacity: 0, x: -20 }}
-           animate={{ opacity: 1, x: 0 }}
-           transition={{ delay: i * 0.2 }}
-           className="relative flex items-center"
-         >
-           <div className="w-16 h-16 bg-amber-950 border-2 border-amber-500 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.2)] z-10">
-             <Activity className="text-amber-400" size={24} />
-           </div>
-           {i < 2 && (
-             <div className="w-8 h-1 bg-amber-900/50 -mr-4 ml-[-8px] relative overflow-hidden" />
-           )}
-         </motion.div>
-       ))}
+  <div className="relative w-full h-full flex flex-col items-center justify-center gap-7">
+    <div className="flex items-start gap-3">
+      {[0, 1, 2].map((i) => (
+        <Fragment key={i}>
+          {i > 0 && <div className="w-6 h-0.5 bg-amber-900 mt-8" />}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.25 }}
+            className="flex flex-col items-center gap-2.5"
+          >
+            <div className="w-16 h-16 bg-amber-950 border-2 border-amber-500 rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+              <Activity className="text-amber-400" size={24} />
+            </div>
+            {/* 一個階段同時派出去的那幾個子代理 */}
+            <div className="flex gap-1.5">
+              {[0, 1, 2, 3].map((j) => (
+                <motion.span
+                  key={j}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 + i * 0.25 + j * 0.07 }}
+                  className="w-2.5 h-2.5 rounded-full bg-amber-400/70"
+                />
+              ))}
+            </div>
+          </motion.div>
+        </Fragment>
+      ))}
     </div>
     <motion.div
-      initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-      className="bg-amber-500/10 text-amber-300/80 px-4 py-2 rounded-full text-xs font-mono border border-amber-500/30"
+      initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.4 }}
+      className="bg-amber-500/10 text-amber-300/80 px-4 py-2 rounded-full text-xs border border-amber-500/30"
     >
-      state.next() → pipeline
+      腳本決定分幾個階段、每個階段同時派幾個
     </motion.div>
   </div>
 );
@@ -213,7 +238,7 @@ export default function SlideRoles() {
   }
 
   return (
-    <SlideLayout title="指揮者、單一執行者、自治團隊、流程腳本" subtitle="Roles in Action" icon={Network}>
+    <SlideLayout title="四種分工方式，各適合什麼時候用" subtitle="Roles in Action" icon={Network}>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-10 mt-6 items-stretch">
 
         <AnimatedBlock stepIndex={1} className={`w-full min-h-[400px] bg-slate-950 border ${borderColor} rounded-3xl ${bgGlow} transition-colors duration-1000 flex items-center justify-center relative overflow-hidden`}>
@@ -238,8 +263,15 @@ export default function SlideRoles() {
               <span>指揮者（Orchestrator）</span>
               <span className="text-xs font-mono text-slate-500">適合：邊做邊決定</span>
             </h4>
+            {/*
+              2026-10-04（講師）：學員在這裡會問「我不就是指揮者？」。
+              上一頁（Slide 124）定義過指揮者就是主 session，但這一頁隔了一張動畫圖，
+              而且四張卡只有這一張寫的是角色不是做法，讀起來像又多了一個人。
+              第一句改成直接否定那個誤會。**這一句不要刪。**
+            */}
             <p className="text-slate-300 text-xs leading-relaxed">
-              它把大任務切成小塊、決定誰做、最後驗收。
+              <strong>指揮者不是你，是你正在對話的那個 Claude。</strong>
+              你交代一件事，它把大任務切成小塊、決定誰做、最後驗收。
               <strong>你還不確定該怎麼做的時候用它</strong>，它會看著中間產出隨時調整計畫。
             </p>
           </AnimatedBlock>
@@ -270,12 +302,13 @@ export default function SlideRoles() {
           <AnimatedBlock stepIndex={5} className={`bg-slate-900 p-5 rounded-2xl border transition-colors duration-500 ${currentStep >= 5 ? 'border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.15)] bg-amber-950/20' : 'border-slate-800 opacity-60'}`}>
             <h4 className="text-lg font-bold text-amber-400 mb-1 flex justify-between items-center">
               <span>流程腳本 (Workflow)</span>
-              <span className="text-xs font-mono text-slate-500">適合：每次都一樣的流程</span>
+              <span className="text-xs font-mono text-slate-500">適合：同一套事要做很多遍</span>
             </h4>
             <p className="text-slate-300 text-xs leading-relaxed">
-              把分工寫成固定的步驟腳本，每次都照同一套跑。
-              <strong>不能臨機應變，但每次都會走完同樣的步驟</strong>，步驟已經確定、要重複很多次的時候用它。
-              <strong>這一種 Claude Code 現在有內建的做法，腳本不用你自己寫。</strong>
+              前三種的下一步都是 Claude 現場決定；這一種先寫成一支腳本：分成哪幾個階段、
+              每個階段同時派幾個、誰的產出要交給誰覆核，全部寫在裡面。
+              <strong>所以它一次派得動幾十個，而且每跑一次都是同一個形狀</strong>，代價是中途不改計畫。
+              腳本是 Claude 幫你寫的，不用你自己寫。
             </p>
           </AnimatedBlock>
         </div>

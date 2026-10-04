@@ -9,7 +9,7 @@ const HARVEST =
 
 // 用字串保存，逐行 render。直接把換行寫在 JSX 裡的話，JSX 會把行與行之間的
 // 換行摺成一個空格，整份 md 會擠成一大段。
-const CLAUDE_MD = `# 專案架構與開發紀律
+const CLAUDE_MD = `# 專案架構與開發規範
 
 ## 1. 核心流程 (Core Workflow)
 - 在動任何檔案之前，必須先讀取 \`docs/SDD.md\` 了解系統設計。

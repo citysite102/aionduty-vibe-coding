@@ -59,6 +59,16 @@ export default function SlideGoalCommand() {
           你把條件寫成一句話，它自己跑到條件成立為止。
           <strong className="text-slate-100">省掉的是每一輪催它，不是想清楚什麼叫做完。</strong>
           那五題還是你要寫。
+          {/*
+            2026-10-04：學員上一頁才手寫完四個中括號，這一頁就冒出一個內建指令吃掉那一段，
+            最可能的結論是「原來剛才那段是白寫的」。這一句把取捨講明：/goal 吃的是其中兩塊，
+            另外兩塊（目標、邊界）還是要你自己交代。**不要刪。**
+          */}
+          <span className="block mt-2 text-slate-400">
+            手寫那四塊不是白寫的：<code className="font-mono text-orange-300">/goal</code>{' '}
+            吃的是其中兩塊（什麼叫做完、怎麼驗），目標跟邊界還是要你自己講一次。
+            差別只在誰發動下一輪。
+          </span>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>

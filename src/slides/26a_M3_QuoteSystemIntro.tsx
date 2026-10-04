@@ -18,9 +18,32 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *
  * 標題也一起改。原本是「把分工放進一個中型專案」，但五格裡只有第四格跟分工有關，
  * 其餘四格是需求、結構、資料、推進，標題承諾的東西頁面上沒有那麼多（D-5）。
+ *
+ * 2026-10-04（講師）：「這個案例要引導學員學一個專案的建構流程，以及自己要負責哪些部分。」
+ * 原本第二塊只寫「這一段沒有新東西⋯看流程就好，不用開新專案」，兩個問題：
+ *
+ *   一、**不是真的沒有新東西**。主檔與明細、狀態流轉、金額用整數分存，三個都是新的，
+ *      而且是這一段最難的三個。那句話會讓跟不上的學員以為是自己的問題。
+ *   二、「看流程就好」把整段都劃成旁觀，但第一塊（User Story、三題、範圍）學員自己做得到，
+ *      而且那正是這一段最值得帶走的東西。現在口徑改成分開講：哪一段跟著做、哪一段看過去。
+ *
+ * `SPLIT` 那一塊是講師問題的正面回答（你負責什麼、交出去什麼）。
+ * **它跟 26e 第一塊的「前兩步你只做兩件事」是同一條線，改一邊要看另一邊（B-4）。**
  */
+
+/** 這一段裡哪些是你的、哪些交給它。對應 26e 前兩步的分工。 */
+const SPLIT = [
+  {
+    t: '你負責',
+    v: '這個產品給誰用、為了什麼、這一輪做到哪裡、哪些不做。以及它每產出一份東西，你同不同意。',
+  },
+  {
+    t: '交給它',
+    v: '資料表怎麼切、API 怎麼定、畫面骨架怎麼搭、程式碼怎麼寫。這幾件你不用會，但要看得懂它問你的問題。',
+  },
+];
 const PIECES = [
-  { n: '1', icon: FileText, title: '需求說明', note: '誰要用、用來完成哪一段工作' },
+  { n: '1', icon: FileText, title: '需求與範圍', note: '角色、他們的 User Story、要不要後端' },
   { n: '2', icon: ArrowRightLeft, title: '產品結構', note: '由哪幾層組成、各層怎麼串' },
   { n: '3', icon: Database, title: '資料基礎', note: '客戶、品項、報價單與明細' },
   { n: '4', icon: Palette, title: '規範與審查', note: '表單、狀態、金額欄位，以及誰負責挑錯' },
@@ -40,15 +63,23 @@ export default function SlideQuoteSystemIntro() {
           </p>
         </AnimatedBlock>
 
-        {/* 學員在這裡最想知道的兩件事：我要不要跟著做，以及這是不是又一個新主題 */}
+        {/* 學員在這裡最想知道的兩件事：我要不要跟著做，以及這一段裡哪些是我的工作 */}
         <AnimatedBlock stepIndex={2} className="rounded-xl border border-sky-500/25 bg-sky-500/5 p-6">
           <p className="text-slate-200 text-base leading-relaxed">
-            <strong className="text-sky-300 font-bold">這一段沒有新東西。</strong>
-            需求怎麼描述、前端後端跟資料庫怎麼分、手冊寫什麼、審查者怎麼設，前面都教過了，
-            這裡是第一次把它們放進同一個題目。
+            <strong className="text-sky-300 font-bold">這一段練的是一個專案怎麼從一句話長出來。</strong>
+            前端後端怎麼分、資料庫是什麼、手冊寫什麼、審查者怎麼設，前面都教過了，這裡第一次把它們放進同一個題目。
           </p>
-          <p className="text-slate-400 text-base leading-relaxed mt-2">
-            所以看流程就好，不用開新專案，也不取代你的任務計時器。後面那五段指令，等你要做比計時器大的東西時再回來抄。
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+            {SPLIT.map((x) => (
+              <div key={x.t} className="rounded-lg border border-slate-800 bg-slate-950 px-4 py-3">
+                <div className="text-slate-200 text-sm font-bold mb-1">{x.t}</div>
+                <p className="text-slate-400 text-sm leading-relaxed">{x.v}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-slate-400 text-base leading-relaxed mt-3">
+            第一塊換成你自己的題目做一次：列出角色、寫出他們各自要完成的事、再回答三個問題。
+            後面的資料表、API 與那五段指令是示範，等你要做比計時器大的東西再回來抄。
           </p>
         </AnimatedBlock>
 

@@ -24,6 +24,7 @@ import Slide04b2 from './slides/04b2_LLM_Prompt';
 import Slide04b3 from './slides/04b3_LLM_PromptDrill';
 import Slide04b4 from './slides/04b4_LLM_PromptPractice';
 import Slide05 from './slides/05_Intro_Cases';
+import Slide04b5 from './slides/04b5_LLM_Expiry';
 import Slide07 from './slides/07_Div_Terminal';
 import Slide07b from './slides/07b_Div_TerminalTrack';
 import Slide09 from './slides/09_M1_CodeIntro';
@@ -52,6 +53,7 @@ import Slide12c from './slides/12c_M1_ApiHandsOn';
 import Slide13 from './slides/13_M1_Example2';
 import Slide13b from './slides/13b_M1_Example3';
 import Slide14 from './slides/14_M1_Boundaries';
+import Slide11e2 from './slides/11e2_M1_PromptGuide';
 import Slide15 from './slides/15_M1_Workflow';
 import Slide17 from './slides/17_M1_Error';
 import Slide18b from './slides/18b_M1_Quiz';
@@ -99,9 +101,11 @@ import SlideDivTeam from './slides/22_Div_MultiAgent';
 import Slide23 from './slides/23_M3_MultiAgent';
 import Slide24 from './slides/24_M3_Roles';
 import Slide24b from './slides/24b_M3_Workflows';
+import Slide24c from './slides/24c_M3_WorkflowUse';
 import Slide25 from './slides/25_M3_Quality';
 import Slide25b from './slides/25b_M3_HandsOn';
 import Slide25c from './slides/25c_M3_TeachingSim';
+import Slide25d from './slides/25d_M3_ProductTeam';
 import Slide26a from './slides/26a_M3_QuoteSystemIntro';
 import Slide26b from './slides/26b_M3_QuoteSystemRequirements';
 import Slide26c2 from './slides/26c2_M3_QuoteSystemArchitecture';
@@ -159,6 +163,7 @@ const LIVE_TITLES = [
   "講不清楚的版面，直接給 AI 看參考圖",
   "送出需求前先問：代稱、邊界、能不能給它看",
   "換你改這兩句模糊的需求描述",
+  "哪些會過期，哪些不會",
   "Claude Code 實作與網頁開發基礎",
   "為什麼要一個能動手的 AI？",
   "AI 真的做得出完整專案嗎？",
@@ -177,6 +182,7 @@ const LIVE_TITLES = [
   "按按看，檔案怎麼從資料夾走到 GitHub",
   "Claude Code 桌面版",
   "Claude Code 指令的四種類型",
+  "官方指南怎麼查，現在寫了什麼",
   "Agent 的一輪：探索、計畫、執行、驗證",
   "正式版計時器：把畫面寫成一份規格",
   "四個沒講清楚就會被它自己決定的地方",
@@ -232,13 +238,15 @@ const LIVE_TITLES = [
   "手冊的四個成果，收在同一個檔案裡",
   "Agent 分工與品質控管",
   "三個角色：指揮者、執行者、審查者",
-  "指揮者、單一執行者、自治團隊、流程腳本",
-  "一次派很多個子代理：workflow 怎麼用",
+  "四種分工方式，各適合什麼時候用",
+  "workflow：Claude 寫腳本，一次派出幾十個",
+  "什麼時候用 workflow，怎麼叫它出來",
   "設一道會退回的品質防線",
   "動手做一個審查子代理",
   "用講師、學生、觀察員跑一次教學模擬",
+  "一個產品團隊的角色，各自讀哪一份規範",
   "一個中型專案，從需求拆到踩雷",
-  "報價系統要給誰用、做什麼、填什麼",
+  "由 User Story 開始",
   "先畫出產品由哪幾層組成",
   "資料庫先只講四張表",
   "規範寫在哪：docs、設計準則、CLAUDE.md",
@@ -246,22 +254,22 @@ const LIVE_TITLES = [
   "中型專案的五個卡點：從需求長大到畫面走偏",
   "審查子代理、一次實測、分工不是多開對話",
   "Agent 循環開發流程與實戰案例",
-  "與其自己一直下提示，不如讓它自己跑",
+  "什麼是 Loop Engineering？",
   "交代一輪工作的五個步驟",
   "Agent 原地打轉時能做的四個動作",
-  "三種把關：Lint、型別、開瀏覽器點一次",
+  "讓它自己驗：開瀏覽器點一次",
   "紅字要讀的三件事：在哪裡、什麼事、怎麼做",
   "放手之前，先設好五道邊界",
   "讓計時器自己跑完一輪",
   "Agent 自己跑的時候，你在旁邊看什麼",
   "/goal：條件寫一次，它自己跑到達成",
-  "你寫的是規格，還是願望",
+  "規格驅動與測試驅動：你剛做的那兩件事",
   "幫計時器加上航行日誌",
   "把專案推上 GitHub，它才不只在這台電腦",
   "金鑰和客戶資料不能跟著推上去",
   "部署上線：Vercel 與 GitHub Pages 兩條路",
   "手機打開，紀錄卻是空的",
-  "部署前，叫它寫一份 DEPLOY.md",
+  "DEPLOY.md：服務、資料、排程、金鑰",
   "案例一：器 VESSEL",
   "一份規格要寫哪些欄位",
   "把形容詞翻成可以檢查的條件",
@@ -293,6 +301,7 @@ const LIVE_SLIDES = [
   Slide04b2,
   Slide04b3,
   Slide04b4,
+  Slide04b5,
   Slide07,
   Slide09,
   Slide09a,
@@ -311,6 +320,7 @@ const LIVE_SLIDES = [
   Slide10e1,
   Slide11b,
   Slide11e,
+  Slide11e2,
   Slide15,
   Slide12,
   Slide12b,
@@ -368,9 +378,11 @@ const LIVE_SLIDES = [
   Slide23,
   Slide24,
   Slide24b,
+  Slide24c,
   Slide25,
   Slide25b,
   Slide25c,
+  Slide25d,
   Slide26a,
   Slide26b,
   Slide26c2,
@@ -423,12 +435,12 @@ const IS_CLEAN = PARAMS.get('clean') === '1';
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 4, label: 'Vibe Coding 與 Agentic Engineering' },
-  { start: 14, label: 'Claude Code 實作與網頁開發基礎' },
-  { start: 41, label: '選修：終端機與 Claude Code 安裝' },
-  { start: 46, label: 'Agent 運作框架與 CLAUDE.md' },
-  { start: 75, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 85, label: 'Agent 分工與品質控管' },
-  { start: 100, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 15, label: 'Claude Code 實作與網頁開發基礎' },
+  { start: 43, label: '選修：終端機與 Claude Code 安裝' },
+  { start: 48, label: 'Agent 運作框架與 CLAUDE.md' },
+  { start: 77, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { start: 87, label: 'Agent 分工與品質控管' },
+  { start: 104, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

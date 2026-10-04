@@ -27,7 +27,7 @@ import type { RecordedMeta } from '../types';
  * 最後查證：2026-10-03，對照 code.claude.com/docs/en/memory。
  * 子目錄那一份：「Files in subdirectories load on demand when Claude reads files in those
  * directories.」paths 的 glob 能挑副檔名與跨資料夾（文件那張表列了四種樣式：任一層的 .ts、
- * src 底下全部、根目錄的 .md、某個資料夾裡的 .tsx），而且沒寫 paths 的規則檔是開場就全載的
+ * src 底下全部、根目錄的 .md、某個資料夾裡的 .tsx），而且沒寫 paths 的規則文件是開場就全載的
  * （「Rules without a `paths` field are loaded unconditionally」），所以 paths 不能省。
  * 兩種的載入時機相同，差別只有範圍怎麼指定。下次改版前先重查那兩節。
  */

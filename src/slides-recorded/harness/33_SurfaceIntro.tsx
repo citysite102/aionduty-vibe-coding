@@ -34,7 +34,7 @@ const SURFACES = [
   },
   {
     name: 'Claude Code',
-    where: '終端機，或桌面版的 Code（你前面一直在用的那個）',
+    where: '終端機，或桌面版的 Code',
     files: '整個專案資料夾',
     act: '能執行指令、跑測試、版控',
     lead: true,
@@ -45,8 +45,12 @@ export const meta: RecordedMeta = {
   id: 'harness-33-surface-intro',
   title: '網頁、Cowork、Claude Code 差在哪',
   script:
-    '到這裡，你手上已經有一份自己的 CLAUDE.md 了。它是放在你電腦上的一個檔案，而且只有 Claude Code 讀得到。可是你不會每天都開終端機，有時候只是想在網頁上問一句話。那前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手，表上那兩欄就是這兩件。網頁版要用的話，在 claude.ai 開一個 Project，把手冊的內容貼進專案指示那一欄，它每次對話都會帶上。',
-  seconds: 45,
+    '到這裡，你手上已經有一份自己的 CLAUDE.md 了。它是放在你電腦上的一個檔案，而且只有 Claude Code 讀得到。可是你不會每天都開終端機，有時候只是想在網頁上問一句話。那前面學的要重學嗎？不用。手冊怎麼寫、分層怎麼分、規則該放哪，三個地方都成立。會變的只有兩件事：它碰得到哪些檔案，以及它能不能自己動手，表上那兩欄就是這兩件。那網頁版怎麼讀到你這份手冊？到 claude.ai 開一個 Project，把 CLAUDE.md 這個檔案直接上傳到專案知識庫，或者把裡面的內容貼進專案指示那一欄，兩種做法它每次對話都會帶上。',
+  seconds: 51,
+  // 2026-10-04 標 reference。這一頁是三個入口並排的對照表，學員會停在上面逐列看，
+  // 再加上「網頁版怎麼讀到同一份手冊」那一段實際步驟，就壓不回 160 字。
+  // 同 32_Cheat_Tools 的理由：拿掉任何一列或那段步驟，它就不是查得到答案的那張表了。
+  kind: 'reference',
   from: 72,
 };
 
@@ -56,8 +60,8 @@ export default function RecSurfaceIntro() {
       <RecPage className="space-y-5">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-3">
-            你手上那份 <code className="font-mono text-orange-300">CLAUDE.md</code>{' '}
-            放在自己的電腦上，只有 Claude Code 讀得到。想改用網頁版問一句話，要重學嗎？
+            你前面一直在用的是 Claude Code。不開終端機的時候，同一個 Claude 還有另外兩個入口。
+            那你那份 <code className="font-mono text-orange-300">CLAUDE.md</code> 要重寫嗎？
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             不用。寫法三個地方通用，<Key>差別只在它碰得到什麼</Key>
@@ -86,6 +90,21 @@ export default function RecSurfaceIntro() {
               <div className="text-slate-400 text-lg leading-snug self-center">{s.act}</div>
             </div>
           ))}
+        </AnimatedBlock>
+
+        {/*
+          2026-10-04 補這一塊。講師兩個問題：「Claude Project 應該說可以把 CLAUDE.md
+          上傳到 Claude Project？」以及「同學會困惑怎麼突然講到這三個地方」。
+          原本只有口白提到貼進專案指示，畫面上一個字都沒有，而上傳成檔案才是多數人
+          會做的那一條（第一列的「只有你上傳的那些檔案」本來就在講這件事，卻沒有接起來）。
+          「專案知識庫（Project knowledge）」是 Claude 介面上的中文標籤，照抄不要改寫（D-4）。
+        */}
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-sky-500/25 bg-sky-500/5 px-7 py-4">
+          <p className="text-slate-300 text-lg leading-relaxed">
+            網頁版要用同一份手冊：在 claude.ai 開一個 Project，把{' '}
+            <code className="font-mono text-orange-300">CLAUDE.md</code>{' '}
+            上傳到專案知識庫（Project knowledge），或把內容貼進「專案指示」。
+          </p>
         </AnimatedBlock>
       </RecPage>
     </SlideLayout>

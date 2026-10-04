@@ -19,16 +19,33 @@ export default function SlideSafety() {
           <div className="absolute right-0 top-0 opacity-10 p-6 pointer-events-none">
             <BrainCircuit size={120} />
           </div>
+          {/*
+            2026-10-04：開場原本是「越是專業的人，越容易卡關」加一段「真正該問的不是
+            它夠不夠好，而是我有沒有設計出容錯的流程」。兩個問題：那是 D-2 禁的
+            「不是 X，而是 Y」對仗，而且整段在講學員的心態，不在講這一頁的五道邊界。
+            現在開場接住上一頁、並帶出下一頁要做的事（讓它自己跑一輪），邊界要在那之前設好。
+            **不要再把心態的話放回這個位置。**
+          */}
           <div className="relative z-10 md:w-5/6">
             <h3 className="text-xl font-bold text-sky-400 mb-2 tracking-wide flex items-center gap-3">
               <Flame size={20} className="text-sky-400" />
-              越是專業的人，越容易卡關
+              下一頁就要讓它自己跑一段，中間沒有人在旁邊按同意
             </h3>
             <p className="text-slate-300 text-base leading-relaxed mb-2">
-              越熟練的人越容易停在對 AI <strong className="text-slate-100">現階段可靠性的既有判斷</strong>上：「反正它做不好，不如我自己來」。但模型持續在進步，真正該問的不是「它夠不夠好」，而是<strong className="text-white mx-1">「我有沒有設計出容錯的流程」</strong>。
+              前面每一步它都會停下來問你。一旦改成自己跑，它會連續動好幾十次檔案與指令，
+              <strong className="text-slate-100">而你多半是跑完才看結果</strong>。
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
-              而容錯流程的前提是：<strong className="text-slate-200">先知道哪裡會出事</strong>。
+              所以要先把會出事的五個地方擋起來。
+              {/*
+                2026-10-04：前面那段話（交代一輪工作的五個步驟、讓計時器自己跑完一輪）
+                也用「邊界」這個詞，但那裡指的是這一輪能動哪些檔案、能跑幾輪。
+                兩個意思隔著四頁，學員走到這裡會以為是同一件事的展開。這一句把它們分開。
+              */}
+              <span className="block mt-2">
+                前面那段話裡的「邊界」管的是這一輪能動哪些檔案；
+                <strong className="text-slate-200">這五道管的是做錯了收不回來的那幾件。</strong>
+              </span>
             </p>
           </div>
         </AnimatedBlock>

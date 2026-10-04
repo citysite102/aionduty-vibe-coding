@@ -6,23 +6,55 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 不會知道自己已經被帶偏了。watch 寫的是這一步特有的失誤，
  * 跨步驟的通病留給下一頁的五個風險，兩邊不要重複。
  */
+
+/**
+ * 2026-10-04（講師要求逐條查缺口）補了五處：
+ *
+ *   1. 第 1 步的 Prompt 原本寫「內容照我們前面談的填」。學員按複製貼過去，
+ *      新開的對話看不到「前面談的」是什麼，它只會自己編四份文件出來
+ *      （CLAUDE.md A-4，這個坑課裡記載踩過兩次）。當時的修法是把四個檔名與各自的主題
+ *      塞進字串，但**主題不是內容**，Claude 拿到四個標題一樣會整套編出來。
+ *   2. 第 5 步要用 `quote-reviewer`，但五步裡沒有一步建它。
+ *      〈審查子代理、一次實測、分工不是多開對話〉才講明它「沒有真的建」，
+ *      而學員在這一頁讀到第 5 步會以為自己漏做了一步。補 `setup` 那一行。
+ *   3. 第 3 步是最大的一步（四個資料結構＋兩個 API＋兩個畫面），原本沒要求先報計畫。
+ *      〈交代一輪工作的五個步驟〉第五步與案例一第 2 步都用 plan 模式，這裡最該用。
+ * 2026-10-04 第二輪（講師）：第 1 步真正的毛病是**把學員答得出來的跟答不出來的塞在同一步**。
+ * 他答得出來的是需求（誰用、為了什麼、做到哪裡、哪些不做），答不出來的是資料表與 API 契約。
+ * 所以第 1 步現在只做一份 `docs/brief.md`，而且 Prompt 的前半就是〈先寫一句 User Story，
+ * 再決定要不要後端〉那一頁的四段，學員貼過去不需要自己生內容。
+ * 技術文件那三份移到第 2 步，改成**由 Claude 從 brief 推導草稿、列出「我替你做了哪些決定」
+ * 交給學員逐條核可**，順勢把舊的第 2 步（請它回頭檢查缺口）併進來，維持五步。
+ * **第 1 步的 Prompt 內容要跟那一頁的 User Story 與 SCOPE 一字對得起來，改一邊要改另一邊（B-4）。**
+ *
+ *   4、5. 五步跑完沒有任何一次「打開畫面看一眼」，也沒有存檔點。
+ *      兩個都是跨步驟的習慣不是某一步的失誤，所以不塞進 watch，另開底下那一塊。
+ *      它跟下一頁的五個卡點不衝突：那五個是症狀，這兩件是每一步之間都要做的動作。
+ */
 const STEPS = [
   {
-    title: '建立專案規格檔',
+    title: '把你知道的那幾句整理成一份需求',
+    setup: '這一段的內容就是上一頁你填的那四段，不用另外想。',
     prompt:
-      '請建立 docs/quote-brief.md、docs/data-model.md、docs/api-contract.md、docs/ui-guidelines.md 四份文件，內容照我們前面談的填。這一步只寫文件，不要寫任何功能程式碼，也不要建資料庫。',
-    watch: '它很容易直接開始寫功能。看到 src/ 底下多出檔案就停下來，退回這一步。',
+      '我要做一個報價系統。身為業務助理，我要建一張報價單送給主管確認，為了當天就能回覆客戶。' +
+      '這一輪要做：選客戶、加入品項、算稅金與折扣、送出一份可以寄給客戶的報價單。' +
+      '必填欄位：客戶名稱、有效期限、幣別、品項、數量、單價、稅金、付款條件。' +
+      '這一輪不做：金流、庫存扣帳、完整 CRM、登入，也不做動畫與深色模式。' +
+      '主管沒按確認就不能送出，這一條要擋在後端。' +
+      '請把上面整理成 docs/quote-brief.md。我沒講到的不要自己補，列成問題問我。' +
+      '這一步只寫這一份文件，不要寫程式、不要建資料庫、也不要產出其他文件。',
+    watch: '它很容易順手把資料表跟 API 一起生出來。多出 docs/quote-brief.md 以外的檔案就停下來。',
   },
   {
-    title: '請它回頭檢查缺口',
+    title: '請它推導技術文件，決定留給你核可',
     prompt:
-      '讀完那四份文件，列出 5 個你還不確定的地方，特別檢查需求、資料欄位與 API 回應這三邊有沒有對不上。只列問題，不要改檔案，也不要開始實作。',
-    watch: '它一個問題都提不出來，代表文件太模糊到無從比對。回頭把欄位寫具體再問一次。',
+      '照 docs/quote-brief.md 草擬三份文件：docs/data-model.md（有哪幾張表、各自哪些欄位）、docs/api-contract.md（路徑、送什麼、回什麼、錯誤格式）、docs/ui-guidelines.md（列表、表單、金額與狀態怎麼顯示）。每一份最後列出「我替你做了哪些決定」，那幾條我要逐條回你可以或不可以。quote-brief.md 沒寫到的不要自己定，標 TODO 問我。這一步還是不要寫程式。',
+    watch: '它一條決定都列不出來，代表它在照抄 quote-brief.md 而不是推導。叫它重列，問它「哪些欄位是 quote-brief.md 沒講的」。',
   },
   {
     title: '建立資料、API 與畫面骨架',
     prompt:
-      '照 data-model.md 建立客戶、品項、報價單、明細四個資料結構，照 api-contract.md 實作 GET /api/customers 與 POST /api/quotes，並建立報價列表與編輯頁的畫面骨架。金額一律用整數分儲存。先用假資料，這一步不要接真的資料庫。',
+      '照 data-model.md 建立客戶、品項、報價單、明細四個資料結構，照 api-contract.md 實作 GET /api/customers 與 POST /api/quotes，並建立報價列表與編輯頁的畫面骨架。金額一律用整數分儲存。先用假資料，這一步不要接真的資料庫。動手之前先把計畫列給我看，我說可以再開始。',
     watch: '金額用小數會在加總時差幾分錢，事後很難回頭改，所以要在這一步就講明。',
   },
   {
@@ -33,6 +65,7 @@ const STEPS = [
   },
   {
     title: '交給子代理審查',
+    setup: '這個角色要先建，建法跟你剛才那個 code-reviewer 一樣，只有標準換成報價的欄位規則。',
     prompt:
       '請 quote-reviewer 檢查目前的報價流程缺哪些必要資訊。缺哪一欄就列出哪一欄，不要自己補資料。先列問題，不要動任何檔案。',
     watch: '它回「看起來沒問題」就是退回條件沒寫清楚，補上「缺什麼要逐項列出」再跑一次。',
@@ -46,6 +79,10 @@ export default function SlideQuoteSystemPrompts() {
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
             中型專案要分段下指令。每一步都讓 Agent 先產出可檢查的規格檔、畫面骨架或資料結構，再往下一步。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mt-2">
+            <strong className="text-slate-200">前兩步你只做兩件事：把你知道的講出來，然後核可它推導的東西。</strong>
+            資料表怎麼切、API 怎麼定，不用你寫。
           </p>
         </AnimatedBlock>
 
@@ -62,6 +99,9 @@ export default function SlideQuoteSystemPrompts() {
                 <div className="flex items-start gap-3">
                   <ArrowRight aria-hidden="true" size={16} className="hidden md:block text-slate-700 shrink-0 mt-1" />
                   <div className="min-w-0">
+                    {step.setup && (
+                      <p className="mb-2 text-slate-300 text-xs leading-relaxed">※ {step.setup}</p>
+                    )}
                     <p className="font-mono text-xs md:text-sm leading-relaxed text-slate-400 break-words">{step.prompt}</p>
                     <p className="mt-2 flex items-start gap-2 text-amber-200/70 text-xs leading-relaxed">
                       <AlertTriangle aria-hidden="true" size={13} className="text-amber-500 shrink-0 mt-0.5" />
@@ -74,7 +114,21 @@ export default function SlideQuoteSystemPrompts() {
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={7} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
+        <AnimatedBlock stepIndex={7} className="rounded-xl border border-slate-800 bg-slate-900 px-6 py-4">
+          <h3 className="text-slate-100 text-base font-bold mb-2">每一步之間，固定做兩件事</h3>
+          <ul className="space-y-1.5 text-slate-400 text-sm leading-relaxed">
+            <li>
+              動手之前先 <code className="font-mono text-slate-300">git commit</code> 一次。
+              第 3、4 步最可能要退回，存檔點是最便宜的保險。
+            </li>
+            <li>
+              第 3、4 步做完，自己打開畫面點一次再往下。
+              <strong className="text-slate-300">它說做完了不算，你點得到才算。</strong>
+            </li>
+          </ul>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={8} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
           <p className="text-slate-300 text-base leading-relaxed">
             這段先不教 SDD，也不要求完整測試，也不接真的資料庫。那要等你確定欄位不會再改了。
           </p>

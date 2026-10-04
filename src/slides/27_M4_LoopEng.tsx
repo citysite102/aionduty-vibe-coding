@@ -196,7 +196,7 @@ const LoopEngineeringAnimation = () => {
 
 export default function SlideLoopEngineering() {
   return (
-    <SlideLayout title="與其自己一直下提示，不如讓它自己跑" subtitle="Loop Engineering" icon={RefreshCw}>
+    <SlideLayout title="什麼是 Loop Engineering？" subtitle="Loop Engineering" icon={RefreshCw}>
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_400px] gap-8 mt-6 items-stretch">
 
         <div className="space-y-4 flex flex-col justify-between h-full">
@@ -217,11 +217,12 @@ export default function SlideLoopEngineering() {
                 把「每一輪催它」交給系統，你只寫條件
               </h3>
               <p className="text-slate-300 text-base leading-relaxed font-medium mb-6">
-                Loop Engineering 的核心主張是：<strong className="text-sky-400 font-bold mx-1">把「反覆下提示」這件事交給系統，而不是自己一直手動做。</strong><br/><br/>
+                你前面每做一步都要回來打一句話。這一段要換的就是這件事：
+                條件寫一次，之後的每一輪由系統自己發動。<br/><br/>
                 各大模型與框架（例如 Claude Code）陸續加入「讓它跑久一點」的能力，給 AI 足夠的時間與運算去試錯、去驗證。
               </p>
 
-              <div className="bg-[#0f111a] p-5 rounded-xl border border-slate-800 relative overflow-hidden">
+              <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-sky-500/10 rounded-bl-full pointer-events-none"></div>
                 
                 <p className="text-slate-400 text-sm leading-relaxed mb-3">

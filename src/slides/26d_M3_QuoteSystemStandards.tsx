@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 const FILES = [
   { path: 'CLAUDE.md', note: '專案規則、開發流程、交付前檢查' },
-  { path: 'docs/quote-brief.md', note: '需求與不做事項' },
+  { path: 'docs/quote-brief.md', note: 'User Story、這一輪做什麼、哪些不做' },
   { path: 'docs/data-model.md', note: '四張表與欄位說明' },
   { path: 'docs/api-contract.md', note: 'Request、Response 與錯誤格式' },
   { path: 'docs/ui-guidelines.md', note: '表單、列表、金額與狀態顯示' },

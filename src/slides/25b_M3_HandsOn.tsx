@@ -12,6 +12,19 @@ import { Callout } from '../components/Callout';
  */
 
 /**
+ * 2026-10-04（講師）：兩件事一起改。
+ *
+ * 一、上一頁〈設一道會退回的品質防線〉講「審查子代理要寫三件事」，這一頁給的設定檔裡三件事都在，
+ *    但沒有標出來，所以兩頁讀起來像各講各的。做法不是在旁邊加一張對照表，是**直接把那三件事
+ *    寫成設定檔裡的三個 `##` 小標**，標題一字不差抄自上一頁的 `PARTS`。
+ *    **改 `PARTS` 的標題就要同時改這裡的小標（B-6）。**
+ *
+ * 二、原本的設定只有三行散句，學員照抄做不出一份自己的。現在是完整的一份：
+ *    frontmatter 四行 ＋ 一句身分 ＋ 三個小標。逐條檢查那三項刻意只給三項，
+ *    而且都是學員自己那個計時器專案裡驗得出來的。**不要再加第四項**，加了就要往下捲。
+ */
+
+/**
  * 這一頁標題寫「動手做」，但原本沒有 LiveDemo，也沒有「叫它出場」與「怎麼看它有沒有用」
  * 這兩步，所以整個 M3 十幾頁下來學員手上不會多出任何東西。
  *
@@ -23,12 +36,22 @@ import { Callout } from '../components/Callout';
  */
 const FRONTMATTER = `---
 name: code-reviewer
-description: 專門負責挑錯的資深工程師
+description: 專門負責挑錯的資深工程師。改完程式碼之後派它檢查。
 tools: Read, Grep, Glob
 ---
-檢查我改完的檔案。倒數的分鐘數不准寫死在程式裡，CLAUDE.md 要求集中成設定。
-逐條回覆，每條寫「通過」或「不通過」，不通過要指出檔案與第幾行。
-有一條不通過就整份退回，不要自己動手改。`;
+你是這個專案的審查者。只挑錯，不動手改。
+
+## 它拿什麼當標準
+專案根目錄的 CLAUDE.md，還有我這次改過的檔案。
+
+## 它要逐條檢查哪幾項
+1. 倒數的分鐘數有沒有寫死在程式裡（CLAUDE.md 要求集中成設定）
+2. 畫面上的文字有沒有錯字
+3. 有沒有用到 CLAUDE.md 沒寫到的套件
+
+## 什麼情況要退回
+每一項寫「通過」或「不通過」，不通過要指出是哪個檔案、那一行在做什麼。
+只要有一項不通過，最後一行就寫「整份退回」，列出沒過的那幾項，不要自己補。`;
 
 const STEPS = [
   {
@@ -106,6 +129,18 @@ export default function SlideM3HandsOn() {
                       前後各一行 <code className="font-mono text-slate-400">---</code> 缺一不可，
                       Claude Code 靠中間那段認出它是子代理。
                     </p>
+
+                    <div className="mt-3 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
+                      <p className="text-slate-300 text-sm leading-relaxed">
+                        裡面那三個小標，就是上一頁說要寫的三件事，照同一個順序排。
+                        <strong className="text-slate-100">換成別的工作只改小標底下的內容，骨架不動。</strong>
+                      </p>
+                      <p className="text-slate-500 text-sm leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">
+                        最上面那行 <code className="font-mono text-slate-300">tools: Read, Grep, Glob</code>{' '}
+                        是「不准動手改」的前半：它只拿得到讀取用的工具，所以就算想改也改不了。
+                        這一行省略的話，子代理會繼承全部的工具。
+                      </p>
+                    </div>
                   </>
                 )}
               </AnimatedBlock>

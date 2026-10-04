@@ -47,7 +47,18 @@ export default function SlideCaseSpecCheck() {
     >
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        {/*
+          2026-10-04 補最上面這一句。這一頁的形狀（左邊模糊、右邊驗得下去）跟
+          〈你寫的是規格，還是願望〉只隔九頁，學員走到這裡會覺得剛剛看過。
+          差別其實有兩個：那一頁講的是交辦一輪工作的條件，這一頁是一份規格的驗收欄位；
+          而且這一頁多了一種算法（人眼一秒判斷得了的也算）。先把差別講出來。
+        */}
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-base leading-relaxed">
+          同一條判斷標準，前面用在交辦一輪工作上，這裡用在一份規格的驗收欄位上。
+          <strong className="text-slate-300">而且這裡多一種算法：人眼一秒判斷得了的也算。</strong>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <div className="grid grid-cols-2 gap-4 mb-3">
             <div className="flex items-center gap-2 text-rose-300 text-sm font-bold">
               <X size={16} aria-hidden="true" />
@@ -72,7 +83,7 @@ export default function SlideCaseSpecCheck() {
           </ul>
         </AnimatedBlock>
 
-        <Callout tone="good" label="判斷標準" stepIndex={2}>
+        <Callout tone="good" label="判斷標準" stepIndex={3}>
           每一條都要回答得出「有做到」或「沒做到」。機器檢查得了的算，
           <strong className="text-slate-100">人眼一秒判斷得了的也算</strong>，像「拿掉 logo 還認得出是陶藝工作室」那一條。
           寫「要有質感」的人，到了要裝自動檢查那一步會發現根本寫不出規則。
@@ -82,7 +93,7 @@ export default function SlideCaseSpecCheck() {
           {PROMPTS.map((p, i) => (
             <AnimatedBlock
               key={p.title}
-              stepIndex={i + 3}
+              stepIndex={i + 4}
               className="bg-slate-900 border border-slate-800 rounded-2xl p-5"
             >
               <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">

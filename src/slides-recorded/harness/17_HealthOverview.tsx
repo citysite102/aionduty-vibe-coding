@@ -10,7 +10,7 @@ import type { RecordedMeta } from '../types';
  *   1. 標題從「手冊健檢：五步，順序不能換」換成「手冊（CLAUDE.md）健檢五步驟」。
  *      改的時候 `courseUnits.ts` 的 anchor 要一起改（這一頁是單元 6-4 的起點）。
  *   2. 「建議每三個月跑一次」拿掉。三個月沒有出處，是編出來的數字（CLAUDE.md D-2
- *      禁編造的量化數據）。換成兩個學員自己看得到的訊號：手冊超過兩百行（這個數字有出處，
+ *      禁編造的量化數據）。換成兩種學員自己看得到的情況：手冊超過兩百行（這個數字有出處，
  *      官方文件給的目標值，Slide 68 講過），或者同一件事你又跟它講了第二次。
  *   3. Prompt 原本寫「照上面五步整理」，**但學員按複製貼過去，Claude 看不到「上面」是什麼**
  *      （CLAUDE.md A-4：複製鈕拿到的字要自己說得通）。現在五步的名稱與各自要回答什麼
@@ -20,8 +20,8 @@ export const meta: RecordedMeta = {
   id: 'harness-17-health-overview',
   title: '手冊（CLAUDE.md）健檢五步驟',
   script:
-    '手冊越寫越長是正常的，不是你沒紀律，因為每加一條的當下都有理由。所以它需要的不是克制，是一套固定的整理流程。' +
-    '什麼時候跑？不用排時間，看到兩個訊號就跑：手冊超過兩百行，或者同一件事你又跟它講了第二次。' +
+    '手冊越寫越長是正常的，因為每一條加進去的當下都有理由。所以你不用叫自己少寫，你需要的是一套固定的整理流程。' +
+    '什麼時候跑？不用排時間，碰到這兩種情況就跑：手冊超過兩百行，或者同一件事你又跟它講了第二次。你現在那一份還很短，所以接下來這幾頁是用示範手冊走一遍給你看，不是叫你現在就回去跑一次。' +
     '五步：盤點、減法、歸位、加法、修剪。順序不能換，減法一定要排在歸位前面，講到減法的時候會說為什麼。' +
     '下面這段可以直接貼給它。注意它把五步各自要回答什麼都寫進去了，因為你貼過去的時候，它看不到畫面上這張表。' +
     '第一步那裡還多了半句「不要猜我當初為什麼寫」，那一句很重要，下一頁會解釋為什麼。最後那句也別刪：先不要動檔案，列給我看。',
@@ -46,7 +46,7 @@ export default function RecHealthOverview() {
     <SlideLayout title={meta.title} subtitle="The Five-Step Health Check" icon={ClipboardCheck}>
       <RecPage>
         <AnimatedBlock stepIndex={1} className="mb-6">
-          <p className="text-slate-300 text-4xl font-bold leading-snug">五個步驟，<Key>順序不能換</Key><span className="block mt-2 text-slate-500 text-base">兩個訊號就該跑一次：手冊超過兩百行，或同一件事你又講了第二次</span></p>
+          <p className="text-slate-300 text-4xl font-bold leading-snug">五個步驟，<Key>順序不能換</Key><span className="block mt-2 text-slate-500 text-base">手冊超過兩百行，或同一件事你又講了第二次，碰到就跑一次。接下來這幾頁先用示範手冊走一遍，你自己那份還短，不用急著跑</span></p>
         </AnimatedBlock>
 
         {/* 上方流程軌已經列出五個步驟，這裡不再加表頭，只補分隔線把配對框起來 */}

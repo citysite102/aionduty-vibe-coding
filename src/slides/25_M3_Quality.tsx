@@ -1,61 +1,87 @@
 import { ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { Callout } from '../components/Callout';
+
+/**
+ * 2026-10-04 整頁重寫，兩個問題：
+ *
+ * 一、接不上。前一頁（workflow）剛講完一次派幾十個子代理，這一頁直接跳到「設一道品質防線」，
+ *    中間少了那個「所以」。缺的那一句是：派得越多，你越看不完，而它的預設是找一個說得過去的
+ *    說法讓你通過。開場現在就講這件事。**改前一頁或這一頁的時候兩邊要一起看（B-4）。**
+ *
+ * 二、文案與配色。原本左右兩欄的小標是「簡單的 Review」對「有標準的 Reviewer」，
+ *    中英混用而且分不出差別；右欄三條是「先讀範例／依循準則／明確退回」這種四字對仗（D-2）。
+ *    底色用了 `bg-[#0f111a]` 與 `bg-[#050b14]` 兩個硬寫的 hex（A-1 只准用 slate 階）。
+ *    收尾那一塊是置中的大標語，改成一般段落。
+ *
+ * 分工：這一頁只講「為什麼要設」與「設得起來的條件是什麼」，
+ * 實際怎麼建、它退回來的話長什麼樣，在下一頁（動手做一個審查子代理）。**不要在這裡先演一次。**
+ *
+ * 2026-10-04（講師）：這一頁跟下一頁讀起來像各講各的，因為下一頁的設定檔裡三件事都在，
+ * 但沒有標出來。現在 25b_M3_HandsOn 的 STEP 1 底下有一張 `MAPPING` 表把三件事各指到設定裡的哪一句，
+ * **那張表的三個標題直接抄自下面的 `PARTS`。改 `PARTS` 的標題就要同時改那一張表（B-6）。**
+ */
+
+/** 一道防線設不設得起來，看這三件事寫不寫得出來 */
+const PARTS = [
+  {
+    t: '它拿什麼當標準',
+    bad: '「幫我看一下有沒有問題」',
+    good: '指名一份東西讓它對照：合格的報價單長這樣、這個專案的 CLAUDE.md 寫了什麼。',
+  },
+  {
+    t: '它要逐條檢查哪幾項',
+    bad: '「整體品質顧一下」',
+    good: '把項目列出來：欄位有沒有缺、金額規則對不對、用字有沒有踩到禁用詞。',
+  },
+  {
+    t: '什麼情況要退回',
+    bad: '沒寫，所以它都說可以',
+    good: '「只要有一項沒過就整份退回，列出缺的那幾項，不要自己補。」',
+  },
+];
 
 export default function SlideQuality() {
   return (
     <SlideLayout title="設一道會退回的品質防線" subtitle="Quality Defense" icon={ShieldCheck}>
-      
-      <div className="max-w-5xl mx-auto mt-10">
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-3xl p-8 mb-8 shadow-2xl">
-          <div className="flex flex-col md:flex-row items-start gap-8">
-            <div className="text-emerald-400 mt-2 bg-emerald-400/10 p-4 rounded-full border border-emerald-400/20">
-              <ShieldCheck aria-hidden="true" size={48} />
-            </div>
-            <div className="flex-1 w-full">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-100 mb-6">獨立的審查子代理 (Reviewer)</h3>
+      <div className="max-w-5xl mx-auto w-full space-y-4 pb-6">
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[#0f111a] p-5 rounded-2xl border border-slate-800 shadow-inner">
-                  <h4 className="text-lg font-bold text-slate-300 mb-3 border-b border-slate-700 pb-2">簡單的 Review</h4>
-                  <ul className="text-slate-400 text-sm space-y-2 list-disc pl-4 marker:text-slate-600">
-                    <li>只說「幫我看一下有沒有問題」</li>
-                    <li>沒有交代誰是使用者、什麼算合格</li>
-                    <li>沒有標準，AI 想到什麼說什麼</li>
-                    <li>常常說「看起來很好」就放行</li>
-                  </ul>
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <p className="text-slate-300 text-base leading-relaxed">
+            一次派一個你還看得完，一次派三十個就看不完了。
+            <strong className="text-slate-100">而你沒給標準的時候，它預設會找一個說得過去的說法讓你通過</strong>，
+            常見的那一句是「整體結構清楚，沒有明顯問題」。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mt-2">
+            所以派出去的同時要多派一個角色：一個只負責挑錯、而且挑到就把整份退回來的審查子代理。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <h3 className="text-slate-100 text-lg font-bold mb-4">審查子代理要寫三件事，少一件它就會放行</h3>
+
+          <div className="space-y-3">
+            {PARTS.map((p, i) => (
+              <div key={p.t} className="rounded-xl border border-slate-800 bg-slate-950 px-5 py-4">
+                <div className="flex items-baseline gap-3 mb-2.5">
+                  <span className="font-mono text-sm text-slate-600 shrink-0">0{i + 1}</span>
+                  <span className="text-slate-100 text-base font-bold">{p.t}</span>
                 </div>
-                
-                <div className="bg-[#050b14] p-5 rounded-2xl border border-sky-900/50 shadow-inner relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-16 h-16 bg-sky-500/10 rounded-bl-full pointer-events-none"></div>
-                  <h4 className="text-lg font-bold text-sky-400 mb-3 border-b border-sky-900/50 pb-2">有標準的 Reviewer</h4>
-                  <ul className="text-slate-300 text-sm space-y-3 pl-2">
-                    <li className="flex items-start gap-2">
-                      <span className="text-sky-400 mt-0.5">▪</span> 
-                      <span><strong>先讀範例</strong>：參照合格報價單、品牌語氣或過往成功案例。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-sky-400 mt-0.5">▪</span> 
-                      <span><strong>依循準則</strong>：逐項檢查欄位、用字、價格規則與例外條件。</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-sky-400 mt-0.5">▪</span> 
-                      <span><strong>明確退回</strong>：只要缺少必要資訊，就列出缺口，不要替你腦補。</span>
-                    </li>
-                  </ul>
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1.6fr] gap-x-5 gap-y-2">
+                  <p className="text-rose-300/90 text-sm leading-relaxed">✕ {p.bad}</p>
+                  <p className="text-slate-300 text-sm leading-relaxed">✓ {p.good}</p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-sky-950/30 border border-sky-900/50 rounded-2xl p-8 text-center max-w-4xl mx-auto">
-          <h3 className="text-2xl font-bold text-sky-400 mb-4">報價、客服回覆、教材、文案都設得起同一道</h3>
-          <p className="text-slate-300 text-lg leading-relaxed">
-            Code Reviewer 只是最容易理解的例子。寫得出退回條件的地方都設得起：報價審查、客服回覆審查、教材審查、品牌文案審查。
-          </p>
-        </AnimatedBlock>
-      </div>
+        <Callout tone="focus" stepIndex={3}>
+          這三件事寫得出來的工作，都設得起同一個角色：報價單審查、客服回覆審查、教材審查、品牌文案審查。
+          Code Reviewer 只是最容易拿來講的那一個。寫不出「什麼情況要退回」，這個角色就還不成立。
+        </Callout>
 
+      </div>
     </SlideLayout>
   );
 }

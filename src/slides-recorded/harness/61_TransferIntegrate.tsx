@@ -1,6 +1,7 @@
 import { BookOpen, Plug } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
+import { CopyBlock } from '../../components/CopyBlock';
 import { RecPage } from '../_RecPage';
 import type { RecordedMeta } from '../types';
 
@@ -69,13 +70,44 @@ const DOCS = [
  * （你的資料在 Notion、雲端硬碟、公司系統）。新增的 45_TransferHarness 把六塊對回
  * 這份提案工作，這一頁就是那張表的第二列。開場與結尾都改成指回那張表。
  * **改 45_TransferHarness 的第二列時要回來看這一頁。**
+ *
+ * 2026-10-04（第三輪）這一頁從整段最後一頁往前搬到〈換成你自己的工作，怎麼開始〉之前。
+ * 原本擺最後是當加分題（它要開終端機，難度比整段高一階），但那樣六塊對照表上
+ * 「工具」那一格要等到收尾之後才補，而且收尾講完「換成你自己的」又跳回提案這個例子。
+ * 現在順序是：六塊對照 → 把工具補完 → 才換成你自己的。**轉場三句互相指著，不要單獨搬。**
+ *
+ * 2026-10-04（第二輪）：工具那一塊有兩半，這一頁原本只做了接外部資料那一半。
+ * 講師定位 Skill 屬於工具，所以另一半（把固定步驟包起來）也要在這裡落地，
+ * 而且要給這份提案工作真的用得上的 `SKILL.md`，不是再講一次語法
+ * （語法在〈Skill 的三種來源，怎麼確認它裝好了〉教過：一個資料夾一份 SKILL.md、
+ * 開頭寫 name 與 description、name 要跟資料夾名一致）。
+ * 標題跟著改成兩半都講得到。整頁因此超過 160 字，標 `reference`，
+ * 理由同 17_HealthOverview：那段 `SKILL.md` 是給學員停下來抄的。
  */
+
+/**
+ * 這份提案工作真的會用到的 Skill。四個步驟都接回這一段前面建立過的東西：
+ * 各客戶那一份規則（子目錄的 CLAUDE.md，路徑要跟 42_TransferAnswers 那棵樹一致）、
+ * 提案大綱與公司簡介（每次都要重講的那三件）、
+ * 以及成本不能外洩（第 1 題的答案，Hook 擋的那一條）。
+ * **換例子的時候要從這一段已經出現過的材料挑**，不要自己發明新的步驟。
+ */
+const SKILL = `---
+name: client-proposal
+description: 要寫客戶提案時用。使用者說「寫提案」或報出客戶名字就叫它。
+---
+1. 先問是哪一個客戶，讀 clients/<客戶>/CLAUDE.md 的格式要求。
+2. 段落順序照提案大綱走，不要自己加減段。
+3. 公司簡介用最新那一版，不要重寫。
+4. 成本與利潤率一律不要寫進去。
+5. 寫完先列出你用了哪幾份檔案，我確認再輸出。`;
 export const meta: RecordedMeta = {
   id: 'harness-61-transfer-integrate',
-  title: '規則寫完了，但你的資料不在這台電腦上',
+  title: '接上 Notion，再包一個提案 Skill',
   script:
-    '這一頁做的是上一頁那張表的第二列，工具那一塊。你的資料多半不在這台電腦上，它在 Notion、雲端硬碟或公司的系統裡。不用搬家，接上去就好。以 Notion 為例，有兩條路。用網頁版或桌面版的話最簡單，Claude 有一個現成的連接器目錄，Notion 就在裡面，找到它按加入，再到跳出來的 Notion 頁面按同意就好，完全不用碰終端機。要在 Claude Code 裡用才需要打指令：畫面上那一行加入連線，回來跑斜線 mcp 走同一套授權，再用斜線 context 看它佔掉多少 token。這幾行會改版，跑之前先對一次下面那兩份文件。串好之後你不用再複製貼上，它自己去查。如果你的工作確定不需要接外部資料，上一頁那張表的第二列就跟最後兩列一樣，留白就好，這一頁知道有這回事即可。',
-  seconds: 66,
+    '這一頁做的是那張表的第二列，工具那一塊。它有兩半：資料在外面的，接上來；步驟每次都一樣的，包起來。先講第一半。你的資料多半不在這台電腦上，它在 Notion、雲端硬碟或公司的系統裡。這時候要做的不是把資料搬過來，是用 MCP 把那個工具接上來，資料留在原地，它需要的時候自己去查。所以你要找的是這一句：這個工具有沒有支援 MCP。有的話就接得上。以 Notion 為例，有兩條路。用網頁版或桌面版的話最簡單，Claude 有一個現成的連接器目錄，Notion 就在裡面，找到它按加入，再到跳出來的 Notion 頁面按同意就好，完全不用碰終端機。要在 Claude Code 裡用才需要打指令：畫面上那一行加入連線，回來跑斜線 mcp 走同一套授權，再用斜線 context 看它佔掉多少 token。這幾行會改版，跑之前先對一次下面那兩份文件。串好之後你不用再複製貼上，它自己去查。第二半是 Skill。寫提案這件事每次的步驟都一樣：先看是哪個客戶、去讀那個客戶子資料夾底下的 CLAUDE.md、照大綱排、公司簡介用最新那一版、成本不准寫進去、最後列出用了哪幾份檔案。這幾步每次重講一遍很煩，所以把它們存成一個檔案，就是畫面上那一份。位置與寫法前面裝 Skill 那一段講過：一個資料夾放一份 SKILL.md，開頭寫 name 跟 description，名字要跟資料夾一樣。之後你說「寫提案」，它自己就展開這五步。兩半都不是每個工作都要有。確定不需要接外部資料、步驟也還沒固定下來，那張表的第二列就留白，這一頁知道有這回事即可。',
+  seconds: 130,
+  kind: 'reference',
   from: 75,
 };
 
@@ -95,8 +127,8 @@ export default function RecTransferIntegrate() {
         */}
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-2">
-            規則解決完了，還有一件事：你的資料多半不在這台電腦上。
-            不用搬家，接上去就好，以 Notion 為例：
+            工具那一塊有兩半：<strong className="text-slate-300">資料在外面的，接上來；步驟每次都一樣的，包起來。</strong>
+            先講第一半。你的資料多半不在這台電腦上，用 MCP 把那個工具接上來，資料留在原地。以 Notion 為例：
           </p>
           <p className="text-slate-300 text-3xl font-bold leading-snug">
             串好之後<Key>它自己去查，你不用再複製貼上</Key>
@@ -127,7 +159,17 @@ export default function RecTransferIntegrate() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="px-1">
+        {/* 工具的第二半。語法前面教過，這裡只給這份工作真的用得上的那一份 */}
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
+          <h3 className="text-slate-100 text-lg font-bold mb-1">第二半：步驟每次都一樣的，包成一個 Skill</h3>
+          <p className="text-slate-400 text-base leading-relaxed mb-3">
+            寫提案每次都是同一套步驟。存成一個檔案，之後你說「寫提案」，它自己展開這五步。
+            放在 <code className="font-mono text-orange-300">.claude/skills/client-proposal/SKILL.md</code>。
+          </p>
+          <CopyBlock label="SKILL.md" text={SKILL} size="xs" />
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={4} className="px-1">
           <div className="rounded-xl border border-slate-800 bg-slate-900/70 px-5 py-4">
             <div className="flex items-center gap-2 text-slate-300 text-base font-bold mb-2">
               <BookOpen size={18} className="text-sky-400" />

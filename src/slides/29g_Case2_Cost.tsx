@@ -112,6 +112,15 @@ export default function SlideCase2Cost() {
             </strong>
             而你要指定得出那個條件，前提是你知道它存在。
           </p>
+          {/*
+            2026-10-04：原本這一頁的結論是對的，但學員拿不走：它說「你要知道有哪些條件存在」，
+            卻沒給一個不懂的人取得那份清單的方法。補一句做得到的。
+          */}
+          <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+            不懂也用得上的做法：動手之前先問它
+            <span className="text-slate-200">「這個效果在哪些裝置、哪些操作方式下可能會出問題？列出來，先不要改」</span>。
+            它列得出來，那份清單就是你要指定的條件。
+          </p>
         </AnimatedBlock>
 
       </div>

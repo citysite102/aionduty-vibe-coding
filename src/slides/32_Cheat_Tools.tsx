@@ -114,17 +114,18 @@ export default function Slide32() {
     <SlideLayout title="跨工具名詞對照表" subtitle="Universal Translation Map for AI Coding Agents" icon={BookCopy}>
       <div className="max-w-6xl mx-auto w-full space-y-3 pb-4">
 
-        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-sm leading-relaxed">
-          到新工具的第一天，你要找的是這四個東西放在哪裡：
-          <strong className="text-slate-100">手冊叫什麼名字、怎麼切到只想不動手、怎麼派子任務、完成條件寫在哪。</strong>
-          前面講的都是 Claude Code，但這四件事換到 Cursor、Codex 或別家一樣成立，換的只有名字，有一項連名字都一樣。
-        </AnimatedBlock>
+        {/*
+          2026-10-04 拿掉開頭那段「到新工具的第一天，你要找的是這四個東西放在哪裡⋯」。
+          講師：那段不用寫在投影片上，講出來就好。它逐字重複 meta.script 的第一句
+          （D-5：標題與第一句不要講兩次），而底下那張表的三欄本來就在回答同一件事。
+          口白那一份保留，不要再印回畫面上。
+        */}
 
         {/* 整張表（含外框與表頭）跟第一列同時出現，都掛 stepIndex 2。
             原本外框與表頭都沒掛 AnimatedBlock，所以按第一下之前畫面上是
             一個空的大框加一排欄位名。跟 21d4_M2_PartsMap 同一個毛病，
             但那一頁每一列自己有邊框、沒有共用外框，所以只補表頭就夠。 */}
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800">
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800">
           <div className="grid grid-cols-[10rem_1fr_1.35fr] gap-5 px-6 py-3 font-mono text-xs uppercase tracking-widest text-slate-500">
             <span>這件事</span>
             <span className="text-orange-400">Claude Code 叫它</span>
@@ -134,7 +135,7 @@ export default function Slide32() {
           {ROWS.map((r, i) => {
             const Icon = r.icon;
             return (
-              <AnimatedBlock key={r.concept} stepIndex={i + 2} className="px-6 py-2.5">
+              <AnimatedBlock key={r.concept} stepIndex={i + 1} className="px-6 py-2.5">
                 <div className="grid grid-cols-[10rem_1fr_1.35fr] gap-5 items-baseline">
                   <div className="flex items-baseline gap-2.5">
                     <Icon aria-hidden="true" size={16} className="text-slate-500 shrink-0 translate-y-0.5" />
@@ -149,7 +150,7 @@ export default function Slide32() {
           })}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-3.5">
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-3.5">
           <p className="text-slate-400 text-sm leading-relaxed">
             四個都找到就接得上，<strong className="text-slate-200">找不到的那一項，通常代表那個工具還沒做。</strong>
           </p>
