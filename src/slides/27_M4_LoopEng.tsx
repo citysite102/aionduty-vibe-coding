@@ -4,8 +4,13 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 
 /**
- * 收尾那句「這件事後面會專門講怎麼設限與怎麼喊停」指的是 28_M4_Safety（四頁之後），
- * 中間隔著介入時機、把關與讀錯誤三個主題。搬頁之前先確認這句話還指得到（B-4）。
+ * 收尾那句「怎麼設上限、怎麼喊停，下一段整段在講」指的是下一個單元
+ * （27b3 的五個步驟、27b4c 的介入、28_M4_Safety 的五道邊界），
+ * 2026-10-04 重切單元之後那一整支就在講這件事。搬頁之前先確認這句話還指得到（B-4）。
+ *
+ * 上一頁（27a_M4_EngEvolution）已經把 Prompt 到 Loop 這條線走過一遍，
+ * 所以這一頁不要再從「你前面每做一步都要回來打一句話」開場，那是上一頁的收尾。
+ * 這一頁只負責一件事：Loop 換掉的到底是哪一個動作。
  */
 
 const LoopEngineeringAnimation = () => {
@@ -89,8 +94,7 @@ const LoopEngineeringAnimation = () => {
               {/* Bullet points */}
               <div className="mt-10 bg-slate-900/60 border border-slate-800 p-4 rounded-xl text-center max-w-md">
                 <p className="text-xs text-slate-300 font-medium leading-relaxed">
-                  <br />
-                  每一次推進都需要你手動重複：發問、等待、看結果、修正、再發問。
+                  每一次推進都要你手動重複一遍：發問、等待、看結果、修正、再發問。
                 </p>
               </div>
             </motion.div>
@@ -214,12 +218,14 @@ export default function SlideLoopEngineering() {
           <AnimatedBlock stepIndex={2} className="text-left bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-lg flex flex-col justify-between h-full">
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-slate-100 mb-4">
-                把「每一輪催它」交給系統，你只寫條件
+                你寫的是完成條件與邊界，每一輪由它自己發動
               </h3>
               <p className="text-slate-300 text-base leading-relaxed font-medium mb-6">
-                你前面每做一步都要回來打一句話。這一段要換的就是這件事：
-                條件寫一次，之後的每一輪由系統自己發動。<br/><br/>
-                各大模型與框架（例如 Claude Code）陸續加入「讓它跑久一點」的能力，給 AI 足夠的時間與運算去試錯、去驗證。
+                Loop Engineering 換掉的是「誰按下一步」。原本每一輪都要你看完結果、打一句話，它才再動一次；
+                現在你把完成條件與邊界寫在同一段指令裡，之後的每一輪由它自己發動，
+                直到條件達成，或是撞到你設的上限。<br/><br/>
+                這件事能成立，不是因為你把話講得更漂亮，是因為它中間會自己讀回饋：
+                程式有沒有跑起來、測試過不過、瀏覽器上點下去對不對。有回饋，它才知道下一輪要改什麼。
               </p>
 
               <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 relative overflow-hidden">
@@ -236,8 +242,8 @@ export default function SlideLoopEngineering() {
               <h4 className="text-slate-100 font-bold mb-2 text-base">為什麼「多花時間」會有用？</h4>
               <p className="text-slate-400 text-sm leading-relaxed">
                 以前是問一次、答一次，它答完就停。現在是邊界設好之後，讓它花更多時間反覆試、反覆檢查，
-                靠程式碼、環境與測試的回饋自己修正，用多花的運算換更高的正確率（業界叫這件事 Test-time Compute）。
-                它會自己試、自己改，所以也會自己花錢。這件事後面會專門講怎麼設限與怎麼喊停。
+                用多花的運算換更高的正確率，業界叫這件事 Test-time Compute。
+                代價是它會自己試、自己改，所以也會自己花錢。怎麼設上限、怎麼喊停，下一段整段在講。
               </p>
             </AnimatedBlock>
           </AnimatedBlock>

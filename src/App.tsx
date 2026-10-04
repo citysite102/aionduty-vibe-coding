@@ -115,6 +115,7 @@ import Slide26e from './slides/26e_M3_QuoteSystemPrompts';
 import Slide26f from './slides/26f_M3_QuoteSystemRisks';
 import Slide26g from './slides/26g_M3_Harvest';
 import Slide26 from './slides/26_Div_Loop';
+import Slide27a from './slides/27a_M4_EngEvolution';
 import Slide27 from './slides/27_M4_LoopEng';
 import Slide27b3 from './slides/27b3_M4_GoalWorkflow';
 import Slide27b4c from './slides/27b4c_M4_Intervene';
@@ -254,6 +255,7 @@ const LIVE_TITLES = [
   "中型專案的常見卡點",
   "審查子代理、一次實測、分工不是多開對話",
   "Agent 循環開發流程與實戰案例",
+  "從 Prompt 到 Loop：每個階段解掉的卡點",
   "什麼是 Loop Engineering？",
   "交代一輪工作的五個步驟",
   "Agent 原地打轉時能做的四個動作",
@@ -267,7 +269,7 @@ const LIVE_TITLES = [
   "幫計時器加上航行日誌",
   "把專案推上 GitHub，它才不只在這台電腦",
   "金鑰和客戶資料不能跟著推上去",
-  "部署上線：Vercel 與 GitHub Pages 兩條路",
+  "部署上線：把 GitHub 上的專案接上 Vercel",
   "手機打開，紀錄卻是空的",
   "DEPLOY.md：服務、資料、排程、金鑰",
   "案例一：器 VESSEL",
@@ -392,6 +394,7 @@ const LIVE_SLIDES = [
   Slide26f,
   Slide26g,
   Slide26,
+  Slide27a,
   Slide27,
   Slide27b3,
   Slide27b4c,

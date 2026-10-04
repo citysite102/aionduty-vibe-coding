@@ -5,10 +5,10 @@ import { CopyText } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
- * 這一頁接在「部署上線：Vercel 與 GitHub Pages 兩條路」與「手機打開，紀錄卻是空的」後面。
+ * 這一頁接在「部署上線：把 GitHub 上的專案接上 Vercel」與「手機打開，紀錄卻是空的」後面。
  *
  * 為什麼要有它：前面兩頁走的是計時器這一個題目，路線是寫死的（純前端、推上去、
- * 選 Vercel 或 GitHub Pages）。但學員接下來要做的是自己的題目，那個題目可能有
+ * 接 Vercel）。但學員接下來要做的是自己的題目，那個題目可能有
  * 資料庫、可能要排程、可能要長時間跑一段運算，那三種在同一條路線上都會撞牆。
  *
  * 不用教六家平台的差別，理由有兩個：一是那是《工具與選擇策略》那堂課的方法論，

@@ -33,8 +33,16 @@ export default function SlideGoalWorkflow() {
         
         {/* Left Side: 5-step Workflow */}
         <div className="lg:col-span-7 space-y-4">
-          <p className="text-slate-500 text-sm leading-relaxed">
-            報價系統那五個指令，是把一個專案切成五次交代；這五步講的是每一次交代裡面要有什麼。
+          {/*
+            這一句是整支影片的第一段文字（這一頁是單元 8-2 的起點），所以它要自己說得出
+            這一段在幹嘛。2026-10-04 換掉原本那句「報價系統那五個指令，是把一個專案切成
+            五次交代」：那是章節七的東西，隔了兩個單元，開場第一句就往回指會很突然，
+            而且它講的是專案怎麼切，不是這一支在講的「一段指令要寫齊哪五樣」。
+          */}
+          <p className="text-slate-400 text-sm leading-relaxed">
+            這五步是一段指令的骨架。
+            <strong className="text-slate-200">五樣寫齊，它才有辦法自己跑完一輪</strong>；
+            少了哪一樣，它就在那裡停下來問你，或者自己決定一個。
           </p>
           <AnimatedBlock stepIndex={1} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex gap-3.5 items-start">
             <div className="w-8 h-8 rounded-lg bg-sky-500/10 text-sky-400 flex items-center justify-center font-bold font-mono text-sm shrink-0">1</div>
@@ -100,7 +108,7 @@ export default function SlideGoalWorkflow() {
             
             <div>
               <h3 className="text-base font-bold text-sky-400 mb-4 flex items-center gap-2">
-                <Briefcase size={18} /> 三大非工程角色應用實務
+                <Briefcase size={18} /> 其他非工程角色的例子
               </h3>
               
               <p className="text-xs text-slate-400 leading-relaxed mb-4">
