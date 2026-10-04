@@ -16,7 +16,7 @@ import { CopyBlock } from '../components/CopyBlock';
  * 檔名維持灰階不上橘：它們不是 Claude 的專有名詞（A-1）。
  *
  * **這一頁有兩組 `.md`，每一列都要同時印出來，不要只印右邊那一組。**
- * 2026-10-04 講師看版面時問「我以為 PM 就是會有一份 pm.md，而不是 PRD.md？」——他是對的，
+ * 2026-10-04 講師看版面時問「我以為 PM 就是會有一份 pm.md，而不是 PRD.md？」他是對的，
  * `pm.md` 確實存在。當時每一列只印 `PRD.md` 而且沒有欄位名，所以它被讀成「PM 這個角色的檔案」。
  * 兩組的分工是：
  *   `.claude/agents/pm.md`  ＝ 角色本身，寫它是誰、不准做什麼（跟 code-reviewer 同一個骨架）
@@ -149,7 +149,7 @@ export default function SlideProductTeam() {
             <p className="text-slate-400 text-base leading-relaxed mt-2">
               所以每個角色牽涉<strong className="text-slate-200">兩個檔案</strong>：
               <code className="font-mono text-slate-200">.claude/agents/</code> 底下那一份寫它是誰、不准做什麼，
-              跟你剛才那個 code-reviewer 同一個骨架；<code className="font-mono text-slate-200">docs/</code>{' '}
+              跟你前面那個 code-reviewer 同一個骨架；<code className="font-mono text-slate-200">docs/</code>{' '}
               底下那一份是它的標準。下面每一列的箭頭，左邊是角色、右邊是它的標準。
             </p>
           </AnimatedBlock>

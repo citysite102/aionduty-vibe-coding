@@ -17,11 +17,23 @@ import { CopyBlock } from '../components/CopyBlock';
  * 右欄補了學生那一份的完整設定（`STUDENT_AGENT`），挑學生是因為它的「不准」最難寫、也最能看出設計。
  * **那一份要跟左欄學生卡的 `job` 與 `ban` 對得起來，改一邊要改另一邊。**
  * 另外兩個角色刻意不印，三份排在一起會看成要背的範本，而這一頁要學員看的是骨架。
+ *
+ * `description` 最後查證：2026-10-04，code.claude.com/docs/en/sub-agents。
+ * 它是**主 Agent 用來決定什麼時候委派**的欄位（「Claude uses each subagent's description to
+ * decide when to delegate tasks」），官方範例是「Reviews code for quality and best practices.
+ * Use proactively after code changes.」，也就是**做什麼 ＋ 什麼時候用**。
+ * 2026-10-04 講師抓到這一份原本只寫了工作內容的縮寫，而〈動手做一個審查子代理〉的 Callout
+ * 自己就寫著「把 description 寫清楚讓主 Agent 自己判斷要不要派它」，兩頁互相打架。
+ * **三份設定檔（這裡、25b、25d）的 `description` 都要有「什麼時候用」那半句。**
+ *
+ * 底下那段說明不要寫回「小標寫『不准』什麼」：25b 的 code-reviewer 2026-10-04 改成名詞小標
+ * （判斷標準／檢查項目／退回條件）之後那句就不成立了。共通的骨架是 frontmatter ＋ 一句身分 ＋
+ * 幾個 `##` 小標，小標名字看角色換。
  */
 
 const STUDENT_AGENT = `---
 name: student
-description: 沒有工程背景的職場學員，逐頁回報自己聽懂多少
+description: 用沒有工程背景的職場學員視角讀教材，標出看不懂的句子。教材、簡報或說明文件寫完之後派它。
 tools: Read
 ---
 你是一位沒有工程背景的職場工作者，來上這門課。
@@ -31,7 +43,7 @@ tools: Read
 複述不出來就直接寫「我從哪一句開始斷線」，並把那一句抄下來。
 
 ## 不准去查資料
-你只能用這份簡報給你的東西。查到的背景知識會讓你看不出這一頁缺什麼。
+你只能用這份教材裡寫的東西。查到的背景知識會讓你看不出這一頁缺什麼。
 
 ## 怎麼回報
 每一頁三行：我以為它在講什麼、我卡在哪一句、我現在會不會動手做。`;
@@ -98,10 +110,21 @@ export default function SlideTeachingSim() {
             <h3 className="text-base font-bold text-slate-100 mb-3">學生那一份的檔案長這樣</h3>
             <CopyBlock label="子代理設定" text={STUDENT_AGENT} size="xs" />
             <p className="text-slate-400 text-sm leading-relaxed mt-3">
-              跟你剛才那個 code-reviewer 是同一個骨架：
-              <code className="font-mono text-slate-300">tools</code> 只給讀取、
-              小標寫「不准」什麼、最後寫怎麼回報。
-              另外兩個角色換掉內容就好。
+              跟你前面那個 code-reviewer 是同一個骨架：上面四行設定、一句身分，底下幾個{' '}
+              <code className="font-mono text-slate-300">##</code> 小標。
+              小標的名字看角色換，審查者是判斷標準、檢查項目、退回條件，學生是不准什麼、怎麼回報。
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mt-2">
+              <code className="font-mono text-slate-300">description</code>{' '}
+              那一行是寫給主 Agent 看的，它靠這一行決定什麼時候該派這個角色，
+              所以要寫出<strong className="text-slate-200">「做什麼」加「什麼時候用」</strong>，
+              不是把工作內容縮寫一遍。
+            </p>
+            <p className="text-slate-400 text-sm leading-relaxed mt-2">
+              另外，「不准去查資料」那一條不是光靠說的：
+              <code className="font-mono text-slate-300">tools</code> 只給了{' '}
+              <code className="font-mono text-slate-300">Read</code>，
+              它沒有上網的工具，<strong className="text-slate-200">想查也查不了</strong>。
             </p>
           </AnimatedBlock>
 

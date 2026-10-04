@@ -16,8 +16,13 @@ import { Callout } from '../components/Callout';
  *
  * 一、上一頁〈設一道會退回的品質防線〉講「審查子代理要寫三件事」，這一頁給的設定檔裡三件事都在，
  *    但沒有標出來，所以兩頁讀起來像各講各的。做法不是在旁邊加一張對照表，是**直接把那三件事
- *    寫成設定檔裡的三個 `##` 小標**，標題一字不差抄自上一頁的 `PARTS`。
- *    **改 `PARTS` 的標題就要同時改這裡的小標（B-6）。**
+ *    寫成設定檔裡的三個 `##` 小標**。
+ *
+ *    小標用的是名詞（判斷標準／檢查項目／退回條件），不是上一頁 `PARTS` 那種描述句
+ *    （「它拿什麼當標準」）。2026-10-04 講師指出來的：設定檔是寫給那個角色看的，
+ *    裡面不會出現「它拿什麼當標準」這種從外面描述它的句子，真的檔案就是名詞小標。
+ *    **所以兩頁是概念對應，不是逐字相同**，底下那句說明要把三個名詞唸出來，學員才對得上。
+ *    改 `PARTS` 或改這三個小標，另一邊都要回來看（B-6）。
  *
  * 二、原本的設定只有三行散句，學員照抄做不出一份自己的。現在是完整的一份：
  *    frontmatter 四行 ＋ 一句身分 ＋ 三個小標。逐條檢查那三項刻意只給三項，
@@ -41,15 +46,15 @@ tools: Read, Grep, Glob
 ---
 你是這個專案的審查者。只挑錯，不動手改。
 
-## 它拿什麼當標準
-專案根目錄的 CLAUDE.md，還有我這次改過的檔案。
+## 判斷標準
+專案根目錄的 CLAUDE.md。檢查對象是我這次改過的檔案。
 
-## 它要逐條檢查哪幾項
+## 檢查項目
 1. 倒數的分鐘數有沒有寫死在程式裡（CLAUDE.md 要求集中成設定）
 2. 畫面上的文字有沒有錯字
 3. 有沒有用到 CLAUDE.md 沒寫到的套件
 
-## 什麼情況要退回
+## 退回條件
 每一項寫「通過」或「不通過」，不通過要指出是哪個檔案、那一行在做什麼。
 只要有一項不通過，最後一行就寫「整份退回」，列出沒過的那幾項，不要自己補。`;
 
@@ -132,7 +137,7 @@ export default function SlideM3HandsOn() {
 
                     <div className="mt-3 rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
                       <p className="text-slate-300 text-sm leading-relaxed">
-                        裡面那三個小標，就是上一頁說要寫的三件事，照同一個順序排。
+                        判斷標準、檢查項目、退回條件：就是上一頁說要寫的三件事，照同一個順序排。
                         <strong className="text-slate-100">換成別的工作只改小標底下的內容，骨架不動。</strong>
                       </p>
                       <p className="text-slate-500 text-sm leading-relaxed mt-2.5 pt-2.5 border-t border-slate-800">
@@ -188,7 +193,7 @@ export default function SlideM3HandsOn() {
 
           <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
             <p className="text-slate-400 text-sm leading-relaxed">
-              換成你的工作也是同一個檔案，只有角色與標準要改：
+              換成你的工作也是同一種方式，只有角色與標準要改：
               業務可以建 <strong className="text-slate-200">quote-reviewer</strong> 檢查報價缺哪個欄位，
               行銷可以建 <strong className="text-slate-200">brand-reviewer</strong> 檢查用字。
               退回條件寫得出來，這個角色就成立。

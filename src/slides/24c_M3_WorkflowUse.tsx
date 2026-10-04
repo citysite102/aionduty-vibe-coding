@@ -4,14 +4,37 @@ import { Callout } from '../components/Callout';
 import { CopyAction } from '../components/CopyBlock';
 
 /**
- * 最後查證：2026-10-03，對照 code.claude.com/docs/en/workflows。畫面上這幾句的出處：
+ * 最後查證：2026-10-04，對照 code.claude.com/docs/en/workflows。畫面上這幾句的出處：
  *   - 叫出來的方式：`/deep-research` 是唯一的內建 workflow；自己的任務在 prompt 裡加
  *     `ultracode`，或「Asking in your own words, for example "use a workflow"」也算同一種 opt-in。
+ *   - **`DEMO` 開頭用「用 workflow 跑這件事」，不要換回 `ultracode`。** 這一串是學員真的會按複製、
+ *     貼進自己對話框的字（A-4）。桌面版不在關鍵字的適用範圍內，貼過去沒反應就等於這一頁白教。
+ *     上一頁的 `SAMPLE_PROMPT` 同一輪一起改過，兩邊要一致。
+ *   - **`ultracode` 的適用範圍不含桌面版。** 文件的 Where the keyword works 只列了
+ *     interactive prompt、IDE extension panel、Remote Control client 與 Agent SDK。
+ *     這門課主推桌面版，所以第二格把「用你自己的話」排在前面當主要寫法，關鍵字降成補充並標明介面。
+ *     **文件沒有正面否定桌面版，下次改版前在桌面版實機打一次確認（C-3）。**
+ *   - **`ultracode` 不是一支 workflow，是開關，而且有兩種用法。** 關鍵字版只管這一次
+ *     （「The keyword only chooses how Claude structures the work」）；設定版是
+ *     「Ultracode is a Claude Code setting that turns on automatic workflow orchestration for the
+ *     session… Claude plans a workflow for each substantive task instead of waiting for you to ask」，
+ *     用 `/effort ultracode` 打開，而且文件自己標了代價（「each request uses more tokens and takes
+ *     longer」「reaches a session or weekly limit sooner」）。學員問過「ultracode 是 workflow 嗎」，
+ *     **這一條不要省。**
+ *   - **腳本不是學員自己寫。** 文件的範例那一節寫死了：「Each one asks Claude to write and run a
+ *     workflow for that task; you don't write the script yourself.」但跑過一次可以存起來重複用：
+ *     `/workflows` 選那一次按 `s`，存到專案的 `.claude/workflows/` 或家目錄的 `~/.claude/workflows/`，
+ *     之後「The workflow runs as `/<name>` in future sessions」。
+ *     存完要改的話，文件要求先跑內建 skill `/workflow-authoring`（需 v2.1.248 以上），
+ *     改完同一個 session 要 `/reload-skills`。**改腳本是進階的，投影片只講到「存起來」為止。**
  *   - 方案與開關：「available on all paid plans… On Pro, turn them on from the Dynamic workflows
  *     row in /config」。免費方案沒有，Pro 要自己打開，這一句不要漏。
  *   - 代價：「a single run can use meaningfully more tokens… Runs count toward your plan's usage
  *     and rate limits」。
- *   - 看進度與中止：`/workflows` 清單裡選一個按 `x` 停掉。
+ *   - 看進度與中止：`/workflows` 清單裡選一個按 `x` 停掉；桌面版是 Background tasks 側欄。
+ *   - **不要寫「每次都會先問你同意」。** Auto 模式只問第一次（文件：「First launch only… later
+ *     launches start without prompting」），而這門課推薦的 Pro 起始模式就是 auto。
+ *     講師實測那一次就沒有被問。理由與出處寫在 24b 的檔頭，兩頁一起看（B-4）。
  *
  * 2026-10-04 新增，從 24b_M3_Workflows 拆出來。講師回報兩件事：
  *
@@ -51,7 +74,7 @@ const SHAPES = [
 ];
 
 const DEMO =
-  'ultracode：把計時器的每一個功能列出來，一個一個檢查在手機上會不會壞掉，' +
+  '用 workflow 跑這件事：把計時器的每一個功能列出來，一個一個檢查在手機上會不會壞掉，' +
   '每一條結論都要另一個子代理覆核過再回報給我。';
 
 export default function SlideM3WorkflowUse() {
@@ -79,8 +102,8 @@ export default function SlideM3WorkflowUse() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <div className="text-slate-200 text-sm font-bold mb-3">腳本從哪裡來，兩種</div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="text-slate-200 text-sm font-bold mb-3">腳本從哪裡來，三種</div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
               <div className="text-slate-200 text-sm font-bold mb-2">一、別人寫好的那一支</div>
               <code className="font-mono font-bold text-sm text-orange-300">/deep-research</code>
@@ -94,29 +117,48 @@ export default function SlideM3WorkflowUse() {
               <div className="text-slate-200 text-sm font-bold mb-2">二、讓 Claude 現場寫一支</div>
               <div className="space-y-2.5">
                 <div>
-                  <code className="font-mono font-bold text-sm text-orange-300">ultracode</code>
-                  <p className="text-slate-400 text-sm leading-relaxed mt-1">
-                    把這個字寫進你自己那句話裡。Claude 看到它就不照平常一步一步做，
-                    而是先針對你這件事寫一支腳本。
-                  </p>
-                </div>
-                <div>
                   {/* 這一格不是 Claude 的專有名詞，不上橘（A-1） */}
                   <code className="font-mono font-bold text-sm text-slate-300">用你自己的話</code>
                   <p className="text-slate-400 text-sm leading-relaxed mt-1">
-                    直接說「用 workflow 跑這件事」也算，官方文件把它當成同一種開關。
+                    在你那句話裡多講一句「用 workflow 跑這件事」。官方文件把它當成正式的開關，
+                    而且哪個介面都成立，桌面版也是。<strong className="text-slate-300">先記這一個就夠用。</strong>
+                  </p>
+                </div>
+                <div>
+                  <code className="font-mono font-bold text-sm text-orange-300">ultracode</code>
+                  <span className="text-slate-500 text-xs ml-2">終端機與 IDE</span>
+                  <p className="text-slate-400 text-sm leading-relaxed mt-1">
+                    同一件事的關鍵字寫法，打起來比較短。官方文件列的適用範圍裡沒有桌面版，
+                    你在桌面版打了沒反應，就改用上面那一句。
                   </p>
                 </div>
               </div>
             </div>
+            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+              <div className="text-slate-200 text-sm font-bold mb-2">三、你自己存的那一支</div>
+              <code className="font-mono font-bold text-sm text-orange-300">/workflows</code>
+              <span className="text-slate-500 text-sm"> 按 </span>
+              <code className="font-mono font-bold text-sm text-slate-300">s</code>
+              <p className="text-slate-400 text-sm leading-relaxed mt-2">
+                跑過一次覺得好用，打 <code className="font-mono text-orange-300">/workflows</code>{' '}
+                選那一次按 <code className="font-mono text-slate-300">s</code>，
+                它會存進專案的 <code className="font-mono text-slate-300">.claude/workflows/</code>，
+                以後打 <code className="font-mono text-slate-300">/那個名字</code> 就重跑同一套流程。
+                腳本還是 Claude 寫的，你只是把它留下來。
+              </p>
+            </div>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            所以 <code className="font-mono text-orange-300">/deep-research</code> 跟{' '}
-            <code className="font-mono text-orange-300">ultracode</code> 不是兩個不同的功能，
-            它們叫出來的是同一種東西。
-            <strong className="text-slate-200">
-              差別在腳本是現成的，還是等你開口才寫。
-            </strong>
+            三格叫出來的是同一種東西，
+            <strong className="text-slate-200">差別只在腳本是現成的、現場寫的，還是你存下來的</strong>。
+            所以「我要自己寫腳本嗎」的答案是不用，你要做的只是描述任務。
+          </p>
+          <p className="text-slate-400 text-sm leading-relaxed mt-2">
+            另外，<code className="font-mono text-orange-300">ultracode</code>{' '}
+            <strong className="text-slate-200">本身不是一支 workflow，它是開關</strong>，而且有兩種用法：
+            寫進你那句話裡，只有這一次用 workflow 跑；或者在終端機打{' '}
+            <code className="font-mono text-orange-300">/effort ultracode</code>，
+            整個對話每一件像樣的任務它都會自己規劃成 workflow。後者很貴，不要預設開著。
           </p>
         </AnimatedBlock>
 
@@ -128,10 +170,11 @@ export default function SlideM3WorkflowUse() {
             <CopyAction text={DEMO} className="mt-2" />
           </div>
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
-            送出之後它會先給你一張要跑哪幾個階段的清單，你按同意它才開始。
+            第一次送出它會先給你一張要跑哪幾個階段的清單，你按同意它才開始；
+            <strong className="text-slate-400">同意過一次之後就不再問，送出就直接跑</strong>。
             跑的時候打 <code className="font-mono text-orange-300">/workflows</code>{' '}
             看每個階段派了幾個、花了多少 token，想停就在清單上按{' '}
-            <code className="font-mono text-slate-300">x</code>。
+            <code className="font-mono text-slate-300">x</code>（桌面版在 Background tasks 那一塊）。
           </p>
         </AnimatedBlock>
 

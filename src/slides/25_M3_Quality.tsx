@@ -14,6 +14,18 @@ import { Callout } from '../components/Callout';
  *    底色用了 `bg-[#0f111a]` 與 `bg-[#050b14]` 兩個硬寫的 hex（A-1 只准用 slate 階）。
  *    收尾那一塊是置中的大標語，改成一般段落。
  *
+ * 2026-10-04（講師）：開場原本只丟出「整體結構清楚，沒有明顯問題」這句回覆，但沒有人知道
+ * 當時問了什麼、它在看什麼，所以那句憑什麼算「沒在審」讀不出來（D-2：空心的詞）。
+ * 現在改成一組「你問／它回」，而且題目用學員手上真的有的那個計時器，
+ * 再接一句點破它漏掉什麼（倒數分鐘數寫死，那條規則是他自己寫進 CLAUDE.md 的）。
+ *
+ * **這一塊只寫事實，不要替 AI 講話，也不要描述讀者的感受。** 同一輪清掉四句：
+ * 「你大概已經撞過這一輪」（對學員狀態的斷言）、「這句話讀起來很專業」（描述讀者感受）、
+ * 「它不是在唬你」（替 AI 辯護，擬人化）、「『可以』永遠是比較安全的回答」（「永遠」證明不了）。
+ * 留下來的是：它沒講什麼、實際漏了什麼、沒標準就沒得比對。
+ * **那條規則要跟 25b_M3_HandsOn 的 FRONTMATTER 對得起來，改一邊要改另一邊（B-4）。**
+ * 同一句回覆在下一頁還會出現一次，那是刻意的對照（這裡是病徵，下一頁是治好之後長什麼樣），不是重複。
+ *
  * 分工：這一頁只講「為什麼要設」與「設得起來的條件是什麼」，
  * 實際怎麼建、它退回來的話長什麼樣，在下一頁（動手做一個審查子代理）。**不要在這裡先演一次。**
  *
@@ -47,12 +59,28 @@ export default function SlideQuality() {
       <div className="max-w-5xl mx-auto w-full space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
-          <p className="text-slate-300 text-base leading-relaxed">
-            一次派一個你還看得完，一次派三十個就看不完了。
-            <strong className="text-slate-100">而你沒給標準的時候，它預設會找一個說得過去的說法讓你通過</strong>，
-            常見的那一句是「整體結構清楚，沒有明顯問題」。
+          <p className="text-slate-300 text-base leading-relaxed mb-3">
+            一次派一個你還看得完，一次派三十個就看不完了。那就叫它自己看。
+          </p>
+
+          <div className="space-y-2">
+            <div className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
+              <div className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-1">你問</div>
+              <p className="text-slate-200 text-base leading-relaxed">「幫我看一下這個計時器有沒有問題。」</p>
+            </div>
+            <div className="rounded-xl border border-rose-500/25 bg-rose-500/5 px-4 py-3">
+              <div className="text-xs font-mono uppercase tracking-widest text-rose-300/80 mb-1">它回</div>
+              <p className="text-slate-200 text-base leading-relaxed">「整體結構清楚，沒有明顯問題，可以了。」</p>
+            </div>
+          </div>
+
+          <p className="text-slate-400 text-base leading-relaxed mt-3">
+            它沒有講哪個檔案、哪一行、拿什麼當標準。
+            <strong className="text-slate-200">而那支計時器的倒數分鐘數寫死在程式裡</strong>，
+            那一條就在你的 <code className="font-mono text-orange-300">CLAUDE.md</code> 裡。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2">
+            <strong className="text-slate-200">沒給標準，它就沒有東西可以比對</strong>，剩下的只有印象。
             所以派出去的同時要多派一個角色：一個只負責挑錯、而且挑到就把整份退回來的審查子代理。
           </p>
         </AnimatedBlock>

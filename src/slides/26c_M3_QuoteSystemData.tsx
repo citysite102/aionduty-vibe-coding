@@ -2,6 +2,16 @@ import { Database, ArrowRight, KeyRound } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
+/**
+ * 2026-10-04 標題從「資料庫先只講四張表」改成「資料庫設計」（講師指定）。
+ * 原標題帶著範圍限定（先只講四張），那個限定沒有不見，它在第一塊的第一句：
+ * 「資料模型先求穩，不要一開始就把所有情境塞進去。」**那一句不要刪**，
+ * 刪掉之後標題就會變成在承諾一堂完整的資料庫設計課，而這一頁只給四張表。
+ *
+ * 「一張表就是一個 Excel 分頁」這個說法在 10d0_M1_DatabaseWhat 與 29i_Case3_Trust 都引用到，
+ * 改這一頁的用詞要一起看（B-6）。
+ */
+
 const TABLES = [
   { name: 'customers', desc: '客戶公司、聯絡人、稅籍資訊', fields: ['id', 'name', 'contact_name', 'tax_id'] },
   { name: 'products', desc: '可報價品項與預設單價', fields: ['id', 'name', 'unit_price_cents', 'taxable'] },
@@ -11,7 +21,7 @@ const TABLES = [
 
 export default function SlideQuoteSystemData() {
   return (
-    <SlideLayout title="資料庫先只講四張表" subtitle="Database Basics" icon={Database}>
+    <SlideLayout title="資料庫設計" subtitle="Database Basics" icon={Database}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-5">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
           <p className="text-slate-100 text-xl font-bold leading-snug mb-2">
