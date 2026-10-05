@@ -1,6 +1,30 @@
 import { Rocket, Scale } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/**
+ * 這一頁整頁都是外部事實，而且是會被人拿去查的那種，所以 C-1 的查證紀錄寫在這裡。
+ *
+ * ── Bun 那一段：最後查證 2026-10-05，對照 bun.com/blog/bun-in-rust（Jarred Sumner 的公告）
+ * 當時的現況：「Excluding comments, Bun is 535,496 lines of Zig.」，重寫期間 2026-05-03 到 05-14，
+ * 也就是 11 天；diff 是 +1,009,272 行。所以畫面上的「53 萬行」與「11 天完成」都對。
+ *
+ * ⚠️ **不要照二手報導把 11 天改成 4 個月。** InfoQ 那篇的標題寫的是
+ * 「Bun Rewrites 535K Lines of Zig into Rust in Four Months」，另外也有媒體把
+ * diff 的一百萬行寫成「rewrote 1 million lines」。數字對不上的時候以官方那篇為準（C-2）。
+ *
+ * Andrew Kelley 的批評也查過：他質疑的是「既然測試不足以抓出 Zig 的 bug，
+ * 為什麼足以抓出 Rust 的」這個推論不一致，以及出貨未經審查的機器產出。
+ * 畫面上那兩句是這個意思的中文說法，不是逐字翻譯。
+ *
+ * ── ⚠️ 待查證：Anthropic 內部那組「2~3 週 → 2~3 天」
+ * 2026-10-05 查不到出處。官方的 best practices 那一頁（已搬到
+ * code.claude.com/docs/en/best-practices）只寫「improving ramp-up time」，沒有數字；
+ * claude.com/blog/running-an-ai-native-engineering-org 只寫「ship real code within their first week」。
+ * 二手來源找得到的版本是「2-3 週 → **3-4 天**」，跟畫面上的 2~3 天對不起來。
+ * **這是 D-2 禁的那種沒有可查證來源的量化數據**，下一輪要嘛找到官方出處並改成正確數字，
+ * 要嘛把那兩個數字拿掉改成定性的說法。先標在這裡，不要當作已經查過。
+ */
+
 export default function SlideBenchmarks() {
   return (
     <SlideLayout
