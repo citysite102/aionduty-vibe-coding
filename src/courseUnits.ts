@@ -119,7 +119,7 @@ export const UNIT_DEFS: UnitDef[] = [
   //     兩段是同一次動手的前後半，學員在前半結束的時候手上還沒有東西可以交出去。
   { live: 104, title: '什麼是 Loop Engineering？', anchor: 'Agent 循環開發流程與實戰案例' },
   { live: 107, title: '如何配置 Loop 開發流程與進行管控', anchor: '交代一輪工作的五個步驟' },
-  { live: 112, title: 'Loop Engineering 實作練習', anchor: '讓計時器自己跑完一輪' },
+  { live: 112, title: 'Loop Engineering 實作練習', anchor: '試著用 Loop 跑測試流程' },
   // 2026-10-05 再切一刀。8-3 一度把「跑一輪」與「送上線」併成 11 頁，
   // 但那兩段學員做的事不一樣：前半是交辦一輪、看它自己驗；後半是把成果送出去，
   // 中間每一步卡的都是帳號與授權。切在〈幫計時器加上航行日誌〉之後，

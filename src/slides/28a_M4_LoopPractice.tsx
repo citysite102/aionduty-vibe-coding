@@ -71,7 +71,7 @@ const PROMPT = `【目標】
 export default function SlideLoopPractice() {
   return (
     <SlideLayout
-      title="讓計時器自己跑完一輪"
+      title="試著用 Loop 跑測試流程"
       subtitle="Loop Engineering, Applied"
       icon={RefreshCw}
     >

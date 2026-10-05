@@ -1,4 +1,4 @@
-import { Flag, Terminal, Scale, Fence } from 'lucide-react';
+import { Flag, Terminal, Scale, Fence, Boxes } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
@@ -48,6 +48,33 @@ const BLOCKS = [
   學員貼過去，那個判定模型也不知道是哪五題，會自己編一組出來。
   所以五題照抄 28a_M4_LoopPractice 的 PROMPT，**改那一頁的五題要回來改這裡**。
 */
+/**
+ * ── 三家都有 `/goal`（C-1）────────────────────────────────────────────
+ * 最後查證：2026-10-05。三家的指令名稱目前剛好一樣，但停的方式不一樣，
+ * 而「它什麼時候會停下來問你」正是章節八那五道邊界在管的事，所以這一塊要留。
+ *
+ *   Claude Code      課程主線，機制寫在上面那三格。
+ *   OpenAI Codex CLI `/goal` 在 v0.128.0（2026-04-30）以實驗功能加入，
+ *                    v0.133.0 起預設開啟。官方說法是跑到目標達成、
+ *                    或設定的 token 預算用完為止。
+ *                    出處：simonwillison.net/2026/Apr/30/codex-goals/
+ *   Google           **Gemini CLI 已經不是找得到它的地方**：Google 2026-06-18 對消費者帳號
+ *                    收掉 Gemini CLI，換成 Antigravity CLI（指令是 agy）。
+ *                    官方 slash command 文件原話：「Instructs the agent to work
+ *                    continuously until the specified objective is fully achieved」，
+ *                    並且「without pausing for turn-by-turn confirmations」。
+ *                    出處：antigravity.google/docs/slash-commands/
+ *
+ * 這一類（別人家產品的指令名稱與行為）是 C-3 最會過期的那一種。
+ * 下次改版前三個都重查一次，名字對不上就整塊拿掉，不要只改一個。
+ * Gemini CLI 那一行尤其要看：那是「學員去搜會搜到舊東西」的坑，不是補充。
+ */
+const CROSS_TOOL = [
+  { tool: 'Claude Code', note: '每一輪交給另一個比較小的模型判定，回還沒到、達成、做不到。' },
+  { tool: 'OpenAI Codex CLI', note: '2026 年 4 月才加進去。跑到目標達成，或你設的 token 預算用完為止。' },
+  { tool: 'Google Antigravity', note: '文件寫的是「不停下來逐輪確認」。Gemini CLI 已經收掉，換成它。' },
+];
+
 const GOAL_LINE = `/goal 下面五題全部通過才算達成：
 1. 三顆按鈕都點得到，點下去大字分別變成 15:00 / 25:00 / 50:00
 2. 倒數進行中點另一顆，先停下來換成新時間，不會自己開始跑
@@ -113,7 +140,29 @@ export default function SlideGoalCommand() {
           （例如逐題列出通過或失敗，而不是只說「修好了」）。它說達成的時候，你還是要自己點一次。
         </Callout>
 
-        <Callout tone="muted" label="別跟 /loop 搞混" stepIndex={7}>
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+          <div className="flex items-center gap-2.5 mb-1.5">
+            <Boxes size={18} className="text-slate-400 shrink-0" />
+            <h4 className="text-base font-bold text-slate-100">
+              三家的 CLI 現在都有這個功能，而且剛好都叫 <code className="font-mono text-orange-300">/goal</code>
+            </h4>
+          </div>
+          <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+            {CROSS_TOOL.map((c) => (
+              <div key={c.tool} className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <div className="text-sm font-bold text-slate-200 mb-1.5">{c.tool}</div>
+                <p className="text-sm text-slate-400 leading-relaxed">{c.note}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-sm text-slate-500 leading-relaxed mt-3 border-t border-slate-800 pt-3">
+            名字一樣，不代表行為一樣。
+            <strong className="text-slate-300">差最多的是「它什麼時候會停下來問你」</strong>，
+            而那正是前面那五道邊界在管的事。換一個工具之前，先去看它那一條怎麼寫。
+          </p>
+        </AnimatedBlock>
+
+        <Callout tone="muted" label="別跟 /loop 搞混" stepIndex={8}>
           打 <span className="font-mono text-slate-100">/</span> 的時候你會看到一個
           <code className="font-mono text-orange-300 mx-1">/loop</code>，它做的是另一件事：
           照時間間隔重複跑同一句話，例如每五分鐘看一次部署好了沒，用來盯一個還在跑的東西。
