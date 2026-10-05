@@ -1,4 +1,4 @@
-import { Flag, Terminal, Scale, Fence, Boxes } from 'lucide-react';
+import { Flag, Terminal, Scale, Fence, Boxes, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
@@ -159,6 +159,25 @@ export default function SlideGoalCommand() {
             名字一樣，不代表行為一樣。
             <strong className="text-slate-300">差最多的是「它什麼時候會停下來問你」</strong>，
             而那正是前面那五道邊界在管的事。換一個工具之前，先去看它那一條怎麼寫。
+          </p>
+          <p className="text-xs text-slate-600 mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span>出處（2026-10-05 查證）</span>
+            <a
+              href="https://simonwillison.net/2026/Apr/30/codex-goals/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+            >
+              Codex CLI 0.128.0 adds /goal <ExternalLink size={11} />
+            </a>
+            <a
+              href="https://antigravity.google/docs/slash-commands/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+            >
+              Antigravity 官方 slash commands <ExternalLink size={11} />
+            </a>
           </p>
         </AnimatedBlock>
 

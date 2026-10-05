@@ -1,4 +1,4 @@
-import { Milestone, MessageSquare, FileCode, Wrench, Settings, RefreshCw, GitMerge } from 'lucide-react';
+import { Milestone, MessageSquare, FileCode, Wrench, Settings, RefreshCw, GitMerge, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -196,6 +196,39 @@ export default function SlideEngEvolution() {
           收在那句話上會連帶把整頁變成過期的東西。所以收在「怎麼讀下一個新名詞」，
           那件事不會過期，而且它就是這一頁真正教的方法。
         */}
+        {/*
+          時間那一欄的出處。產品有確切日期所以列得出來，說法沒有，
+          所以只寫「用它被普遍使用的時間」。逐條依據在上面的 C-1 註解，
+          這裡只放學員查得到的那三個錨點。
+        */}
+        <p className="text-xs text-slate-600 flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span>時間的依據（2026-10-05 查證）：產品用官方發布日，說法用它被普遍使用的時間</span>
+          <a
+            href="https://www.anthropic.com/news/model-context-protocol"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+          >
+            MCP 發布 <ExternalLink size={11} />
+          </a>
+          <a
+            href="https://claude.com/blog/skills"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+          >
+            Agent Skills 發布 <ExternalLink size={11} />
+          </a>
+          <a
+            href="https://cobusgreyling.substack.com/p/loop-engineering"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+          >
+            Loop Engineering <ExternalLink size={11} />
+          </a>
+        </p>
+
         <Callout tone="focus" label="前面幾層並沒有消失" stepIndex={7}>
           你現在交代一輪工作，照樣要把需求講完整、照樣靠那份{' '}
           <code className="font-mono text-orange-300">CLAUDE.md</code>、照樣要先給它工具。
