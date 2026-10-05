@@ -92,7 +92,19 @@ export default function SlideSafety() {
               </div>
               <h3 className="text-base font-bold text-amber-300 tracking-wide">2. 金鑰不要放在它讀得到的地方</h3>
             </div>
+            {/*
+              2026-10-05 補第一句。走到這一頁時學員手上一把金鑰都沒有：計時器是純前端，
+              而 API 那一頁（12c）刻意挑了免金鑰的服務，頁面上自己就寫著
+              「前面看過的那些 API 多半要先申請一組金鑰，所以只能用講的」。
+              第一把真的拿到手要等接 Supabase 那一頁。
+              原本直接叫他「放 .env、加 deny」，那正是 D-2 擋的「叫學員做他手上沒有的事」。
+              現在先講明這一道是先認得，並指出什麼時候回來做。**改接資料庫那一頁要回來看這句。**
+            */}
             <p className="text-slate-400 text-xs leading-relaxed">
+              <strong className="text-slate-200">你現在手上還沒有金鑰</strong>，計時器是純前端，連那支 API 都不用申請。
+              所以這一道先認得就好，等一下接資料庫的時候你會拿到第一把，那時候再回來做下面這幾件事。
+            </p>
+            <p className="text-slate-400 text-xs leading-relaxed mt-2">
               API 金鑰、資料庫密碼一律放 <code className="text-amber-300 bg-slate-950 px-1 rounded font-mono">.env</code>，並確認 <code className="text-amber-300 bg-slate-950 px-1 rounded font-mono">.gitignore</code> 有擋住它。
             </p>
             <p className="text-slate-300 text-xs leading-relaxed mt-2 border-l-2 border-amber-900/60 pl-3">

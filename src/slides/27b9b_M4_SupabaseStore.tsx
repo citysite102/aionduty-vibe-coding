@@ -114,6 +114,11 @@ export default function SlideSupabaseStore() {
                 所以能放前端的只有那把<strong className="text-slate-200">本來就設計成可以公開</strong>的，
                 真正擋住別人的不是金鑰，是下一塊那條規則。
               </p>
+              {/* 五道邊界的第二道在這裡才真的做得了，那一頁已經先講明會等到這時候。 */}
+              <p className="text-sm text-slate-500 leading-relaxed mt-3 border-t border-slate-800 pt-3">
+                這也是你第一次手上真的有金鑰。放手前那五道邊界的第二道（金鑰不要放在它讀得到的地方）
+                講的就是這個，現在有東西可以套了：<strong className="text-slate-300">不進程式碼、不進版控、執行時由平台餵給它</strong>。
+              </p>
             </AnimatedBlock>
 
             <Callout tone="warn" label="沒有登入，大家就是共用同一份" stepIndex={5}>
