@@ -45,10 +45,19 @@ export default function SlideMissionLog() {
           <div className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-xs font-mono shrink-0 self-start md:self-center font-bold">
             v2　加資料
           </div>
+          {/*
+            2026-10-05 補這一句。這個需求（我想知道自己今天完成幾趟任務）在章節五出現過兩次：
+            `21_M2_Pillars` 把它拆成三件要決定的事（記哪些欄位、存在哪裡、畫面怎麼呈現），
+            `21b_M2_HandsOn` 叫學員讓它反問，問出返航算不算一趟、今天算到幾點、
+            關掉瀏覽器還在不在。**這一頁的三塊剛好就是那三件事的答案**，但原本一個字都沒提，
+            所以讀起來像在重複。那兩頁刻意不給答案（21b 的檔頭寫著「不要把拆解的答案直接印出來」），
+            payoff 落在這裡，講出來才看得到那個設計。
+            **改那兩頁的提問，要回來改這一句。**
+          */}
           <p className="text-slate-400 text-sm leading-relaxed">
-            計時器用了幾天之後，你會開始想知道「我這禮拜到底做了幾趟」。
-            要回答這個問題，它就得把每一趟記下來。
-            <strong className="text-slate-300">但先別急著架資料庫</strong>，這個題目用不到。
+            「我想知道自己今天完成幾趟任務」這個需求，你前面拆過一次，也叫它反問過你一次。
+            <strong className="text-slate-300">這一頁是把那幾題的答案補上，順便動手做出來。</strong>
+            先別急著架資料庫，這個題目用不到。
           </p>
         </AnimatedBlock>
 
@@ -69,7 +78,9 @@ export default function SlideMissionLog() {
                 ))}
               </div>
               <p className="text-slate-500 text-xs mt-3 leading-relaxed">
-                第三個欄位是最多人漏掉的。<strong className="text-slate-300">失敗也要記</strong>，不然你永遠不知道自己有多常放棄。
+                第三個欄位就是它當初反問你的那一題：按了返航、沒跑完的那次算不算一趟。
+                <strong className="text-slate-300">答案是算，但要標記起來。</strong>
+                失敗不記的話，你永遠不知道自己有多常放棄。
               </p>
             </AnimatedBlock>
 
@@ -98,6 +109,7 @@ export default function SlideMissionLog() {
                 存在哪裡？先用瀏覽器自己記就好
               </h3>
               <p className="text-slate-400 text-xs leading-relaxed mb-3">
+                這一塊回答的是「關掉瀏覽器再打開，紀錄還在嗎」。
                 瀏覽器內建一塊叫 <code className="text-sky-300 font-mono">localStorage</code> 的小空間，網頁可以把東西寫在你這台電腦上。
                 <strong className="text-slate-200">不用註冊、不用後端、不用付錢</strong>，一句話就有。
               </p>

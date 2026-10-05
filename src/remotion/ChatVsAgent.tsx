@@ -19,11 +19,24 @@
  * 預告片的職務相反，它要在八秒內抓住人，所以 A-3 不適用於這個目錄的預告片片段。
  * 色彩（A-1）與文案（D 章）兩邊照樣共用。
  *
+ * 題目用的是課程裡案例三（開窯預約）的需求，不是計時器。計時器一個 HTML 檔貼完就有，
+ * 對話框那一條路還撐得住，兩欄就拉不開距離；要登入、要存資料、多人同時搶最後一個名額的
+ * 預約網站，「你複製、貼上」當場就破功。這一行同時被第 7 格的案例截圖接住。
+ * 要換題目只要改 REQUEST，另外兩個選項寫在它旁邊。
+ *
  * 長度 300 frame（10 秒），腳本那一格是 8 秒，多的留給剪接修尾巴。
  */
 import React from 'react';
 import { useCurrentFrame, interpolate, spring, useVideoConfig } from 'remotion';
 import { theme } from './theme';
+
+/**
+ * 第 7 格會出現這個案例的實際畫面（`assets/cases/case-03-kiln.jpg`），兩格要對得上。
+ * 換題目的話另外兩個現成的選項：
+ *   案例二「幫我做一個捲動就會穿越一天的照片網站」（最吸睛，但偏設計類題目）
+ *   案例一「幫我做一個品牌的一頁式首頁」（最短，但對話框那條路也做得出來，對照會變弱）
+ */
+const REQUEST = '幫我做一個可以線上預約的網站';
 
 const LEFT_STEPS = ['它回你一段程式碼', '你複製、貼上', '你把紅字貼回去問'];
 const RIGHT_STEPS = ['它自己把檔案建起來', '它自己跑一次', '它自己看紅字修到好'];
@@ -35,7 +48,9 @@ const RIGHT_GAP = 12;
 const COL_W = 700;
 const LEFT_CX = 560; // 畫面中線 960 往左 400
 const RIGHT_CX = 1360; // 往右 400
-const FORK_Y = 300;
+const FORK_Y = 356;
+/** 三個步驟整組置中，但組內靠左。全部置中的話長短不一會看起來參差 */
+const LIST_W = 420;
 
 const easeOut = (p: number) => 1 - Math.pow(1 - p, 3);
 const clamp01 = (n: number) => Math.max(0, Math.min(1, n));
@@ -58,7 +73,7 @@ export const ChatVsAgent: React.FC = () => {
 
   // 需求那一行：先在畫面中央，第 22 frame 開始往上移並縮小
   const lift = easeOut(clamp01((frame - 22) / 20));
-  const reqTop = interpolate(lift, [0, 1], [440, 118]);
+  const reqTop = interpolate(lift, [0, 1], [470, 150]);
   const reqSize = interpolate(lift, [0, 1], [88, 48]);
 
   // 分支線用 strokeDashoffset 畫出來
@@ -112,14 +127,14 @@ export const ChatVsAgent: React.FC = () => {
             ...wipe(frame, 0, 16),
           }}
         >
-          幫我做一個任務計時器
+          {REQUEST}
         </div>
 
         <svg width={1920} height={1080} style={{ position: 'absolute', inset: 0 }}>
           {[LEFT_CX, RIGHT_CX].map((cx, i) => (
             <path
               key={cx}
-              d={`M960,198 V248 H${cx} V${FORK_Y - 24}`}
+              d={`M960,236 V286 H${cx} V${FORK_Y - 24}`}
               fill="none"
               stroke={i === 0 ? theme.border : theme.accent}
               strokeWidth={2}
@@ -203,10 +218,9 @@ const Path: React.FC<{
             style={{
               position: 'absolute',
               top: 118 + i * 84,
-              left: 0,
-              width: COL_W,
+              left: (COL_W - LIST_W) / 2,
+              width: LIST_W,
               display: 'flex',
-              justifyContent: 'center',
               alignItems: 'baseline',
               gap: 20,
               transform: `translateY(${(1 - p) * 10}px)`,
