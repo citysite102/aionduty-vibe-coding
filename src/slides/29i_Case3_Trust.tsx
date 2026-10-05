@@ -33,6 +33,17 @@ export default function SlideCase3Trust() {
     >
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
+        {/*
+          2026-10-05 補這一句。章節八的〈把紀錄搬上 Supabase〉已經讓學員自己接過一次，
+          那一頁只說「打開 RLS，寫一條規則」就把細節推給這裡（它的卡片上就寫著
+          「案例三會整段講這個取捨」）。這一頁不講一聲的話，學員會覺得又在講一次金鑰。
+          **改那一頁的推托句，要回來改這一句。**
+        */}
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-base leading-relaxed">
+          這兩把金鑰你在計時器那一步已經接過一次了，那時候只告訴你「把 RLS 打開」。
+          <strong className="text-slate-300">這一頁講的是打開之後那條規則要怎麼寫，以及寫錯的時候你會看到哪兩種錯誤訊息。</strong>
+        </AnimatedBlock>
+
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
             <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">

@@ -88,7 +88,7 @@ export default function SlideCase1Vessel() {
           <p className="text-slate-400 text-sm leading-relaxed">
             單獨看沒有一項難看，問題是每一個網站都有。
             <strong className="text-slate-200">刪完之後剩下的，才是只有這家工作室講得出來的東西。</strong>
-            你自己第一版做出來的東西，也拿這張清單掃一遍。
+            你自己第一版做出來的東西，也拿這張清單逐條對照一次。
           </p>
         </AnimatedBlock>
 
