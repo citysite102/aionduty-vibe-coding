@@ -29,7 +29,7 @@ export default function SlideShipIt() {
           部署那段 prompt 搬到前一頁去了，那裡才是真的動手做出網址的地方。
           這一頁留給它原本更有價值的職務：網址有了之後才會發現的那個問題。
         */}
-        {/* 一、痛點 */}
+        {/* 一、先讓他撞到那個問題 */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-4">拿手機打開你的網址，日誌是空的</h3>
 
@@ -74,10 +74,15 @@ export default function SlideShipIt() {
               <strong className="text-slate-100">那個東西就叫資料庫。</strong>
             </p>
             <p className="text-slate-400 text-xs leading-relaxed">
-              真的要接的話，用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這些設定工。
+              用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這幾下設定。
             </p>
+            {/*
+              2026-10-05：這裡原本寫「接資料庫留作延伸練習」加一句起步的 prompt。
+              現在下一頁就把它做完了，留成作業等於課程停在一個沒解決的問題上。
+              **搬頁之前先確認下一頁還是 27b9b_M4_SupabaseStore。**
+            */}
             <div className="mt-3 text-xs text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
-              接資料庫留作延伸練習。要起步的話跟它說：「幫我評估把這個計時器的紀錄改存到 Supabase 要做哪幾件事，先列步驟不要動檔案。」
+              接下來就把它接上去，四步，其中兩步要你自己動手。
             </div>
           </div>
         </AnimatedBlock>

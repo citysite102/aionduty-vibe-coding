@@ -112,9 +112,9 @@ export default function SlideLoopPractice() {
           className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]"
         >
           <p className="text-slate-300 text-base leading-relaxed">
-            五題裡真正該花力氣的是第 2、3 題。
-            <strong className="text-slate-100">那兩題講的是「按下去之後會怎樣」</strong>，
-            也就是你第一次寫計時器時被絆住的同一種地方。第 1 題它一定會過，第 2、3 題不寫進去它就會自己選一個答案。
+            五題裡，第 1 題它一定會過。真正要花力氣的是第 2、3 題，
+            <strong className="text-slate-100">那兩題寫的是「按下去之後會怎樣」</strong>，
+            不寫進去，它就自己選一個答案。
           </p>
         </AnimatedBlock>
       </div>

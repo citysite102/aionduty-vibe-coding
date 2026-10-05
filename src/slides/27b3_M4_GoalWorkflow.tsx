@@ -161,8 +161,19 @@ export default function SlideGoalWorkflow() {
               </motion.div>
             </div>
 
-            <div className="mt-4 border-t border-slate-900 pt-3 text-xs text-slate-400">
-              共同點：任務無聊、完成標準明確、灰色地帶有人把關。
+            {/*
+              2026-10-05 把「任務無聊」拿掉。它不是條件，而且全片有反例：下一個單元
+              就是拿 Loop 去幫計時器加三個預設按鈕，那件事不無聊，照樣跑得起來。
+              三個例子真正的共同點是量大又重複（50 份、30 場、4 個管道），
+              那是「值得交出去」的理由，不是「交得出去」的門檻。門檻只有完成標準。
+            */}
+            <div className="mt-4 border-t border-slate-900 pt-3 text-xs text-slate-400 leading-relaxed">
+              共同點：量大又重複、完成標準寫得出來、灰色地帶有人把關。
+              <span className="block text-slate-500 mt-1">
+                無聊不是條件，它只是你會想先交出去的那一種。
+                <strong className="text-slate-300">真正的門檻是中間那一個</strong>：
+                完成標準寫不出來，再無聊也交不下去。
+              </span>
             </div>
           </AnimatedBlock>
         </div>

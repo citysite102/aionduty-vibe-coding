@@ -127,6 +127,7 @@ import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
+import Slide27b9b from './slides/27b9b_M4_SupabaseStore';
 import Slide27b8e from './slides/27b8e_M4_DeployDoc';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28a from './slides/28a_M4_LoopPractice';
@@ -258,7 +259,7 @@ const LIVE_TITLES = [
   "從 Prompt 到 Loop：每個階段解掉的卡點",
   "什麼是 Loop Engineering？",
   "交代一輪工作的五個步驟",
-  "Agent 原地打轉時能做的四個動作",
+  "Agent 卡住：當下四個動作，下一輪怎麼寫",
   "讓它自己驗：開瀏覽器點一次",
   "紅字要讀的三件事：在哪裡、什麼事、怎麼做",
   "放手之前，先設好五道邊界",
@@ -271,6 +272,7 @@ const LIVE_TITLES = [
   "金鑰和客戶資料不能跟著推上去",
   "部署上線：把 GitHub 上的專案接上 Vercel",
   "手機打開，紀錄卻是空的",
+  "把紀錄搬上 Supabase，換台裝置也看得到",
   "DEPLOY.md：服務、資料、排程、金鑰",
   "案例一：器 VESSEL",
   "一份規格要寫哪些欄位",
@@ -410,6 +412,7 @@ const LIVE_SLIDES = [
   Slide27b8c,
   Slide27b8d,
   Slide27b9,
+  Slide27b9b,
   Slide27b8e,
   SlideCase1Vessel,
   SlideCaseSpec,

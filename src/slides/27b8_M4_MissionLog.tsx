@@ -1,11 +1,31 @@
-import { NotebookPen, Terminal, TriangleAlert } from 'lucide-react';
+import { NotebookPen, TriangleAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyBlock } from '../components/CopyBlock';
+import { LiveDemo } from '../components/LiveDemo';
+
+/**
+ * 2026-10-05 檢查過一輪，修了三件事：
+ *   1. 開場那個藍色膠囊是空的（只有 className，裡面沒有字），畫面上會出現一塊空色塊。
+ *      改成寫出這一頁在做什麼。
+ *   2. 這一頁要學員貼一段 prompt，但那段字原本是寫死在 JSX 裡的 <p>，沒有複製鈕，
+ *      學員只能自己照著打。改用 CopyBlock，畫面印的與複製到的是同一份（A-4）。
+ *   3. 補上 LiveDemo。這一頁是這個單元第二段值得實機錄的（逐字稿的錄製註記寫著），
+ *      但頁面上沒有任何「現在開 Claude Code」的記號。
+ *
+ * DERIVED 四個與 PROMPT 裡要求顯示的三個刻意不一樣：那四個是「可以算出來的東西」的
+ * 例子，PROMPT 只挑三個顯示在畫面上，免得一個小計時器的下方塞四行統計。
+ * 中途返航率留在卡片上當例子，不要為了對齊而硬塞進 PROMPT。
+ */
 
 const FIELDS = [
   { name: 'startedAt', desc: '這趟什麼時候出發' },
   { name: 'minutes', desc: '飛了多久' },
   { name: 'completed', desc: '有沒有撐完，中途返航也要記' },
 ];
+
+const LOG_PROMPT = `幫計時器加上航行日誌。每完成或中途返航一趟就記一筆，欄位是出發時間、飛行分鐘數、有沒有完成。
+資料先存在瀏覽器的 localStorage 就好，不要接資料庫。
+畫面下方顯示今天完成幾趟、總時數、連續出勤天數，這三個都要從紀錄算出來，不要另外存一份數字。`;
 
 const DERIVED = [
   '今天完成幾趟',
@@ -17,15 +37,18 @@ const DERIVED = [
 export default function SlideMissionLog() {
   return (
     <SlideLayout title="幫計時器加上航行日誌" subtitle="Mission Timer v2: Data" icon={NotebookPen}>
+      <LiveDemo kind="claude" note="做完你的計時器會開始記得你做過幾趟" />
+
       <div className="max-w-6xl mx-auto text-left space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-950/40 border border-slate-800/80 rounded-2xl px-6 py-3.5 flex flex-col md:flex-row md:items-center gap-4">
           <div className="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/20 rounded-full text-xs font-mono shrink-0 self-start md:self-center font-bold">
-
+            v2　加資料
           </div>
           <p className="text-slate-400 text-sm leading-relaxed">
             計時器用了幾天之後，你會開始想知道「我這禮拜到底做了幾趟」。
-            這裡會回收前面資料庫那一頁講的東西，但先別急著架資料庫。
+            要回答這個問題，它就得把每一趟記下來。
+            <strong className="text-slate-300">但先別急著架資料庫</strong>，這個題目用不到。
           </p>
         </AnimatedBlock>
 
@@ -78,16 +101,7 @@ export default function SlideMissionLog() {
                 瀏覽器內建一塊叫 <code className="text-sky-300 font-mono">localStorage</code> 的小空間，網頁可以把東西寫在你這台電腦上。
                 <strong className="text-slate-200">不用註冊、不用後端、不用付錢</strong>，一句話就有。
               </p>
-              <div className="bg-slate-950 border border-slate-800 rounded-lg p-4 relative">
-                <div className="absolute top-2.5 right-3 flex items-center gap-1 text-xs font-mono text-slate-500 uppercase tracking-wider font-bold">
-                  <Terminal size={11} className="text-sky-400" /> Prompt
-                </div>
-                <p className="text-sky-300 text-xs leading-relaxed font-medium mt-1">
-                  「幫計時器加上航行日誌。每完成或中途返航一趟就記一筆，欄位是出發時間、飛行分鐘數、有沒有完成。
-                  資料先存在瀏覽器的 localStorage 就好，不要接資料庫。
-                  畫面下方顯示今天完成幾趟、總時數、連續出勤天數，這三個都要從紀錄算出來，<strong className="text-amber-300">不要另外存一份數字</strong>。」
-                </p>
-              </div>
+              <CopyBlock text={LOG_PROMPT} size="xs" note="最後那句不要刪掉，它擋的是下面那個坑" />
             </AnimatedBlock>
 
             <AnimatedBlock stepIndex={4} className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5 flex gap-3 items-start">

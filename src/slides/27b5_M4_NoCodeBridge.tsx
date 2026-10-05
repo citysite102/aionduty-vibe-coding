@@ -3,13 +3,11 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 
 /**
- * ⚠️ 待查證。這一頁指名安裝 webapp-testing 這個 Skill，但畫面上沒有寫它從哪裡來。
- * 學員裝不起來的時候，來源是唯一的線索。
- *
- * 本輪（2026-09-20）沒有重查。下次改版前要確認：
- *   - webapp-testing 是官方市集、社群市集，還是要自己寫
- *   - 確認後把來源補到畫面上（比照 Slide 58 寫 anthropics/claude-plugins-official 的格式）
- * 查完把這段註解換成 C-1 的三行格式。
+ * 最後查證：2026-10-05，對照 github.com/anthropics/skills 的 skills 目錄。
+ * 當時的現況：webapp-testing 是 Anthropic 官方 `anthropics/skills` 裡的一個，
+ * 內容是用 Playwright 開一個真的瀏覽器去點本機跑起來的網頁（截圖、讀 DOM、抓 Console）。
+ * 來源已經補到 STEP 1 的註記上，學員裝不起來的時候那是唯一的線索。
+ * 下次改版前先重查那個目錄還在不在、名字有沒有改，不要憑印象改。
  */
 
 /**
@@ -26,13 +24,17 @@ import { CopyAction } from '../components/CopyBlock';
 const SKILL_PROMPT =
   '幫我安裝 webapp-testing 這個 Skill，裝完重開一次對話，然後告訴我怎麼叫它。';
 
+const SETUP_PROMPT =
+  '幫我把這個專案設定好 lint 與型別檢查，各給我一行可以直接跑的指令，' +
+  '然後在 CLAUDE.md 加一條：這兩行都要沒有紅字才算做完。';
+
 const STEPS = [
   {
     label: 'STEP 1　裝一個會點畫面的 Skill',
     lead: '在對話框跟它說：',
     body: `「${SKILL_PROMPT}」`,
     copy: SKILL_PROMPT,
-    note: '裝一次就好。它會自己開瀏覽器點你的網頁。',
+    note: '裝一次就好。它是 Anthropic 官方 anthropics/skills 裡的一個，會開一個真的瀏覽器去點你的網頁。',
   },
   {
     label: 'STEP 2　先講清楚什麼叫做完',
@@ -57,14 +59,22 @@ export default function SlideNoCodeBridge() {
     >
       <div className="max-w-5xl mx-auto mt-3 text-left space-y-5">
 
+        {/*
+          2026-10-05 重寫開場。原本是「完成標準不必你自己驗。有東西會替你跑，跑完是綠燈
+          或紅字；AI 看得到同一份結果，紅字就自己回頭修。」兩個問題：「有東西會替你跑」
+          沒說是什麼東西，而後半那幾個短句的動詞全部吊在句尾（自己驗、回頭修），
+          讀起來像摘要不像話（D-2 的「被剝掉受詞的及物動詞」）。
+          現在改成先問「誰去看」，再回答，句子都有主詞跟受詞。
+        */}
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">完成標準不必你自己驗。</strong>
-            有東西會替你跑，跑完是綠燈或紅字；AI 看得到同一份結果，紅字就自己回頭修。
+            <strong className="text-slate-100">完成條件寫好了，那誰去看它過了沒有？</strong>
+            不用你看。裝一個會自己開瀏覽器點的工具，它每改完一輪就自己點一次，
+            結果不是綠燈就是紅字。那份紅字它自己讀得到，所以你不用回來告訴它哪裡壞了。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2">
             你的計時器是一個 <code className="font-mono text-slate-300">index.html</code>，
-            它能不能用，看的是「打開之後點下去有沒有反應」。這件事交給它自己驗，三步。
+            判斷它能不能用，就是打開之後點下去有沒有反應。下面三步，讓它自己做這件事。
           </p>
         </AnimatedBlock>
 
@@ -138,10 +148,26 @@ export default function SlideNoCodeBridge() {
 
         </div>
 
+        {/*
+          2026-10-05 補「怎麼開」。原本只寫「跟它說幫我設定好 lint 並加進完成標準」，
+          但那句話沒提型別，而這一頁用一整張卡介紹 Type Checking，學員讀完的第一個
+          問題就是「所以那個要怎麼開」。現在兩道的前提、那句話、以及開完會多出什麼都寫明。
+          指令名稱刻意不寫死：那是各專案自己在 package.json 取的名字（這份簡報的專案
+          就把型別檢查取名叫 `npm run lint`），所以上面那句話要它「給我一行可以直接跑的」。
+        */}
         <AnimatedBlock stepIndex={6} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4">
+          <h4 className="text-base font-bold text-slate-100 mb-2">那這兩道怎麼開？</h4>
           <p className="text-sm text-slate-400 leading-relaxed">
-            專案長大到用 Vite、Next.js 這類工具建起來之後，這兩道就跑得起來了。
-            跟它說「幫我設定好 lint 並加進完成標準」它會處理，你一樣不用看程式碼。
+            前提是專案要用 Vite、Next.js 這類工具建起來（型別那一道還要專案是用 TypeScript 寫的）。
+            條件到了就不用你自己設，把下面這句話給它：
+          </p>
+          <div className="mt-3 rounded-xl border border-slate-800 bg-slate-900 p-4">
+            <p className="text-sm text-sky-200 leading-relaxed">「{SETUP_PROMPT}」</p>
+            <CopyAction text={SETUP_PROMPT} className="mt-2" />
+          </div>
+          <p className="text-sm text-slate-400 leading-relaxed mt-3">
+            設完你會多兩行可以跑的指令，名字由專案自己決定，所以上面那句話要它寫給你。
+            之後你要看的是它回報「兩行都過了」還是「有幾條沒過」，程式碼一樣不用看。
             <span className="block mt-2 text-slate-300">
               三種都一樣：紅字沒清掉，就不算做完。
             </span>

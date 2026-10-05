@@ -5,11 +5,12 @@ import { CopyText } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
- * 這一頁接在「部署上線：把 GitHub 上的專案接上 Vercel」與「手機打開，紀錄卻是空的」後面。
+ * 這一頁接在「手機打開，紀錄卻是空的」與「把紀錄搬上 Supabase」後面。
  *
- * 為什麼要有它：前面兩頁走的是計時器這一個題目，路線是寫死的（純前端、推上去、
- * 接 Vercel）。但學員接下來要做的是自己的題目，那個題目可能有
- * 資料庫、可能要排程、可能要長時間跑一段運算，那三種在同一條路線上都會撞牆。
+ * 為什麼要有它：前面幾頁走的是計時器這一個題目，路線是寫死的（推上去、接 Vercel、
+ * 接一個 Supabase 當資料庫）。但學員接下來要做的是自己的題目，那個題目可能要排程、
+ * 可能要長時間跑一段運算、可能要寄信，那幾種在同一條路線上都會撞牆。
+ * 2026-10-05 起資料庫那一欄學員是真的接過的（前一頁），不再是只知道有這回事。
  *
  * 不用教六家平台的差別，理由有兩個：一是那是《工具與選擇策略》那堂課的方法論，
  * 這堂走的是「主要只用一個，把它用到底」；二是各家的免費額度與方案幾乎每季在動，
@@ -24,22 +25,26 @@ const SECTIONS = [
   {
     icon: ServerCog,
     title: '這個專案要幾個服務',
-    body: '純前端只要一個地方掛靜態檔案。一旦有登入、有後端 API，那就是兩個要各自上線、各自付錢的東西。',
+    body: '計時器現在有兩個：網頁掛在 Vercel，資料在 Supabase。兩個各自要上線、各自有免費額度，壞掉的時候也要分開查。',
+    mine: '兩個',
   },
   {
     icon: Database,
     title: '資料存在哪裡',
-    body: '存在瀏覽器裡的資料換一台裝置就不見了，前一頁那個空日誌就是這麼來的。要跨裝置就得有一個真的資料庫。',
+    body: '剛才那一步就是在回答這一欄。存在瀏覽器裡換一台裝置就不見了，所以你把它搬到 Supabase 的一張表上。',
+    mine: 'Supabase 的一張表',
   },
   {
     icon: Clock,
     title: '有沒有東西要一直醒著',
     body: '每天定時寄一封信、每小時抓一次資料，這種不能靠「有人打開網頁才跑」。它要一個不會睡著的地方。',
+    mine: '沒有',
   },
   {
     icon: KeyRound,
     title: '哪些設定不能寫進程式碼',
-    body: '金鑰與密碼要放平台的環境變數，不是放在檔案裡跟著推上去。這一條你前面已經用 .gitignore 擋過一次。',
+    body: 'Supabase 那把公開金鑰放在 Vercel 的環境變數裡，沒有跟著程式碼上去。你前面用 .gitignore 擋過一次的，就是這類東西。',
+    mine: '那把 Supabase 金鑰',
   },
 ];
 
@@ -59,11 +64,16 @@ export default function SlideDeployDoc() {
 
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
 
+        {/*
+          2026-10-05：開場原本寫「計時器是純前端，所以前面那條路線走得完」。
+          接完 Supabase 之後那句話不成立了，而且剛好反過來變成這一頁的優勢：
+          四欄裡學員現在有三欄是真的填得出來的，只剩排程那一欄是空的。
+          每一格的 mine 就是答案，**改前面的路線（換平台、拿掉 Supabase）要回來改這四個值。**
+        */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          計時器是純前端，所以前面那條路線走得完。
-          <strong className="text-slate-100">你下一個題目不一定。</strong>
-          有資料庫、要定時跑、要長時間算的專案，走同一條路會在不同的地方卡住，
-          而卡住的時候畫面上通常只有一句看不懂的紅字。
+          你的計時器現在不只是一個網頁了：它有兩個服務、一份跨裝置的資料、一把金鑰。
+          <strong className="text-slate-100">下面四欄，你現在有三欄是真的填得出來的。</strong>
+          填不出來的那一欄（排程），正好是下一個題目最常撞到的地方。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
@@ -84,6 +94,9 @@ export default function SlideDeployDoc() {
                   {s.title}
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{s.body}</p>
+                <p className="mt-3 border-t border-slate-800 pt-2.5 text-sm text-slate-500">
+                  你的計時器：<strong className="text-slate-300">{s.mine}</strong>
+                </p>
               </AnimatedBlock>
             );
           })}

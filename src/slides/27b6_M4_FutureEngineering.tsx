@@ -39,19 +39,27 @@ const TERMS = [
   },
 ];
 
+/**
+ * 2026-10-05 換掉這三組的例子。
+ *
+ * 原本是三組跟計時器無關的題目（好看的報表頁、操作要順暢、測試都要過）。
+ * 問題不是那三組寫得不好，是這個教學動作（把模糊的話翻成驗得動的條件）
+ * 在這一章出現三次、而且都用同一種兩欄對照的版型：
+ * 〈交代一輪工作的五個步驟〉的第 1、2 步、這一頁、以及案例一的
+ * 〈把形容詞翻成可以檢查的條件〉。中間那一次最弱，因為它跟第一次隔八頁、
+ * 動作一樣，而且它用的是新題目，等於再練一次。
+ *
+ * 現在右欄**逐字照抄 `28a_M4_LoopPractice` 的 PROMPT 那五題**，左欄才是新的
+ * （多數人第一次會寫的版本）。這樣它從「再練一次」變成「回收你剛寫過的東西」，
+ * 也才接得上這一頁的標題「你剛做的那兩件事」。
+ * **改那一頁的五題，要回來改這裡的 spec 欄。**
+ */
 const SPEC_VS_WISH = [
-  {
-    wish: '做一個好看的報表頁',
-    spec: '一頁表格，欄位是日期、品項、金額，超過 50 筆要分頁',
-  },
-  {
-    wish: '操作要順暢',
-    spec: '點下去畫面要有反應，還在等的時候顯示載入中',
-  },
-  {
-    wish: '測試都要過',
-    spec: '這五題各點一次，逐題回報通過或失敗',
-  },
+  { wish: '按鈕要能用', spec: '三顆按鈕都點得到，點下去大字分別變成 15:00 / 25:00 / 50:00' },
+  { wish: '切換的時候不要怪怪的', spec: '倒數進行中點另一顆，先停下來換成新時間，不會自己開始跑' },
+  { wish: '返航鍵要正確', spec: '按「返航」之後回到目前選的那個時間，不是固定回 25:00' },
+  { wish: '不要有 bug', spec: '瀏覽器 Console 沒有紅字' },
+  { wish: '樣式照手冊走', spec: '沒有引用任何外部圖片' },
 ];
 
 export default function SlideFutureEngineering() {
@@ -104,26 +112,36 @@ export default function SlideFutureEngineering() {
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">
-            難的地方在這裡：你自己寫的那一句，它驗不驗得動
+            右邊這五題，就是你剛才貼下去的那一段原文
           </h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            判斷標準只有一個：<strong className="text-slate-200">只看做出來的東西，你能不能回答「有做到」或「沒做到」。</strong>
+            左邊是多數人第一次會寫的版本。兩邊的差別只有一個：
+            <strong className="text-slate-200">只看做出來的東西，你能不能回答「有做到」或「沒做到」。</strong>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="hidden md:grid grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] gap-x-4 px-4 pb-1.5 text-sm font-bold">
+            <span className="text-rose-300">✕ 多數人第一次會寫的</span>
+            <span className="text-emerald-300">✓ 你實際寫下去的</span>
+          </div>
+          <div className="space-y-2">
             {SPEC_VS_WISH.map((s) => (
-              <div key={s.wish} className="space-y-2">
+              <div
+                key={s.wish}
+                className="grid grid-cols-1 md:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] gap-2 md:gap-4"
+              >
                 <div className="rounded-xl border px-4 py-2.5 bg-rose-500/5 border-rose-500/25">
-                  <span className="text-rose-300 text-sm font-bold mr-2">✕ 你本來會寫的</span>
                   <span className="text-slate-400 text-sm leading-relaxed">{s.wish}</span>
                 </div>
                 <div className="rounded-xl border px-4 py-2.5 bg-emerald-500/5 border-emerald-500/25">
-                  <span className="text-emerald-300 text-sm font-bold mr-2">✓ 它驗得動的</span>
                   <span className="text-slate-300 text-sm leading-relaxed">{s.spec}</span>
                 </div>
               </div>
             ))}
           </div>
+          <p className="text-slate-500 text-sm leading-relaxed mt-4 border-t border-slate-800 pt-3">
+            換成你自己的題目，右邊那一欄還是得你自己寫。
+            前面那些工具替你做的是每一輪自動再跑一次，左邊翻成右邊沒有人代得了。
+          </p>
         </AnimatedBlock>
 
       </div>
