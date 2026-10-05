@@ -15,7 +15,9 @@
     "map": "node scripts/slide-map.mjs",
     "units": "node scripts/course-units.mjs",
     "pdf": "node scripts/transcripts-pdf.mjs",
-    "check:transcripts": "node scripts/check-transcripts.mjs"
+    "check:transcripts": "node scripts/check-transcripts.mjs",
+    "studio": "remotion studio src/remotion/index.ts",
+    "render:mg": "remotion render src/remotion/index.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

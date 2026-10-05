@@ -44,3 +44,6 @@ sim/archive/
 # 每 commit 一次就多存一整份。所以**不要每改一句就重新產一次進版控**，
 # 累積到一個段落再跑 npm run pdf 並跟著那一批改動一起 commit。
 # 只有 PDF 變動、markdown 沒動的 commit 沒有意義。
+
+# Remotion 輸出的動畫片段（npm run render:mg）。衍生檔，重算就有，不進版控。
+out/
