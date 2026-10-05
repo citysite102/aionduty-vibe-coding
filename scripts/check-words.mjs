@@ -15,7 +15,19 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ROOTS = ['src/slides', 'src/slides-recorded', 'src/components'];
+/**
+ * 2026-10-05 把 `逐字稿/` 與 `.claude/agents/` 加進來。
+ *
+ * 原本只掃 src 底下那三個目錄，結果是**逐字稿從來沒被這張詞表碰過**，
+ * 而那是全片一半的文字量。2026-09-21 全片換掉 120 處「判準」的那一輪，
+ * 漏掉的兩處就是躲在這兩個目錄裡（`.claude/agents/copy-reviewer.md` 與
+ * 根目錄的待辦文件），而且躲了兩週沒人發現。加進來當天就另外抓到
+ * 逐字稿裡一處「場景」。
+ *
+ * 根目錄那幾份 `.md`（CLAUDE.md、README.md、待確認清單.md）**刻意不收**：
+ * 它們整份都在討論規範本身，收進來會變成滿畫面的誤報。那幾份靠人看。
+ */
+const ROOTS = ['src/slides', 'src/slides-recorded', 'src/components', '逐字稿', '.claude/agents'];
 
 /**
  * 一定是錯的。中國用語對照表與明確的浮誇詞。
@@ -53,7 +65,8 @@ const BANNED = [
   // 帶空格，所以不會誤命中 Agentic Engineering（那是 Agent + ic）
   { word: 'Agent Engineering', fix: '代理工程（Agentic Engineering）' },
   { word: 'AI 專案經理', fix: '指揮者' },
-  { word: '安全沙箱', fix: '運作框架（Harness），sandbox 才是沙箱' },
+  // 逐字稿的錄製註記會引用這條規則本身（「Harness 不要譯成『安全沙箱』」），那不是違規
+  { word: '安全沙箱', fix: '運作框架（Harness），sandbox 才是沙箱', skipIf: /不要[譯寫]成[「"]?安全沙箱/ },
   { word: '語境工程', fix: '上下文工程' },
 ];
 
@@ -79,7 +92,7 @@ function walk(dir) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
     if (statSync(p).isDirectory()) out.push(...walk(p));
-    else if (name.endsWith('.tsx') || name.endsWith('.ts')) out.push(p);
+    else if (/\.(tsx|ts|md)$/.test(name)) out.push(p);
   }
   return out;
 }
@@ -102,7 +115,12 @@ function stripComments(src) {
 /**
  * 有些頁面是在示範壞寫法，或是在教「這些詞要改掉」，
  * 那種頁面整份都會命中，而且全部是正解不是違規。
- * 在檔案裡任一行加上 check-words-ignore-file 就跳過整份。
+ * 在檔案裡任一行加上這個標記就跳過整份。
+ *
+ * ⚠️ 它是純字串比對，所以**在文件裡提到這個標記的名字，那份文件就會自己被跳過**。
+ * 2026-10-05 踩過：在 `.claude/agents/copy-reviewer.md` 裡寫「不要加 <這個標記>」，
+ * 結果整個檔案靜悄悄地不再被檢查。要在文章裡講到它，就只寫
+ * 「`check-words.mjs` 的 IGNORE_MARK」，不要把那串字原樣打出來。
  */
 const IGNORE_MARK = 'check-words-ignore-file';
 
