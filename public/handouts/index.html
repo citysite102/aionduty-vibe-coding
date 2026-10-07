@@ -39,7 +39,9 @@
   a.card .t { color: #f1f5f9; font-size: 17px; font-weight: 700; margin-bottom: 5px; }
   a.card .d { color: #94a3b8; font-size: 13.5px; line-height: 1.65; }
   a.card .m {
-    color: #64748b;
+    /* slate-400 不是 slate-500。#64748b 在卡片底色 #0f172a 上只有 3.8:1，過不了 WCAG AA。
+       層級靠字級與等寬字維持，不靠再暗一階。 */
+    color: #94a3b8;
     font-size: 11.5px;
     font-family: "SFMono-Regular", Menlo, Consolas, monospace;
     margin-top: 10px;
@@ -49,10 +51,18 @@
     margin-top: 32px;
     padding-top: 20px;
     border-top: 1px solid #1e293b;
-    color: #64748b;
+    /* 同上，#64748b 在頁面底色上是 4.2:1，也差一點。strong 跟著升一階維持層級 */
+    color: #94a3b8;
     font-size: 13px;
   }
-  .note strong { color: #94a3b8; }
+  .note strong { color: #f1f5f9; }
+  .sec {
+    margin: 40px 0 18px;
+    padding-top: 28px;
+    border-top: 1px solid #1e293b;
+  }
+  .sec h2 { font-size: 20px; margin: 0 0 8px; }
+  .sec p { color: #94a3b8; font-size: 14px; margin: 0; }
   @media (max-width: 600px) {
     body { padding: 32px 18px 60px; }
     h1 { font-size: 24px; }
@@ -66,7 +76,7 @@
   <p class="lede">
     前三份搭配「Agent 運作框架」那一段：先用模板寫出第一份手冊，卡住的時候查判斷卡，
     過一陣子用檢查表整理一次。第四份是看到紅字的時候翻的。已依 Claude Code 最新官方 memory 文件核對。
-    最後一份是範例專案的下載位置，手上沒有自己做的計時器時用它接著做。
+    第五份是範例專案的下載位置，手上沒有自己做的計時器時用它接著做。
   </p>
 
   <a class="card primary" href="./print.html">
@@ -103,6 +113,38 @@
     <div class="t">5. 範例專案：任務計時器</div>
     <div class="d">手上沒有計時器的人用這一份。按綠色的 Code → Download ZIP，不用登入。解壓縮之後用 Claude Code 打開裡面的 mission-timer 資料夾，動手那幾頁照原樣走得完。</div>
     <div class="m">github.com/citysite102/mission-timer-v2</div>
+  </a>
+
+  <div class="sec">
+    <h2>完整教學案例</h2>
+    <p>
+      四份 PDF，每一份從空資料夾走到上線。先寫規格，再做網站。
+      都標明了閱讀與動手各要多久，沒有程式背景也走得完。檔案大，建議在 Wi-Fi 下載。
+    </p>
+  </div>
+
+  <a class="card" href="./case-01-spec-writing.pdf">
+    <div class="t">課前作業：規格文件怎麼寫</div>
+    <div class="d">案例一開始之前先寫完這一份。七個區塊寫成一份 spec.md：一句話定義、不做什麼、真實素材、參考方向、硬性限制、驗收條件、素材清單。判斷標準只有一句，這一條是形容詞，還是可以被檢查的條件。</div>
+    <div class="m">case-01-spec-writing.pdf ・ 2.2 MB ・ 60 到 90 分鐘</div>
+  </a>
+
+  <a class="card" href="./case-01-vessel.pdf">
+    <div class="t">案例一：器 VESSEL，陶藝工作室一頁式網站</div>
+    <div class="d">把「我想要這樣」變成 AI 能穩定執行的規則。沒有資料也沒有表單，所以不需要任何工具。使用 Astro、TypeScript、原生 CSS 與 Vercel。</div>
+    <div class="m">case-01-vessel.pdf ・ 7.9 MB ・ 閱讀約 1.9 小時，動手約 5.7 小時</div>
+  </a>
+
+  <a class="card" href="./case-02-tokyo-loop.pdf">
+    <div class="t">案例二：東京環状 24 時，捲動穿越的 3D 藝廊</div>
+    <div class="d">判斷什麼問題該用什麼技術，每一個工具都要說得出它在解決什麼問題，以及不用它會怎樣。十張照片沿深度排開，捲動時鏡頭穿過它們。使用 Three.js、GSAP 與原生 CSS，不需要看懂 shader 或 JavaScript。</div>
+    <div class="m">case-02-tokyo-loop.pdf ・ 6.5 MB ・ 閱讀約 2.6 小時，動手約 8.6 小時</div>
+  </a>
+
+  <a class="card" href="./case-03-kiln.pdf">
+    <div class="t">案例三：開窯預約，有帳號與資料的網站</div>
+    <div class="d">哪些事情不能只相信前端。有人繞過網頁直接送請求的時候，擋得住的只有資料庫的規則。可以登入、預約、取消，而且只看得到自己那幾筆。使用 Astro、Supabase 與原生 CSS，不需要看懂 SQL。</div>
+    <div class="m">case-03-kiln.pdf ・ 6.1 MB ・ 閱讀約 2.5 小時，動手約 7.8 小時</div>
   </a>
 
   <p class="note">

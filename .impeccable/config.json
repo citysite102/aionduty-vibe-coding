@@ -47,6 +47,15 @@
         ],
         "createdAt": "2026-10-03T16:41:45.223Z",
         "reason": "誤報：L91 是角色卡的 icon 底色，兩個分支都不是灰字配彩底 — lead 分支是 bg-sky-500/15 配 text-sky-400（同色相），非 lead 分支是 bg-slate-800 配 text-slate-400（灰配灰，對比約 5.6:1，而且是 22px 的 icon 不是內文）。這組 icon 底色是全片共用的樣式，CLAUDE.md A-1 的色彩規範也沒有禁它。"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "public/handouts/index.html"
+        ],
+        "createdAt": "2026-10-06T07:40:54.362Z",
+        "reason": "pre-existing, not from this session: the Course Handouts kicker was already in commit 80176f9 (2026-10-03), and mono uppercase tracked labels are house style across 36 files in src/slides and src/components. This session only added the case-study cards below."
       }
     ]
   }

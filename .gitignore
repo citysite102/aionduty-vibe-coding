@@ -47,3 +47,13 @@ sim/archive/
 
 # Remotion 輸出的動畫片段（npm run render:mg）。衍生檔，重算就有，不進版控。
 out/
+
+# 預告片的音訊、影片與字型素材。合計約 570 MB（混音 wav 單檔就 54 MB、
+# 人聲與 SFX 各一份、clips/ 的實作錄影、三套 Noto CJK OTF 共 49 MB）。
+# .git 目前 191 MB，這批進去會翻三倍，而且 wav 沒有 delta 壓縮，
+# 每重算一次混音就多存一整份，之後也砍不掉。
+#
+# 代價要知道：換一台機器 clone 下來渲染不出預告片，素材要自己放回這兩個位置。
+# 哪一版讀哪幾個檔案寫在 src/remotion/CLAUDE.md 的版本紀錄裡。
+public/assets/
+public/fonts/
