@@ -1,13 +1,20 @@
 import { FileText } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { CaseHandbook } from '../components/CaseHandbook';
 
 /**
  * 三個案例共用同一份規格，所以這兩頁（七塊、驗收條件）掛在案例一的單元裡，
- * 但講的是三個案例都要交的那份規格。
+ * 但講的是三個案例都要交的那份規格。2026-10-06 搬到案例一首頁的前面，
+ * 因為手冊把它定位成課前作業，而案例一首頁的「起點」本來就寫著「只有你自己寫的規格」，
+ * 擺在後面等於先講起點、再講起點是什麼。
  *
  * 第 3 塊標 sky，其餘七塊灰階：真實素材是唯一一塊 AI 補不出來的，
  * 它決定後面每一步拿得到什麼。平等的項目不要一項一色（A-1）。
+ *
+ * 2026-10-06 最上面補了 DELIVERABLE 那三格，來源是 case-01-spec-writing.pdf 的封面。
+ * 原本整頁講了七塊怎麼寫，但沒有說要交出什麼、寫多久、檔名叫什麼，學員看完不知道算不算做完。
+ * 手冊把它定位成「案例一之前的課前作業」，所以這兩頁 2026-10-06 從案例一後面搬到了前面。
  */
 const BLOCKS = [
   {
@@ -115,6 +122,14 @@ export default function SlideCaseSpec() {
           <strong className="text-slate-100">你不寫「不要什麼」，它就會加上去</strong>，所以這一塊比「要做什麼」更該花時間。
           整份一到兩頁就夠，超過三頁通常是在寫作文。
         </Callout>
+
+        <AnimatedBlock stepIndex={4}>
+          <CaseHandbook
+            file="case-01-spec-writing.pdf"
+            title="規格文件怎麼寫"
+            hours="約 60 到 90 分鐘"
+          />
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

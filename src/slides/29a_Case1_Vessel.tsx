@@ -2,6 +2,7 @@ import { Palette } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseShot } from '../components/CaseShot';
+import { CaseHandbook } from '../components/CaseHandbook';
 import vesselHero from '../../assets/cases/case-01-vessel-hero.jpg';
 import vesselProcess from '../../assets/cases/case-01-vessel-process.jpg';
 
@@ -11,10 +12,15 @@ import vesselProcess from '../../assets/cases/case-01-vessel-process.jpg';
  *
  * 這一頁不要寫「把兩版並排看」：第一版沒有留存，畫面上放不出來。
  * AI 感那一塊改成一份指得出來的清單，講者對著成品講，不需要對照組。
+ *
+ * 2026-10-06 換了 hero 截圖，大標從「土的沉默，火的回答」變成「開窯前，沒人知道結果。」。
+ * 同一輪補了那個 sky Callout：這句大標就是前一頁規格裡的真實素材之一，
+ * 兩頁這樣才扣得起來，學員看得到規格那一欄最後變成了什麼。
+ * **再換截圖的時候，那個 Callout 引的句子要跟著改，不然會指到畫面上沒有的字。**
  */
 const ROUTE = [
   { label: '起點', text: '桌面上一個空資料夾，裡面只有你自己寫的規格' },
-  { label: '過程', text: '從參考圖談出視覺規則，寫成設計規範與一份集中的顏色尺寸設定，再加上一個會擋下違規改動的自動檢查' },
+  { label: '過程', text: '從參考圖談出視覺規則，寫成設計規範與一份集中的顏色尺寸設定，再加上一個會擋下違規改動的自動檢查，也就是前面那一章裝過的 Hook' },
   { label: '產出', text: '一個公開網址上的一頁式品牌網站，以及一份機器檢查得了的設計規範' },
 ];
 
@@ -42,7 +48,7 @@ export default function SlideCase1Vessel() {
           <div className="md:col-span-3">
             <CaseShot
               src={vesselHero}
-              alt="器 VESSEL 首頁：沾滿泥漿的雙手在轆轤上拉起坯體，左下角是大字標題「土的沉默，火的回答」，右下角是橘色的 1280°C"
+              alt="器 VESSEL 首頁：沾滿泥漿的雙手在轆轤上拉起坯體，大字標題「開窯前，沒人知道結果。」，左下角是預約工作室參觀與地址，右下角是橘色的 1280°C 與「柴燒最高窯溫」"
               url="https://case-01-vessel.samioo.chatgpt.site/"
             />
           </div>
@@ -70,7 +76,13 @@ export default function SlideCase1Vessel() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <Callout tone="focus" label="首頁那句大標，是規格裡的一句真實素材" stepIndex={2}>
+          「開窯前，沒人知道結果。」這句話沒有經過任何潤飾，它就是前面規格那四句裡的一句。
+          <strong className="text-slate-100">規格裡寫得出來的真話，才有機會變成首頁上的那一句。</strong>
+          寫成「每一次開窯都是驚喜的期待」，這裡就只能放一句任何工作室都能用的標語。
+        </Callout>
+
+        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-2">第一件事：把「AI 感」指出來</h3>
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
             第一版做出來是一個很乾淨、但每個網站都有的樣子。畫面上指得出來的是這十一項，後來一項一項刪掉。
@@ -92,7 +104,7 @@ export default function SlideCase1Vessel() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+        <AnimatedBlock stepIndex={4} className="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
           <img
             src={vesselProcess}
             alt="製程那一段的畫面：大標題「從一塊土到一只器，四十一天。」底下是練土、成形、修坯、施釉，每一列只有編號、名稱與一句說明，往下還有第五列燒成"
@@ -113,11 +125,19 @@ export default function SlideCase1Vessel() {
           </div>
         </AnimatedBlock>
 
-        <Callout tone="muted" label="做完手上會有什麼" stepIndex={4}>
+        <Callout tone="muted" label="做完手上會有什麼" stepIndex={5}>
           一個放得進作品集、給得了客戶看的成品。要真的對外掛上去，還差三件事：照片改成自己拍並且自己託管、
           字體改成自己託管、補上頁面標題描述與分享縮圖。
           <span className="text-slate-300">這個案例不做這三件</span>，因為它們跟這裡要教的東西無關。
         </Callout>
+
+        <AnimatedBlock stepIndex={6}>
+          <CaseHandbook
+            file="case-01-vessel.pdf"
+            title="器 VESSEL：陶藝工作室一頁式網站"
+            hours="約 5.7 小時"
+          />
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

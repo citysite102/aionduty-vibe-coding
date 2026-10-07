@@ -140,9 +140,11 @@ import SlideCase1Chain from './slides/29d_Case1_Chain';
 import SlideCase2TokyoLoop from './slides/29e_Case2_TokyoLoop';
 import SlideCase2Divide from './slides/29f_Case2_Divide';
 import SlideCase2Cost from './slides/29g_Case2_Cost';
+import SlideCase2Judgements from './slides/29g2_Case2_Judgements';
 import SlideCase3Kiln from './slides/29h_Case3_Kiln';
 import SlideCase3Trust from './slides/29i_Case3_Trust';
 import SlideCase3Race from './slides/29j_Case3_Race';
+import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide28c from './slides/28c_M4_RunItAgain';
@@ -274,16 +276,18 @@ const LIVE_TITLES = [
   "手機打開，紀錄卻是空的",
   "把紀錄搬上 Supabase，換台裝置也看得到",
   "DEPLOY.md：服務、資料、排程、金鑰",
-  "案例一：器 VESSEL",
   "一份規格要寫哪些欄位",
   "把形容詞翻成可以檢查的條件",
+  "案例一：器 VESSEL",
   "器 VESSEL 的十二步，每一步的產出",
   "案例二：東京環状 24 時",
   "哪些效果交給套件，哪些自己算",
-  "選什麼套件，以及為什麼還是要看得懂",
+  "為什麼還是要看得懂，以及選什麼套件",
+  "這件事該交給誰做：案例二的六個判斷",
   "案例三：開窯預約",
   "兩把金鑰，兩層權限",
   "兩個人同時搶最後一個名額",
+  "這件事可以相信誰：案例三的五個判斷",
   "回去之後，做哪一種題目",
   "新專案的前三個動作",
   "輸入放同一個資料夾，產物寫同一個檔名",
@@ -414,16 +418,18 @@ const LIVE_SLIDES = [
   Slide27b9,
   Slide27b9b,
   Slide27b8e,
-  SlideCase1Vessel,
   SlideCaseSpec,
   SlideCaseSpecCheck,
+  SlideCase1Vessel,
   SlideCase1Chain,
   SlideCase2TokyoLoop,
   SlideCase2Divide,
   SlideCase2Cost,
+  SlideCase2Judgements,
   SlideCase3Kiln,
   SlideCase3Trust,
   SlideCase3Race,
+  SlideCase3Judgements,
   Slide28b0,
   Slide28b,
   Slide28c,

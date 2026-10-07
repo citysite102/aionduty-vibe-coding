@@ -2,6 +2,7 @@ import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseShot } from '../components/CaseShot';
+import { CaseHandbook } from '../components/CaseHandbook';
 import tokyoLoopShot from '../../assets/cases/case-02-tokyo-loop.jpg';
 
 const ROUTE = [
@@ -77,6 +78,14 @@ export default function SlideCase2TokyoLoop() {
           <strong className="text-slate-100">最後一步專門在做這件事</strong>：把三個外部來源收回自己的專案，
           加上打包步驟，真機測過、效能量過，做完才算可以當正式版的起點。
         </Callout>
+
+        <AnimatedBlock stepIndex={4}>
+          <CaseHandbook
+            file="case-02-tokyo-loop.pdf"
+            title="東京環状 24 時：捲動穿越的 3D 藝廊"
+            hours="約 8.6 小時"
+          />
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

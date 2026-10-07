@@ -40,7 +40,7 @@ export default function SlideCase3Trust() {
           **改那一頁的推托句，要回來改這一句。**
         */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-base leading-relaxed">
-          這兩把金鑰你在計時器那一步已經接過一次了，那時候只告訴你「把 RLS 打開」。
+          計時器搬上 Supabase 那一步出現過同一組金鑰，那時候只說了「把 RLS 打開」。
           <strong className="text-slate-300">這一頁講的是打開之後那條規則要怎麼寫，以及寫錯的時候你會看到哪兩種錯誤訊息。</strong>
         </AnimatedBlock>
 

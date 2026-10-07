@@ -2,7 +2,14 @@ import { Package } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
-/** 正反對照，所以 emerald 與 rose 各佔一邊，這一頁只有這兩個色相 */
+/**
+ * 正反對照，所以 emerald 與 rose 各佔一邊，這一頁只有這兩個色相。
+ *
+ * 2026-10-06 上下半對調。原本第一塊是那張五列選型表，但教學模擬裡兩位沒有程式背景的
+ * 模擬學員都整張放棄（「連『想做什麼』那一欄都讀不懂」），而兩位都說底下那半段
+ * （不懂也用得上的那句問法）是整頁最大的收穫。所以先給做得到的動作，再把表當佐證。
+ * **不要再對調回去**，表放前面的時候，沒有背景的人在第一塊就下車了。
+ */
 const PICKS = [
   {
     want: '元素移動、縮放、淡入淡出',
@@ -61,37 +68,10 @@ const SYMPTOMS = [
 
 export default function SlideCase2Cost() {
   return (
-    <SlideLayout title="選什麼套件，以及為什麼還是要看得懂" subtitle="Case 02 · 它替你寫掉的與沒替你解決的" icon={Package}>
+    <SlideLayout title="為什麼還是要看得懂，以及選什麼套件" subtitle="Case 02 · 它替你寫掉的與沒替你解決的" icon={Package}>
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-4">
-            這張表換一個專案還是用得到
-          </h3>
-          <ul className="space-y-3">
-            {PICKS.map((p) => (
-              <li key={p.want} className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
-                <div className="text-slate-100 text-sm font-bold mb-2">{p.want}</div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
-                  <span className="rounded-lg border border-emerald-500/25 bg-emerald-500/5 px-3 py-1.5 text-emerald-200 text-sm">
-                    用：{p.yes}
-                  </span>
-                  <span className="rounded-lg border border-rose-500/25 bg-rose-500/5 px-3 py-1.5 text-rose-200 text-sm">
-                    不要：{p.no}
-                  </span>
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed">{p.why}</p>
-              </li>
-            ))}
-          </ul>
-        </AnimatedBlock>
-
-        <Callout tone="good" label="還有一列不在表上" stepIndex={2}>
-          一個效果不用任何套件也做得到的時候，多引入一個套件的代價是：使用者要多載一次，你要多維護一個版本號。
-          <strong className="text-slate-100">案例一整個網站沒有用任何套件</strong>，品質並不比這個案例低。
-        </Callout>
-
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">「反正 AI 會寫，我還需要懂嗎」</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             這個作品裡有好幾個地方，不懂就會卡住，而且卡住的時候你連問題該怎麼描述都不知道。四個例子：
@@ -122,6 +102,38 @@ export default function SlideCase2Cost() {
             它列得出來，那份清單就是你要指定的條件。
           </p>
         </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <h3 className="text-base font-bold text-slate-100 mb-4">
+            知道有哪些條件之後，這張表換一個專案還是用得到
+          </h3>
+          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+            這張表不用記，也不用看懂每一列在講什麼技術。
+            <span className="text-slate-200">它的用途是你跟 AI 討論的時候拿來對一次</span>
+            ，問它「這件事你打算用哪一種做法」，答案不在表上就追問為什麼。
+          </p>
+          <ul className="space-y-3">
+            {PICKS.map((p) => (
+              <li key={p.want} className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
+                <div className="text-slate-100 text-sm font-bold mb-2">{p.want}</div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+                  <span className="rounded-lg border border-emerald-500/25 bg-emerald-500/5 px-3 py-1.5 text-emerald-200 text-sm">
+                    用：{p.yes}
+                  </span>
+                  <span className="rounded-lg border border-rose-500/25 bg-rose-500/5 px-3 py-1.5 text-rose-200 text-sm">
+                    不要：{p.no}
+                  </span>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">{p.why}</p>
+              </li>
+            ))}
+          </ul>
+        </AnimatedBlock>
+
+        <Callout tone="good" label="還有一列不在表上" stepIndex={3}>
+          一個效果不用任何套件也做得到的時候，多引入一個套件的代價是：使用者要多載一次，你要多維護一個版本號。
+          <strong className="text-slate-100">案例一整個網站沒有用任何套件</strong>，品質並不比這個案例低。
+        </Callout>
 
       </div>
     </SlideLayout>

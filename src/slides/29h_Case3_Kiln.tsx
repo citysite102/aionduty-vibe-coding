@@ -2,6 +2,7 @@ import { CalendarCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseShot } from '../components/CaseShot';
+import { CaseHandbook } from '../components/CaseHandbook';
 import kilnShot from '../../assets/cases/case-03-kiln.jpg';
 
 const ROUTE = [
@@ -99,6 +100,14 @@ export default function SlideCase3Kiln() {
           <strong className="text-slate-100">只能用新開的練習專案、假資料、你自己的測試信箱。</strong>
           公司正式資料、客戶資料，以及任何正在服務真實使用者的環境都不行。
         </Callout>
+
+        <AnimatedBlock stepIndex={4}>
+          <CaseHandbook
+            file="case-03-kiln.pdf"
+            title="開窯預約：有帳號與資料的網站"
+            hours="約 7.8 小時"
+          />
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

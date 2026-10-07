@@ -1,6 +1,7 @@
 import { ClipboardCheck, X, Check } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { CaseHandbook } from '../components/CaseHandbook';
 
 /**
  * 那份規格的第二頁。七塊裡最容易寫壞的就是驗收條件，所以單獨一頁。
@@ -113,6 +114,18 @@ export default function SlideCaseSpecCheck() {
             </AnimatedBlock>
           ))}
         </div>
+
+        {/*
+          2026-10-06：規格那一份是兩頁（這一頁與上一頁），但原本只有上一頁掛手冊。
+          模擬學員說「這一頁底下沒有那一行，我會懷疑它算不算同一份」。兩頁都掛。
+        */}
+        <AnimatedBlock stepIndex={6}>
+          <CaseHandbook
+            file="case-01-spec-writing.pdf"
+            title="規格文件怎麼寫"
+            hours="約 60 到 90 分鐘"
+          />
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>
