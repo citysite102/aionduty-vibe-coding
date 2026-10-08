@@ -49,12 +49,12 @@ const MOVES = [
   {
     icon: PencilLine,
     title: '2. 把規則寫進 CLAUDE.md',
-    body: '把它剛才做錯的地方，用白話中文寫進 CLAUDE.md。下次啟動就會讀到，同樣的錯比較不會再犯。',
+    body: '把它剛才做錯的地方，用白話中文寫進 CLAUDE.md，同樣的錯比較不會再犯。但要注意：手冊是對話開始時才掃進來的，中途加的這一輪讀不到，要重新載入或開一個新對話。',
     note: '這是把一次性的糾正，變成之後每一輪都生效的規則。'
   },
   {
     icon: Wrench,
-    title: '3. 自己動手改一下',
+    title: '3. 自己動手調整',
     body: '如果它大部分都做對了，只卡在一個打錯的字或少了一個標點，直接打開檔案改掉會比繼續下提示詞快。',
     note: '不是每件事都得靠提示詞解決，你也還在這個循環裡。'
   },
@@ -77,8 +77,7 @@ export default function SlideIntervene() {
 
         <AnimatedBlock stepIndex={1} className="space-y-3">
           <p className="text-base text-slate-300 leading-relaxed">
-            條件寫齊之後放手，結果不會只有一種。
-            <strong className="text-slate-100">下面四種你都會遇到</strong>，第一種是順利的那一種。
+            放手之後，<strong className="text-slate-100">底下有四種狀況</strong>，第一種是理想的成果。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
             {OUTCOMES.map((o) => {
@@ -138,7 +137,6 @@ export default function SlideIntervene() {
         <AnimatedBlock stepIndex={4} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4 space-y-4">
           <p className="text-sm text-slate-400 leading-relaxed">
             <strong className="text-slate-200">這四招都不需要你看懂程式碼。</strong>
-            判斷的標準只有一個：它有沒有在往前走。原地打轉超過幾輪，就停下來換一種方式，不要放著讓它繼續跑。
           </p>
 
           <div className="border-t border-slate-800 pt-4">

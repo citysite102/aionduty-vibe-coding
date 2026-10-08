@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Eye, Wrench, ListPlus, Table2, Calculator, ThumbsUp, LayoutTemplate } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
@@ -22,26 +22,31 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 const RISKS = [
   {
     title: '需求一直長出新功能',
+    icon: ListPlus,
     sign: '講到一半又想到「順便加個匯出」，它真的去做了，原本說好的那版回不去了。',
     fix: '把「這一輪先不做」寫進需求那一頁。新想到的先記下來，排進下一輪。',
   },
   {
     title: '資料表被改到看不懂',
+    icon: Table2,
     sign: '它自己多開了一張表，或把欄位改了名字，你打開資料才發現對不起來。',
     fix: '改資料結構前先更新 docs/data-model.md，改完要它列出哪裡跟原本不一樣。',
   },
   {
     title: '金額計算前後不一致',
+    icon: Calculator,
     sign: '列表顯示 1,000，明細加起來是 999.99，兩邊都說自己是對的。',
     fix: '先決定金額存到分、稅金與折扣誰先算，寫進規範再讓它動手。',
   },
   {
     title: '子代理只會說看起來可以',
+    icon: ThumbsUp,
     sign: '你叫它審查，它回「整體結構清楚，沒有明顯問題」，一個檔名、一個行號都沒指到。',
     fix: '退回條件沒寫清楚。照前面那份 code-reviewer 的三段補：判斷標準、檢查項目、退回條件。',
   },
   {
     title: '畫面變成展示頁，不像工具',
+    icon: LayoutTemplate,
     sign: '做出來滿滿的大標題、漸層跟行銷文案，真正要用的搜尋跟表格反而要找很久。',
     fix: '規範寫成列表、表單、狀態與操作這幾件事，不要寫「簡潔現代」這種形容詞。',
   },
@@ -62,15 +67,30 @@ export default function SlideQuoteSystemRisks() {
           </p>
         </AnimatedBlock>
 
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${hoverIsolateGrid}`}>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mb-3 text-slate-500 text-sm">
+            <span className="flex items-center gap-1.5"><Eye aria-hidden="true" size={13} /> 你會看到</span>
+            <span className="flex items-center gap-1.5"><Wrench aria-hidden="true" size={13} className="text-sky-400" /> 怎麼辦</span>
+          </div>
+<div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ${hoverIsolateGrid}`}>
           {RISKS.map((risk, index) => (
             <AnimatedBlock key={risk.title} stepIndex={index + 2} className={`rounded-lg border border-slate-800 bg-slate-950 p-4 flex flex-col ${hoverIsolateCard}`}>
-              <div className="font-mono text-slate-600 text-xs mb-2">0{index + 1}</div>
-              <h3 className="text-slate-100 text-base font-bold leading-snug mb-3">{risk.title}</h3>
-              <div className="text-xs font-bold text-slate-500 mb-1.5">你會看到</div>
-              <p className="text-slate-300 text-sm leading-relaxed mb-3">{risk.sign}</p>
-              <div className="text-xs font-bold text-slate-500 mb-1.5 border-t border-slate-800 pt-3 mt-auto">怎麼辦</div>
-              <p className="text-slate-400 text-sm leading-relaxed">{risk.fix}</p>
+              <div className="flex items-start gap-2.5 mb-3">
+                <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-900 text-amber-400">
+                  <risk.icon aria-hidden="true" size={17} />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-mono text-slate-600 text-xs">0{index + 1}</div>
+                  <h3 className="text-slate-100 text-base font-bold leading-snug">{risk.title}</h3>
+                </div>
+              </div>
+              <div className="flex items-start gap-2 mb-3">
+                <Eye aria-hidden="true" size={14} className="text-slate-500 shrink-0 mt-1" />
+                <p className="text-slate-300 text-sm leading-relaxed">{risk.sign}</p>
+              </div>
+              <div className="flex items-start gap-2 border-t border-slate-800 pt-3 mt-auto">
+                <Wrench aria-hidden="true" size={14} className="text-sky-400 shrink-0 mt-1" />
+                <p className="text-slate-400 text-sm leading-relaxed">{risk.fix}</p>
+              </div>
             </AnimatedBlock>
           ))}
         </div>

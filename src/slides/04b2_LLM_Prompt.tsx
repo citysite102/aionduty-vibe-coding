@@ -16,7 +16,7 @@ const DESIGN_REFS = [
     src: refEditorialSite,
     alt: '藍底網站的三個區塊，由深色首圖換到整片藍再換到白底內文',
     label: '配色與分區節奏',
-    note: '整份用同一個藍撐場，靠底色換頁分段，這是「配色乾淨」的具體樣子。',
+    note: '整份用同一個藍撐場，靠底色換頁分段，這是「配色乾淨」的具體樣貌。',
   },
   {
     src: refDeckTemplate,

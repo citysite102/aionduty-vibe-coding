@@ -1,4 +1,4 @@
-import { Database, KeyRound, UserCheck } from 'lucide-react';
+import { Database, KeyRound, UserCheck, Replace } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
@@ -99,12 +99,38 @@ export default function SlideSupabaseStore() {
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] gap-5 items-start">
-          <AnimatedBlock stepIndex={3}>
-            <CopyBlock text={PROMPT} size="xs" note="第 1 點跟第 3 點不要刪，那兩句是煞車" />
-          </AnimatedBlock>
+          <div className="space-y-5">
+            <AnimatedBlock stepIndex={3}>
+              <CopyBlock text={PROMPT} size="xs" note="第 1 點跟第 3 點不要刪，那兩句是煞車" />
+            </AnimatedBlock>
+
+            {/*
+              2026-10-08（講師）補這一塊。原本左欄只有 Prompt，右欄兩塊比它高，
+              底下空出一個洞；而學員這時候一定會問「為什麼是 Supabase」。一塊補兩件事。
+              最後查證：2026-10-08。免費方案與授權這類條件會改（C 章），
+              **下次改版前去各家的定價頁點一次**，不確定就把那幾個名字拿掉，只留三個問題。
+              那三個問題才是這一塊要帶走的東西，名單會過期，問法不會。
+            */}
+            <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+              <div className="flex items-center gap-2.5 mb-2">
+                <Replace size={18} className="text-slate-400 shrink-0" />
+                <h4 className="text-base font-bold text-slate-100">為什麼是它？換別家行不行</h4>
+              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                這堂課挑它有三個理由：免費方案不用綁信用卡、資料庫跟登入在同一個後台（不用再接第二個服務）、
+                而且它是開源的，之後真的要搬走，資料拿得回來。
+              </p>
+              <p className="text-slate-400 text-sm leading-relaxed mt-2">
+                同一類的還有 Firebase、Neon、PlanetScale、Pocketbase，換哪一家都做得到這一頁的事。
+                <strong className="text-slate-200">要換的話問三件事</strong>：
+                免費方案夠不夠你這個專案用、資料拿不拿得回來、
+                以及它的說明文件夠不夠普及（太冷門的服務，Claude 會把設定寫錯，你又看不出來）。
+              </p>
+            </AnimatedBlock>
+          </div>
 
           <div className="space-y-5">
-            <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
               <div className="flex items-center gap-2.5 mb-2">
                 <KeyRound size={18} className="text-slate-400 shrink-0" />
                 <h4 className="text-base font-bold text-slate-100">兩把金鑰，只有一把該出現在前端</h4>
@@ -121,7 +147,7 @@ export default function SlideSupabaseStore() {
               </p>
             </AnimatedBlock>
 
-            <Callout tone="warn" label="沒有登入，大家就是共用同一份" stepIndex={5}>
+            <Callout tone="warn" label="沒有登入，大家就是共用同一份" stepIndex={6}>
               接上資料庫之後，換一台裝置確實看得到同一份紀錄。
               但這個計時器沒有帳號，所以<strong className="text-slate-100">別人打開你的網址，看到的也是同一份</strong>。
               要變成「我的紀錄跟著我走」，還要再加一個登入，而那正是
@@ -133,7 +159,7 @@ export default function SlideSupabaseStore() {
           </div>
         </div>
 
-        <AnimatedBlock stepIndex={6} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
+        <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
           <div className="flex items-center gap-2.5 mb-1.5">
             <UserCheck size={18} className="text-slate-400 shrink-0" />
             <h4 className="text-base font-bold text-slate-100">做完怎麼確認，不要只看它說好了</h4>

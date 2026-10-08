@@ -1,4 +1,4 @@
-import { Compass, FileText, Flag } from 'lucide-react';
+import { Compass, FileText, Flag, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
@@ -65,17 +65,11 @@ const SPEC_VS_WISH = [
 export default function SlideFutureEngineering() {
   return (
     <SlideLayout
-      title="規格驅動與測試驅動：你剛做的那兩件事"
+      title="規格驅動與測試驅動"
       subtitle="Spec First, Tests as the Finish Line"
       icon={Compass}
     >
       <div className="max-w-6xl mx-auto w-full space-y-5 pb-8">
-
-        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
-          <p className="text-slate-300 text-base leading-relaxed">
-            你剛才貼下去那段話做了兩件事，下面是它們的名字、你是在哪一段做到的，以及為什麼有效。
-          </p>
-        </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {TERMS.map((t, i) => {
@@ -83,7 +77,7 @@ export default function SlideFutureEngineering() {
             return (
               <AnimatedBlock
                 key={t.en}
-                stepIndex={i + 2}
+                stepIndex={i + 1}
                 className="rounded-2xl border border-slate-800 bg-slate-900 p-5"
               >
                 <div className="flex items-center gap-2.5 mb-3">
@@ -110,7 +104,7 @@ export default function SlideFutureEngineering() {
           })}
         </div>
 
-        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">
             右邊這五題，就是你剛才貼下去的那一段原文
           </h3>
@@ -141,6 +135,33 @@ export default function SlideFutureEngineering() {
           <p className="text-slate-500 text-sm leading-relaxed mt-4 border-t border-slate-800 pt-3">
             換成你自己的題目，右邊那一欄還是得你自己寫。
             前面那些工具替你做的是每一輪自動再跑一次，左邊翻成右邊沒有人代得了。
+          </p>
+        </AnimatedBlock>
+
+        {/*
+          2026-10-08（講師）補一個延伸閱讀。這兩個詞學員回去一定會再搜到，
+          與其在這一頁展開（會把一頁變成兩頁），不如給一篇寫得完整的中文文章。
+          **這是選讀，不要寫成作業**，所以放在最後、用灰階、文案寫「有興趣再看」。
+          最後查證：2026-10-08，文章標題與日期取自講師提供的搜尋結果畫面
+          （Cash Wu，〈SDD — 從 TDD 到規格驅動開發：AI 時代的延伸〉，2026-02-15）。
+          外部連結會掛掉，下次改版順手點一次；掛了就把整塊拿掉，不要留一個死連結。
+        */}
+        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
+          <p className="text-slate-400 text-sm leading-relaxed">
+            這兩個詞背後各自有一套完整的做法，這門課只用到它們的核心動作。
+            有興趣想知道它們原本長什麼樣、以及 SDD 是怎麼從 TDD 延伸出來的，這一篇寫得很完整：
+          </p>
+          <a
+            href="https://blog.cashwu.com/blog/2026/sdd-from-tdd-to-spec-driven-development"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-flex items-center gap-2 text-sky-400 text-sm hover:underline"
+          >
+            <ExternalLink aria-hidden="true" size={14} className="shrink-0" />
+            <span>SDD — 從 TDD 到規格驅動開發：AI 時代的延伸（Cash Wu）</span>
+          </a>
+          <p className="text-slate-500 text-sm leading-relaxed mt-1.5">
+            blog.cashwu.com　選讀，不看也不影響後面任何一步。
           </p>
         </AnimatedBlock>
 

@@ -15,6 +15,16 @@ import { Callout } from '../components/Callout';
  * 但他完全沒有畫面，也不知道它跟章節六裝過的 Hook 是不是同一件事。手冊自己寫著
  * 「hook 是『自動檢查』的正式名稱」，投影片卻一次都沒把兩個名字接起來。
  */
+/** 2026-10-08（講師）：十二步原本是一張平的清單加一段文字說明「前七步在寫規則、
+ *  第 8 步之後規則才被執行」。那段文字是這一頁的骨架，但它藏在清單底下，要讀完才看得到。
+ *  改成三段分組，骨架直接畫出來，那段說明文字就不用再寫一次（刪掉了，不要加回來）。
+ *  分界是硬的：第 8 步是 Hook 掛上去的那一步，前面只有規則、後面才有保護。 */
+const PHASES = [
+  { label: '第 1 到 7 步　把規則寫下來', note: '這七步做出來的畫面只有一個', from: 0, to: 7 },
+  { label: '第 8 步　規則開始被執行', note: '掛上自動檢查，也就是前面裝過的 Hook', from: 7, to: 8 },
+  { label: '第 9 到 12 步　在保護下產出', note: '之後每一塊改動都會先過那道檢查', from: 8, to: 12 },
+];
+
 const STEPS = [
   { out: '一份「AI 感」清單' },
   { out: '一份還沒動到任何檔案的計畫' },
@@ -86,33 +96,40 @@ export default function SlideCase1Chain() {
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <ol className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {STEPS.map((s, i) => (
-              <li
-                key={s.out}
-                className={`flex gap-3 rounded-xl border px-4 py-2.5 ${
-                  s.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-950'
-                }`}
-              >
-                <span className="font-mono text-sm text-slate-600 pt-0.5 w-5 shrink-0">{i + 1}</span>
-                <span className={`text-sm leading-relaxed ${s.key ? 'text-sky-200 font-bold' : 'text-slate-200'}`}>
-                  {s.code ? (
-                    <>
-                      寫進 <code className="font-mono text-orange-300">CLAUDE.md</code> 的設計規範
-                    </>
-                  ) : (
-                    s.out
-                  )}
-                </span>
-              </li>
+          <div className="space-y-3">
+            {PHASES.map((ph) => (
+              <div key={ph.label}>
+                <div className="flex items-baseline justify-between gap-3 mb-1.5">
+                  <span className="text-slate-200 text-sm font-bold">{ph.label}</span>
+                  <span className="text-slate-500 text-sm">{ph.note}</span>
+                </div>
+                <ol className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {STEPS.slice(ph.from, ph.to).map((s, k) => {
+                    const i = ph.from + k;
+                    return (
+                      <li
+                        key={s.out}
+                        className={`flex gap-3 rounded-xl border px-4 py-2.5 ${
+                          s.key ? 'border-sky-500/30 bg-sky-500/5 md:col-span-2' : 'border-slate-800 bg-slate-950'
+                        }`}
+                      >
+                        <span className="font-mono text-sm text-slate-600 pt-0.5 w-5 shrink-0">{i + 1}</span>
+                        <span className={`text-sm leading-relaxed ${s.key ? 'text-sky-200 font-bold' : 'text-slate-200'}`}>
+                          {s.code ? (
+                            <>
+                              寫進 <code className="font-mono text-orange-300">CLAUDE.md</code> 的設計規範
+                            </>
+                          ) : (
+                            s.out
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
             ))}
-          </ol>
-          <p className="text-slate-400 text-sm leading-relaxed mt-4">
-            前七步都在把規則寫下來，做出來的畫面只有一個。
-            <strong className="text-slate-200">
-              第 8 步之後規則才會被執行，剩下的區塊都是在它的保護下產出的。
-            </strong>
-          </p>
+          </div>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">

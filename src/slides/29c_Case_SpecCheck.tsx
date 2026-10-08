@@ -1,4 +1,4 @@
-import { ClipboardCheck, X, Check } from 'lucide-react';
+import { ClipboardCheck, X, Check, MessagesSquare, SearchX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseHandbook } from '../components/CaseHandbook';
@@ -19,6 +19,7 @@ const TRANSLATIONS = [
 const PROMPTS = [
   {
     when: '寫不出來的時候',
+    icon: MessagesSquare,
     title: '讓 AI 訪談你',
     lines: [
       '一次問我三個問題，問到我答不出來為止',
@@ -29,6 +30,7 @@ const PROMPTS = [
   },
   {
     when: '交出去之前',
+    icon: SearchX,
     title: '讓 AI 挑你的毛病',
     lines: [
       '哪幾條是形容詞而不是可驗收的規則？',
@@ -50,7 +52,7 @@ export default function SlideCaseSpecCheck() {
 
         {/*
           2026-10-04 補最上面這一句。這一頁的形狀（左邊模糊、右邊驗得下去）跟
-          〈規格驅動與測試驅動：你剛做的那兩件事〉同一章、隔不到十頁，
+          〈規格驅動與測試驅動〉同一章、隔不到十頁，
           學員走到這裡會覺得剛剛看過。差別有兩個：那一頁是交辦一輪工作的完成條件
           （2026-10-05 起它的例子就是計時器那五題，功能面的），這一頁是一份規格的
           驗收欄位（視覺面的）；而且這一頁多了一種算法，人眼一秒判斷得了的也算。
@@ -99,10 +101,15 @@ export default function SlideCaseSpecCheck() {
               stepIndex={i + 4}
               className="bg-slate-900 border border-slate-800 rounded-2xl p-5"
             >
-              <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-1">
-                {p.when}
+              <div className="flex items-start gap-3 mb-3">
+                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-sky-500/30 bg-sky-500/10 text-sky-400">
+                  <p.icon aria-hidden="true" size={18} />
+                </span>
+                <div className="min-w-0">
+                  <div className="font-mono text-xs uppercase tracking-widest text-slate-500">{p.when}</div>
+                  <h3 className="text-base font-bold text-slate-100 leading-snug">{p.title}</h3>
+                </div>
               </div>
-              <h3 className="text-base font-bold text-slate-100 mb-3">{p.title}</h3>
               <ul className="space-y-1.5 rounded-xl border border-slate-800 bg-slate-950 p-4">
                 {p.lines.map((l) => (
                   <li key={l} className="text-slate-300 text-sm leading-relaxed">

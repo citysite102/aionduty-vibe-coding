@@ -1,4 +1,4 @@
-import { NotebookPen, TriangleAlert } from 'lucide-react';
+import { NotebookPen, TriangleAlert, Database, Sigma } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 import { LiveDemo } from '../components/LiveDemo';
@@ -15,7 +15,12 @@ import { LiveDemo } from '../components/LiveDemo';
  * DERIVED 四個與 PROMPT 裡要求顯示的三個刻意不一樣：那四個是「可以算出來的東西」的
  * 例子，PROMPT 只挑三個顯示在畫面上，免得一個小計時器的下方塞四行統計。
  * 中途返航率留在卡片上當例子，不要為了對齊而硬塞進 PROMPT。
- */
+  *
+ * 2026-10-08：「這些不要存，用算的」那一組原本是 emerald，加上 sky 與 amber 等於一頁三種
+ * 強調色（A-1 上限兩種）。改成 indigo，讓它跟 sky 那一組變成規範允許的成對對照
+ * （存什麼／算什麼是同一個決定的兩邊），合計算一種，加上 amber 剛好兩種。
+ * **不要把它改回 emerald**：這一頁沒有紅框跟它配對，單獨的 emerald 會自己算一種。
+*/
 
 const FIELDS = [
   { name: 'startedAt', desc: '這趟什麼時候出發' },
@@ -79,7 +84,8 @@ export default function SlideMissionLog() {
           {/* 左：資料要記什麼 */}
           <div className="lg:col-span-5 space-y-5">
             <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-              <h3 className="text-sm font-bold text-slate-200 mb-3 border-b border-slate-800 pb-2">
+              <h3 className="flex items-center gap-2 text-sm font-bold text-slate-200 mb-3 border-b border-slate-800 pb-2">
+                <Database aria-hidden="true" size={15} className="text-sky-400 shrink-0" />
                 一趟任務，記這三件事
               </h3>
               <div className="space-y-2">
@@ -98,12 +104,13 @@ export default function SlideMissionLog() {
             </AnimatedBlock>
 
             <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-              <h3 className="text-sm font-bold text-slate-200 mb-3 border-b border-slate-800 pb-2">
+              <h3 className="flex items-center gap-2 text-sm font-bold text-slate-200 mb-3 border-b border-slate-800 pb-2">
+                <Sigma aria-hidden="true" size={15} className="text-indigo-400 shrink-0" />
                 這些不要存，用算的
               </h3>
               <div className="flex flex-wrap gap-2">
                 {DERIVED.map(d => (
-                  <span key={d} className="px-2.5 py-1 bg-emerald-500/5 text-emerald-300/90 border border-emerald-900/40 rounded-lg text-xs font-bold">
+                  <span key={d} className="px-2.5 py-1 bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 rounded-lg text-xs font-bold">
                     {d}
                   </span>
                 ))}

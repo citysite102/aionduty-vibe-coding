@@ -24,8 +24,29 @@ const LOSSES = [
   { icon: Send, t: '想傳給別人看', d: '總不能把整個資料夾壓縮寄過去。' },
 ];
 
-const PROMPT =
-  '幫我把這個專案推到 GitHub。設成 private 還是 public 先問我。推之前先確認沒有把密碼或金鑰帶上去。';
+/**
+ * 2026-10-08（講師）這段指令從一句話擴成一次到位的版本。原本那句只交代「推上去」，
+ * 學員照著跑完手上是一個沒有說明、別人點進去不知道在幹嘛的專案，而且還要再問一輪
+ * private 還是 public。現在直接指定 public（練習專案就是要給人看），
+ * 把 README 與金鑰檢查一起寫進同一段，跑完就是完整的。
+ *
+ * **public 這個決定不要拿掉，但也不要在這裡解釋它。** 什麼時候該選 private 是下一頁的事，
+ * 這一頁只留一句「下一頁會講」的提示（畫面上那行小字），順序不要對調。
+ *
+ * 金鑰那一條寫成「找到先告訴我，不要自己改」，是刻意的：學員這時候還分不出
+ * 哪些字串是金鑰，讓它直接動手改會把真的設定值也一起清掉。
+ *
+ * **畫面上印的字與複製鈕拿到的字共用這一個常數**（A-4），不要為了版面另外寫一份短的。
+ */
+const PROMPT = `幫我把這個專案推到 GitHub，設成 public。
+
+推之前先做三件事：
+1. 檢查 .gitignore 有沒有擋掉 .env 跟 node_modules，再掃一次專案裡有沒有寫死的密碼或 API 金鑰。有的話先告訴我，不要自己改。
+2. 幫我寫一份 README.md：這個專案是什麼、畫面上有哪些功能、怎麼在本機跑起來、用到哪些外部服務。
+3. 告訴我 repository 要叫什麼名字，描述寫一句話就好。
+
+確認完再建立 repository 並推上去，最後把網址給我。
+中間如果需要我去瀏覽器授權，停下來告訴我要按哪裡。`;
 
 export default function SlidePushToGithub() {
   return (
@@ -72,8 +93,12 @@ export default function SlidePushToGithub() {
           <div className="flex items-center gap-2 mb-3 text-slate-500 font-mono text-xs uppercase tracking-wider">
             <Terminal size={12} className="text-sky-400" /> Prompt
           </div>
-          <p className="text-sky-300 text-base leading-relaxed">「{PROMPT}」</p>
+          <p className="text-sky-300 text-base leading-relaxed whitespace-pre-line">{PROMPT}</p>
           <CopyAction text={PROMPT} className="mt-3" />
+          <p className="text-slate-500 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
+            這裡直接寫 public，因為練習專案本來就是要給人看的。
+            什麼情況該改成 private，下一頁講。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="px-1">

@@ -1,4 +1,4 @@
-import { ClipboardCheck, FileCheck2, Terminal } from 'lucide-react';
+import { ClipboardCheck, FileCheck2, Terminal, PackagePlus, ListChecks, RefreshCw } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 
@@ -31,6 +31,7 @@ const SETUP_PROMPT =
 const STEPS = [
   {
     label: 'STEP 1　裝一個會點畫面的 Skill',
+    icon: PackagePlus,
     lead: '在對話框跟它說：',
     body: `「${SKILL_PROMPT}」`,
     copy: SKILL_PROMPT,
@@ -38,12 +39,14 @@ const STEPS = [
   },
   {
     label: 'STEP 2　先講清楚什麼叫做完',
+    icon: ListChecks,
     lead: '寫成看得出有沒有的事實：',
     body: '「三顆按鈕都點得到、點下去大字會變、瀏覽器 Console 沒有紅字。」',
     note: '不要寫「要能正常使用」，那種它驗不動。',
   },
   {
     label: 'STEP 3　讓它每次都驗',
+    icon: RefreshCw,
     lead: '在 CLAUDE.md 裡加一行：',
     body: '「每次改完，用 webapp-testing 把上面那幾題點過一次，沒全過不算做完。」',
     note: '這句話就是你給迴圈的完成標準。',
@@ -69,8 +72,15 @@ export default function SlideNoCodeBridge() {
         <AnimatedBlock stepIndex={1} className="bg-slate-900/60 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
             <strong className="text-slate-100">完成條件寫好了，那誰去看它過了沒有？</strong>
-            不用你看。裝一個會自己開瀏覽器點的工具，它每改完一輪就自己點一次，
-            結果不是綠燈就是紅字。那份紅字它自己讀得到，所以你不用回來告訴它哪裡壞了。
+            可以交給一個會自己開瀏覽器的工具。它每改完一輪就照著你寫的那幾題點一次，
+            結果不是綠燈就是紅字，而那份紅字它自己讀得到，所以多數時候你不用回來告訴它哪裡壞了。
+          </p>
+          <p className="text-slate-400 text-base leading-relaxed mt-2">
+            這一類東西統稱<strong className="text-slate-200">前端測試框架</strong>，
+            Playwright、Cypress、Selenium 都是，底下要裝的 Skill 就是包著 Playwright 在跑。
+            它們能自動化的是<strong className="text-slate-200">有明確步驟與明確結果的點擊</strong>：
+            點這顆按鈕、看那個數字有沒有變、看 Console 有沒有紅字。
+            至於「這個畫面好不好看」「這段文案順不順」，它驗不了，那一類還是要你自己開來看一次。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2">
             你的計時器是一個 <code className="font-mono text-slate-300">index.html</code>，
@@ -87,7 +97,12 @@ export default function SlideNoCodeBridge() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {STEPS.map((s) => (
               <div key={s.label} className="bg-slate-950 border border-slate-800 rounded-2xl p-4">
-                <div className="text-xs font-mono text-sky-400 font-bold mb-2">{s.label}</div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-sky-500/30 bg-sky-500/10 text-sky-400">
+                    <s.icon aria-hidden="true" size={15} />
+                  </span>
+                  <span className="text-xs font-mono text-sky-400 font-bold">{s.label}</span>
+                </div>
                 <p className="text-sm text-slate-300 leading-relaxed mb-2">{s.lead}</p>
                 <p className="text-sm text-sky-300 leading-relaxed">{s.body}</p>
                 {s.copy && <CopyAction text={s.copy} className="mt-2" />}
@@ -103,8 +118,8 @@ export default function SlideNoCodeBridge() {
         */}
         <AnimatedBlock stepIndex={3} className="bg-slate-950 border border-slate-800 rounded-2xl px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
-            還有兩種把關是<strong className="text-slate-100">讀程式碼</strong>挑錯的。
-            你的計時器沒有它們跑得起來的結構，現在用不到，但那兩個詞到處都是，先讓你認得。
+            點擊是「跑起來之後」的把關。另外還有兩種是<strong className="text-slate-100">不用跑，直接讀程式碼</strong>挑錯的，
+            專案一長大就會遇到。
           </p>
         </AnimatedBlock>
 

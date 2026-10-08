@@ -1,4 +1,4 @@
-import { Flag, Terminal, Scale, Fence, Boxes, ExternalLink } from 'lucide-react';
+import { Flag, Terminal, Scale, Fence, Boxes, ExternalLink, ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
@@ -26,19 +26,21 @@ const BLOCKS = [
     icon: Terminal,
     tag: '怎麼用',
     title: '打完就開跑，不用再送一句話',
-    body: '後面接你的條件，按下去它就開始做。想看現在跑到哪，打 /goal 不帶東西；想收手，打 /goal clear。一個對話一次只能有一個目標。',
+    body: '後面接你的條件，按下去就開始做。打 /goal 不帶東西看進度，打 /goal clear 收手。一個對話一次只能有一個目標。',
   },
   {
     icon: Scale,
     tag: '誰來驗收',
     title: '驗收的是另一個模型，不是做事的那一個',
-    body: '每一輪結束，它把你的條件跟這段對話送給另一個比較小的模型，那個模型只回三種答案：還沒到（繼續，並把理由當成下一輪的方向）、達成（結束）、做不到（也結束）。因為驗收的不是同一個模型，它就不能用一句「做好了」把自己放行。',
+    flow: ['你的條件＋這段對話', '送給另一個小模型', '三種答案'],
+    verdicts: ['還沒到 → 繼續，理由當成下一輪的方向', '達成 → 結束', '做不到 → 也結束'],
+    body: '因為驗收的不是同一個模型，做事的那一個就不能用一句「做好了」把自己放行。',
   },
   {
     icon: Fence,
     tag: '它管不到的',
     title: '權限沒有變鬆，輪數要自己寫進條件',
-    body: '它不會幫你放寬權限，該問你的動作照樣會問。輪數跟你剛才手寫那段一樣要自己寫進條件裡，它沒有內建上限。',
+    body: '它不會放寬權限，該問你的照樣會問。輪數也要自己寫進條件，它沒有內建上限。',
   },
 ];
 
@@ -127,6 +129,21 @@ export default function SlideGoalCommand() {
                   <span className="font-mono text-sm font-bold text-sky-300">【{b.tag}】</span>
                 </div>
                 <div className="text-slate-100 text-base font-bold leading-snug mb-2">{b.title}</div>
+                {b.flow && (
+                  <div className="mb-2 space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
+                      {b.flow.map((s, k) => (
+                        <span key={s} className="flex items-center gap-1.5">
+                          {k > 0 && <ArrowRight aria-hidden="true" size={12} className="text-slate-600 shrink-0" />}
+                          <span className="rounded border border-slate-800 bg-slate-950 px-2 py-0.5 text-slate-300 text-sm">{s}</span>
+                        </span>
+                      ))}
+                    </div>
+                    {b.verdicts?.map((v) => (
+                      <div key={v} className="text-slate-400 text-sm leading-relaxed pl-2 border-l border-slate-800">{v}</div>
+                    ))}
+                  </div>
+                )}
                 <p className="text-slate-400 text-sm leading-relaxed">{b.body}</p>
               </AnimatedBlock>
             );
@@ -134,10 +151,10 @@ export default function SlideGoalCommand() {
         </div>
 
         <Callout tone="focus" label="它只看得到對話裡秀出來的東西" stepIndex={6}>
-          驗收的那個模型有一個很實際的限制：它不會自己去跑指令，也不會自己開檔案來看。
-          <strong className="text-slate-100">你的程式實際上長什麼樣，它看不到；它只讀得到 Claude 在對話裡印出來的東西。</strong>
-          所以【怎麼驗】那一段不能省，條件也要寫成「它印得出證據」的樣子
-          （例如逐題列出通過或失敗，而不是只說「修好了」）。它說達成的時候，你還是要自己點一次。
+          驗收的那個模型不會自己跑指令，也不會開檔案來看。
+          <strong className="text-slate-100">它只讀得到 Claude 在對話裡印出來的東西。</strong>
+          所以【怎麼驗】不能省，條件要寫成「它印得出證據」的樣子（逐題列出通過或失敗，而不是只說「修好了」）。
+          它說達成的時候，你還是要自己點一次。
         </Callout>
 
         <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">

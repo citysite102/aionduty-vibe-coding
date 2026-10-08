@@ -1,4 +1,4 @@
-import { KeyRound } from 'lucide-react';
+import { KeyRound, Table2, Rows3 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -12,12 +12,14 @@ import { Callout } from '../components/Callout';
 const LAYERS = [
   {
     name: '第一層：你能不能碰這張表',
+    icon: Table2,
     tone: 'sky',
     msg: 'permission denied for table reservations',
     note: '整張表都不給你，連問都不用問。去後台看那張表的存取設定。',
   },
   {
     name: '第二層：你能碰這張表的哪幾列',
+    icon: Rows3,
     tone: 'indigo',
     msg: 'new row violates row-level security policy',
     note: '表可以碰，但這一列不是你的。回去看那條政策放行的條件對不對。',
@@ -95,6 +97,7 @@ export default function SlideCase3Trust() {
                     l.tone === 'sky' ? 'text-sky-300' : 'text-indigo-300'
                   }`}
                 >
+                  <l.icon aria-hidden="true" size={15} className="inline-block mr-1.5 -mt-0.5" />
                   {l.name}
                 </div>
                 <code className="block rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-sm text-slate-400 break-all">

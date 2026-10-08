@@ -106,12 +106,17 @@ import Slide25 from './slides/25_M3_Quality';
 import Slide25b from './slides/25b_M3_HandsOn';
 import Slide25c from './slides/25c_M3_TeachingSim';
 import Slide25d from './slides/25d_M3_ProductTeam';
+import Slide25e from './slides/25e_M3_ReadyMadeAgents';
+import Slide25e2 from './slides/25e2_M3_ReadARepo';
+import Slide25f from './slides/25f_M3_AgentToolChain';
+import Slide25g from './slides/25g_M3_ToolLayers';
 import Slide26a from './slides/26a_M3_QuoteSystemIntro';
 import Slide26b from './slides/26b_M3_QuoteSystemRequirements';
 import Slide26c2 from './slides/26c2_M3_QuoteSystemArchitecture';
 import Slide26c from './slides/26c_M3_QuoteSystemData';
 import Slide26d from './slides/26d_M3_QuoteSystemStandards';
 import Slide26e from './slides/26e_M3_QuoteSystemPrompts';
+import Slide26e2 from './slides/26e2_M3_QuoteSystemPrompts2';
 import Slide26f from './slides/26f_M3_QuoteSystemRisks';
 import Slide26g from './slides/26g_M3_Harvest';
 import Slide26 from './slides/26_Div_Loop';
@@ -130,6 +135,7 @@ import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27b9b from './slides/27b9b_M4_SupabaseStore';
 import Slide27b8e from './slides/27b8e_M4_DeployDoc';
 import Slide28 from './slides/28_M4_Safety';
+import Slide28s from './slides/28s_M4_SafetyStop';
 import Slide28a from './slides/28a_M4_LoopPractice';
 import Slide28a2 from './slides/28a2_M4_LoopWatch';
 import Slide28a3 from './slides/28a3_M4_GoalCommand';
@@ -148,6 +154,8 @@ import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide28c from './slides/28c_M4_RunItAgain';
+import Slide28d from './slides/28d_M4_ProjectMemory';
+import Slide28e from './slides/28e_M4_ToolBoundary';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
 import { UNIT_DEFS } from './courseUnits';
@@ -249,12 +257,17 @@ const LIVE_TITLES = [
   "動手做一個審查子代理",
   "用講師、學生、觀察員跑一次教學模擬",
   "一個產品團隊的角色，各自讀哪一份規範",
+  "230 個現成角色：借角色，不要借規範",
+  "如何使用一個 GitHub 第三方工具？",
+  "完整的 AI 工作流程：OpenMontage",
+  "同樣做影片，三種工具差在哪一層",
   "一個中型專案，從需求拆到踩雷",
   "由 User Story 開始",
   "先畫出產品由哪幾層組成",
   "資料庫設計",
   "規範寫在哪：docs、設計準則、CLAUDE.md",
-  "報價系統的五個指令：從規格到驗收",
+  "五個指令的前三步：需求、技術文件、骨架",
+  "後兩步：商業邏輯與交給子代理審查",
   "中型專案的常見卡點",
   "審查子代理、一次實測、分工不是多開對話",
   "Agent 循環開發流程與實戰案例",
@@ -264,11 +277,12 @@ const LIVE_TITLES = [
   "Agent 卡住：當下四個動作，下一輪怎麼寫",
   "讓它自己驗：開瀏覽器點一次",
   "紅字要讀的三件事：在哪裡、什麼事、怎麼做",
-  "放手之前，先設好五道邊界",
+  "前三道邊界：權限、金鑰、它讀到的東西",
+  "後兩道邊界：要你點頭的動作，和花錢的上限",
   "試著用 Loop 跑測試流程",
   "Agent 自己跑的時候，你在旁邊看什麼",
   "/goal：條件寫一次，它自己跑到達成",
-  "規格驅動與測試驅動：你剛做的那兩件事",
+  "規格驅動與測試驅動",
   "幫計時器加上航行日誌",
   "把專案推上 GitHub，它才不只在這台電腦",
   "金鑰和客戶資料不能跟著推上去",
@@ -276,7 +290,7 @@ const LIVE_TITLES = [
   "手機打開，紀錄卻是空的",
   "把紀錄搬上 Supabase，換台裝置也看得到",
   "DEPLOY.md：服務、資料、排程、金鑰",
-  "一份規格要寫哪些欄位",
+  "專案啟動之前：規格文件怎麼寫？",
   "把形容詞翻成可以檢查的條件",
   "案例一：器 VESSEL",
   "器 VESSEL 的十二步，每一步的產出",
@@ -291,6 +305,8 @@ const LIVE_TITLES = [
   "回去之後，做哪一種題目",
   "新專案的前三個動作",
   "輸入放同一個資料夾，產物寫同一個檔名",
+  "專案規模增加的 Agent 成本",
+  "同樣的命題，不同的解決策略",
   "未來的工作者",
 ];
 
@@ -391,12 +407,17 @@ const LIVE_SLIDES = [
   Slide25b,
   Slide25c,
   Slide25d,
+  Slide25e,
+  Slide25e2,
+  Slide25f,
+  Slide25g,
   Slide26a,
   Slide26b,
   Slide26c2,
   Slide26c,
   Slide26d,
   Slide26e,
+  Slide26e2,
   Slide26f,
   Slide26g,
   Slide26,
@@ -407,6 +428,7 @@ const LIVE_SLIDES = [
   Slide27b5,
   Slide27b5c,
   Slide28,
+  Slide28s,
   Slide28a,
   Slide28a2,
   Slide28a3,
@@ -433,6 +455,8 @@ const LIVE_SLIDES = [
   Slide28b0,
   Slide28b,
   Slide28c,
+  Slide28d,
+  Slide28e,
   Slide33,
 ];
 
@@ -452,7 +476,7 @@ const SECTION_DEFS = [
   { start: 48, label: 'Agent 運作框架與 CLAUDE.md' },
   { start: 77, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
   { start: 87, label: 'Agent 分工與品質控管' },
-  { start: 104, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 109, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

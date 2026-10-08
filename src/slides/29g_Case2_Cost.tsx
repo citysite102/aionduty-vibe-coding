@@ -1,9 +1,13 @@
-import { Package } from 'lucide-react';
+import { Package, Eye, Wrench, CircleX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 正反對照，所以 emerald 與 rose 各佔一邊，這一頁只有這兩個色相。
+ * 正反對照，所以 emerald 與 rose 各佔一邊，合計算一種強調色（A-1）。
+ * 2026-10-08（講師說文字量過多）症狀那四格改成 icon 標示三個角色：你看到的（灰）、
+ * 真正的原因（sky）、不懂的話會這樣處理（灰）。標籤從每一格裡抽出來，在清單上面只講一次，
+ * 原本「真正的原因：」「不懂的話會這樣處理：」各重複四次。
+ * 所以這一頁現在是 emerald／rose 一組加 sky，剛好兩種，**不要再加第三種**。
  *
  * 2026-10-06 上下半對調。原本第一塊是那張五列選型表，但教學模擬裡兩位沒有程式背景的
  * 模擬學員都整張放棄（「連『想做什麼』那一欄都讀不懂」），而兩位都說底下那半段
@@ -76,12 +80,26 @@ export default function SlideCase2Cost() {
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             這個作品裡有好幾個地方，不懂就會卡住，而且卡住的時候你連問題該怎麼描述都不知道。四個例子：
           </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1 mb-2.5 text-slate-500 text-sm">
+              <span className="flex items-center gap-1.5"><Eye aria-hidden="true" size={13} /> 你看到的</span>
+              <span className="flex items-center gap-1.5"><Wrench aria-hidden="true" size={13} className="text-sky-400" /> 真正的原因</span>
+              <span className="flex items-center gap-1.5"><CircleX aria-hidden="true" size={13} /> 不懂的話會這樣處理</span>
+            </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
             {SYMPTOMS.map((s) => (
-              <div key={s.what} className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-                <div className="text-slate-100 text-sm font-bold leading-snug">{s.what}</div>
-                <p className="text-slate-300 text-sm leading-relaxed mt-1.5">真正的原因：{s.cause}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1">不懂的話會這樣處理：{s.guess}</p>
+              <div key={s.what} className="rounded-xl border border-slate-800 bg-slate-950 p-4 space-y-1.5">
+                <div className="flex items-start gap-2">
+                  <Eye aria-hidden="true" size={14} className="text-slate-500 shrink-0 mt-1" />
+                  <span className="text-slate-100 text-sm font-bold leading-snug">{s.what}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Wrench aria-hidden="true" size={14} className="text-sky-400 shrink-0 mt-1" />
+                  <span className="text-slate-300 text-sm leading-relaxed">{s.cause}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CircleX aria-hidden="true" size={14} className="text-slate-600 shrink-0 mt-1" />
+                  <span className="text-slate-500 text-sm leading-relaxed">{s.guess}</span>
+                </div>
               </div>
             ))}
           </div>

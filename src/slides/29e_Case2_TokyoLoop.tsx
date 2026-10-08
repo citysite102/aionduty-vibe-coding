@@ -1,5 +1,6 @@
 import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { ArrowRight } from 'lucide-react';
 import { Callout } from '../components/Callout';
 import { CaseShot } from '../components/CaseShot';
 import { CaseHandbook } from '../components/CaseHandbook';
@@ -9,6 +10,23 @@ const ROUTE = [
   { label: '起點', text: '一個空資料夾、十張你自己選的照片，以及一張寫下十個時刻各自長什麼樣的表。照片可以是你自己拍的任何一個地方的一天，題目不必是東京' },
   { label: '過程', text: '先決定每件事交給套件還是自己算，再依序疊上資料、背景、照片、介面與面板' },
   { label: '產出', text: '一個捲動穿越的照片藝廊，以及一張換個專案還用得到的選型判斷表' },
+];
+
+/** 兩段原本是整段文字，2026-10-08（講師）改成看得出步驟的小流程：每一條都是
+ *  「拿什麼 → 算什麼 → 得到什麼」，最後一格上 sky，因為那一格才是「算出來的」那個結果。
+ *  **兩塊都走同一套灰階加一格 sky，不要一塊一色**：它們是同一個原則的兩個例子，不是對照（A-1）。
+ *  步驟文字就是原本句子裡的關鍵詞，改文案的時候兩邊一起看，不要讓 note 重複講一次步驟。 */
+const CALC = [
+  {
+    title: '顏色是量出來的，不是挑出來的',
+    steps: ['照片縮小', '每個點加起來', '平均色與最暗色', '只調明度，色相不動'],
+    note: '改一行資料就換一段視覺，不用去動畫面。',
+  },
+  {
+    title: '文字什麼時候翻成深色，也是算出來的',
+    steps: ['量背景亮度', '低於門檻', '整層反色'],
+    note: '跟著一天的時間自己切換。整份樣式只有一組變數在換，沒有第二套樣式表。',
+  },
 ];
 
 export default function SlideCase2TokyoLoop() {
@@ -55,20 +73,28 @@ export default function SlideCase2TokyoLoop() {
             捲到 00:40 之後接回 04:52，一天是一個環，所以捲動也沒有盡頭。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <div className="text-slate-100 text-sm font-bold mb-1">顏色是量出來的，不是挑出來的</div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                把照片縮小，一個一個點加起來，取出平均色與最暗的色，只依時刻調明度，色相不動。
-                改一行資料就換一段視覺，不用去動畫面。
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950 p-4">
-              <div className="text-slate-100 text-sm font-bold mb-1">文字什麼時候翻成深色，也是算出來的</div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                背景亮度低於門檻就整層反色，跟著一天的時間自己切換。整份樣式只有一組變數在換，
-                沒有第二套樣式表。
-              </p>
-            </div>
+            {CALC.map((c) => (
+              <div key={c.title} className="rounded-xl border border-slate-800 bg-slate-950 p-4">
+                <div className="text-slate-100 text-sm font-bold mb-2.5">{c.title}</div>
+                <div className="flex flex-wrap items-center gap-x-1.5 gap-y-2 mb-2.5">
+                  {c.steps.map((s, i) => (
+                    <span key={s} className="flex items-center gap-1.5">
+                      {i > 0 && <ArrowRight aria-hidden="true" size={13} className="text-slate-600 shrink-0" />}
+                      <span
+                        className={`rounded-md px-2 py-1 text-sm ${
+                          i === c.steps.length - 1
+                            ? 'border border-sky-500/40 bg-sky-500/10 text-sky-200'
+                            : 'border border-slate-800 bg-slate-900 text-slate-300'
+                        }`}
+                      >
+                        {s}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">{c.note}</p>
+              </div>
+            ))}
           </div>
         </AnimatedBlock>
 

@@ -37,8 +37,12 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 名詞小標，所以改寫成逐段對應：判斷標準換什麼、檢查項目換什麼、退回條件照抄。
  *
  *   4、5. 五步跑完沒有任何一次「打開畫面看一眼」，也沒有存檔點。
- *      兩個都是跨步驟的習慣不是某一步的失誤，所以不塞進 watch，另開底下那一塊。
- *      它跟下一頁的五個卡點不衝突：那五個是症狀，這兩件是每一步之間都要做的動作。
+ *      兩個都是跨步驟的習慣不是某一步的失誤，所以不塞進 watch，另開一塊。
+ *
+ * 2026-10-08（講師說文字量過多）五步拆成兩頁，後兩步與「每一步之間固定做兩件事」
+ * 搬到 `26e2_M3_QuoteSystemPrompts2.tsx`。拆的理由是那五段 Prompt 是學員要複製去跑的範本，
+ * A-4 規定畫面印的要跟複製鈕拿到的一字不差，**所以不能靠刪字瘦身，只能拆頁**。
+ * 編號維持 1 到 5 跨兩頁，不要因為第二頁的第一張就改成 1。
  */
 const STEPS = [
   {
@@ -68,24 +72,11 @@ const STEPS = [
       '照 data-model.md 建立裡面列的那幾個資料結構，照 api-contract.md 實作 GET /api/customers 與 POST /api/quotes，並建立報價列表與編輯頁的畫面骨架。金額一律用整數分儲存。先用假資料，這一步不要接真的資料庫。動手之前先把計畫列給我看，我說可以再開始。',
     watch: '金額用小數會在加總時差幾分錢，事後很難回頭改，所以要在這一步就講明。',
   },
-  {
-    title: '加入商業邏輯',
-    prompt:
-      '照 api-contract.md 加入稅金、折扣、有效期限與狀態流轉，狀態只允許 draft、review、approved、sent 四種。不要串金流、不要做庫存，也不要改已經定好的 API 路徑與欄位名稱。',
-    watch: '它可能自己多發明狀態。改完請它列出實作跟 api-contract.md 有哪裡不一樣。',
-  },
-  {
-    title: '交給子代理審查',
-    setup: '這個角色要先建。骨架照前面那個 code-reviewer：判斷標準換成 docs/quote-brief.md，檢查項目換成報價的欄位規則，退回條件照抄。',
-    prompt:
-      '請 quote-reviewer 檢查目前的報價流程缺哪些必要資訊。缺哪一欄就列出哪一欄，不要自己補資料。先列問題，不要動任何檔案。',
-    watch: '它回「看起來沒問題」就是退回條件沒寫清楚，補上「缺什麼要逐項列出」再跑一次。',
-  },
 ];
 
 export default function SlideQuoteSystemPrompts() {
   return (
-    <SlideLayout title="報價系統的五個指令：從規格到驗收" subtitle="Step by Step" icon={TerminalSquare}>
+    <SlideLayout title="五個指令的前三步：需求、技術文件、骨架" subtitle="Step by Step 1–3" icon={TerminalSquare}>
       <div className="max-w-6xl mx-auto w-full pb-8 space-y-4">
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-300 text-base leading-relaxed">
@@ -93,7 +84,7 @@ export default function SlideQuoteSystemPrompts() {
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2">
             <strong className="text-slate-200">前兩步你只做兩件事：把你知道的講出來，然後核可它推導的東西。</strong>
-            資料表怎麼切、API 怎麼定，不用你寫。
+            資料表怎麼切、API 怎麼定，不用你寫。這一頁是前三步，下一頁是後兩步。
           </p>
         </AnimatedBlock>
 
@@ -125,25 +116,6 @@ export default function SlideQuoteSystemPrompts() {
           ))}
         </div>
 
-        <AnimatedBlock stepIndex={7} className="rounded-xl border border-slate-800 bg-slate-900 px-6 py-4">
-          <h3 className="text-slate-100 text-base font-bold mb-2">每一步之間，固定做兩件事</h3>
-          <ul className="space-y-1.5 text-slate-400 text-sm leading-relaxed">
-            <li>
-              動手之前先 <code className="font-mono text-slate-300">git commit</code> 一次。
-              第 3、4 步最可能要退回，存檔點是最便宜的保險。
-            </li>
-            <li>
-              第 3、4 步做完，自己打開畫面點一次再往下。
-              <strong className="text-slate-300">它說做完了不算，你點得到才算。</strong>
-            </li>
-          </ul>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={8} className="rounded-2xl border px-6 py-4 bg-sky-500/5 border-sky-500/25 shadow-[0_0_32px_-12px_rgba(56,189,248,0.45)]">
-          <p className="text-slate-300 text-base leading-relaxed">
-            這段先不教 SDD，也不要求完整測試，也不接真的資料庫。那要等你確定欄位不會再改了。
-          </p>
-        </AnimatedBlock>
       </div>
     </SlideLayout>
   );

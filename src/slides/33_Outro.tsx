@@ -1,13 +1,26 @@
 import { Network, Star, Repeat, Users, Share2 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { motion } from 'motion/react';
-import { FeedbackQR, FEEDBACK_FORM_URL } from '../components/FeedbackQR';
 
 /**
  * 收尾給三個方向而不是一個，因為台下三種人：手上有重複雜事的、
  * 身邊有人被爛流程卡住的、要帶團隊的。一個建議只接得住其中一種。
  * 三張都寫成「明天就能動手」的大小，不要寫成願景。
- */
+  *
+ * 2026-10-08（講師）拿掉頁尾那條「你的資料夾裡現在有 mission-timer/ index.html …」的檔案列。
+ * 兩個理由：它沒有包在 `AnimatedBlock` 裡，所以進到這一頁的第一眼就只有它，標題底下整片空白；
+ * 而它列的東西前面每一章都已經各自交代過了，放在最後一頁是再講一次。
+ * **不要加回來。** 真的要在最後一頁指出實物，做法是把它接進某個 `stepIndex`，不是放一條常駐的列。
+ *
+ * 2026-10-08（講師）拿掉右邊那一整塊課後回饋的 QR code 與連結，版面收回單欄。
+ * 課程改成全片預錄之後，現場填問卷這件事沒有落點了。`components/FeedbackQR.tsx` 一併刪掉，
+ * 全庫沒有別人引用它；要找回來的話在這個 commit 之前的版本裡。
+ *
+ * 2026-10-08（同一輪）中央那句大字從「你講得出來的東西，它就做得出來」改成
+ * 「寫得下來的，它才做得出來」。原句是 D-2 禁的「只要 X 就能 Y」，而且跟它底下那一段自己打架：
+ * 下一行寫的是「這門課練的是把判斷標準、流程與邊界寫成它讀得到的形式」，重點正好是「寫下來」
+ * 這個動作，不是「講得出來」。**不要為了順口改回去。**
+*/
 const NEXT = [
   {
     icon: Repeat,
@@ -72,7 +85,7 @@ export default function SlideOutro() {
           <h2 className="text-2xl md:text-3xl font-black text-slate-100 mb-3 leading-tight">
             <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-emerald-400">
-              你講得出來的東西，它就做得出來。
+              寫得下來的，它才做得出來。
             </span>
           </h2>
 
@@ -90,22 +103,7 @@ export default function SlideOutro() {
           </p>
         </AnimatedBlock>
 
-        {/* 整門課的總產出。章節三與章節七各有一張收成樹，最後一頁要能指得出實物，
-            否則學員最後看到的只有三個未來方向，不是他手上已經有的東西。 */}
-        <div className="w-full max-w-6xl relative z-10 mt-4 rounded-2xl border border-slate-800 bg-slate-950/60 px-6 py-4 text-left">
-          <div className="text-slate-500 text-xs font-mono uppercase tracking-widest mb-2">你的資料夾裡現在有</div>
-          <div className="font-mono text-sm text-slate-400 leading-relaxed">
-            <span className="text-slate-200">mission-timer/</span>
-            {'　'}index.html
-            {'　'}CLAUDE.md
-            {'　'}DEPLOY.md
-            {'　'}.claude/agents/code-reviewer.md
-            {'　'}.claude/settings.json
-          </div>
-        </div>
-
-        {/* 收尾與 QR 並排。疊起來的話這一頁會超出畫面，而最後一頁沒有人會去捲 */}
-        <div className="w-full max-w-6xl relative z-10 mt-1 grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_290px] items-stretch">
+        <div className="w-full max-w-6xl relative z-10 mt-1">
         <AnimatedBlock stepIndex={2} className="min-w-0">
           <div className="h-full bg-gradient-to-r from-sky-950/40 to-slate-900 p-[1px] rounded-3xl overflow-hidden shadow-2xl">
             <div className="h-full bg-slate-950/80 backdrop-blur-xl p-6 rounded-3xl border border-slate-800 text-left">
@@ -134,31 +132,6 @@ export default function SlideOutro() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3}>
-          <div className="flex h-full flex-col items-center justify-center gap-3 rounded-3xl border border-slate-800 bg-slate-950/70 p-5 text-center backdrop-blur-xl">
-            <div className="rounded-xl bg-white p-2 shadow-lg">
-              <FeedbackQR className="h-32 w-32" />
-            </div>
-            <div>
-              <h3 className="text-base font-bold text-slate-100 mb-1">課後回饋</h3>
-              {/* 定位成「可以說話的地方」，不是一份要交的作業。講怎麼填會變成交代事項 */}
-              <p className="text-sm leading-relaxed text-slate-300">
-                有什麼話想說，寫在這裡。
-              </p>
-              <p className="text-sm leading-relaxed text-slate-500">
-                三分鐘就好。
-              </p>
-            </div>
-            <a
-              href={FEEDBACK_FORM_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="font-mono text-xs text-sky-400 hover:underline"
-            >
-              {FEEDBACK_FORM_URL.replace('https://', '')}
-            </a>
-          </div>
-        </AnimatedBlock>
         </div>
 
       </div>
