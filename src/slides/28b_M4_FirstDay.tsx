@@ -1,4 +1,4 @@
-import { Rocket, FolderPlus, FileText, ListChecks, LifeBuoy } from 'lucide-react';
+import { Rocket, FolderPlus, FileText, ListChecks, LifeBuoy, Repeat } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 const STEPS: {
@@ -30,6 +30,12 @@ const STEPS: {
 ];
 
 /**
+ * 2026-10-09：程式碼區塊的字色從 emerald 改成 slate。那個 emerald 沒有語意，
+ * 只是「程式碼看起來該是綠的」的慣例，但它讓這一頁變成 sky ＋ amber ＋ emerald 三種強調色
+ * （A-1 上限兩種，orange 的 /usage 不計）。**不要改回綠色。**
+ */
+
+/**
  * 2026-10-03 換掉第三條。原本是「一直卡同一個問題：不是它笨，是範圍太大。
  * 跟它說『先停，這輪只做某某一件事』」，跟前一頁（Slide 171）的 warn 一字不差，
  * 而且是相鄰兩頁、同一個單元。換成「它說做完了」那一條：
@@ -40,6 +46,41 @@ const STUCK = [
   { k: '它跑歪了', v: '按 Esc 停下來。想退回更早的狀態，輸入框空著時連按兩次 Esc。' },
   { k: '出現紅字', v: '整段複製貼回去，加一句「用白話解釋這在說什麼，我不看程式碼」。' },
   { k: '它說做完了', v: '自己再點一次。它有可能用講的宣稱驗過了，卻沒有真的跑。' }
+];
+
+/** 從「一輪」變成「循環」差的頭尾三件。原本是獨立的一頁（`28c_M4_RunItAgain`），
+ *  2026-10-10 那一頁刪掉，內容壓成三格搬到這裡。要再加東西就該考慮拆回去。 */
+const LOOPING = [
+  {
+    tag: '輸入',
+    body: (
+      <>
+        要處理的東西固定放同一個資料夾，指令裡寫「讀{' '}
+        <code className="font-mono text-slate-300">data/</code>{' '}
+        底下這個月的檔案」，不要把內容貼進對話。
+      </>
+    ),
+  },
+  {
+    tag: '產物',
+    body: (
+      <>
+        結果固定寫成{' '}
+        <code className="font-mono text-slate-300">reports/2026-09.md</code>{' '}
+        這種檔名。寫在對話裡的東西，關掉視窗就沒了。
+      </>
+    ),
+  },
+  {
+    tag: '再跑一次',
+    body: (
+      <>
+        請它把這一輪的做法整理成一份{' '}
+        <code className="font-mono text-orange-300">SKILL.md</code>
+        ，下次你說「用這個跑這個月的」它就展開。
+      </>
+    ),
+  },
 ];
 
 export default function SlideFirstDay() {
@@ -72,7 +113,7 @@ export default function SlideFirstDay() {
                       <div className="text-xs text-slate-500 mt-3">{step.codeLabel}</div>
                     )}
                     {step.code && (
-                      <div className={`bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 font-mono text-sm text-emerald-300 space-y-1 break-all ${step.codeLabel ? 'mt-1.5' : 'mt-3'}`}>
+                      <div className={`bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 font-mono text-sm text-slate-200 space-y-1 break-all ${step.codeLabel ? 'mt-1.5' : 'mt-3'}`}>
                         {step.code.map((line) => (
                           <div key={line}>{line}</div>
                         ))}
@@ -108,6 +149,36 @@ export default function SlideFirstDay() {
           </AnimatedBlock>
 
         </div>
+
+        {/*
+          2026-10-10：〈輸入放同一個資料夾，產物寫同一個檔名〉整頁刪掉之後，
+          「一輪變循環」那三件事全片就只剩兩個零散的落點（題目那頁的 SKILL.md、
+          結語的「把重複的事寫成流程」），而那是章節八叫「循環」卻只教到「一輪」的缺口。
+          壓成一塊接在這裡。
+
+          **刻意不編進「前三個動作」。** 那三個是第一天，這一塊是第一次做完之後，
+          不同階段；編成第 4 步會讓標題與內容對不上（D-5 列舉式標題要回去數）。
+        */}
+        <AnimatedBlock stepIndex={5} className="mt-5 rounded-2xl border border-slate-800 bg-slate-950 p-5">
+          <div className="flex items-center gap-2.5 mb-2">
+            <Repeat aria-hidden="true" size={17} className="text-sky-400 shrink-0" />
+            <h4 className="text-base font-bold text-slate-100">做完第一次之後，讓它下次還叫得動</h4>
+          </div>
+          <p className="text-sm text-slate-400 leading-relaxed mb-3">
+            下個月同一件事再來，多數人會把整段話重貼一遍。
+            <strong className="text-slate-200">那樣你學會的是一輪，不是循環。</strong>
+            差別在這三件：
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {LOOPING.map((l) => (
+              <div key={l.tag} className="rounded-xl border border-slate-800 bg-slate-900 p-4">
+                <div className="font-mono text-sm font-bold text-sky-300 mb-1.5">【{l.tag}】</div>
+                <p className="text-sm text-slate-400 leading-relaxed">{l.body}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedBlock>
+
       </div>
     </SlideLayout>
   );

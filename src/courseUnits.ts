@@ -135,8 +135,8 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 129, title: '案例一：規格文件與器 VESSEL', anchor: '專案啟動之前：規格文件怎麼寫？' },
   { live: 133, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
   { live: 137, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
-  { live: 141, title: '題目選擇、開工步驟與第三方工具', anchor: '回去之後，做哪一種題目' },
+  { live: 141, title: '題目選擇、開工步驟、成果驗收與第三方工具', anchor: '接下來呢？四種回去就做得動的題目' },
 
   // ── 章節九 結語 ──
-  { live: 146, title: '結語：未來的工作者', anchor: '未來的工作者' },
+  { live: 148, title: '結語：未來的工作者', anchor: '未來的工作者' },
 ];

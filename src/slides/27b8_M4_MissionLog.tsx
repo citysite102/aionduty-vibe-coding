@@ -20,6 +20,10 @@ import { LiveDemo } from '../components/LiveDemo';
  * 強調色（A-1 上限兩種）。改成 indigo，讓它跟 sky 那一組變成規範允許的成對對照
  * （存什麼／算什麼是同一個決定的兩邊），合計算一種，加上 amber 剛好兩種。
  * **不要把它改回 emerald**：這一頁沒有紅框跟它配對，單獨的 emerald 會自己算一種。
+ *
+ * 2026-10-09：五段成段的內文從 `text-xs` 升到 `text-sm`（A-4：投影片內文最低 text-sm，
+ * xs 只留給註解、膠囊與圖表註記）。`28_M4_Safety` 拆頁那一輪就是為了同一個毛病，
+ * 但當時只掃了那一頁。**不要為了塞得下再把內文縮回 xs**，塞不下就是這一頁有兩個主題。
 */
 
 const FIELDS = [
@@ -96,7 +100,7 @@ export default function SlideMissionLog() {
                   </div>
                 ))}
               </div>
-              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
+              <p className="text-slate-500 text-sm mt-3 leading-relaxed">
                 第三個欄位就是它當初反問你的那一題：按了返航、沒跑完的那次算不算一趟。
                 <strong className="text-slate-300">答案是算，但要標記起來。</strong>
                 失敗不記的話，你永遠不知道自己有多常放棄。
@@ -115,7 +119,7 @@ export default function SlideMissionLog() {
                   </span>
                 ))}
               </div>
-              <p className="text-slate-500 text-xs mt-3 leading-relaxed">
+              <p className="text-slate-500 text-sm mt-3 leading-relaxed">
                 你沒講清楚的話，它多半會直接存一個「今天完成 3 趟」的數字。那個數字遲早會跟實際紀錄對不上。
                 <strong className="text-slate-300">能算出來的就不要另外存一份。</strong>
               </p>
@@ -128,7 +132,7 @@ export default function SlideMissionLog() {
               <h3 className="text-sm font-bold text-slate-200 mb-3 border-b border-slate-800 pb-2">
                 存在哪裡？先用瀏覽器自己記就好
               </h3>
-              <p className="text-slate-400 text-xs leading-relaxed mb-3">
+              <p className="text-slate-400 text-sm leading-relaxed mb-3">
                 這一塊回答的是「關掉瀏覽器再打開，紀錄還在嗎」。
                 瀏覽器內建一塊叫 <code className="text-sky-300 font-mono">localStorage</code> 的小空間，網頁可以把東西寫在你這台電腦上。
                 <strong className="text-slate-200">不用註冊、不用後端、不用付錢</strong>，一句話就有。
@@ -140,10 +144,10 @@ export default function SlideMissionLog() {
               <TriangleAlert size={18} className="text-amber-400 shrink-0 mt-0.5" />
               <div>
                 <h4 className="text-sm font-bold text-amber-300 mb-1.5">你要負責檢查的那一題</h4>
-                <p className="text-slate-300 text-xs leading-relaxed mb-2">
+                <p className="text-slate-300 text-sm leading-relaxed mb-2">
                   「連續出勤天數」是這裡面唯一會寫錯、而且用眼睛看不出來的東西。跨過午夜怎麼算？昨天沒做，今天該不該歸零？
                 </p>
-                <p className="text-slate-400 text-xs leading-relaxed">
+                <p className="text-slate-400 text-sm leading-relaxed">
                   你不用會寫這段程式。你要會問這句：
                   <span className="text-sky-300 font-bold">「我昨天沒做，今天打開，連續天數應該要歸零。你有處理嗎？寫個例子給我看。」</span>
                 </p>

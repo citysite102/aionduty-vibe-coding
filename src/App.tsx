@@ -153,7 +153,9 @@ import SlideCase3Race from './slides/29j_Case3_Race';
 import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
-import Slide28c from './slides/28c_M4_RunItAgain';
+import Slide28c2 from './slides/28c2_M4_ShipRisk';
+import Slide28c3 from './slides/28c3_M4_ShipOwasp';
+import Slide28c4 from './slides/28c4_M4_ShipDomains';
 import Slide28d from './slides/28d_M4_ProjectMemory';
 import Slide28e from './slides/28e_M4_ToolBoundary';
 import Slide33 from './slides/33_Outro';
@@ -302,9 +304,11 @@ const LIVE_TITLES = [
   "兩把金鑰，兩層權限",
   "兩個人同時搶最後一個名額",
   "這件事可以相信誰：案例三的五個判斷",
-  "回去之後，做哪一種題目",
+  "接下來呢？四種回去就做得動的題目",
   "新專案的前三個動作",
-  "輸入放同一個資料夾，產物寫同一個檔名",
+  "三萬個 AI 做的網站，99% 有資安問題",
+  "你已經做過 OWASP 十條裡的五條",
+  "金流、個資、受監管行業、著作權",
   "專案規模增加的 Agent 成本",
   "同樣的命題，不同的解決策略",
   "未來的工作者",
@@ -454,7 +458,9 @@ const LIVE_SLIDES = [
   SlideCase3Judgements,
   Slide28b0,
   Slide28b,
-  Slide28c,
+  Slide28c2,
+  Slide28c3,
+  Slide28c4,
   Slide28d,
   Slide28e,
   Slide33,

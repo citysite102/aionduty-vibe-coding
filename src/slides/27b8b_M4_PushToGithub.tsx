@@ -33,6 +33,11 @@ const LOSSES = [
  * **public 這個決定不要拿掉，但也不要在這裡解釋它。** 什麼時候該選 private 是下一頁的事，
  * 這一頁只留一句「下一頁會講」的提示（畫面上那行小字），順序不要對調。
  *
+ * 2026-10-09：底下那個 Callout 的第三點原本寫「private 還是 public 要你決定，上面那句 prompt
+ * 已經叫它先問你」。10-08 把 PROMPT 改成直接寫 public 之後那句話就變成假的，而學員會照 Callout
+ * 去等它問。改成 repository 名稱，那才是 PROMPT 現在真的會停下來問的那一件。
+ * **改 PROMPT 的時候要回來看這三點還成不成立**，它們講的是「它會停在哪裡等你」。
+ *
  * 金鑰那一條寫成「找到先告訴我，不要自己改」，是刻意的：學員這時候還分不出
  * 哪些字串是金鑰，讓它直接動手改會把真的設定值也一起清掉。
  *
@@ -122,9 +127,8 @@ export default function SlidePushToGithub() {
               這一步跟部署那一段講的授權是同一回事，你的帳號它代不了。
             </li>
             <li>
-              <strong className="text-slate-100">private 還是 public 要你決定。</strong>
-              上面那句 prompt 已經叫它先問你。裡面有客戶資料或還沒公開的東西就選 private，
-              之後隨時改得回來。
+              <strong className="text-slate-100">repository 的名字要你決定。</strong>
+              上面那句 prompt 已經叫它先問你，給一個你三個月後還認得出來的名字。
             </li>
           </ul>
           <span className="mt-3 block text-slate-400">

@@ -1,6 +1,7 @@
 import { Rocket, Globe, TriangleAlert } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
+import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 
 /**
@@ -32,6 +33,15 @@ import { Callout } from '../components/Callout';
  * 「卡住的五件事」那一塊不是補充，是主體的一半：現場真正花掉時間的是這些，
  * 不是那句 prompt。第五條（改完要再推一次）是最多人以為壞掉的地方。
  */
+/**
+ * 2026-10-09 補複製鈕。這一頁是整章唯一一次真的把網址生出來，而它原本是全章唯一
+ * 印了 Prompt 卻沒有複製鈕的動手頁，學員只能從影片逐字抄。
+ * **畫面印的字與複製鈕拿到的字共用這一個常數**（CLAUDE.md A-4），不要為了版面另外寫一份短的。
+ */
+const DEPLOY_PROMPT =
+  '幫我把這個資料夾部署到 Vercel。先確認本機打開沒問題，推上 GitHub，再接 Vercel 完成部署。' +
+  '需要我去瀏覽器授權的時候停下來告訴我要點哪裡。完成後把網址給我，並且確認那個網址真的打得開。';
+
 /** Vercel 那四步。再多一步就會變成照抄後台的操作手冊，介面一改版就過期（C-3）。 */
 const VERCEL_STEPS = [
   { n: '01', t: '用 GitHub 帳號登入 vercel.com', d: '不用另外註冊，也不用在電腦上裝任何東西。' },
@@ -74,10 +84,8 @@ export default function SlideDeploy() {
           <div className="flex items-center gap-2 mb-3 text-slate-500 font-mono text-xs uppercase tracking-wider">
             Prompt
           </div>
-          <p className="text-sky-100 text-base leading-relaxed">
-            「幫我把這個資料夾部署到 Vercel。先確認本機打開沒問題，推上 GitHub，再接 Vercel 完成部署。
-            需要我去瀏覽器授權的時候停下來告訴我要點哪裡。完成後把網址給我，並且確認那個網址真的打得開。」
-          </p>
+          <p className="text-sky-100 text-base leading-relaxed">「{DEPLOY_PROMPT}」</p>
+          <CopyAction text={DEPLOY_PROMPT} className="mt-3" />
           <p className="text-slate-500 text-sm leading-relaxed mt-3">
             這段話長，是因為它把<strong className="text-slate-400">要做什麼、什麼時候該停下來問你、做完給你什麼</strong>都講完了。
           </p>

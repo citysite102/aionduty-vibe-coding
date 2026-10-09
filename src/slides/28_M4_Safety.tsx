@@ -1,6 +1,7 @@
 import { AlertCircle, BrainCircuit, Flame, KeyRound, FileWarning, Bug } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsolate';
+import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 最後查證：2026-09-20，對照 code.claude.com/docs/en/permissions。
@@ -22,6 +23,14 @@ import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsola
  * `27b9b_M4_SupabaseStore` 的第二道、`27b4c_M4_Intervene` 的第五道⋯），
  * 所以拆頁之後第 4、5 道在下一頁仍然叫第 4、5 道。
  */
+
+/**
+ * 2026-10-09 補兩顆複製鈕。第 1、2 道各給了一句「跟它說⋯」的替代做法，那是不會自己編 JSON
+ * 的主線學員唯一走得了的路，但原本只印在內文裡，要從影片逐字抄。
+ * **畫面印的字與複製鈕拿到的字共用這兩個常數**（CLAUDE.md A-4）。
+ */
+const ALLOW_PROMPT = '幫我把這個專案會用到的那幾種動作加進 allow 清單，其他的照樣問我。';
+const DENY_PROMPT = '幫我在 .claude/settings.json 擋掉讀取 .env。';
 
 export default function SlideSafety() {
   return (
@@ -92,10 +101,11 @@ export default function SlideSafety() {
             <p className="text-slate-300 text-sm leading-relaxed mt-2 border-l-2 border-amber-900/60 pl-3">
               <strong className="text-slate-100">怎麼避免：</strong>
               改成只放行這個專案會用到的那幾種動作，其餘照樣問你。跟它說
-              「幫我把這個專案會用到的那幾種動作加進 <span className="font-mono">allow</span> 清單，其他的照樣問我」。
+              「{ALLOW_PROMPT}」
               它跑的時候就不會一直停，而刪檔、對外連線那幾種照樣會回來問你。
               真的要整個關掉，只在<strong>與外界隔離的容器</strong>裡。
             </p>
+            <CopyAction text={ALLOW_PROMPT} className="mt-2" />
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className={`bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl ${hoverIsolateCardRing}`}>
@@ -125,8 +135,9 @@ export default function SlideSafety() {
               可以在專案的 <code className="text-amber-300 bg-slate-950 px-1 rounded font-mono">.claude/settings.json</code> 裡直接封鎖，
               就是前面 Hook 那一頁的同一個檔案：
               <code className="text-slate-200 bg-slate-950 px-1 rounded font-mono block mt-1">"permissions": {'{'} "deny": ["Read(./.env)"] {'}'}</code>
-              <span className="block mt-1.5 text-slate-400">不想自己寫的話，就跟它說「幫我在 .claude/settings.json 擋掉讀取 .env」。金鑰一旦被 commit 上 GitHub，就當它已經外洩了，直接去後台重新產一組。</span>
+              <span className="block mt-1.5 text-slate-400">不想自己寫的話，就跟它說「{DENY_PROMPT}」金鑰一旦被 commit 上 GitHub，就當它已經外洩了，直接去後台重新產一組。</span>
             </p>
+            <CopyAction text={DENY_PROMPT} className="mt-2" />
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={4} className={`bg-slate-900/60 p-5 rounded-3xl border border-amber-900/40 shadow-xl ${hoverIsolateCardRing}`}>

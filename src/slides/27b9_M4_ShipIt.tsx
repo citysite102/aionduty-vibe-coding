@@ -10,6 +10,10 @@ import { Callout } from '../components/Callout';
  * 本輪（2026-09-20）沒有重查，要實際開一次後台看畫面才算數。
  * 下次改版前連同 27b8d_M4_Deploy.tsx 的操作路徑一起走一遍。
  * 查完把這段註解換成 C-1 的三行格式。
+ *
+ * 2026-10-09：四段成段的內文從 `text-xs` 升到 `text-sm`（A-4）。
+ * 對照組那兩張卡裡的「你的電腦／你的手機」標籤與「連續出勤 N 天」維持 xs，
+ * 那是圖表註記，不是內文。
  */
 
 /** 部署平台後台，學員真的需要認得的四個地方。名字用 Vercel 的叫法，其他家大同小異。 */
@@ -73,7 +77,7 @@ export default function SlideShipIt() {
               要讓任何一台裝置打開都看得到同一份紀錄，就需要一個放在雲端、大家共用的地方。
               <strong className="text-slate-100">那個東西就叫資料庫。</strong>
             </p>
-            <p className="text-slate-400 text-xs leading-relaxed">
+            <p className="text-slate-400 text-sm leading-relaxed">
               用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這幾下設定。
             </p>
             {/*
@@ -81,7 +85,7 @@ export default function SlideShipIt() {
               現在下一頁就把它做完了，留成作業等於課程停在一個沒解決的問題上。
               **搬頁之前先確認下一頁還是 27b9b_M4_SupabaseStore。**
             */}
-            <div className="mt-3 text-xs text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
+            <div className="mt-3 text-sm text-slate-500 bg-slate-950/60 border border-slate-800 rounded-lg px-3 py-2 leading-relaxed">
               接下來就把它接上去，四步，其中兩步要你自己動手。
             </div>
           </div>
@@ -93,12 +97,12 @@ export default function SlideShipIt() {
         */}
         <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">部署交給它動手，但後台這四個地方你要自己看得懂</h3>
-          <p className="text-xs text-slate-500 mb-4">名字用 Vercel 的叫法，其他家大同小異。</p>
+          <p className="text-sm text-slate-500 mb-4">名字用 Vercel 的叫法，其他家大同小異。</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {DASHBOARD.map((d) => (
               <div key={d.name} className="rounded-xl border border-slate-800 bg-slate-950 p-4">
                 <div className="font-mono text-sky-300 text-sm font-bold mb-1.5">{d.name}</div>
-                <p className="text-slate-400 text-xs leading-relaxed">{d.body}</p>
+                <p className="text-slate-400 text-sm leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>

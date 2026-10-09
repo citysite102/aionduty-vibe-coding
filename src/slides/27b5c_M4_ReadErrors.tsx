@@ -1,12 +1,22 @@
 import { AlertOctagon, Terminal, Globe, MessageSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { CopyAction } from '../components/CopyBlock';
 
+/**
+ * 2026-10-09 改用色。原本兩個案例是 amber 與 sky，加上示範紅字的 red 與三句照抄的 emerald，
+ * 一頁四種強調色（A-1 上限兩種）。
+ *
+ * 兩個案例是並列對照（還沒跑起來 vs 跑起來但壞了），所以照 A-1 走 **第一邊 sky、第二邊 indigo**，
+ * 合計算一種。另一種是 red 與 emerald：red 是示範的紅字（照抄真實畫面，不能改色），
+ * emerald 是你照抄回去的那三句，一個是問題一個是解法，也是成對的，合計算一種。
+ * **不要把哪一邊改回 amber**：amber 在這門課是風險提示，這兩種紅字都不是風險，是訊息。
+ */
 const CASES = [
   {
     icon: Terminal,
     where: 'Claude Code 執行指令時的紅字',
     when: '終端機或桌面版都一樣，還沒跑起來就出事',
-    accent: 'text-amber-400 bg-amber-500/10',
+    accent: 'text-sky-400 bg-sky-500/10',
     log: [
       { text: '$ npm run dev', tone: 'text-slate-500' },
       { text: 'sh: vite: command not found', tone: 'text-red-400 font-bold' }
@@ -21,7 +31,7 @@ const CASES = [
     icon: Globe,
     where: '瀏覽器 Console 的紅字',
     when: '跑起來了，但畫面壞掉',
-    accent: 'text-sky-400 bg-sky-500/10',
+    accent: 'text-indigo-400 bg-indigo-500/10',
     log: [
       { text: 'Uncaught TypeError: Cannot read', tone: 'text-red-400 font-bold' },
       { text: "properties of undefined (reading 'name')", tone: 'text-red-400 font-bold' },
@@ -35,6 +45,11 @@ const CASES = [
   }
 ];
 
+/**
+ * 2026-10-09 補複製鈕。口白自己說「這三句可以直接照抄」，但畫面上沒有地方可以抄。
+ * 複製鈕吃的是這三句接起來的那一份，**順序有意義**（先解釋、再修、最後問怎麼避免），
+ * 所以是一顆複製全部，不是三顆各複製一句。
+ */
 const ASKS = [
   '「用白話解釋這個錯誤在說什麼，我不看程式碼。」',
   '「請只改必要的地方修好它，並告訴我你改了什麼。」',
@@ -156,9 +171,9 @@ export default function SlideReadErrors() {
               </div>
             ))}
           </div>
+          <CopyAction text={ASKS.map((q) => q.replace(/[「」]/g, '')).join('\n')} className="mt-3" />
           <p className="text-sm text-slate-400 leading-relaxed mt-4">
             不要只說「有錯誤，幫我修」。<strong className="text-slate-200">紅字整段貼上</strong>，它才知道你在講哪一個。
-
           </p>
         </AnimatedBlock>
         </div>

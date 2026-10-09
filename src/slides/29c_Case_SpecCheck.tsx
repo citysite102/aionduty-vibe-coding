@@ -2,6 +2,7 @@ import { ClipboardCheck, X, Check, MessagesSquare, SearchX } from 'lucide-react'
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseHandbook } from '../components/CaseHandbook';
+import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 那份規格的第二頁。七塊裡最容易寫壞的就是驗收條件，所以單獨一頁。
@@ -16,6 +17,12 @@ const TRANSLATIONS = [
   { vague: '手機上要好看', testable: '390 / 834 / 1280 / 1600 四個寬度都沒有橫向捲動，中文不被壓扁' },
 ];
 
+/**
+ * 2026-10-09 補複製鈕。這兩組各三句是學員真的要貼進對話框的東西，而且第二、三句
+ * 才是關鍵（不要給選項、不要潤飾），逐字抄最容易抄掉的就是那兩句。
+ * **複製鈕吃的是 lines 本身**（CLAUDE.md A-4：畫面印的與複製到的是同一份），
+ * 改句子不用記得改兩個地方。
+ */
 const PROMPTS = [
   {
     when: '寫不出來的時候',
@@ -117,6 +124,7 @@ export default function SlideCaseSpecCheck() {
                   </li>
                 ))}
               </ul>
+              <CopyAction text={p.lines.join('\n')} className="mt-2" />
               <p className="mt-3 text-slate-400 text-sm leading-relaxed">{p.why}</p>
             </AnimatedBlock>
           ))}

@@ -12,6 +12,11 @@ import { hoverIsolateGrid, hoverIsolateCardRing } from '../components/hoverIsola
  *
  * 第 4 道原本只有一句話列出五種收不回來的動作，拆頁之後有空間，改成看得見的五個格子。
  * 那五個是分類不是清單，**不要再往裡面加**，加到七八個就沒有人記得住了。
+ *
+ * 2026-10-09：第 4 道卡片的第一句原本是「專案內改壞了可以用 git 復原；但有些動作收不回來：」，
+ * 冒號後面接的那五格 10-08 拆頁時搬到開場了，所以它斷在冒號上，而且跟開場那句重複。
+ * 改成那句學員帶得走的判斷標準（十分鐘之內救不救得回來），逐字稿本來就在念它。
+ * **五類清單只留在開場那一塊，不要在這張卡再列一次。**
  */
 const IRREVERSIBLE = ['推上遠端', '發信給別人', '付款', '刪除雲端資料', '公開部署'];
 
@@ -49,7 +54,8 @@ export default function SlideSafetyStop() {
               <h3 className="text-base font-bold text-amber-300 tracking-wide">4. 收不回來的動作，一律留人類確認</h3>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              專案內改壞了可以用 git 復原；但有些動作<strong className="text-slate-200">收不回來</strong>：
+              判斷標準只有一句：<strong className="text-slate-200">這件事做錯了，我十分鐘之內救得回來嗎</strong>。
+              救不回來的，就不要放進自動流程。
             </p>
             <p className="text-slate-300 text-sm leading-relaxed mt-2 border-l-2 border-amber-900/60 pl-3">
               <strong className="text-slate-100">怎麼避免：</strong>

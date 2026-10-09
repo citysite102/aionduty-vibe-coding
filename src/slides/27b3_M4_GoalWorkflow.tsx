@@ -3,6 +3,25 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
+/**
+ * 2026-10-09 改用色。原本右欄三塊是 任務描述（灰）／停止條件（emerald）／人類閘門（amber），
+ * 加上整頁的 sky 等於三種強調色（A-1 上限兩種），而且那三塊是一個例子的三個部分，
+ * 不是正反對照，所以 emerald 與 amber 兩個語意色都用錯了位置。
+ *
+ * 現在走 A-1 的成對寫法：**停止條件 sky、人類閘門 indigo**，它們是同一個決定的兩邊
+ * （它自己判斷得了的 vs 要它停下來問你的），合計算一種。左欄第 2 步那顆 Target icon
+ * 跟著改成 sky，它標的就是停止條件。
+ * **不要把人類閘門改回 amber**：amber 在這門課是風險提示，閘門不是風險。
+ *
+ * ⚠ A-4 的已知欠債：右欄整塊內文還是 `text-xs`，而規範寫的是投影片內文最低 `text-sm`。
+ * 2026-10-09 試著升上去，量過才退回來：這一頁在 1512x772 的可視區本來就超出 116px，
+ * 全部升到 sm 會變成 253px，只升開場與收尾那兩段也會變成 185px，錄影時要多捲一段。
+ *
+ * **正確的解法是砍內容不是縮字級**（CLAUDE.md A-4）。右欄三個角色的例子每一組有
+ * 任務描述、停止條件、人類閘門三段，是這一頁最長的東西；真的要修就從那裡下手，
+ * 例如停止條件只留一句、把細項搬到講義。在那之前不要只把字級改上去，
+ * 會變成一頁要捲兩次的投影片。
+ */
 const ROLE_EXAMPLES = [
   {
     role: "HR 招募",
@@ -60,7 +79,7 @@ export default function SlideGoalWorkflow() {
             <div>
               <h4 className="text-sm font-bold text-slate-100 flex items-center gap-1.5">
                 寫出客觀、可以被檢驗的停止條件（Done-when）
-                <Target size={12} className="text-amber-400" />
+                <Target size={12} className="text-sky-400" />
               </h4>
               <p className="text-sm text-slate-400 mt-1.5 leading-relaxed">
 只看做出來的東西，你能不能回答「有做到」或「沒做到」。<br/>
@@ -142,18 +161,18 @@ export default function SlideGoalWorkflow() {
               >
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
                   <div className="text-xs font-mono text-slate-500 uppercase tracking-widest mb-1">任務描述</div>
-                  <div className="text-xs text-slate-200 font-bold">{ROLE_EXAMPLES[selectedRole].task}</div>
+                  <div className="text-xs text-slate-200 font-bold leading-relaxed">{ROLE_EXAMPLES[selectedRole].task}</div>
                 </div>
 
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <div className="text-xs font-mono text-sky-400 uppercase tracking-widest mb-1 flex items-center gap-1">
                     <CheckSquare size={12} /> 停止條件 (Done-when)
                   </div>
                   <div className="text-xs text-slate-300 leading-relaxed font-medium">{ROLE_EXAMPLES[selectedRole].doneWhen}</div>
                 </div>
 
                 <div className="bg-slate-950/80 p-4 rounded-xl border border-slate-800">
-                  <div className="text-xs font-mono text-amber-400 uppercase tracking-widest mb-1 flex items-center gap-1">
+                  <div className="text-xs font-mono text-indigo-400 uppercase tracking-widest mb-1 flex items-center gap-1">
                     <ShieldCheck size={12} /> 人類閘門 (Human Gate)
                   </div>
                   <div className="text-xs text-slate-400 leading-relaxed">{ROLE_EXAMPLES[selectedRole].gate}</div>

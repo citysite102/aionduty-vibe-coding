@@ -16,6 +16,19 @@ import { CopyAction } from '../components/CopyBlock';
  * 四個題目都挑不需要寫程式背景就評得出成果的：自己看得出做對做錯，才驗得下去。
  * 平等的四項一律灰階，Prompt 框統一同一種處理，不要一項一色。
  */
+/**
+ * 2026-10-10（講師）改兩處：
+ *   標題：原本是「回去之後，做哪一種題目」。換成帶問句的開場，因為這一頁是
+ *     「回去之後」那一段的第一頁。**但沒有照字面用「接下來呢？如何開始」**，
+ *     後半補上「四種回去就做得動的題目」：D-5 要求只看標題說得出這一頁有什麼，
+ *     而且章節八已經有兩個提問句標題（〈什麼是 Loop Engineering？〉、
+ *     〈專案啟動之前：規格文件怎麼寫？〉），一節最多兩頁。
+ *   開場那兩句：原本是「挑題目只有一個判斷標準：選一件你這個月會做第二次的事。
+ *     做第二次的時候，你才驗得出來它到底有沒有幫到你。」三個毛病：
+ *     「做第二次」頂真接到下一句（D-2 的頂真式遞進）、「到底有沒有」是贅詞、
+ *     「幫到你」是空心的詞（幫到什麼？）。現在把理由寫成具體的事：
+ *     第一次交代的時間比省下來的多，第二次才看得到。**不要改回頂真的版本。**
+ */
 const TOPICS = [
   {
     icon: FileSpreadsheet,
@@ -53,12 +66,12 @@ const TOPICS = [
 
 export default function SlidePickTopic() {
   return (
-    <SlideLayout title="回去之後，做哪一種題目" subtitle="Pick Your First Real Task" icon={Target}>
+    <SlideLayout title="接下來呢？四種回去就做得動的題目" subtitle="Pick Your First Real Task" icon={Target}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          挑題目只有一個判斷標準：<strong className="text-slate-100">選一件你這個月會做第二次的事。</strong>
-          做第二次的時候，你才驗得出來它到底有沒有幫到你。
+          挑題目的標準只有一條：<strong className="text-slate-100">這個月你會做第二次的那件事。</strong>
+          第一次做的時候，你花在交代上的時間一定比省下來的多。要到第二次，省的那一段才看得到。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
