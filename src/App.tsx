@@ -133,7 +133,7 @@ import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27b9b from './slides/27b9b_M4_SupabaseStore';
-import Slide27b8e from './slides/27b8e_M4_DeployDoc';
+import Slide27b8f from './slides/27b8f_M4_KeyKinds';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28s from './slides/28s_M4_SafetyStop';
 import Slide28a from './slides/28a_M4_LoopPractice';
@@ -291,7 +291,7 @@ const LIVE_TITLES = [
   "部署上線：把 GitHub 上的專案接上 Vercel",
   "手機打開，紀錄卻是空的",
   "把紀錄搬上 Supabase，換台裝置也看得到",
-  "DEPLOY.md：服務、資料、排程、金鑰",
+  "哪一種金鑰可以寫進程式碼，哪一種不行",
   "專案啟動之前：規格文件怎麼寫？",
   "把形容詞翻成可以檢查的條件",
   "案例一：器 VESSEL",
@@ -443,7 +443,7 @@ const LIVE_SLIDES = [
   Slide27b8d,
   Slide27b9,
   Slide27b9b,
-  Slide27b8e,
+  Slide27b8f,
   SlideCaseSpec,
   SlideCaseSpecCheck,
   SlideCase1Vessel,

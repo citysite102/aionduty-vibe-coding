@@ -438,7 +438,7 @@ export default function SlideTerminalBasics() {
                           >
                             <Folder size={13} className="text-emerald-400 shrink-0" />
                             <span className="font-bold text-emerald-400">utils/</span>
-                            {highlightTree && <span className="text-xs bg-emerald-950 border border-emerald-800 rounded px-1 text-emerald-400 font-sans">New</span>}
+                            {highlightTree && <span className="text-xs bg-emerald-950 border border-emerald-800 rounded px-1 text-emerald-400 animate-pulse font-sans">New</span>}
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -536,7 +536,7 @@ export default function SlideTerminalBasics() {
                   {isTyping && <span className="w-1.5 h-3 bg-slate-300 animate-pulse ml-0.5 inline-block"></span>}
                   {isRunning && (
                     <span className="inline-flex items-center gap-1.5 ml-2 text-xs text-sky-400 font-mono">
-                      <Activity size={10} />
+                      <Activity size={10} className="animate-spin" />
                       <span>正在運算...</span>
                     </span>
                   )}

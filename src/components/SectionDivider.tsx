@@ -44,9 +44,11 @@ export function SectionDivider({
 
         {roadmap && (
           <div className="mt-14 w-full max-w-3xl mx-auto">
-            <div className="text-slate-500 text-sm mb-3 text-center">
-              這一段分成 {roadmap.length} 塊
-            </div>
+            {/*
+              2026-10-10 拿掉上面那行「這一段分成 N 塊」。塊就排在底下，數得出來，
+              那一行講的是簡報自己的結構不是內容（D-2 的後設導覽），刪掉讀者什麼都沒少。
+              **不要加回來。** 六張分節頁共用這個元件，加回去是六頁一起多一行廢話。
+            */}
 
             {/* 寬度＝相對長度，讓「哪一塊最長」用看的就知道。深淺交錯區分相鄰區塊。 */}
             <div className="flex gap-2">

@@ -4,10 +4,13 @@ import { Fragment } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 /**
- * **A-3 的無限動畫在這一頁是刻意保留的，2026-10-04 講師決定，不要再改。**
- * 這一頁有三組 `repeat: Infinity`（指揮者圖的任務往外、結果飛回來，以及自治團隊那組擴散圈），
- * 嚴格說超過 A-3「全頁最多一組」的例外額度。逐字稿 7-1 的錄製註記與待處理區都記過這一條。
- * 不改的理由是那三組就是左半那張圖本身，拆掉等於換掉整頁的視覺。
+ * **這一頁的無限動畫是刻意的，2026-10-04 講師決定，不要再改。**
+ * 這一頁有四組 `repeat: Infinity`（指揮者圖的任務往外、結果飛回來、自治團隊那組擴散圈，
+ * 以及工作流程那三個階段之間的掃描線）。不改的理由是那幾組就是左半那張圖本身，
+ * 拆掉等於換掉整頁的視覺。
+ * 2026-10-10 全部改回原速（1.8 秒與 2.5 秒一輪，掃描線 1 秒）：
+ * 2026-08-04 那一輪為了當時的 A-3 把它們放慢一倍，實際效果是看不出在動。
+ * **CLAUDE.md 的 A-3 已於 2026-10-10 移除，不要再以那條為由放慢或清掉。**
  * 錄的時候念完就走，不要停在這一頁等它跑完一輪。
  *
  * 第三、四種模式最後查證：2026-10-03，對照 code.claude.com/docs/en/agent-teams 與
@@ -67,14 +70,14 @@ const OrchestratorAnim = () => (
                 r="4" fill="#38bdf8"
                 initial={{ cx: 0, cy: 0, opacity: 0 }}
                 animate={{ cx: [0, x], cy: [0, y], opacity: [0, 1, 0] }}
-                transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.8 }}
+                transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 }}
               />
               {/* Incoming Result */}
               <motion.circle
                 r="4" fill="#818cf8"
                 initial={{ cx: x, cy: y, opacity: 0 }}
                 animate={{ cx: [x, 0], cy: [y, 0], opacity: [0, 1, 0] }}
-                transition={{ duration: 3.6, repeat: Infinity, delay: i * 0.8 + 1.8 }}
+                transition={{ duration: 1.8, repeat: Infinity, delay: i * 0.4 + 0.9 }}
               />
             </g>
           );
@@ -140,7 +143,7 @@ const SwarmAnim = () => (
                 fill="none"
                 initial={{ scale: 0, opacity: 1 }}
                 animate={{ scale: [0, 2.5], opacity: [1, 0] }}
-                transition={{ duration: 5, repeat: Infinity, delay: i * 1.25 }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5 }}
               />
             </g>
           );
@@ -180,7 +183,16 @@ const WorkflowAnim = () => (
     <div className="flex items-start gap-3">
       {[0, 1, 2].map((i) => (
         <Fragment key={i}>
-          {i > 0 && <div className="w-6 h-0.5 bg-amber-900 mt-8" />}
+          {i > 0 && (
+            <div className="w-6 h-0.5 bg-amber-900 mt-8 relative overflow-hidden">
+              <motion.div
+                className="absolute inset-0 bg-amber-400"
+                initial={{ x: '-100%' }}
+                animate={{ x: '100%' }}
+                transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
+              />
+            </div>
+          )}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

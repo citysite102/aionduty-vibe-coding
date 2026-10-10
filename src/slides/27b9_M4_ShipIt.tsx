@@ -20,7 +20,7 @@ import { Callout } from '../components/Callout';
 const DASHBOARD = [
   { name: 'Deployments', body: '每一次上線的紀錄。綠燈代表建置成功，紅燈點進去看最後幾行紅字，那就是它失敗的原因。' },
   { name: 'Build Logs', body: '建置過程的完整輸出。網站打不開的時候，這裡通常已經寫清楚是缺了哪個套件或哪個檔案。' },
-  { name: 'Environment Variables', body: '金鑰與密碼放這裡。本機跑得動、線上壞掉，第一個要查的就是這一欄有沒有漏設。' },
+  { name: 'Environment Variables', body: '不能外流的金鑰放這裡，而且只有伺服器那一側讀得到。計時器用不到這一欄，純前端的網頁讀不到它。' },
   { name: 'Functions / Runtime Logs', body: '網站跑起來之後出的錯記在這裡。建置成功但畫面是白的，答案幾乎都在這一頁。' },
 ];
 
@@ -78,7 +78,7 @@ export default function SlideShipIt() {
               <strong className="text-slate-100">那個東西就叫資料庫。</strong>
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
-              用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、金鑰、環境變數這幾下設定。
+              用 Supabase 這類託管服務，不用自己架資料庫，但會多出註冊帳號、建一張表、貼一把金鑰這幾下設定。
             </p>
             {/*
               2026-10-05：這裡原本寫「接資料庫留作延伸練習」加一句起步的 prompt。

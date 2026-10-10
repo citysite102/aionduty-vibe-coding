@@ -111,7 +111,7 @@ export default function SlideWarpTerminal() {
                     <div className="text-slate-500 font-bold mb-1">Thought for 6 seconds &gt;</div>
                     <div className="text-slate-200 font-bold mb-1">Task 5: Add popularity...</div>
                     <div className="flex items-center gap-2 text-sky-400 bg-sky-500/5 p-2 rounded border border-sky-500/10">
-                      <span className="w-2 h-2 rounded-full bg-sky-500"></span>
+                      <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping"></span>
                       <span>Add popularity indicator to ObjectCard</span>
                     </div>
                   </div>

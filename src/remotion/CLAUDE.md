@@ -65,7 +65,7 @@ npx remotion still src/remotion/index.ts ChatVsAgent out/x.png --frame=280   # �
 
 ## 動態
 
-- **沿用根目錄 `CLAUDE.md` A-3 的六條動態原則**（一次只動一個重點、禁止常駐無限動畫、進場只用 opacity 加小位移等）。那六條跟渲染方式無關，兩邊共用。
+- **一次只動一個重點，其他元素保持靜止；進場用 opacity 0→1 加小位移，easing 統一。** 根目錄原本的 A-3 已於 2026-10-10 移除（連同它那條禁止常駐無限動畫），這兩條留在這裡是為了預告片自己的節奏，不是從那邊繼承的。
 - 時間一律用 frame 控制（`useCurrentFrame`、`interpolate`、`spring`），**嚴禁 `setTimeout`**。
 - 不要用 CSS `transition` 或 `animate-spin`。逐格輸出時不生效，預覽會跟成品不一致，改用 `interpolate`。
 - spring 統一取用 `theme.ts` 的 `springConfig`，不要各自寫 damping／stiffness。

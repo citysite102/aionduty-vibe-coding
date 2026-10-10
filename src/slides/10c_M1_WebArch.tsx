@@ -172,7 +172,7 @@ export default function Slide10c() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-900/40 p-4 rounded-2xl border border-slate-800/80 text-left">
             <div>
               <h3 className="text-base font-bold text-slate-200 flex items-center gap-2">
-                <ArrowRightLeft className="text-sky-400 w-5 h-5" />
+                <ArrowRightLeft className="text-sky-400 w-5 h-5 animate-pulse" />
                 <span>請選擇要模擬的商業情境（即時切換）：</span>
               </h3>
             </div>
@@ -211,7 +211,7 @@ export default function Slide10c() {
           {/* Simulator Controls */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-800/60">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full"></span>
+              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
               <h3 className="text-xs md:text-sm font-bold text-slate-300 uppercase tracking-wider font-mono">
                 API Live Connection Simulator
               </h3>

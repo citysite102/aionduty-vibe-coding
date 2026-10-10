@@ -133,7 +133,7 @@ export default function SlideHarnessIntro() {
 
                       {/* Engine */}
                       <div className="w-10 h-10 rounded-xl bg-slate-950 text-slate-500 flex items-center justify-center font-bold text-xs shrink-0 border border-slate-800 flex-col">
-                        <Zap size={14} className="text-red-500" />
+                        <Zap size={14} className="text-red-500 animate-pulse" />
                         <span className="text-xs mt-0.5">LLM</span>
                       </div>
 

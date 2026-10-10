@@ -61,7 +61,7 @@ export function StageMap({ items }: { items: Stage[] }) {
  * 一條橫向的步驟流程。
  *
  * 講「它在固定的時機停下來問你的設定」這種機制的時候，句子講三遍不如把順序畫出來。
- * 箭頭是靜態的，沒有跑馬燈，A-3 那條「禁止常駐無限動畫」在這裡照樣適用。
+ * 箭頭是靜態的，沒有跑馬燈：這一塊是流程順序，不是在表示有東西正在跑。
  */
 export function FlowRow({ steps }: { steps: string[] }) {
   return (

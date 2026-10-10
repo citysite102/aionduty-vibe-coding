@@ -64,7 +64,7 @@ export default function Slide10b2() {
                 <div className="flex gap-3 items-start">
                   <div className="w-7 h-7 rounded-full bg-sky-500/10 border border-sky-500/20 flex items-center justify-center shrink-0 text-xs font-bold text-sky-400">C</div>
                   <div className="bg-slate-900 text-slate-300 p-3 rounded-2xl rounded-tl-none w-full border border-slate-800">
-                    <div className="text-xs text-sky-400 font-bold mb-2 flex items-center gap-1.5">
+                    <div className="text-xs text-sky-400 font-bold mb-2 flex items-center gap-1.5 animate-pulse">
                       <Globe size={14}/> Fetching https://platform.claude.com/docs/en/api/messages...
                     </div>
                     <p className="mb-3 text-sm text-slate-400">我讀完 Messages API 的文件了。下面這段是照文件寫的，用的是官方套件 <code>@anthropic-ai/sdk</code>：</p>

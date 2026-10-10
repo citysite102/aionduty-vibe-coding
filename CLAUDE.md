@@ -5,12 +5,12 @@
 | 區塊 | 路徑 | 技術 | 規範在哪 |
 |---|---|---|---|
 | 簡報投影片（主要產出） | `src/slides/`、`src/components/` | React + Tailwind + `motion/react` | 這份，A 到 D 章 |
-| Remotion 動畫元件 | `src/remotion/` | Remotion，frame 驅動 | `src/remotion/CLAUDE.md`，加這份的 A-3、D 章 |
-| 現場工具（倒數計時器） | `src/components/CountdownOverlay.tsx`、`LetterField.tsx` | React + canvas | 只套 D 章。**A-3 的動態規範不適用**，見下方 |
+| Remotion 動畫元件 | `src/remotion/` | Remotion，frame 驅動 | `src/remotion/CLAUDE.md`，加這份的 D 章 |
+| 現場工具（倒數計時器） | `src/components/CountdownOverlay.tsx`、`LetterField.tsx` | React + canvas | 只套 D 章 |
 
 > Remotion 那份是子目錄手冊，Claude Code 動到那一區的檔案時才會載入，平常不佔 context。**不要把它的規則套到投影片上**，投影片沒有 frame 的概念，節奏是靠 `currentStep`。
 
-> 倒數計時器是疊在投影片上的一層，講者按 `T` 或點操作列上的碼錶叫出來。它會透過 `onActiveChange` 通知 `App.tsx` 把翻頁的鍵盤讓出來，**改 `App.tsx` 的 `handleKeyDown` 時不要把那個 `if (timerActive) return` 拿掉**，否則講者在計時畫面按空白鍵，底下的投影片會偷偷跳頁。（2026-10-03 起點畫面不再翻頁，所以只剩鍵盤這一個入口，理由寫在 `App.tsx` 原本 `handleContainerClick` 的位置。）它的字母場是持續動的，這是它的功能本身，不受 A-3「禁止常駐無限動畫」規範；那條規範是為了投影片內容不要跟講者搶注意力。背景音樂放 `public/music/`，換檔案要同步改 `CountdownOverlay.tsx` 的 `TRACKS`。
+> 倒數計時器是疊在投影片上的一層，講者按 `T` 或點操作列上的碼錶叫出來。它會透過 `onActiveChange` 通知 `App.tsx` 把翻頁的鍵盤讓出來，**改 `App.tsx` 的 `handleKeyDown` 時不要把那個 `if (timerActive) return` 拿掉**，否則講者在計時畫面按空白鍵，底下的投影片會偷偷跳頁。（2026-10-03 起點畫面不再翻頁，所以只剩鍵盤這一個入口，理由寫在 `App.tsx` 原本 `handleContainerClick` 的位置。）它的字母場是持續動的，這是它的功能本身。背景音樂放 `public/music/`，換檔案要同步改 `CountdownOverlay.tsx` 的 `TRACKS`。
 
 ---
 
@@ -138,18 +138,11 @@ grep -rhoE --include="*.tsx" -- \
 - `stepIndex` 由 1 開始，同一頁內遞增。左右兩欄要同時出現才可共用同一個號碼，否則不要重號。
 - **刪掉一整個 `AnimatedBlock` 之後，同頁剩下的號碼要重編成從 1 開始的連續號**，包含 `.map()` 裡 `stepIndex={i + N}` 的那個 `N`。留下缺號不會報錯也不會被 typecheck 抓到，但講者現場會多按一次卻沒有任何反應，而且缺的通常是第 1 號，也就是進到那一頁按第一下沒東西出現。
 
-### A-3 動態原則（防 AI 味的負面清單）
+### A-3（已移除）
 
-1. **一次只動一個重點，其他元素保持靜止。**
-2. **禁止常駐無限動畫。** 具體包含：
-   - Tailwind：`animate-pulse`、`animate-ping`、`animate-bounce`、`animate-spin`
-   - motion：`transition={{ repeat: Infinity }}`
-   - 特別注意 `.map()` 裡的條件式 class，一行程式可能生出七個閃爍點。
-   - 例外：真的要表達「系統正在運轉」時，全頁最多留一組，且必須是慢速、低對比。
-3. 進場用 opacity 0→1 加小位移（10 到 16px）。不要大幅飛入、不要旋轉進場、不要 `scale: 0→1` 彈跳。
-4. easing 全片統一，沿用 `AnimatedBlock` 的 `easeOut`。要用 spring 就把 damping 調高，不要 Q 彈。
-5. 每個重點停留夠久讓人讀完，關鍵文字至少停 1.5 到 2 秒。
-6. 不要把「fade-in 加 slide-up」套在每個元素上，寧可少動。
+2026-10-10 講師決定拿掉原本的「動態原則／防 AI 味負面清單」，連同它禁止的常駐無限動畫一起。
+2026-08-04 那一輪照這條清掉的 9 組動畫（跨 16 個檔案）同日復原。**不要再以這條為由去清動畫。**
+編號留著不補位：`A-4` 以下不重新編號，因為十幾個檔頭註解與逐字稿都寫著 `A-4`，改了會全部指錯。
 
 ### A-4 Tailwind 與資源
 

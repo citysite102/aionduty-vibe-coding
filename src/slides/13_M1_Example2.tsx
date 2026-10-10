@@ -90,7 +90,7 @@ export default function SlideExample2() {
                  </div>
                </div>
 
-               <div className="flex justify-center text-sky-500">
+               <div className="animate-pulse flex justify-center text-sky-500">
                  ↓ 執行 rename.js ↓
                </div>
 

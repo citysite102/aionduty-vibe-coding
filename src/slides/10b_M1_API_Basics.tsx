@@ -1,6 +1,7 @@
 import { Database, FileJson, Globe, KeyRound, Receipt, Utensils } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { LiveDemo } from '../components/LiveDemo';
+import { motion } from 'motion/react';
 import { Callout } from '../components/Callout';
 
 export default function Slide10b() {
@@ -30,7 +31,7 @@ export default function Slide10b() {
             
             <div>
               <h3 className="text-xl font-bold text-sky-400 mb-3 flex items-center gap-2">
-                <Globe size={22} className="text-sky-400" />
+                <Globe size={22} className="text-sky-400 animate-pulse" />
                 一支 API 長什麼樣
               </h3>
               <p className="text-slate-300 leading-relaxed text-base mb-4">
@@ -43,11 +44,15 @@ export default function Slide10b() {
               <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3 mt-4">
                 <div className="text-sm text-slate-500 font-mono flex justify-between items-center">
                   <span>Client (你/桌位)</span>
-                  <span className="text-sky-400 flex items-center gap-1">Request (點單紙) <span>➔</span></span>
+                  <span className="text-sky-400 flex items-center gap-1">Request (點單紙) <span className="animate-bounce">➔</span></span>
                   <span>Server (後端/廚房)</span>
                 </div>
                 <div className="h-1 bg-slate-800 rounded-full relative overflow-hidden">
-                  <div className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-sky-500 to-sky-300" />
+                  <motion.div
+                    className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-sky-500 to-sky-300"
+                    animate={{ x: ['-100%', '200%'] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                  />
                 </div>
                 <div className="text-sm text-slate-500 font-mono flex justify-between items-center">
                   <span>獲得餐點、結帳單</span>

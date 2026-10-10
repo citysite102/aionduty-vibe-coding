@@ -4,6 +4,22 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 
 /**
+ * **這一頁的常駐動畫是刻意的，2026-10-10 講師決定，不要再清。**
+ * 四組 `repeat: Infinity`：左邊「過去」那一張的 packet（2.5 秒從人跑到 AI）；右邊「現在」那一張的
+ * 旋轉虛線圈（8 秒一圈）、三個節點輪流亮（2.7 秒一圈，彼此差 0.9 秒）、三條虛線往外流（0.9 秒一輪）。
+ *
+ * 不清的理由：這一頁整頁在講「過去要你一直推」對上「現在它自己跑」，兩邊的差別本來就該
+ * 用看的感覺到。拆掉之後兩個分頁都是靜止的圖，剩下的差別只有文字，這一頁就白做了。
+ *
+ * 沿革：packet 原本就在（2026-07-29 上線時），2026-08-04 的 `aa56c8b`
+ * 「Remove the always-on infinite animations across the deck」那一輪連同全片 9 組一起砍掉，
+ * 旋轉圈也從會轉降到 15 秒一圈、虛線 20% 不透明度，實際上肉眼判讀不出它在動。
+ * 2026-10-10 先復原 packet 與旋轉圈，講師回報「現在」那一張還是看不出在跑，
+ * 同日再補上節點輪流亮與虛線流動，右邊那張圖才真的在跑一輪。
+ * 當初下令清掉的 CLAUDE.md A-3 同日整節移除。**不要再以那條為由回頭清這一頁。**
+ *
+ * 錄的時候念完就走，不要停在這一頁等它跑完一輪（同 `24_M3_Roles` 的註記）。
+ *
  * ⚠ 待查證（C-1／C-3）。這一頁引用了 Boris Cherny 那句話，並標著「Anthropic Claude Code 負責人」。
  * 引言的內容不會變，**但一個人的職稱與所屬公司正是 C-3 最會過期的那一類**，而這一頁從來沒有
  * 標過查證日期。2026-10-09 盤點時發現，本輪沒有查。
@@ -25,8 +41,15 @@ const LoopEngineeringAnimation = () => {
   const { currentStep } = useSlide();
   // 預設跟著簡報節奏走：第一拍看「過去」，推進到第二拍自動切到「現在」。
   // 講者仍可手動點分頁覆蓋，不會有畫面自己跳走的情況。
-  const [override, setOverride] = useState<'manual' | 'loop' | null>(null);
-  const activeTab: 'manual' | 'loop' = override ?? (currentStep >= 2 ? 'loop' : 'manual');
+  //
+  // 2026-10-10：override 連同「按下去時是第幾拍」一起記，推進到下一拍就失效。
+  // 原本它一設就永久生效，於是只要排練時點過一次分頁，這一頁的自動切換在那次
+  // 進來之後就永遠不會再發生；點到「過去」的話，推到第二拍也還是停在舊的那張圖。
+  // 錄影時最容易踩到：點一下確認分頁會動 → 之後正式錄就不自動切了。
+  // **不要改回只記 tab 的版本。**
+  const [override, setOverride] = useState<{ tab: 'manual' | 'loop'; atStep: number } | null>(null);
+  const held = override && override.atStep === currentStep ? override.tab : null;
+  const activeTab: 'manual' | 'loop' = held ?? (currentStep >= 2 ? 'loop' : 'manual');
 
   return (
     <div className="w-full h-[440px] bg-slate-950 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden shadow-2xl">
@@ -36,7 +59,7 @@ const LoopEngineeringAnimation = () => {
       {/* Tab controls */}
       <div className="flex bg-slate-900/80 backdrop-blur border border-slate-800 p-1.5 rounded-xl self-center z-10 gap-2">
         <button
-          onClick={() => setOverride('manual')}
+          onClick={() => setOverride({ tab: 'manual', atStep: currentStep })}
           className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'manual'
               ? 'bg-slate-800 text-slate-200 border border-slate-700'
@@ -46,7 +69,7 @@ const LoopEngineeringAnimation = () => {
           <User size={14} /> 過去：手動下指令 (Manual)
         </button>
         <button
-          onClick={() => setOverride('loop')}
+          onClick={() => setOverride({ tab: 'loop', atStep: currentStep })}
           className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
             activeTab === 'loop'
               ? 'bg-sky-500/20 text-sky-400 border border-sky-500/30 shadow-[0_0_15px_rgba(14,165,233,0.15)]'
@@ -85,7 +108,11 @@ const LoopEngineeringAnimation = () => {
                   <span className="text-xs font-mono text-slate-500 mb-1">手動輸入 Prompt</span>
                   <div className="flex items-center relative">
                     <ArrowRight className="text-slate-700" size={32} />
-                    <div className="absolute left-1 w-2.5 h-2.5 bg-slate-500 rounded-full" />
+                    <motion.div
+                      animate={{ x: [0, 80] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                      className="absolute left-1 w-2.5 h-2.5 bg-slate-500 rounded-full"
+                    />
                   </div>
                 </div>
 
@@ -121,8 +148,8 @@ const LoopEngineeringAnimation = () => {
                 {/* Rotating loop border */}
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 border border-dashed border-sky-500/20 rounded-full"
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 border border-dashed border-sky-500/35 rounded-full"
                 />
 
                 {/* Central AI Node */}
@@ -145,15 +172,18 @@ const LoopEngineeringAnimation = () => {
                   const x = Math.cos(angle) * radius;
                   const y = Math.sin(angle) * radius;
                   return (
-                    <div
+                    // 三個節點輪流亮，一圈 2.7 秒，讓「一輪一輪跑」用看的就知道。
+                    <motion.div
                       key={i}
                       style={{ transform: `translate(${x}px, ${y}px)` }}
+                      animate={{ opacity: [0.4, 1, 0.4], borderColor: ['rgb(30,41,59)', 'rgb(56,189,248)', 'rgb(30,41,59)'] }}
+                      transition={{ duration: 2.7, repeat: Infinity, ease: 'easeInOut', delay: i * 0.9 }}
                       className="absolute w-12 h-12 bg-slate-900 border border-slate-800 rounded-xl flex items-center justify-center"
                     >
                       {i === 0 ? <Cpu className="text-slate-400" size={20} /> :
                        i === 1 ? <Clock className="text-slate-400" size={20} /> :
                                  <RefreshCw className="text-slate-400" size={20} />}
-                    </div>
+                    </motion.div>
                   );
                 })}
 
@@ -166,15 +196,18 @@ const LoopEngineeringAnimation = () => {
                     const x = Math.cos(angle) * radius;
                     const y = Math.sin(angle) * radius;
                     return (
-                      <line
+                      // 虛線往外流，配合上面三個節點輪流亮：中央發派、節點做事、再回來。
+                      <motion.line
                         key={i}
                         x1="50%"
                         y1="50%"
                         x2={`calc(50% + ${x}px)`}
                         y2={`calc(50% + ${y}px)`}
-                        stroke="rgba(56,189,248,0.15)"
+                        stroke="rgba(56,189,248,0.35)"
                         strokeWidth="1.5"
                         strokeDasharray="4 2"
+                        animate={{ strokeDashoffset: [0, -12] }}
+                        transition={{ duration: 0.9, repeat: Infinity, ease: 'linear' }}
                       />
                     );
                   })}

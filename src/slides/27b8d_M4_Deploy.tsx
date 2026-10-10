@@ -125,10 +125,10 @@ export default function SlideDeploy() {
           <span className="font-mono text-slate-300">你的帳號.github.io/專案名</span>，
           好處是不用再開一個平台的帳號。
           <strong className="text-slate-200">但免費帳號的 repo 要設成 public 才掛得上去</strong>，
-          而前一頁的建議是不確定就選 private。另外還有一件後面會用到的事：
-          再過兩頁你要把一把金鑰放進平台的環境變數，
-          <strong className="text-slate-200">GitHub Pages 沒有那個地方</strong>，金鑰只能寫進程式碼跟著推上去。
-          所以這門課一路走 Vercel。
+          而前一頁的建議是不確定就選 private。另外，你之後自己的題目只要有一把不能外流的金鑰，
+          就需要一個「只有伺服器讀得到」的地方放它，
+          <strong className="text-slate-200">GitHub Pages 沒有那個地方，Vercel 有</strong>。
+          計時器這個題目用不到，下一個題目很可能用得到，所以這門課一路走 Vercel。
         </Callout>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-amber-500/25 bg-amber-500/5 p-5">
