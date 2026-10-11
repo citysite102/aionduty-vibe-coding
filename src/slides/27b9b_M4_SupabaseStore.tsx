@@ -163,7 +163,8 @@ export default function SlideSupabaseStore() {
 
             <Callout tone="warn" label="沒有登入，大家就是共用同一份" stepIndex={6}>
               接上資料庫之後，換一台裝置確實看得到同一份紀錄。
-              但這個計時器沒有帳號，所以<strong className="text-slate-100">別人打開你的網址，看到的也是同一份</strong>。
+              但這個計時器沒有帳號，所以<strong className="text-slate-100">別人打開你的網址，看到的是同一份，也寫得進去</strong>
+              （那條 RLS 規則必須允許任何人新增，不然你自己也存不了）。
               要變成「我的紀錄跟著我走」，還要再加一個登入，而那正是
               Supabase 把「資料庫」跟「會員登入」放在一起賣的理由。
               <span className="block mt-2 text-slate-400">

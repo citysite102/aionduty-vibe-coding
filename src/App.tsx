@@ -134,6 +134,8 @@ import Slide27b8d from './slides/27b8d_M4_Deploy';
 import Slide27b9 from './slides/27b9_M4_ShipIt';
 import Slide27b9b from './slides/27b9b_M4_SupabaseStore';
 import Slide27b8f from './slides/27b8f_M4_KeyKinds';
+import Slide27b8g from './slides/27b8g_M4_ArchGap';
+import Slide27b8h from './slides/27b8h_M4_NeedBackend';
 import Slide28 from './slides/28_M4_Safety';
 import Slide28s from './slides/28s_M4_SafetyStop';
 import Slide28a from './slides/28a_M4_LoopPractice';
@@ -292,6 +294,8 @@ const LIVE_TITLES = [
   "手機打開，紀錄卻是空的",
   "把紀錄搬上 Supabase，換台裝置也看得到",
   "哪一種金鑰可以寫進程式碼，哪一種不行",
+  "前端、資料庫、沒有後端：要加登入怎麼做",
+  "什麼時候要自己寫後端，以及怎麼做",
   "專案啟動之前：規格文件怎麼寫？",
   "把形容詞翻成可以檢查的條件",
   "案例一：器 VESSEL",
@@ -444,6 +448,8 @@ const LIVE_SLIDES = [
   Slide27b9,
   Slide27b9b,
   Slide27b8f,
+  Slide27b8g,
+  Slide27b8h,
   SlideCaseSpec,
   SlideCaseSpecCheck,
   SlideCase1Vessel,
