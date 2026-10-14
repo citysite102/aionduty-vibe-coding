@@ -73,14 +73,14 @@ export const UNIT_DEFS: UnitDef[] = [
   // 而且擺在章末會讓整章收在「錢」上，不是收在「你手上那份手冊」。
   // 檔案是 11c、11c2、11c3，要找回來去 git 歷史裡翻。
   { live: 48, title: '運作框架（Harness）：六個零件、成本與規則文件', anchor: 'Agent 運作框架與 CLAUDE.md' },
-  { live: 55, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
-  { live: 60, title: '監督程度與權限模式', anchor: '監督與邊界' },
-  { live: 62, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
+  { live: 56, title: 'MCP 與 Skills：Agent 的工具擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
+  { live: 61, title: '監督程度與權限模式', anchor: '監督與邊界' },
+  { live: 63, title: '第一份 CLAUDE.md 實作', anchor: '動手搭建運作框架' },
     // 名稱刻意不寫成「CLAUDE.md 的四個層級」：四層裡的 Hook 與 Skill 不是 CLAUDE.md，
   // 而這一支的重點正是有些規則不該寫進 CLAUDE.md。
-  { live: 66, title: 'CLAUDE.md 的分層、長度與跨工具相容', anchor: '同一句需求，兩種產出：有手冊、沒手冊' },
-  { live: 67, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: '根目錄的手冊整場都在，Rules 碰到才載' },
-  { live: 72, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
+  { live: 67, title: 'CLAUDE.md 的分層、長度與跨工具相容', anchor: '同一句需求，兩種產出：有手冊、沒手冊' },
+  { live: 68, title: 'CLAUDE.md、Skill 與 MCP 的載入時機與存放位置', anchor: '根目錄的手冊整場都在，Rules 碰到才載' },
+  { live: 73, title: '運作框架在真實專案的應用', anchor: '零件實際怎麼用（一）：規範與流程' },
 
   // ── 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 ──
   // Hook 那七頁自成一個單元。它夾在歸位四問與「保證越高改起來越麻煩」中間，
@@ -90,22 +90,22 @@ export const UNIT_DEFS: UnitDef[] = [
   // 代價是原本一支「四個問題」被切成前後兩段。這樣反而比較好：
   // 四個問題本來就是四件事，前兩題（沒生效、放哪層）講的是位置，
   // 後兩題（太長、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
-  { live: 77, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { live: 80, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是什麼，可以拿它做什麼' },
+  { live: 78, title: '規則失效的三種原因與規則分層', anchor: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { live: 81, part: 5, title: 'Hook：用程式強制執行規則', anchor: 'Hook 是什麼，可以拿它做什麼' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
-  { live: 80, part: 13, title: '規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨', anchor: '規則的四個去處，各自適合放什麼' },
-  { live: 81, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊（CLAUDE.md）健檢五步驟' },
+  { live: 81, part: 13, title: '規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨', anchor: '規則的四個去處，各自適合放什麼' },
+  { live: 82, title: 'CLAUDE.md 健檢流程與規則寫法', anchor: '手冊（CLAUDE.md）健檢五步驟' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講轉移，正好是這一章名稱的後半。
-  { live: 83, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '網頁、Cowork、Claude Code 差在哪' },
+  { live: 84, title: 'CLAUDE.md 的跨工具轉移與從零建立', anchor: '網頁、Cowork、Claude Code 差在哪' },
 
   // ── 章節七 Agent 分工與品質控管 ──
-  { live: 87, title: 'Agent 分工：三個角色與四種模式', anchor: 'Agent 分工與品質控管' },
-  { live: 92, title: '品質防線：審查子代理與現成的 Agent 框架', anchor: '設一道會退回的品質防線' },
+  { live: 88, title: 'Agent 分工：三個角色與四種模式', anchor: 'Agent 分工與品質控管' },
+  { live: 93, title: '品質防線：審查子代理與現成的 Agent 框架', anchor: '設一道會退回的品質防線' },
   // 原本切成「拆解」與「推進」兩支，但前半只給規格檔、後半才給指令，
   // 學員在前半會一直等著看指令長什麼樣。合起來就是一次完整的中型專案走法。
-  { live: 100, title: '中型專案演練：需求拆解與指令設計', anchor: '一個中型專案，從需求拆到踩雷' },
+  { live: 101, title: '中型專案演練：需求拆解與指令設計', anchor: '一個中型專案，從需求拆到踩雷' },
 
   // ── 章節八 Agent 循環開發流程與實戰案例 ──
   // 2026-10-04 重切成三支，照「這是什麼 → 怎麼配置與管控 → 動手做一次」一條線：
@@ -117,14 +117,14 @@ export const UNIT_DEFS: UnitDef[] = [
   // 8-3 從貼第一段指令一路做到拿到網址，中間不換單元。原本切成「自主循環」與
   //     「部署上線」兩支，但那一刀切在「它自己跑完了」跟「所以要送出去」中間，
   //     兩段是同一次動手的前後半，學員在前半結束的時候手上還沒有東西可以交出去。
-  { live: 109, title: '什麼是 Loop Engineering？', anchor: 'Agent 循環開發流程與實戰案例' },
-  { live: 112, title: '如何配置 Loop 開發流程與進行管控', anchor: '交代一輪工作的五個步驟' },
-  { live: 118, title: 'Loop Engineering 實作練習', anchor: '試著用 Loop 跑測試流程' },
+  { live: 110, title: '什麼是 Loop Engineering？', anchor: 'Agent 循環開發流程與實戰案例' },
+  { live: 113, title: '如何配置 Loop 開發流程與進行管控', anchor: '交代一輪工作的五個步驟' },
+  { live: 119, title: 'Loop Engineering 實作練習', anchor: '試著用 Loop 跑測試流程' },
   // 2026-10-05 再切一刀。8-3 一度把「跑一輪」與「送上線」併成 11 頁，
   // 但那兩段學員做的事不一樣：前半是交辦一輪、看它自己驗；後半是把成果送出去，
   // 中間每一步卡的都是帳號與授權。切在〈幫計時器加上航行日誌〉之後，
   // 前半收在「功能做完了」，後半從「可是它只在你這台電腦上」開始。
-  { live: 123, title: '專案部署流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
+  { live: 124, title: '專案部署流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
   // 三個完整案例。單元名稱直接用 Case 的名字，因為講者會在這裡打開那三份教學文件，
   // 影片標題和文件封面對得起來，學員才知道現在該翻哪一份。
   //
@@ -132,11 +132,11 @@ export const UNIT_DEFS: UnitDef[] = [
   // 2026-10-06 那兩頁從案例一首頁後面搬到前面，手冊（case-01-spec-writing.pdf）把它定位成
   // 「請在開始案例一之前完成」，而案例一首頁的起點本來就寫著「只有你自己寫的規格」。
   // 所以這一支的起點與 anchor 跟著換成規格那一頁。
-  { live: 131, title: '案例一：規格文件與器 VESSEL', anchor: '專案啟動之前：規格文件怎麼寫？' },
-  { live: 135, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
-  { live: 139, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
-  { live: 143, title: '題目選擇、開工步驟、成果驗收與第三方工具', anchor: '接下來呢？四種回去就做得動的題目' },
+  { live: 132, title: '案例一：規格文件與器 VESSEL', anchor: '專案啟動之前：規格文件怎麼寫？' },
+  { live: 136, title: '案例二：東京環状 24 時', anchor: '案例二：東京環状 24 時' },
+  { live: 140, title: '案例三：開窯預約', anchor: '案例三：開窯預約' },
+  { live: 144, title: '題目選擇、開工步驟、成果驗收與第三方工具', anchor: '接下來呢？四種回去就做得動的題目' },
 
   // ── 章節九 結語 ──
-  { live: 150, title: '結語：未來的工作者', anchor: '未來的工作者' },
+  { live: 151, title: '結語：未來的工作者', anchor: '未來的工作者' },
 ];

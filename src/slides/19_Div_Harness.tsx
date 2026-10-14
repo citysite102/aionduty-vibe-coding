@@ -1,7 +1,7 @@
 import { SectionDivider } from '../components/SectionDivider';
 
 /**
- * 2026-09-22 路線圖重對一次實際章節，weight 照各段實際頁數給：7／7／10／10。
+ * 2026-09-22 路線圖重對一次實際章節，weight 照各段實際頁數給。2026-10-14 第一段多了一頁（模型三層），7 改成 8。
  * 對法是跑 `npm run units -- 5`。
  *
  * 曾經有第五塊「付費與省錢」（Slide 81 到 83）。那三頁 2026-09-22 整組移除了，
@@ -26,7 +26,7 @@ export default function SlideDivHarness() {
       subtitle="Harness & CLAUDE.md"
       title="Agent 運作框架與 CLAUDE.md"
       roadmap={[
-        { label: '框架與成本', weight: 7, note: '零件、上下文、token 帳' },
+        { label: '框架與成本', weight: 8, note: '零件、上下文、token 帳' },
         { label: '工具與邊界', weight: 7, note: 'MCP、Skills、權限模式' },
         { label: '寫出第一份手冊', weight: 10, note: '寫、確認讀到、規則分幾層' },
         { label: '載入時機與存放位置', weight: 10, note: '常駐或叫到才來、資料夾位置、真實專案' },

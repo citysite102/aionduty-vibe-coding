@@ -63,6 +63,7 @@ import Slide19a from './slides/19a_M2_SectionGoal';
 import Slide19b from './slides/19b_Harness_Context';
 import Slide19c from './slides/19c_Harness_Architecture';
 import Slide19d from './slides/19d_Harness_Economics';
+import Slide19d2 from './slides/19d2_M2_ModelTiers';
 import Slide20 from './slides/20_M2_HarnessIntro';
 import Slide30 from './slides/30_Cheat_Perms';
 import Slide31 from './slides/31_Cheat_Dials';
@@ -218,6 +219,7 @@ const LIVE_TITLES = [
   "什麼是運作框架（Harness）？",
   "完整的運作框架有哪些零件",
   "Harness 對成本的影響",
+  "模型三層：Haiku、Sonnet、Opus 怎麼挑",
   "三個動作，提高 Agent 任務的效益",
   "為什麼需要規則文件？",
   "讓 AI 有工具可用：MCP 與 Skills",
@@ -372,6 +374,7 @@ const LIVE_SLIDES = [
   Slide20,
   Slide19c,
   Slide19d,
+  Slide19d2,
   Slide21,
   Slide19b,
   Slide21a,
@@ -486,9 +489,9 @@ const SECTION_DEFS = [
   { start: 15, label: 'Claude Code 實作與網頁開發基礎' },
   { start: 43, label: '選修：終端機與 Claude Code 安裝' },
   { start: 48, label: 'Agent 運作框架與 CLAUDE.md' },
-  { start: 77, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 87, label: 'Agent 分工與品質控管' },
-  { start: 109, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 78, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
+  { start: 88, label: 'Agent 分工與品質控管' },
+  { start: 110, label: 'Agent 循環開發流程與實戰案例' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

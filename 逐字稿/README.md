@@ -117,34 +117,34 @@ npm run pdf      # → 逐字稿/逐字稿全集.pdf
 |  | 3-8 Claude Code 的能力邊界與工具選擇 | Slide 41-43 | 初稿 |
 | 章節四 選修：終端機與 Claude Code 安裝 | 4-1 選修：終端機與基本指令 | Slide 44-46 | 初稿 |
 |  | 4-2 選修：Claude Code 安裝與終端機專屬操作 | Slide 47-48 | 初稿 |
-| 章節五 Agent 運作框架與 CLAUDE.md | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 49-55 | 初稿 |
-|  | 5-2 MCP 與 Skills：Agent 的工具擴充 | Slide 56-60 | 初稿 |
-|  | 5-3 監督程度與權限模式 | Slide 61-62 | 初稿 |
-|  | 5-4 第一份 CLAUDE.md 實作 | Slide 63-66 | 初稿 |
-|  | 5-5 CLAUDE.md 的分層、長度與跨工具相容 | Slide 67-72 | 初稿 |
-|  | 5-6 CLAUDE.md、Skill 與 MCP 的載入時機與存放位置 | Slide 73-77 | 初稿（照抄 `meta.script`） |
-|  | 5-7 運作框架在真實專案的應用 | Slide 78-82 | 初稿 |
-| 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 | 6-1 規則失效的三種原因與規則分層 | Slide 83-93 | 初稿（照抄 `meta.script`） |
-|  | 6-2 Hook：用程式強制執行規則 | Slide 94-101 | 初稿（照抄 `meta.script`） |
-|  | 6-3 規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨 | Slide 102-104 | 初稿（照抄 `meta.script`） |
-|  | 6-4 CLAUDE.md 健檢流程與規則寫法 | Slide 105-115 | 初稿（照抄 `meta.script`） |
-|  | 6-5 CLAUDE.md 的跨工具轉移與從零建立 | Slide 116-125 | 初稿（照抄 `meta.script`） |
-| 章節七 Agent 分工與品質控管 | 7-1 Agent 分工：三個角色與四種模式 | Slide 126-130 | 初稿 |
-|  | 7-2 品質防線：審查子代理與現成的 Agent 框架 | Slide 131-138 | 初稿 |
-|  | 7-3 中型專案演練：需求拆解與指令設計 | Slide 139-147 | 初稿 |
-| 章節八 Agent 循環開發流程與實戰案例 | 8-1 什麼是 Loop Engineering？ | Slide 148-150 | 初稿 |
-|  | 8-2 如何配置 Loop 開發流程與進行管控 | Slide 151-156 | 初稿 |
-|  | 8-3 Loop Engineering 實作練習 | Slide 157-161 | 初稿 |
-|  | 8-4 專案部署流程 | Slide 162-169 | 初稿 |
-|  | 8-5 案例一：規格文件與器 VESSEL | Slide 170-173 | 初稿 |
-|  | 8-6 案例二：東京環状 24 時 | Slide 174-177 | 初稿 |
-|  | 8-7 案例三：開窯預約 | Slide 178-181 | 初稿 |
-|  | 8-8 題目選擇、開工步驟、成果驗收與第三方工具 | Slide 182-188 | 初稿 |
-| 章節九 結語 | 9-1 結語：未來的工作者 | Slide 189-189 | 初稿 |
+| 章節五 Agent 運作框架與 CLAUDE.md | 5-1 運作框架（Harness）：六個零件、成本與規則文件 | Slide 49-56 | 初稿 |
+|  | 5-2 MCP 與 Skills：Agent 的工具擴充 | Slide 57-61 | 初稿 |
+|  | 5-3 監督程度與權限模式 | Slide 62-63 | 初稿 |
+|  | 5-4 第一份 CLAUDE.md 實作 | Slide 64-67 | 初稿 |
+|  | 5-5 CLAUDE.md 的分層、長度與跨工具相容 | Slide 68-73 | 初稿 |
+|  | 5-6 CLAUDE.md、Skill 與 MCP 的載入時機與存放位置 | Slide 74-78 | 初稿（照抄 `meta.script`） |
+|  | 5-7 運作框架在真實專案的應用 | Slide 79-83 | 初稿 |
+| 章節六 手冊（CLAUDE.md）的診斷、健檢與轉移 | 6-1 規則失效的三種原因與規則分層 | Slide 84-94 | 初稿（照抄 `meta.script`） |
+|  | 6-2 Hook：用程式強制執行規則 | Slide 95-102 | 初稿（照抄 `meta.script`） |
+|  | 6-3 規則該送去哪：Hook、Rules、Skill、CLAUDE.md 的取捨 | Slide 103-105 | 初稿（照抄 `meta.script`） |
+|  | 6-4 CLAUDE.md 健檢流程與規則寫法 | Slide 106-116 | 初稿（照抄 `meta.script`） |
+|  | 6-5 CLAUDE.md 的跨工具轉移與從零建立 | Slide 117-126 | 初稿（照抄 `meta.script`） |
+| 章節七 Agent 分工與品質控管 | 7-1 Agent 分工：三個角色與四種模式 | Slide 127-131 | 初稿 |
+|  | 7-2 品質防線：審查子代理與現成的 Agent 框架 | Slide 132-139 | 初稿 |
+|  | 7-3 中型專案演練：需求拆解與指令設計 | Slide 140-148 | 初稿 |
+| 章節八 Agent 循環開發流程與實戰案例 | 8-1 什麼是 Loop Engineering？ | Slide 149-151 | 初稿 |
+|  | 8-2 如何配置 Loop 開發流程與進行管控 | Slide 152-157 | 初稿 |
+|  | 8-3 Loop Engineering 實作練習 | Slide 158-162 | 初稿 |
+|  | 8-4 專案部署流程 | Slide 163-170 | 初稿 |
+|  | 8-5 案例一：規格文件與器 VESSEL | Slide 171-174 | 初稿 |
+|  | 8-6 案例二：東京環状 24 時 | Slide 175-178 | 初稿 |
+|  | 8-7 案例三：開窯預約 | Slide 179-182 | 初稿 |
+|  | 8-8 題目選擇、開工步驟、成果驗收與第三方工具 | Slide 183-189 | 初稿 |
+| 章節九 結語 | 9-1 結語：未來的工作者 | Slide 190-190 | 初稿 |
 
 ## 預錄拆頁的逐字稿，照抄 `meta.script`
 
-Slide 67 起有 46 頁是預錄拆頁（`src/slides-recorded/`），它們的檔案裡本來就有一份 `meta.script`，那才是錄製時要念的字，而且 `npm run check:rec` 會按「中文字數 ＋ 英文詞數 × 2」算長度，每頁上限 45 秒。
+Slide 68 起有 46 頁是預錄拆頁（`src/slides-recorded/`），它們的檔案裡本來就有一份 `meta.script`，那才是錄製時要念的字，而且 `npm run check:rec` 會按「中文字數 ＋ 英文詞數 × 2」算長度，每頁上限 45 秒。
 
 **這些頁面的逐字稿一律照抄 `meta.script`，不另外寫一份。** 理由是 CLAUDE.md A-4 記過的同一個坑：口白長度是從 `script` 算出來的，這裡另寫一份更長的版本等於製造第二份真相，而且錄的人照著唸會超時。
 
