@@ -2,9 +2,12 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { DollarSign, TrendingDown, TrendingUp, AlertCircle, Factory } from 'lucide-react';
 
 /*
- * 最後查證：2026-09-22，對照 platform.claude.com/docs/en/about-claude/models/overview 的價目表。
+ * 最後查證：2026-10-15，對照 platform.claude.com/docs/en/about-claude/models/overview 的價目表。
  * 當時的現況：輸出的每 token 單價一律是輸入的 5 倍，整條產品線都一致
- * （Opus $5／$25、Sonnet $3／$15、Haiku $1／$5，單位都是每百萬 token）。
+ * （Fable 5.1 $10／$50、Opus 5.5 $4／$20、Sonnet 5.5 $2／$10、Haiku 5.5 自 $0.10／$0.50，
+ * 單位都是每百萬 token）。**2026-09-22 查的是上一代（Opus $5／$25、Sonnet $3／$15、
+ * Haiku $1／$5），整條線在那之後換代，但五倍這件事四個模型都還成立**，
+ * 所以畫面上那句不用改，也不用加 `UpdateNote`。
  * 所以寫倍率不寫絕對金額，換代也不容易過期。
  * **只查了 Anthropic 一家，所以句子裡要留著「Claude 的」那三個字。** 別家不是五倍，
  * 寫成「各家的牌價」就超出查證範圍了，而這門課在前一頁才點名過 Codex 與 Gemini。

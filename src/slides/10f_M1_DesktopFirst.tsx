@@ -1,6 +1,7 @@
 import { AppWindow, FolderOpen, MessageSquare, Download, LogIn } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { UpdateNote } from '../components/UpdateNote';
 import { LiveDemo } from '../components/LiveDemo';
 
 /**
@@ -15,6 +16,9 @@ import { LiveDemo } from '../components/LiveDemo';
  * 下次改版前先開一次 app 對照，不要只看文件。
  *
  * 左側列那一塊只負責「先不用管」，不要在這裡展開 Projects、Artifacts 是什麼。
+ * 2026-10-15 重查：Chat 與 Cowork 2026-09-16 合併成一個 Claude，新版沒有那個切換。
+ * 影片錄的是合併前，所以原文留著、底下加 `UpdateNote`（A-5），不要直接把那一段刪掉。
+ *
  * 三個介面（網頁版／Cowork／Claude Code）的完整比較是章節五 21h2 與 harness/33 的職務，
  * 在這裡講等於同一批內容開兩頁（B-5），也會把這一頁「先做出東西」的節奏打斷。
  */
@@ -135,6 +139,11 @@ export default function SlideDesktopFirst() {
             三個地方的差別，章節五會攤開比一次。
           </p>
         </AnimatedBlock>
+
+        <UpdateNote date="2026-10" className="text-left">
+          新版的桌面版已經沒有那個切換，兩邊併成同一個 Claude，你直接講要做的事就好。
+          這門課走 Code 的理由沒變：版本控制、驗收與部署還是只有 Code 做得到。
+        </UpdateNote>
 
         <AnimatedBlock
           stepIndex={4}

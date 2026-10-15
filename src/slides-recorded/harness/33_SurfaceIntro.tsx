@@ -2,6 +2,7 @@ import { Columns3 } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../../components/SlideLayout';
 import { Key } from './_Key';
 import { RecPage } from '../_RecPage';
+import { UpdateNote } from '../../components/UpdateNote';
 import type { RecordedMeta } from '../types';
 
 /**
@@ -9,6 +10,13 @@ import type { RecordedMeta } from '../types';
  * 當時的現況：Cowork **不是頁籤**，它是輸入框上的 Chat／Cowork 切換；
  * Code 在左上角的 `</>` 圖示，只有某些版本還是上面三個頁籤。
  * `10f_M1_DesktopFirst` 2026-09-21 就改過了，這一頁漏掉，2026-09-22 補上。
+ *
+ * 最後查證：2026-10-15，對照 support.claude.com 的 Use Claude Cowork on web, desktop, and mobile。
+ * 當時的現況：2026-09-16 起 Chat 與 Cowork 合併成一個 Claude，官方寫的是
+ * 「Claude Cowork is now just Claude」，判斷新舊版的方式是**看不看得到那個切換，看不到就是新版**。
+ * 2026-10-06 起 Pro 與 Max 的新工作在雲端跑（原本的「只在你的電腦上」選項拿掉了），
+ * 雲端工作要讀你電腦上的資料夾，條件是桌面版開著、而且那個工作是從桌面版開始的。
+ * 影片是合併前錄的，所以畫面改成現況、口白不動，差異用 `UpdateNote` 標在頁上（A-5）。
  * 所以這三列的「在哪」一律不寫 UI 元件的名字，只寫怎麼切到那個模式。
  */
 
@@ -28,7 +36,7 @@ const SURFACES = [
   },
   {
     name: 'Cowork',
-    where: '桌面版，輸入框上切到 Cowork',
+    where: '桌面版，直接講要做的事',
     files: '你綁的那一個資料夾',
     act: '能讀能寫，不執行指令',
   },
@@ -57,9 +65,9 @@ export const meta: RecordedMeta = {
 export default function RecSurfaceIntro() {
   return (
     <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Columns3}>
-      <RecPage className="space-y-5">
+      <RecPage className="space-y-3">
         <AnimatedBlock stepIndex={1}>
-          <p className="text-slate-500 text-xl leading-relaxed mb-3">
+          <p className="text-slate-500 text-xl leading-relaxed mb-2">
             你前面一直在用的是 Claude Code。不開終端機的時候，同一個 Claude 還有另外兩個入口。
             那你那份 <code className="font-mono text-orange-300">CLAUDE.md</code> 要重寫嗎？
           </p>
@@ -78,7 +86,7 @@ export default function RecSurfaceIntro() {
           {SURFACES.map((s) => (
             <div
               key={s.name}
-              className={`grid grid-cols-[1.1fr_1fr_1fr] gap-4 px-6 py-4 border-b border-slate-800/70 last:border-0 ${
+              className={`grid grid-cols-[1.1fr_1fr_1fr] gap-4 px-6 py-3 border-b border-slate-800/70 last:border-0 ${
                 s.lead ? 'bg-sky-950/20' : ''
               }`}
             >
@@ -99,7 +107,12 @@ export default function RecSurfaceIntro() {
           會做的那一條（第一列的「只有你上傳的那些檔案」本來就在講這件事，卻沒有接起來）。
           「專案知識庫（Project knowledge）」是 Claude 介面上的中文標籤，照抄不要改寫（D-4）。
         */}
-        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-sky-500/25 bg-sky-500/5 px-7 py-4">
+        <UpdateNote date="2026-10">
+          桌面版沒有 Chat／Cowork 的切換了，直接講要做的事就好。Pro 與 Max 的工作改在雲端跑，
+          要它讀你電腦上的資料夾，桌面版得開著、工作也要從桌面版開。
+        </UpdateNote>
+
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-sky-500/25 bg-sky-500/5 px-7 py-2.5">
           <p className="text-slate-300 text-lg leading-relaxed">
             網頁版要用同一份手冊：在 claude.ai 開一個 Project，把{' '}
             <code className="font-mono text-orange-300">CLAUDE.md</code>{' '}

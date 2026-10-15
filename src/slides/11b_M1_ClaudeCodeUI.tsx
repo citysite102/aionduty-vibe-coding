@@ -1,6 +1,7 @@
 import { AppWindow, BarChart3, MousePointerClick, FolderOpen } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { UpdateNote } from '../components/UpdateNote';
 import { BrandLogo } from '../components/BrandLogos';
 import { PixelArt } from '../components/PixelArt';
 
@@ -15,6 +16,12 @@ import { PixelArt } from '../components/PixelArt';
  * 數字刻意用初學者規模（12 場對話、5 天），不是照抄截圖上的真實用量。
  * 那些數字對學員沒有教學價值，數字大反而會嚇到人。專案名也換成這門課的 mission-timer，
  * 學員才對得上自己的畫面。
+ *
+ * 最後查證：2026-10-15，對照 platform.claude.com/docs/en/about-claude/models/overview
+ * 與 code.claude.com/docs/en/model-config 的 Default model。當時的現況：線上是
+ * Fable 5.1、Opus 5.5、Sonnet 5.5、Haiku 5.5，而 Pro／Max／Team 的預設是 Opus 5.5
+ * （Claude Code v2.1.280 以前 Pro 預設是 Sonnet 5）。影片錄的是 Opus 5 那一版，
+ * 所以 mockup 的字改成現況、底下用 `UpdateNote` 說明，口白不動（A-5）。
  *
  * 顏色照抄真實畫面，這是 A-1 對這一頁的規定：學員要拿它對照自己的螢幕，改色反而是錯的。
  * 所以 mockup 裡走的是 hex 的 inline 值（跟舊版一樣），不進 Tailwind 色階，也不影響色相驗收。
@@ -46,7 +53,7 @@ const STATS: [string, string][] = [
   ['Current streak', '2d'],
   ['Longest streak', '3d'],
   ['Peak hour', '10 PM'],
-  ['Favorite model', 'Opus 5'],
+  ['Favorite model', 'Opus 5.5'],
 ];
 
 /** 輸入框右上角那隻小生物。純裝飾，但它在真實畫面上就在那裡。 */
@@ -130,6 +137,12 @@ export default function SlideClaudeCodeUI() {
             <strong className="text-slate-100">它在等你講話，不是在等程式碼</strong>。
             直接打中文就可以：「幫我看看這個專案要怎麼跑起來」。
           </Callout>
+
+          <UpdateNote date="2026-10">
+            模型那一格現在顯示的是 <strong className="text-slate-200">Opus 5.5</strong>：
+            2026-09 之後整條線換代，Pro、Max、Team 打開的預設都是它（以前是 Sonnet）。
+            名字對不上不影響操作，位置還是輸入框旁邊那裡。
+          </UpdateNote>
         </div>
 
         {/* 右欄：桌面版 Code 頁籤的真實版面。底色比 slate 暖，照抄真實畫面 */}
@@ -214,7 +227,7 @@ export default function SlideClaudeCodeUI() {
                 <div className="flex items-center justify-between mt-2 text-xs text-slate-500">
                   <span>Auto &nbsp;+&nbsp; &#127908;</span>
                   <span className="flex items-center gap-2">
-                    <span className="text-slate-300">Opus 5</span>
+                    <span className="text-slate-300">Opus 5.5</span>
                     <span className="text-slate-300">High</span>
                     <span className="inline-block h-2.5 w-2.5 rounded-full border border-slate-600" />
                   </span>

@@ -1,6 +1,19 @@
 import { FolderCog } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
+/*
+ * **這一頁已經被 `REPLACEMENTS` 的 index 84 換成 `harness/33_SurfaceIntro` 與
+ * `harness/58_HandbookV5` 兩頁，實際不會播。** 要掛錄影後的修正就掛在那兩頁上（A-5），
+ * 這裡只跟著改字，不要再加 `UpdateNote`。
+ *
+ * 最後查證：2026-10-15，對照 support.claude.com 的 Use Claude Cowork on web, desktop, and mobile。
+ * 當時的現況：2026-09-16 起 Chat 與 Cowork 合併成一個 Claude，官方寫的是
+ * 「Claude Cowork is now just Claude」，判斷新舊版的方式是**看不看得到那個切換，看不到就是新版**。
+ * 2026-10-06 起 Pro 與 Max 的新工作在雲端跑（原本的「只在你的電腦上」選項拿掉了），
+ * 雲端工作要讀你電腦上的資料夾，條件是桌面版開著、而且那個工作是從桌面版開始的。
+ * 影片是合併前錄的，所以畫面改成現況、口白不動，差異用 `UpdateNote` 標在頁上（A-5）。
+ */
+
 const PLACES = [
   {
     name: 'Claude Projects',
@@ -10,9 +23,9 @@ const PLACES = [
   },
   {
     name: 'Cowork',
-    where: '桌面版，綁一個本機資料夾',
-    can: '保有聊天的操作方式，但能直接讀寫你綁的那個資料夾。可以只綁一個子目錄，不必掃整個專案。',
-    cannot: '權限範圍就是你綁的那個資料夾，不會跨出去。',
+    where: '桌面版，連結一個本機資料夾',
+    can: '保有聊天的操作方式，但能直接讀寫你連結的那個資料夾。可以只連一個子目錄，不必掃整個專案。',
+    cannot: '權限範圍就是你連結的那個資料夾，不會跨出去。',
   },
   {
     name: 'Claude Code',
