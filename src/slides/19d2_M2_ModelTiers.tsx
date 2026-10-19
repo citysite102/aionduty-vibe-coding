@@ -18,7 +18,9 @@ import { Callout } from '../components/Callout';
  *   - `/model` 的選項是 haiku／sonnet／opus／fable／best／opusplan。
  *   - **Pro、Max、Team 的預設模型是 Opus 5.5**（Claude Code v2.1.280 以前 Pro 預設是 Sonnet 5）。
  *     學員打開就站在最貴的那一層，所以這一頁多數時候是教他往下換，不是往上換。
- *     開場那句與逐字稿都照這個寫，要改之前先重查 model-config 的 Default model 一節。
+ *     開場那句與逐字稿都照這個寫（講「預設是最貴的那一層、多數工作用不到」，
+ *     不要寫成「這一頁多半是往下換」那種在講投影片自己的句子，D-2 的後設導覽句），
+ *     要改之前先重查 model-config 的 Default model 一節。
  *   - `fable` 與 `best` 在 Pro 是扣 usage credits，不算方案額度，所以只放進但書的小字，
  *     不另外開一張卡：那一層不是日常要挑的東西。
  *
@@ -61,8 +63,8 @@ export default function SlideModelTiers() {
     <SlideLayout title="模型三層：Haiku、Sonnet、Opus 怎麼挑" subtitle="Model Tiers: What to Run on Which" icon={Gauge} updated={{ date: '2026/10/15', kind: '新增' }}>
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         <p className="text-slate-300 text-base leading-relaxed mb-4">
-          打開的預設就是最貴的 Opus，所以這一頁多半是往下換（桌面版在輸入框旁邊換，Claude Code 打
-          <code className="font-mono text-orange-300">/model</code>）。
+          打開的預設是 Opus，也就是最貴的那一層，而多數工作用不到這麼貴。要換就在桌面版的輸入框旁邊，
+          或在 Claude Code 打 <code className="font-mono text-orange-300">/model</code>。
           <strong className="text-slate-100">機械性的整理交給便宜的，要判斷為什麼的事才留給貴的</strong>。
         </p>
 
