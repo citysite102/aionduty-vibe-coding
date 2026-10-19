@@ -65,7 +65,7 @@ const CARRY = [
 
 export default function RecHandbookV5() {
   return (
-    <SlideLayout title={meta.title} subtitle="Your Handbook So Far" icon={Copy}>
+    <SlideLayout title={meta.title} subtitle="Your Handbook So Far" icon={Copy} updated={{ date: '2026/10/15' }}>
       <RecPage className="space-y-3">
         <HandbookState stepIndex={1} version={5} />
 

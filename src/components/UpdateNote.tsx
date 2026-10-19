@@ -8,8 +8,9 @@ import { RefreshCw } from 'lucide-react';
  * 處理方式不是把頁面改成新的（那樣口白會對不上畫面，學員會以為自己聽錯），
  * 而是**原本那段留著，旁邊加一條說明現在變成怎樣**。
  *
- * 寫法：
- *   <UpdateNote date="2026-10">Cowork 已經併進 Claude⋯</UpdateNote>
+ * 寫法（日期不寫在這裡，寫在 `SlideLayout` 的 `updated`，一頁一個日期就夠）：
+ *   <SlideLayout title="⋯" updated={{ date: '2026/10/19' }}>
+ *     <UpdateNote>Cowork 已經併進 Claude⋯</UpdateNote>
  *
  * 三個要求：
  * 1. **只寫現況與影響，不要寫「影片裡講的是舊的」**。學員要的是現在該怎麼做。
@@ -20,13 +21,10 @@ import { RefreshCw } from 'lucide-react';
  * 顏色走 amber（A-1 的「警告／注意」），一頁最多兩個強調色的額度要自己留意。
  */
 export function UpdateNote({
-  date,
   size = 'slide',
   className = '',
   children,
 }: {
-  /** 改動發生的月份，例如 `2026-10`。不要寫到日，學員不需要那個精度。 */
-  date: string;
   /** 預錄拆頁字級大一階，傳 `rec`。 */
   size?: 'slide' | 'rec';
   className?: string;
@@ -37,12 +35,7 @@ export function UpdateNote({
     <div className={`rounded-xl border border-amber-500/25 bg-amber-500/5 px-4 py-3 ${className}`}>
       <div className="flex items-start gap-3">
         <RefreshCw size={16} aria-hidden="true" className="text-amber-300 shrink-0 mt-1" />
-        <p className={`${body} leading-relaxed text-slate-300`}>
-          <span className="mr-2 whitespace-nowrap rounded-md border border-amber-500/30 px-2 py-0.5 font-mono text-xs text-amber-300">
-            {date} 更新
-          </span>
-          {children}
-        </p>
+        <p className={`${body} leading-relaxed text-slate-300`}>{children}</p>
       </div>
     </div>
   );

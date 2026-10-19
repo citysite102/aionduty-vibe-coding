@@ -64,7 +64,7 @@ export const meta: RecordedMeta = {
 
 export default function RecSurfaceIntro() {
   return (
-    <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Columns3}>
+    <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Columns3} updated={{ date: '2026/10/15' }}>
       <RecPage className="space-y-3">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-2">
@@ -107,7 +107,7 @@ export default function RecSurfaceIntro() {
           會做的那一條（第一列的「只有你上傳的那些檔案」本來就在講這件事，卻沒有接起來）。
           「專案知識庫（Project knowledge）」是 Claude 介面上的中文標籤，照抄不要改寫（D-4）。
         */}
-        <UpdateNote date="2026-10">
+        <UpdateNote>
           桌面版沒有 Chat／Cowork 的切換了，直接講要做的事就好。Pro 與 Max 的工作改在雲端跑，
           要它讀你電腦上的資料夾，桌面版得開著、工作也要從桌面版開。
         </UpdateNote>

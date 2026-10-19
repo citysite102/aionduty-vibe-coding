@@ -71,7 +71,7 @@ const WAYS = [
 
 export default function SlideSkillInstall() {
   return (
-    <SlideLayout title="Skill 的三種來源，怎麼確認它裝好了" subtitle="Installing a Skill" icon={PackagePlus}>
+    <SlideLayout title="Skill 的三種來源，怎麼確認它裝好了" subtitle="Installing a Skill" icon={PackagePlus} updated={{ date: '2026/10/19' }}>
       <div className="max-w-6xl mx-auto space-y-2 pb-2">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
@@ -152,7 +152,7 @@ export default function SlideSkillInstall() {
           它們講的是同一件事的兩面（沒反應怎麼辦／怎麼確認它在），並排讀得通，
           而且省下一整塊的高度。再往這一頁加東西之前先量一次。
         */}
-        <UpdateNote date="2026-10">
+        <UpdateNote>
           現在多一種來源：你在 claude.ai 帳號上開啟的 Skill，用同一個帳號登入的 Claude Code
           會自己同步下來，不用再裝一次。它只會下載不會上傳，所以那一份要改還是回 claude.ai 改。
         </UpdateNote>

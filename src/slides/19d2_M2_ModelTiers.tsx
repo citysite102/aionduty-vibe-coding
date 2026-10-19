@@ -58,7 +58,7 @@ const TIERS = [
 
 export default function SlideModelTiers() {
   return (
-    <SlideLayout title="模型三層：Haiku、Sonnet、Opus 怎麼挑" subtitle="Model Tiers: What to Run on Which" icon={Gauge}>
+    <SlideLayout title="模型三層：Haiku、Sonnet、Opus 怎麼挑" subtitle="Model Tiers: What to Run on Which" icon={Gauge} updated={{ date: '2026/10/15', kind: '新增' }}>
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         <p className="text-slate-300 text-base leading-relaxed mb-4">
           打開的預設就是最貴的 Opus，所以這一頁多半是往下換（桌面版在輸入框旁邊換，Claude Code 打

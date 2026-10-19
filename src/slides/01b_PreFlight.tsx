@@ -78,7 +78,7 @@ const OPTIONAL: { brand: Brand; name: string; where: string; href: string; why: 
 
 export default function SlidePreFlight() {
   return (
-    <SlideLayout title="動手前的前置作業" subtitle="Before You Start" icon={PackageCheck}>
+    <SlideLayout title="動手前的前置作業" subtitle="Before You Start" icon={PackageCheck} updated={{ date: '2026/10/19' }}>
       <div className="max-w-5xl mx-auto space-y-3 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
@@ -158,7 +158,7 @@ export default function SlidePreFlight() {
           其餘三樣沒有先後順序，湊齊就可以。
         </Callout>
 
-        <UpdateNote date="2026-10">
+        <UpdateNote>
           免費方案現在也有 Claude Docs、Slides 與 Design，但
           <strong className="text-slate-200">Claude Code 還是只有付費方案才有</strong>，
           這門課從第一個作品開始就要用到它，所以帳號那一項不能省。

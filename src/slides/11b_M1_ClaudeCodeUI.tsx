@@ -73,7 +73,7 @@ export default function SlideClaudeCodeUI() {
     <SlideLayout
       title="Claude Code 桌面版"
       subtitle="Claude Code Desktop"
-      icon={AppWindow}
+      icon={AppWindow} updated={{ date: '2026/10/15' }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
 
@@ -138,7 +138,7 @@ export default function SlideClaudeCodeUI() {
             直接打中文就可以：「幫我看看這個專案要怎麼跑起來」。
           </Callout>
 
-          <UpdateNote date="2026-10">
+          <UpdateNote>
             模型那一格現在顯示的是 <strong className="text-slate-200">Opus 5.5</strong>：
             2026-09 之後整條線換代，Pro、Max、Team 打開的預設都是它（以前是 Sonnet）。
             名字對不上不影響操作，位置還是輸入框旁邊那裡。

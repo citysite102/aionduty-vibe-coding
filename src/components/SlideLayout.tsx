@@ -33,16 +33,36 @@ export function UnitMark({ className = '' }: { className?: string }) {
   );
 }
 
+/**
+ * 錄影之後才改過的頁面，右上角掛這個。影片錄完了，但投影片會繼續更新，
+ * 學員拿到的是持續更新的那一份，所以他需要一眼看出哪幾頁跟影片不一樣。
+ *
+ * 日期是「這一頁最後改的那一天」，不是全片的發佈日，所以各頁不一樣是正常的。
+ * `kind` 預設「更新」；整頁是錄影之後才新增、影片裡根本沒有的，用「新增」。
+ *
+ * 改了什麼要另外用 `UpdateNote` 寫在內容裡，這個記號只說「這一頁動過」。
+ */
+export function UpdatedMark({ date, kind = '更新' }: { date: string; kind?: '更新' | '新增' }) {
+  return (
+    <span className="shrink-0 rounded-md border border-amber-500/30 bg-amber-500/5 px-2 py-0.5 font-mono text-xs tracking-wider text-amber-300">
+      {date} {kind}
+    </span>
+  );
+}
+
 export function SlideLayout({
   title,
   subtitle,
   children,
-  icon: Icon
+  icon: Icon,
+  updated,
 }: {
   title: React.ReactNode;
   subtitle?: React.ReactNode;
   children: React.ReactNode;
   icon?: React.ElementType;
+  /** 錄影之後改過的頁面，右上角掛一個日期記號。見 `UpdatedMark` 與 CLAUDE.md A-5。 */
+  updated?: { date: string; kind?: '更新' | '新增' };
 }) {
   const scrollRef = React.useRef<HTMLDivElement>(null);
   const { unitMark } = useSlide();
@@ -71,10 +91,13 @@ export function SlideLayout({
           沒有副標的頁面，標題就從這裡開始，長標題會直接撞上去。
           兩個都沒有就整列不渲染，免得沒副標的頁面平白多出一段空白把內容往下推。
         */}
-        {(subtitle || unitMark) && (
+        {(subtitle || unitMark || updated) && (
           <div className="flex items-baseline gap-4 mb-2.5">
             {subtitle && <h3 className="text-sky-400 font-mono tracking-widest text-sm uppercase flex items-center gap-2">{subtitle}</h3>}
-            <UnitMark className="ml-auto" />
+            <span className="ml-auto flex items-baseline gap-3">
+              <UnitMark />
+              {updated && <UpdatedMark date={updated.date} kind={updated.kind} />}
+            </span>
           </div>
         )}
         <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">

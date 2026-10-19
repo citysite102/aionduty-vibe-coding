@@ -89,7 +89,7 @@ export default function SlideDesktopFirst() {
     <SlideLayout
       title="桌面版五步，從下載到講第一句話"
       subtitle="Desktop First, Terminal Next"
-      icon={AppWindow}
+      icon={AppWindow} updated={{ date: '2026/10/15' }}
     >
       <LiveDemo kind="desktop" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">
@@ -140,7 +140,7 @@ export default function SlideDesktopFirst() {
           </p>
         </AnimatedBlock>
 
-        <UpdateNote date="2026-10" className="text-left">
+        <UpdateNote className="text-left">
           新版的桌面版已經沒有那個切換，兩邊併成同一個 Claude，你直接講要做的事就好。
           這門課走 Code 的理由沒變：版本控制、驗收與部署還是只有 Code 做得到。
         </UpdateNote>
