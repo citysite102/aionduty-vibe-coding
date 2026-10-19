@@ -1,5 +1,6 @@
 import { PackagePlus, FolderPlus, Store, MessageSquare } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { UpdateNote } from '../components/UpdateNote';
 import { CopyAction } from '../components/CopyBlock';
 import { Callout } from '../components/Callout';
 import pluginCommand from '../../assets/ui/plugin-command.png';
@@ -25,6 +26,15 @@ import pluginDiscover from '../../assets/ui/plugin-discover.png';
  *
  * 最後那塊是回饋裡明確提到的卡點：檔案建好了但它沒反應，因為要重開一次 session。
  * 這件事沒人會自己想到，一定要寫在畫面上。
+ *
+ * 最後查證：2026-10-19，對照 code.claude.com/docs/en/skills 的來源一覽表。
+ * 當時的現況：多了一列「claude.ai account」，原文寫 skills enabled for your claude.ai
+ * account 會在 Cowork、雲端與**用同一個帳號登入的終端機工作階段**載入；
+ * Claude Code 會在背景下載到 `~/.claude/skills/synced/`，工作中約每 10 分鐘、
+ * 閒置時約每 40 分鐘再查一次。需要 v2.1.273 以上，而且**只下載不上傳**，
+ * 改那個資料夾裡的檔案不會回寫到帳號，下次同步會被蓋掉。
+ * 用 API key 登入、`--safe-mode`、或組織把 Skill 鎖成只能來自 plugin 的工作階段不會同步。
+ * 影片錄的是三種來源那一版，所以三張卡不動，用 `UpdateNote` 補第四種（A-5）。
  */
 const WAYS = [
   {
@@ -142,6 +152,11 @@ export default function SlideSkillInstall() {
           它們講的是同一件事的兩面（沒反應怎麼辦／怎麼確認它在），並排讀得通，
           而且省下一整塊的高度。再往這一頁加東西之前先量一次。
         */}
+        <UpdateNote date="2026-10">
+          現在多一種來源：你在 claude.ai 帳號上開啟的 Skill，用同一個帳號登入的 Claude Code
+          會自己同步下來，不用再裝一次。它只會下載不會上傳，所以那一份要改還是回 claude.ai 改。
+        </UpdateNote>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-stretch">
         <Callout tone="warn" label="檔案明明建好了，它卻沒反應" stepIndex={5}>
           <strong className="text-slate-100">先重開一次對話。</strong>

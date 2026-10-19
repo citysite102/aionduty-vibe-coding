@@ -1,6 +1,7 @@
 import { PackageCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { UpdateNote } from '../components/UpdateNote';
 import { BrandTile, type Brand } from '../components/BrandLogos';
 
 /**
@@ -14,6 +15,13 @@ import { BrandTile, type Brand } from '../components/BrandLogos';
  *
  * GitHub 是課後回饋加上去的。有人整段時間卡在 GitHub 建置，
  * 而它到出貨那一段一定會用到，帳號本身免費。
+ *
+ * 最後查證：2026-10-19，對照 claude.com/pricing。當時的現況：Pro 月繳 $20、年繳 $17，
+ * 跟畫面上那行「$20 起」一致。2026-10-08 起 Claude Docs、Slides、Design 連免費方案都有，
+ * **但 Claude Code 與 Cowork 仍然只有付費方案才有**，所以這一頁的結論沒有變。
+ * 底下那條 `UpdateNote` 就是在擋「免費版不是也有嗎」這個問題。
+ * Max 與 Team 另外含每月 API credits（Max $100 到 $200、Team 最多 $500 的共用額度），
+ * 這門課推薦的路徑用不到，所以不寫上畫面。
  */
 const REQUIRED: { brand: Brand; name: string; where: string; href: string; why: string }[] = [
   {
@@ -149,6 +157,12 @@ export default function SlidePreFlight() {
           裝完 Claude Desktop 先登入一次，開得出對話框就算好了。
           其餘三樣沒有先後順序，湊齊就可以。
         </Callout>
+
+        <UpdateNote date="2026-10">
+          免費方案現在也有 Claude Docs、Slides 與 Design，但
+          <strong className="text-slate-200">Claude Code 還是只有付費方案才有</strong>，
+          這門課從第一個作品開始就要用到它，所以帳號那一項不能省。
+        </UpdateNote>
 
       </div>
     </SlideLayout>

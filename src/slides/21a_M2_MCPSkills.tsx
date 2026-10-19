@@ -20,6 +20,19 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 二手新聞對這件事的說法互相矛盾（同一篇既說 Claude Code 保留自己的格式、
  * 又說 plugins 裝得進去），這正是 C-2 的情況，一律以 agent-plugins.org 為準。
  * 下次改版前先重查那一頁，不要憑印象改。
+ *
+ * 2026-10-19 重查，三件事，畫面都沒有改：
+ *
+ * 1. agent-plugins.org 的 TSC 仍然是 Amazon、Cursor、Microsoft、OpenAI、Vercel，
+ *    站上仍然沒有把 Claude Code 列為支援的 client。這一頁的說法還成立。
+ * 2. **不要寫「MCP 2.0」。** 二手來源（releasebot 那類彙整站）把 2026-09-25 的一批更新
+ *    叫做 MCP 2.0，但 blog.modelcontextprotocol.io 上沒有這個說法，官方最新的規格版本是
+ *    2026-07-28，Claude Code 從 v2.1.292 起預設就協商這一版。這是 C-2 的標準情況：
+ *    新聞取的名字不算數，以官方為準。協定版本號學員看不到，所以畫面不加。
+ * 3. **Mods（2026-10-01）刻意不進課程。** 它是寫在 plugin 裡的 TypeScript 事件處理函式，
+ *    可以改提示、擋指令、換掉內建介面（出處 code.claude.com/docs/en/plugins/mods/overview）。
+ *    這門課一半的學員不寫程式，而且整堂課沒有任何一頁會叫他去寫事件處理函式，
+ *    照 B-5b 就是「沒有使用現場」，不是早講。要加之前先問那個問題。
  */
 
 export default function Slide21a() {
