@@ -27,7 +27,7 @@ import { join } from 'node:path';
  * 根目錄那幾份 `.md`（CLAUDE.md、README.md、待確認清單.md）**刻意不收**：
  * 它們整份都在討論規範本身，收進來會變成滿畫面的誤報。那幾份靠人看。
  */
-const ROOTS = ['src/slides', 'src/slides-recorded', 'src/components', '逐字稿', '.claude/agents'];
+const ROOTS = ['src/slides', 'src/slides-recorded', 'src/slides-bonus', 'src/components', '逐字稿', '.claude/agents'];
 
 /**
  * 一定是錯的。中國用語對照表與明確的浮誇詞。
