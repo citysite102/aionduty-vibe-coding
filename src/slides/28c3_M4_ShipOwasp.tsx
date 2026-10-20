@@ -39,6 +39,10 @@ import { CopyAction } from '../components/CopyBlock';
  *
  * 強調色只有 emerald（已經做過的那五條）。收尾的 focus 不計入（A-1）。
  *
+ * 2026-10-20 前面插了〈OWASP 是什麼〉那一頁，所以開場的「上一頁」改成「前面」：
+ * 它原本指的是風險數字那一頁，中間多一頁之後就指錯了（B-4）。影片錄的是舊順序，
+ * 但這一句換掉距離詞之後兩邊都成立，所以不掛 `UpdatedMark`。
+ *
  * 2026-10-20 改標題。原本是「你已經做過 OWASP 十條裡的五條」，那是 D-2 的進度安撫：
  * 它講的是學員的狀態（你已經做了多少），不是這一頁有什麼。**好消息的語氣要留**，
  * 但那是內文第一句與口白的工作，不是標題的。現在的標題講表上有什麼：
@@ -92,7 +96,7 @@ export default function SlideShipOwasp() {
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          上一頁那幾類問題，外面有一份公認的清單在收，叫 OWASP Top 10，
+          前面那幾類問題，外面有一份公認的清單在收，叫 OWASP Top 10，
           <strong className="text-slate-100">你公司的 IT 與資安就是照它在看東西</strong>。
           現行是 2025 版，大約四年一版，所以它不太會過期。十條裡有五條你已經撞過了。
         </AnimatedBlock>
