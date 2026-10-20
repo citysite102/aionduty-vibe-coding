@@ -67,9 +67,9 @@ export default function SlideShipOwaspIntro() {
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         <p className="text-slate-300 text-base leading-relaxed mb-4">
-          前一頁那幾類問題不是只有你會遇到，外面早就有人把它們收成一份清單。
+          那幾類資安問題不是只有你會遇到，外面早就有人把它們收成一份清單。
           <strong className="text-slate-100">先知道這份清單是誰出的、憑什麼算數</strong>，
-          下一頁拿它對照你做過的事才有意義。
+          再拿它對照我們前面做過的事。
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-stretch mb-4">

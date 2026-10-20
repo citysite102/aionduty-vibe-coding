@@ -4,13 +4,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 /**
  * 2026-10-20 新增（講師：要補滲透測試與弱點掃描是什麼）。
  *
- * 為什麼需要這一頁：在這之前，全片給學員的驗證方法只有一種，就是上一頁那段
+ * 為什麼需要這一頁：在這之前，全片給學員的驗證方法只有一種，就是 `28c3` 那一頁
  * 叫 AI 逐條檢查的 Prompt。「滲透測試」與「弱點掃描」在全片是零次。
  * 學員交作品給公司或客戶的時候，對方講的就是這兩個詞，他要聽得懂差在哪、
  * 以及哪一種是他現在自己做得到的。
  *
  * **三欄的順序是照「他現在做得到的程度」排**：自己掃（今天就能做）、
- * 請 AI 看（上一頁已經給了 Prompt）、找人來打（要花錢，多數人暫時用不到）。
+ * 請 AI 看（`28c3` 已經給了 Prompt）、找人來打（要花錢，多數人暫時用不到）。
  * 不要照「嚴謹程度」排，那會變成在說他現在做的不夠。
  *
  * ── C-1 ──────────────────────────────────────────────
@@ -38,24 +38,27 @@ const WAYS = [
     what: '程式自動拿你的專案比對「已知有問題」的清單，幾分鐘跑完。',
     does: ['你用到的套件有沒有已知的問題', '金鑰有沒有不小心推上去'],
     doesnt: '已知清單以外的看不出來，例如誰能看誰的資料。',
+    footLabel: '抓不到',
     accent: true,
   },
   {
     icon: Bot,
     name: '請 AI 看',
-    en: '上一頁那段 Prompt',
+    en: 'OWASP 那一頁的 Prompt',
     what: '把清單交給它，逐條對照你的程式碼，一次涵蓋很廣。',
     does: ['哪幾條這個專案根本沒做', '每一條是從哪個檔案看出來的'],
     doesnt: '它不會真的去打你的網站，看漏了你也不會知道。',
+    footLabel: '抓不到',
     accent: false,
   },
   {
     icon: Swords,
     name: '找人來打',
     en: '滲透測試 Penetration Test',
-    what: '請人照真的攻擊者的做法試一遍，找出看程式碼看不出來的問題。',
+    what: '請人照真的攻擊者的做法試一遍，找出看程式碼看不出來的問題。收錢或存別人的個資時才需要。',
     does: ['好幾個小問題串起來才成立的那種', '流程上的漏洞，例如改個網址就跳過付款'],
-    doesnt: '要花錢，也要先談好授權。收錢或存別人的個資時才需要。',
+    doesnt: '要花錢，而且要先談好範圍與授權。',
+    footLabel: '代價',
     accent: false,
   },
 ];
@@ -113,7 +116,7 @@ export default function SlideShipScan() {
               </ul>
 
               <p className="mt-auto pt-3 border-t border-slate-800 text-sm leading-relaxed text-slate-500">
-                <span className="text-slate-400 font-medium">抓不到：</span>
+                <span className="text-slate-400 font-medium">{w.footLabel}：</span>
                 {w.doesnt}
               </p>
             </AnimatedBlock>
