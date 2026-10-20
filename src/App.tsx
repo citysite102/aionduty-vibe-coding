@@ -163,6 +163,7 @@ import Slide28d from './slides/28d_M4_ProjectMemory';
 import Slide28e from './slides/28e_M4_ToolBoundary';
 import Slide33 from './slides/33_Outro';
 import { REPLACEMENTS } from './slides-recorded/registry';
+import { BONUS_SLIDES, BONUS_TITLE } from './slides-bonus';
 import { UNIT_DEFS } from './courseUnits';
 
 const LIVE_TITLES = [
@@ -313,7 +314,7 @@ const LIVE_TITLES = [
   "接下來呢？四種回去就做得動的題目",
   "新專案的前三個動作",
   "三萬個 AI 做的網站，99% 有資安問題",
-  "你已經做過 OWASP 十條裡的五條",
+  "OWASP Top 10：有五條對得上這門課做的事",
   "金流、個資、受監管行業、著作權",
   "專案規模增加的 Agent 成本",
   "同樣的命題，不同的解決策略",
@@ -480,6 +481,15 @@ const PARAMS = new URLSearchParams(typeof window === 'undefined' ? '' : window.l
 const IS_CLEAN = PARAMS.get('clean') === '1';
 
 /**
+ * ?deck=bonus 整疊換成補充單元（`src/slides-bonus/`）。
+ *
+ * 它刻意不插進 LIVE_SLIDES：主簡報的頁碼、REPLACEMENTS 的 key、UNIT_DEFS 的 live
+ * 與四十份逐字稿的絕對頁碼全部靠 index 對齊（B-1），而那一疊跟八個章節沒有依賴關係。
+ * 走一個分支，底下的 ENTRIES、SECTIONS、UNITS 三個衍生值各自換一份。
+ */
+const IS_BONUS = PARAMS.get('deck') === 'bonus';
+
+/**
  * 每一節的起點，寫的是「原始頁」在 LIVE_SLIDES 的 index。
  * 拆頁之後實際位置會位移，下面會自動換算，不需要手動改數字。
  */
@@ -495,7 +505,7 @@ const SECTION_DEFS = [
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
-const ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
+const MAIN_ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
   const replaced = REPLACEMENTS[i];
   if (replaced) {
     return replaced.map((r, part) => ({
@@ -508,6 +518,11 @@ const ENTRIES = LIVE_SLIDES.flatMap((Component, i) => {
   return [{ Component, title: LIVE_TITLES[i], liveIndex: i, part: 0 }];
 });
 
+/** 實際播放的序列。補充單元沒有拆頁，一頁就是一頁。 */
+const ENTRIES = IS_BONUS
+  ? BONUS_SLIDES.map((b, i) => ({ Component: b.Component, title: b.title, liveIndex: i, part: 0 }))
+  : MAIN_ENTRIES;
+
 const SLIDES = ENTRIES.map((e) => e.Component);
 const SLIDE_TITLES = ENTRIES.map((e) => e.title);
 const REQUESTED_SLIDE = Number(PARAMS.get('slide'));
@@ -518,7 +533,9 @@ const REQUESTED_STEP = Number(PARAMS.get('step'));
 const INITIAL_STEP = Number.isFinite(REQUESTED_STEP) ? Math.max(Math.trunc(REQUESTED_STEP), 0) : 0;
 
 /** 分節切點依實際位置換算，最後一頁固定是結語，自成一組 */
-const SECTIONS = SECTION_DEFS.map((def, i) => {
+const SECTIONS = IS_BONUS
+  ? [{ label: BONUS_TITLE, from: 0, to: ENTRIES.length - 1 }]
+  : SECTION_DEFS.map((def, i) => {
   const next = SECTION_DEFS[i + 1];
   return {
     label: def.label,
@@ -534,7 +551,19 @@ const SECTIONS = SECTION_DEFS.map((def, i) => {
  * 有沒有指錯頁由 npm run check:slides 拿 anchor 比對。
  */
 const CN_NUM = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'];
-const UNITS = (() => {
+const UNITS = IS_BONUS
+  ? [
+      {
+        id: '補-1',
+        title: BONUS_TITLE,
+        from: 0,
+        to: ENTRIES.length - 1,
+        chapterLabel: BONUS_TITLE,
+        isChapterHead: true,
+        chapterName: '補充',
+      },
+    ]
+  : (() => {
   const starts = UNIT_DEFS.map((d) =>
     ENTRIES.findIndex((e) => e.liveIndex === d.live && e.part === (d.part ?? 0)),
   );

@@ -38,6 +38,11 @@ import { CopyAction } from '../components/CopyBlock';
  * 「原來我做的那幾件事有名字，而且排第一名」。**不要為了完整把另外五條也展開。**
  *
  * 強調色只有 emerald（已經做過的那五條）。收尾的 focus 不計入（A-1）。
+ *
+ * 2026-10-20 改標題。原本是「你已經做過 OWASP 十條裡的五條」，那是 D-2 的進度安撫：
+ * 它講的是學員的狀態（你已經做了多少），不是這一頁有什麼。**好消息的語氣要留**，
+ * 但那是內文第一句與口白的工作，不是標題的。現在的標題講表上有什麼：
+ * 一份清單，其中五條對得上這門課做過的事。改之前先讀 D-2 的進度安撫那一條。
  */
 const DONE = [
   {
@@ -80,7 +85,7 @@ const OWASP_PROMPT =
 export default function SlideShipOwasp() {
   return (
     <SlideLayout
-      title="你已經做過 OWASP 十條裡的五條"
+      title="OWASP Top 10：有五條對得上這門課做的事"
       subtitle="OWASP Top 10:2025"
       icon={ListChecks}
     >
