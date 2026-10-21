@@ -9,6 +9,7 @@ import {
   ListChecks,
   SquareTerminal,
   Globe,
+  GraduationCap,
   ExternalLink,
 } from 'lucide-react';
 import Start from './modules/Start';
@@ -20,6 +21,7 @@ import RuleRouter from './modules/RuleRouter';
 import DoneWhenChecker from './modules/DoneWhenChecker';
 import Sandbox from './modules/Sandbox';
 import DeployHelp from './modules/DeployHelp';
+import Homework from './modules/Homework';
 
 /**
  * 課程工具箱。跟簡報同一個 repo、同一次部署，網址是簡報的 /tools/。
@@ -110,6 +112,15 @@ const TABS = [
     from: '階段四',
     when: '推不上去、部署完一片空白、改了網址卻沒更新。照症狀找，不用先懂原理。',
     Component: DeployHelp,
+  },
+  {
+    id: 'homework',
+    icon: GraduationCap,
+    label: '兩份作業',
+    sub: '自己的題目，自己驗收',
+    from: '章節五之後、章節八之後',
+    when: '課程走到一個段落，想把學到的東西用在自己手上真的要做的事情上。題目自選，完成條件勾得起來。',
+    Component: Homework,
   },
 ];
 
@@ -206,7 +217,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 text-sm leading-relaxed text-slate-500 max-w-prose space-y-3">
           <p>
             這裡的東西都在你的瀏覽器裡跑，沒有送出去任何內容，也沒有呼叫任何 AI。
-            關掉分頁就沒了，要留下來的請按複製。
+            關掉分頁就沒了，要留下來的請按複製。作業那一格的勾選是例外，它記在你自己的
+            瀏覽器裡，換一台電腦就看不到。
           </p>
           <p>
             要印出來放在手邊的四份講義（

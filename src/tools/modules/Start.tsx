@@ -34,6 +34,12 @@ const NOW = [
     get: '一段可以直接貼的指令',
   },
   {
+    id: 'homework',
+    q: '我想拿自己的工作練一次',
+    then: '兩份作業，題目自選，完成條件寫成只能回答有或沒有的句子。',
+    get: '一件你下週還會再打開一次的東西',
+  },
+  {
     id: 'deploy',
     q: '我卡在推上去或部署',
     then: '對症狀找，每一條都附一句可以貼回對話框的話。',
@@ -55,7 +61,7 @@ const BY_UNIT = [
       { id: 'claude-md', label: 'CLAUDE.md 產生器' },
       { id: 'router', label: '規則歸位器' },
     ],
-    note: '先產一份手冊，之後每次想「這條要不要寫進去」的時候，用歸位器問四題。',
+    note: '先產一份手冊，之後每次想「這條要不要寫進去」的時候，用歸位器問四題。這一段走完可以接作業一。',
   },
   {
     unit: '階段三',
@@ -70,8 +76,9 @@ const BY_UNIT = [
       { id: 'done-when', label: 'Done-when 檢查器' },
       { id: 'prompt', label: 'Prompt 組裝器' },
       { id: 'deploy', label: '部署卡關' },
+      { id: 'homework', label: '兩份作業' },
     ],
-    note: '先把完成條件改成驗得出來的句子，再組成四段指令。跑完要上線的時候看部署那一格。',
+    note: '先把完成條件改成驗得出來的句子，再組成四段指令。跑完要上線的時候看部署那一格，作業二就是把這一整套用在自己的題目上。',
   },
 ];
 
@@ -80,7 +87,7 @@ export default function Start({ go = () => {} }: { go?: (id: string) => void }) 
     <div className="max-w-5xl mx-auto space-y-6">
       <Panel
         title="你現在卡在哪？"
-        desc="這八格不用全部看過。挑跟你現在這一步有關的那一格就好，其他的等你需要再回來。"
+        desc="這幾格不用全部看過。挑跟你現在這一步有關的那一格就好，其他的等你需要再回來。"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {NOW.map((n, i) => (
