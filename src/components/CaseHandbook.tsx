@@ -10,7 +10,7 @@ const HANDOUTS_URL = 'https://citysite102.github.io/aionduty-vibe-coding/handout
  * 學員真正要照著執行的是那份 PDF，所以每個案例的頁面上都要指得到它，
  * 否則整段課看完手上沒有可以動手的東西。
  *
- * 寫成元件不是為了抽象，是因為四個案例頁都要用，而網址之後會換（現在掛在
+ * 寫成元件不是為了抽象，是因為五個案例頁都要用，而網址之後會換（現在掛在
  * GitHub Pages，上課程平台之後會變）。一個地方改掉比四頁各改一次可靠。
  *
  * 它不是課務交代（D-2）：講的不是「等一下會發下去」，是這一份手冊叫什麼、
@@ -37,7 +37,7 @@ export function CaseHandbook({
     >
       <FileDown aria-hidden="true" size={18} className="shrink-0 text-slate-500" />
       <span className="text-slate-300 text-sm leading-relaxed">
-        完整手冊〈{title}〉照著做得完，動手{hours}。四份手冊都在這一頁：
+        完整手冊〈{title}〉照著做得完，動手{hours}。五份手冊都在這一頁：
         {/*
           網址要印成看得見的字，不能只掛在 href 上。這幾頁學員多半是在看影片，
           點不到連結，看得到的只有畫面上印出來的字。2026-10-06 的教學模擬兩位

@@ -21,8 +21,8 @@ export function CaseShot({
   src?: string;
   /** 有 src 的時候要一起給，描述畫面上實際看得到什麼 */
   alt?: string;
-  /** 成品的公開網址 */
-  url: string;
+  /** 成品的公開網址。還沒有正式網址時不給，那一行連結就不會出現 */
+  url?: string;
   /** 還沒有圖的時候，框裡要寫「這個位置要放哪一張圖」 */
   hint?: string;
 }) {
@@ -40,6 +40,7 @@ export function CaseShot({
           <p className="text-sm leading-relaxed text-slate-500">{hint}</p>
         </div>
       )}
+      {url && (
       <a
         href={url}
         target="_blank"
@@ -48,6 +49,7 @@ export function CaseShot({
       >
         {url.replace(/^https?:\/\//, '')}
       </a>
+      )}
     </div>
   );
 }

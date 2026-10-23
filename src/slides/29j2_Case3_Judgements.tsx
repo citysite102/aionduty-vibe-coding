@@ -3,8 +3,11 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 案例三的收尾，也是三個案例那條線的最後一塊。另外兩塊在
- * 〈器 VESSEL 的十二步〉的下半與〈這件事該交給誰做〉。三頁的開頭互相引用，改一頁要改三頁。
+ * 案例三的收尾。另外三塊在〈器 VESSEL 的十二步〉的下半、〈這件事該交給誰做〉與
+ * 〈改完拿什麼證明沒壞〉。四頁的開頭互相引用，改一頁要改四頁。
+ *
+ * 2026-10-23 加了案例四之後，整條線的收尾搬去案例四那一頁（收尾只能有一個，
+ * 而它現在才是最後一個案例）。這一頁的 Callout 改成只收案例三自己這五條。
  *
  * 資料來源 case-03-kiln.pdf 的〈五個判斷〉。階段編號同樣只標關鍵那一條，理由見案例二那一頁。
  *
@@ -69,7 +72,7 @@ export default function SlideCase3Judgements() {
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            三個案例的判斷加起來十六條。這五條是最後一組，問的都是同一件事：這一層靠不靠得住。
+            這五條問的都是同一件事：這一層靠不靠得住。
           </p>
           <ul className="space-y-2">
             {JUDGEMENTS.map((j) => (
@@ -96,10 +99,9 @@ export default function SlideCase3Judgements() {
           </ul>
         </AnimatedBlock>
 
-        <Callout tone="focus" label="三個案例，十六條判斷，同一件事" stepIndex={3}>
-          每一條都有一個共通點：
-          <strong className="text-slate-100">它們問的都是你對這件事的理解，不是語法怎麼寫。</strong>
-          語法那一半 AI 已經做得比你好，所以你剩下的工作就是這十六條這種題目。
+        <Callout tone="focus" label="這五條都在問同一件事的兩面" stepIndex={3}>
+          前四條問的是這一層擋不擋得住，最後一條問的是你驗過了沒有。
+          <strong className="text-slate-100">沒有換一個身分實際測過，兩層權限你只知道有寫，不知道有沒有生效。</strong>
         </Callout>
 
       </div>

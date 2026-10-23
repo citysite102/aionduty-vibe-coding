@@ -154,6 +154,11 @@ import SlideCase3Kiln from './slides/29h_Case3_Kiln';
 import SlideCase3Trust from './slides/29i_Case3_Trust';
 import SlideCase3Race from './slides/29j_Case3_Race';
 import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
+import SlideCase4Shrine from './slides/29k_Case4_Shrine';
+import SlideCase4Layers from './slides/29l_Case4_Layers';
+import SlideCase4Stack from './slides/29m_Case4_Stack';
+import SlideCase4Arch from './slides/29m2_Case4_Arch';
+import SlideCase4Judgements from './slides/29n_Case4_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide28c2 from './slides/28c2_M4_ShipRisk';
@@ -314,6 +319,11 @@ const LIVE_TITLES = [
   "兩把金鑰，兩層權限",
   "兩個人同時搶最後一個名額",
   "這件事可以相信誰：案例三的五個判斷",
+  "案例四：海上許願神社",
+  "一層一層疊上去：水面、浮力與接合處",
+  "會員登入、資料庫、對外 API 與背景音樂",
+  "系統架構：三個入口，權限都在資料庫",
+  "改完拿什麼證明沒壞：案例四的八個判斷",
   "接下來呢？四種回去就做得動的題目",
   "新專案的前三個動作",
   "三萬個 AI 做的網站，99% 有資安問題",
@@ -472,6 +482,11 @@ const LIVE_SLIDES = [
   SlideCase3Trust,
   SlideCase3Race,
   SlideCase3Judgements,
+  SlideCase4Shrine,
+  SlideCase4Layers,
+  SlideCase4Stack,
+  SlideCase4Arch,
+  SlideCase4Judgements,
   Slide28b0,
   Slide28b,
   Slide28c2,
