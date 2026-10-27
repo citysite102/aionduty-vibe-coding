@@ -31,7 +31,10 @@ import { Callout } from '../components/Callout';
  *
  * **這一頁是滿的**（1483×812 的視窗剛好塞下，實機量過）。要再加東西之前先砍掉等量的字，
  * 不然 Callout 會掉到捲動範圍外面，而講者不會注意到。能砍的順序：三張卡的 `cost`、
- * 挑哪一種那一行、最後才是示意動畫（動畫是裝飾，說明文字自己站得住）。
+ * `example`，最後才是示意動畫（動畫是裝飾，說明文字自己站得住）。
+ *
+ * 2026-10-27 卡片上面那一行本來是「哪一步寫哪一種」的對照（只算一個數字→單元⋯），
+ * 講師指出它在重複三張卡自己就寫著的事，換成現在這行小標。挑哪一種的講法留在口白裡。
  *
  * 三張卡各有一段會一直跑的示意動畫，它們是這一頁的主要說明方式：
  *   單元＝一進一出、整合＝兩塊之間的往返、E2E＝游標照順序點過去。
@@ -182,11 +185,7 @@ export default function SlideTestTypes() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="space-y-3">
-          <p className="text-slate-400 text-sm leading-relaxed">
-            這條路上的每一步，看它牽涉到多少東西：<strong className="text-slate-100">只算一個數字</strong>，單元；
-            <strong className="text-slate-100">跨到資料庫</strong>，整合；
-            <strong className="text-slate-100">連著好幾步</strong>，端對端。
-          </p>
+          <h3 className="text-base font-bold text-slate-100">三種主要的測試類型，範圍一層比一層大</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {KINDS.map((k) => (
               <div
