@@ -89,9 +89,9 @@ export default function SlideTestHooks() {
           </div>
           <CopyBlock text={RULE} note="測試沒過時，它可能會改測試而不是改功能" />
           <p className="text-slate-400 text-sm leading-relaxed">
-            這件事你從畫面上看不出來：
-            <strong className="text-slate-200">測試全綠，功能還是壞的</strong>。
-            它不是在騙你，是你給的目標是「讓測試過」，它就照著最短的路走。
+            那條捷徑是<strong className="text-slate-200">改測試，不是改功能</strong>。
+            兩種做法跑完都是一片綠，你看不出差別。
+            它不是在騙你，你給的目標是「讓測試過」，改測試就是最短的路。
           </p>
         </AnimatedBlock>
 
