@@ -10,7 +10,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 而且兩邊的編號還對不起來：內文寫的「第一單元的計時器」指的其實是這一頁的 02。
  * 現在三個詞各指一件事：階段是這一頁，章節是分節，單元是一支影片。
  *
- * 階段跟章節不是一對一，02 到 04 各橫跨兩章，所以每張卡要標出它涵蓋哪幾章，
+ * 階段跟章節不是一對一（01、02 各一章，03 兩章，04 三章），所以每張卡要標出它涵蓋哪幾章，
  * 學員才對得回播放器選單。改章節結構時，chapters 那一欄要重新核對一次
  * （npm run units 會印出目前的章節與單元）。
  */
@@ -18,25 +18,25 @@ const STAGES = [
   {
     n: '01',
     chapters: '章節二',
-    title: 'Vibe Coding 與 Agentic Engineering',
+    title: '從 Vibe Coding 到 Agentic Engineering',
     desc: '從輔助生成到 Agent 自動化，中間差在哪裡，工具又該怎麼挑。',
   },
   {
     n: '02',
-    chapters: '章節三、四',
-    title: 'Claude Code 實作與網頁開發基礎',
+    chapters: '章節三',
+    title: 'Claude Code 實戰入門',
     desc: '建立發包思維，從只能問的對話框走到能動手的 Agent，掌握 Claude Code 的安全邊界。',
   },
   {
     n: '03',
-    chapters: '章節五、六',
-    title: 'CLAUDE.md、運作框架與成本',
+    chapters: '章節四、五',
+    title: 'Harness：工作規範與自動檢查',
     desc: '把專案的規則與慣例寫下來，讓 AI 每次進來都照同一套標準做事。',
   },
   {
     n: '04',
-    chapters: '章節七、八',
-    title: 'Agent 分工、開發循環與三個實戰案例',
+    chapters: '章節六到八',
+    title: 'Agent 分工、開發循環與四個實戰案例',
     desc: '建構多角色協作網路，與自動化開發循環，獨立交付軟體。',
   },
 ];

@@ -7,9 +7,9 @@ import type { RecordedMeta } from '../slides-recorded/types';
  */
 export const meta: RecordedMeta = {
   id: 'live-82-div-handbook',
-  title: '手冊（CLAUDE.md）的診斷、健檢與轉移',
+  title: 'Harness 進階',
   script:
-    'Hello，我是 Samuel，接下來進到第六章。到這裡你手上已經有一份 CLAUDE.md 了，這一章處理的是寫了之後才會遇到的那些問題：它沒照做、規則不知道該放哪、手冊越寫越長、每一條到底要怎麼寫才有用。這些都有答案之後，同一份手冊換到網頁版、Cowork 跟別家工具上怎麼用，最後再聊聊不是程式的工作可以怎麼用。',
+    'Hello，我是 Samuel，接下來進到第四章。到這裡你手上已經有一份 CLAUDE.md 了，這一章處理的是寫了之後才會遇到的那些問題：它沒照做、規則不知道該放哪、手冊越寫越長、每一條到底要怎麼寫才有用。這些都有答案之後，同一份手冊換到網頁版、Cowork 跟別家工具上怎麼用，最後再聊聊不是程式的工作可以怎麼用。',
   seconds: 28,
   kind: 'reference',
 };
@@ -25,8 +25,8 @@ export default function SlideDivHandbook() {
   return (
     <SectionDivider
       number="MODULE 2"
-      subtitle="Diagnose, Audit, Transfer"
-      title="手冊（CLAUDE.md）的診斷、健檢與轉移"
+      subtitle="自動化檢查與規範維護"
+      title="Harness 進階"
       roadmap={[
         { label: '四個常見問題', weight: 8, note: '沒生效、放哪層、太長、怎麼寫' },
         { label: '換個工具或介面', weight: 2, note: '網頁、桌面版、Claude Code；跨工具的名詞' },

@@ -153,7 +153,7 @@ console.log(
     0,
   )} 頁，實際播放 ${flat} 頁`,
 );
-console.log(`分節 ${sectionDefs.length} 組（＋結語自成一組）`);
+console.log(`分節 ${sectionDefs.length} 組`);
 if (units.length) {
   const chapters = new Set(units.map((u) => u.chapter.n)).size;
   console.log(`錄製單元 ${units.length} 個，分在 ${chapters} 章（表用 npm run units 看）`);

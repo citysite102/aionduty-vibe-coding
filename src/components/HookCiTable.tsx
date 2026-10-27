@@ -1,7 +1,7 @@
 /**
  * Hook 與 CI 的四欄對照。兩頁共用，所以放在這裡：
- *   - Slide 73（`21d3_M2_OutsideContext`）第一次介紹這兩個零件的時候。
- *   - Slide 88（`slides-recorded/harness/05_RouteQ1`）規則歸位第一題，學員要在這裡選哪一個。
+ *   - `21d3_M2_OutsideContext`第一次介紹這兩個零件的時候。
+ *   - `slides-recorded/harness/05_RouteQ1`規則歸位第一題，學員要在這裡選哪一個。
  *
  * 2026-10-03 抽成共用元件。原本只寫「Hook 擋你這台機器、CI 擋整個團隊」，
  * 聽起來像覆蓋範圍的差別，所以學員會問「那每個人的電腦都裝 Hook 不就等於團隊」。

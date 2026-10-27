@@ -53,9 +53,9 @@ export default function SlideGoalWorkflow() {
         {/* Left Side: 5-step Workflow */}
         <div className="lg:col-span-7 space-y-4">
           {/*
-            這一句是整支影片的第一段文字（這一頁是單元 8-2 的起點），所以它要自己說得出
+            這一句是整支影片的第一段文字（這一頁是單元 7-2 的起點），所以它要自己說得出
             這一段在幹嘛。2026-10-04 換掉原本那句「報價系統那五個指令，是把一個專案切成
-            五次交代」：那是章節七的東西，隔了兩個單元，開場第一句就往回指會很突然，
+            五次交代」：那是章節六的東西，隔了兩個單元，開場第一句就往回指會很突然，
             而且它講的是專案怎麼切，不是這一支在講的「一段指令要寫齊哪五樣」。
           */}
           <p className="text-slate-400 text-sm leading-relaxed">

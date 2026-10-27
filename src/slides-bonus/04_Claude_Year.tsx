@@ -101,7 +101,7 @@ export default function SlideBonusClaudeYear() {
     <SlideLayout title="Claude 2026 年的變化" subtitle="Claude 2025-10 → 2026-10" icon={Bot}>
       <div className="min-h-full max-w-6xl mx-auto flex flex-col gap-3">
         <Callout tone="focus" stepIndex={1}>
-          你給 Claude 的設定沒有變：<code className="font-mono text-orange-300">CLAUDE.md</code> 的寫法、
+          我們給 Claude 的設定沒有變：<code className="font-mono text-orange-300">CLAUDE.md</code> 的寫法、
           Skill 的寫法、權限的觀念都一樣。
           <strong className="text-slate-100">改掉的是外面那一層：開工的入口、它交出來的檔案，還有模型的名字</strong>。
         </Callout>

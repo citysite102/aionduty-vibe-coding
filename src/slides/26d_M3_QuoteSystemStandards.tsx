@@ -8,7 +8,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * **下一頁的步驟編號改了就要回來改這一欄（B-4）。**
  */
 const FILES = [
-  { path: 'CLAUDE.md', note: '專案規則、開發流程、交付前檢查', by: '你章節五那一份，這裡再補右邊那四條' },
+  { path: 'CLAUDE.md', note: '專案規則、開發流程、交付前檢查', by: '你章節四那一份，這裡再補右邊那四條' },
   { path: 'docs/quote-brief.md', note: 'User Story、這一輪做什麼、哪些不做', by: '下一頁第 1 步產出' },
   { path: 'docs/data-model.md', note: '四張表與欄位說明', by: '下一頁第 2 步產出' },
   { path: 'docs/api-contract.md', note: 'Request、Response 與錯誤格式', by: '下一頁第 2 步產出' },

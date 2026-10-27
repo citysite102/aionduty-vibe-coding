@@ -7,7 +7,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * .gitignore 是學員親手設的第一道「機制」，不是寫給 AI 看的規則，
  * 所以這一頁刻意回扣規則歸位的第一格。
  *
- * 2026-10-03 補「它怎麼知道那是金鑰」那一塊。來源是學員在章節六會問的同一題：
+ * 2026-10-03 補「它怎麼知道那是金鑰」那一塊。來源是學員在章節五會問的同一題：
  * 「不能把密碼或金鑰寫進程式碼裡」這種規則，程式真的判斷得出來嗎？
  * 最後查證 2026-10-03，對照 docs.github.com 的 About secret scanning 與 About push protection：
  *   - 「scans your entire Git history on all branches of your repository for hardcoded

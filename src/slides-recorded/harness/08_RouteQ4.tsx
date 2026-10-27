@@ -44,7 +44,7 @@ export default function RecRouteQ4() {
         {/*
           2026-10-03 補第五種情況。四題照順序問完，學員會問「那四題都不是呢」，
           而原本四頁都沒有回答。答案是不用寫，當場講一句就好，
-          這一句也是章節六健檢「先砍哪三類」的前提，兩邊要對得起來。
+          這一句也是章節五健檢「先砍哪三類」的前提，兩邊要對得起來。
         */}
         <AnimatedBlock stepIndex={4} className="mt-4 rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
           <p className="text-slate-300 text-xl leading-relaxed">

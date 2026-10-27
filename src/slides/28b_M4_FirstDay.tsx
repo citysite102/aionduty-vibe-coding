@@ -1,4 +1,4 @@
-import { Rocket, FolderPlus, FileText, ListChecks, LifeBuoy, Repeat } from 'lucide-react';
+import { Rocket, FolderPlus, FileText, ListChecks, ScrollText, LifeBuoy, Repeat } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 const STEPS: {
@@ -17,19 +17,32 @@ const STEPS: {
   },
   {
     icon: FileText,
-    title: '2. 第一件事不是寫功能，是寫規則',
-    body: '跟它說「請幫我建一份 CLAUDE.md」，內容三行就夠。之後每次進來它都會先讀。',
-    code: ['- 一律用繁體中文回覆（這條之後可以搬去家目錄那一份，每個專案就不用再寫）', '- 改任何檔案前先說你要改什麼', '- 每次改完，把功能自己點過一次再回報']
+    title: '2. 第一件事不是寫功能，是寫清楚你要什麼',
+    body: '先寫一份規格再開工，三到五行就夠：要做什麼、不做什麼、做完要長什麼樣。案例一那七塊是完整版，第一次寫不出來就先寫這三行。',
+    codeLabel: '貼給它之前，自己先答得出這三行：',
+    code: ['- 要做什麼：給誰用、解決哪一件事', '- 不做什麼：這一輪先不碰的東西', '- 完成條件：做完我會去點哪裡、看到什麼才算過']
   },
   {
     icon: ListChecks,
-    title: '3. 一次只交代一件事',
-    body: '做完先看它改了哪幾行（問它，或打開 VS Code 左側的原始檔控制），確認沒問題再交代下一件。',
+    title: '3. 讓它做出第一版，你自己點一次',
+    body: '規格給它，請它做一個跑得起來的第一版，一次只交代一件事。做完先看它改了哪幾行（問它，或打開 VS Code 左側的原始檔控制），然後自己點過一次再交代下一件。',
     code: null
+  },
+  {
+    icon: ScrollText,
+    title: '4. 每次都要重講的那幾句，才寫進 CLAUDE.md',
+    body: '第一版做完，你會發現有幾句話每一輪都在講。把那幾句寫成 CLAUDE.md，之後每次進來它都會先讀。三行就可以上場，不用等它寫完整。',
+    code: ['- 一律用繁體中文回覆（這條之後可以搬去家目錄那一份，每個專案就不用再寫）', '- 改任何檔案前先說你要改什麼', '- 每次改完，把功能自己點過一次再回報']
   }
 ];
 
 /**
+ * 2026-10-24（講師）：第 2 步原本是「第一件事不是寫功能，是寫規則」，叫學員一開工就建
+ * CLAUDE.md。講師說順序不對：**先有規格，試著產出，再搭配 CLAUDE.md**。
+ * 這也跟課程自己的案例一致：案例一的課前作業是寫規格，案例四是階段 1 先做出第一版、
+ * 階段 2 才盤點並建立 CLAUDE.md。三個動作因此變成四個，標題跟著改。
+ * **不要把 CLAUDE.md 搬回第 2 步。** 手冊還沒有東西可以對照的時候，那幾條規則是憑空想的。
+ *
  * 2026-10-09：程式碼區塊的字色從 emerald 改成 slate。那個 emerald 沒有語意，
  * 只是「程式碼看起來該是綠的」的慣例，但它讓這一頁變成 sky ＋ amber ＋ emerald 三種強調色
  * （A-1 上限兩種，orange 的 /usage 不計）。**不要改回綠色。**
@@ -86,7 +99,7 @@ const LOOPING = [
 export default function SlideFirstDay() {
   return (
     <SlideLayout
-      title="新專案的前三個動作"
+      title="新專案的前四個動作"
       subtitle="Your First Day After This Course"
       icon={Rocket}
     >
@@ -153,10 +166,10 @@ export default function SlideFirstDay() {
         {/*
           2026-10-10：〈輸入放同一個資料夾，產物寫同一個檔名〉整頁刪掉之後，
           「一輪變循環」那三件事全片就只剩兩個零散的落點（題目那頁的 SKILL.md、
-          結語的「把重複的事寫成流程」），而那是章節八叫「循環」卻只教到「一輪」的缺口。
+          結語的「把重複的事寫成流程」），而那是章節七叫「循環」卻只教到「一輪」的缺口。
           壓成一塊接在這裡。
 
-          **刻意不編進「前三個動作」。** 那三個是第一天，這一塊是第一次做完之後，
+          **刻意不編進「前四個動作」。** 那四個是第一天，這一塊是第一次做完之後，
           不同階段；編成第 4 步會讓標題與內容對不上（D-5 列舉式標題要回去數）。
         */}
         <AnimatedBlock stepIndex={5} className="mt-5 rounded-2xl border border-slate-800 bg-slate-950 p-5">

@@ -20,7 +20,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *     `JavaScript` 全片只在 `21f2_M2_ThisDeck` 出現過一次，所以這裡要加一句「一支真的程式」當註腳，
  *     不能假設學員認得。
  *
- * **不要把執行環境改稱「harness」或「運作框架」。** 原文是 harness，但章節五已經把
+ * **不要把執行環境改稱「harness」或「運作框架」。** 原文是 harness，但章節四已經把
  * 「運作框架（Harness）」指給 Agent 的六個零件（D-4 的譯名表也是），同一個詞在這裡再用一次，
  * 學員會以為是同一個東西。維持「執行環境」。
  *

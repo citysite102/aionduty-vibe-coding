@@ -51,7 +51,7 @@ export default function SlideBonusCover() {
       <div className="min-h-full max-w-5xl mx-auto flex flex-col gap-4">
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           Claude、ChatGPT、Gemini 這一年
-          <strong className="text-slate-100">改的地方很像</strong>：開工的入口、它交回來的東西，還有模型分成幾層。
+          <strong className="text-slate-100">都往同一個方向走</strong>：開工的入口、它交回來的東西，還有模型分成幾層。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -73,7 +73,7 @@ export default function SlideBonusCover() {
 
         <Callout tone="warn" label="這些資訊會過期" stepIndex={5}>
           畫面上每一條事實的查證日期是 <span className="font-mono text-slate-200">2026-10-20</span>。
-          三家都還在改，<strong className="text-slate-100">看到跟你的螢幕不一樣就以官方更新頁為準</strong>。
+          三家都還在改，<strong className="text-slate-100">你看到的跟簡報上寫的不一樣時，以官方更新頁為準</strong>。
         </Callout>
 
         <SourceFoot

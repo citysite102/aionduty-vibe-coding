@@ -11,7 +11,7 @@ import pluginDiscover from '../../assets/ui/plugin-discover.png';
  * 當時的現況：`SKILL.md` 是唯一必要的檔案，但原文寫「Skills can include multiple files
  * in their directory」，可以附參考文件、範例與腳本，那些檔案不會每次載入，
  * 由 `SKILL.md` 裡的連結說明哪一份什麼時候讀（官方另建議 `SKILL.md` 控制在 500 行以內）。
- * 所以這一頁不要寫成「一個 Skill 就是一個檔案」，逐字稿 5-2 的 Slide 57 也照這個講。
+ * 所以這一頁不要寫成「一個 Skill 就是一個檔案」，逐字稿 4-2 的 Slide 52 也照這個講。
  * 下次改版前先重查那一節。
  */
 

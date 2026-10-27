@@ -2,7 +2,7 @@ import { SectionDivider } from '../components/SectionDivider';
 
 /**
  * 2026-09-22 路線圖重對一次實際章節，weight 照各段實際頁數給。2026-10-14 第一段多了一頁（模型三層），7 改成 8。
- * 對法是跑 `npm run units -- 5`。
+ * 對法是跑 `npm run units -- 4`。
  *
  * 曾經有第五塊「付費與省錢」（Slide 81 到 83）。那三頁 2026-09-22 整組移除了，
  * 所以這裡也拿掉。同一天章名從「Agent 運作框架與成本分析」改成現在這個：
@@ -10,9 +10,9 @@ import { SectionDivider } from '../components/SectionDivider';
  * 新的章名只留兩個關鍵字（運作框架、CLAUDE.md），兩個學員都打得進搜尋框（D-5）。
  * 一度試過「Agent 運作框架：工具、權限與 CLAUDE.md」，但它在分節頁上會折成兩行，
  * 而且斷在「工／具」中間。工具與權限本來就是這一章自己定義的「零件」的一部分，
- * 交給單元名去承接（5-2 MCP 與 Skills、5-3 監督程度與權限模式）就夠了。改章名要同時改分節頁 title、SECTION_DEFS 的 label、
- * LIVE_TITLES、UNIT_DEFS 裡 5-1 的 anchor、逐字稿的檔頭與銷售頁。
- * 對法是跑 `npm run units -- 5`，不要憑印象。
+ * 交給單元名去承接（4-2 MCP 與 Skills、4-3 設定 Agent 的權限與邊界）就夠了。改章名要同時改分節頁 title、SECTION_DEFS 的 label、
+ * LIVE_TITLES、UNIT_DEFS 裡 4-1 的 anchor、逐字稿的檔頭與銷售頁。
+ * 對法是跑 `npm run units -- 4`，不要憑印象。
  *
  * 第四塊原本叫「零件放哪、怎麼用」。「零件」是這一章自己長出來的詞，
  * 到 Slide 50 才定義，而這是分節頁，學員在這裡還沒讀到。改用它在
@@ -23,8 +23,8 @@ export default function SlideDivHarness() {
   return (
     <SectionDivider
       number="MODULE 2"
-      subtitle="Harness & CLAUDE.md"
-      title="Agent 運作框架與 CLAUDE.md"
+      subtitle="建立 Agent 的工作規範"
+      title="Harness 入門"
       roadmap={[
         { label: '框架與成本', weight: 8, note: '零件、上下文、token 帳' },
         { label: '工具與邊界', weight: 7, note: 'MCP、Skills、權限模式' },

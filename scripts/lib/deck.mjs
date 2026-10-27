@@ -88,13 +88,14 @@ export function readDeck() {
     }
   }
 
-  // 章節：八個分節，最後一頁的結語自成一章（跟 App.tsx 選單的分組一致）
+  // 章節：九個分節，每一節的起點都是一張分節頁（跟 App.tsx 選單的分組一致）。
+  // 2026-10-27 之前最後一頁（結語）是硬寫成第九章的，現在結語併進整合專案實戰，
+  // 補充單元搬到最後自成一節，那個特例跟著拿掉。
   const chapters = sections.map((s, i) => ({
     n: i + 1,
     label: s.label,
     from: entries.findIndex((e) => e.live === s.start && e.part === 0),
   }));
-  chapters.push({ n: sections.length + 1, label: '結語', from: entries.length - 1 });
   chapters.forEach((c, i) => {
     c.to = i + 1 < chapters.length ? chapters[i + 1].from - 1 : entries.length - 1;
   });

@@ -19,7 +19,7 @@ import { LiveDemo } from '../components/LiveDemo';
  * 2026-10-15 重查：Chat 與 Cowork 2026-09-16 合併成一個 Claude，新版沒有那個切換。
  * 影片錄的是合併前，所以原文留著、底下加 `UpdateNote`（A-5），不要直接把那一段刪掉。
  *
- * 三個介面（網頁版／Cowork／Claude Code）的完整比較是章節五 21h2 與 harness/33 的職務，
+ * 三個介面（網頁版／Cowork／Claude Code）的完整比較是章節四 21h2 與 harness/33 的職務，
  * 在這裡講等於同一批內容開兩頁（B-5），也會把這一頁「先做出東西」的節奏打斷。
  */
 const STEPS: { icon: typeof Download; label: string; desc: ReactNode }[] = [
@@ -122,7 +122,7 @@ export default function SlideDesktopFirst() {
         {/*
           左側列的定位。學員一打開就看到這一排，沒人跟他說可以不管，
           他會以為那些是必經的步驟。只給「先不用管」與 Cowork 一句話的定位，
-          展開是章節五的事。
+          展開是章節四的事。
         */}
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5 text-left">
           <div className="text-base font-bold text-slate-100 mb-2">左邊那一排先不用管</div>
@@ -136,7 +136,7 @@ export default function SlideDesktopFirst() {
             Chat 是一般對話；Cowork 是讓它綁一個資料夾、自己跑比較長的工作，
             <strong className="text-slate-300">能讀能寫，但不執行指令</strong>。
             這門課走 Code，因為後面要跑的版本控制、驗收與部署，Cowork 做不到。
-            三個地方的差別，章節五會攤開比一次。
+            三個地方的差別，章節四會攤開比一次。
           </p>
         </AnimatedBlock>
 

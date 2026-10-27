@@ -27,7 +27,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *      2026-09-20 那一輪把它改成「列出目前有哪些子代理」，那個說法一樣是錯的。
  *   2. 官方文件已把自訂指令併進 Skills，但 `.claude/commands/` 的 .md 檔明文
  *      「keep working」。這門課繼續教 .md 檔，因為它一個檔案就成立，
- *      不用開資料夾也不用 frontmatter，Skill 留到章節五。
+ *      不用開資料夾也不用 frontmatter，Skill 留到章節四。
  * 下次改版前先重查那一頁，不要憑印象改。
  *
  * 只放打得出來的斜線指令。原本「設定與權限」那格有一個 Shift + Tab，
@@ -72,7 +72,7 @@ const GROUPS = [
     items: [
       { cmd: '/init', desc: '掃過專案，產出第一版 CLAUDE.md' },
       { cmd: '/你自己取的名字', desc: '在 .claude/commands/ 放一個 .md 檔，檔名就是指令名，範例在下面' },
-      { cmd: '/agents', desc: '打下去會告訴你怎麼建子代理，章節七才會用到' },
+      { cmd: '/agents', desc: '打下去會告訴你怎麼建子代理，章節六才會用到' },
     ],
   },
 ];

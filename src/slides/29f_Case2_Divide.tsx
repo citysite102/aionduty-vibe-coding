@@ -1,6 +1,7 @@
 import { Split } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { CopyBlock } from '../components/CopyBlock';
 
 /**
  * 這一頁是成對對照：交給套件（sky）與自己算（indigo）是同一個判斷的兩邊，
@@ -11,7 +12,7 @@ import { Callout } from '../components/Callout';
  * 所以第一眼一律給動作（交給套件／自己算），名詞降級成卡片最後一行的註記。
  *
  * 2026-10-06 的教學模擬：兩位沒有程式背景的模擬學員都在這一頁掉下去，兩個都指向同一個字,
- * 「套件」。它在單元 2-2 用一句話解釋過（別人寫好、拿來就能用的現成零件），但那是六章以前，
+ * 「套件」。它在單元 2-1 用一句話解釋過（別人寫好、拿來就能用的現成零件），但那是六章以前，
  * 而這一整頁的題目架在它上面。所以左欄那一行補回那句定義。
  * **這一句不要再刪掉**，刪了這一頁對沒有背景的人就只剩兩個不知道在比什麼的欄位。
  *
@@ -22,28 +23,32 @@ import { Callout } from '../components/Callout';
  * 學員立刻反問「一個轉場也是一直在變啊，為什麼互斥」,她是對的。轉場確實一直在變，
  * 所以「在不在變」根本分不出兩邊，而右欄把它當第一句，等於主動把人推進那個誤解。
  *
- * 真正的分界是有沒有終點，所以兩欄的第一句改成「它自己會停」與「它不會自己停」，
- * 並且在最上面先用電梯按鈕與音量旋鈕示範一次,那兩個不用懂網頁也驗得了，學員才有辦法自己練。
+ * 真正的分界是有沒有終點，所以兩欄的第一句是「它自己會停」與「它不會自己停」。
  * 「幀」與「離散／連續」降級成註記。**不要再把「每一幀都在變」拉回第一句。**
+ *
+ * 2026-10-08 到 2026-10-24 最上面有一塊暖身的例子（先是電梯按鈕與音量旋鈕，後來換成
+ * 手機上的兩個動作）。講師兩次都說太抽象、讀起來像 AI 寫的，**整塊拿掉了**。
+ * 規則本身縮成對照那一塊上面的一句話，練習交給底下那五個效果，它們每一條都印出判定過程。
+ * **不要再加暖身的比喻。** 要補強的話，加的是這個作品裡真的看得到的第六個效果，不是另一個日常物件。
  */
 /**
- * 不用懂網頁也驗得了的錨點。模擬學員兩輪都說「規則我唸得出來，但換一個新效果我分不出邊」,
- * 那是觀念沒進去的定義。病根是原本的軸寫成「有沒有在變」，而學員立刻反問
- * 「一個轉場也是一直在變啊」,她是對的，轉場確實一直在變。
- * 真正的分界是**有沒有終點**，所以軸改成「它會不會自己停」，並且先用兩個日常物件示範一次。
+ * 這個案例當時真的貼出去的那一則（手冊階段 2-1）。2026-10-24（講師要求）補上投影片，
+ * 原本整個單元看得到結論、看不到指令。**照抄手冊原文，只把作品描述縮成一行並加 ⟨⟩**，
+ * 手冊自己也寫「只改第一段的作品描述，四個問題與最後那句照貼」。
+ *
+ * 四個問題正好是這一頁的四個重點：哪些非得用 3D、連續的值誰來算、
+ * 只能留一個套件會怎樣、有沒有哪一項其實不需要。改這一頁要回頭看這段還對不對。
  */
-const ANCHORS = [
-  {
-    thing: '電梯按鈕',
-    why: '按一下，門自己關、自己開，中間你不用管。',
-    side: '它自己會停',
-  },
-  {
-    thing: '音量旋鈕',
-    why: '你轉到哪就是多大聲，沒有「轉完」這件事。',
-    side: '它不會自己停',
-  },
-];
+const CASE_PROMPT = `我要做一個捲動穿越的 3D 照片藝廊：⟨十張照片沿著深度排開，捲動時鏡頭穿過它們，背景顏色跟著目前的照片改變，點擊照片會展開成全螢幕的資訊面板⟩。
+
+先不要寫任何程式碼。請回答四個問題：
+
+1. 這個需求裡，哪些部分非用 WebGL 不可？哪些部分用 CSS 就夠了？請逐項說明，不要用一句「用 Three.js 比較好」帶過。
+2. 捲動的阻尼與速度，應該用動畫套件的補間動畫，還是自己在每一幀的迴圈裡算？兩種做法各自會在什麼情況下出問題？
+3. 如果只能引入一個套件，你會選哪一個？捨棄另一個之後，哪一部分的品質會下降、下降多少？
+4. 這個需求裡有沒有哪一項，其實不是這個題材需要的？
+
+第 4 點請誠實回答。不要為了讓我開心而說它們都有必要。`;
 
 /** 五個效果。2026-10-08（講師）第三輪：講師看完說「看不懂現在的案例和說明」，
  *  病根跟前兩輪不同，不是軸錯了，是**清單裡有東西套不進那個軸**。
@@ -100,24 +105,12 @@ export default function SlideCase2Divide() {
     <SlideLayout title="哪些效果交給套件，哪些自己算" subtitle="Case 02 · 進階的動畫效果怎麼做出來" icon={Split}>
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
-        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">先用兩個跟網頁無關的東西分一次</h3>
-          <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            這一頁的判斷不用懂程式也做得了。問題只有一句：
-            <span className="text-slate-200">按下去之後，它會不會自己停。</span>
+        <AnimatedBlock stepIndex={1} className="space-y-3">
+          <p className="text-slate-300 text-base leading-relaxed">
+            分邊只問一句：<strong className="text-slate-100">手指放開之後，它會不會自己走完。</strong>
+            會，交給現成的套件；不會，使用者動多少它就變多少，自己算。
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {ANCHORS.map((a) => (
-              <div key={a.thing} className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
-                <div className="text-slate-100 text-sm font-bold mb-1">{a.thing}</div>
-                <p className="text-slate-400 text-sm leading-relaxed">{a.why}</p>
-                <p className="mt-2 border-t border-slate-800 pt-2 text-slate-300 text-sm">{a.side}</p>
-              </div>
-            ))}
-          </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-5">
             <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
               交給現成的套件
@@ -146,9 +139,10 @@ export default function SlideCase2Divide() {
               手冊裡把這一邊叫做「連續」
             </p>
           </div>
+          </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <h3 className="text-base font-bold text-slate-100 mb-1">這個作品裡的五個效果，各自是怎麼做出來的</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             每一個都先問同一句：它會不會自己停。
@@ -188,6 +182,18 @@ export default function SlideCase2Divide() {
             還有一件事也交給套件，但它不是效果，所以上面那一題問不下去：
             <strong className="text-slate-200">滑鼠滾一格、觸控板推一下、手指滑一段，要換算成同一個數字</strong>。
             三種裝置送出來的單位差太多，自己寫測不完。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3} className="space-y-2">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 className="text-base font-bold text-slate-100">這張表不是用猜的，是這一則訊息問出來的</h3>
+            <p className="text-slate-500 text-sm">把模式切到 Plan，只改 ⟨⟩ 裡的作品描述</p>
+          </div>
+          <CopyBlock text={CASE_PROMPT} size="xs" note="案例二手冊第 2 步，當時真的貼出去的那一則" />
+          <p className="text-slate-400 text-sm leading-relaxed">
+            四個問題裡最值錢的是第 4 題。
+            <strong className="text-slate-200">你不問，它不會主動說「這一項你其實不需要」</strong>。
           </p>
         </AnimatedBlock>
 

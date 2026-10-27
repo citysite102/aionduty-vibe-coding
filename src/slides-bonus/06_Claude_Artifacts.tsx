@@ -19,7 +19,9 @@ import { SourceFoot, SRC } from './_Source';
  *   claude.ai/design 這個獨立網址 2026-12-14 關閉，功能併進對話裡。
  *
  * 右邊那張看板圖是示意，不是截圖。它要讓學員認得出兩件事：圖底下會寫出這張圖是用哪一句查詢
- * 算出來的、以及資料更新到什麼時候。這兩個是 Dashboards 跟「請它畫一張圖」的差別所在。
+ * 算出來的、以及資料更新到什麼時候。那兩個記號就是 Dashboards 與「上傳試算表請它畫圖」的差別：
+ * 前者每次打開重跑那句查詢，後者畫的是那個檔案在那一刻的數字。
+ * 2026-10-23 這一段原本寫成「每一張圖底下寫著⋯」，講師回報太抽象，改成拿上傳試算表對照。
  */
 const ITEMS = [
   { name: 'Docs', what: '文件。可以接著改每一段，不是一整塊文字', state: '正式', who: '全部方案，含免費' },
@@ -148,10 +150,11 @@ export default function SlideBonusClaudeArtifacts() {
             </div>
           </AnimatedBlock>
 
-          <Callout tone="focus" label="跟「請它畫張圖」差在哪" stepIndex={5}>
-            每一張圖底下寫著它是用哪一句查詢算出來的，以及資料更新到什麼時候。
-            <strong className="text-slate-100">能連的是 Redshift、BigQuery、ClickHouse、Databricks、Snowflake 這一類公司在用的資料庫</strong>，
-            不是你上傳的那一份試算表。
+          <Callout tone="focus" label="跟「上傳試算表請它畫圖」差在哪" stepIndex={5}>
+            上傳一份試算表請它畫圖，畫出來的是那個檔案在那一刻的數字，隔天多了訂單，那張圖不會變。
+            <strong className="text-slate-100">Dashboards 是每次打開就重跑圖底下那句查詢</strong>，
+            所以它要接的是 Snowflake、BigQuery、Redshift 這一類公司在用的資料庫，
+            不是你上傳的那一份檔案。
           </Callout>
 
           <Callout tone="muted" stepIndex={6}>

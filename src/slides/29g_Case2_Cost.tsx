@@ -1,6 +1,7 @@
 import { Package, Eye, Wrench, CircleX } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { CopyBlock } from '../components/CopyBlock';
 
 /**
  * 正反對照，所以 emerald 與 rose 各佔一邊，合計算一種強調色（A-1）。
@@ -37,7 +38,7 @@ const PICKS = [
     want: '阻尼、視差、速度這種每一幀都在變的值',
     yes: '自己寫一行公式',
     no: '交給套件去補中間的過程',
-    why: '上一頁那條：補出來的動畫會互相打架',
+    why: '它不會自己停，套件只能自己補中間的過程，補出來的動畫會互相打架',
   },
   {
     want: '多個物件共用同一台相機，或是一個一個點去算的效果',
@@ -46,6 +47,28 @@ const PICKS = [
     why: '網頁的透視是各算各的，物件一多，記憶體也吃不消',
   },
 ];
+
+/**
+ * 2026-10-24（講師要求）：這個單元教完三件事（效果會不會自己停、要不要用套件、
+ * 有哪些條件存在），但學員手上沒有一個可以直接開工的東西。這一段就是那個東西。
+ *
+ * 三點的順序對應這個單元的三頁：盤點（哪些自己算）、選型（用什麼套件）、
+ * 風險清單（為什麼還是要看得懂）。**改這一頁的任何一條，這段 Prompt 要跟著改。**
+ *
+ * Three.js 寫進第 2 點，是因為學員最常直接點名要用它；這裡的寫法不是禁止，
+ * 是要它先說出畫面上哪裡需要前後遠近。題目本身用 ⟨⟩ 留給學員換，其餘整段照貼。
+ */
+const STARTER_PROMPT = `我想做一個會隨著捲動變化的視覺網頁：⟨一句話描述你的題目，例如：十張照片排成一天，捲動時背景顏色跟著照片變⟩。
+
+開工之前先做三件事，都先不要寫程式：
+
+1. 盤點效果。把我描述的每一個效果列成一張表，每一條回答「手指放開之後，它會不會自己走完」。會自己走完的，用現成的套件；不會自己走完的（跟著捲動變的值、放開手之後的減速、遠近兩層的視差），寫成一行公式自己算。
+
+2. 選型。要用套件的每一條，寫出你打算用哪一個、為什麼，以及不用它會差在哪。瀏覽器原生做得到的，不要為它多裝一個套件。要用 Three.js 這類 3D 套件之前，先說明畫面上哪裡需要前後遠近或視角轉動；只是平面的淡入淡出與位移就不要用。
+
+3. 風險清單。列出這些效果在哪些裝置、哪些操作方式下可能出問題，以及我各自要怎麼試出來。至少涵蓋：滑鼠與觸控板的滾動單位、手機上的滑動與點擊、半透明物件的前後順序、解析度上限與圖片大小。
+
+三件事做完先給我看，我確認之後你再開始寫。`;
 
 const SYMPTOMS = [
   {
@@ -152,6 +175,18 @@ export default function SlideCase2Cost() {
           一個效果不用任何套件也做得到的時候，多引入一個套件的代價是：使用者要多載一次，你要多維護一個版本號。
           <strong className="text-slate-100">案例一整個網站沒有用任何套件</strong>，品質並不比這個案例低。
         </Callout>
+
+        <AnimatedBlock stepIndex={4} className="space-y-2">
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 className="text-base font-bold text-slate-100">換成你自己的題目，第一則訊息就這樣開</h3>
+            <p className="text-slate-500 text-sm">只改第一行的題目，其餘整段照貼</p>
+          </div>
+          <CopyBlock text={STARTER_PROMPT} size="xs" note="盤點、選型、風險清單，先不要寫程式" />
+          <p className="text-slate-400 text-sm leading-relaxed">
+            它回的第一張表，就是你這個專案自己的選型判斷表；第 3 點那份清單，
+            <strong className="text-slate-200">就是你要它去照顧的條件</strong>。兩份都看過再讓它動手。
+          </p>
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

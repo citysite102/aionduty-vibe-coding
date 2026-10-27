@@ -28,7 +28,7 @@ import { CopyBlock } from '../components/CopyBlock';
  * 正確的輸入是一份固定的模板 `docs/PRD-template.md`（一份需求文件該有哪幾段），
  * PM 照它的格式寫出 `docs/PRD.md`。
  *
- * **模板不要寫進 `agents/pm.md`。** 理由是章節六那條「同一條規則不要放兩個地方」
+ * **模板不要寫進 `agents/pm.md`。** 理由是章節五那條「同一條規則不要放兩個地方」
  * （`21f4_M2_RuleRouting` 與 harness/09）：模板會改，角色不會改，寫在一起的話模板一改就得去動角色檔，
  * 而且別的人、別的工具也讀不到那份模板。這一條寫在 `SOURCES` 底下那一段，**不要簡化掉**。
  *

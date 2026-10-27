@@ -72,7 +72,7 @@ export default function SlideWorkflow() {
           出現什麼結果，再照著跑一次」，順序講對了，但位置沒講，讀起來像是驗的時候才動筆。
           寫在動工之後就不叫標準了，你會照著已經做出來的東西回頭寫單子。
           四格裡第 2 步與第 4 步的說明現在互相指涉，改一邊要改兩邊。
-          完成條件怎麼寫得夠具體，是章節八 8-1 的職務，這裡只負責把它放對位置。
+          完成條件怎麼寫得夠具體，是章節七 7-1 的職務，這裡只負責把它放對位置。
         */}
         <AnimatedBlock stepIndex={3} className="text-slate-300 max-w-3xl mx-auto bg-slate-900/50 py-6 px-8 rounded-xl border border-slate-800">
           <p className="text-lg leading-relaxed">
@@ -86,7 +86,7 @@ export default function SlideWorkflow() {
           </p>
           <p className="text-base leading-relaxed mt-3 text-slate-400">
             順序反過來的話，你會照著它做出來的東西回頭寫標準，那就不是驗收了。
-            完成條件怎麼寫得夠具體，章節八有一整段專門處理。
+            完成條件怎麼寫得夠具體，章節七有一整段專門處理。
           </p>
         </AnimatedBlock>
 

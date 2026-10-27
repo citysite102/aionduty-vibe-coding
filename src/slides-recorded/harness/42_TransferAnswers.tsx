@@ -37,7 +37,7 @@ import type { RecordedMeta } from '../types';
  *   1. **前三列是這三題剛答出來的**（根目錄手冊＝第 3 題、客戶子目錄＝第 2 題、
  *      settings.json 的 Hook＝第 1 題），所以樹不是憑空出現的，每一行都指得回去。
  *   2. **後兩列標「後面會補」**，它們在這一頁還沒教（Skill 在這一段最後、
- *      reviewer 在章節七）。標出來才是全局圖，不標就變成沒頭沒腦的檔案清單。
+ *      reviewer 在章節六）。標出來才是全局圖，不標就變成沒頭沒腦的檔案清單。
  *   3. `proposal-reviewer.md` 跟 `quote-reviewer` 一樣**是情境裡的名字，沒有真的建**
  *      （比照 26g_M3_Harvest 的那一句）。它在這裡的作用是先讓學員知道位置。
  *
@@ -59,7 +59,7 @@ const TREE: { line: string; note: string; tag?: string; later?: boolean }[] = [
   { line: '└─ .claude/', note: '' },
   { line: '　　├─ settings.json', note: '寫進 out/ 之前擋掉帶成本數字的', tag: '第 1 題' },
   { line: '　　├─ skills/client-proposal/SKILL.md', note: '提案怎麼產，五個步驟', tag: '後面會補', later: true },
-  { line: '　　└─ agents/proposal-reviewer.md', note: '寄出前逐條挑錯，只讀不寫', tag: '章節七會做', later: true },
+  { line: '　　└─ agents/proposal-reviewer.md', note: '寄出前逐條挑錯，只讀不寫', tag: '章節六會做', later: true },
 ];
 
 const ANSWERS = [
@@ -101,7 +101,7 @@ export const meta: RecordedMeta = {
     '最外面是根目錄那份 CLAUDE.md，放第三題那三條。底下一個 clients 資料夾，一個客戶一個子資料夾，各自一份 CLAUDE.md，那是第二題的答案：A 客戶要英文版、B 客戶只收 Word、D 客戶成本絕對不能出現。' +
     '再來有一個 out 資料夾，要寄出去的檔案放這裡，它等一下那條 Hook 只管這一層。' +
     '最後是 .claude 這個資料夾，裡面三個東西。settings.json 放第一題那道 Hook，寫進 out 之前擋掉帶成本數字的。' +
-    'skills 底下那一份是提案怎麼產的五個步驟，這一段最後會給你。agents 底下那一份是寄出前逐條挑錯的角色，只讀不寫，章節七會動手做。後面這兩個現在還沒有，先知道它們會住在哪裡。' +
+    'skills 底下那一份是提案怎麼產的五個步驟，這一段最後會給你。agents 底下那一份是寄出前逐條挑錯的角色，只讀不寫，章節六會動手做。後面這兩個現在還沒有，先知道它們會住在哪裡。' +
     '有人會問那 .claude 斜線 rules 呢？這份工作用不到，因為客戶的範圍剛好等於一個資料夾，一個資料夾放一份手冊就夠了。要跨好幾個資料夾、或者只管某一種檔案，那時候才換成 rules。',
   seconds: 199,
   kind: 'reference',

@@ -1,4 +1,4 @@
-import { Map, Globe, LayoutTemplate, Database, GitCommit, Bot, AlertTriangle, Rocket } from 'lucide-react';
+import { Map, Globe, LayoutTemplate, Database, GitCommit, Bot, AlertTriangle, Rocket, FlaskConical } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 export default function Slide09b() {
@@ -21,6 +21,9 @@ export default function Slide09b() {
     { id: 3, name: "前端與後端", stuck: "壞了不知道要去哪一層找", icon: LayoutTemplate, hands: null },
     { id: 4, name: "資料庫", stuck: "關掉瀏覽器，剛存的就不見了", icon: Database, hands: null },
     { id: 5, name: "上線部署", stuck: "只有自己電腦打得開，傳不出去", icon: Rocket, hands: null },
+    // 2026-10-27 加第 8 樣。章節三多了一支〈撰寫測試〉，這張路線圖是那一章的地圖，
+    // 少一格就會出現「有一個單元不在圖上」。四欄剛好排成兩列，不用改版面。
+    { id: 8, name: "測試", stuck: "改一個地方，不知道別的地方有沒有壞", icon: FlaskConical, hands: null },
     { id: 6, name: "Git 版控", stuck: "改壞了回不去上一版", icon: GitCommit, hands: null },
     { id: 7, name: "Claude Code", stuck: "只會打字問它，不知道還能下什麼指令", icon: Bot, hands: "桌面版" },
   ];
@@ -29,7 +32,7 @@ export default function Slide09b() {
     <SlideLayout title="Vibe Coding 需要的軟體基礎知識" subtitle="Learning Roadmap" icon={Map}>
       <AnimatedBlock stepIndex={1} className="max-w-4xl mx-auto mb-8 text-center">
         <p className="text-slate-200 text-base leading-relaxed max-w-2xl mx-auto bg-sky-950/20 border border-sky-900/40 rounded-xl px-4 py-3">
-          前面那幾步不用懂這些也跑得動。這七樣是軟體怎麼被組起來的：東西經過哪幾層、資料停在哪裡、哪一層先卡住，還有為什麼要這樣分。
+          前面那幾步不用懂這些也跑得動。這八樣是軟體怎麼被組起來的：東西經過哪幾層、資料停在哪裡、哪一層先卡住，還有為什麼要這樣分。
         </p>
       </AnimatedBlock>
 

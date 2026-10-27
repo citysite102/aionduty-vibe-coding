@@ -11,7 +11,7 @@ import type { RecordedMeta } from '../types';
  * 工作目錄與上層都沒有 CLAUDE.md 時才讀**。要兩個都讀，到 /config 把
  * Project instructions 設成 claude-md-and-agents-md。
  *
- * 所以這一頁教的捷徑沒有過期：學員走完第五章手上一定有 CLAUDE.md，
+ * 所以這一頁教的捷徑沒有過期：學員走完第四章手上一定有 CLAUDE.md，
  * 在他的專案裡 AGENTS.md 預設不會被讀到。官方對既有 symlink 的說法是
  * 「nothing, or delete the symlink. Either way Claude reads the content once」。
  * 原生支援解的是反方向（repo 本來就只有 AGENTS.md），跟這一頁的情境不同。

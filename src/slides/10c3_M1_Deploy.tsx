@@ -19,7 +19,7 @@ import { Callout } from '../components/Callout';
  * 這裡只負責把缺口指出來，不在章節三講完。
  *
  * 第 02 格那句「它是一份你自己列的清單」不要拿掉。`.gitignore` 全片第一次出現就在這一頁，
- * 而它真正被定義是在章節八的 27b8c，中間隔了一百多頁。Slide 30 的 Git playground 也只寫
+ * 而它真正被定義是在章節七的 27b8c，中間隔了一百多頁。Slide 30 的 Git playground 也只寫
  * 「.gitignore 擋著」四個字，靠的就是這裡先講過。
  *
  * 用 muted 不用 warn：這一頁已經有 sky 與 emerald 兩個強調色，A-1 上限是兩種。

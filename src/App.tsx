@@ -129,6 +129,9 @@ import Slide27b5 from './slides/27b5_M4_NoCodeBridge';
 import Slide27b5c from './slides/27b5c_M4_ReadErrors';
 import Slide27b6 from './slides/27b6_M4_FutureEngineering';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
+import SlideTestTypes from './slides/27c_M4_TestTypes';
+import SlideTestWorth from './slides/27c2_M4_TestWorth';
+import SlideTestHooks from './slides/27c3_M4_TestHooks';
 import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
@@ -170,6 +173,7 @@ import Slide28c4 from './slides/28c4_M4_ShipDomains';
 import Slide28d from './slides/28d_M4_ProjectMemory';
 import Slide28e from './slides/28e_M4_ToolBoundary';
 import Slide33 from './slides/33_Outro';
+import SlideDivCases from './slides/29_Div_Cases';
 import { REPLACEMENTS } from './slides-recorded/registry';
 import { BONUS_SLIDES, BONUS_TITLE } from './slides-bonus';
 import { UNIT_DEFS } from './courseUnits';
@@ -179,7 +183,7 @@ const LIVE_TITLES = [
   "動手前的前置作業",
   "四個階段，從看懂走到自己做出來",
   "帶走流程、規範、分工與交付成果",
-  "Vibe Coding 與 Agentic Engineering",
+  "從 Vibe Coding 到 Agentic Engineering",
   "什麼是 Vibe Coding？",
   "Vibe Coding、Agentic Engineering、Agent",
   "三種開發模式的比較：需求細度與驗收方式",
@@ -190,7 +194,7 @@ const LIVE_TITLES = [
   "送出需求前先問：代稱、邊界、能不能給它看",
   "換你改這兩句模糊的需求描述",
   "哪些會過期，哪些不會",
-  "Claude Code 實作與網頁開發基礎",
+  "Claude Code 實戰入門",
   "為什麼要一個能動手的 AI？",
   "AI 真的做得出完整專案嗎？",
   "桌面版五步，從下載到講第一句話",
@@ -206,6 +210,9 @@ const LIVE_TITLES = [
   "從本機到上線：交給託管平台",
   "Git 幫你記下每一版，不只是程式碼",
   "按按看，檔案怎麼從資料夾走到 GitHub",
+  "先測主要流程：單元、整合、E2E 各管一段",
+  "哪些值得寫，以及怎麼叫它寫",
+  "寫好的測試交給 Hook，每次改完自己跑",
   "Claude Code 桌面版",
   "Claude Code 指令的四種類型",
   "官方指南怎麼查，現在寫了什麼",
@@ -218,12 +225,7 @@ const LIVE_TITLES = [
   "Claude Code 做得好與做不好的事",
   "該用對話框還是 Claude Code？五個情境",
   "你手上現在有的三樣東西",
-  "選修：終端機與 Claude Code 安裝",
-  "選修：終端機基本指令",
-  "選修：Warp 終端機的三個特點",
-  "Claude Code 終端機版本配置",
-  "選修：模式切換、Shell 模式、終止執行",
-  "Agent 運作框架與 CLAUDE.md",
+  "Harness 入門",
   "每次開新對話，你都要重講一次規則",
   "什麼是運作框架（Harness）？",
   "完整的運作框架有哪些零件",
@@ -253,7 +255,7 @@ const LIVE_TITLES = [
   "三題判斷這件工作要不要寫手冊",
   "第一條規則從哪裡來，示範手冊的五個章節",
   "這份簡報自己的規則與製作流程",
-  "手冊（CLAUDE.md）的診斷、健檢與轉移",
+  "Harness 進階",
   "手冊最常出的四個問題",
   "規則明明寫了，它卻沒照做",
   "規則該放哪一層，以及 Hook 的寫法",
@@ -263,7 +265,7 @@ const LIVE_TITLES = [
   "跨工具名詞對照表",
   "換成你的工作，手冊該寫什麼",
   "手冊的四個成果，收在同一個檔案裡",
-  "Agent 分工與品質控管",
+  "Multi-Agent 協作",
   "三個角色：指揮者、執行者、審查者",
   "四種分工方式，各適合什麼時候用",
   "workflow：Claude 寫腳本，一次派出幾十個",
@@ -285,7 +287,7 @@ const LIVE_TITLES = [
   "後兩步：商業邏輯與交給子代理審查",
   "中型專案的常見卡點",
   "審查子代理、一次實測、分工不是多開對話",
-  "Agent 循環開發流程與實戰案例",
+  "Loop Engineering",
   "從 Prompt 到 Loop：每個階段解掉的卡點",
   "什麼是 Loop Engineering？",
   "交代一輪工作的五個步驟",
@@ -307,6 +309,7 @@ const LIVE_TITLES = [
   "哪一種金鑰可以寫進程式碼，哪一種不行",
   "前端、資料庫、沒有後端：要加登入怎麼做",
   "什麼時候要自己寫後端，以及怎麼做",
+  "整合專案實戰",
   "專案啟動之前：規格文件怎麼寫？",
   "把形容詞翻成可以檢查的條件",
   "案例一：器 VESSEL",
@@ -325,7 +328,7 @@ const LIVE_TITLES = [
   "系統架構：三個入口，權限都在資料庫",
   "改完拿什麼證明沒壞：案例四的八個判斷",
   "接下來呢？四種回去就做得動的題目",
-  "新專案的前三個動作",
+  "新專案的前四個動作",
   "三萬個 AI 做的網站，99% 有資安問題",
   "OWASP 是什麼：一份免費公開的資安清單",
   "OWASP Top 10：有五條對得上這門課做的事",
@@ -335,6 +338,11 @@ const LIVE_TITLES = [
   "專案規模增加的 Agent 成本",
   "同樣的命題，不同的解決策略",
   "未來的工作者",
+  "終端機與 Claude Code 操作基礎",
+  "選修：終端機基本指令",
+  "選修：Warp 終端機的三個特點",
+  "Claude Code 終端機版本配置",
+  "選修：模式切換、Shell 模式、終止執行",
 ];
 
 const LIVE_SLIDES = [
@@ -369,6 +377,9 @@ const LIVE_SLIDES = [
   Slide10c3,
   Slide10e,
   Slide10e1,
+  SlideTestTypes,
+  SlideTestWorth,
+  SlideTestHooks,
   Slide11b,
   Slide11e,
   Slide11e2,
@@ -381,11 +392,6 @@ const LIVE_SLIDES = [
   Slide14,
   Slide18b,
   Slide18c,
-  Slide07b,
-  Slide10,
-  Slide10a,
-  Slide11,
-  Slide11d2,
   Slide19,
   Slide19a,
   Slide20,
@@ -470,6 +476,7 @@ const LIVE_SLIDES = [
   Slide27b8f,
   Slide27b8g,
   Slide27b8h,
+  SlideDivCases,
   SlideCaseSpec,
   SlideCaseSpecCheck,
   SlideCase1Vessel,
@@ -498,6 +505,11 @@ const LIVE_SLIDES = [
   Slide28d,
   Slide28e,
   Slide33,
+  Slide07b,
+  Slide10,
+  Slide10a,
+  Slide11,
+  Slide11d2,
 ];
 
 const PARAMS = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);
@@ -516,16 +528,22 @@ const IS_BONUS = PARAMS.get('deck') === 'bonus';
 /**
  * 每一節的起點，寫的是「原始頁」在 LIVE_SLIDES 的 index。
  * 拆頁之後實際位置會位移，下面會自動換算，不需要手動改數字。
+ *
+ * label 是課程平台與下拉選單用的完整章節名，格式固定是「主題：這一章做什麼」。
+ * 分節頁上的大標只放冒號前面那半，冒號後面那半進它的 subtitle，
+ * 因為完整名稱放進 7xl 的大標會折成三四行（D-5 的一行放得下那條）。
+ * 兩邊要一起改，不要只動一邊。
  */
 const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
-  { start: 4, label: 'Vibe Coding 與 Agentic Engineering' },
-  { start: 15, label: 'Claude Code 實作與網頁開發基礎' },
-  { start: 43, label: '選修：終端機與 Claude Code 安裝' },
-  { start: 48, label: 'Agent 運作框架與 CLAUDE.md' },
-  { start: 78, label: '手冊（CLAUDE.md）的診斷、健檢與轉移' },
-  { start: 88, label: 'Agent 分工與品質控管' },
-  { start: 110, label: 'Agent 循環開發流程與實戰案例' },
+  { start: 4, label: '從 Vibe Coding 到 Agentic Engineering：理解 AI 開發的新方式' },
+  { start: 15, label: 'Claude Code 實戰入門：從軟體基礎到第一個專案' },
+  { start: 46, label: 'Harness 入門：建立 Agent 的工作規範' },
+  { start: 76, label: 'Harness 進階：自動化檢查與規範維護' },
+  { start: 86, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
+  { start: 108, label: 'Loop Engineering：建立自動迭代與驗證流程' },
+  { start: 130, label: '整合專案實戰：從需求規格到產品上線' },
+  { start: 159, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
@@ -556,21 +574,26 @@ const INITIAL_SLIDE = Number.isFinite(REQUESTED_SLIDE)
 const REQUESTED_STEP = Number(PARAMS.get('step'));
 const INITIAL_STEP = Number.isFinite(REQUESTED_STEP) ? Math.max(Math.trunc(REQUESTED_STEP), 0) : 0;
 
-/** 分節切點依實際位置換算，最後一頁固定是結語，自成一組 */
+/**
+ * 分節切點依實際位置換算。`to` 是開區間（下一節的第一頁），最後一節補成總頁數，
+ * 這樣九節就蓋滿整疊，不會有頁面落在所有區間外面。
+ * 2026-10-27 之前最後一頁（結語）是刻意落在外面、自成第九章的，
+ * 現在結語併進整合專案實戰那一節，補充單元才是最後一節，那個特例跟著拿掉。
+ */
 const SECTIONS = IS_BONUS
-  ? [{ label: BONUS_TITLE, from: 0, to: ENTRIES.length - 1 }]
+  ? [{ label: BONUS_TITLE, from: 0, to: ENTRIES.length }]
   : SECTION_DEFS.map((def, i) => {
   const next = SECTION_DEFS[i + 1];
   return {
     label: def.label,
     from: ENTRIES.findIndex((e) => e.liveIndex === def.start),
-    to: next ? ENTRIES.findIndex((e) => e.liveIndex === next.start) : ENTRIES.length - 1,
+    to: next ? ENTRIES.findIndex((e) => e.liveIndex === next.start) : ENTRIES.length,
   };
 });
 
 /**
  * 錄製單元。定義在 courseUnits.ts，這裡只是接上實際頁數並算出編號。
- * 編號 X-Y 都是推導的：X 是這個單元落在第幾節（結語算第九章，跟下面的選單分組一致），
+ * 編號 X-Y 都是推導的：X 是這個單元落在第幾節，
  * Y 是它在那一節裡的第幾個。搬頁之後會自己重排，不用手動維護。
  * 有沒有指錯頁由 npm run check:slides 拿 anchor 比對。
  */
@@ -595,9 +618,8 @@ const UNITS = IS_BONUS
   return UNIT_DEFS.map((d, i) => {
     const from = starts[i];
     const to = i + 1 < starts.length ? starts[i + 1] - 1 : ENTRIES.length - 1;
-    // 結語那一頁不在任何 SECTIONS 的範圍內（它們的 to 是開區間），所以落在最後一章
     const sectionIdx = SECTIONS.findIndex((s) => from >= s.from && from < s.to);
-    const chapter = sectionIdx < 0 ? SECTIONS.length + 1 : sectionIdx + 1;
+    const chapter = sectionIdx + 1;
     const n = (perChapter.get(chapter) ?? 0) + 1;
     perChapter.set(chapter, n);
     return {
@@ -605,7 +627,7 @@ const UNITS = IS_BONUS
       title: d.title,
       from,
       to,
-      chapterLabel: sectionIdx < 0 ? '結語' : SECTIONS[sectionIdx].label,
+      chapterLabel: SECTIONS[sectionIdx].label,
       isChapterHead: n === 1,
       chapterName: `章節${CN_NUM[chapter] ?? chapter}`,
     };

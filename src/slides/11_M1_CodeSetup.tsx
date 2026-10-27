@@ -7,7 +7,7 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
 
 /**
  * 標題原本是「手把手操作」，副標「Live Demonstration」。兩個問題：它沒說這一頁在裝什麼，
- * 而課程改成預錄之後也沒有現場示範這回事。這一頁是單元 4-2 的第一格，
+ * 而課程改成預錄之後也沒有現場示範這回事。這一頁是單元 9-2 的第一格，
  * 也就是那支影片的第一個畫面，第一行字得說得出這一段要幹嘛。
  */
 export default function SlideCodeSetup() {

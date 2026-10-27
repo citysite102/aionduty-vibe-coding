@@ -72,6 +72,16 @@ export default function SlideCase2TokyoLoop() {
             東京的一天，取十個時刻。捲動穿過它們，背景的顏色就是那張照片的顏色。
             捲到 00:40 之後接回 04:52，一天是一個環，所以捲動也沒有盡頭。
           </p>
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
+            技術是 <strong className="text-slate-200">Three.js、GSAP 與原生 CSS</strong>，
+            教學版用 importmap 直接從網路載入套件、不用安裝，最後一步才換成 Vite 打包。
+            <strong className="text-slate-200">不需要看懂 shader 或 JavaScript</strong>，手冊裡的程式碼是用來確認結果的。
+          </p>
+          <p className="text-slate-300 text-sm leading-relaxed mb-3">
+            底下兩塊是同一條原則的兩個例子：
+            <strong className="text-slate-100">算得出來的東西，就不要另外挑一份、也不要另外寫一套</strong>。
+            存兩份的代價都一樣：改了一份，另一份會默默變成錯的。
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {CALC.map((c) => (
               <div key={c.title} className="rounded-xl border border-slate-800 bg-slate-950 p-4">

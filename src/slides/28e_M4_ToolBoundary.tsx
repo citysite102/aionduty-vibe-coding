@@ -21,7 +21,7 @@ import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
  * **拆掉任何一邊，剩下的那一個就要改回 sky**，不要留一個孤單的 indigo。
  *
  * 最後那一塊（MCP 回傳的內容會進到上下文）是這兩頁真正要留給學員的一句話，
- * 它接的是章節八「放手前的五道邊界」裡 Prompt Injection 那一道。
+ * 它接的是章節七「放手前的五道邊界」裡 Prompt Injection 那一道。
  * **搬頁的時候兩邊一起看**，這一頁是把那個風險落到「裝第三方工具」這個具體動作上。
  *
  * 四個問題的文字要跟上一頁一字不差，改一邊就要改另一邊（B-6）。

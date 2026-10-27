@@ -4,8 +4,8 @@ export default function SlideDivIntro() {
   return (
     <SectionDivider 
       number="INTRO"
-      subtitle="Vibe Coding & Agentic Engineering"
-      title="Vibe Coding 與 Agentic Engineering"
+      subtitle="理解 AI 開發的新方式"
+      title="從 Vibe Coding 到 Agentic Engineering"
     />
   );
 }

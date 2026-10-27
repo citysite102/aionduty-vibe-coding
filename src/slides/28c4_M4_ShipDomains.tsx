@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 2026-10-10 新增，章節八這一組的最後一頁（99% → OWASP → 這一頁）。
+ * 2026-10-10 新增，資安這一組的最後一頁（99% → OWASP → 這一頁），現在落在章節八。
  *
  * 這一頁回答的是講師那句「逐漸累計自己對技術與科技架構的掌握程度」。
  * 前兩頁處理的是這一個專案，這一頁處理的是**換一個領域怎麼辦**，

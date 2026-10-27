@@ -60,7 +60,14 @@ export default function Slide01() {
           AI On Duty 系列
         </p>
 
-        {/* Main Glitch-like Title：起點與目標狀態，對照見 04c_Intro_VibeVsAgentic */}
+        {/*
+          Main Glitch-like Title：起點與目標狀態，對照見 04c_Intro_VibeVsAgentic。
+          課程正式名稱是「從 Vibe Coding 到代理工程：打造可重複的 AI 開發流程」，
+          這裡拆成三層：上下兩個詞加中間的箭頭就是「從 X 到 Y」，冒號後面那半進底下的膠囊。
+          英文不換成中譯「代理工程」：學員要拿這兩個詞去對課程平台與官方文件上的
+          Vibe Coding／Agentic Engineering，而整疊簡報從頭到尾也都用英文原詞
+          （中譯目前只出現在預告片 src/remotion 底下那幾支 Finale.tsx）。
+        */}
         <h1 className="flex flex-col items-center mb-10">
           <span className="text-5xl md:text-7xl font-black text-slate-300 italic tracking-wider">
             Vibe Coding
@@ -86,11 +93,11 @@ export default function Slide01() {
         {/* Pill Subtitle */}
         <div className="bg-gradient-to-r from-slate-100 via-white to-sky-100 text-slate-900 font-bold px-8 py-4 rounded-full text-xl md:text-2xl flex items-center justify-center shadow-[0_0_30px_rgba(56,189,248,0.4)] border-2 border-white/80 mb-10">
           <Terminal size={24} className="mr-3 text-sky-600" />
-          <span className="tracking-wide">實戰：AI 開發流程完整指南</span>
+          <span className="tracking-wide">打造可重複的 AI 開發流程</span>
         </div>
         
         <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10 font-medium">
-          補上軟體基礎，建立一套自己能重複用的 AI 開發流程。
+          補上軟體基礎，從第一個作品一路做到交得出去。
         </p>
 
         <motion.div 

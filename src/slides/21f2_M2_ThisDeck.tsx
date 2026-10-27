@@ -24,7 +24,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   - A-4 第 156 行：原文現在舉兩個例子（`slate-850`、`sky-350`），節錄跟著補上第二個。
  *   - 破折號那條（D-1 第 452 行）的 Hook 現在有實測證據，寫在 D 章第 492 行：
  *     「D-1 的破折號有 hook 擋著，從來沒被違反過；沒有檢查的那幾類一直在長回來。」
- *     左欄頁尾那一句就是照這一段寫的，它同時是章節六 Hook 那一段的伏筆。
+ *     左欄頁尾那一句就是照這一段寫的，它同時是章節五 Hook 那一段的伏筆。
  *   - 2026-10-03 第三條從 A-3 的「.map() 裡的條件式 class」換成 B-3 的「不要寫絕對頁碼」
  *     （A-3 本身已於 2026-10-10 從 CLAUDE.md 移除）。
  *     原因是前者要先懂 .map() 跟 class 才讀得懂，這一頁的讀者多數不寫程式，
@@ -167,7 +167,7 @@ export default function SlideThisDeck() {
               <p className="text-slate-500 text-xs leading-relaxed mt-2.5">
                 <code className="font-mono text-slate-400">.mjs</code> 跟{' '}
                 <code className="font-mono text-slate-400">.js</code> 一樣是 JavaScript 檔案。
-                這支不用你自己寫，叫它寫就好，章節六會動手掛一條。
+                這支不用你自己寫，叫它寫就好，章節五會動手掛一條。
               </p>
             </div>
             <div>

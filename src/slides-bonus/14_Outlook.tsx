@@ -139,10 +139,10 @@ export default function SlideBonusOutlook() {
           ))}
         </div>
 
-        <Callout tone="focus" label="接下來自己追的方法" stepIndex={5}>
-          每一季打開三家的官方更新頁，看兩件事：
-          <strong className="text-slate-100">開工的入口有沒有變、它交回來的東西有沒有變</strong>。
-          模型改名不用追：那一欄的名字每隔幾週就會不一樣，而挑哪一層的方法一年沒有變過。
+        <Callout tone="focus" label="一季翻一次更新頁" stepIndex={5}>
+          三家的更新頁在下面那一列，從你上次讀到的日期往下看就好。
+          <strong className="text-slate-100">值得停下來的是介面多一個或少一個入口、以及它回你的東西從一段文字變成一份改得動的檔案</strong>。
+          模型換名字的條目可以跳過，挑哪一層看的還是它撐不撐得住那件工作。
         </Callout>
 
         <SourceFoot links={[SRC.claudeNotes, SRC.openaiLearn, SRC.geminiNotes]} />
