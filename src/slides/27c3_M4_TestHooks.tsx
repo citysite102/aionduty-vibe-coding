@@ -17,7 +17,8 @@ import { CopyBlock } from '../components/CopyBlock';
  * 而且學員從畫面上看不出來（測試全綠，功能還是壞的）。
  *
  * 三列底下那一行是迴歸測試的定義（2026-10-28 補）。學員查測試一定會撞到這個詞，
- * 而它跟單元／整合／E2E 不是並列的：那三種分的是範圍，迴歸分的是目的。
+ * 而它跟單元／整合／E2E 不是並列的：那三種分的是範圍，迴歸分的是目的。**那一句澄清留在口白**，
+ * 畫面上只給定義；寫成「它不是第四種測試」是在畫面上防守一個學員還沒問出口的問題。
  * 放在這一頁而不是前面，因為「每次改完全部重跑」正是這一頁在講的事。
  *
  * 2026-10-27 砍掉頁尾那個「這一圈不需要你在旁邊看」的收尾 Callout：它重講了三列
@@ -87,7 +88,6 @@ export default function SlideTestHooks() {
           <p className="text-slate-400 text-sm leading-relaxed mt-3 border-t border-slate-800 pt-3">
             每次改完把累積下來的測試全部重跑一遍，確認以前好的沒被改壞，
             這件事叫<strong className="text-slate-200">迴歸測試（Regression Test）</strong>。
-            它不是第四種測試，是前面三種累積起來的跑法。
           </p>
         </AnimatedBlock>
 
