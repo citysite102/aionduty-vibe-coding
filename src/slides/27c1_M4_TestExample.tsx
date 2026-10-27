@@ -14,6 +14,18 @@ import { Callout } from '../components/Callout';
  * 名額算錯、資料沒進去、流程走不完。
  *
  * 三欄一律灰階（A-1：平等的項目不給顏色），sky 只出現在最後那個 Callout。
+ * 欄名旁邊曾經標著「抓算錯／抓接不起來／抓走不完」，前一頁的小標已經講過同一組詞，
+ * 2026-10-28 拿掉。
+ *
+ * **「名額」這件事刻意在三欄各出現一次**，那是這一頁最主要的教學點：
+ * 算出來的數字是單元（扣到 0 就停住）、真的寫進資料庫是整合（名額真的少 1）、
+ * 按鈕按不下去是端對端（滿了之後送不出去）。同一個概念切在三層，界線才指得出來。
+ * 第一條原本寫「名額剩 0 的時候，再報一個不會變成 -1」，講師指出「再報一個」是整個
+ * 報名動作、要碰資料庫，那是整合不是單元。**改這三條之前先確認它真的不碰資料庫。**
+ *
+ * 這一欄三條都寫成「動詞＋對象：那個最容易錯的邊界」（算剩餘名額／算報名費／檢查信箱格式），
+ * 形狀一致才看得出它們的共同點：給一個輸入、算出一個結果，不碰別的東西。
+ * 原本寫成「3/31 當天報名算 8 折」那種業務規則的語氣，讀起來像規格不像檢查。
  *
  * 每一欄的條數刻意是 3／3／2：端對端比較少本來就是這一段要教的事，不要為了對齊補到三條。
  */
@@ -23,16 +35,14 @@ const PROJECT = '線上活動報名：填表單送出、名額 20 人、早鳥�
 const LAYERS = [
   {
     name: '單元測試',
-    catches: '算錯',
     items: [
-      '名額剩 0 的時候，再報一個不會變成 -1',
-      '3/31 當天報名算 8 折，4/1 算原價',
-      '沒有 @ 的信箱擋下來',
+      '算剩餘名額：扣到 0 就停住，不會算出 -1',
+      '算報名費：3/31 當天還是 8 折，4/1 變原價',
+      '檢查信箱格式：沒有 @ 的擋下來',
     ],
   },
   {
     name: '整合測試',
-    catches: '接不起來',
     items: [
       '按下送出，資料庫真的多一筆，名額真的少 1',
       '同一個信箱報第二次，被擋下來',
@@ -41,7 +51,6 @@ const LAYERS = [
   },
   {
     name: '端對端（E2E）',
-    catches: '走不完',
     items: [
       '填完送出、看到成功畫面，重新整理資料還在',
       '名額滿了之後，送出鈕真的按不下去',
@@ -68,10 +77,7 @@ export default function SlideTestExample() {
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {LAYERS.map((l) => (
             <div key={l.name} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-              <div className="flex items-baseline gap-2 mb-3">
-                <h3 className="text-base font-bold text-slate-100">{l.name}</h3>
-                <span className="text-slate-500 text-sm">抓{l.catches}</span>
-              </div>
+              <h3 className="text-base font-bold text-slate-100 mb-3">{l.name}</h3>
               <ul className="space-y-2">
                 {l.items.map((t) => (
                   <li
