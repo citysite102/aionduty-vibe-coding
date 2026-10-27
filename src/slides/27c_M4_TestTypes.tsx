@@ -142,7 +142,7 @@ const KINDS = [
     anim: IntegrationAnim,
     what: '兩塊接起來之後，資料有沒有真的動',
     example: '前端按下送出，資料庫真的多一筆；名額真的少一個',
-    cost: '中等。要有資料庫或後端真的在跑',
+    cost: '中等。資料要先準備好，跑完還要清掉',
     key: true,
   },
   {
