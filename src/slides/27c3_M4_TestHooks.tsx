@@ -1,10 +1,13 @@
 import { ShieldCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { Callout } from '../components/Callout';
 import { CopyBlock } from '../components/CopyBlock';
 
 /**
  * 單元「撰寫測試」的第三頁：寫好之後怎麼讓它每次都跑。2026-10-27 新增。
+ *
+ * **標題不要寫 Hook。** 這一支在章節三，Hook 要到章節五才教，標題拿它當主詞等於
+ * 用一個學員還沒看過的詞開場。Hook 這個字只出現在第一列的工具欄與註腳，
+ * 那裡有一句解釋加一次指路，夠了。
  *
  * 2026-10-27 從章節七搬到章節三。代價是 Hook（章節五）與完成條件（章節七）都還沒教，
  * 所以這一頁只講「要在三個時機跑」，三個時機各指一次路，**不重講那兩個東西怎麼做**。
@@ -12,6 +15,10 @@ import { CopyBlock } from '../components/CopyBlock';
  *
  * 「不准改測試讓它過」那一條是這一頁的重點：它是 AI 最常走的捷徑，
  * 而且學員從畫面上看不出來（測試全綠，功能還是壞的）。
+ *
+ * 2026-10-27 砍掉頁尾那個「這一圈不需要你在旁邊看」的收尾 Callout：它重講了三列
+ * 自己就寫著的東西（Hook 那一列＝改一個地方、跑一次、沒過回去修），而且指路也已經
+ * 掛在後兩列的註腳上。這一頁塞不下第三塊，要再加東西先確認 CopyBlock 還看得到。
  */
 const WHERE = [
   {
@@ -41,22 +48,24 @@ const RULE = `測試沒過的時候，修功能，不要改測試讓它通過。
 export default function SlideTestHooks() {
   return (
     <SlideLayout
-      title="寫好的測試交給 Hook，每次改完自己跑"
-      subtitle="Tests as a Gate, Not a Reminder"
+      title="測試寫好之後，讓它在三個時機自己跑"
+      subtitle="Running Tests Automatically"
       icon={ShieldCheck}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-4 pb-4">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">測試要在三個時機跑，各自擋不同的東西</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">三個時機，各自擋不同的東西</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            寫完之後最容易發生的事，是你忘記跑它。所以不要靠記得，把它接在流程上。
+            寫完之後最容易發生的事，是你忘記跑它。
+            <strong className="text-slate-200">測試是檢查的內容，Hook 與 CI 是讓它自己跑起來的開關</strong>，
+            兩個接起來才不用靠你記得。
           </p>
-          <ul className="space-y-2">
+          <ul className="space-y-1.5">
             {WHERE.map((w) => (
               <li
                 key={w.when}
-                className={`rounded-xl border px-4 py-3 ${
+                className={`rounded-xl border px-4 py-2.5 ${
                   w.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-950'
                 }`}
               >
@@ -65,11 +74,9 @@ export default function SlideTestHooks() {
                     {w.when}
                   </span>
                   <span className="font-mono text-xs text-slate-500">{w.tool}</span>
+                  <span className="text-slate-300 text-sm leading-relaxed">{w.does}</span>
                 </div>
-                <p className="text-slate-300 text-sm leading-relaxed mt-0.5">{w.does}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1 border-t border-slate-800 pt-1.5">
-                  {w.note}
-                </p>
+                <p className="text-slate-500 text-sm leading-relaxed mt-0.5">{w.note}</p>
               </li>
             ))}
           </ul>
@@ -88,12 +95,6 @@ export default function SlideTestHooks() {
           </p>
         </AnimatedBlock>
 
-        <Callout tone="focus" label="接起來之後，這一圈不需要你在旁邊看" stepIndex={3}>
-          改一個地方、跑一次測試、沒過就回去修。
-          你要做的只剩兩件事：
-          <strong className="text-slate-100">決定哪幾件事值得寫成測試，以及讀它列給你的失敗清單</strong>。
-          後面章節五會教怎麼把這一圈寫成擋得住的規則，章節七會把它變成跑得更久的循環。
-        </Callout>
 
       </div>
     </SlideLayout>

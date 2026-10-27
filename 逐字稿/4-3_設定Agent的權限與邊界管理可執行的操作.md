@@ -1,6 +1,6 @@
 # 單元 4-3｜設定 Agent 的權限與邊界：管理可執行的操作
 
-Slide 60-61 ／ 2 頁 ／ 章節四 Harness 入門：建立 Agent 的工作規範
+Slide 61-62 ／ 2 頁 ／ 章節四 Harness 入門：建立 Agent 的工作規範
 
 > **錄製註記**：〈監督與邊界〉是靜態頁，照 `stepIndex` 1 到 5 走完即可。
 >
@@ -14,7 +14,7 @@ Slide 60-61 ／ 2 頁 ／ 章節四 Harness 入門：建立 Agent 的工作規�
 
 ---
 
-## Slide 60｜監督與邊界
+## Slide 61｜監督與邊界
 
 **畫面**
 開場一問。兩欄並列：「監督程度」（sky）與「邊界大小」（indigo），各附一個問句、兩端的文字、以及它決定什麼的一句話。下面一塊講兩個分開調，再一個 sky 的 Callout 講判斷標準、怎麼調，以及邊界要怎麼縮。
@@ -54,13 +54,13 @@ Slide 60-61 ／ 2 頁 ／ 章節四 Harness 入門：建立 Agent 的工作規�
 **這頁的教學意圖**：監督程度管你的時間，邊界大小管風險；兩者獨立，不熟的時候先縮邊界而不是狂盯。
 **預估時間**：4 分鐘
 
-**【轉場 → Slide 61】**
+**【轉場 → Slide 62】**
 
 > 那這兩件事在 Claude Code 裡實際長什麼樣。
 
 ---
 
-## Slide 61｜Claude Code 的六個權限模式
+## Slide 62｜Claude Code 的六個權限模式
 
 **畫面**
 左欄是速查表，六張模式卡（手動 manual／設定值 default、acceptEdits、plan、auto、dontAsk、bypassPermissions），每一格最後一行標它調的是監督程度還是邊界大小。右欄是模擬器，三個分頁：終端機（一顆模擬 `Shift + Tab` 的按鈕加狀態列）、桌面版（輸入框左下角那個 Mode 下拉，Auto／Manual／Accept edits／Plan 加一列 Bypass permissions）、網頁版（`claude.ai/code` 輸入框旁的模式下拉，只有 Auto／Accept edits／Plan）。模擬器下面一段文字講當下那一邊怎麼切，整頁最底下一句收尾。
@@ -148,6 +148,6 @@ Slide 60-61 ／ 2 頁 ／ 章節四 Harness 入門：建立 Agent 的工作規�
 **這頁的教學意圖**：認得出各模式調的是監督程度還是邊界大小，尤其 `acceptEdits` 比名字聽起來鬆、`plan` 管的是邊界不是監督。
 **預估時間**：7 分鐘
 
-**【轉場 → Slide 62】**
+**【轉場 → Slide 63】**
 
 > 工具給了，邊界也知道怎麼收了。接下來就是這一章真正的主戲：把你每次都要重講的那些話，寫成一份檔案。

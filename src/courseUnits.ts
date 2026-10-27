@@ -62,22 +62,22 @@ export const UNIT_DEFS: UnitDef[] = [
   // 先有得救才談得上驗；而且測試那一支的最後一頁要把測試掛上 Hook，離第四章的 Harness 近一點比較好接。
   { live: 29, title: 'Git 版本控制：記錄、比較與還原修改', anchor: 'Git 幫你記下每一版，不只是程式碼' },
   { live: 31, title: '建立品質檢查：單元測試、整合測試與 E2E', anchor: '先測主要流程：單元、整合、E2E 各管一段' },
-  { live: 34, title: 'Claude Code 操作指南：介面、功能與常用指令', anchor: 'Claude Code 桌面版' },
+  { live: 35, title: 'Claude Code 操作指南：介面、功能與常用指令', anchor: 'Claude Code 桌面版' },
   // 2026-10-27 這兩支的切點往前移了兩頁。原本「批次改檔名」與「爬蟲」掛在計時器那一支的尾巴，
   // 當成支線示範；但那兩頁做的是另一件事（寫一支自己會跑的腳本），而且接著的能力邊界、
   // 五個情境、收成三頁講的也正是「什麼時候該叫它寫腳本」。現在前一支收在計時器做完，
   // 後一支從第一支腳本開始，兩支各自是一件完整的事。
-  { live: 37, title: '計時器專案實作：從需求規格到功能完成', anchor: 'Agent 的一輪：探索、計畫、執行、驗證' },
-  { live: 41, title: '自動化工具實作：網頁資料擷取與流程自動化', anchor: '叫它寫一個批次改檔名的 Node.js 腳本' },
+  { live: 38, title: '計時器專案實作：從需求規格到功能完成', anchor: 'Agent 的一輪：探索、計畫、執行、驗證' },
+  { live: 42, title: '自動化工具實作：網頁資料擷取與流程自動化', anchor: '叫它寫一個批次改檔名的 Node.js 腳本' },
 
   // ── 第四章 Harness 入門 ──
-  { live: 46, title: '認識 Harness：為什麼 Agent 需要運作框架', anchor: 'Harness 入門' },
-  { live: 54, title: 'MCP 與 Skills：理解工具連接與能力擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
-  { live: 59, title: '設定 Agent 的權限與邊界：管理可執行的操作', anchor: '監督與邊界' },
-  { live: 61, title: '建立第一份 CLAUDE.md：定義專案的工作規範', anchor: '動手搭建運作框架' },
-  { live: 65, title: 'CLAUDE.md 分層管理：全域、專案與目錄規則', anchor: '同一句需求，兩種產出：有手冊、沒手冊' },
-  { live: 66, title: '理解規則的生效機制：CLAUDE.md、Rules 與 Hooks', anchor: '根目錄的手冊整場都在，Rules 碰到才載' },
-  { live: 71, title: 'Harness 應用實例：讓 Agent 按照規範完成任務', anchor: '零件實際怎麼用（一）：規範與流程' },
+  { live: 47, title: '認識 Harness：為什麼 Agent 需要運作框架', anchor: 'Harness 入門' },
+  { live: 55, title: 'MCP 與 Skills：理解工具連接與能力擴充', anchor: '讓 AI 有工具可用：MCP 與 Skills' },
+  { live: 60, title: '設定 Agent 的權限與邊界：管理可執行的操作', anchor: '監督與邊界' },
+  { live: 62, title: '建立第一份 CLAUDE.md：定義專案的工作規範', anchor: '動手搭建運作框架' },
+  { live: 66, title: 'CLAUDE.md 分層管理：全域、專案與目錄規則', anchor: '同一句需求，兩種產出：有手冊、沒手冊' },
+  { live: 67, title: '理解規則的生效機制：CLAUDE.md、Rules 與 Hooks', anchor: '根目錄的手冊整場都在，Rules 碰到才載' },
+  { live: 72, title: 'Harness 應用實例：讓 Agent 按照規範完成任務', anchor: '零件實際怎麼用（一）：規範與流程' },
 
   // ── 第五章 Harness 進階 ──
   // Hook 那七頁自成一個單元。它夾在歸位四問與「保證越高改起來越麻煩」中間，
@@ -87,22 +87,22 @@ export const UNIT_DEFS: UnitDef[] = [
   // 代價是原本一支「四個問題」被切成前後兩段。這樣反而比較好：
   // 四個問題本來就是四件事，前兩題（沒生效、放哪層）講的是位置，
   // 後兩題（太長、怎麼寫）講的是內容，中間隔著 Hook 剛好是天然的分水嶺。
-  { live: 76, title: 'CLAUDE.md 常見問題：排查規則未生效的原因', anchor: 'Harness 進階' },
-  { live: 79, part: 5, title: 'Hooks 實務應用：在關鍵操作時自動執行檢查', anchor: 'Hook 是什麼，可以拿它做什麼' },
+  { live: 77, title: 'CLAUDE.md 常見問題：排查規則未生效的原因', anchor: 'Harness 進階' },
+  { live: 80, part: 5, title: 'Hooks 實務應用：在關鍵操作時自動執行檢查', anchor: 'Hook 是什麼，可以拿它做什麼' },
   // Hook 之後那三頁是四問那條線的結尾，不是 Hook 的內容。放在 Hook 那一支裡，
   // 看片名進來的人會拿到三頁不相干的東西，而看前一支的人停在第四題就結束。
-  { live: 79, part: 13, title: '整合 Harness 元件：配置 CLAUDE.md、Rules 與 Hooks', anchor: '規則的四個去處，各自適合放什麼' },
-  { live: 80, title: 'CLAUDE.md 健康檢查：找出衝突、缺漏與過時規範', anchor: '手冊（CLAUDE.md）健檢五步驟' },
+  { live: 80, part: 13, title: '整合 Harness 元件：配置 CLAUDE.md、Rules 與 Hooks', anchor: '規則的四個去處，各自適合放什麼' },
+  { live: 81, title: 'CLAUDE.md 健康檢查：找出衝突、缺漏與過時規範', anchor: '手冊（CLAUDE.md）健檢五步驟' },
   // 這一支把「換個地方用」與「換成你的工作」併在一起。前者只有三頁，
   // 單獨成一支影片不到三分鐘，而兩者都在講同一件事：這份手冊怎麼活下去。
-  { live: 82, title: '專案規範維護：建立可持續使用的 Agent 工作手冊', anchor: '網頁、Cowork、Claude Code 差在哪' },
+  { live: 83, title: '專案規範維護：建立可持續使用的 Agent 工作手冊', anchor: '網頁、Cowork、Claude Code 差在哪' },
 
   // ── 第六章 Multi-Agent 協作 ──
-  { live: 86, title: '認識 Multi-Agent：理解多 Agent 的分工與協作架構', anchor: 'Multi-Agent 協作' },
-  { live: 91, title: '建立 Subagent：分配開發、測試與品質審查任務', anchor: '設一道會退回的品質防線' },
+  { live: 87, title: '認識 Multi-Agent：理解多 Agent 的分工與協作架構', anchor: 'Multi-Agent 協作' },
+  { live: 92, title: '建立 Subagent：分配開發、測試與品質審查任務', anchor: '設一道會退回的品質防線' },
   // 原本切成「拆解」與「推進」兩支，但前半只給規格檔、後半才給指令，
   // 學員在前半會一直等著看指令長什麼樣。合起來就是一次完整的中型專案走法。
-  { live: 99, title: '客戶報價系統實作：從 Agent 分工到整合驗收', anchor: '一個中型專案，從需求拆到踩雷' },
+  { live: 100, title: '客戶報價系統實作：從 Agent 分工到整合驗收', anchor: '一個中型專案，從需求拆到踩雷' },
 
   // ── 第七章 Loop Engineering ──
   // 照「這是什麼 → 怎麼配置與管控 → 動手做一次 → 送上線」一條線切四支：
@@ -113,10 +113,10 @@ export const UNIT_DEFS: UnitDef[] = [
   //     讀錯誤、五道邊界。學員看完這一支才有東西可以貼。
   // 7-3 從貼第一段指令跑到它自己驗完，收在「功能做完了」。
   // 7-4 從「可是它只在你這台電腦上」開始，每一步卡的都是帳號與授權。
-  { live: 108, title: '認識 Loop Engineering：讓 Agent 持續開發與修正', anchor: 'Loop Engineering' },
-  { live: 111, title: '設計開發循環：任務拆解、驗收條件與停止機制', anchor: '交代一輪工作的五個步驟' },
-  { live: 117, title: 'Loop Engineering 實作：自動執行、測試與錯誤修正', anchor: '試著用 Loop 跑測試流程' },
-  { live: 122, title: '專案部署架構：理解環境配置與上線流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
+  { live: 109, title: '認識 Loop Engineering：讓 Agent 持續開發與修正', anchor: 'Loop Engineering' },
+  { live: 112, title: '設計開發循環：任務拆解、驗收條件與停止機制', anchor: '交代一輪工作的五個步驟' },
+  { live: 118, title: 'Loop Engineering 實作：自動執行、測試與錯誤修正', anchor: '試著用 Loop 跑測試流程' },
+  { live: 123, title: '專案部署架構：理解環境配置與上線流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
 
   // ── 第八章 整合專案實戰 ──
   // 四個完整案例。講者會在這裡打開四份教學文件（public/handouts/），
@@ -125,15 +125,15 @@ export const UNIT_DEFS: UnitDef[] = [
   // 案例一這一支多兩頁：規格怎麼寫是案例一到三共用的課前作業，它沒有自己的單元，
   // 掛在第一個案例裡。手冊（case-01-spec-writing.pdf）把它定位成「請在開始案例一之前完成」。
   // 2026-10-27 分節頁補上之後，這一支的起點與 anchor 跟著換成分節頁。
-  { live: 130, title: 'Vessel 品牌網站：從需求規格到網站開發', anchor: '整合專案實戰' },
-  { live: 135, title: '東京環状 24 時：互動設計與策展網站實作', anchor: '案例二：東京環状 24 時' },
-  { live: 139, title: 'Vessel 預約系統：串接資料庫與管理使用者資料', anchor: '案例三：開窯預約' },
-  { live: 143, title: '海上神社：整合信件服務、資料庫、API 與動畫', anchor: '案例四：海上許願神社' },
+  { live: 131, title: 'Vessel 品牌網站：從需求規格到網站開發', anchor: '整合專案實戰' },
+  { live: 136, title: '東京環状 24 時：互動設計與策展網站實作', anchor: '案例二：東京環状 24 時' },
+  { live: 140, title: 'Vessel 預約系統：串接資料庫與管理使用者資料', anchor: '案例三：開窯預約' },
+  { live: 144, title: '海上神社：整合信件服務、資料庫、API 與動畫', anchor: '案例四：海上許願神社' },
   // 結語那一頁（未來的工作者）2026-10-27 併進這一支，不再自成一個單元：
   // 它只有一頁，而這一支講的正是「回去之後做什麼」，結語就是它的收尾。
-  { live: 148, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '接下來呢？四種回去就做得動的題目' },
+  { live: 149, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '接下來呢？四種回去就做得動的題目' },
 
   // ── 第九章 補充單元：終端機與 Claude Code 操作基礎 ──
-  { live: 159, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
-  { live: 162, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
+  { live: 160, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
+  { live: 163, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
 ];

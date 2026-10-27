@@ -132,6 +132,7 @@ import Slide27b8 from './slides/27b8_M4_MissionLog';
 import SlideTestTypes from './slides/27c_M4_TestTypes';
 import SlideTestWorth from './slides/27c2_M4_TestWorth';
 import SlideTestHooks from './slides/27c3_M4_TestHooks';
+import SlideTestExample from './slides/27c1_M4_TestExample';
 import Slide27b8b from './slides/27b8b_M4_PushToGithub';
 import Slide27b8c from './slides/27b8c_M4_GitignoreGuard';
 import Slide27b8d from './slides/27b8d_M4_Deploy';
@@ -211,8 +212,9 @@ const LIVE_TITLES = [
   "Git 幫你記下每一版，不只是程式碼",
   "按按看，檔案怎麼從資料夾走到 GitHub",
   "先測主要流程：單元、整合、E2E 各管一段",
+  "一個報名表單，哪幾件事各寫哪一種測試",
   "哪些值得寫，以及怎麼叫它寫",
-  "寫好的測試交給 Hook，每次改完自己跑",
+  "測試寫好之後，讓它在三個時機自己跑",
   "Claude Code 桌面版",
   "Claude Code 指令的四種類型",
   "官方指南怎麼查，現在寫了什麼",
@@ -378,6 +380,7 @@ const LIVE_SLIDES = [
   Slide10e,
   Slide10e1,
   SlideTestTypes,
+  SlideTestExample,
   SlideTestWorth,
   SlideTestHooks,
   Slide11b,
@@ -538,12 +541,12 @@ const SECTION_DEFS = [
   { start: 0, label: '課前導讀' },
   { start: 4, label: '從 Vibe Coding 到 Agentic Engineering：理解 AI 開發的新方式' },
   { start: 15, label: 'Claude Code 實戰入門：從軟體基礎到第一個專案' },
-  { start: 46, label: 'Harness 入門：建立 Agent 的工作規範' },
-  { start: 76, label: 'Harness 進階：自動化檢查與規範維護' },
-  { start: 86, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
-  { start: 108, label: 'Loop Engineering：建立自動迭代與驗證流程' },
-  { start: 130, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 159, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 47, label: 'Harness 入門：建立 Agent 的工作規範' },
+  { start: 77, label: 'Harness 進階：自動化檢查與規範維護' },
+  { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
+  { start: 109, label: 'Loop Engineering：建立自動迭代與驗證流程' },
+  { start: 131, label: '整合專案實戰：從需求規格到產品上線' },
+  { start: 160, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */
