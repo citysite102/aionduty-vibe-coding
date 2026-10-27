@@ -159,7 +159,7 @@ const KINDS = [
 export default function SlideTestTypes() {
   return (
     <SlideLayout
-      title="先測主要流程：單元、整合、E2E 各管一段"
+      title="測試從關鍵路徑開始：單元、整合、E2E"
       subtitle="Unit, Integration, End-to-End"
       icon={FlaskConical}
     >
