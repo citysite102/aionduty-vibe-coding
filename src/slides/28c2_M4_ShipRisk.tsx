@@ -71,7 +71,7 @@ export default function SlideShipRisk() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           東西做出來、會動了，多數人到這裡就當它做完了。
           <strong className="text-slate-100">底下三個數字是別人實際掃出來的</strong>，
-          放在這裡是因為這幾類問題你不知道它存在，就不會去問。
+          這幾類問題你不知道它存在，就不會去問。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">

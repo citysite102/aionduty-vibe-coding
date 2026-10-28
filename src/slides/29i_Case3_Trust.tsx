@@ -42,8 +42,8 @@ export default function SlideCase3Trust() {
           **改那一頁的推托句，要回來改這一句。**
         */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-base leading-relaxed">
-          計時器搬上 Supabase 那一步出現過同一組金鑰，那時候只說了「把 RLS 打開」。
-          <strong className="text-slate-300">這一頁講的是打開之後那條規則要怎麼寫，以及寫錯的時候你會看到哪兩種錯誤訊息。</strong>
+          計時器搬上 Supabase 那一步只說了「把 RLS 打開」。
+          <strong className="text-slate-300">打開之後它預設全部拒絕，所以規則要一條一條放行，而放行的條件寫錯，錯誤訊息會告訴你是哪一層。</strong>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">

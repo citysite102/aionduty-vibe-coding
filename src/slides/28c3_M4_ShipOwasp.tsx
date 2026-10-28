@@ -53,7 +53,7 @@ const DONE = [
     id: 'A01',
     en: 'Broken Access Control',
     zh: '該擋的沒擋住',
-    mine: '兩層權限、有人繞過畫面直接送請求、上一頁那兩千個沒有登入的工具',
+    mine: '兩層權限、有人繞過畫面直接送請求、那兩千個沒有登入的工具',
   },
   {
     id: 'A02',
@@ -96,7 +96,7 @@ export default function SlideShipOwasp() {
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          前面那幾類問題，外面有一份公認的清單在收，叫 OWASP Top 10，
+          沒設登入、權限沒擋住、金鑰外流這幾類，外面有一份公認的清單在收，叫 OWASP Top 10，
           <strong className="text-slate-100">你公司的 IT 與資安就是照它在看東西</strong>。
           現行是 2025 版，大約四年一版，所以它不太會過期。十條裡有五條你已經撞過了。
         </AnimatedBlock>
@@ -139,8 +139,7 @@ export default function SlideShipOwasp() {
 
         <Callout tone="focus" label="要照著跑的那一份在講義頁" stepIndex={5}>
           八題不用讀程式碼的自查、十條的完整對照、還有金流與個資那幾個領域，
-          做成了一張〈上線前自查卡〉。
-          <strong className="text-slate-100">這一頁講的是為什麼，那張卡是你回去照著跑的。</strong>
+          做成了一張〈上線前自查卡〉，每一條都可以勾。
           <span className="block mt-2 font-mono text-sm text-slate-400">
             citysite102.github.io/aionduty-vibe-coding/handouts/
           </span>

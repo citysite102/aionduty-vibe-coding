@@ -66,7 +66,7 @@ export default function SlideShipAiRisk() {
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         <p className="text-slate-300 text-base leading-relaxed mb-4">
-          我們前面做的航行日誌講評就是這種結構：文字送進去、AI 的回答送出來、金鑰放在後端。
+          你做過的航行日誌講評就是這種結構：文字送進去、AI 的回答送出來、金鑰放在後端。
           <strong className="text-slate-100">它多出兩類一般網站清單上沒有的風險</strong>。
         </p>
 

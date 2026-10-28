@@ -75,7 +75,7 @@ export default function SlideCase4Arch() {
       <div className="max-w-6xl mx-auto space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-sm leading-relaxed">
-          前面兩頁做出來的東西，放回同一張圖上。
+          這個網站實際接了哪些東西，三塊放在同一張圖上。
           <strong className="text-slate-200">灰線是不用登入也走得通的路，亮起來那幾條要帶權杖</strong>
           （登入之後拿到的那串通行碼）。
         </AnimatedBlock>

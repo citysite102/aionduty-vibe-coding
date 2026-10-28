@@ -52,7 +52,7 @@ export default function SlideCase3Race() {
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-2">
             原因是前端是先查再寫：兩個請求都在「還有一個位子」的那一刻查到了同一個數字，
-            然後各自寫進去。前端擋不住同時發生的兩個請求。下面這三步就是前面那個循環，只是這次跑的人是你。
+            然後各自寫進去。前端擋不住同時發生的兩個請求。
           </p>
         </AnimatedBlock>
 
@@ -95,7 +95,7 @@ export default function SlideCase3Race() {
             </div>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed mt-4">
-            中間差的是上面那三步，加上第 16 步：把繞過網頁直接送請求的那條路也堵掉。
+            中間差的是重現、修掉、再驗那三步，加上第 16 步：把繞過網頁直接送請求的那條路也堵掉。
             <strong className="text-slate-200">畫面上的按鈕只是其中一條路，不是唯一一條。</strong>
           </p>
         </AnimatedBlock>

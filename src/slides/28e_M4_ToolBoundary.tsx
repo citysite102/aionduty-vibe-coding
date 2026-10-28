@@ -135,7 +135,7 @@ export default function SlideToolBoundary() {
             ))}
           </div>
           <p className="text-slate-400 text-sm leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            <strong className="text-slate-200">能不能把公司的程式碼送給外部的模型，這題我們自己答不了</strong>，
+            <strong className="text-slate-200">能不能把公司的程式碼送給外部的模型，這題你自己答不了</strong>，
             去問資訊或法務單位。問之前先把事情講成一句話：我想裝的這個工具，會把專案的檔案內容送到外部的模型。
           </p>
         </AnimatedBlock>
@@ -148,7 +148,7 @@ export default function SlideToolBoundary() {
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-1.5">
             <strong className="text-slate-200">代價</strong>：要花錢、要等它跑完，而且摘要是模型寫的，
-            寫錯了我們不一定看得出來（結構是算出來的，沒這個問題）。程式改了摘要也不會自己更新。
+            寫錯了你不一定看得出來（結構是算出來的，沒這個問題）。程式改了摘要也不會自己更新。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-1.5 pt-2.5 border-t border-slate-800">
             所以判斷標準不是「能不能送」，是<strong className="text-slate-200">需不需要那一層業務語意</strong>。

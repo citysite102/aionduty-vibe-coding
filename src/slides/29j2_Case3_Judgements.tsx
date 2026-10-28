@@ -71,9 +71,6 @@ export default function SlideCase3Judgements() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            這五條問的都是同一件事：這一層靠不靠得住。
-          </p>
           <ul className="space-y-2">
             {JUDGEMENTS.map((j) => (
               <li
@@ -99,7 +96,7 @@ export default function SlideCase3Judgements() {
           </ul>
         </AnimatedBlock>
 
-        <Callout tone="focus" label="這五條都在問同一件事的兩面" stepIndex={3}>
+        <Callout tone="focus" label="寫了不等於生效" stepIndex={3}>
           前四條問的是這一層擋不擋得住，最後一條問的是你驗過了沒有。
           <strong className="text-slate-100">沒有換一個身分實際測過，兩層權限你只知道有寫，不知道有沒有生效。</strong>
         </Callout>

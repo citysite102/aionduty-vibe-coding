@@ -93,7 +93,7 @@ export default function SlideCase4Judgements() {
 
         <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            前面四條是畫面與素材的，後面四條是登入與資料的。換到別的專案也用得上。
+            前面四條是畫面與素材的，後面四條是登入與資料的。
           </p>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {JUDGEMENTS.map((j) => (
@@ -120,7 +120,7 @@ export default function SlideCase4Judgements() {
           </ul>
         </AnimatedBlock>
 
-        <Callout tone="focus" label="四個案例，二十四條判斷，同一件事" stepIndex={3}>
+        <Callout tone="focus" label="二十四條裡，沒有一條在問語法" stepIndex={3}>
           每一條都有一個共通點：
           <strong className="text-slate-100">它們問的都是你對這件事的理解，不是語法怎麼寫。</strong>
           語法那一半 AI 已經做得比你好，所以你剩下的工作就是這二十四條這種題目。
