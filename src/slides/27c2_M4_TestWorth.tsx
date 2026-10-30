@@ -15,6 +15,21 @@ import { CopyBlock } from '../components/CopyBlock';
  * 以及寫完先把功能改壞一次、確認測試真的變紅。**這兩條不要刪，也不要縮寫。**
  *
  * 值得／不值得走 emerald 與 rose，那是同一個判斷的兩邊，合計算一種強調色（A-1）。
+ *
+ * 2026-10-30 補覆蓋率（講師）。補的理由：全片原本 0 次，但學員一定會撞到這個詞，
+ * AI 自己會報、CI 畫面會顯示、同事會問。它的位置在「值不值得寫」後面而不是別處，
+ * 因為它回答的正是同一題（要寫多少才夠），只是用了一個會騙人的數字。
+ * **那一塊裡不要提 Happy Path**：它排在底下那個 Callout 之前，先出現就是用一個
+ * 還沒定義的詞（D-2 自創詞那條同一個道理）。寫法比照 `27c3_M4_TestHooks`
+ * 的迴歸測試：一個粗體的名詞加括號英文，一句定義，一句它答不了什麼。
+ * 2026-10-30 同日改寫一次（講師：太 AI）。原本是「寫到什麼程度算夠？⋯跟那些測試有沒有
+ * 驗到重點是兩回事⋯照上面兩欄挑，不要照百分比挑。覆蓋率低的地方值得去看一眼，
+ * 覆蓋率高不保證那裡是對的」。三個毛病：設問開場、「驗到重點」是空心的詞，
+ * 最後兩句各是一組對仗（照 X 挑／不要照 Y 挑、低⋯／高⋯）。**不要再寫成對照句。**
+ *
+ * 這一頁本來就超出一個畫面（Prompt 那一塊撐的），全片的 Prompt 頁都是這樣
+ * （Slide 40 溢出 557、Slide 63 是 634），所以**不要為了塞下它去砍 Prompt**。
+ * 真的要省高度，先砍兩欄各自的第 4 條，最後才動 Prompt。
  */
 const WORTH = [
   '每次改完你都會手動確認的那一件事',
@@ -51,14 +66,14 @@ const TEST_PROMPT = `幫我替 ⟨這個功能⟩ 補測試。先不要動功能
 export default function SlideTestWorth() {
   return (
     <SlideLayout
-      title="哪些值得寫，以及怎麼叫它寫"
+      title="如何規劃測試與如何撰寫？"
       subtitle="What to Test, and How to Ask for It"
       icon={Scale}
     >
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">值不值得寫，先問這一句</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">值不值得寫</h3>
           <p className="text-slate-300 text-sm leading-relaxed mb-4">
             <strong className="text-slate-100">你會不會每次改完都手動確認同一件事？</strong>
             會，就把那件事寫成測試。測試有成本，寫了要維護，所以不是每一塊都要有。
@@ -79,13 +94,26 @@ export default function SlideTestWorth() {
           </div>
         </AnimatedBlock>
 
-        <Callout tone="warn" label="它補出來的測試，多半只測成功的那條路" stepIndex={2}>
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
+          <p className="text-slate-300 text-sm leading-relaxed">
+            <strong className="text-slate-100">覆蓋率（Coverage）</strong>
+            是 AI 與 CI 會報給你的一個百分比，算的是測試跑過了多少行程式碼。
+            <strong className="text-slate-200">一行有沒有被驗對，它看不出來</strong>：
+            全部只測一切順利的情況，這個數字一樣會很高，而你改壞了它照樣全綠。
+            <span className="block mt-1.5 text-slate-400">
+              這個數字低的那幾塊可以去看一眼。其他時候照上面兩欄挑就好。
+            </span>
+          </p>
+        </AnimatedBlock>
+
+        <Callout tone="warn" label="AI 規劃的測試，會有 Happy Path 的盲點" stepIndex={3}>
           不講清楚的話，它給的清單會是輸入正確、權限正確、網路正常，全部一次就綠。
-          那種測試的問題是你改壞了它也不會紅。
+          這種只走順利情況的測試叫 <strong className="text-slate-100">Happy Path</strong>，
+          問題是你改壞了它也不會紅。
           <strong className="text-slate-100">所以清單裡一定要有失敗的情境，而且寫完要把功能改壞一次，確認對應的那條真的變紅。</strong>
         </Callout>
 
-        <AnimatedBlock stepIndex={3} className="space-y-2">
+        <AnimatedBlock stepIndex={4} className="space-y-2">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <h3 className="text-base font-bold text-slate-100">怎麼叫它寫</h3>
             <p className="text-slate-500 text-sm">只改 ⟨⟩ 裡的功能名稱，其餘整段照貼</p>

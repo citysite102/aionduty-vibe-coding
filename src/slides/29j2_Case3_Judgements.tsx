@@ -1,6 +1,7 @@
 import { ShieldQuestion } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { JudgementTable } from '../components/JudgementTable';
 
 /**
  * 案例三的收尾。另外三塊在〈器 VESSEL 的十二步〉的下半、〈這件事該交給誰做〉與
@@ -25,6 +26,7 @@ const JUDGEMENTS = [
     by: '有人繞過網頁直接送請求，還擋得住嗎',
     cost: '資料外洩，而且畫面上完全看不出來',
     key: true,
+    keyNote: '你剛才親手驗過的那一條',
   },
   {
     q: '這個數字前端算不算得出來',
@@ -50,19 +52,19 @@ export default function SlideCase3Judgements() {
       subtitle="Case 03 · AI 幫不了你的那幾個決定"
       icon={ShieldQuestion}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
             { k: '案例一問的是', v: '這個東西該不該存在' },
             { k: '案例二問的是', v: '這件事該交給誰做' },
           ].map((c) => (
-            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
               <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">{c.k}</div>
               <p className="text-slate-300 text-base leading-relaxed">{c.v}</p>
             </div>
           ))}
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-5">
+          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
               這個案例問的是
             </div>
@@ -70,30 +72,8 @@ export default function SlideCase3Judgements() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <ul className="space-y-2">
-            {JUDGEMENTS.map((j) => (
-              <li
-                key={j.q}
-                className={`rounded-xl border px-4 py-3 ${
-                  j.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-950'
-                }`}
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className={`text-sm font-bold ${j.key ? 'text-sky-200' : 'text-slate-100'}`}>
-                    {j.q}
-                  </span>
-                  {j.key && (
-                    <span className="font-mono text-xs text-sky-400 shrink-0">你剛才親手驗過的那一條</span>
-                  )}
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed mt-0.5">判斷依據：{j.by}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1 border-t border-slate-800 pt-1.5">
-                  判斷錯的代價：{j.cost}
-                </p>
-              </li>
-            ))}
-          </ul>
+        <AnimatedBlock stepIndex={2}>
+          <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
         <Callout tone="focus" label="寫了不等於生效" stepIndex={3}>

@@ -79,7 +79,7 @@ export default function SlideSafety() {
               <div className="bg-amber-500/20 w-9 h-9 rounded-xl flex items-center justify-center shrink-0">
                 <KeyRound className="text-amber-400" size={18} />
               </div>
-              <h3 className="text-base font-bold text-amber-300 tracking-wide">1. 要調的是白名單，不是全放行</h3>
+              <h3 className="text-base font-bold text-amber-300 tracking-wide">1. 要調的是白名單</h3>
             </div>
             {/*
               2026-10-05 第二次改。第一版只給 bypassPermissions 的定義，學員問

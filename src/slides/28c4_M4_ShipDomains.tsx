@@ -25,6 +25,15 @@ import { Callout } from '../components/Callout';
  * 不確定就只留「用第三方金流」，名字拿掉照樣成立。
  *
  * 強調色只有 sky（金流那一塊的 from 標記）。四個領域不要一個一色（A-1）。
+ *
+ * 2026-10-30（講師：用詞太 AI、版面太繁複）改兩件事：
+ *   - 「四條裡有三條你已經學過」「你已經學過的原則」是 D-2 的進度安撫，
+ *     講的是學員的狀態不是內容。金流那一行改成讀表用的 `右邊是它在課程裡的原型`，
+ *     開場改成「前面某一條原則換一個對象」。**不要再寫回「你已經⋯過」。**
+ *   - 實機看溢出 177px，第三張卡與收尾整個捲不到。改法是**金流四列各併成一行**
+ *     （`ask` 粗體、`detail` 接在同一行），一個字都沒刪，而且 `from` 那一欄照樣靠右對齊，
+ *     比原本兩層的版本更好讀。另外砍掉三個領域的展開（各留兩行）與收尾的講義頁指路。
+ *     2026-10-30 實機量過 0 溢出。**再加東西進來要重量一次**，這一頁沒有餘裕了。
  */
 const MONEY = [
   {
@@ -56,21 +65,21 @@ const DOMAINS = [
     name: '個資與公司資料',
     ask: '先問這些資料能不能離開公司，再問怎麼存。',
     detail:
-      '順序反過來的人會先做完才發現不能用。問的時候講成一句話：「我想做的這個東西，會把某某資料放到某某平台上。」不要只問「可不可以用 AI」，他們答不出來。',
+      '講成一句話：「我想做的這個東西，會把某某資料放到某某平台上。」',
   },
   {
     icon: Scale,
     name: '受監管行業',
     ask: '醫療、金融、兒少：先問法遵，不要先做。',
     detail:
-      '這幾個行業的規定會直接決定這個東西能不能存在，不是做完再補。先問一通電話，比做完整個重來便宜。',
+      '那些規定會決定這個東西能不能存在，不是做完再補。',
   },
   {
     icon: Copyright,
     name: '對外公開的內容',
     ask: '素材是不是你的。',
     detail:
-      'AI 生成的圖、你抓來的照片、字型的授權，對外公開跟自己看是兩種條件。別人網站上的資料能不能抓、抓了能不能公開展示，也是這一類。',
+      'AI 生成的圖、抓來的照片、字型授權，對外公開跟自己看是兩種條件。',
   },
 ];
 
@@ -81,35 +90,35 @@ export default function SlideShipDomains() {
       subtitle="When the Domain Changes"
       icon={Compass}
     >
-      <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
+      <div className="max-w-6xl mx-auto w-full space-y-3 pb-2">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           這幾個領域這門課沒有教，但你回去很可能會碰到。每一個只給那一題，
-          <strong className="text-slate-100">而多數時候它是你已經學過的原則換一個場合</strong>。
+          <strong className="text-slate-100">而多數時候那一題是前面某一條原則換一個對象</strong>。
         </AnimatedBlock>
 
         {/*
           金流放上面、而且比其他三個大，是因為它是這一頁的證據：
           四條裡有三條是學過的東西搬過來。右邊那一欄不要拿掉。
         */}
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
           <div className="flex items-center gap-2.5 mb-3 pb-3 border-b border-slate-800">
             <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-800 text-slate-400">
               <CreditCard aria-hidden="true" size={16} />
             </span>
             <h3 className="text-base font-bold text-slate-100">金流</h3>
-            <span className="text-slate-500 text-sm">四條裡有三條你已經學過，只是當時不是在講錢</span>
+            <span className="text-slate-500 text-sm">右邊是它在課程裡的原型</span>
           </div>
           <div className="divide-y divide-slate-800/70">
             {MONEY.map((m) => (
               <div
                 key={m.ask}
-                className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,330px)] gap-x-5 gap-y-1 py-2.5"
+                className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,330px)] gap-x-5 gap-y-0.5 py-2"
               >
-                <div>
-                  <div className="text-slate-100 text-sm font-bold leading-snug">{m.ask}</div>
-                  <p className="text-slate-400 text-sm leading-relaxed mt-0.5">{m.detail}</p>
-                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                  <strong className="text-slate-100">{m.ask}</strong>
+                  <span className="ml-2">{m.detail}</span>
+                </p>
                 <p
                   className={`text-sm leading-relaxed md:text-right ${
                     m.isNew ? 'text-slate-500' : 'text-sky-300/80'
@@ -129,7 +138,7 @@ export default function SlideShipDomains() {
               <AnimatedBlock
                 key={d.name}
                 stepIndex={i + 3}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-5"
+                className="rounded-2xl border border-slate-800 bg-slate-900 p-4"
               >
                 <div className="flex items-center gap-2.5 mb-2.5">
                   <Icon aria-hidden="true" size={16} className="text-slate-500 shrink-0" />
@@ -146,13 +155,9 @@ export default function SlideShipDomains() {
           收尾是這三頁真正要留下的一句，也是整章「你負責判斷」那條線的終點。
           **不要改成「資安很重要」那種結論**，那是口號，而且前面兩頁已經給過證據了。
         */}
-        <Callout tone="focus" label="會搬家的是判斷，不是那個計時器" stepIndex={6}>
-          你在計時器上學的「不要信前端送上來的東西」，換到錢上面叫金額要在後端重算，
-          換到報表上面叫數字要從原始紀錄算。
+        <Callout tone="focus" label="會搬家的是判斷" stepIndex={6}>
+          「不要信前端送上來的東西」換到錢上面叫金額要在後端重算，換到報表上面叫數字要從原始紀錄算。
           <strong className="text-slate-100">碰到新領域的時候，先找這一題的對應物，再去查它的細節。</strong>
-          <span className="block mt-2 text-slate-400">
-            這四個領域的那一題都收在講義頁那張〈上線前自查卡〉的最後一段。
-          </span>
         </Callout>
 
       </div>

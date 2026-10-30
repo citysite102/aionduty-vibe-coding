@@ -5,6 +5,11 @@ import graftDemo from '../../assets/tools/graft-site-act-demo.gif';
 import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
 
 /**
+ * **標題「同樣的命題，不同的解決策略」是講師指定保留的，不要再改。**
+ * 2026-10-30 那一輪掃對仗句（CLAUDE.md D-5 的區塊小標那一節）時換成過
+ * 「用四個問題比較兩個同類工具」，講師看了之後要求換回來。同一頁的兩個區塊小標
+ * （「同一張表的兩個答案」「公司說可以送，就該選那個嗎？」）是那一輪改的，那兩個留著。
+ *
  * 2026-10-08 新增（講師要求）：上一頁給了四個問題，這一頁拿同一類的第二個工具套一次，
  * 四題裡有一題的答案完全相反，那張表才看得出有用。這一頁的本體是那條對照線，
  * 不是 graft 這個專案本身。
@@ -118,7 +123,7 @@ export default function SlideToolBoundary() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-          <h3 className="text-slate-100 text-base font-bold mb-3">同一張表，兩個答案</h3>
+          <h3 className="text-slate-100 text-base font-bold mb-3">同一張表的兩個答案</h3>
           <div className="grid grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)_minmax(0,1.2fr)] gap-x-4">
             <div className="text-slate-500 text-sm pb-2" />
             <div className="text-sky-400 text-sm font-bold pb-2">本機那一個</div>
@@ -141,7 +146,7 @@ export default function SlideToolBoundary() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-          <h3 className="text-slate-100 text-base font-bold mb-2.5">那假設公司說可以送，就一定選那個嗎？</h3>
+          <h3 className="text-slate-100 text-base font-bold mb-2.5">公司說可以送，就該選那個嗎？</h3>
           <p className="text-slate-400 text-sm leading-relaxed">
             <strong className="text-slate-200">多那一層換到的</strong>：模型寫的摘要講得出「這個資料夾在業務上是做什麼的」，
             結構索引答不出這一題。新人接手一個舊專案的時候差最多。

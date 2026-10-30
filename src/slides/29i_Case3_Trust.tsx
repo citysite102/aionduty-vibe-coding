@@ -1,4 +1,4 @@
-import { KeyRound, Table2, Rows3 } from 'lucide-react';
+import { KeyRound, Table2, Rows3, ChevronRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -26,6 +26,12 @@ const LAYERS = [
   },
 ];
 
+const COUNT_STEPS = [
+  { k: '卡在哪', v: '第二層擋住了別人的預約，前端手上沒有那些資料，所以算不出來還剩幾個。' },
+  { k: '怎麼做', v: '請資料庫自己去數。它讀得到整張表，但只回你一個數字。' },
+  { k: '代價', v: '改成讓前端自己算，就要把整張表開放，等於把別人的預約全部給出去。' },
+];
+
 export default function SlideCase3Trust() {
   return (
     <SlideLayout
@@ -33,7 +39,7 @@ export default function SlideCase3Trust() {
       subtitle="Case 03 · 前端擋不住的那些事"
       icon={KeyRound}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
         {/*
           2026-10-05 補這一句。章節七的〈把紀錄搬上 Supabase〉已經讓學員自己接過一次，
@@ -42,12 +48,13 @@ export default function SlideCase3Trust() {
           **改那一頁的推托句，要回來改這一句。**
         */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-base leading-relaxed">
-          計時器搬上 Supabase 那一步只說了「把 RLS 打開」。
-          <strong className="text-slate-300">打開之後它預設全部拒絕，所以規則要一條一條放行，而放行的條件寫錯，錯誤訊息會告訴你是哪一層。</strong>
+          擋住別人看你資料的那道門在資料庫上，不在前端。
+          <strong className="text-slate-300">計時器搬上 Supabase 那一步打開的 RLS，就是這道門</strong>，
+          當時只按了開關，這裡才真的用到它。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">
               可以公開的那一把
             </div>
@@ -57,7 +64,7 @@ export default function SlideCase3Trust() {
               <strong className="text-slate-100">它拿得到什麼，完全由資料庫的規則決定。</strong>
             </p>
           </div>
-          <div className="rounded-2xl border border-rose-500/30 bg-rose-500/5 p-5">
+          <div className="rounded-2xl border border-rose-500/30 bg-rose-500/5 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-rose-400 mb-2">
               不能外流的那一把
             </div>
@@ -70,17 +77,42 @@ export default function SlideCase3Trust() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-2">擋人的規則有兩層，錯誤訊息不一樣</h3>
+        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+          <h3 className="text-base font-bold text-slate-100 mb-2">資料庫擋人的兩層</h3>
           {/*
             2026-10-04：這一頁是全片對不寫程式的人最陡的一頁。前一次碰資料庫是
             〈資料庫設計〉的「一張表就是一個 Excel 分頁」，下一次就是這兩段英文原文。
             中間補一階白話，兩層各給一個櫃子的說法；原文保留，因為那是學員唯一能分辨
             卡在哪一層的線索，但要明說不用背。**不要把這兩段原文換成翻譯。**
           */}
-          <p className="text-slate-400 text-sm leading-relaxed mb-4">
+          <p className="text-slate-400 text-sm leading-relaxed mb-3">
             第一層問的是「你能不能開這個櫃子」，第二層問的是「櫃子裡哪幾份是你的」。
-            底下那兩段英文是它實際會回你的訊息，<strong className="text-slate-300">不用背，認得出是哪一層就夠了</strong>。
+            一個請求要連過兩道，任何一道沒過就回一段錯誤訊息，兩段長得不一樣。
+          </p>
+          {/*
+            2026-10-30 補這條流程（講師：這一段適合圖像化）。它要做的事只有一件：
+            讓學員看到兩層是**串著的**，不是兩種選項。兩個關卡的顏色跟底下兩張卡一致，
+            **改其中一邊的顏色就要兩邊一起改**。膠囊與箭頭的寫法跟 Slide 32、33 同一套。
+          */}
+          <div className="flex flex-wrap items-center gap-x-1 gap-y-2 mb-4">
+            <span className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1 text-slate-300 text-sm">
+              前端送出請求
+            </span>
+            <ChevronRight aria-hidden="true" size={14} className="shrink-0 text-slate-600" />
+            <span className="rounded-lg border border-sky-500/30 bg-sky-500/5 px-3 py-1 text-sky-100 text-sm">
+              第一層：這張表你碰不碰得到
+            </span>
+            <ChevronRight aria-hidden="true" size={14} className="shrink-0 text-slate-600" />
+            <span className="rounded-lg border border-indigo-500/30 bg-indigo-500/5 px-3 py-1 text-indigo-100 text-sm">
+              第二層：這張表的哪幾列是你的
+            </span>
+            <ChevronRight aria-hidden="true" size={14} className="shrink-0 text-slate-600" />
+            <span className="rounded-lg border border-slate-700 bg-slate-950 px-3 py-1 text-slate-300 text-sm">
+              資料回到前端
+            </span>
+          </div>
+          <p className="text-slate-500 text-sm leading-relaxed mb-3">
+            底下兩段英文是它實際會回你的訊息，認得出是哪一層就夠了，不用背。
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {LAYERS.map((l) => (
@@ -107,21 +139,27 @@ export default function SlideCase3Trust() {
               </div>
             ))}
           </div>
-          <p className="text-slate-500 text-sm leading-relaxed mt-3">
-            第二層底下的每一條規則，資料庫那邊叫它「政策」。
-          </p>
-          <p className="text-slate-300 text-sm leading-relaxed mt-4">
+          <p className="text-slate-300 text-sm leading-relaxed mt-3">
             第二層打開之後<strong className="text-slate-100">預設是全部拒絕</strong>，
-            所以第二層底下每寫一條規則，都是在放行某一批資料，不是在多擋一道。
-            方向搞反的話，你會寫出一堆自以為在防守、實際上什麼都沒擋到的東西。
+            底下每寫一條規則（資料庫那邊叫它「政策」）都是在放行某一批資料。
+            方向搞反的話，你會寫出一堆什麼都沒擋到的規則。
           </p>
         </AnimatedBlock>
 
-        <Callout tone="muted" label="那個前端算不出來的數字" stepIndex={3}>
-          你看不到別人的預約，第二層擋住了。但畫面上要顯示「還剩幾個位子」，
-          <strong className="text-slate-300">而前端手上根本沒有那些資料</strong>。
-          解法是請資料庫自己去數：它讀得到整張表，但只回你一個數字，別人的預約你還是看不到。
-          判斷錯的代價是為了算一個數字，把不該給的資料全部給出去。
+        {/*
+          2026-10-30 從一段散文改成三行（講師：太 AI）。原本四句話把「卡在哪」「怎麼做」
+          「做錯會怎樣」黏在一起，而這三件事是三個不同的東西，學員要自己拆。
+          **三行的標籤不要換成「問題／解法／結論」那種泛稱**，第三行講的是代價不是結論。
+        */}
+        <Callout tone="muted" label="還剩幾個位子，這個數字誰來算" stepIndex={3}>
+          <span className="block space-y-1.5">
+            {COUNT_STEPS.map((c) => (
+              <span key={c.k} className="flex flex-wrap items-baseline gap-x-2">
+                <span className="w-14 shrink-0 text-slate-300 text-sm font-bold">{c.k}</span>
+                <span className="flex-1 min-w-0 text-sm leading-relaxed">{c.v}</span>
+              </span>
+            ))}
+          </span>
         </Callout>
 
       </div>

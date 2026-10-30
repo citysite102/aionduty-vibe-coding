@@ -91,7 +91,7 @@ export default function SlideFutureEngineering() {
 
                 <div className="text-sm leading-relaxed text-slate-400 space-y-2">
                   <p>
-                    <strong className="text-slate-300">你已經做過：</strong>
+                    <strong className="text-slate-300">對應到：</strong>
                     {t.did}
                   </p>
                   <p className="border-t border-slate-800 pt-2">

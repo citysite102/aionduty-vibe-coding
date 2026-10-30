@@ -30,7 +30,26 @@ import { Callout } from '../components/Callout';
  *
  * **下次改版前三個網址都點一次。** 連結掛掉或數字對不上就整塊拿掉，不要只改數字，
  * 也不要憑印象寫成「研究顯示大部分⋯」。沒有來源的百分比是 D-2 直接禁的。
+ *
+ * 2026-10-30 補台灣的那一件（講師要求）。查證來源：
+ *   INSIDE 專訪 inside.com.tw/article/42420-lean-ai-vibe-coding-whatsub-subtitle-tool
+ *   當事人是壹加壹的潘令傑（Lean），十年剪片經驗、非工程背景，2026-08 推出字幕工具
+ *   What'Sub，兩天破萬註冊。專訪裡的事實：早期有一批 email 外洩；多位白帽與個人開發者
+ *   主動測站並把問題寄給他；他把回報整理給 Claude 與 Codex 判斷哪些成立、逐項修，
+ *   還用 Codex 跑過一次紅藍對抗。他自己的話是「我沒有想到這麼多」。
+ *   **只寫專訪裡有的，不要加判斷。** 社群上流傳的「你不知道你不知道」是某則留言，
+ *   經第三方帳號轉述，查不到原始出處，不要寫進畫面（D-2 沒有來源的引述）。
+ *   也不要寫成「被駭」：外洩的是 email，不是有人攻進去。
+ *   這一筆掛在「為什麼會這樣」那一塊裡面，不另開區塊，理由見下面那段註解。
  * ─────────────────────────────────────────────────────────────────
+ *
+ * 2026-10-31 換標題（講師：「我怕這個標題是不是就直接說，那是不是不該做了」）。
+ * 原本是〈三萬個 AI 做的網站，99% 有資安問題〉，一個沒有主詞的數字擺在最大的字級上，
+ * 讀起來像在對 AI 寫的程式下結論，而這門課整堂都在教怎麼用它。
+ * 現在的標題講這一頁有什麼（三組掃描數字＋一段解釋），後半直接把那個誤讀擋掉。
+ * **99% 沒有消失**，它還是底下第一格那個最大的琥珀色數字，視覺上的衝擊沒有變。
+ * 要改回有數字的版本，數字前面一定要留「AI 做的網站」那個限定語：
+ * 那三萬個掃的是 vibe-coded 網站，不是全部的網站，少掉限定語就是假的。
  *
  * **語氣是這一頁最容易長歪的地方。** 它要做的是讓學員知道這幾類存在，
  * 不是證明 AI 寫的程式很爛。42.3 對 9.6 那一組特別容易被念成後者，
@@ -48,7 +67,7 @@ const STATS = [
   {
     n: '42.3',
     of: '對 9.6',
-    body: '比對 1,967 個 GitHub 專案，AI 協助寫的平均 42.3 個漏洞，純人寫的 9.6 個。這個差距要你多做一道檢查。',
+    body: '比對 1,967 個 GitHub 專案，AI 協助寫的平均 42.3 個漏洞，純人寫的 9.6 個。所以多做一道檢查。',
     src: 'Symbiotic Security',
   },
   {
@@ -62,11 +81,11 @@ const STATS = [
 export default function SlideShipRisk() {
   return (
     <SlideLayout
-      title="三萬個 AI 做的網站，99% 有資安問題"
+      title="三組掃描數字，以及為什麼跟你的程度無關"
       subtitle="What Actually Goes Wrong"
       icon={ShieldAlert}
     >
-      <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
+      <div className="max-w-6xl mx-auto w-full space-y-2 pb-0">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           東西做出來、會動了，多數人到這裡就當它做完了。
@@ -76,13 +95,13 @@ export default function SlideShipRisk() {
 
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {STATS.map((s) => (
-            <div key={s.src} className="rounded-2xl border border-amber-900/40 bg-slate-900/60 p-5">
-              <div className="flex items-baseline gap-2 mb-2">
+            <div key={s.src} className="rounded-2xl border border-amber-900/40 bg-slate-900/60 p-4">
+              <div className="flex items-baseline gap-2 mb-1.5">
                 <span className="text-amber-300 text-3xl font-bold font-mono">{s.n}</span>
                 <span className="text-slate-400 text-sm">{s.of}</span>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">{s.body}</p>
-              <p className="text-slate-600 text-sm mt-3 pt-2.5 border-t border-slate-800">{s.src}</p>
+              <p className="text-slate-600 text-sm mt-2 pt-2 border-t border-slate-800">{s.src}</p>
             </div>
           ))}
         </AnimatedBlock>
@@ -91,13 +110,34 @@ export default function SlideShipRisk() {
           「為什麼會這樣」不能省：少了它，上面三個數字會被讀成「AI 寫的程式不能用」，
           而這門課整堂都在教怎麼用它。真正的原因是需求裡沒有這一項，所以它不會做。
         */}
-        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-2">為什麼會這樣，而且跟你的程度無關</h3>
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
+          <h3 className="text-base font-bold text-slate-100 mb-1.5">為什麼會這樣，而且跟你的程度無關</h3>
           <p className="text-slate-300 text-base leading-relaxed">
             你說「做一個可以登記報名的頁面」，它就做了一個可以登記報名的頁面，而且做得很好。
             <strong className="text-slate-100">沒有人要求它擋住不該進來的人，所以那件事不會出現。</strong>
             它不是寫壞了，是你沒有要求，而你沒有要求是因為你不知道有這一項。
             所以你要補的那一項叫「知道該問哪幾題」。
+          </p>
+          {/*
+            台灣這一件接在上面那段後面、不另開區塊，因為它證明的就是那一段：
+            這跟程度無關。**不要搬成獨立的一頁或一張卡**，那會把它變成在講這個人，
+            而這一頁要講的是那件事會發生在誰身上（包括台下的人）。
+            後半的「他怎麼處理」不要刪：少了它，這一段讀起來像在指責一個真實的人，
+            而且那三步正好就是後面〈三種檢查〉那一頁要教的。
+          */}
+          <p className="text-slate-400 text-sm leading-relaxed mt-2">
+            <strong className="text-slate-200">台灣 2026 年 8 月就有一次。</strong>
+            壹加壹的字幕工具 What&rsquo;Sub 兩天破萬註冊，接著一批使用者的 email 外洩。
+            開發者是剪片出身、不寫程式，他的說法是「我沒有想到這麼多」。
+            白帽把問題寄給他之後，他逐條交給 AI 判斷、修完。
+            <a
+              href="https://www.inside.com.tw/article/42420-lean-ai-vibe-coding-whatsub-subtitle-tool"
+              target="_blank"
+              rel="noreferrer"
+              className="ml-2 text-slate-600 hover:text-sky-400 inline-flex items-center gap-1"
+            >
+              INSIDE 專訪 <ExternalLink size={11} aria-hidden="true" />
+            </a>
           </p>
         </AnimatedBlock>
 

@@ -76,7 +76,7 @@ export default function SlideQuoteSystemRequirements() {
       <div className="max-w-5xl mx-auto w-full pb-8 space-y-4">
 
         <AnimatedBlock stepIndex={1} className="rounded-xl border border-slate-800 bg-slate-900 p-5">
-          <h3 className="text-slate-100 text-lg font-bold mb-2">第一份材料不是技術文件，是「誰會用這個東西」</h3>
+          <h3 className="text-slate-100 text-lg font-bold mb-2">第一份材料是「誰會用這個東西」</h3>
           <p className="text-slate-400 text-base leading-relaxed mb-3">
             先列出角色，再由每個角色講出他要完成的事，一件一句。那一句叫{' '}
             <strong className="text-slate-200">User Story（使用者故事）</strong>，格式固定三段：

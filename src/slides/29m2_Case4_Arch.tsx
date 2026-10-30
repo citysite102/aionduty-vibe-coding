@@ -1,5 +1,4 @@
-import { Fragment } from 'react';
-import { Network, Monitor, Server, Globe, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Network, Monitor, Server, Globe, ShieldCheck, ArrowDown } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -17,6 +16,14 @@ import { Callout } from '../components/Callout';
  * 而它用圖講比較快：網站、別人的 curl、文件頁上的試呼叫，三條路最後都走到同一個資料庫，
  * 所以把關的只可能是資料庫自己的規則。要再往圖上加東西之前先問：
  * 它幫得上這個問題嗎？幫不上就留在手冊裡。
+ *
+ * 2026-10-31（講師：可以更精準的圖像化）改掉兩件事：
+ *   1. **三塊之間那兩個向右的箭頭拿掉了。** 它們畫成「瀏覽器 → Supabase → 外部」，
+ *      但「外部」裡的「別人的程式」不是 Supabase 的下游，它跟瀏覽器一樣是**入口**。
+ *      箭頭把一張位置圖畫成了流程圖，而且方向是錯的。現在那三塊只回答「東西放在哪」。
+ *   2. **補一條入口匯流列**：三個入口並排、三個向下的箭頭，底下就是那道權限規則。
+ *      那才是這一頁要講的事（見上面那段），原本只靠文字講在最後的 Callout 裡。
+ *      **不要把向右的箭頭加回來。**
  *
  * 顏色只有一個 sky，標的是「要帶權杖的那條線」與它最後撞上的那道規則，
  * 兩者是同一件事的頭尾（A-1）。灰線是不用登入也走得通的那條。
@@ -57,6 +64,13 @@ const ZONES = [
   },
 ];
 
+/** 三個入口。它們的共同點是最後都走到同一個資料庫，所以把關的只可能是資料庫自己 */
+const ENTRIES = [
+  { k: '你的網站', v: '使用者在瀏覽器上按按鈕' },
+  { k: '別人的程式', v: '終端機一行指令，不經過這個網站' },
+  { k: 'API 文件頁', v: '文件頁上的試呼叫按鈕' },
+];
+
 /** 四條路線。走得通不代表擋不住，差別在最後那一欄 */
 const FLOWS: { what: string; who: string; auth: boolean }[] = [
   { what: '讀繪馬牆', who: '任何人，從網站或從外面呼叫都可以', auth: false },
@@ -72,53 +86,55 @@ export default function SlideCase4Arch() {
       subtitle="Case 04 · 一頁看完它接了什麼"
       icon={Network}
     >
-      <div className="max-w-6xl mx-auto space-y-4 pb-8">
+      <div className="max-w-6xl mx-auto space-y-2 pb-2">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-sm leading-relaxed">
-          這個網站實際接了哪些東西，三塊放在同一張圖上。
-          <strong className="text-slate-200">灰線是不用登入也走得通的路，亮起來那幾條要帶權杖</strong>
-          （登入之後拿到的那串通行碼）。
+          上面三塊是東西放在哪，底下三個入口最後都走到同一個資料庫。
+          <strong className="text-slate-200">規則那一塊裡亮起來的，是要帶權杖才走得通的</strong>
+          （權杖就是登入之後拿到的那串通行碼）。
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1.15fr_auto_0.9fr] gap-3 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr_0.9fr] gap-3 items-stretch">
           {ZONES.map((z, i) => (
-            <Fragment key={z.name}>
               <AnimatedBlock
+                key={z.name}
                 stepIndex={i + 2}
-                className="rounded-2xl border border-slate-800 bg-slate-900 p-4 text-left"
+                className="rounded-2xl border border-slate-800 bg-slate-900 p-3 text-left"
               >
                 <div className="flex items-center gap-2.5 mb-1">
                   <z.icon aria-hidden="true" size={15} className="shrink-0 text-slate-500" />
                   <h3 className="text-base font-bold text-slate-100">{z.name}</h3>
                 </div>
                 <p className="text-xs text-slate-500 leading-relaxed mb-3">{z.sub}</p>
-                <ul className="space-y-2 border-t border-slate-800 pt-3">
+                <ul className="space-y-1.5 border-t border-slate-800 pt-2.5">
                   {z.rows.map(([k, v]) => (
-                    <li key={k}>
-                      <span className="text-sm font-bold text-slate-200">{k}</span>
-                      <span className="block text-sm leading-snug text-slate-400">{v}</span>
+                    <li key={k} className="text-sm leading-relaxed text-slate-400">
+                      <span className="font-bold text-slate-200">{k}</span>
+                      <span className="ml-2">{v}</span>
                     </li>
                   ))}
                 </ul>
               </AnimatedBlock>
-
-              {/* 箭頭畫在欄與欄之間，窄螢幕收起來，免得變成一排孤零零的符號 */}
-              {i < ZONES.length - 1 && (
-                <AnimatedBlock
-                  stepIndex={i + 3}
-                  className="hidden lg:flex items-center justify-center"
-                >
-                  <ArrowRight aria-hidden="true" size={18} className="text-slate-700" />
-                </AnimatedBlock>
-              )}
-            </Fragment>
           ))}
         </div>
 
+        {/* 入口匯流列：三個入口 → 同一道規則。這是整頁的論點，不要拆開 */}
+        <AnimatedBlock stepIndex={5} className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {ENTRIES.map((e) => (
+            <div key={e.k} className="flex flex-col items-center gap-1">
+              <div className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-center">
+                <span className="block text-sm font-bold text-slate-200">{e.k}</span>
+                <span className="block text-sm leading-snug text-slate-500">{e.v}</span>
+              </div>
+              <ArrowDown aria-hidden="true" size={16} className="text-sky-500/60" />
+            </div>
+          ))}
+        </AnimatedBlock>
+
         {/* 這一塊是整頁的樞紐：上面三區都往它走 */}
         <AnimatedBlock
-          stepIndex={5}
-          className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4 text-left"
+          stepIndex={6}
+          className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-3 text-left"
         >
           <div className="flex items-center gap-2.5 mb-2">
             <ShieldCheck aria-hidden="true" size={16} className="shrink-0 text-sky-400" />
@@ -138,7 +154,7 @@ export default function SlideCase4Arch() {
           </div>
         </AnimatedBlock>
 
-        <Callout tone="focus" stepIndex={6}>
+        <Callout tone="focus" stepIndex={7}>
           你的網站、別人終端機裡的一行指令、API 文件頁上的試呼叫，
           <strong className="text-slate-100">三個入口走的是同一個資料庫</strong>。
           介面上的登入視窗擋不住中間那兩個，真正把人分開的是上面那條規則。

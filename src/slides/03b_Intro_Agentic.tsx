@@ -28,7 +28,7 @@ export default function SlideIntroAgentic() {
             那句封面（1-1 Slide 1）已經講過一次，這裡只留順序。
           */}
           <h3 className="text-2xl font-black text-slate-100 mb-4">
-            Andrej Karpathy：這兩個不是誰取代誰，是各做各的事
+            Andrej Karpathy：兩者互補
           </h3>
           <p className="text-slate-500 text-xs mb-3">
             2026 年 4 月，Sequoia AI Ascent 的對談。

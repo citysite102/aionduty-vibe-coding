@@ -1,4 +1,4 @@
-import { ClipboardList } from 'lucide-react';
+import { ClipboardList, ChevronRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -35,7 +35,7 @@ import { Callout } from '../components/Callout';
  * 2026-10-28 把「算剩餘名額：扣到 0 就停住，不會算出 -1」從單元那一欄拿掉，改成底下那個
  * amber 的反例。講師問「這算單元測試嗎」，查下去不算，而且錯得比折扣那條嚴重：
  * 名額的真正答案在資料庫裡，同一秒兩個人送出、各自拿自己看到的數字去減就會算出 -1。
- * 替一個 clamp 函式寫單元測試會全綠，線上照樣超賣——那正是案例三〈兩個人同時搶最後一個
+ * 替一個 clamp 函式寫單元測試會全綠，線上照樣超賣，那正是案例三〈兩個人同時搶最後一個
  * 名額〉教的事。把它留在單元那一欄等於教學員用錯誤的方式安心。
  *
  * 所以這一欄現在三條都是「送出之前，畫面自己就知道」的事（必填、格式、整理），
@@ -52,7 +52,18 @@ import { Callout } from '../components/Callout';
  * 每一欄的條數刻意是 3／3／2：端對端比較少本來就是這一段要教的事，不要為了對齊補到三條。
  */
 
-const PROJECT = '線上活動報名：填表單送出、名額 20 人、報名成功寄一封確認信。';
+const PROJECT = '線上活動報名：填表單送出、名額 20 人搶完為止、報名成功寄一封確認信。';
+
+/**
+ * 超賣那一格的兩條路。兩列一模一樣是刻意的：**錯不在某一邊算錯**，
+ * 兩邊各自都算對了，錯在它們讀到的是同一個還沒被更新的數字。
+ * 文字版講過兩次都講不清楚（講師 2026-10-30 回報），所以改成並排的兩條路，
+ * 一眼看得到「兩列的第一格一樣」。膠囊一律灰階，紅色留給底下那一行結果。
+ */
+const RACE = [
+  { who: '使用者 A', steps: ['讀到「剩 1 個」', '算 1 − 1 = 0', '寫回 0'] },
+  { who: '使用者 B', steps: ['讀到「剩 1 個」', '算 1 − 1 = 0', '寫回 0'] },
+];
 
 const LAYERS = [
   {
@@ -60,13 +71,13 @@ const LAYERS = [
     items: [
       '檢查必填：姓名留空就擋下來',
       '檢查信箱格式：沒有 @ 的擋下來',
-      '整理電話：0912345678 排成 0912-345-678，少一碼擋下來',
+      '整理電話：0912345678 排成 0912-345-678',
     ],
   },
   {
     name: '整合測試',
     items: [
-      '按下送出，資料庫真的多一筆，名額真的少 1',
+      '按下送出，資料庫多一筆，名額少 1',
       '同一個信箱報第二次，被擋下來',
       '寄信的服務掛掉時，報名不會跟著不見',
     ],
@@ -80,31 +91,37 @@ const LAYERS = [
   },
 ];
 
+/**
+ * 由上往下問，答得出「是」就停在那一層。第一條的「真的」兩個字不要拿掉，理由見檔頭。
+ */
+const ASK = [
+  { q: '不用真的開一個瀏覽器、也不用真的連資料庫就驗得出來', answer: '單元測試' },
+  { q: '要碰到資料庫或另一個服務才知道', answer: '整合測試' },
+  { q: '要照使用者的順序走完一整遍才看得出來', answer: '端對端（E2E）' },
+];
+
 export default function SlideTestExample() {
   return (
     <SlideLayout
-      title="一個報名表單，哪幾件事各寫哪一種測試"
+      title="範例：報名表單的三種測試"
       subtitle="One Project, Three Layers"
       icon={ClipboardList}
     >
-      <div className="max-w-6xl mx-auto space-y-4 pb-4">
+      <div className="max-w-6xl mx-auto space-y-1.5 pb-0">
 
-        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-          <p className="text-slate-300 text-sm leading-relaxed">
-            <span className="text-slate-500">這個專案：</span>
-            {PROJECT}
-          </p>
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-sm leading-relaxed px-1">
+          {PROJECT}
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {LAYERS.map((l) => (
-            <div key={l.name} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-              <h3 className="text-base font-bold text-slate-100 mb-3">{l.name}</h3>
-              <ul className="space-y-2">
+            <div key={l.name} className="rounded-2xl border border-slate-800 bg-slate-900 p-2.5">
+              <h3 className="text-base font-bold text-slate-100 mb-2">{l.name}</h3>
+              <ul className="space-y-1">
                 {l.items.map((t) => (
                   <li
                     key={t}
-                    className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-slate-300 text-sm leading-relaxed"
+                    className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-1.5 text-slate-300 text-sm leading-relaxed"
                   >
                     {t}
                   </li>
@@ -114,17 +131,50 @@ export default function SlideTestExample() {
           ))}
         </AnimatedBlock>
 
-        <Callout tone="warn" label="名額為什麼不在左邊那一欄" stepIndex={3}>
-          剩幾個位子看起來是算數，但真正的答案在資料庫裡。
-          <strong className="text-slate-100">同一秒兩個人都按下送出，各自拿自己看到的數字去減，就會算出 -1</strong>。
-          替一個「扣到 0 就停住」的算式寫測試會全綠，線上照樣超賣。
-          要問資料庫才知道的事，不管看起來多像算數，都是整合測試。
+        {/*
+          Mock 掛在三欄底下、而不是前一頁的整合測試卡上，因為右邊那一欄的
+          「寄信的服務掛掉時」這一條，不給替身就寫不出來，學員的疑問正好在這裡冒出來。
+          **不要搬到 Slide 32**：那一頁沒有具體的外部服務可以指，而且它已經沒有高度了。
+          寫法比照覆蓋率與迴歸測試：粗體名詞加括號英文、一句定義、一句它用來驗什麼。
+        */}
+        <AnimatedBlock stepIndex={3} as="p" className="text-slate-400 text-sm leading-relaxed px-1">
+          整合測試碰到別人的服務（寄信、付款）時不會真的送出去，改用一個
+          <strong className="text-slate-200">假的替身（Mock）</strong>，只驗有沒有被呼叫、內容對不對。
+        </AnimatedBlock>
+
+        <Callout tone="warn" label="名額為什麼不在單元測試那一欄" stepIndex={4}>
+          剩 1 個位子的時候，同一秒兩個人都按下送出：
+          <span className="mt-1 mb-1 block space-y-1">
+            {RACE.map((r) => (
+              <span key={r.who} className="flex flex-wrap items-center gap-x-1 gap-y-1">
+                <span className="w-20 shrink-0 text-slate-500 text-sm">{r.who}</span>
+                {r.steps.map((s, i) => (
+                  <span key={s} className="flex items-center gap-1">
+                    {i > 0 && (
+                      <ChevronRight aria-hidden="true" size={13} className="shrink-0 text-slate-600" />
+                    )}
+                    <span className="rounded-lg border border-slate-700 bg-slate-950 px-2.5 py-0.5 text-slate-300 text-sm">
+                      {s}
+                    </span>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </span>
+          <strong className="text-slate-100">兩邊都算對了，兩個人也都報名成功，名額卻只扣掉 1。</strong>
+          「剩幾個」要問資料庫才知道，這種事都是整合測試。
         </Callout>
 
-        <Callout tone="focus" label="換成你的東西要怎麼分，問兩題" stepIndex={4}>
-          第一題，不用真的開一個瀏覽器、也不用真的連資料庫就驗得出來嗎？是，就是單元測試。
-          不是的話問第二題：要碰到資料庫或另一個服務才知道，整合測試；
-          <strong className="text-slate-100">要照使用者的順序走完一整遍才看得出來</strong>，端對端。
+        <Callout tone="focus" label="我們可以如何區別？" stepIndex={5}>
+          <span className="block">
+            {ASK.map((q) => (
+              <span key={q.answer} className="flex flex-wrap items-baseline gap-x-2">
+                <span className="text-slate-300">{q.q}</span>
+                <ChevronRight aria-hidden="true" size={13} className="shrink-0 self-center text-slate-600" />
+                <strong className="text-slate-100">{q.answer}</strong>
+              </span>
+            ))}
+          </span>
         </Callout>
 
       </div>

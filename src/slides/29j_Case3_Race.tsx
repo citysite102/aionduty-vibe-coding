@@ -40,9 +40,6 @@ export default function SlideCase3Race() {
       <div className="max-w-6xl mx-auto space-y-5 pb-8">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-rose-500/30 bg-rose-500/5 p-5">
-          <div className="font-mono text-xs uppercase tracking-widest text-rose-400 mb-2">
-            這個案例一開始就先問的問題
-          </div>
           <h3 className="text-base font-bold text-slate-100 mb-3">
             額滿之後把按鈕藏起來，能不能防止超額預約？
           </h3>
@@ -79,7 +76,7 @@ export default function SlideCase3Race() {
         </div>
 
         <AnimatedBlock stepIndex={5} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">手冊把這個漏洞當成等級的分界</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">手冊裡面有說明這個漏洞</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             第 12 步做完，網站就會動了：看得到場次、登入得了、預約得了、也取消得了。
             漏洞在那個時候已經在裡面，只是還沒有人去撞它。
@@ -100,17 +97,23 @@ export default function SlideCase3Race() {
           </p>
         </AnimatedBlock>
 
+        {/*
+          2026-10-31（講師：模糊）重寫。原本是「判斷依據只有一句：⋯」加一整段解釋，
+          問題是「繞過畫面」這個動作直到第三句才講，而那正是學員唯一需要看懂的東西。
+          現在把動作提到最前面、寫成具體畫面（終端機打一行指令），判斷那一句放後面當結論。
+          **不要再用「判斷依據只有一句」開頭**，那是宣告不是內容。
+        */}
         <Callout
           tone="focus"
-          label="這個案例的核心判斷"
+          label="這個檢查該放前端還是資料庫"
           stepIndex={6}
           footnote="修好之前不要部署。"
         >
-          這個檢查該放前端還是資料庫？判斷依據只有一句：
-          <strong className="text-slate-100">有人繞過你的畫面直接送請求，它還擋不擋得住。</strong>
-          <span className="block mt-2 text-slate-400">
-            繞過畫面是什麼動作：不開你的網頁，用工具直接對資料庫送一筆「我要預約」。
-            這個人從頭到尾沒看過你的按鈕，所以按鈕藏不藏起來對他沒有差別。
+          有人可以不開你的網頁，在終端機打一行指令，直接對資料庫送一筆「我要預約」。
+          他從頭到尾沒看過你的按鈕，所以按鈕藏不藏起來對他沒有差別。
+          <span className="block mt-2">
+            <strong className="text-slate-100">所以每做一個檢查就問一次：這個人送請求過來，它還擋不擋得住。</strong>
+            擋得住就放對地方了，擋不住就要搬到資料庫那一層。
           </span>
         </Callout>
 

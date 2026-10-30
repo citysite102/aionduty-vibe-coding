@@ -1,6 +1,7 @@
 import { ListChecks } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { JudgementTable } from '../components/JudgementTable';
 
 /**
  * 這一頁原本畫的是七格「壓縮過的流程」，還說手冊有十二步，兩個數字對不上，
@@ -93,7 +94,7 @@ export default function SlideCase1Chain() {
       subtitle="Case 01 · 從一份規格到一個公開網址"
       icon={ListChecks}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <div className="space-y-3">
@@ -155,20 +156,7 @@ export default function SlideCase1Chain() {
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             因為它們要的是你對這個品牌與這批內容的理解。
           </p>
-          <ul className="space-y-2">
-            {JUDGEMENTS.map((j) => (
-              <li key={j.q} className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-slate-100 text-sm font-bold">{j.q}</span>
-                  <span className="font-mono text-xs text-slate-600 shrink-0">{j.at}</span>
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed mt-0.5">判斷依據：{j.by}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1 border-t border-slate-800 pt-1.5">
-                  判斷錯的代價：{j.cost}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
         <Callout tone="focus" label="換成你自己的專案，最少要留哪幾步" stepIndex={4}>

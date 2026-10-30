@@ -1,4 +1,4 @@
-import { CalendarCheck } from 'lucide-react';
+import { CalendarCheck, Check, X } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import { CaseShot } from '../components/CaseShot';
@@ -9,6 +9,33 @@ const ROUTE = [
   { label: '起點', text: '一個空資料夾、一個新開的練習用資料庫專案、兩個測試用的信箱' },
   { label: '過程', text: '先判斷需不需要資料庫，再設計兩張表與兩層權限。規則測過擋得住，才接畫面、登入與預約' },
   { label: '產出', text: '一個可以登入、預約、取消的網站，以及一份在正式環境驗過的權限規則' },
+];
+
+/**
+ * 2026-10-30 把這一段從三句話改成條列（講師：太模糊）。原本是「它會動到真的資料庫：
+ * 反覆建表⋯只能用新開的練習專案、假資料、你自己的測試信箱。公司正式資料、客戶資料，
+ * 以及任何正在服務真實使用者的環境都不行」。問題是「只能用」與「都不行」兩串都塞在
+ * 散文裡，學員要自己拆，而這是一段**照著做會出事**的警告，不是說明。
+ * 兩欄用 Check／X 的圖形區分，不另外上色（A-1：分組用圖形不用顏色，而且這一頁
+ * 已經有 amber）。**要加項目就加進陣列，不要寫回句子。**
+ *
+ * 2026-10-30 右欄換掉（講師：「這個案例本來就不會用我公司的資料」）。原本寫的是
+ * 「公司的正式資料／客戶資料／任何正在服務真實使用者的環境」，前兩條是制式的免責語氣，
+ * 而這個案例做的是開窯預約的練習站，學員根本不會把公司資料灌進去。
+ * **真正會發生的是拿既有的專案來練**：課程前面〈把紀錄搬上 Supabase〉已經讓他建過一個，
+ * 而這個案例會反覆建表、改權限、灌示範資料。所以右欄現在指名那一個專案。
+ * 寄信那一條也從抽象的「客戶資料」改成「別人的 email」，因為流程真的會寄出去。
+ */
+const DATA_OK = [
+  '新開一個練習用的資料庫專案',
+  '自己編的假資料（窯次、名額、報名的人）',
+  '你自己的測試信箱，收得到信的那個',
+];
+
+const DATA_NO = [
+  '計時器那個 Supabase 專案（這裡要新開一個）',
+  '任何已經有人在用的網站或資料庫',
+  '別人的 email，包括同事與朋友',
 ];
 
 const SAME_BRAND = [
@@ -97,8 +124,26 @@ export default function SlideCase3Kiln() {
 
         <Callout tone="warn" label="這個案例只能用練習用的資料" stepIndex={3}>
           它會動到真的資料庫：反覆建表、改權限、灌示範資料，還會把某一窯的名額直接改到只剩一個。
-          <strong className="text-slate-100">只能用新開的練習專案、假資料、你自己的測試信箱。</strong>
-          公司正式資料、客戶資料，以及任何正在服務真實使用者的環境都不行。
+          <span className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+            <span className="block">
+              <span className="mb-1 block text-slate-100 text-sm font-bold">用這些</span>
+              {DATA_OK.map((d) => (
+                <span key={d} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                  <Check aria-hidden="true" size={14} className="mt-1 shrink-0 text-slate-500" />
+                  {d}
+                </span>
+              ))}
+            </span>
+            <span className="block">
+              <span className="mb-1 block text-slate-100 text-sm font-bold">這些都不行</span>
+              {DATA_NO.map((d) => (
+                <span key={d} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                  <X aria-hidden="true" size={14} className="mt-1 shrink-0 text-slate-500" />
+                  {d}
+                </span>
+              ))}
+            </span>
+          </span>
         </Callout>
 
         <AnimatedBlock stepIndex={4}>

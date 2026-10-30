@@ -80,7 +80,7 @@ const JOINTS = [
 export default function SlideCase4Layers() {
   return (
     <SlideLayout
-      title="一層一層疊上去：水面、浮力與接合處"
+      title="水面、浮力與接合處"
       subtitle="Case 04 · 從一塊浮空的石台到會呼吸的海"
       icon={Layers}
     >

@@ -1,6 +1,7 @@
 import { ShieldQuestion } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { JudgementTable } from '../components/JudgementTable';
 
 /**
  * 案例四的收尾，也是四個案例那條線的最後一塊。另外三塊在〈器 VESSEL 的十二步〉的下半、
@@ -20,9 +21,11 @@ import { Callout } from '../components/Callout';
 const JUDGEMENTS = [
   {
     q: '畫面怪怪的時候，先量一次還是直接改',
+    group: '畫面與素材',
     by: '先用沒改過的版本截兩張圖互相比，確認它是 0%；第一個修法沒效，就要它回頭量數字，不要讓它再猜一次',
     cost: '海一直加大，畫面下緣那塊空白還在，因為真正的原因是鏡頭把前景切掉了',
     key: true,
+    keyNote: '每個階段各用一次',
   },
   {
     q: '柱子、木樁的位置，要不要用屋頂、碼頭板的數字去算',
@@ -41,6 +44,7 @@ const JUDGEMENTS = [
   },
   {
     q: '「要登入才按得下去」算不算擋住了',
+    group: '登入與資料',
     by: '有人不開網頁、直接送一個請求過來，伺服器擋不擋得住',
     cost: '繪馬與祈願誰都寫得進去，而畫面上完全看不出來',
   },
@@ -74,16 +78,16 @@ export default function SlideCase4Judgements() {
       subtitle="Case 04 · AI 幫不了你的那幾個決定"
       icon={ShieldQuestion}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {LINE.map((c) => (
-            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
               <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">{c.k}</div>
               <p className="text-slate-300 text-base leading-relaxed">{c.v}</p>
             </div>
           ))}
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-5">
+          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
               這個案例問的是
             </div>
@@ -91,33 +95,8 @@ export default function SlideCase4Judgements() {
           </div>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <p className="text-slate-400 text-sm leading-relaxed mb-4">
-            前面四條是畫面與素材的，後面四條是登入與資料的。
-          </p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-            {JUDGEMENTS.map((j) => (
-              <li
-                key={j.q}
-                className={`rounded-xl border px-4 py-3 ${
-                  j.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-950'
-                }`}
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className={`text-sm font-bold ${j.key ? 'text-sky-200' : 'text-slate-100'}`}>
-                    {j.q}
-                  </span>
-                  {j.key && (
-                    <span className="font-mono text-xs text-sky-400 shrink-0">每個階段各用一次</span>
-                  )}
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed mt-0.5">判斷依據：{j.by}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1 border-t border-slate-800 pt-1.5">
-                  判斷錯的代價：{j.cost}
-                </p>
-              </li>
-            ))}
-          </ul>
+        <AnimatedBlock stepIndex={2}>
+          <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
         <Callout tone="focus" label="二十四條裡，沒有一條在問語法" stepIndex={3}>

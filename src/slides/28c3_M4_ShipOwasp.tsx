@@ -98,7 +98,7 @@ export default function SlideShipOwasp() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           沒設登入、權限沒擋住、金鑰外流這幾類，外面有一份公認的清單在收，叫 OWASP Top 10，
           <strong className="text-slate-100">你公司的 IT 與資安就是照它在看東西</strong>。
-          現行是 2025 版，大約四年一版，所以它不太會過期。十條裡有五條你已經撞過了。
+          現行是 2025 版，大約四年一版，所以它不太會過期。下面五條，講的就是這門課做過的事。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800/70">

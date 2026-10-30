@@ -66,7 +66,7 @@ const TOPICS = [
 
 export default function SlidePickTopic() {
   return (
-    <SlideLayout title="接下來呢？四種回去就做得動的題目" subtitle="Pick Your First Real Task" icon={Target}>
+    <SlideLayout title="四種可以嘗試的方向" subtitle="Pick Your First Real Task" icon={Target}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

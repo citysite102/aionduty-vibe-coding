@@ -1,6 +1,7 @@
 import { Scale } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { JudgementTable } from '../components/JudgementTable';
 
 /**
  * 案例二的收尾。四個案例各有一塊「AI 幫不了你的判斷」，這是第二塊，
@@ -70,16 +71,16 @@ export default function SlideCase2Judgements() {
       subtitle="Case 02 · AI 幫不了你的那幾個決定"
       icon={Scale}
     >
-      <div className="max-w-6xl mx-auto space-y-5 pb-8">
+      <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
         <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">
               案例一問的是
             </div>
             <p className="text-slate-300 text-base leading-relaxed">這個東西該不該存在</p>
           </div>
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-5">
+          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
             <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
               這個案例問的是
             </div>
@@ -91,27 +92,7 @@ export default function SlideCase2Judgements() {
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             技術操作 AI 會幫你做。下面這六個它幫不了你，因為它們要的是你對這個作品的理解。
           </p>
-          <ul className="space-y-2">
-            {JUDGEMENTS.map((j) => (
-              <li
-                key={j.q}
-                className={`rounded-xl border px-4 py-3 ${
-                  j.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-950'
-                }`}
-              >
-                <div className="flex items-baseline gap-2">
-                  <span className={`text-sm font-bold ${j.key ? 'text-sky-200' : 'text-slate-100'}`}>
-                    {j.q}
-                  </span>
-                  {j.key && <span className="font-mono text-xs text-sky-400 shrink-0">後面每一步都會再用一次</span>}
-                </div>
-                <p className="text-slate-400 text-sm leading-relaxed mt-0.5">判斷依據：{j.by}</p>
-                <p className="text-slate-500 text-sm leading-relaxed mt-1 border-t border-slate-800 pt-1.5">
-                  判斷錯的代價：{j.cost}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
       </div>

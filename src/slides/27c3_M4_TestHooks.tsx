@@ -53,14 +53,14 @@ const RULE = `測試沒過的時候，修功能，不要改測試讓它通過。
 export default function SlideTestHooks() {
   return (
     <SlideLayout
-      title="測試寫好之後，讓它在三個時機自己跑"
+      title="三種觸發測試的時間點"
       subtitle="Running Tests Automatically"
       icon={ShieldCheck}
     >
-      <div className="max-w-6xl mx-auto space-y-4 pb-4">
+      <div className="max-w-6xl mx-auto space-y-3 pb-1">
 
         <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
-          <h3 className="text-base font-bold text-slate-100 mb-1">三個時機，各自擋不同的東西</h3>
+          <h3 className="text-base font-bold text-slate-100 mb-1">三個時機</h3>
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             寫完之後最容易發生的事，是你忘記跑它。
             <strong className="text-slate-200">測試是檢查的內容，Hook 與 CI 是讓它自己跑起來的開關</strong>，
@@ -93,7 +93,7 @@ export default function SlideTestHooks() {
 
         <AnimatedBlock stepIndex={2} className="space-y-2">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h3 className="text-base font-bold text-slate-100">交代測試的時候補這兩句，擋住它最常走的捷徑</h3>
+            <h3 className="text-base font-bold text-slate-100">交代測試時要補的兩句</h3>
             <p className="text-slate-500 text-sm">之後寫 <code className="font-mono text-orange-300">CLAUDE.md</code> 的時候，這兩句直接搬進去</p>
           </div>
           <CopyBlock text={RULE} note="測試沒過時，它可能會改測試而不是改功能" />
