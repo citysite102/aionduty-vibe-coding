@@ -5,7 +5,7 @@ import { JudgementTable } from '../components/JudgementTable';
 
 /**
  * 案例四的收尾，也是四個案例那條線的最後一塊。另外三塊在〈器 VESSEL 的十二步〉的下半、
- * 〈這件事該交給誰做〉與〈這件事可以相信誰〉。四頁的開頭互相引用，改一頁要改四頁。
+ * 〈案例二的六個判斷〉與〈案例三的五個判斷〉。
  *
  * 2026-10-23 新增。資料來源 case-04-wishes.pdf 的〈八個判斷〉，八條照手冊原序。
  * 同一輪把〈這件事可以相信誰〉那一頁的「三個案例、十六條」收尾搬到這裡，
@@ -17,6 +17,13 @@ import { JudgementTable } from '../components/JudgementTable';
  * 2026-10-23 八條全部改寫過一輪：原本照手冊的用語抄（雜訊底線、常數、RLS 管列不管欄、
  * service_role、事件操作引擎），那些字對不寫程式的人等於空白。現在每一條的代價都寫成
  * 畫面上或資料上看得到的後果，判斷依據寫成一個當場答得出有或沒有的問題。
+ *
+ * 2026-10-31 整排「案例 N 問的是」拿掉了（講師：「這四個案例這種配置都有點為湊而湊，
+ * 我不覺得案例三是在講可以相信誰」）。逐頁核對過各自的判斷清單，四個標籤只有案例一
+ * 勉強對得上其中一條：案例二六條全是「自己寫還是用現成的」、案例三五條全是「放在哪
+ * 一層」、案例四八條沒有共同主題。那一排是事後補出來的敘事軸，不是這四個案例本來的
+ * 樣子。頁標題的前綴也一起拿掉了。**不要再補一個統一的敘事軸上去**，四個案例各自的
+ * 判斷清單自己站得住；真的要串，串的是「這些題目 AI 都幫不了你」那一句（收尾已經有）。
  */
 const JUDGEMENTS = [
   {
@@ -65,41 +72,20 @@ const JUDGEMENTS = [
   },
 ];
 
-const LINE = [
-  { k: '案例一問的是', v: '這個東西該不該存在' },
-  { k: '案例二問的是', v: '這件事該交給誰做' },
-  { k: '案例三問的是', v: '這件事可以相信誰' },
-];
-
 export default function SlideCase4Judgements() {
   return (
     <SlideLayout
-      title="改完拿什麼證明沒壞：案例四的八個判斷"
+      title="案例四的八個判斷"
       subtitle="Case 04 · AI 幫不了你的那幾個決定"
       icon={ShieldQuestion}
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
-        <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {LINE.map((c) => (
-            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-              <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">{c.k}</div>
-              <p className="text-slate-300 text-base leading-relaxed">{c.v}</p>
-            </div>
-          ))}
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
-              這個案例問的是
-            </div>
-            <p className="text-slate-100 text-base font-bold leading-relaxed">改完拿什麼證明沒壞</p>
-          </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2}>
+        <AnimatedBlock stepIndex={1}>
           <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
-        <Callout tone="focus" label="二十四條裡，沒有一條在問語法" stepIndex={3}>
+        <Callout tone="focus" label="二十四條裡，沒有一條在問語法" stepIndex={2}>
           每一條都有一個共通點：
           <strong className="text-slate-100">它們問的都是你對這件事的理解，不是語法怎麼寫。</strong>
           語法那一半 AI 已經做得比你好，所以你剩下的工作就是這二十四條這種題目。

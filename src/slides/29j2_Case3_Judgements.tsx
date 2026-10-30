@@ -4,8 +4,8 @@ import { Callout } from '../components/Callout';
 import { JudgementTable } from '../components/JudgementTable';
 
 /**
- * 案例三的收尾。另外三塊在〈器 VESSEL 的十二步〉的下半、〈這件事該交給誰做〉與
- * 〈改完拿什麼證明沒壞〉。四頁的開頭互相引用，改一頁要改四頁。
+ * 案例三的收尾。另外三塊在〈器 VESSEL 的十二步〉的下半、〈案例二的六個判斷〉與
+ * 〈案例四的八個判斷〉。
  *
  * 2026-10-23 加了案例四之後，整條線的收尾搬去案例四那一頁（收尾只能有一個，
  * 而它現在才是最後一個案例）。這一頁的 Callout 改成只收案例三自己這五條。
@@ -14,6 +14,13 @@ import { JudgementTable } from '../components/JudgementTable';
  *
  * 只有第 2 條標 sky：它在第 3 步被提出來，第 13 步由學員親手驗證，
  * 而第 13 步就是前一頁那個搶名額的實驗。兩頁指的是同一條，不要在這裡重講一次實驗怎麼做。
+ *
+ * 2026-10-31 整排「案例 N 問的是」拿掉了（講師：「這四個案例這種配置都有點為湊而湊，
+ * 我不覺得案例三是在講可以相信誰」）。逐頁核對過各自的判斷清單，四個標籤只有案例一
+ * 勉強對得上其中一條：案例二六條全是「自己寫還是用現成的」、案例三五條全是「放在哪
+ * 一層」、案例四八條沒有共同主題。那一排是事後補出來的敘事軸，不是這四個案例本來的
+ * 樣子。頁標題的前綴也一起拿掉了。**不要再補一個統一的敘事軸上去**，四個案例各自的
+ * 判斷清單自己站得住；真的要串，串的是「這些題目 AI 都幫不了你」那一句（收尾已經有）。
  */
 const JUDGEMENTS = [
   {
@@ -48,35 +55,17 @@ const JUDGEMENTS = [
 export default function SlideCase3Judgements() {
   return (
     <SlideLayout
-      title="這件事可以相信誰：案例三的五個判斷"
+      title="案例三的五個判斷"
       subtitle="Case 03 · AI 幫不了你的那幾個決定"
       icon={ShieldQuestion}
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
-        <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {[
-            { k: '案例一問的是', v: '這個東西該不該存在' },
-            { k: '案例二問的是', v: '這件事該交給誰做' },
-          ].map((c) => (
-            <div key={c.k} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-              <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">{c.k}</div>
-              <p className="text-slate-300 text-base leading-relaxed">{c.v}</p>
-            </div>
-          ))}
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
-              這個案例問的是
-            </div>
-            <p className="text-slate-100 text-base font-bold leading-relaxed">這件事可以相信誰</p>
-          </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2}>
+        <AnimatedBlock stepIndex={1}>
           <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
-        <Callout tone="focus" label="寫了不等於生效" stepIndex={3}>
+        <Callout tone="focus" label="寫了不等於生效" stepIndex={2}>
           前四條問的是這一層擋不擋得住，最後一條問的是你驗過了沒有。
           <strong className="text-slate-100">沒有換一個身分實際測過，兩層權限你只知道有寫，不知道有沒有生效。</strong>
         </Callout>

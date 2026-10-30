@@ -7,6 +7,9 @@
  * 案例四那一頁更糟：為了塞下八條用了兩欄格線，讀的順序變成左右跳，
  * 而它的開場寫著「前面四條⋯後面四條⋯」，兩件事對不起來。
  *
+ * 2026-10-31 欄名改回講師原本的用詞。中間那一輪寫成「怎麼判／判錯會怎樣」，
+ * 講師明令禁用「判錯會怎樣」那種口語簡寫。**三個欄名就是這三個，不要再簡寫。**
+ *
  * 改成表之後，「判斷依據」「判斷錯的代價」這兩個標籤只在表頭出現一次，
  * 不必每一條重寫，而且三欄對齊，學員回頭翻講義時掃得動。
  *
@@ -36,8 +39,8 @@ export function JudgementTable({ items }: { items: Judgement[] }) {
         <thead>
           <tr className="bg-slate-950 text-slate-500">
             <th className="w-[30%] px-4 py-2 text-left font-normal">這一題</th>
-            <th className="px-4 py-2 text-left font-normal">怎麼判</th>
-            <th className="px-4 py-2 text-left font-normal">判錯會怎樣</th>
+            <th className="px-4 py-2 text-left font-normal">判斷依據</th>
+            <th className="px-4 py-2 text-left font-normal">判斷錯的代價</th>
           </tr>
         </thead>
         <tbody>

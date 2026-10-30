@@ -7,19 +7,19 @@ import { JudgementTable } from '../components/JudgementTable';
  * 案例二的收尾。四個案例各有一塊「AI 幫不了你的判斷」，這是第二塊，
  * 案例一那塊在〈器 VESSEL 的十二步〉的下半，案例三那塊在它自己的最後一頁。
  *
- * 四頁要一起看才有意義，因為手冊自己把各案例的判斷排成一條線：
- *   案例一　這個東西該不該存在
- *   案例二　這件事該交給誰做
- *   案例三　這件事可以相信誰
- * 所以這一頁的開頭一定要先把上一個案例的那句話講出來，單看這一頁會變成六條沒有關聯的條目。
- * **改這三頁任何一頁的那句話，另外兩頁要跟著改。**
- *
  * 資料來源 case-02-tokyo-loop.pdf 的〈六個判斷〉，三欄照抄（判斷、判斷依據、判斷錯的代價）。
  * 階段編號沒有照抄：投影片一向把手冊的「階段」講成「第 N 步」，只有關鍵的那一條標出來，
  * 六條全標會變成一張要對照手冊才讀得懂的表。
  *
  * 只有第 2 條標 sky：手冊寫得很明白，它在第 2 步建立，之後每一步都會用到一次，分錯後面全錯。
  * 其餘五條灰階（A-1：平等的項目不要一項一色）。
+ *
+ * 2026-10-31 整排「案例 N 問的是」拿掉了（講師：「這四個案例這種配置都有點為湊而湊，
+ * 我不覺得案例三是在講可以相信誰」）。逐頁核對過各自的判斷清單，四個標籤只有案例一
+ * 勉強對得上其中一條：案例二六條全是「自己寫還是用現成的」、案例三五條全是「放在哪
+ * 一層」、案例四八條沒有共同主題。那一排是事後補出來的敘事軸，不是這四個案例本來的
+ * 樣子。頁標題的前綴也一起拿掉了。**不要再補一個統一的敘事軸上去**，四個案例各自的
+ * 判斷清單自己站得住；真的要串，串的是「這些題目 AI 都幫不了你」那一句（收尾已經有）。
  */
 /** 2026-10-08（講師）六條整批改寫過一次。病根是**判斷依據寫成了工程師的語言**，
  *  學員讀得出那是一個判斷，但換一個新狀況套不上去。最明顯的是第一條原本寫
@@ -67,28 +67,13 @@ const JUDGEMENTS = [
 export default function SlideCase2Judgements() {
   return (
     <SlideLayout
-      title="這件事該交給誰做：案例二的六個判斷"
+      title="案例二的六個判斷"
       subtitle="Case 02 · AI 幫不了你的那幾個決定"
       icon={Scale}
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
-        <AnimatedBlock stepIndex={1} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-slate-500 mb-2">
-              案例一問的是
-            </div>
-            <p className="text-slate-300 text-base leading-relaxed">這個東西該不該存在</p>
-          </div>
-          <div className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-4">
-            <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
-              這個案例問的是
-            </div>
-            <p className="text-slate-100 text-base font-bold leading-relaxed">這件事該交給誰做</p>
-          </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={2} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+        <AnimatedBlock stepIndex={1} className="bg-slate-900 border border-slate-800 rounded-2xl p-5">
           <p className="text-slate-400 text-sm leading-relaxed mb-4">
             技術操作 AI 會幫你做。下面這六個它幫不了你，因為它們要的是你對這個作品的理解。
           </p>

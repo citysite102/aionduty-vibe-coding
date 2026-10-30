@@ -70,8 +70,8 @@ export default function SlidePickTopic() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          挑題目的標準只有一條：<strong className="text-slate-100">這個月你會做第二次的那件事。</strong>
-          第一次做的時候，你花在交代上的時間一定比省下來的多。要到第二次，省的那一段才看得到。
+          底下四種，挑<strong className="text-slate-100">這個月你會做第二次的那一件</strong>。
+          只做一次的事，光是交代就會花掉你想省的那段時間。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
