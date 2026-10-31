@@ -1,4 +1,4 @@
-import { Target, FileSpreadsheet, Globe, MessageSquareQuote, BookMarked } from 'lucide-react';
+import { Target, FileSpreadsheet, Globe, MessageSquareQuote, BookMarked, ListOrdered } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyAction } from '../components/CopyBlock';
 
@@ -76,6 +76,27 @@ import { CopyAction } from '../components/CopyBlock';
  * 四個題目都挑不需要寫程式背景就評得出成果的：自己看得出做對做錯，才驗得下去。
  * 平等的四項一律灰階，Prompt 框統一同一種處理，不要一項一色。
  */
+/**
+ * 四段 Prompt 共用的骨架。2026-11-01 從「四段各自重複一次」改成**在上面印一次**。
+ *
+ * 為什麼要有這一塊：這一頁的口白第一段就是「先講四段話的共同結構，因為那才是這一頁
+ * 真正要留給你的東西」，但畫面上從來沒有把它寫出來，它被拆散在四段 Prompt 裡各出現一次。
+ * 結果是**這一頁真正的教學點在畫面上看不見**，而四張卡有六成的字是一樣的。
+ *
+ * **它不是被刪掉的那幾塊。** 那幾塊（開場的挑題標準、收尾的通則、題目太大的徵兆）
+ * 寫的是這一頁以外的事；這一塊寫的就是底下那四段話本身，學員換成自己的題目時照抄的
+ * 也是這個順序。
+ *
+ * 四段 Prompt 的全文留在卡片裡不動（A-4：複製鈕拿到的要跟畫面上印的是同一份）。
+ * **改骨架就要四段一起對**，不然這一塊會變成一個對不上的宣稱。
+ */
+const SKELETON = [
+  '先講需求，有材料就附上去（舊報表、舊回覆、部門的規範）',
+  '「先不要寫程式／先不要寫檔案」，擋住它直接動手',
+  '三步：先問我還缺什麼 → 寫成規格給我確認 → 我說可以才動手，一次只做一段',
+  '最後一行是完成條件，寫成當場答得出有或沒有的動作',
+];
+
 const TOPICS = [
   {
     icon: FileSpreadsheet,
@@ -140,13 +161,33 @@ export default function SlidePickTopic() {
     <SlideLayout title="接下來可以嘗試的幾個選擇" subtitle="Pick Your First Real Task" icon={Target}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
+        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
+          <h3 className="text-base font-bold text-slate-100 mb-2 flex items-center gap-2">
+            <ListOrdered aria-hidden="true" size={17} className="shrink-0 text-slate-500" />
+            底下四段話的順序都一樣
+          </h3>
+          <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1">
+            {SKELETON.map((s, i) => (
+              <li key={s} className="flex gap-2 text-sm leading-relaxed text-slate-400">
+                <span className="shrink-0 font-mono text-slate-600">{i + 1}</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="text-slate-500 text-sm leading-relaxed mt-2.5 border-t border-slate-800 pt-2.5">
+            換成你自己的題目時，照抄的是這個順序。
+            <strong className="text-slate-400">直接丟一句「幫我做一個報表工具」，它會動手，
+            而且會做出一個你驗不動的東西。</strong>
+          </p>
+        </AnimatedBlock>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {TOPICS.map((t, i) => {
             const Icon = t.icon;
             return (
               <AnimatedBlock
                 key={t.title}
-                stepIndex={i + 1}
+                stepIndex={i + 2}
                 className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-1">
@@ -156,8 +197,10 @@ export default function SlidePickTopic() {
                   <div className="min-w-0">
                     <h3 className="text-base font-bold text-slate-100 leading-snug">{t.title}</h3>
                     <p className="text-sm text-slate-500 mt-0.5">{t.who}</p>
-                    <p className="text-sm text-slate-500 mt-1">
-                      <span className="text-slate-400">課程裡的哪一段</span>
+                    <p className="text-sm text-slate-500 mt-1.5">
+                      <span className="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-400">
+                        課程裡的哪一段
+                      </span>
                       <span className="ml-2">{t.from}</span>
                     </p>
                   </div>
@@ -165,7 +208,7 @@ export default function SlidePickTopic() {
 
                 <div className="mt-3 rounded-lg border border-sky-900/50 bg-sky-950/20 px-4 py-3">
                   <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">
-                    第一句這樣講
+                    可以直接貼的那一段
                   </div>
                   <p className="text-sky-100 text-sm leading-relaxed whitespace-pre-line">{t.prompt}</p>
                   <div className="mt-2 flex justify-end"><CopyAction text={t.prompt} /></div>

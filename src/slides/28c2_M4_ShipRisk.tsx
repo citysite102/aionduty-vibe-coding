@@ -1,4 +1,4 @@
-import { ShieldAlert, EyeOff, ExternalLink } from 'lucide-react';
+import { ShieldAlert, EyeOff, ExternalLink, MessageSquare, Bot, MessageSquareOff, MapPin } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -82,10 +82,17 @@ const STATS = [
 ];
 
 /** 三層原因，原本黏在一個句子裡。順序是「你說的 → 它做的 → 沒有人說的」。 */
+/**
+ * 2026-11-01（講師：這裡可以加上 ICON）三條各掛一個 icon。
+ * 它們是一段三步的敘事（你說了什麼 → 它做了什麼 → 沒有人說的那一項），
+ * icon 的工作是讓第三條一眼看得出是「缺的那一個」：前兩個是對話框，
+ * 第三個是被劃掉的對話框。A-1：分組用圖形不要用顏色，所以三個都維持灰階。
+ * **不要給它們各一個顏色**，那會把一段敘事讀成三個並列的類別。
+ */
 const CAUSE = [
-  { k: '你說的', v: '「做一個可以登記報名的頁面」。' },
-  { k: '它做的', v: '一個可以登記報名的頁面，而且做得很好。' },
-  { k: '沒有人說的', v: '擋住不該進來的人。需求裡沒有這一項，所以那件事不會出現。' },
+  { icon: MessageSquare, k: '你說的', v: '「做一個可以登記報名的頁面」。' },
+  { icon: Bot, k: '它做的', v: '一個可以登記報名的頁面，而且做得很好。' },
+  { icon: MessageSquareOff, k: '沒有人說的', v: '擋住不該進來的人。需求裡沒有這一項，所以那件事不會出現。' },
 ];
 
 export default function SlideShipRisk() {
@@ -139,7 +146,10 @@ export default function SlideShipRisk() {
           <ul className="space-y-0">
             {CAUSE.map((c) => (
               <li key={c.k} className="flex flex-wrap items-baseline gap-x-2 text-base leading-relaxed">
-                <span className="w-24 shrink-0 whitespace-nowrap font-bold text-slate-200">{c.k}</span>
+                <span className="flex w-28 shrink-0 items-center gap-2 whitespace-nowrap font-bold text-slate-200">
+                  <c.icon aria-hidden="true" size={15} className="shrink-0 self-center text-slate-500" />
+                  {c.k}
+                </span>
                 <span className="flex-1 min-w-0 text-slate-300">{c.v}</span>
               </li>
             ))}
@@ -161,7 +171,10 @@ export default function SlideShipRisk() {
             折進第一條裡，那一版省下約 30px 但讀不出分段。**不要再折回去。**
           */}
           <div className="mt-2.5 border-t border-slate-800 pt-2">
-            <p className="text-slate-200 text-sm font-bold mb-1">台灣 2026 年 8 月的案例</p>
+            <p className="text-slate-200 text-sm font-bold mb-1 flex items-center gap-2">
+              <MapPin aria-hidden="true" size={14} className="shrink-0 text-slate-500" />
+              台灣 2026 年 8 月的案例
+            </p>
             <p className="text-slate-400 text-sm leading-relaxed">
               壹加壹的字幕工具 What&rsquo;Sub 兩天破萬註冊，接著一批使用者的 email 外洩。
               開發者是剪片出身、不寫程式，他的說法是「我沒有想到這麼多」。白帽把問題寄給他之後，

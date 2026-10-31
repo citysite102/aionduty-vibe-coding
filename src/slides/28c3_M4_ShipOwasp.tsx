@@ -56,6 +56,16 @@ import { CopyAction } from '../components/CopyBlock';
  * 它原本指的是風險數字那一頁，中間多一頁之後就指錯了（B-4）。影片錄的是舊順序，
  * 但這一句換掉距離詞之後兩邊都成立，所以不掛 `UpdatedMark`。
  *
+ * 標題換過四次：「你已經做過 OWASP 十條裡的五條」（D-2 的進度安撫）→
+ * 「有五條對得上這門課做的事」→「有五條對得上課程內的提醒」→「五個已知提醒」→
+ * 2026-11-01「課程已談過五種」（講師）。現在的版本只給那一頁上有什麼，
+ * 不再描述學員的狀態。**不要寫回「你已經⋯」那一類。**
+ *
+ * 2026-11-01（講師：「前面那份清單」前面哪份？我不知道）開場把名字寫出來。
+ * 這一頁 2026-10-31 砍掉重複介紹 OWASP 的那一段之後，第一句變成「都收在前面那份清單裡」，
+ * 那是 B-4 那種指不到東西的說法。**寫名字不等於把介紹加回來**：
+ * 它是誰出的、十條怎麼排出來的、多久換一版，全部留在前一頁。
+ *
  * 2026-10-20 改標題。原本是「你已經做過 OWASP 十條裡的五條」，那是 D-2 的進度安撫：
  * 它講的是學員的狀態（你已經做了多少），不是這一頁有什麼。**好消息的語氣要留**，
  * 但那是內文第一句與口白的工作，不是標題的。現在的標題講表上有什麼：
@@ -102,14 +112,14 @@ const OWASP_PROMPT =
 export default function SlideShipOwasp() {
   return (
     <SlideLayout
-      title="OWASP Top 10：有五條對得上課程內的提醒"
+      title="OWASP Top 10：課程已談過五種"
       subtitle="OWASP Top 10:2025"
       icon={ListChecks}
     >
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          沒設登入、權限沒擋住、金鑰外流這幾類，都收在前面那份清單裡。
+          沒設登入、權限沒擋住、金鑰外流這幾類，都收在 OWASP Top 10 裡。
           <strong className="text-slate-100">公司的資訊或資安單位就是照它在看東西</strong>。
         </AnimatedBlock>
 
