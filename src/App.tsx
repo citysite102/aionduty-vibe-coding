@@ -161,6 +161,7 @@ import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import SlideCase4Shrine from './slides/29k_Case4_Shrine';
 import SlideCase4Layers from './slides/29l_Case4_Layers';
 import SlideCase4Astro from './slides/29l2_Case4_Astro';
+import SlideCase4Islands from './slides/29l3_Case4_Islands';
 import SlideCase4Stack from './slides/29m_Case4_Stack';
 import SlideCase4Arch from './slides/29m2_Case4_Arch';
 import SlideCase4Judgements from './slides/29n_Case4_Judgements';
@@ -171,7 +172,6 @@ import Slide28c2b from './slides/28c2b_M4_ShipOwaspIntro';
 import Slide28c3 from './slides/28c3_M4_ShipOwasp';
 import Slide28c3b from './slides/28c3b_M4_ShipScan';
 import Slide28c3c from './slides/28c3c_M4_ShipAiRisk';
-import Slide28c4 from './slides/28c4_M4_ShipDomains';
 import Slide28d from './slides/28d_M4_ProjectMemory';
 import Slide28e from './slides/28e_M4_ToolBoundary';
 import Slide33 from './slides/33_Outro';
@@ -328,6 +328,7 @@ const LIVE_TITLES = [
   "案例四：海上許願神社",
   "水面、浮力與接合處",
   "中途為什麼要把專案搬進 Astro",
+  "Astro 與 React，以及這個案例的四層分工",
   "背景音樂、登入、資料庫、對外 API 與寄信",
   "系統架構：三個入口，權限都在資料庫",
   "AI 無法幫你決定的事情",
@@ -337,8 +338,7 @@ const LIVE_TITLES = [
   "OWASP 是什麼：一份免費公開的資安清單",
   "OWASP Top 10：有五條對得上這門課做的事",
   "三種檢查：自己掃、請 AI 看、外部單位測試",
-  "接了 AI：內容裡藏的指令、給太大的權限",
-  "換一個領域：哪幾題是舊的，哪幾題要另外查",
+  "使用者填的字會變成 AI 指令，權限決定後果",
   "專案規模增加的 Agent 成本",
   "同樣的命題，不同的解決策略",
   "未來的工作者",
@@ -497,6 +497,7 @@ const LIVE_SLIDES = [
   SlideCase4Shrine,
   SlideCase4Layers,
   SlideCase4Astro,
+  SlideCase4Islands,
   SlideCase4Stack,
   SlideCase4Arch,
   SlideCase4Judgements,
@@ -507,7 +508,6 @@ const LIVE_SLIDES = [
   Slide28c3,
   Slide28c3b,
   Slide28c3c,
-  Slide28c4,
   Slide28d,
   Slide28e,
   Slide33,

@@ -1,6 +1,6 @@
 import { KeyRound, Database, Plug, Music, Mail, ArrowRight, X } from 'lucide-react';
 import { motion } from 'motion/react';
-import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
+import { SlideLayout, AnimatedBlock, useSlide } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
@@ -47,40 +47,11 @@ import { Callout } from '../components/Callout';
  * ─────────────────────────────────────────────────────
  */
 /**
- * 2026-10-31（講師：應該要補充一個詳細介紹 Astro 的區間，說明為什麼我們使用它）新增。
- * Astro 在全片只有 Slide 179（案例三的對照表）與 Slide 183（技術那一條）各一句，
- * 而這個案例中途整個搬過去，學員讀到「中間搬進 Astro」會卡住。
- * 資料來源 case-04-wishes.pdf 階段 8（8-1 到 8-4、M0 的結果）與階段 15 的環境變數。
- * **排在五格前面**，因為它是接這五樣的前置：階段 8 那三個決定裡，後端選了 Supabase 之後，
- * 網站才跟著改成 Astro＋React。
- * **它不是被刪掉的那個開場**（見檔頭）：那一段講的是「號碼是先後」這種讀表說明，
- * 這一塊講的是一個學員沒學過的工具。
- * 標題不改，這一塊是前置，五格才是這一頁的本體（D-5）。
- */
-const ASTRO = [
-  {
-    k: '它是什麼',
-    v: '網站從一頁變成好幾頁的時候要用到它。案例一整個網站就是一個 HTML 檔；這裡多了登入、上傳、我的參拜紀錄，每一頁都要有同一個導覽列、同一套樣式。導覽列你只寫一次，Astro 在建置的時候幫每一頁各放一份，改一次全站都跟著改。案例三用的也是它。',
-  },
-  {
-    k: '為什麼不是一開始就換',
-    v: '3D 還在做的時候問過一次，Claude 說不用：3D 場景只有一個，狀態十幾個變數，拆成資料夾之後邊界已經夠清楚。要接資料庫與登入了才問第二次，答案才變成要。有表單、有好幾頁的介面，才是它省事的地方。',
-  },
-  {
-    k: '跟 3D 沒有關係',
-    v: '3D 場景的程式一行都沒改，它是被掛進其中一頁裡的一塊。場景也不重寫成 React Three Fiber：重寫畫面上不會多任何東西，卻會打掉已經用測試與逐像素比對驗過的水面、浮力與燈光。',
-  },
-  {
-    k: '搬完怎麼確認沒壞',
-    v: '跟搬之前的凍結版同角度同時間各截一張，逐像素比對要 0%。另外，登入要用的那兩把金鑰寫在一個叫 .env 的檔案裡，Astro 建置的時候才決定哪一把寫進網頁、哪一把留在後台。',
-  },
-];
-
-/**
  * 2026-10-31（講師：這段同學看不懂，可以用動畫呈現一種是前端攔截、一種是後端攔截）
  * 右下角那個 warn Callout 從三行字改成兩條走得通的路線。
  * 文字版的問題是「別人不開你的網頁直接送請求」這件事，沒寫程式的人想像不出畫面；
  * 兩條路線並排之後，看得到的是**登入視窗只擋得到第一條**，而兩條都會撞到資料庫那一層。
+ *
  * 2026-10-31（講師：這裡應該要加上呼叫 API）兩條路線中間各補一格「呼叫 API」。
  * 少了它，第二條看起來像「別人的程式直接碰到資料庫」，而實際上**兩條走的是同一支 API**，
  * 差別只在第一條先經過登入視窗。這一格就是下一頁〈系統架構〉三個入口匯流的那個點。
@@ -192,6 +163,8 @@ function FlowDot({ skip, delay }: { skip: boolean; delay: number }) {
 }
 
 export default function SlideCase4Stack() {
+  const { currentStep } = useSlide();
+
   return (
     <SlideLayout
       title="背景音樂、登入、資料庫、對外 API 與寄信"
@@ -200,30 +173,24 @@ export default function SlideCase4Stack() {
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
 
-        <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-          <h3 className="text-base font-bold text-slate-100 mb-2">接這五樣之前，先把專案搬進 Astro</h3>
-          <ul className="space-y-1">
-            {ASTRO.map((a) => (
-              <li key={a.k} className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
-                <span className="w-32 shrink-0 font-bold text-slate-200">{a.k}</span>
-                <span className="flex-1 min-w-0 text-slate-400">{a.v}</span>
-              </li>
-            ))}
-          </ul>
-        </AnimatedBlock>
-
         {/* 2026-10-31（講師：這種應該逐格出現，不用四個項目一起出現）
-            每一格自己一個 stepIndex，講者按一下講一格。
-            2026-10-31 前面插了 Astro 那一塊，整排往後推一號：五格是第 2 到 6 下，
-            右下角那個 Callout 是第 7 下。 */}
+            每一格自己一個 stepIndex，講者按一下講一格，右下角那個 Callout 是第 6 下。
+
+            2026-10-31（講師：文字量很龐大，是否有機會搭配動畫增加易讀性）兩件事：
+            一是把原本塞在最上面的 Astro 那一塊整個搬去 Slide 185（它現在自成一頁），
+            這一頁少掉約 270px；二是**正在講的那一格留著，其餘五格淡下去**。
+            這一頁一格就有三段（為什麼用到／重點／檢查），五格同時全亮時，
+            讀者不知道視線該落在哪。五格都出現之後（第 6 下）全部恢復，
+            那時候它是一張可以整頁對照的表。
+            A-2：它讀的是 `currentStep`，沒有用 `setTimeout` 切換內容。 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {PARTS.map((p, i) => (
             <AnimatedBlock
               key={p.name}
-              stepIndex={i + 2}
-              className={`rounded-2xl border p-4 ${
+              stepIndex={i + 1}
+              className={`rounded-2xl border p-4 transition-opacity duration-500 ${
                 p.key ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-900'
-              }`}
+              } ${currentStep <= PARTS.length && currentStep !== i + 1 ? 'opacity-40' : 'opacity-100'}`}
             >
               <div className="flex items-baseline gap-2 mb-1">
                 <span
@@ -277,7 +244,7 @@ export default function SlideCase4Stack() {
           {/*
             2026-10-31（講師：這直接放到 5 旁邊那一格）這個 Callout 原本在格子外面另起一塊。
             五格排兩欄之後右下角剛好空一格，放進去版面才收得乾淨。
-            它排在五格後面，是這一段的最後一下。
+            它排在五格後面，是這一段的最後一下（第 6 下）。
             同一輪拿掉「階段 14」「階段 16」（講師：投影片不要寫手冊裡的階段幾），
             改成講那兩件事本身：登入介面做完的時候／後來那三張表的權限規則。
             2026-10-31（講師：這裡太抽象，同學不知道什麼叫略過介面）「任何人略過介面
@@ -285,7 +252,7 @@ export default function SlideCase4Stack() {
             **不要改回「略過介面」。** 下一頁〈從瀏覽器到資料庫〉右邊那一欄講的是同一件事
             （別人的程式直接呼叫 API 網址），兩邊要對得起來。
           */}
-          <Callout tone="warn" label="做到這裡最容易誤會的一件事" stepIndex={7} className="self-start">
+          <Callout tone="warn" label="做到這裡最容易誤會的一件事" stepIndex={6} className="self-start">
             登入介面做完的時候，網站看起來已經「要登入才寫得了繪馬」。
             <strong className="text-slate-100">但那是兩條路線裡的其中一條。</strong>
             <span className="mt-2.5 block space-y-2">

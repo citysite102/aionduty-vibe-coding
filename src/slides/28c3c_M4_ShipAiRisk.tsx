@@ -94,7 +94,7 @@ const CASES = [
 export default function SlideShipAiRisk() {
   return (
     <SlideLayout
-      title="接了 AI：內容裡藏的指令、給太大的權限"
+      title="使用者填的字會變成 AI 指令，權限決定後果"
       subtitle="Risks Specific to AI Features"
       icon={Brain}
       updated={{ date: '2026/10/30', kind: '新增' }}
@@ -106,7 +106,10 @@ export default function SlideShipAiRisk() {
           （第一個是 AI、第二個也是 AI，但讀起來像在講同一件事的兩面）。
           開場原本是「它多出兩類一般網站清單上沒有的風險」，數量詞沒有內容（D-2 空心的詞），
           學員要讀完兩張卡才知道是哪兩類。現在標題直接寫出那兩類，開場講它們為什麼是 AI 才有的。
-          **標題 37 寬，已經接近上限，再加字會折行。**
+          2026-10-31（講師：這個標題太抽象）標題再換一次。
+          「內容裡藏的指令、給太大的權限」兩個名詞都要讀完整頁才知道在講什麼，
+          現在改成那兩件事發生時的樣子：使用者填的字會變成 AI 指令／權限決定後果。
+          **這個標題 40 寬，剛好在上限，一個字都加不進去。**
         */}
         <div className="text-slate-300 text-base leading-relaxed mb-2 space-y-1">
           <p>航行日誌的講評功能就是這種結構：使用者打的字送進去、AI 的回答送出來、金鑰放在後端。</p>
