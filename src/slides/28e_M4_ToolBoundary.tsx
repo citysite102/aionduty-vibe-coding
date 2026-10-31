@@ -30,6 +30,10 @@ import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
  * **搬頁的時候兩邊一起看**，這一頁是把那個風險落到「裝第三方工具」這個具體動作上。
  *
  * 四個問題的文字要跟上一頁一字不差，改一邊就要改另一邊（B-6）。
+ *
+ * 2026-10-31（講師：Slide 197 詳細檢查語法結構）收尾那一句的
+ * 「判斷標準不是『能不能送』，是需不需要那一層業務語意」是 D-2 的對仗，
+ * 改成「公司准了之後，真正要決定的是⋯」。**標題那一句是上面說的例外，不在這次的範圍。**
   *
  * **右欄那張 graft 的圖是會動的 GIF，這是刻意的，不是漏看。**（原本這裡寫著它是 CLAUDE.md
  * A-3「禁止常駐無限動畫」的例外，A-3 已於 2026-10-10 移除，理由改記在這裡。）
@@ -75,11 +79,23 @@ export default function SlideToolBoundary() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
-            同樣是「先把專案讀懂、之後不用每次重讀」，graft 走的是另一條路：
-            第一步在你的電腦上把程式碼的結構畫出來，不用金鑰也不連網路；
-            <strong className="text-slate-100">第二步用一個模型把每個檔案寫成摘要</strong>，
-            所以它需要你自己的 API 金鑰，也需要你同意把檔案內容送出去。
+            同樣是「先把專案讀懂、之後不用每次重讀」，graft 走的是另一條路，分兩步：
           </p>
+          <ul className="mt-1.5 space-y-1">
+            <li className="flex flex-wrap items-baseline gap-x-2 text-base leading-relaxed">
+              <span className="w-16 shrink-0 font-bold text-slate-100">第一步</span>
+              <span className="flex-1 min-w-0 text-slate-300">
+                在你的電腦上把程式碼的結構畫出來，不用金鑰也不連網路。
+              </span>
+            </li>
+            <li className="flex flex-wrap items-baseline gap-x-2 text-base leading-relaxed">
+              <span className="w-16 shrink-0 font-bold text-slate-100">第二步</span>
+              <span className="flex-1 min-w-0 text-slate-300">
+                用一個模型把每個檔案寫成摘要。這一步要你自己的 API 金鑰，
+                也要你同意把檔案內容送出去。
+              </span>
+            </li>
+          </ul>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
@@ -156,7 +172,7 @@ export default function SlideToolBoundary() {
             寫錯了你不一定看得出來（結構是算出來的，沒這個問題）。程式改了摘要也不會自己更新。
           </p>
           <p className="text-slate-400 text-sm leading-relaxed mt-1.5 pt-2.5 border-t border-slate-800">
-            所以判斷標準不是「能不能送」，是<strong className="text-slate-200">需不需要那一層業務語意</strong>。
+            公司准了之後，真正要決定的是<strong className="text-slate-200">需不需要那一層業務語意</strong>。
             只是要讓它在大專案裡找得到東西，本機那一個就夠。
           </p>
         </AnimatedBlock>
@@ -167,9 +183,15 @@ export default function SlideToolBoundary() {
             <span>
               放手前的那五道邊界裡有一道是「別人塞進來的文字，會被它當成你的指令」。
               第三方工具就是這條風險的具體樣貌：它回傳的東西會進到 Claude 的上下文，
-              而那段內容是別人寫的。所以裝工具的標準跟裝瀏覽器外掛一樣，
-              <strong className="text-slate-100">看誰在維護、看它要什麼權限、看它有多少人在用</strong>，
-              不要因為某篇文章推薦就裝。
+              而那段內容是別人寫的。所以裝工具的標準跟裝瀏覽器外掛一樣，看三件事：
+              <span className="mt-1.5 block space-y-0.5">
+                <span className="block"><span className="text-slate-600">・</span> 誰在維護</span>
+                <span className="block"><span className="text-slate-600">・</span> 它要什麼權限</span>
+                <span className="block"><span className="text-slate-600">・</span> 有多少人在用</span>
+              </span>
+              <span className="mt-1.5 block">
+                <strong className="text-slate-100">不要因為某篇文章推薦就裝。</strong>
+              </span>
             </span>
           </span>
         </Callout>

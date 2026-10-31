@@ -10,7 +10,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 以及哪一種是他現在自己做得到的。
  *
  * **三欄的順序是照「他現在做得到的程度」排**：自己掃（今天就能做）、
- * 請 AI 看（`28c3` 已經給了 Prompt）、找人來打（要花錢，多數人暫時用不到）。
+ * 請 AI 看（`28c3` 已經給了 Prompt）、外部單位測試（要花錢，多數人暫時用不到）。
  * 不要照「嚴謹程度」排，那會變成在說他現在做的不夠。
  *
  * ── C-1 ──────────────────────────────────────────────
@@ -53,7 +53,7 @@ const WAYS = [
   },
   {
     icon: Swords,
-    name: '找人來打',
+    name: '外部單位測試',
     en: '滲透測試 Penetration Test',
     what: '請人照真的攻擊者的做法試一遍，找出看程式碼看不出來的問題。收錢或存別人的個資時才需要。',
     does: ['好幾個小問題串起來才成立的那種', '流程上的漏洞，例如改個網址就跳過付款'],
@@ -72,15 +72,23 @@ const DO_NOW = [
 export default function SlideShipScan() {
   return (
     <SlideLayout
-      title="三種檢查：自己掃、請 AI 看、找人來打"
+      title="三種檢查：自己掃、請 AI 看、外部單位測試"
       subtitle="Scan, Review, Pentest"
       icon={ScanSearch}
       updated={{ date: '2026/10/20', kind: '新增' }}
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-1 pb-3">
+        {/*
+          2026-10-31（講師：對方講什麼？誰講？）開場那一句重寫。原本是
+          「而交作品給公司或客戶時，對方講的就是這幾個詞」，兩個空格：
+          「對方」沒有指到人，「這幾個詞」要讀完三張卡才知道是哪三個。
+          現在把人與詞都寫出來（公司的資訊或資安單位、客戶的技術窗口；
+          弱點掃描與滲透測試是對方真的會講的那兩個）。
+          **不要再寫「對方講的就是這幾個詞」。**
+        */}
         <p className="text-slate-300 text-base leading-relaxed mb-2">
-          叫 AI 讀一遍只是其中一種。<strong className="text-slate-100">這三種抓得到的東西不一樣</strong>，
-          而交作品給公司或客戶時，對方講的就是這幾個詞。
+          作品交出去的時候，公司的資訊或資安單位、客戶的技術窗口會問你
+          <strong className="text-slate-100">「做過弱點掃描了嗎」「有沒有做滲透測試」</strong>。
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-stretch mb-2">

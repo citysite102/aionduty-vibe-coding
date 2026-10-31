@@ -1,6 +1,7 @@
 import { Network, Smartphone, Database, ServerOff, UserCheck, ArrowRight } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
+import { UpdateNote } from '../components/UpdateNote';
 
 /**
  * 2026-10-10（講師）新增。接在〈哪一種金鑰可以寫進程式碼〉後面。
@@ -34,6 +35,22 @@ import { CopyBlock } from '../components/CopyBlock';
  *     Vercel Functions 是在同一個專案加一個 `api/hello.js`，跑在伺服器端
  *     （vercel.com/docs/functions）。
  *   下次改版前三個都重查，免費額度與介面名稱是 C-3 最會動的那一類。
+ *
+ * 2026-10-31（講師）「Supabase 這類服務本來就設計成讓前端直接連」說過頭了：
+ * 那是**預設的接法**，不是唯一的接法。同一個 Supabase 專案也接得上你自己的後端
+ * （Edge Functions 或 Vercel Functions，用 service role 金鑰從伺服器端呼叫），
+ * 這一頁第二格講的就是那條路。照 A-5 處理：**畫面上那一段留著**（影片裡已經念過，
+ * 刪掉學員會以為自己聽錯），右上角掛日期記號，底下用 `UpdateNote` 補現況。
+ *   最後查證：2026-10-31，對照 supabase.com/docs/guides/api/api-keys
+ *   （publishable／anon 金鑰設計成給瀏覽器用，安全靠 RLS；secret／service_role
+ *   金鑰 "should only be used in a secure server-side environment" 且繞過 RLS）
+ *   與 supabase.com/docs/guides/functions（Edge Functions 是 server-side）。
+ *   下次改版前重查那兩頁，金鑰的名稱 2025 年改過一輪，屬於 C-3 那一類。
+ * **逐字稿 7-4 不要跟著改**，那一份記的是影片裡已經念出去的話（A-5）。
+ *
+ * 顏色：這一頁原本是 emerald（有／沒有那三格）＋ sky（登入那一塊的 icon），
+ * 掛 amber 之後會變三種。sky 那一個只是卡片標題的圖示，沒有掛在任何概念上，
+ * 所以 2026-10-31 改成灰階，把額度讓給 amber。**不要把它改回 sky。**
  *
  * 中間那一格刻意用虛線灰框而不是紅框：「沒有後端」不是錯誤，是這個題目的現況，
  * 標成紅的會讓學員以為自己做錯了。**不要改成紅色。**
@@ -125,6 +142,7 @@ export default function SlideArchGap() {
       title="前端、資料庫、沒有後端：要加登入怎麼做"
       subtitle="What You Have, What You Don't"
       icon={Network}
+      updated={{ date: '2026/10/31' }}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-4">
 
@@ -161,9 +179,18 @@ export default function SlideArchGap() {
           代價是那一道寫錯就沒有第二層。
         </AnimatedBlock>
 
+        {/* 不包 AnimatedBlock：跟 10f、21a4 那兩頁一樣常駐。它是給回頭翻講義的人看的，
+            不是講者要帶過的一步，包進步驟會多出一次沒有內容的按鍵（A-2）。 */}
+        <UpdateNote>
+          前端直接連是 Supabase 的<strong className="text-slate-100">預設接法，不是唯一的接法</strong>。
+          同一個專案也可以加一段你自己的後端（中間那一格），讓它拿權限較大的那把金鑰去查資料庫，
+          前端只打你自己的網址。這個題目用不到，但你之後看到「Supabase 一定得前端直連」的說法，
+          那是把預設當成了限制。
+        </UpdateNote>
+
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
           <div className="flex items-center gap-2.5 mb-1.5">
-            <UserCheck size={18} className="text-sky-400 shrink-0" />
+            <UserCheck size={18} className="text-slate-400 shrink-0" />
             <h4 className="text-base font-bold text-slate-100">想讓每個人只看到自己的紀錄，要先自己寫後端嗎</h4>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed mb-3">

@@ -235,14 +235,29 @@ export default function SlideTerminalBasics() {
         {/* Intro Banner */}
         <AnimatedBlock stepIndex={1} className="w-full">
           <div className="bg-slate-900/60 p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-left">
+            {/*
+              2026-10-31 兩段散文改成條列（講師：敘述太長）。第二段原本把「它在背景做什麼」
+              與「你看得懂有什麼好處」黏在一起，而且用 text-xs 寫成段的句子（違反 A-4，
+              內文最低 text-sm），一併改掉。
+            */}
             <div className="space-y-2">
               <p className="text-slate-300 text-sm leading-relaxed">
-                📢 終端機就是一個<strong className="text-sky-400">「用打字命令電腦」的視窗</strong>。以前要用滑鼠點開資料夾、用記事本打開檔案；現在只要輸入一行指令，電腦就會幫你看檔案內容、找關鍵字、建資料夾。
+                終端機就是一個<strong className="text-sky-400">「用打字命令電腦」的視窗</strong>。
               </p>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                💡 <strong>為什麼要學這些指令？跟做出網頁有什麼關係？</strong><br />
-                你請 AI Agent（例如 Claude Code / Cursor）幫你寫程式的時候，它其實就是在背景用這些指令<strong>「點開檔案、搜尋關鍵字、建立資料夾」</strong>。你看得懂 <code>cat</code>（開檔）和 <code>grep</code>（篩選），就知道 AI 在你的電腦裡做了什麼。
-              </p>
+              <ul className="space-y-1">
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  以前要用滑鼠點開資料夾、用記事本打開檔案；現在輸入一行指令，電腦就幫你看檔案內容、找關鍵字、建資料夾
+                </li>
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  你請 Claude Code 這類 AI Agent 幫你寫程式的時候，它在背景用的就是這些指令
+                </li>
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  <span>所以你看得懂 <code>cat</code>（開檔）和 <code>grep</code>（篩選），就知道 AI 在你的電腦裡做了什麼</span>
+                </li>
+              </ul>
             </div>
             <span className="text-xs bg-slate-950 text-sky-400 font-mono px-2.5 py-1.5 rounded border border-sky-900/50 shrink-0 self-start sm:self-auto">
               Interactive CLI Engine

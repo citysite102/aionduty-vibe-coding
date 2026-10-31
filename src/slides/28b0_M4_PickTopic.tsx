@@ -5,9 +5,9 @@ import { CopyAction } from '../components/CopyBlock';
 
 /**
  * 課後回饋裡「回去之後有什麼會擋住你」的第一名是「不知道從哪個題目開始」。
- * 收尾那頁（28b 新專案的前四個動作）講的是怎麼開工，沒有講做什麼，所以那一票沒有被接住。
+ * 收尾那頁（28b 新專案的前置作業）講的是怎麼開工，沒有講做什麼，所以那一票沒有被接住。
  *
- * 位置緊接在出貨那一串之後、「新專案的前四個動作」之前，兩頁合成同一個錄製單元。
+ * 位置緊接在出貨那一串之後、「新專案的前置作業」之前，兩頁合成同一個錄製單元。
  * 它曾經被往前搬到教學段落結束的地方，理由是現場最後一段的時間永遠被前面吃光，
  * 那一票就接不到。改成一單元一支影片之後那個理由消失了，而下一頁第 1 步
  * 開頭就是「題目挑好之後」，那句話指的就是這一頁，所以搬回它旁邊。
@@ -23,56 +23,116 @@ import { CopyAction } from '../components/CopyBlock';
  *     後半補上「四種回去就做得動的題目」：D-5 要求只看標題說得出這一頁有什麼，
  *     而且同一章已經有一個提問句標題（〈專案啟動之前：規格文件怎麼寫？〉），
  *     一節最多兩頁。
+ * 2026-10-31（講師：這句可以直接移除）開場那兩句整個刪掉，`stepIndex` 重編成 1 到 6
+ *   （A-2：缺號會讓講者進到這一頁按第一下沒反應）。**不要加回來。**
+ *   下面 2026-10-10 那一段記的是它被改過兩次的歷史，留著是為了擋「改回頂真版本」。
+ *
  *   開場那兩句：原本是「挑題目只有一個判斷標準：選一件你這個月會做第二次的事。
  *     做第二次的時候，你才驗得出來它到底有沒有幫到你。」三個毛病：
  *     「做第二次」頂真接到下一句（D-2 的頂真式遞進）、「到底有沒有」是贅詞、
  *     「幫到你」是空心的詞（幫到什麼？）。現在把理由寫成具體的事：
  *     第一次交代的時間比省下來的多，第二次才看得到。**不要改回頂真的版本。**
  */
+/**
+ * 2026-10-31（講師：指令要更完整，而且要嚴守我們的規則，由規格或需求開始和 AI 討論，
+ * 不是直接丟一句話；另外也該思考要不要建 CLAUDE.md、怎麼搭配測試）四段 Prompt 全部重寫。
+ *
+ * 原本四句都是「幫我做 X」的一句話，跟這門課自己教的順序相反：Slide 189 的第 2 步就是
+ * 「先寫一份規格再開工」，而這一頁是學員回去之後真的會複製的那四句。
+ *
+ * 四段共用同一個骨架，**改其中一段就要四段一起對**：
+ *   1. 第一句講需求與手上的材料（他先拿出自己的東西，見底下那個 focus Callout）
+ *   2. 「先不要寫程式／先不要寫檔案」：擋住它直接動手
+ *   3. 三步：先問你缺什麼 → 寫成規格給你確認 → 你說可以才動手，一次只做一段
+ *   4. 最後一行是完成條件，而且要寫成當場答得出有或沒有的動作（D-6f）
+ *
+ * **第四個題目刻意就是 CLAUDE.md**，所以「要不要建手冊」這一題在四個題目裡本來就有落點。
+ * 同一輪一度在底下加了一塊〈規格談定之後，還有兩件事〉（手冊什麼時候建、做完怎麼驗），
+ * 當天就拿掉了（講師：這部分下一頁的教學內容就有）：下一頁〈新專案的前置作業〉
+ * 第 4 步講的正是「每次都要重講的那幾句，才寫進 CLAUDE.md」，第 3 步講自己點一次，
+ * 那是 B-5 的同一批內容開兩頁。**不要加回來**，要補就補進下一頁。
+ *
+ * 2026-10-31（講師：「其實第一次下指令他不一定會一次改很多檔案，這段好像可以整個移除」）
+ * 〈題目太大的徵兆〉那一塊刪掉，`stepIndex` 重編成 1 到 5。它寫的是「它一次改了七、八個
+ * 檔案」，但四段 Prompt 2026-10-31 改成先談規格、我說可以才動手、一次只做一段之後，
+ * 那個狀況本來就不該發生，留著等於先告訴學員這個流程會失控。
+ * **真的要講題目切小，位置是下一頁的卡住三招，不是這裡。**
+ *
+ * 2026-10-31（講師：擔心這幾種案例和課程內容關聯性有點遠）每一格補一行
+ * 「課程裡的哪一段」。四個題目本來就各自有落點，只是畫面上沒寫出來：
+ *   報表 → 章節三的自動化工具實作、章節七的驗收條件與停止機制
+ *   網站 → 章節八的 Vessel 品牌網站、章節七的部署
+ *   回覆 → 章節四的 Skills
+ *   規範 → 章節四的第一份 CLAUDE.md、章節五的規範維護
+ * **寫章節不要寫單元編號**（B-0b：單元編號會隨搬頁重排）。
+ * 換掉任何一個題目，那一行要跟著換，換不出來就代表那個題目真的沒有落點。
+ *
+ * 四個題目都挑不需要寫程式背景就評得出成果的：自己看得出做對做錯，才驗得下去。
+ * 平等的四項一律灰階，Prompt 框統一同一種處理，不要一項一色。
+ */
 const TOPICS = [
   {
     icon: FileSpreadsheet,
     title: '每週都要交的那份報表',
     who: '手上有固定要彙整的數字或資料',
+    from: '章節三的自動化工具實作，加上章節七的驗收條件與停止機制',
     prompt:
-      '這是我上週的原始資料和交出去的報表。幫我寫一支腳本，下次我把新資料放進同一個資料夾就能產出同樣格式。',
+      '我每週都要把一批原始資料整理成固定格式的報表，想請你幫我做成一支下次還能再跑一次的腳本。\n\n' +
+      '先不要寫程式。我附上上週的原始資料，以及我交出去的那份報表。請你：\n' +
+      '1. 看完先問我你還需要知道什麼\n' +
+      '2. 把「要做什麼、不做什麼、做完我怎麼驗」寫成規格給我確認\n' +
+      '3. 我說可以之後再動手，一次只做一段\n\n' +
+      '我的完成條件：下個月我把新資料放進同一個資料夾，跑一次就產出同樣格式的報表，而且我抽三筆數字對得起來。',
     get: '一支下次還能再跑一次的腳本',
   },
   {
     icon: Globe,
     title: '一頁式網站，換成你自己的內容',
     who: '想要一個能傳給別人的網址',
+    from: '章節八的 Vessel 品牌網站，部署照章節七那一段',
     prompt:
-      '幫我做一個單頁網站，內容是這些。做完幫我推上 GitHub 並部署，給我可以傳給別人的網址。',
+      '我想做一個單頁網站，內容附在下面，做完要推上 GitHub 並部署，給我一個可以傳給別人的網址。\n\n' +
+      '先不要寫程式。請你：\n' +
+      '1. 先問我這個網站給誰看、他看完要做什麼\n' +
+      '2. 把要有哪幾個區塊、哪些這一輪不做、做完我怎麼驗，寫成規格給我確認\n' +
+      '3. 我說可以之後再動手，先做出看得到畫面的第一版，我自己點過再往下\n\n' +
+      '我的完成條件：用手機打開那個網址，每一個區塊都看得到、字不會擠在一起、連結點得開。',
     get: '一組公開網址，對方不用裝任何東西',
   },
   {
     icon: MessageSquareQuote,
     title: '你每個月都要重寫一次的那種回覆',
     who: '客服回信、面試邀約、貼文格式',
+    from: '章節四裝過一個 Skill，這次換你自己寫一份',
     prompt:
-      '我貼三則我以前寫過的回覆。幫我整理成一份 SKILL.md，寫清楚步驟和語氣，之後我說「用這個回」你就照著跑。',
+      '我每個月都要重寫一次同一種回覆，想請你幫我整理成一份我叫一次就展開的 SKILL.md。\n\n' +
+      '先不要寫檔案。我貼三則我以前寫過的回覆在下面。請你：\n' +
+      '1. 讀完先問我：這三則裡哪些是每次都一樣的、哪些要看對象改\n' +
+      '2. 把步驟、語氣規則、不能出現的用詞寫成規格給我確認\n' +
+      '3. 我說可以之後再寫成 SKILL.md\n\n' +
+      '我的完成條件：我說「用這個回」並給你一個新情況，你產出的那一則我改兩句以內就能送出去。',
     get: '一份 SKILL.md，之後叫一次就展開',
   },
   {
     icon: BookMarked,
     title: '你部門的用詞與格式規範',
     who: '有一套大家嘴巴上說、但沒寫下來的規則',
+    from: '章節四的第一份 CLAUDE.md，加上章節五的規範維護',
     prompt:
-      '我貼一份我們的用詞規範。幫我整理成 CLAUDE.md，然後用它檢查這篇文章，列出哪幾句不符合。',
+      '我們部門有一套用詞與格式規範，我想讓你每次都照著做。規範貼在下面。\n\n' +
+      '先不要寫檔案。請你：\n' +
+      '1. 讀完先問我：哪幾條你覺得不夠具體、沒辦法照著判斷\n' +
+      '2. 整理成一份 CLAUDE.md 的草稿給我確認，每一條都要能回答「有做到或沒做到」\n' +
+      '3. 我說可以之後再寫進檔案，然後用它檢查我附的這篇文章，列出哪幾句不符合\n\n' +
+      '我的完成條件：它列出來的每一句，我都指得出是違反哪一條。',
     get: '一份手冊，以後每次對話它都會先讀',
   },
 ];
 
 export default function SlidePickTopic() {
   return (
-    <SlideLayout title="四種可以嘗試的方向" subtitle="Pick Your First Real Task" icon={Target}>
+    <SlideLayout title="接下來可以嘗試的幾個選擇" subtitle="Pick Your First Real Task" icon={Target}>
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
-
-        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          底下四種，挑<strong className="text-slate-100">這個月你會做第二次的那一件</strong>。
-          只做一次的事，光是交代就會花掉你想省的那段時間。
-        </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {TOPICS.map((t, i) => {
@@ -80,7 +140,7 @@ export default function SlidePickTopic() {
             return (
               <AnimatedBlock
                 key={t.title}
-                stepIndex={i + 2}
+                stepIndex={i + 1}
                 className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col"
               >
                 <div className="flex items-start gap-3 mb-1">
@@ -90,6 +150,10 @@ export default function SlidePickTopic() {
                   <div className="min-w-0">
                     <h3 className="text-base font-bold text-slate-100 leading-snug">{t.title}</h3>
                     <p className="text-sm text-slate-500 mt-0.5">{t.who}</p>
+                    <p className="text-sm text-slate-500 mt-1">
+                      <span className="text-slate-400">課程裡的哪一段</span>
+                      <span className="ml-2">{t.from}</span>
+                    </p>
                   </div>
                 </div>
 
@@ -97,7 +161,7 @@ export default function SlidePickTopic() {
                   <div className="text-xs font-mono uppercase tracking-widest text-sky-500 mb-1.5">
                     第一句這樣講
                   </div>
-                  <p className="text-sky-100 text-sm leading-relaxed">{t.prompt}</p>
+                  <p className="text-sky-100 text-sm leading-relaxed whitespace-pre-line">{t.prompt}</p>
                   <div className="mt-2 flex justify-end"><CopyAction text={t.prompt} /></div>
                 </div>
 
@@ -109,17 +173,28 @@ export default function SlidePickTopic() {
           })}
         </div>
 
-        <Callout tone="warn" label="題目太大的徵兆" stepIndex={6}>
-          交代下去之後，它一次改了七、八個檔案，你看不完也說不出哪裡不對。
-          這時候不是把它換掉，是<strong className="text-slate-100">把題目切小</strong>：
-          跟它說「先停，這一輪只做某某一件事」，做完你看得懂了再往下。
-        </Callout>
-
-        <Callout tone="focus" label="內容自己給，格式讓它整理" stepIndex={7}>
-          上面四種都是你先拿出自己的東西（舊報表、舊回覆、部門的規範），它只負責整理成固定格式。
-          反過來讓它替你想內容，你會拿到一份<strong className="text-slate-100">自己驗不動的東西</strong>；
-          驗不動的東西，你只能選擇相信它，或整份重來。
-          你負責的是講清楚什麼叫做完跟驗收，這一步就是在保住那個能力。
+        {/*
+          2026-10-31 從一段散文改成三條。原本「⋯自己驗不動的東西；驗不動的東西，你只能⋯」
+          是 D-2 的頂真式遞進，而且四句話把分工、後果、你的職務黏在一起。
+          **不要把三條接回一段。**
+        */}
+        <Callout tone="focus" label="內容自己給，格式讓它整理" stepIndex={5}>
+          <ul className="space-y-1.5">
+            <li className="flex flex-wrap items-baseline gap-x-2">
+              <span className="w-20 shrink-0 font-bold text-slate-100">你拿出</span>
+              <span className="flex-1 min-w-0">舊報表、舊回覆、部門的規範，上面四種都是從你手上的東西開始。</span>
+            </li>
+            <li className="flex flex-wrap items-baseline gap-x-2">
+              <span className="w-20 shrink-0 font-bold text-slate-100">它負責</span>
+              <span className="flex-1 min-w-0">整理成固定格式，之後每次照同一套跑。</span>
+            </li>
+            <li className="flex flex-wrap items-baseline gap-x-2">
+              <span className="w-20 shrink-0 font-bold text-slate-100">反過來的話</span>
+              <span className="flex-1 min-w-0 text-slate-400">
+                讓它替你想內容，你會拿到一份自己驗不動的東西，只能選擇相信它或整份重來。
+              </span>
+            </li>
+          </ul>
         </Callout>
 
       </div>

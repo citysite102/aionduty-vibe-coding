@@ -1,4 +1,5 @@
 import { Network, Monitor, Server, Globe, ShieldCheck, ArrowDown } from 'lucide-react';
+import { motion } from 'motion/react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
@@ -28,6 +29,13 @@ import { Callout } from '../components/Callout';
  * 顏色只有一個 sky，標的是「要帶權杖的那條線」與它最後撞上的那道規則，
  * 兩者是同一件事的頭尾（A-1）。灰線是不用登入也走得通的那條。
  *
+ * 2026-10-31（講師：「終端機一行指令就能呼叫」看不懂、Edge Functions 可以說得更清楚）
+ * 改兩格。「終端機一行指令」是工程師的視角，學員不知道誰會去打那一行、為什麼要打；
+ * 現在寫成他想像得到的情境（別人要把繪馬牆放進自己的網站）。
+ * Edge Functions 原本寫「放在 Supabase 上的小程式，對外開成 API」，
+ * 「對外開成 API」是結果不是動作，改成講這個案例真的拿它做了什麼（開了五個網址）。
+ * **不要改回「終端機一行指令」那種寫法。**
+ *
  * 名詞一律當場解釋：這門課一半的學員不寫程式，而這一頁最容易變成只有工程師讀得懂的那一頁。
  * 權杖在前一頁已經解釋過一次（登入之後拿到的那串通行碼），這裡再給一次最短的。
  */
@@ -50,16 +58,16 @@ const ZONES = [
       ['Auth 會員', '信箱連結登入，成功就發一張權杖（一小時）'],
       ['Postgres 資料庫', '繪馬、誰掛的、誰祈願過，各一張表'],
       ['Storage', '繪馬的照片，公開看得到但不能列出全部'],
-      ['Edge Functions', '放在 Supabase 上的小程式，對外開成 API'],
+      ['Edge Functions', '你寫的一小段程式，放在 Supabase 上跑。這個案例用它對外開了五個網址，別人打那幾個網址就拿得到繪馬資料'],
     ],
   },
   {
     icon: Globe,
-    name: '外部',
-    sub: '寄信服務，以及從外面呼叫 API 的人',
+    name: '外部服務',
+    sub: '幫你寄信的那一家，以及從外面呼叫 API 的人',
     rows: [
       ['Resend', '把登入連結寄到你的信箱'],
-      ['別人的程式', '終端機一行指令就能呼叫，不必經過這個網站'],
+      ['別人的程式', '別人想把繪馬牆放進自己的網站，他的程式直接呼叫 Edge Functions 對外開放的那幾個 API 網址，不會經過你的網頁'],
     ],
   },
 ];
@@ -67,7 +75,7 @@ const ZONES = [
 /** 三個入口。它們的共同點是最後都走到同一個資料庫，所以把關的只可能是資料庫自己 */
 const ENTRIES = [
   { k: '你的網站', v: '使用者在瀏覽器上按按鈕' },
-  { k: '別人的程式', v: '終端機一行指令，不經過這個網站' },
+  { k: '別人的程式', v: '他的程式直接打 API 網址，不開你的網頁' },
   { k: 'API 文件頁', v: '文件頁上的試呼叫按鈕' },
 ];
 
@@ -118,46 +126,101 @@ export default function SlideCase4Arch() {
           ))}
         </div>
 
-        {/* 入口匯流列：三個入口 → 同一道規則。這是整頁的論點，不要拆開 */}
-        <AnimatedBlock stepIndex={5} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {ENTRIES.map((e) => (
+        {/*
+          入口匯流列：三個入口 → 同一道規則。這是整頁的論點，不要拆開。
+
+          2026-10-31（講師：這段用動畫呈現方便教學）三個箭頭各加一顆往下跑的光點。
+          它要做的事只有一件：讓學員看到三條路**真的都走到同一個地方**，
+          那是靜態箭頭講不出來的（講者口頭說「三個入口」時，台下看到的還是三個並排的框）。
+          三顆光點刻意錯開 0.3 秒出發、落點一樣，所以視線會自己收到底下那道規則上。
+          A-2：它不是用 `setTimeout` 切換畫面內容，只是常駐的視覺迴圈，不影響翻頁。
+          **全頁只有這一組在動**，再加別的動畫之前先想它幫不幫得上這一頁要回答的問題。
+        */}
+        {/*
+          2026-10-31（講師：可以優化排版和動畫效果）入口列與規則那一塊包進同一個外框。
+          原本它們是兩個各自獨立的區塊，中間還有 `space-y-2` 的空隙，
+          所以「三條路最後走到同一個地方」只靠三個箭頭在撐，版面上讀起來還是兩件事。
+          現在外框一圈淡 sky，三個入口在框內、規則在框底，匯流是看得出來的。
+          **不要把它們拆回兩個區塊。**
+          外框本身就是第 5 下的 `AnimatedBlock`（講師：底下不應該直接跑出來）：
+          外框如果是普通的 `div`，進到這一頁的第一下就會先畫出一個空的大框，
+          框裡什麼都沒有。**外框與它第一批內容要同一個 `stepIndex`。**
+        */}
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-sky-500/20 bg-sky-500/[0.04] p-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {ENTRIES.map((e, i) => (
             <div key={e.k} className="flex flex-col items-center gap-1">
               <div className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-center">
                 <span className="block text-sm font-bold text-slate-200">{e.k}</span>
                 <span className="block text-sm leading-snug text-slate-500">{e.v}</span>
               </div>
-              <ArrowDown aria-hidden="true" size={16} className="text-sky-500/60" />
+              <div className="relative flex h-6 w-full items-center justify-center">
+                <ArrowDown aria-hidden="true" size={16} className="text-sky-500/60" />
+                <motion.span
+                  aria-hidden="true"
+                  className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-sky-300 shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+                  animate={{ top: [-2, 22], opacity: [0, 1, 1, 0] }}
+                  transition={{
+                    duration: 1.6,
+                    repeat: Infinity,
+                    repeatDelay: 0.9,
+                    delay: i * 0.3,
+                    ease: 'linear',
+                  }}
+                />
+              </div>
             </div>
           ))}
-        </AnimatedBlock>
+        </div>
 
-        {/* 這一塊是整頁的樞紐：上面三區都往它走 */}
+        {/* 這一塊是整頁的樞紐：上面三區都往它走。
+            2026-10-31 外框改成實心深底，壓在淡 sky 的匯流框裡面，三個箭頭落點就是它的上緣。
+            盾牌那個 icon 跟著光點的節拍慢慢亮一下，讓視線在落點停住。 */}
         <AnimatedBlock
           stepIndex={6}
-          className="rounded-2xl border border-sky-500/30 bg-sky-500/5 p-3 text-left"
+          className="rounded-xl border border-sky-500/35 bg-slate-950/70 p-3 text-left"
         >
           <div className="flex items-center gap-2.5 mb-2">
-            <ShieldCheck aria-hidden="true" size={16} className="shrink-0 text-sky-400" />
+            <motion.span
+              aria-hidden="true"
+              className="inline-flex shrink-0 text-sky-400"
+              animate={{ opacity: [0.45, 1, 0.45] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <ShieldCheck size={16} />
+            </motion.span>
             <h3 className="text-base font-bold text-sky-200">
               資料庫自己的權限規則：每一次查詢都重新檢查一遍
             </h3>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1.5 border-t border-sky-500/20 pt-3">
+          {/*
+            2026-10-31（講師：調整成左右橫式比較方便閱讀）四條從 2×2 改成四列，
+            左邊是動作、右邊是誰做得到，欄位對齊。這樣「要帶權杖」那三條會垂直對在一起，
+            一眼看得出只有第一條不用登入，那正是這一塊要講的事。
+            **不要改回兩欄**，兩欄時那個對比要自己找。
+          */}
+          <div className="space-y-1 border-t border-sky-500/20 pt-3">
             {FLOWS.map((f) => (
-              <p key={f.what} className="text-sm leading-relaxed">
-                <span className={f.auth ? 'font-bold text-sky-200' : 'font-bold text-slate-300'}>
+              <p key={f.what} className="flex flex-wrap items-baseline gap-x-3 text-sm leading-relaxed">
+                <span
+                  className={`w-28 shrink-0 whitespace-nowrap font-bold ${
+                    f.auth ? 'text-sky-200' : 'text-slate-300'
+                  }`}
+                >
                   {f.what}
                 </span>
-                <span className="text-slate-400">：{f.who}</span>
+                <span className="flex-1 min-w-0 text-slate-400">{f.who}</span>
               </p>
             ))}
           </div>
         </AnimatedBlock>
+        </AnimatedBlock>
 
         <Callout tone="focus" stepIndex={7}>
-          你的網站、別人終端機裡的一行指令、API 文件頁上的試呼叫，
+          你的網站、別人寫的程式、API 文件頁上的試呼叫，
           <strong className="text-slate-100">三個入口走的是同一個資料庫</strong>。
-          介面上的登入視窗擋不住中間那兩個，真正把人分開的是上面那條規則。
+          後面兩個根本不會經過你的網頁，所以介面上的登入視窗擋不住他們，
+          真正把人分開的是上面那條規則。
         </Callout>
 
       </div>

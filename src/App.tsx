@@ -160,6 +160,7 @@ import SlideCase3Race from './slides/29j_Case3_Race';
 import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import SlideCase4Shrine from './slides/29k_Case4_Shrine';
 import SlideCase4Layers from './slides/29l_Case4_Layers';
+import SlideCase4Astro from './slides/29l2_Case4_Astro';
 import SlideCase4Stack from './slides/29m_Case4_Stack';
 import SlideCase4Arch from './slides/29m2_Case4_Arch';
 import SlideCase4Judgements from './slides/29n_Case4_Judgements';
@@ -319,24 +320,25 @@ const LIVE_TITLES = [
   "案例二：東京環状 24 時",
   "哪些效果交給套件，哪些自己算",
   "為什麼還是要看得懂，以及選什麼套件",
-  "案例二的六個判斷",
+  "AI 無法幫你決定的事情",
   "案例三：開窯預約",
   "兩把金鑰，兩層權限",
   "兩個人同時搶最後一個名額",
-  "案例三的五個判斷",
+  "AI 無法幫你決定的事情",
   "案例四：海上許願神社",
   "水面、浮力與接合處",
-  "會員登入、資料庫、對外 API 與背景音樂",
+  "中途為什麼要把專案搬進 Astro",
+  "背景音樂、登入、資料庫、對外 API 與寄信",
   "系統架構：三個入口，權限都在資料庫",
-  "案例四的八個判斷",
-  "四種可以嘗試的方向",
-  "新專案的前四個動作",
-  "三組掃描數字，以及為什麼跟你的程度無關",
+  "AI 無法幫你決定的事情",
+  "接下來可以嘗試的幾個選擇",
+  "新專案的前置作業",
+  "會動了不等於做完：三組掃描數字",
   "OWASP 是什麼：一份免費公開的資安清單",
   "OWASP Top 10：有五條對得上這門課做的事",
-  "三種檢查：自己掃、請 AI 看、找人來打",
-  "接了 AI 之後：它讀到的指令和它的權限",
-  "金流、個資、受監管行業、著作權",
+  "三種檢查：自己掃、請 AI 看、外部單位測試",
+  "接了 AI：內容裡藏的指令、給太大的權限",
+  "換一個領域：哪幾題是舊的，哪幾題要另外查",
   "專案規模增加的 Agent 成本",
   "同樣的命題，不同的解決策略",
   "未來的工作者",
@@ -494,6 +496,7 @@ const LIVE_SLIDES = [
   SlideCase3Judgements,
   SlideCase4Shrine,
   SlideCase4Layers,
+  SlideCase4Astro,
   SlideCase4Stack,
   SlideCase4Arch,
   SlideCase4Judgements,
@@ -546,7 +549,7 @@ const SECTION_DEFS = [
   { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
   { start: 109, label: 'Loop Engineering：建立自動迭代與驗證流程' },
   { start: 131, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 160, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 161, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

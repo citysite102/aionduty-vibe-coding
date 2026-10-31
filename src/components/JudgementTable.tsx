@@ -10,6 +10,10 @@
  * 2026-10-31 欄名改回講師原本的用詞。中間那一輪寫成「怎麼判／判錯會怎樣」，
  * 講師明令禁用「判錯會怎樣」那種口語簡寫。**三個欄名就是這三個，不要再簡寫。**
  *
+ * 2026-10-31（講師：「這一題」超怪的）第一欄的欄名改成「要決定的事」。
+ * 「這一題」沒有講出那一欄裝的是什麼，而且它跟「判斷依據／判斷錯的代價」不同類
+ * （後兩個是名詞，它是指示詞）。**另外兩欄的欄名是講師指定的，不要動。**
+ *
  * 改成表之後，「判斷依據」「判斷錯的代價」這兩個標籤只在表頭出現一次，
  * 不必每一條重寫，而且三欄對齊，學員回頭翻講義時掃得動。
  *
@@ -38,7 +42,7 @@ export function JudgementTable({ items }: { items: Judgement[] }) {
       <table className="w-full text-sm">
         <thead>
           <tr className="bg-slate-950 text-slate-500">
-            <th className="w-[30%] px-4 py-2 text-left font-normal">這一題</th>
+            <th className="w-[30%] px-4 py-2 text-left font-normal">要決定的事</th>
             <th className="px-4 py-2 text-left font-normal">判斷依據</th>
             <th className="px-4 py-2 text-left font-normal">判斷錯的代價</th>
           </tr>

@@ -1,6 +1,5 @@
 import { ListChecks, Check, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { Callout } from '../components/Callout';
 import { CopyAction } from '../components/CopyBlock';
 
 /**
@@ -34,10 +33,24 @@ import { CopyAction } from '../components/CopyBlock';
  * **不要只改年份**，條目的編號與名稱每一版都會動。
  * ─────────────────────────────────────────────────────
  *
+ * 2026-10-31（講師：交給誰？）另外五條那一句原本寫「現在交給它就好」，
+ * 「它」在那一段裡沒有主詞（D-2），前後文也沒有出現過 Claude。
+ * 現在改成指到底下那段 Prompt，並寫明是 Claude 把十條一起查過。
+ * **不要再寫「交給它」**，這一段跟三格那一塊中間隔著一張表，代名詞接不回去。
+ *
  * 只標五條是刻意的。十條全列會變成一頁要背的東西，而這一頁的效果來自
  * 「原來我做的那幾件事有名字，而且排第一名」。**不要為了完整把另外五條也展開。**
  *
- * 強調色只有 emerald（已經做過的那五條）。收尾的 focus 不計入（A-1）。
+ * 強調色只有 emerald（已經做過的那五條）。
+ *
+ * 2026-10-31（講師：這可以移除）收尾那個指向講義頁的 Callout 拿掉了。
+ * 自查卡本身還在 `public/handouts/`，**檔案不要刪**；拿掉的只是這一頁上的指路。
+ *
+ * 2026-10-31（講師：這段好像和前一頁重複）開場砍掉兩件事：「外面有一份公認的清單在收，
+ * 叫 OWASP Top 10」與「現行是 2025 版，大約四年一版」。前一頁（`28c2b`）整頁在講這些，
+ * 連成兩頁讀就是同一段講兩次。留下的是前一頁刻意不講、而且**這一頁的口白已經錄過**的
+ * 那一句（公司的 IT 與資安照它在看東西），畫面上要有它口白才接得住（A-5）。
+ * **不要把 OWASP 的來歷或版本號加回這一頁。**
  *
  * 2026-10-20 前面插了〈OWASP 是什麼〉那一頁，所以開場的「上一頁」改成「前面」：
  * 它原本指的是風險數字那一頁，中間多一頁之後就指錯了（B-4）。影片錄的是舊順序，
@@ -96,9 +109,8 @@ export default function SlideShipOwasp() {
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          沒設登入、權限沒擋住、金鑰外流這幾類，外面有一份公認的清單在收，叫 OWASP Top 10，
-          <strong className="text-slate-100">你公司的 IT 與資安就是照它在看東西</strong>。
-          現行是 2025 版，大約四年一版，所以它不太會過期。下面五條，講的就是這門課做過的事。
+          沒設登入、權限沒擋住、金鑰外流這幾類，都收在前面那份清單裡。
+          <strong className="text-slate-100">公司的資訊或資安單位就是照它在看東西</strong>。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800/70">
@@ -125,8 +137,10 @@ export default function SlideShipOwasp() {
           從「你已經做過一半」變成「你還差五樣」，那是相反的效果。
         */}
         <AnimatedBlock stepIndex={3} as="p" className="text-slate-500 text-sm leading-relaxed px-1">
-          另外五條（A04 加密、A05 注入、A06 設計本身的問題、A08 完整性、A10 例外狀況沒處理好）
-          現在交給它就好，你知道有這幾條存在。
+          另外五條你現在用不到，知道有這幾條存在就好：A04 加密、A05 注入、A06 設計本身的問題、
+          A08 完整性、A10 例外狀況沒處理好。
+          <strong className="text-slate-400">底下那段 Prompt 會讓 Claude 把十條一起查過</strong>，
+          包含這五條。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
@@ -136,14 +150,6 @@ export default function SlideShipOwasp() {
           <p className="text-sky-200 text-sm leading-relaxed">{OWASP_PROMPT}</p>
           <CopyAction text={OWASP_PROMPT} className="mt-2" />
         </AnimatedBlock>
-
-        <Callout tone="focus" label="要照著跑的那一份在講義頁" stepIndex={5}>
-          八題不用讀程式碼的自查、十條的完整對照、還有金流與個資那幾個領域，
-          做成了一張〈上線前自查卡〉，每一條都可以勾。
-          <span className="block mt-2 font-mono text-sm text-slate-400">
-            citysite102.github.io/aionduty-vibe-coding/handouts/
-          </span>
-        </Callout>
 
         <p className="text-xs text-slate-600 flex flex-wrap items-center gap-x-3 gap-y-1">
           <span>2026-10-10 查證，現行版是 2025</span>

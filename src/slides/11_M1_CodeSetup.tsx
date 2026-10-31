@@ -16,10 +16,19 @@ export default function SlideCodeSetup() {
       <LiveDemo kind="terminal" />
 
       <div className="max-w-6xl mx-auto mb-5">
+        {/* 2026-10-31 三個理由從句尾的頓號串改成條列（講師：敘述太長）。 */}
         <Callout tone="focus" label="這一段是選修的" icon={AppWindow} stepIndex={1}>
-          桌面版已經做得完前面所有事，<strong className="text-slate-100">終端機是同一個 Claude Code 的另一個介面</strong>，
-          不是另一個工具。裝它的理由是：可以同時開好幾個在跑、可以用 <code className="font-mono text-orange-300">!</code> 直接下指令、
-          以及之後想把它接進自動化流程的時候需要它。
+          桌面版已經做得完前面所有事，
+          <strong className="text-slate-100">終端機是同一個 Claude Code 的另一個介面</strong>，
+          不是另一個工具。裝它的理由有三個：
+          <span className="mt-1.5 block space-y-0.5">
+            <span className="block"><span className="text-slate-600">・</span> 可以同時開好幾個在跑</span>
+            <span className="block">
+              <span className="text-slate-600">・</span> 可以用{' '}
+              <code className="font-mono text-orange-300">!</code> 直接下指令
+            </span>
+            <span className="block"><span className="text-slate-600">・</span> 之後想把它接進自動化流程的時候需要它</span>
+          </span>
         </Callout>
       </div>
 
@@ -71,7 +80,20 @@ export default function SlideCodeSetup() {
             <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-sky-500/20 font-mono text-xs text-sky-400">1</span>
             安裝與啟動 Claude Code
           </h3>
-          <p className="text-slate-400 text-sm mb-3">官方首選是原生安裝器；若你已有 Node.js 也可用 npm。首次啟動會自動引導登入，用你原本那個 Claude 訂閱帳號就好，不要填 API 金鑰。</p>
+          <ul className="space-y-0.5 mb-3">
+            <li className="flex gap-2 text-slate-400 text-sm leading-relaxed">
+              <span className="shrink-0 text-slate-600">・</span>
+              官方首選是原生安裝器，已經裝了 Node.js 的話也可以走 npm
+            </li>
+            <li className="flex gap-2 text-slate-400 text-sm leading-relaxed">
+              <span className="shrink-0 text-slate-600">・</span>
+              首次啟動會自動引導登入
+            </li>
+            <li className="flex gap-2 text-slate-400 text-sm leading-relaxed">
+              <span className="shrink-0 text-slate-600">・</span>
+              <span>用你原本那個 Claude 訂閱帳號就好，<strong className="text-slate-200">不要填 API 金鑰</strong></span>
+            </li>
+          </ul>
           <div className="bg-black/50 p-3 rounded-lg font-mono text-xs border border-slate-800 space-y-2">
             <div className="text-slate-500"># macOS / Linux（在終端機執行）</div>
             <div className="text-emerald-400">$ curl -fsSL https://claude.ai/install.sh | bash</div>

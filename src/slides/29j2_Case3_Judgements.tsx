@@ -33,7 +33,7 @@ const JUDGEMENTS = [
     by: '有人繞過網頁直接送請求，還擋得住嗎',
     cost: '資料外洩，而且畫面上完全看不出來',
     key: true,
-    keyNote: '你剛才親手驗過的那一條',
+    keyNote: '我們驗過的項目',
   },
   {
     q: '這個數字前端算不算得出來',
@@ -55,8 +55,8 @@ const JUDGEMENTS = [
 export default function SlideCase3Judgements() {
   return (
     <SlideLayout
-      title="案例三的五個判斷"
-      subtitle="Case 03 · AI 幫不了你的那幾個決定"
+      title="AI 無法幫你決定的事情"
+      subtitle="Case 03 · 判斷依據與判斷錯的代價"
       icon={ShieldQuestion}
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
@@ -65,9 +65,14 @@ export default function SlideCase3Judgements() {
           <JudgementTable items={JUDGEMENTS} />
         </AnimatedBlock>
 
+        {/*
+          2026-10-31（講師：太 AI）重寫。原本是「前四條問的是⋯最後一條問的是⋯」
+          加上「你只知道有寫，不知道有沒有生效」，前半在描述這張表自己的結構，
+          後半是對仗。現在直接給那個動作：換一個帳號登入，去讀別人的那幾筆。
+        */}
         <Callout tone="focus" label="寫了不等於生效" stepIndex={2}>
-          前四條問的是這一層擋不擋得住，最後一條問的是你驗過了沒有。
-          <strong className="text-slate-100">沒有換一個身分實際測過，兩層權限你只知道有寫，不知道有沒有生效。</strong>
+          規則寫完之後，用第二個測試帳號登入，去讀另一個人的預約。
+          <strong className="text-slate-100">讀得到，就是那條規則沒有擋住。</strong>
         </Callout>
 
       </div>

@@ -1,4 +1,5 @@
 import { Database, Search, HardDrive, ShieldQuestion } from 'lucide-react';
+import { motion } from 'motion/react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
@@ -16,6 +17,11 @@ import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
  *   "A clean coverage result means only 'no recorded gap,' never proof of completeness"
  * 省 token 的那個數字（約 99.2%）是它自己量的單一情境，畫面上一律標明是它自己量的，
  * **不要把它寫成這堂課的保證**（D-2 的編造量化數據那一條，照抄別人的數字也要標來源）。
+ *
+ * 2026-10-31（講師：Slide 196 詳細檢查語法結構）四處：開場的「公司那個已經跑了三年的
+ * 專案呢？情況會變成這樣：」是設問加後設導覽，改成直述的「公司既有的專案」；卡片標籤跟著改；
+ * 小標「三個症狀，出現就是撞到這件事了」是主張句而且「這件事」沒有指到東西（D-5 區塊小標）；
+ * 索引那一段的「是去查索引，不是一個一個檔案翻」是 D-2 的對仗，改成兩邊都講得出內容。
  *
  * 右欄那四個問題是這一頁真正的產出，下一頁（graft）會再用同一張表一次，
  * 兩頁的答案不一樣才看得出那張表有用。**改這四個問題就要同時改下一頁**，
@@ -78,7 +84,7 @@ export default function SlideProjectMemory() {
           <AnimatedBlock stepIndex={1}>
             <p className="text-slate-300 text-base leading-relaxed">
               課程裡做的那幾個案例，檔案都不多，Claude 翻一遍就知道哪裡是哪裡。
-              但如果是公司那個已經跑了三年的專案呢？情況會變成這樣：
+              但如果是公司既有的專案，情況可能會變成
               <strong className="text-slate-100">光是找到相關的那幾個檔案，就吃掉大半個上下文</strong>，
               真正要做的事反而沒空間了。
             </p>
@@ -97,10 +103,29 @@ export default function SlideProjectMemory() {
               <p className="text-slate-500 text-sm leading-relaxed mt-2.5">翻一遍就知道哪裡是哪裡</p>
             </div>
             <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
-              <p className="text-slate-300 text-sm mb-2">公司那個跑了三年的專案</p>
+              <p className="text-slate-300 text-sm mb-2">公司既有的專案</p>
+              {/*
+                2026-10-31（講師：這裡幫我做成動畫）七十二塊格子改成一塊一塊亮起來、
+                而且亮完不停，用很慢的波浪持續跑。它要做的事只有一件：
+                **讓「數不完」變成看得到的**。左邊那四個檔名是數得完的，右邊不是，
+                而一片靜止的灰格子讀起來只是材質。
+                A-2：它沒有切換任何畫面內容，只是常駐的視覺迴圈，不影響翻頁。
+                慢（4 秒一輪）、低對比（0.35 到 0.85 的灰），**全頁只有這一組在動**。
+              */}
               <div className="flex flex-wrap gap-1" aria-hidden="true">
                 {Array.from({ length: 72 }).map((_, i) => (
-                  <span key={i} className="h-2.5 w-6 rounded-sm bg-slate-700/70" />
+                  <motion.span
+                    key={i}
+                    className="h-2.5 w-6 rounded-sm bg-slate-700"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0.35, 0.85, 0.35] }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: i * 0.045,
+                      ease: 'easeInOut',
+                    }}
+                  />
                 ))}
               </div>
               <p className="text-slate-400 text-sm leading-relaxed mt-2.5">
@@ -110,7 +135,7 @@ export default function SlideProjectMemory() {
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <h3 className="text-slate-100 text-base font-bold mb-2.5">三個症狀，出現就是撞到這件事了</h3>
+            <h3 className="text-slate-100 text-base font-bold mb-2.5">專案變大之後的三個症狀</h3>
             <ul className="space-y-2">
               {SYMPTOMS.map((s) => (
                 <li key={s} className="flex gap-2.5 text-slate-400 text-sm leading-relaxed">
@@ -125,7 +150,7 @@ export default function SlideProjectMemory() {
             <h3 className="text-slate-100 text-base font-bold mb-2">一種解法：先建一份索引</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               codebase-memory-mcp 這類工具先把整個專案掃一遍，記下哪個功能寫在哪個檔案、誰呼叫了誰，
-              存成一份本機的資料庫。之後 Claude 是去查索引，不是一個一個檔案翻。
+              存成一份本機的資料庫。之後 Claude 要找東西先查這份索引，不用再一個一個檔案翻過去。
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-1 mt-2.5 text-slate-500 text-sm">
               <span>MIT 授權</span>
@@ -159,12 +184,28 @@ export default function SlideProjectMemory() {
         <div className="space-y-4">
           <AnimatedBlock stepIndex={6} className="rounded-2xl border border-sky-500/30 bg-sky-500/10 p-5">
             <h3 className="text-slate-100 text-base font-bold mb-1">要不要裝一個第三方工具，問這四題</h3>
-            <p className="text-slate-300 text-sm leading-relaxed">
+            {/*
+              2026-10-31 從一段散文改成兩條（講師：敘述太長）。原本一段話裡藏了兩串清單
+              （四題的順序、GitHub 上要看哪五個地方），寫成句子讀者得自己數。
+            */}
+            <p className="text-slate-300 text-sm leading-relaxed mb-2">
               專案越做越大，你會陸續接到各種「裝了會變快」的工具。
-              這四題的順序是固定的：先問資料，再問權限，再問可逆，最後看它誠不誠實。
-              答案都寫在那個專案的 GitHub 說明頁上：最上面那段描述、星星數與最後更新、
-              License、Installation 那一段、Issues 分頁，照這個順序看就找得到。
             </p>
+            <ul className="space-y-1.5">
+              <li className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
+                <span className="w-16 shrink-0 font-bold text-slate-100">問的順序</span>
+                <span className="flex-1 min-w-0 text-slate-300">
+                  先問資料，再問權限，再問可逆，最後看它誠不誠實。
+                </span>
+              </li>
+              <li className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
+                <span className="w-16 shrink-0 font-bold text-slate-100">去哪裡找</span>
+                <span className="flex-1 min-w-0 text-slate-300">
+                  答案都在那個專案的 GitHub 說明頁上：最上面那段描述、星星數與最後更新、
+                  License、Installation 那一段、Issues 分頁。
+                </span>
+              </li>
+            </ul>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={7} className="rounded-2xl border border-slate-800 bg-slate-900 p-4 space-y-2.5">

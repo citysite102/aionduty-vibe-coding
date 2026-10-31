@@ -190,7 +190,7 @@ export default function SlideCase2Divide() {
             <h3 className="text-base font-bold text-slate-100">這張表是這一則訊息問出來的</h3>
             <p className="text-slate-500 text-sm">把模式切到 Plan，只改 ⟨⟩ 裡的作品描述</p>
           </div>
-          <CopyBlock text={CASE_PROMPT} size="xs" note="案例二手冊第 2 步，當時真的貼出去的那一則" />
+          <CopyBlock text={CASE_PROMPT} size="xs" note="案例二手冊裡，當時真的貼出去的那一則" />
           <p className="text-slate-400 text-sm leading-relaxed">
             四個問題裡最值錢的是第 4 題。
             <strong className="text-slate-200">你不問，它不會主動說「這一項你其實不需要」</strong>。

@@ -94,16 +94,38 @@ const CASES = [
 export default function SlideShipAiRisk() {
   return (
     <SlideLayout
-      title="接了 AI 之後：它讀到的指令和它的權限"
+      title="接了 AI：內容裡藏的指令、給太大的權限"
       subtitle="Risks Specific to AI Features"
       icon={Brain}
       updated={{ date: '2026/10/30', kind: '新增' }}
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-2">
-        <p className="text-slate-300 text-base leading-relaxed mb-2">
-          航行日誌的講評功能就是這種結構：文字送進去、AI 的回答送出來、金鑰放在後端。
-          <strong className="text-slate-100">它多出兩類一般網站清單上沒有的風險</strong>。
-        </p>
+        {/*
+          2026-10-31（講師：標題模糊，而且「兩類」沒寫出是哪兩類）標題與開場一起改。
+          原標題是「接了 AI 之後：它讀到的指令和它的權限」，兩個「它」各指不同的東西
+          （第一個是 AI、第二個也是 AI，但讀起來像在講同一件事的兩面）。
+          開場原本是「它多出兩類一般網站清單上沒有的風險」，數量詞沒有內容（D-2 空心的詞），
+          學員要讀完兩張卡才知道是哪兩類。現在標題直接寫出那兩類，開場講它們為什麼是 AI 才有的。
+          **標題 37 寬，已經接近上限，再加字會折行。**
+        */}
+        <div className="text-slate-300 text-base leading-relaxed mb-2 space-y-1">
+          <p>航行日誌的講評功能就是這種結構：使用者打的字送進去、AI 的回答送出來、金鑰放在後端。</p>
+          <p>一般網站的資安清單上沒有底下這兩類，它們是接了 AI 才有的：</p>
+          <ul className="space-y-0.5">
+            <li className="flex gap-2">
+              <span className="shrink-0 text-slate-600">・</span>
+              <span>
+                AI 分不出讀到的那段字是
+                <strong className="text-slate-100">要處理的資料</strong>，還是
+                <strong className="text-slate-100">叫它去做的命令</strong>
+              </span>
+            </li>
+            <li className="flex gap-2">
+              <span className="shrink-0 text-slate-600">・</span>
+              <span>你給它多大的權限，就決定它判斷錯一次能造成多大的事</span>
+            </li>
+          </ul>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch mb-3">
           {RISKS.map((r, i) => (
@@ -172,7 +194,8 @@ export default function SlideShipAiRisk() {
           stepIndex={4}
           footnote={
             <>
-              AI 應用的那一份是
+              前面那份 OWASP Top 10 管的是一般網站，上面這兩類不在裡面。
+              接了 AI 的部分 OWASP 另外出了一份，叫
               <a
                 href="https://genai.owasp.org/llm-top-10/"
                 target="_blank"
@@ -182,12 +205,13 @@ export default function SlideShipAiRisk() {
                 {' '}
                 OWASP Top 10 for LLM Applications <ExternalLink size={11} />
               </a>
-              ，這兩類都在上面。
+              ，上面這兩類就是從那一份來的。
             </>
           }
         >
-          判斷方式跟前面那五道邊界是同一個：<strong className="text-slate-100">它碰得到多大的範圍，
-          哪些動作要先問過你</strong>。差別只在管的對象換成你做出來的東西。
+          判斷的方式還是那兩題：<strong className="text-slate-100">它碰得到多大的範圍，
+          哪些動作要先問過你</strong>。放手讓 Claude 自己跑之前你問過一次，
+          現在管的對象換成你做出來的東西。
         </Callout>
       </div>
     </SlideLayout>

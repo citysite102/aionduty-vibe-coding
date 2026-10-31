@@ -57,13 +57,41 @@ export default function SlideWarpTerminal() {
             </div>
           </div>
 
-          <AnimatedBlock stepIndex={5} className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-2">
-            <p>
-              💡 <strong>推薦理由：</strong>非工程師常對全黑的文字畫面感到陌生。Warp 的編輯操作跟一般文字編輯器接近，還附 AI 輔助，剛開始比較不會卡住。(支援 Mac / Linux / Windows)
-            </p>
-            <p className="text-slate-500 border-t border-slate-900 pt-2 text-xs">
-              ⚠️ <strong>重要提醒：</strong>前面教的指令（如 <code>pwd</code>, <code>ls</code>, <code>mkdir</code>）都是<strong>全平台通用的標準指令</strong>。Warp 只是讓你打字更舒服、提供 AI 輔助的工具，<strong>不裝也不影響後面的課程</strong>。
-            </p>
+          {/*
+            2026-10-31 兩段散文改成條列（講師：敘述太長），字級一併從 text-xs 升到 text-sm
+            （A-4：成段的句子最低 text-sm，text-xs 留給註解與膠囊）。
+          */}
+          <AnimatedBlock stepIndex={5} className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 space-y-2">
+            <div>
+              <p className="text-sm font-bold text-slate-200 mb-1">為什麼推薦它</p>
+              <ul className="space-y-0.5">
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  編輯操作跟一般文字編輯器接近，剛開始比較不會卡住
+                </li>
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  附 AI 輔助，忘記指令可以用中文問
+                </li>
+                <li className="flex gap-2 text-sm text-slate-400 leading-relaxed">
+                  <span className="shrink-0 text-slate-600">・</span>
+                  支援 Mac、Linux 與 Windows
+                </li>
+              </ul>
+            </div>
+            <div className="border-t border-slate-900 pt-2">
+              <p className="text-sm font-bold text-slate-300 mb-1">不裝也走得完</p>
+              <ul className="space-y-0.5">
+                <li className="flex gap-2 text-sm text-slate-500 leading-relaxed">
+                  <span className="shrink-0 text-slate-700">・</span>
+                  <span>前面教的 <code>pwd</code>、<code>ls</code>、<code>mkdir</code> 都是全平台通用的標準指令</span>
+                </li>
+                <li className="flex gap-2 text-sm text-slate-500 leading-relaxed">
+                  <span className="shrink-0 text-slate-700">・</span>
+                  Warp 只讓你打字更舒服，不裝也不影響後面的課程
+                </li>
+              </ul>
+            </div>
           </AnimatedBlock>
         </div>
 

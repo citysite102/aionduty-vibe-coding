@@ -28,8 +28,18 @@ import { Callout } from '../components/Callout';
  *
  * 2026-10-30（講師：用詞太 AI、版面太繁複）改兩件事：
  *   - 「四條裡有三條你已經學過」「你已經學過的原則」是 D-2 的進度安撫，
- *     講的是學員的狀態不是內容。金流那一行改成讀表用的 `右邊是它在課程裡的原型`，
- *     開場改成「前面某一條原則換一個對象」。**不要再寫回「你已經⋯過」。**
+ *     講的是學員的狀態不是內容。**不要再寫回「你已經⋯過」。**
+ *   2026-10-31（講師：我看不太懂這一頁想教什麼）開場再寫一次，而且標題一起換。
+ *     前一版寫「金流有四條要問，其中三條你已經答過同一題」，那是**觀察**，不是**做法**：
+ *     學員讀完知道了一個巧合，但不知道回去要幹嘛。現在第一句直接給動作
+ *     （每一題先對回已經會的那一條，對不上的才另外查），金流那張表變成它的示範，
+ *     三張領域卡上面也補一句說明它們為什麼只給「先問誰」。
+ *     標題從「金流、個資、受監管行業、著作權」（只是列領域）換成講方法的那一句。
+ *     **不要把標題換回四個領域名**，那樣這一頁又會讀成四則雜項。
+ *   2026-10-31（講師：這句好像可以移除／什麼是課程裡的原型）開場那一塊整個刪掉，
+ *     它只是在說這一頁要給什麼（D-2 宣告範圍），右欄的箭頭自己就看得出來。
+ *     刪掉之後同頁 `stepIndex` 重編成 1 起（A-2）。金流那一行的「原型」是自創詞，
+ *     讀者沒學過（D-2），改成「右邊是課程裡講過的同一題」。
  *   - 實機看溢出 177px，第三張卡與收尾整個捲不到。改法是**金流四列各併成一行**
  *     （`ask` 粗體、`detail` 接在同一行），一個字都沒刪，而且 `from` 那一欄照樣靠右對齊，
  *     比原本兩層的版本更好讀。另外砍掉三個領域的展開（各留兩行）與收尾的講義頁指路。
@@ -86,15 +96,23 @@ const DOMAINS = [
 export default function SlideShipDomains() {
   return (
     <SlideLayout
-      title="金流、個資、受監管行業、著作權"
+      title="換一個領域：哪幾題是舊的，哪幾題要另外查"
       subtitle="When the Domain Changes"
       icon={Compass}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3 pb-2">
 
+        {/*
+          2026-10-31（講師：看不懂這一頁的教學重點與整體連貫性）補回一句開場。
+          同一天稍早把原本那句「這幾個領域這門課沒有教⋯」刪掉之後，這一頁只剩四塊資料，
+          沒有東西說得出它為什麼排在這裡。**新的這一句跟被刪掉的那一句不同**：
+          被刪的是在宣告這一頁要給什麼（D-2），這一句講的是金流那張表上真的看得到的結果，
+          讀者可以當場數。它也是收尾那個 Callout 的前提，兩邊不要只留一邊。
+        */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這幾個領域這門課沒有教，但你回去很可能會碰到。每一個只給那一題，
-          <strong className="text-slate-100">而多數時候那一題是前面某一條原則換一個對象</strong>。
+          下一個題目不見得是計時器這種東西。碰到沒做過的領域，
+          <strong className="text-slate-100">先把那個領域要問的每一題，對回你已經會的那一條</strong>；
+          對不上的那幾條，才是這個領域特有的，要另外查或者問人。
         </AnimatedBlock>
 
         {/*
@@ -107,7 +125,7 @@ export default function SlideShipDomains() {
               <CreditCard aria-hidden="true" size={16} />
             </span>
             <h3 className="text-base font-bold text-slate-100">金流</h3>
-            <span className="text-slate-500 text-sm">右邊是它在課程裡的原型</span>
+            <span className="text-slate-500 text-sm">右邊是課程裡講過的同一題</span>
           </div>
           <div className="divide-y divide-slate-800/70">
             {MONEY.map((m) => (
@@ -131,13 +149,18 @@ export default function SlideShipDomains() {
           </div>
         </AnimatedBlock>
 
+        <AnimatedBlock stepIndex={3} as="p" className="text-slate-400 text-sm leading-relaxed px-1">
+          另外三個領域，對不上的那部分不是你查得完的
+          <strong className="text-slate-300">，所以這裡只給一個動作：先問誰</strong>。
+        </AnimatedBlock>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {DOMAINS.map((d, i) => {
             const Icon = d.icon;
             return (
               <AnimatedBlock
                 key={d.name}
-                stepIndex={i + 3}
+                stepIndex={i + 4}
                 className="rounded-2xl border border-slate-800 bg-slate-900 p-4"
               >
                 <div className="flex items-center gap-2.5 mb-2.5">
@@ -155,7 +178,7 @@ export default function SlideShipDomains() {
           收尾是這三頁真正要留下的一句，也是整章「你負責判斷」那條線的終點。
           **不要改成「資安很重要」那種結論**，那是口號，而且前面兩頁已經給過證據了。
         */}
-        <Callout tone="focus" label="會搬家的是判斷" stepIndex={6}>
+        <Callout tone="focus" label="會搬家的是判斷" stepIndex={7}>
           「不要信前端送上來的東西」換到錢上面叫金額要在後端重算，換到報表上面叫數字要從原始紀錄算。
           <strong className="text-slate-100">碰到新領域的時候，先找這一題的對應物，再去查它的細節。</strong>
         </Callout>

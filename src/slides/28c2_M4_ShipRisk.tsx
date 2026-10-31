@@ -43,6 +43,9 @@ import { Callout } from '../components/Callout';
  *   這一筆掛在「為什麼會這樣」那一塊裡面，不另開區塊，理由見下面那段註解。
  * ─────────────────────────────────────────────────────────────────
  *
+ * 2026-10-31 標題又換了一次（上一版是〈三組掃描數字，以及為什麼跟你的程度無關〉），
+ * 理由寫在畫面那一段的註解裡。底下 10-31 稍早那一段記的是更前一版，留著當歷史。
+ *
  * 2026-10-31 換標題（講師：「我怕這個標題是不是就直接說，那是不是不該做了」）。
  * 原本是〈三萬個 AI 做的網站，99% 有資安問題〉，一個沒有主詞的數字擺在最大的字級上，
  * 讀起來像在對 AI 寫的程式下結論，而這門課整堂都在教怎麼用它。
@@ -78,19 +81,34 @@ const STATS = [
   },
 ];
 
+/** 三層原因，原本黏在一個句子裡。順序是「你說的 → 它做的 → 沒有人說的」。 */
+const CAUSE = [
+  { k: '你說的', v: '「做一個可以登記報名的頁面」。' },
+  { k: '它做的', v: '一個可以登記報名的頁面，而且做得很好。' },
+  { k: '沒有人說的', v: '擋住不該進來的人。需求裡沒有這一項，所以那件事不會出現。' },
+];
+
 export default function SlideShipRisk() {
   return (
     <SlideLayout
-      title="三組掃描數字，以及為什麼跟你的程度無關"
+      title="會動了不等於做完：三組掃描數字"
       subtitle="What Actually Goes Wrong"
       icon={ShieldAlert}
     >
       <div className="max-w-6xl mx-auto w-full space-y-2 pb-0">
 
+        {/*
+          2026-10-31（講師：標題到內容有點混亂、邏輯不連貫；底下應該強調東西做完了還要注意什麼）
+          標題與開場一起改。原標題〈三組掃描數字，以及為什麼跟你的程度無關〉把這一頁的兩塊
+          並列著念出來，但沒有說它們為什麼在同一頁；開場的「多數人到這裡就當它做完了」
+          接下去就直接跳到數字，中間少了「少掉的那一類問題長什麼樣」。
+          現在標題下一個結論（會動了不等於做完），開場補上那一類問題的特徵：
+          它不會讓東西壞掉，所以你不會發現。那一句同時接得住底下的三個數字與〈為什麼會這樣〉。
+          **標題裡的「三組掃描數字」不要拿掉**，少了它只看標題不知道這一頁有什麼（D-5）。
+        */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          東西做出來、會動了，多數人到這裡就當它做完了。
-          <strong className="text-slate-100">底下三個數字是別人實際掃出來的</strong>，
-          這幾類問題你不知道它存在，就不會去問。
+          東西做出來、會動了，多數人到這裡就收工。
+          <strong className="text-slate-100">還有什麼我們需要特別注意的嗎？</strong>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -112,11 +130,22 @@ export default function SlideShipRisk() {
         */}
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
           <h3 className="text-base font-bold text-slate-100 mb-1.5">為什麼會這樣，而且跟你的程度無關</h3>
-          <p className="text-slate-300 text-base leading-relaxed">
-            你說「做一個可以登記報名的頁面」，它就做了一個可以登記報名的頁面，而且做得很好。
-            <strong className="text-slate-100">沒有人要求它擋住不該進來的人，所以那件事不會出現。</strong>
-            它不是寫壞了，是你沒有要求，而你沒有要求是因為你不知道有這一項。
-            所以你要補的那一項叫「知道該問哪幾題」。
+          {/*
+            2026-10-31 從一段四句的散文改成三條加一句結論。原本「它不是寫壞了，是你沒有
+            要求，而你沒有要求是因為你不知道有這一項」把三層原因串在一個句子裡，學員要自己拆。
+            三條現在各指一件事：你說了什麼、它做了什麼、沒有人說的是什麼。
+            **語氣不要改**：歸因到「需求裡沒有這一項」，不是歸因到學員（見檔頭）。
+          */}
+          <ul className="space-y-0">
+            {CAUSE.map((c) => (
+              <li key={c.k} className="flex flex-wrap items-baseline gap-x-2 text-base leading-relaxed">
+                <span className="w-24 shrink-0 whitespace-nowrap font-bold text-slate-200">{c.k}</span>
+                <span className="flex-1 min-w-0 text-slate-300">{c.v}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-slate-300 text-base leading-relaxed mt-1.5">
+            <strong className="text-slate-100">所以你要補的那一項叫「知道該問哪幾題」。</strong>
           </p>
           {/*
             台灣這一件接在上面那段後面、不另開區塊，因為它證明的就是那一段：
@@ -125,20 +154,28 @@ export default function SlideShipRisk() {
             後半的「他怎麼處理」不要刪：少了它，這一段讀起來像在指責一個真實的人，
             而且那三步正好就是後面〈三種檢查〉那一頁要教的。
           */}
-          <p className="text-slate-400 text-sm leading-relaxed mt-2">
-            <strong className="text-slate-200">台灣 2026 年 8 月就有一次。</strong>
-            壹加壹的字幕工具 What&rsquo;Sub 兩天破萬註冊，接著一批使用者的 email 外洩。
-            開發者是剪片出身、不寫程式，他的說法是「我沒有想到這麼多」。
-            白帽把問題寄給他之後，他逐條交給 AI 判斷、修完。
+          {/*
+            2026-10-31（講師：格式有點混亂）這一塊補回自己的小標與分隔線。
+            上面三條是「你說的／它做的／沒有人說的」加一句結論，台灣這一件接在後面
+            如果沒有標題，讀起來會像是那句結論的延伸。小標 2026-10-31 稍早為了省高度
+            折進第一條裡，那一版省下約 30px 但讀不出分段。**不要再折回去。**
+          */}
+          <div className="mt-2.5 border-t border-slate-800 pt-2">
+            <p className="text-slate-200 text-sm font-bold mb-1">台灣 2026 年 8 月的案例</p>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              壹加壹的字幕工具 What&rsquo;Sub 兩天破萬註冊，接著一批使用者的 email 外洩。
+              開發者是剪片出身、不寫程式，他的說法是「我沒有想到這麼多」。白帽把問題寄給他之後，
+              他逐條交給 AI 判斷、修完。
+            </p>
             <a
               href="https://www.inside.com.tw/article/42420-lean-ai-vibe-coding-whatsub-subtitle-tool"
               target="_blank"
               rel="noreferrer"
-              className="ml-2 text-slate-600 hover:text-sky-400 inline-flex items-center gap-1"
+              className="mt-1 text-sm text-slate-600 hover:text-sky-400 inline-flex items-center gap-1"
             >
               INSIDE 專訪 <ExternalLink size={11} aria-hidden="true" />
             </a>
-          </p>
+          </div>
         </AnimatedBlock>
 
         {/*

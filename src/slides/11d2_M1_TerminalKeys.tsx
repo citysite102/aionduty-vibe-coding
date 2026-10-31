@@ -32,26 +32,54 @@ import { Callout } from '../components/Callout';
  * and have Claude respond to it」）。順便補上原本漏掉的後半段：輸出會進到對話裡，
  * 那才是它跟「另開一個終端機視窗自己打」的差別。
  */
-const KEYS = [
+/**
+ * 2026-10-31 三條的說明改成條列（講師：敘述太長）。模式切換那一條原本是一句
+ * 一百二十字的長句，把四個模式與它們的循環順序塞在同一個句子裡的括號裡面，
+ * 學員要自己拆才知道按幾下會到哪一個。現在 `cycle` 一個模式一行，按的順序從上往下。
+ * **四個模式的名稱與行為跟 30_Cheat_Perms.tsx 同步，改一邊要改兩邊。**
+ */
+const KEYS: {
+  icon: typeof ClipboardCheck;
+  name: string;
+  key: string;
+  body: string[];
+  cycle?: { k: string; v: string }[];
+  note?: string;
+}[] = [
   {
     icon: ClipboardCheck,
     name: '執行模式切換器',
     key: 'Shift + Tab',
-    body: '按一下換一個模式，狀態列會顯示目前是哪一個。Pro、Max 與 Team 方案開起來在 auto（多數動作不問你，背後有另一個模型在檢查），按第一下切到 manual（讀檔不問，動手前都問你），之後依序是 acceptEdits（檔案編輯與 mkdir、mv、cp 這類指令免問）與 plan（只讀不改），再按回到 manual。',
-    note: '其中的 plan 模式做的就是「先講怎麼做，不動手」。',
+    body: [
+      '按一下換一個模式，狀態列會顯示目前是哪一個',
+      'Pro、Max 與 Team 方案在終端機開起來是 auto，按的順序就是下面這一排',
+    ],
+    cycle: [
+      { k: 'auto', v: '多數動作不問你，背後有另一個模型在檢查' },
+      { k: 'manual', v: '讀檔不問，動手前都問你' },
+      { k: 'acceptEdits', v: '檔案編輯與 mkdir、mv、cp 這類指令免問' },
+      { k: 'plan', v: '只讀不改，先講怎麼做，不動手' },
+    ],
+    note: '按完 plan 再按一下回到 manual，auto 只在開場出現一次。',
   },
   {
     icon: Terminal,
     name: 'Shell 模式',
     key: '行首打 !',
-    body: '跟它講到一半想自己下一行指令（看目錄、測網路、跑編譯），在行首打一個 ! 接你的指令，例如 !git status，就直接執行，不用退出 Claude。',
+    body: [
+      '跟它講到一半想自己下一行指令（看目錄、測網路、跑編譯），在行首打一個 ! 接你的指令',
+      '例如 !git status，就直接執行，不用退出 Claude',
+    ],
     note: '重點不只是省一次切換：那行指令的輸出會留在這場對話裡，它看得到，所以你可以接著說「照這個結果處理」。'
   },
   {
     icon: Undo2,
     name: '終止執行',
     key: 'Esc ／ Esc Esc',
-    body: '覺得方向不對，按一次 Esc 中斷它手上的動作，做到一半的東西會留著。輸入框空著時連按兩次 Esc，會跳出這次對話送出過的每一句話，選一個時間點退回去。',
+    body: [
+      '按一次 Esc 中斷它手上的動作，做到一半的東西會留著',
+      '輸入框空著時連按兩次 Esc，會跳出這次對話送出過的每一句話，選一個時間點退回去',
+    ],
     note: '連按兩次 Esc 做的事，跟輸入 /rewind 一樣。那個指令兩邊都能用。',
   },
 ];
@@ -87,7 +115,24 @@ export default function SlideTerminalKeys() {
                     {k.key}
                   </code>
                 </div>
-                <p className="text-slate-400 text-sm leading-relaxed">{k.body}</p>
+                <ul className="space-y-0.5">
+                  {k.body.map((b) => (
+                    <li key={b} className="flex gap-2 text-slate-400 text-sm leading-relaxed">
+                      <span className="shrink-0 text-slate-600">・</span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                {k.cycle && (
+                  <ul className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-1">
+                    {k.cycle.map((c) => (
+                      <li key={c.k} className="text-sm leading-relaxed">
+                        <code className="font-mono font-bold text-orange-300">{c.k}</code>
+                        <span className="ml-2 text-slate-400">{c.v}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 {k.note && (
                   <p className="text-slate-500 text-sm leading-relaxed mt-1.5">{k.note}</p>
                 )}

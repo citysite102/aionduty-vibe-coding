@@ -1,8 +1,28 @@
 import { KeyRound, Eye, EyeOff, SlidersHorizontal } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { UpdateNote } from '../components/UpdateNote';
 
 /**
+ * ── C-1 ──────────────────────────────────────────────
+ * 最後查證：2026-10-31，對照 supabase.com/docs/guides/api/api-keys。
+ * 當時的現況：兩把金鑰的現行名稱是 **Publishable key**（`sb_publishable_…`）與
+ * **Secret key**（`sb_secret_…`），舊名 `anon` 與 `service_role` 文件標成 legacy。
+ * Publishable 那一把的原話是「Safe to expose online: web page, mobile or desktop app,
+ * GitHub actions, CLIs, source code」，理由就是它只拿得到 RLS 允許的東西。
+ *
+ * 這一頁三格用的是課程自己的叫法（前端那一把／後台那一把），影片裡也是這樣念的，
+ * 所以照 A-5 處理：**三格的文字一個字都不要動**，右上角掛日期記號，三格後面補一條
+ * `UpdateNote` 給後台上的真名。學員要拿那兩個字去對 Supabase 的介面，少了它他會卡在
+ * 「哪一把才是前端那一把」。`29i_Case3_Trust` 2026-10-31 已經改成直接印英文名字，
+ * 那一頁沒有錄影的包袱（它的卡片標題本來就是英文的那一行）。
+ * **逐字稿 7-4 不要跟著改**，那一份記的是影片裡已經念出去的話。
+ * 下次改版前重查那一頁，金鑰名稱 2025 年才剛改過一輪，屬於 C-3 最會動的那一類。
+ *
+ * 顏色：emerald 與 rose 是同一組正反對照，合計算一種（A-1），
+ * 所以 amber 掛得下。收尾那個 focus 的 sky 不計入。
+ * ─────────────────────────────────────────────────────
+ *
  * 2026-10-10（講師）新增。缺口是學員走到這裡一定會糊掉：
  * 章節三教過「金鑰要放平台的環境變數」，而前面那一頁（`27b9b_M4_SupabaseStore`）
  * 叫他把 Supabase 那把金鑰直接寫進程式碼。兩句話都對，適用的對象不同，
@@ -90,6 +110,7 @@ export default function SlideKeyKinds() {
       title="哪一種金鑰可以寫進程式碼，哪一種不行"
       subtitle="Three Kinds of Secrets"
       icon={KeyRound}
+      updated={{ date: '2026/10/31' }}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-6">
 
@@ -132,6 +153,17 @@ export default function SlideKeyKinds() {
             );
           })}
         </div>
+
+        {/* 不包 AnimatedBlock：跟 10f、21a4、27b8g 那幾頁一樣常駐。它是給回頭翻講義、
+            或是正要去後台複製金鑰的人看的，包進步驟會多出一次沒有內容的按鍵（A-2）。
+            位置在三格後面是因為那兩個名字就是三格在講的東西；收尾那個 Callout 仍然
+            排在三格之後，它那條「要留在三格後面」的要求沒有被破壞。 */}
+        <UpdateNote>
+          Supabase 後台現在把這兩把叫 <strong className="text-slate-100">Publishable key</strong>（前端那一把）
+          與 <strong className="text-slate-100">Secret key</strong>（後台那一把）。
+          比較早開的專案顯示的還是舊名 anon 與 service_role，兩組指的是同一件事。
+          複製之前先看清楚你按的是哪一欄。
+        </UpdateNote>
 
         {/*
           2026-10-10（講師）補這一塊。缺口是這一頁原本只說那一把「看到也沒差」，

@@ -67,8 +67,8 @@ const JUDGEMENTS = [
 export default function SlideCase2Judgements() {
   return (
     <SlideLayout
-      title="案例二的六個判斷"
-      subtitle="Case 02 · AI 幫不了你的那幾個決定"
+      title="AI 無法幫你決定的事情"
+      subtitle="Case 02 · 判斷依據與判斷錯的代價"
       icon={Scale}
     >
       <div className="max-w-6xl mx-auto space-y-3 pb-2">
