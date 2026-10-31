@@ -37,8 +37,11 @@ import shrineShot from '../../assets/cases/case-04-wishes-live.jpg';
  * 不是整個案例的題目：這個案例學員真正做的是 3D 加會員系統，回歸驗證只是其中一段。
  * **不要改回「畫面越做越精緻」那一句。** 手冊內頁那一行還在，下次改手冊時一起對齊。
  *
- * 時數用〈各階段預估時間〉那張表的合計（讀 4.9 小時、動手 16.3 小時），
- * 不用封面寫的 3.5／12.1 小時：封面那組比逐階段加總少，而學員實際照著做的是各階段。
+ * 2026-11-01 手冊改版，數字跟著更新：時數變成讀 5.2 小時、動手 17.8 小時，
+ * 而且封面與〈各階段預估時間〉那張表現在是同一組（舊版封面寫 3.5／12.1，表算出來是
+ * 4.9／16.3，所以當時取表）。**下次改版一樣先對那張表的合計。**
+ * 同一輪技術那一條補上 React（手冊的使用技術列明「介面用 React」，階段 8 的標題
+ * 也改成「搬進 Astro，切開引擎與介面，介面改用 React」）與 Supabase 的 Storage。
  */
 /**
  * 2026-10-31 三段各自改成條列（講師：敘述太長）。原本「產出」是一句六十多字的長句，
@@ -57,17 +60,17 @@ const ROUTE: { label: string; items: string[] }[] = [
     items: [
       '先盤點、寫規格',
       '一層一層疊上水面、漣漪與船、時段、環境動態、鏡頭、介面與聲音',
-      '中間搬進 Astro',
-      '最後接上登入、資料庫與對外 API',
+      '中間導入 Astro 與 React',
+      '最後接上會員登入、對外 API 與照片上傳，做資安檢查，部署上線',
     ],
   },
   {
     label: '產出',
     items: [
-      '一個轉得動、點水面起漣漪的 3D 神社網站',
-      '讀得到繪馬（寫願望的那塊木牌）與祈願，有背景音樂',
-      '信箱登入，以及一支登入之後才拿得到資料的 API',
-      '部署在 Vercel 上，最後掛上自己買的網域',
+      '一個 3D 神社網站：轉得動、縮放得了、點水面起漣漪，讀得到別人的繪馬（寫願望的那塊木牌，寫好掛上牆）與祈願',
+      '有背景音樂與信箱登入，繪馬可以附一張照片',
+      '兩支 API：一支要帶登入權杖才拿得到資料，一支是公開的對外 API',
+      '一個部署在 Vercel 的正式網站，最後掛上自己買的網域，加一份開發日誌',
     ],
   },
 ];
@@ -107,11 +110,11 @@ const SCALE = [
 const FACTS = [
   {
     k: '用到的技術',
-    v: 'Three.js（畫 3D）、Astro（案例一只有一個 HTML 檔，這裡頁面變多、要共用同一組版型與導覽列，Astro 幫你把它們拼成一個網站，案例三用的也是它）、Web Audio（聲音）、Supabase（登入、資料庫權限、雲端函式）。',
+    v: 'Three.js（畫 3D）、Astro（把程式整理成網頁檔案，案例三用的也是它）、React（介面：繪馬卡片、控制列、登入視窗）、Web Audio（聲音）、Supabase（登入、資料庫權限、檔案、雲端函式）。',
   },
   {
     k: '不用看懂程式碼',
-    v: '指令都由 Claude 下，設定檔你不用碰。手冊裡的程式碼與數字是拿來核對結果的。',
+    v: '指令都由 Claude 下，設定檔你不用碰。出現的程式碼與數字是拿來核對結果的。',
   },
   {
     k: '兩個 AI 分工，不是換來換去',
@@ -148,10 +151,10 @@ export default function SlideCase4Shrine() {
           <div className="md:col-span-2 space-y-4">
             <div className="rounded-2xl border border-sky-500/25 bg-sky-500/5 px-5 py-4">
               <div className="font-mono text-xs uppercase tracking-widest text-sky-400 mb-2">
-                這個案例要回答的問題
+                這個案例在練什麼
               </div>
               <p className="text-slate-100 text-base font-bold leading-relaxed">
-                一個一直在動的 3D 畫面，加上一套會員系統，每一步怎麼確認做對了？
+                挑選合適的開發架構，實作更複雜的互動機制
               </p>
             </div>
 
@@ -254,7 +257,7 @@ export default function SlideCase4Shrine() {
           <CaseHandbook
             file="case-04-wishes.pdf"
             title="海上許願神社：3D 場景加上會員登入"
-            hours="約 16.3 小時"
+            hours="約 17.8 小時"
           />
         </AnimatedBlock>
 

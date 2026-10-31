@@ -89,7 +89,7 @@ export default function SlideDesktopFirst() {
     <SlideLayout
       title="桌面版五步，從下載到講第一句話"
       subtitle="Desktop First, Terminal Next"
-      icon={AppWindow} updated={{ date: '2026/10/15' }}
+      icon={AppWindow} updated={{ date: '2026/11/01' }}
     >
       <LiveDemo kind="desktop" />
       <div className="max-w-5xl mx-auto w-full space-y-5 pb-8">

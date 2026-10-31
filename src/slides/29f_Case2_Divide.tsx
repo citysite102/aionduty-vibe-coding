@@ -122,7 +122,7 @@ export default function SlideCase2Divide() {
               這種效果別人已經寫好了，而且替你把不同裝置的差異都處理完了。
             </p>
             <p className="mt-3 border-t border-sky-500/20 pt-3 text-slate-500 text-sm">
-              套件是別人寫好、拿來就能用的現成零件。手冊裡把這一邊叫做「離散」
+              套件是別人寫好、拿來就能用的現成零件。這一邊叫做「離散」
             </p>
           </div>
           <div className="rounded-2xl border border-indigo-500/30 bg-indigo-500/5 p-5">
@@ -136,7 +136,7 @@ export default function SlideCase2Divide() {
               這種值一行公式就算得出來，交給套件反而會打架。
             </p>
             <p className="mt-3 border-t border-indigo-500/20 pt-3 text-slate-500 text-sm">
-              手冊裡把這一邊叫做「連續」
+              這一邊叫做「連續」
             </p>
           </div>
           </div>
@@ -190,7 +190,7 @@ export default function SlideCase2Divide() {
             <h3 className="text-base font-bold text-slate-100">這張表是這一則訊息問出來的</h3>
             <p className="text-slate-500 text-sm">把模式切到 Plan，只改 ⟨⟩ 裡的作品描述</p>
           </div>
-          <CopyBlock text={CASE_PROMPT} size="xs" note="案例二手冊裡，當時真的貼出去的那一則" />
+          <CopyBlock text={CASE_PROMPT} size="xs" note="當時真的貼出去的那一則" />
           <p className="text-slate-400 text-sm leading-relaxed">
             四個問題裡最值錢的是第 4 題。
             <strong className="text-slate-200">你不問，它不會主動說「這一項你其實不需要」</strong>。
@@ -200,7 +200,7 @@ export default function SlideCase2Divide() {
         <Callout tone="warn" label="分錯邊的代價" stepIndex={4}>
           這種不會自己停的值交給套件去補，那些補出來的動畫會互相疊加、互相覆寫，畫面既延遲又會抖，
           <strong className="text-slate-100">而且不會有任何錯誤訊息</strong>，你只知道「怪怪的」。
-          這個判斷在手冊的第二步就要定下來，後面每做一個效果都會再用一次。
+          這個判斷要在開始做效果之前就定下來，後面每做一個都會再用一次。
         </Callout>
 
       </div>

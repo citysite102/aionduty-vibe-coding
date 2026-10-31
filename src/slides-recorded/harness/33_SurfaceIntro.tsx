@@ -64,7 +64,7 @@ export const meta: RecordedMeta = {
 
 export default function RecSurfaceIntro() {
   return (
-    <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Columns3} updated={{ date: '2026/10/15' }}>
+    <SlideLayout title={meta.title} subtitle="Same Rules, Different Surface" icon={Columns3} updated={{ date: '2026/11/01' }}>
       <RecPage className="space-y-3">
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-500 text-xl leading-relaxed mb-2">

@@ -56,7 +56,9 @@ import { Callout } from '../components/Callout';
  * 少了它，第二條看起來像「別人的程式直接碰到資料庫」，而實際上**兩條走的是同一支 API**，
  * 差別只在第一條先經過登入視窗。這一格就是下一頁〈系統架構〉三個入口匯流的那個點。
  * 光點都是常駐迴圈（A-2：沒有切換畫面內容，不影響翻頁），
- * 第二條的光點刻意從「登入視窗」那一格上面飄過去，那就是「繞過」本身。
+ * 2026-10-31（講師：這裡設計有點跑版）被跳過的那一段**不要再放光點**。
+ * 原本讓灰色的光點從「登入視窗」上面飄過去表示繞過，實機上它看起來只是一顆飄在框外的點。
+ * 現在那一段是一支灰掉的箭頭，繞過這件事交給虛線框與打叉講，那兩個已經夠清楚。
  * **不要只留文字。** 這一塊跟下一頁〈系統架構〉是同一個論點的兩種畫法：
  * 這裡畫的是兩條路線各被誰擋，下一頁畫的是三個入口匯到同一道規則。
  */
@@ -93,7 +95,7 @@ const PARTS = [
   {
     icon: KeyRound,
     name: '會員登入',
-    why: '繪馬要記得是誰掛的，網站就得先知道來的人是誰。沒有這一層，「我的參拜紀錄」做不出來。',
+    why: '繪馬要記得是誰寫的，網站就得先知道來的人是誰。沒有這一層，「我的參拜紀錄」做不出來。',
     points: [
       '介面只呼叫六個函式，後端是真是假它不知道',
       '先做假後端：不寄信，登入碼一律 123456，把流程跑通',
@@ -150,14 +152,13 @@ function FlowDot({ skip, delay }: { skip: boolean; delay: number }) {
   return (
     <span className="relative inline-flex h-4 w-6 shrink-0 items-center justify-center" aria-hidden="true">
       <ArrowRight size={13} className={skip ? 'text-slate-700' : 'text-amber-500/70'} />
-      <motion.span
-        className={`absolute h-1.5 w-1.5 rounded-full ${
-          skip ? 'bg-slate-500' : 'bg-amber-300 shadow-[0_0_8px_rgba(252,211,77,0.9)]'
-        }`}
-        style={{ top: skip ? -3 : 5 }}
-        animate={{ left: [0, 18], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 1, delay, ease: 'linear' }}
-      />
+      {!skip && (
+        <motion.span
+          className="absolute top-[5px] h-1.5 w-1.5 rounded-full bg-amber-300 shadow-[0_0_8px_rgba(252,211,77,0.9)]"
+          animate={{ left: [0, 18], opacity: [0, 1, 1, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity, repeatDelay: 1, delay, ease: 'linear' }}
+        />
+      )}
     </span>
   );
 }

@@ -36,6 +36,11 @@ import { Callout } from '../components/Callout';
  * 「對外開成 API」是結果不是動作，改成講這個案例真的拿它做了什麼（開了五個網址）。
  * **不要改回「終端機一行指令」那種寫法。**
  *
+ * 2026-11-01 手冊改版對過一次。入口那一列的「別人的程式」補上第二條路：
+ * 手冊的〈系統架構〉原文是「別人的程式可以呼叫對外 API，**也可以拿網頁裡的公開金鑰，
+ * 直接讀寫資料表**。真正擋住他們的，是資料庫裡的 RLS 規則」。
+ * 補這一條是因為它讓這一頁的論點更硬：連金鑰都公開了，擋人的還是只有那一層。
+ *
  * 名詞一律當場解釋：這門課一半的學員不寫程式，而這一頁最容易變成只有工程師讀得懂的那一頁。
  * 權杖在前一頁已經解釋過一次（登入之後拿到的那串通行碼），這裡再給一次最短的。
  */
@@ -75,7 +80,7 @@ const ZONES = [
 /** 三個入口。它們的共同點是最後都走到同一個資料庫，所以把關的只可能是資料庫自己 */
 const ENTRIES = [
   { k: '你的網站', v: '使用者在瀏覽器上按按鈕' },
-  { k: '別人的程式', v: '他的程式直接打 API 網址，不開你的網頁' },
+  { k: '別人的程式', v: '直接打 API 網址，或拿網頁裡的公開金鑰讀寫資料表' },
   { k: 'API 文件頁', v: '文件頁上的試呼叫按鈕' },
 ];
 
@@ -96,10 +101,16 @@ export default function SlideCase4Arch() {
     >
       <div className="max-w-6xl mx-auto space-y-2 pb-2">
 
+        {/*
+          2026-10-31（講師：這句話的必要性？或者只要強調關鍵的權杖即可）開場砍到只剩權杖。
+          原本前半是讀表說明（「上面三塊是東西放在哪，底下三個入口都走到同一個資料庫」），
+          那是圖自己就看得出來的事，而且結論跟收尾的 Callout 重複。
+          權杖那一句要留：它是底下每一條路線都會用到的詞，學員第一次在這一頁看到完整定義。
+          **不要再把讀表說明加回來。**
+        */}
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-400 text-sm leading-relaxed">
-          上面三塊是東西放在哪，底下三個入口最後都走到同一個資料庫。
-          <strong className="text-slate-200">規則那一塊裡亮起來的，是要帶權杖才走得通的</strong>
-          （權杖就是登入之後拿到的那串通行碼）。
+          <strong className="text-slate-200">權杖是登入成功之後拿到的那串通行碼</strong>
+          ，一小時有效。底下每一條路線都會寫明要不要帶它。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.15fr_0.9fr] gap-3 items-stretch">
@@ -129,12 +140,16 @@ export default function SlideCase4Arch() {
         {/*
           入口匯流列：三個入口 → 同一道規則。這是整頁的論點，不要拆開。
 
-          2026-10-31（講師：這段用動畫呈現方便教學）三個箭頭各加一顆往下跑的光點。
-          它要做的事只有一件：讓學員看到三條路**真的都走到同一個地方**，
-          那是靜態箭頭講不出來的（講者口頭說「三個入口」時，台下看到的還是三個並排的框）。
-          三顆光點刻意錯開 0.3 秒出發、落點一樣，所以視線會自己收到底下那道規則上。
+          2026-10-31（講師：這段用動畫呈現方便教學／檢視教學結構與版面）
+          入口底下改成**真的匯流**：三條短豎線接到一條橫線，再由中間一支箭頭往下進規則那一塊。
+          三顆光點先各自走到橫線，中間那一顆再把它們帶下去。
+          原本是三支各自往下的箭頭，那是三條平行線不是匯流，
+          而這一頁的論點就是「三條路走到同一個地方」，平行箭頭講不出來。
           A-2：它不是用 `setTimeout` 切換畫面內容，只是常駐的視覺迴圈，不影響翻頁。
           **全頁只有這一組在動**，再加別的動畫之前先想它幫不幫得上這一頁要回答的問題。
+
+          匯流線跟規則那一塊**同一下出現**（第 6 下）：箭頭先出現的話，
+          光點會落進一塊還沒出現的空白。
         */}
         {/*
           2026-10-31（講師：可以優化排版和動畫效果）入口列與規則那一塊包進同一個外框。
@@ -148,30 +163,38 @@ export default function SlideCase4Arch() {
         */}
         <AnimatedBlock stepIndex={5} className="rounded-2xl border border-sky-500/20 bg-sky-500/[0.04] p-3">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {ENTRIES.map((e, i) => (
-            <div key={e.k} className="flex flex-col items-center gap-1">
-              <div className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-center">
-                <span className="block text-sm font-bold text-slate-200">{e.k}</span>
-                <span className="block text-sm leading-snug text-slate-500">{e.v}</span>
-              </div>
-              <div className="relative flex h-6 w-full items-center justify-center">
-                <ArrowDown aria-hidden="true" size={16} className="text-sky-500/60" />
-                <motion.span
-                  aria-hidden="true"
-                  className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-sky-300 shadow-[0_0_8px_rgba(56,189,248,0.9)]"
-                  animate={{ top: [-2, 22], opacity: [0, 1, 1, 0] }}
-                  transition={{
-                    duration: 1.6,
-                    repeat: Infinity,
-                    repeatDelay: 0.9,
-                    delay: i * 0.3,
-                    ease: 'linear',
-                  }}
-                />
-              </div>
+          {ENTRIES.map((e) => (
+            <div key={e.k} className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-1.5 text-center">
+              <span className="block text-sm font-bold text-slate-200">{e.k}</span>
+              <span className="block text-sm leading-snug text-slate-500">{e.v}</span>
             </div>
           ))}
         </div>
+
+        <AnimatedBlock stepIndex={6} className="relative h-9" aria-hidden="true">
+          {[1, 3, 5].map((n, i) => (
+            <span
+              key={n}
+              className="absolute top-0 h-4 w-px bg-sky-500/40"
+              style={{ left: `${(n / 6) * 100}%` }}
+            >
+              <motion.span
+                className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-sky-300 shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+                animate={{ top: [-2, 14], opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 0.9, repeat: Infinity, repeatDelay: 1.6, delay: i * 0.25, ease: 'linear' }}
+              />
+            </span>
+          ))}
+          <span className="absolute top-4 h-px bg-sky-500/40" style={{ left: '16.666%', right: '16.666%' }} />
+          <span className="absolute left-1/2 top-4 h-4 w-px -translate-x-1/2 bg-sky-500/40">
+            <motion.span
+              className="absolute left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-sky-300 shadow-[0_0_8px_rgba(56,189,248,0.9)]"
+              animate={{ top: [-2, 14], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 0.7, repeat: Infinity, repeatDelay: 1.8, delay: 0.95, ease: 'linear' }}
+            />
+          </span>
+          <ArrowDown size={14} className="absolute left-1/2 top-[26px] -translate-x-1/2 text-sky-500/60" />
+        </AnimatedBlock>
 
         {/* 這一塊是整頁的樞紐：上面三區都往它走。
             2026-10-31 外框改成實心深底，壓在淡 sky 的匯流框裡面，三個箭頭落點就是它的上緣。

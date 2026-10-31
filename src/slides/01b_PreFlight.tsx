@@ -78,7 +78,7 @@ const OPTIONAL: { brand: Brand; name: string; where: string; href: string; why: 
 
 export default function SlidePreFlight() {
   return (
-    <SlideLayout title="動手前的前置作業" subtitle="Before You Start" icon={PackageCheck} updated={{ date: '2026/10/19' }}>
+    <SlideLayout title="動手前的前置作業" subtitle="Before You Start" icon={PackageCheck} updated={{ date: '2026/11/01' }}>
       <div className="max-w-5xl mx-auto space-y-3 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

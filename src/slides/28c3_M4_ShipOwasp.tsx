@@ -102,7 +102,7 @@ const OWASP_PROMPT =
 export default function SlideShipOwasp() {
   return (
     <SlideLayout
-      title="OWASP Top 10：有五條對得上這門課做的事"
+      title="OWASP Top 10：有五條對得上課程內的提醒"
       subtitle="OWASP Top 10:2025"
       icon={ListChecks}
     >

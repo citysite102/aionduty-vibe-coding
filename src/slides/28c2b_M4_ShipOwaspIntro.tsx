@@ -71,7 +71,7 @@ export default function SlideShipOwaspIntro() {
       title="OWASP 是什麼：一份免費公開的資安清單"
       subtitle="Open Worldwide Application Security Project"
       icon={BookOpen}
-      updated={{ date: '2026/10/20', kind: '新增' }}
+      updated={{ date: '2026/11/01', kind: '新增' }}
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         {/*

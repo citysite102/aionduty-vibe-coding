@@ -60,7 +60,7 @@ const TIERS = [
 
 export default function SlideModelTiers() {
   return (
-    <SlideLayout title="模型三層：Haiku、Sonnet、Opus 怎麼挑" subtitle="Model Tiers: What to Run on Which" icon={Gauge} updated={{ date: '2026/10/15', kind: '新增' }}>
+    <SlideLayout title="模型三層：Haiku、Sonnet、Opus 怎麼挑" subtitle="Model Tiers: What to Run on Which" icon={Gauge} updated={{ date: '2026/11/01', kind: '新增' }}>
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
         <p className="text-slate-300 text-base leading-relaxed mb-4">
           打開的預設是 Opus，也就是最貴的那一層，而多數工作用不到這麼貴。要換就在桌面版的輸入框旁邊，

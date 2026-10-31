@@ -110,7 +110,7 @@ export default function SlideKeyKinds() {
       title="哪一種金鑰可以寫進程式碼，哪一種不行"
       subtitle="Three Kinds of Secrets"
       icon={KeyRound}
-      updated={{ date: '2026/10/31' }}
+      updated={{ date: '2026/11/01' }}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-6">
 

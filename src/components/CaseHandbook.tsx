@@ -1,4 +1,5 @@
-import { FileDown } from 'lucide-react';
+import { FileDown, Sparkles } from 'lucide-react';
+import { CopyAction } from './CopyBlock';
 
 /** 講義頁的位置。上課程平台之後會換，換這裡就好 */
 const HANDOUTS_URL = 'https://citysite102.github.io/aionduty-vibe-coding/handouts/';
@@ -15,7 +16,21 @@ const HANDOUTS_URL = 'https://citysite102.github.io/aionduty-vibe-coding/handout
  *
  * 它不是課務交代（D-2）：講的不是「等一下會發下去」，是這一份手冊叫什麼、
  * 做完手上會有什麼。學員回頭翻講義的時候用得到。
+ *
+ * 2026-11-01（講師：可以補充給同學，可以把 PDF 給 AI，請它輔助引導互動式教學）
+ * 底下多一行「這份 PDF 可以直接給 AI」。它寫在這個共用元件裡而不是某一個案例頁，
+ * 因為五份手冊都適用，而且這是**預錄自學**最缺的那一塊：影片不會回答他的問題，
+ * 手冊也不會，但上傳之後的那個對話會。
+ * 那一句指令要給得出來，不能只說「可以問 AI」，所以配一個複製鈕；
+ * 字串只宣告一次（A-4：複製鈕拿到的字要跟畫面上印的是同一份）。
+ * **不要寫成「跟著做一次」那種課務交代**，它寫的是做法與做完會得到什麼。
  */
+
+/** 上傳手冊之後的第一句。畫面上印的與複製鈕拿到的是同一個字串（A-4）。 */
+const GUIDE_PROMPT =
+  '這份 PDF 是我要照著做的教學手冊。請先讀完，然後一個階段一個階段帶我：' +
+  '每個階段先用白話講這一步在做什麼、我會看到什麼，再給我可以照貼的指令。' +
+  '我說「下一步」你才往下走。我卡住或畫面跟手冊不一樣的時候，先問我看到什麼，不要直接改。';
 export function CaseHandbook({
   file,
   title,
@@ -29,7 +44,8 @@ export function CaseHandbook({
   hours: string;
 }) {
   return (
-    <a
+    <div className="space-y-2">
+      <a
       href={`${HANDOUTS_URL}${file}`}
       target="_blank"
       rel="noreferrer"
@@ -55,6 +71,22 @@ export function CaseHandbook({
         <span className="font-mono text-slate-500">{file}</span>
         <span className="text-slate-500">）</span>
       </span>
-    </a>
+      </a>
+
+      <div className="rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-3">
+        <div className="flex items-center gap-2 mb-1.5">
+          <Sparkles aria-hidden="true" size={15} className="shrink-0 text-sky-400" />
+          <span className="text-slate-200 text-sm font-bold">這份 PDF 可以直接給 AI 帶你做</span>
+        </div>
+        <p className="text-slate-400 text-sm leading-relaxed">
+          開一個新對話把它上傳上去，它就成為一個隨時問得到的助教：
+          這一步在做什麼、哪個詞看不懂、畫面跟手冊不一樣，都可以直接問它。
+        </p>
+        <p className="mt-2 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 text-sky-200 text-sm leading-relaxed">
+          {GUIDE_PROMPT}
+        </p>
+        <CopyAction text={GUIDE_PROMPT} className="mt-1.5" />
+      </div>
+    </div>
   );
 }

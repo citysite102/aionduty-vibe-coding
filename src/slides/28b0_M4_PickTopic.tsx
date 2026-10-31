@@ -1,6 +1,5 @@
 import { Target, FileSpreadsheet, Globe, MessageSquareQuote, BookMarked } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { Callout } from '../components/Callout';
 import { CopyAction } from '../components/CopyBlock';
 
 /**
@@ -53,6 +52,13 @@ import { CopyAction } from '../components/CopyBlock';
  * 那是 B-5 的同一批內容開兩頁。**不要加回來**，要補就補進下一頁。
  *
  * 2026-10-31（講師：「其實第一次下指令他不一定會一次改很多檔案，這段好像可以整個移除」）
+ * 2026-10-31（講師：這段感覺沒必要？和上面的四個專案也沒有關係？）
+ * 收尾那個〈內容自己給，格式讓它整理〉的 Callout 整塊刪掉，`stepIndex` 剩 1 到 4。
+ * 它寫的是一條通則，不是這一頁的收穫，而且第一條「上面四種都是從你手上的東西開始」
+ * **只對得上三種**：一頁式網站那一格不是從既有的檔案開始的。
+ * 這一頁的收尾本來就在四格各自的「做完你手上會有」那一行（D-2：頁面結尾要嘛給具體的
+ * 下一步，要嘛就不要寫）。**不要加回來。** 那條通則要留的話位置是結語，不是這裡。
+ *
  * 〈題目太大的徵兆〉那一塊刪掉，`stepIndex` 重編成 1 到 5。它寫的是「它一次改了七、八個
  * 檔案」，但四段 Prompt 2026-10-31 改成先談規格、我說可以才動手、一次只做一段之後，
  * 那個狀況本來就不該發生，留著等於先告訴學員這個流程會失控。
@@ -172,30 +178,6 @@ export default function SlidePickTopic() {
             );
           })}
         </div>
-
-        {/*
-          2026-10-31 從一段散文改成三條。原本「⋯自己驗不動的東西；驗不動的東西，你只能⋯」
-          是 D-2 的頂真式遞進，而且四句話把分工、後果、你的職務黏在一起。
-          **不要把三條接回一段。**
-        */}
-        <Callout tone="focus" label="內容自己給，格式讓它整理" stepIndex={5}>
-          <ul className="space-y-1.5">
-            <li className="flex flex-wrap items-baseline gap-x-2">
-              <span className="w-20 shrink-0 font-bold text-slate-100">你拿出</span>
-              <span className="flex-1 min-w-0">舊報表、舊回覆、部門的規範，上面四種都是從你手上的東西開始。</span>
-            </li>
-            <li className="flex flex-wrap items-baseline gap-x-2">
-              <span className="w-20 shrink-0 font-bold text-slate-100">它負責</span>
-              <span className="flex-1 min-w-0">整理成固定格式，之後每次照同一套跑。</span>
-            </li>
-            <li className="flex flex-wrap items-baseline gap-x-2">
-              <span className="w-20 shrink-0 font-bold text-slate-100">反過來的話</span>
-              <span className="flex-1 min-w-0 text-slate-400">
-                讓它替你想內容，你會拿到一份自己驗不動的東西，只能選擇相信它或整份重來。
-              </span>
-            </li>
-          </ul>
-        </Callout>
 
       </div>
     </SlideLayout>

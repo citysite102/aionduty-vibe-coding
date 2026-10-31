@@ -81,7 +81,7 @@ export default function SlideShipScan() {
       title="三種檢查：自己掃、請 AI 看、外部單位測試"
       subtitle="Scan, Review, Pentest"
       icon={ScanSearch}
-      updated={{ date: '2026/10/20', kind: '新增' }}
+      updated={{ date: '2026/11/01', kind: '新增' }}
     >
       <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-1 pb-3">
         {/*

@@ -75,7 +75,7 @@ export default function SlideCase2TokyoLoop() {
           <p className="text-slate-400 text-sm leading-relaxed mb-3">
             技術是 <strong className="text-slate-200">Three.js、GSAP 與原生 CSS</strong>，
             教學版用 importmap 直接從網路載入套件、不用安裝，最後一步才換成 Vite 打包。
-            <strong className="text-slate-200">不需要看懂 shader 或 JavaScript</strong>，手冊裡的程式碼是用來確認結果的。
+            <strong className="text-slate-200">不需要看懂 shader 或 JavaScript</strong>，出現的程式碼是用來確認結果的。
           </p>
           <p className="text-slate-300 text-sm leading-relaxed mb-3">
             底下兩塊是同一條原則的兩個例子：
@@ -109,7 +109,7 @@ export default function SlideCase2TokyoLoop() {
         </AnimatedBlock>
 
         <Callout tone="warn" label="這個案例有兩個終點" stepIndex={3}>
-          手冊做到倒數第二步，照片、字體與套件全部來自三個外部網站，其中一個掛掉，整個作品不會啟動。
+          做到倒數第二步的時候，照片、字體與套件全部來自三個外部網站，其中一個掛掉，整個作品不會啟動。
           自己練習沒問題，對外就不行。任何要拿出去的東西都一樣：外部來源在你控制不到的地方。
           <strong className="text-slate-100">最後一步專門在做這件事</strong>：把三個外部來源收回自己的專案，
           加上打包步驟，真機測過、效能量過，做完才算可以當正式版的起點。

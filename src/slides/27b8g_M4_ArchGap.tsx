@@ -142,7 +142,7 @@ export default function SlideArchGap() {
       title="前端、資料庫、沒有後端：要加登入怎麼做"
       subtitle="What You Have, What You Don't"
       icon={Network}
-      updated={{ date: '2026/10/31' }}
+      updated={{ date: '2026/11/01' }}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-4">
 

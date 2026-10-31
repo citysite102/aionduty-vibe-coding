@@ -71,7 +71,7 @@ const WAYS = [
 
 export default function SlideSkillInstall() {
   return (
-    <SlideLayout title="Skill 的三種來源，怎麼確認它裝好了" subtitle="Installing a Skill" icon={PackagePlus} updated={{ date: '2026/10/19' }}>
+    <SlideLayout title="Skill 的三種來源，怎麼確認它裝好了" subtitle="Installing a Skill" icon={PackagePlus} updated={{ date: '2026/11/01' }}>
       <div className="max-w-6xl mx-auto space-y-2 pb-2">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">

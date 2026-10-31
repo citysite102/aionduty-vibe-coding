@@ -1,7 +1,6 @@
 import { Layers } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
-import { CopyAction } from '../components/CopyBlock';
 import keyVisual from '../../assets/cases/case-04-wishes-00-keyvisual.jpg';
 import blockShot from '../../assets/cases/case-04-wishes-01-block.jpg';
 import seaShot from '../../assets/cases/case-04-wishes-02-sea.jpg';
@@ -74,18 +73,16 @@ const SHOTS = [
 ];
 
 /**
- * 2026-10-31（講師：這個給 AI 會不會太抽象，什麼叫畫面上看不出來但會出錯）那一句重寫。
- * 原本是「請列出這次改動裡，我在畫面上看不出來、但會出錯的地方，以及我要怎麼試」，
- * 兩個空格：「看不出來但會出錯」沒有說是哪一類，「怎麼試」沒有說試什麼。
- * 現在把這一頁上面那三個錯的**類別**直接寫進去（各寫各的數字、方向相反、跟幀率有關），
- * 並要求它回答「看哪裡、做什麼動作、對的話該看到什麼」，那是學員當場做得出來的三件事。
- * **不要改回抽象版。** 它要能被不寫程式的人貼出去，而且收到的回答他看得懂。
+ * 這一塊的第三段換過兩次，兩次都記在這裡。
+ * 原本是一句抽象的 Prompt（「請列出我在畫面上看不出來、但會出錯的地方」），
+ * 講師問「什麼叫畫面上看不出來但會出錯」，所以改成寫死三類的版本。
+ * 2026-10-31 講師再退一次：**「有需要每次都問這個嗎？太麻煩了，而且我不一定每次都有兩個零件，
+ * 這是不是太刻意，或者這種狀況就應該加到 Hook？」** 他是對的，而且這門課自己就是這樣教的
+ * （章節五：寫成文字每一次都要它重新判斷，寫成程式每一次都照同一段跑）。
+ * 現在第三段講的是怎麼讓這件事不用每次用問的：盤點那一次列一遍、會重複驗的寫成測試、
+ * 不能破的寫成 Hook。
+ * **不要再放一句「每改完一段貼這個」的 Prompt。**
  */
-const CHECK_PROMPT =
-  '這次改了哪些檔案？其中有沒有這三類問題：一、相接的兩個零件各寫各的數字；' +
-  '二、方向或正負號可能相反；三、跟每秒畫幾張有關，換一台電腦結果就不一樣。' +
-  '每一條告訴我：我要在畫面上看哪裡、做什麼動作、沒問題的話應該看到什麼。';
-
 /** 四處被退。左邊是畫面上看到的樣子，右邊是兩邊各寫的數字，兩個都要有：
  *  學員沒有要讀程式，他要能在自己的畫面上認出同一種毛病；而數字是這件事的證據。
  *  2026-10-23 跟著手冊階段 6 的判斷二那張表改，數字照抄，不要自己換算。 */
@@ -201,11 +198,21 @@ export default function SlideCase4Layers() {
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
             <h3 className="text-base font-bold text-slate-100 mb-1">改完之後，拿什麼證明其他東西沒變</h3>
             <p className="text-slate-400 text-sm leading-relaxed mb-3">
-              底下三樣在開始改畫面之前就先建好，後面每一次修改各用一次。
-              一樣都沒建的話，改完你只能自己看一眼說「看起來沒壞」，而這個畫面一直在動，看不出來。
+              這個畫面每一秒重畫六十次，改壞了你看一眼看不出來，
+              <strong className="text-slate-200">只能說「看起來沒壞」</strong>
+              。所以要有三樣東西替你看：
             </p>
             {/* 2026-10-31 逐像素比對原本是一條六十多字的長句，把「怎麼做」「開工前要先校一次」
-                「誰寫腳本」三件黏在一起。改成主句加兩條細項，另外兩樣維持一行。 */}
+                「誰寫腳本」三件黏在一起。改成主句加兩條細項，另外兩樣維持一行。
+
+                2026-11-01（講師：這句很抽象）開頭那一段重寫。原本是「底下三樣在開始改畫面之前
+                就先建好，後面每一次修改各用一次。一樣都沒建的話⋯」，問題是它在**還沒說是哪三樣**
+                之前就先講「三樣」「建好」「各用一次」，讀者沒有東西可以掛。
+                現在第一句講那個撐不住的狀況（畫面每秒重畫六十次，看一眼看不出來），
+                「什麼時候建、多久用一次」本來降到清單底下，2026-11-01 講師問「這是什麼意思」，
+                整句刪掉：那件事清單裡已經有更具體的版本（逐像素比對那一條的第一個細項
+                「開始改之前，先用沒改過的版本截兩張互相比」就是「先建好再開始改」）。
+                **不要再補一句概括它。** */}
             <ul className="space-y-2">
               {PROOFS.map((p) => (
                 <li key={p.k} className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-2.5">
@@ -283,12 +290,22 @@ export default function SlideCase4Layers() {
 
           <span className="mt-3 block border-t border-sky-500/20 pt-2.5">
             <span className="mb-1.5 block text-sm font-bold text-sky-300">
-              三　每改完一段，這一句貼過去
+              三　這一類檢查不要每次用問的
             </span>
-            <span className="block rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-sm text-slate-300">
-              {CHECK_PROMPT}
+            <span className="block space-y-1">
+              <span className="flex flex-wrap items-baseline gap-x-2">
+                <span className="w-24 shrink-0 font-bold text-slate-100">盤點那一次</span>
+                <span className="flex-1 min-w-0">請它把看不出來的問題列一遍，這個案例的三個就是那時候抓到的。</span>
+              </span>
+              <span className="flex flex-wrap items-baseline gap-x-2">
+                <span className="w-24 shrink-0 font-bold text-slate-100">會重複驗的</span>
+                <span className="flex-1 min-w-0 text-slate-400">浮力、選曲這種算得出對錯的，寫成測試，改完先跑它。</span>
+              </span>
+              <span className="flex flex-wrap items-baseline gap-x-2">
+                <span className="w-24 shrink-0 font-bold text-slate-100">不能破的</span>
+                <span className="flex-1 min-w-0 text-slate-400">寫成 Hook，讓程式去擋。寫成一句話，每一次都要它重新判斷一遍。</span>
+              </span>
             </span>
-            <CopyAction text={CHECK_PROMPT} className="mt-1.5" />
           </span>
         </Callout>
 

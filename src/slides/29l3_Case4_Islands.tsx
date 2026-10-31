@@ -39,6 +39,14 @@ import { Callout } from '../components/Callout';
  * **要加別的指示之前先回那一頁重讀**，這幾個名字會隨版本調整。
  * ─────────────────────────────────────────────────────
  *
+ * 2026-11-01 手冊改版對過一次。那一段四層分工的文字，手冊階段 8 的〈🧭 這一步在做什麼〉
+ * 現在有一張完整的表（工具／在這個網站裡做什麼／選它的理由／代價），所以這一塊從
+ * 「四行各做什麼」升級成「做什麼＋代價」兩欄，**代價那一欄照抄手冊**，
+ * 其中 Astro 那一條是最要緊的一句：「首頁幾乎都是互動內容，只用到它的一小部分。
+ * 不用它也做得出這個網站。」少了它這一頁就變成在推薦一套技術堆疊。
+ * 收尾那句「避免同一份狀態有兩個地方在管」手冊自己有具體解釋，一起抄進來。
+ * **下次改版先翻階段 8 那張表。**
+ *
  * 2026-10-31（講師口述一段四層分工的文字，要求收進投影片）末尾多一塊〈這個案例最後怎麼分〉。
  * 原本 Callout 裡的「它們不是二選一」整條搬進那一塊的第一句（同一件事不要寫兩次，B-5），
  * 所以 Callout 現在只剩「不是只能做靜態網站」那一條，標籤跟著改成單數。
@@ -84,10 +92,26 @@ const FIT = [
  * 多一層工具就多一組要維護的規則，這一頁如果只講好處就變成在推薦一套技術堆疊。
  */
 const LAYERS = [
-  { k: 'Astro', v: '組成網站頁面，讓網址、文件與分享資訊（貼到社群時顯示的標題與圖）有一致的管理方式。' },
-  { k: 'React', v: '負責互動介面，依照登入、選取、載入與錯誤等狀態呈現畫面。' },
-  { k: 'Three.js', v: '專心處理 3D 場景、相機與場景動畫。' },
-  { k: 'Supabase', v: '負責認證、資料與權限。' },
+  {
+    k: 'Astro',
+    does: '組成網站頁面，讓網址、文件與分享資訊（貼到社群時顯示的標題與圖）有一致的管理方式。',
+    cost: '首頁幾乎都是互動內容，只用到它的一小部分。不用它也做得出這個網站。',
+  },
+  {
+    k: 'React',
+    does: '負責互動介面，依照登入、選取、載入與錯誤等狀態呈現畫面。',
+    cost: '多一套要懂的東西。首頁要等程式下載完，介面才出現。',
+  },
+  {
+    k: 'Three.js',
+    does: '專心處理 3D 場景、相機與場景動畫，每秒更新約 60 次。',
+    cost: '3D 與介面要自己接線：介面叫引擎做事，引擎通知介面。',
+  },
+  {
+    k: 'Supabase',
+    does: '負責認證、資料與權限。',
+    cost: '規則要自己寫對。寄信要另外接一家，正式資料要在正式環境測。',
+  },
 ];
 
 export default function SlideCase4Islands() {
@@ -219,29 +243,31 @@ export default function SlideCase4Islands() {
             <strong className="text-slate-200">一層負責一件事</strong>
             ：登入視窗、繪馬卡片是 React 寫的島，其餘的頁面是 Astro 直接輸出的網頁。
           </p>
-          <ul className="space-y-1">
+          <div className="grid grid-cols-[minmax(0,86px)_minmax(0,1.15fr)_minmax(0,1fr)] gap-x-4">
+            <div className="pb-1.5" />
+            <div className="text-slate-300 text-sm font-bold pb-1.5">在這個網站裡做什麼</div>
+            <div className="text-slate-300 text-sm font-bold pb-1.5">代價</div>
             {LAYERS.map((l) => (
-              <li key={l.k} className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
-                <span className="w-20 shrink-0 font-bold text-slate-200">{l.k}</span>
-                <span className="flex-1 min-w-0 text-slate-400">{l.v}</span>
-              </li>
+              <div key={l.k} className="contents">
+                <div className="border-t border-slate-800 py-1.5 text-sm font-bold text-slate-200">
+                  {l.k}
+                </div>
+                <div className="border-t border-slate-800 py-1.5 text-sm leading-relaxed text-slate-400">
+                  {l.does}
+                </div>
+                <div className="border-t border-slate-800 py-1.5 text-sm leading-relaxed text-slate-500">
+                  {l.cost}
+                </div>
+              </div>
             ))}
-          </ul>
-          <div className="mt-2.5 border-t border-slate-800 pt-2.5 space-y-1">
-            <p className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
-              <span className="w-10 shrink-0 font-bold text-slate-200">好處</span>
-              <span className="flex-1 min-w-0 text-slate-400">
-                新增介面功能的時候比較容易控制影響範圍，也能分別測試各層。
-              </span>
-            </p>
-            <p className="flex flex-wrap items-baseline gap-x-2 text-sm leading-relaxed">
-              <span className="w-10 shrink-0 font-bold text-slate-200">代價</span>
-              <span className="flex-1 min-w-0 text-slate-400">
-                工具與整合規則變多。所以每一層都要有清楚的責任，
-                <strong className="text-slate-300">避免同一份狀態有兩個地方在管</strong>。
-              </span>
-            </p>
           </div>
+          <p className="text-slate-400 text-sm leading-relaxed mt-2.5 border-t border-slate-800 pt-2.5">
+            好處是新增介面功能的時候比較容易控制影響範圍，也能分別測試各層。代價是工具與整合規則變多，
+            所以每一層都要有清楚的責任，
+            <strong className="text-slate-300">避免同一份狀態有兩個地方在管</strong>
+            ：「現在開著哪張卡片」由 React 管，「船現在在哪裡」由 Three.js 管，
+            「誰能讀哪一筆繪馬」由 Supabase 管。兩個地方同時管同一份資料，畫面就會對不上。
+          </p>
         </AnimatedBlock>
 
         <Callout

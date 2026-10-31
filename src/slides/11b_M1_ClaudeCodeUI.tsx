@@ -73,7 +73,7 @@ export default function SlideClaudeCodeUI() {
     <SlideLayout
       title="Claude Code 桌面版"
       subtitle="Claude Code Desktop"
-      icon={AppWindow} updated={{ date: '2026/10/15' }}
+      icon={AppWindow} updated={{ date: '2026/11/01' }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
 
