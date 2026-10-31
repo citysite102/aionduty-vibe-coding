@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>課程講義｜打造自己的 AI 工作體系</title>
+<!--
+  講義索引。五份 .md 不直接連檔案，連到 view.html?doc=<key>（GitHub Pages 直接開 .md 是下載或純文字）。
+  圖示是 lucide 的 path 內嵌成 <symbol>，GitHub 那一個取自 simple-icons（CC0），
+  與 src/components/BrandLogos.tsx 同一份路徑資料。CLAUDE.md A-4：不連外部網址。
+-->
 <style>
   * { box-sizing: border-box; }
   body {
@@ -14,7 +19,7 @@
     font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
     line-height: 1.7;
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
+  .wrap { max-width: 760px; margin: 0 auto; }
   .label {
     font-family: "SFMono-Regular", Menlo, Consolas, monospace;
     font-size: 12px;
@@ -26,7 +31,9 @@
   h1 { font-size: 30px; margin: 0 0 12px; letter-spacing: -0.01em; }
   .lede { color: #94a3b8; font-size: 15px; margin: 0 0 36px; }
   a.card {
-    display: block;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
     text-decoration: none;
     background: #0f172a;
     border: 1px solid #1e293b;
@@ -36,6 +43,20 @@
     transition: border-color 0.15s ease;
   }
   a.card:hover { border-color: #38bdf8; }
+  a.card .tile {
+    flex: none;
+    width: 40px; height: 40px;
+    border-radius: 11px;
+    background: #0b1220;
+    border: 1px solid #1e293b;
+    display: flex; align-items: center; justify-content: center;
+    color: #94a3b8;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  a.card .tile svg { width: 20px; height: 20px; }
+  a.card:hover .tile { color: #38bdf8; border-color: #1e3a5f; }
+  a.card .bd, a.card .t, a.card .d, a.card .m { display: block; }
+  a.card .bd { min-width: 0; }
   a.card .t { color: #f1f5f9; font-size: 17px; font-weight: 700; margin-bottom: 5px; }
   a.card .d { color: #94a3b8; font-size: 13.5px; line-height: 1.65; }
   a.card .m {
@@ -45,8 +66,10 @@
     font-size: 11.5px;
     font-family: "SFMono-Regular", Menlo, Consolas, monospace;
     margin-top: 10px;
+    word-break: break-word;
   }
   .primary { border-left: 4px solid #0ea5e9; }
+  .primary .tile { color: #38bdf8; }
   .note {
     margin-top: 32px;
     padding-top: 20px;
@@ -66,10 +89,26 @@
   @media (max-width: 600px) {
     body { padding: 32px 18px 60px; }
     h1 { font-size: 24px; }
+    a.card { gap: 13px; padding: 18px; }
+    a.card .tile { width: 34px; height: 34px; border-radius: 9px; }
+    a.card .tile svg { width: 17px; height: 17px; }
   }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="i-printer"><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></g>
+    <g id="i-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></g>
+    <g id="i-git-fork"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/></g>
+    <g id="i-list-checks"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></g>
+    <g id="i-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></g>
+    <g id="i-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g>
+    <g id="i-pen-line"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></g>
+    <g id="i-book-open"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></g>
+  </defs>
+</svg>
+
 <div class="wrap">
   <div class="label">Course Handouts</div>
   <h1>課程講義</h1>
@@ -80,45 +119,66 @@
   </p>
 
   <a class="card primary" href="./print.html">
-    <div class="t">列印版（四份合一）</div>
-    <div class="d">A4 四頁，開啟後直接列印或另存 PDF。填寫欄位是底線，印出來可以手寫。上線前自查卡沒有收進來，它是對著專案跑的，不是填表。</div>
-    <div class="m">print.html</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-printer"/></svg></span>
+    <span class="bd">
+      <span class="t">列印版（四份合一）</span>
+      <span class="d">A4 四頁，開啟後直接列印或另存 PDF。填寫欄位是底線，印出來可以手寫。上線前自查卡沒有收進來，它是對著專案跑的，不是填表。</span>
+      <span class="m">print.html</span>
+    </span>
   </a>
 
-  <a class="card" href="./claude-md-template.md">
-    <div class="t">1. CLAUDE.md 模板</div>
-    <div class="d">複製到你的專案根目錄，改名為 CLAUDE.md。也可放在 ./.claude/CLAUDE.md；先用根目錄版本，最容易看見。</div>
-    <div class="m">claude-md-template.md</div>
+  <a class="card" href="./view.html?doc=claude-md-template">
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file-text"/></svg></span>
+    <span class="bd">
+      <span class="t">1. CLAUDE.md 模板</span>
+      <span class="d">複製到你的專案根目錄，改名為 CLAUDE.md。也可放在 ./.claude/CLAUDE.md；先用根目錄版本，最容易看見。</span>
+      <span class="m">claude-md-template.md</span>
+    </span>
   </a>
 
-  <a class="card" href="./routing-card.md">
-    <div class="t">2. 規則分流判斷卡</div>
-    <div class="d">一條規則該放 CLAUDE.md、Skill、Hook 還是 CI。附「它沒照做時先查這五件事」。</div>
-    <div class="m">routing-card.md</div>
+  <a class="card" href="./view.html?doc=routing-card">
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-git-fork"/></svg></span>
+    <span class="bd">
+      <span class="t">2. 規則歸位判斷卡</span>
+      <span class="d">一條規則該放 CLAUDE.md、Skill、Hook 還是 CI。附「它沒照做時先查這五件事」。</span>
+      <span class="m">routing-card.md</span>
+    </span>
   </a>
 
-  <a class="card" href="./health-check.md">
-    <div class="t">3. 五步健檢檢查表</div>
-    <div class="d">手冊越寫越長的時候用。盤點、減法、分流、加法、修剪，含哪幾條可以直接刪、說不準的怎麼放。</div>
-    <div class="m">health-check.md</div>
+  <a class="card" href="./view.html?doc=health-check">
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-list-checks"/></svg></span>
+    <span class="bd">
+      <span class="t">3. 五步健檢檢查表</span>
+      <span class="d">手冊越寫越長的時候用。盤點、減法、歸位、加法、修剪，含哪幾條可以直接刪、說不準的怎麼放。</span>
+      <span class="m">health-check.md</span>
+    </span>
   </a>
 
-  <a class="card" href="./error-guide.md">
-    <div class="t">4. 錯誤訊息判讀對照表</div>
-    <div class="d">看到紅字的時候用。終端機與瀏覽器常見錯誤的白話對照，以及畫面空白卻沒報錯時怎麼辦。</div>
-    <div class="m">error-guide.md</div>
+  <a class="card" href="./view.html?doc=error-guide">
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-triangle-alert"/></svg></span>
+    <span class="bd">
+      <span class="t">4. 錯誤訊息判讀對照表</span>
+      <span class="d">看到紅字的時候用。終端機與瀏覽器常見錯誤的白話對照，以及畫面空白卻沒報錯時怎麼辦。</span>
+      <span class="m">error-guide.md</span>
+    </span>
   </a>
 
-  <a class="card" href="./ship-check.md">
-    <div class="t">5. 上線前自查卡</div>
-    <div class="d">東西做完、要交出去之前用。八題不用讀程式碼的自查、OWASP Top 10 對照（五個已知提醒），以及金流、個資、法遵、著作權各自那一題會出事的。</div>
-    <div class="m">ship-check.md</div>
+  <a class="card" href="./view.html?doc=ship-check">
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-shield-check"/></svg></span>
+    <span class="bd">
+      <span class="t">5. 上線前自查卡</span>
+      <span class="d">東西做完、要交出去之前用。八題不用讀程式碼的自查、三種檢查各自抓得到什麼、OWASP Top 10 十條對照、接了 AI 多出的兩類風險，以及金流、個資、法遵、著作權各自那一題會出事的。</span>
+      <span class="m">ship-check.md</span>
+    </span>
   </a>
 
   <a class="card" href="https://github.com/citysite102/mission-timer-v2">
-    <div class="t">6. 範例專案：任務計時器</div>
-    <div class="d">手上沒有計時器的人用這一份。按綠色的 Code → Download ZIP，不用登入。解壓縮之後用 Claude Code 打開裡面的 mission-timer 資料夾，動手那幾頁照原樣走得完。</div>
-    <div class="m">github.com/citysite102/mission-timer-v2</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+    <span class="bd">
+      <span class="t">6. 範例專案：任務計時器</span>
+      <span class="d">手上沒有計時器的人用這一份。按綠色的 Code → Download ZIP，不用登入。解壓縮之後用 Claude Code 打開裡面的 mission-timer 資料夾，動手那幾頁照原樣走得完。</span>
+      <span class="m">github.com/citysite102/mission-timer-v2</span>
+    </span>
   </a>
 
   <div class="sec">
@@ -130,33 +190,48 @@
   </div>
 
   <a class="card" href="./case-01-spec-writing.pdf">
-    <div class="t">課前作業：規格文件怎麼寫</div>
-    <div class="d">案例一開始之前先寫完這一份。七個區塊寫成一份 spec.md：一句話定義、不做什麼、真實素材、參考方向、硬性限制、驗收條件、素材清單。判斷標準只有一句，這一條是形容詞，還是可以被檢查的條件。</div>
-    <div class="m">case-01-spec-writing.pdf ・ 2.4 MB ・ 60 到 90 分鐘</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pen-line"/></svg></span>
+    <span class="bd">
+      <span class="t">課前作業：規格文件怎麼寫</span>
+      <span class="d">案例一開始之前先寫完這一份。七個區塊寫成一份 spec.md：一句話定義、不做什麼、真實素材、參考方向、硬性限制、驗收條件、素材清單。判斷標準只有一句，這一條是形容詞，還是可以被檢查的條件。</span>
+      <span class="m">case-01-spec-writing.pdf ・ 2.4 MB ・ 60 到 90 分鐘</span>
+    </span>
   </a>
 
   <a class="card" href="./case-01-vessel.pdf">
-    <div class="t">案例一：器 VESSEL，陶藝工作室一頁式網站</div>
-    <div class="d">把「我想要這樣」變成 AI 能穩定執行的規則。沒有資料也沒有表單，所以不需要任何工具。使用 Astro、TypeScript、原生 CSS 與 Vercel。</div>
-    <div class="m">case-01-vessel.pdf ・ 8.0 MB ・ 閱讀約 1.9 小時，動手約 5.7 小時</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-book-open"/></svg></span>
+    <span class="bd">
+      <span class="t">案例一：器 VESSEL，陶藝工作室一頁式網站</span>
+      <span class="d">把「我想要這樣」變成 AI 能穩定執行的規則。沒有資料也沒有表單，所以不需要任何工具。使用 Astro、TypeScript、原生 CSS 與 Vercel。</span>
+      <span class="m">case-01-vessel.pdf ・ 8.0 MB ・ 閱讀約 1.9 小時，動手約 5.7 小時</span>
+    </span>
   </a>
 
   <a class="card" href="./case-02-tokyo-loop.pdf">
-    <div class="t">案例二：東京環状 24 時，捲動穿越的 3D 藝廊</div>
-    <div class="d">判斷什麼問題該用什麼技術，每一個工具都要說得出它在解決什麼問題，以及不用它會怎樣。十張照片沿深度排開，捲動時鏡頭穿過它們。使用 Three.js、GSAP 與原生 CSS，不需要看懂 shader 或 JavaScript。</div>
-    <div class="m">case-02-tokyo-loop.pdf ・ 6.6 MB ・ 閱讀約 2.6 小時，動手約 8.6 小時</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-book-open"/></svg></span>
+    <span class="bd">
+      <span class="t">案例二：東京環状 24 時，捲動穿越的 3D 藝廊</span>
+      <span class="d">判斷什麼問題該用什麼技術，每一個工具都要說得出它在解決什麼問題，以及不用它會怎樣。十張照片沿深度排開，捲動時鏡頭穿過它們。使用 Three.js、GSAP 與原生 CSS，不需要看懂 shader 或 JavaScript。</span>
+      <span class="m">case-02-tokyo-loop.pdf ・ 6.6 MB ・ 閱讀約 2.6 小時，動手約 8.6 小時</span>
+    </span>
   </a>
 
   <a class="card" href="./case-03-kiln.pdf">
-    <div class="t">案例三：開窯預約，有帳號與資料的網站</div>
-    <div class="d">哪些事情不能只相信前端。有人繞過網頁直接送請求的時候，擋得住的只有資料庫的規則。可以登入、預約、取消，而且只看得到自己那幾筆。使用 Astro、Supabase 與原生 CSS，不需要看懂 SQL。</div>
-    <div class="m">case-03-kiln.pdf ・ 6.2 MB ・ 閱讀約 2.5 小時，動手約 7.8 小時</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-book-open"/></svg></span>
+    <span class="bd">
+      <span class="t">案例三：開窯預約，有帳號與資料的網站</span>
+      <span class="d">哪些事情不能只相信前端。有人繞過網頁直接送請求的時候，擋得住的只有資料庫的規則。可以登入、預約、取消，而且只看得到自己那幾筆。使用 Astro、Supabase 與原生 CSS，不需要看懂 SQL。</span>
+      <span class="m">case-03-kiln.pdf ・ 6.2 MB ・ 閱讀約 2.5 小時，動手約 7.8 小時</span>
+    </span>
   </a>
 
   <a class="card" href="./case-04-wishes.pdf">
-    <div class="t">案例四：海上許願神社，3D 場景加上會員登入</div>
-    <div class="d">改完之後拿什麼證明其他東西沒壞。海中央一座神社，點水面起漣漪、船跟著浪起伏、白天黃昏夜晚會轉換，有背景音樂、信箱登入，以及一支要帶登入權杖才拿得到資料的 API。使用 Three.js、Astro、Web Audio 與 Supabase，不需要看懂 shader 或 JavaScript。聲音素材要自己準備。</div>
-    <div class="m">case-04-wishes.pdf ・ 23.4 MB ・ 閱讀約 4.9 小時，動手約 16.3 小時</div>
+    <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-book-open"/></svg></span>
+    <span class="bd">
+      <span class="t">案例四：海上許願神社，3D 場景加上會員登入</span>
+      <span class="d">改完之後拿什麼證明其他東西沒壞。海中央一座神社，點水面起漣漪、船跟著浪起伏、白天黃昏夜晚會轉換，有背景音樂、信箱登入，以及一支要帶登入權杖才拿得到資料的 API。使用 Three.js、Astro、Web Audio 與 Supabase，不需要看懂 shader 或 JavaScript。聲音素材要自己準備。</span>
+      <span class="m">case-04-wishes.pdf ・ 23.4 MB ・ 閱讀約 4.9 小時，動手約 16.3 小時</span>
+    </span>
   </a>
 
   <p class="note">
@@ -167,7 +242,7 @@
   <p class="note">
     <strong>想不起來某一句指令怎麼打：</strong>課程裡出現過的指令都收在
     <a href="../tools/#cheatsheet" style="color:#38bdf8">課程工具箱的「指令速查」</a>，
-    照單元排，可以直接複製。同一個工具箱裡還有 Prompt 組裝器、CLAUDE.md 產生器與規則分流器。
+    照章節排，可以直接複製。同一個工具箱裡還有 Prompt 組裝器、CLAUDE.md 產生器與規則歸位器。
   </p>
 </div>
 </body>

@@ -5,7 +5,7 @@ import { judge, toSentences, VAGUE_WORDS } from '../vague';
 /**
  * 把「畫面要好看」這種句子挑出來。
  *
- * 誠實地說，這是字面比對：它查得到清單裡的詞，查不到「這句話意思很模糊」。
+ * 誠實地說，它查的是字面：查得到清單裡的詞，查不到「這句話意思很模糊」。
  * 所以畫面上要寫清楚，沒被標記不等於寫得夠好，判斷標準還是那一句：
  * 只看做出來的東西，你能不能回答「有做到」或「沒做到」。
  */
@@ -43,7 +43,7 @@ export default function DoneWhenChecker() {
             <TextArea rows={9} value={text} onChange={(e) => setText(e.target.value)} />
           </Field>
           <Note>
-            這是字面比對，不是理解：它只查得到{VAGUE_WORDS.length} 個常見的模糊詞。
+            它查的是字面：清單裡那 {VAGUE_WORDS.length} 個常見的模糊詞查得到，句子的意思模糊查不到。
             沒被標記不代表寫得夠好，真正的判斷標準只有一個：
             <span className="text-slate-200">只看做出來的東西，你能不能回答「有做到」或「沒做到」。</span>
           </Note>

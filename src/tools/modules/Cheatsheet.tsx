@@ -24,7 +24,7 @@ type Item = {
 
 const GROUPS: { unit: string; title: string; items: Item[] }[] = [
   {
-    unit: '階段一',
+    unit: '章節三',
     title: '做出第一個作品',
     items: [
       {
@@ -65,7 +65,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '階段二',
+    unit: '章節四',
     title: '寫出會被讀到的手冊',
     items: [
       {
@@ -127,14 +127,14 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '階段三',
+    unit: '章節六',
     title: '讓角色替你把關',
     items: [
       {
         when: '建一個只負責挑錯、不准自己動手改的角色',
         kind: 'say',
         text: '幫我建一個 code-reviewer 子代理，內容照下面這段：（貼上子代理產生器的輸出）',
-        watch: '也可以打 /agents 讓它帶你建。檔案會在 .claude/agents/code-reviewer.md。',
+        watch: '檔案會在 .claude/agents/code-reviewer.md。打 /agents 不會列出你有哪些子代理，它只會告訴你怎麼建。',
         from: '動手：建一個審查角色',
       },
       {
@@ -147,7 +147,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
     ],
   },
   {
-    unit: '階段四',
+    unit: '章節七、八',
     title: '讓它自己跑一輪，然後上線',
     items: [
       {
@@ -220,7 +220,7 @@ export default function Cheatsheet() {
     <div className="max-w-4xl mx-auto space-y-6">
       <Panel
         title={`課程裡出現過的指令，共 ${ALL.length} 條`}
-        desc="照階段排。找到你這一步要用的那一條，按複製，貼進 Claude Code。這裡不會有課程沒教過的東西。"
+        desc="照章節排。找到你這一步要用的那一條，按複製，貼進 Claude Code。這裡不會有課程沒教過的東西。"
       >
         <TextInput
           value={q}
@@ -276,7 +276,7 @@ export default function Cheatsheet() {
         <div className="divide-y divide-slate-800">
           {[
             ['/context', '看這一輪載入了什麼。手冊沒生效的時候第一個要打的就是它。'],
-            ['/agents', '管理子代理，也可以讓它帶你建一個。'],
+            ['/agents', '打下去會告訴你怎麼建子代理，它不會列出現有的。'],
             ['/plugin', '打開市集裝 Skill。'],
           ].map(([cmd, desc]) => (
             <div key={cmd} className="grid grid-cols-[7rem_1fr] gap-4 py-3 text-sm leading-relaxed">

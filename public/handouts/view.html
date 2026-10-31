@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>課程講義</title>
+<!--
+  Markdown 檢視頁。index.html 的五份 .md 都走這裡：view.html?doc=<key>。
+  渲染用 marked 18.1.2，檔案內嵌在 ./vendor/marked.esm.js（來源 node_modules/marked/lib/marked.esm.js，
+  只刪掉最後那行 sourceMappingURL）。CLAUDE.md A-4：不連外部網址，升版就重新複製一次那個檔案。
+  doc 參數只吃下面 DOCS 的 key，不吃路徑，否則 ?doc=//別人的網域/x.md 會被當成自己的內容渲染。
+-->
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 40px 24px 96px;
+    background: #020617;
+    color: #f1f5f9;
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    line-height: 1.75;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  a { color: #38bdf8; }
+  .back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13.5px; text-decoration: none; color: #94a3b8;
+  }
+  .back:hover { color: #38bdf8; }
+  .head {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin: 22px 0 10px;
+  }
+  .tile {
+    flex: none; width: 42px; height: 42px; border-radius: 11px;
+    background: #0f172a; border: 1px solid #1e293b;
+    display: flex; align-items: center; justify-content: center;
+    color: #38bdf8;
+  }
+  .tile svg { width: 21px; height: 21px; }
+  .head h1 { font-size: 24px; margin: 4px 0 0; letter-spacing: -0.01em; }
+  .bar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+    padding-bottom: 20px; margin-bottom: 28px;
+    border-bottom: 1px solid #1e293b;
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 11.5px; color: #94a3b8;
+  }
+  .bar a { display: inline-flex; align-items: center; gap: 5px; text-decoration: none; }
+  .bar a:hover { text-decoration: underline; }
+  .bar svg { width: 13px; height: 13px; }
+
+  /* 渲染出來的 Markdown */
+  .md > :first-child { margin-top: 0; }
+  .md h1 { font-size: 23px; margin: 40px 0 14px; letter-spacing: -0.01em; }
+  .md h2 {
+    font-size: 19px; margin: 40px 0 12px; padding-top: 24px;
+    border-top: 1px solid #1e293b;
+  }
+  .md h3 { font-size: 16px; margin: 28px 0 8px; color: #e2e8f0; }
+  .md h4 { font-size: 14.5px; margin: 22px 0 6px; color: #94a3b8; }
+  .md p, .md li { font-size: 15px; color: #cbd5e1; }
+  .md strong { color: #f1f5f9; }
+  .md ul, .md ol { padding-left: 22px; }
+  .md li { margin: 5px 0; }
+  .md li::marker { color: #64748b; }
+  .md hr { border: 0; border-top: 1px solid #1e293b; margin: 32px 0; }
+  .md blockquote {
+    margin: 20px 0; padding: 2px 18px;
+    border-left: 3px solid #1e293b; color: #94a3b8;
+  }
+  .md a { word-break: break-word; }
+  .md code {
+    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-size: 0.88em; padding: 2px 5px; border-radius: 5px;
+    background: #0f172a; border: 1px solid #1e293b; color: #e2e8f0;
+  }
+  .md pre {
+    background: #0f172a; border: 1px solid #1e293b; border-radius: 12px;
+    padding: 16px 18px; overflow-x: auto; margin: 20px 0;
+  }
+  .md pre code { padding: 0; border: 0; background: none; font-size: 13px; line-height: 1.65; }
+  .md .tablewrap { overflow-x: auto; margin: 20px 0; }
+  .md table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  .md th, .md td {
+    border: 1px solid #1e293b; padding: 9px 12px;
+    text-align: left; vertical-align: top;
+  }
+  .md th { background: #0f172a; color: #f1f5f9; font-weight: 700; white-space: nowrap; }
+  .md td { color: #cbd5e1; }
+  .md tbody tr:nth-child(even) td { background: #0b1220; }
+  .md li > p { margin: 4px 0; }
+  /* 填寫用的空格子，印出來要有高度可以手寫 */
+  .md td:empty::after { content: "\00a0"; }
+  /* 任務清單：marked 給的 checkbox 預設 disabled，載入後拿掉，印之前可以先在螢幕上勾。
+     鬆散清單的 checkbox 包在 <p> 裡面，兩種結構都要去掉項目符號，否則會變成「・☐」 */
+  .md li:has(> input[type="checkbox"]),
+  .md li:has(> p > input[type="checkbox"]) { list-style: none; margin-left: -22px; }
+  .md input[type="checkbox"] { width: 15px; height: 15px; margin-right: 8px; accent-color: #0ea5e9; vertical-align: -2px; }
+  .state { color: #94a3b8; font-size: 14px; }
+
+  @media (max-width: 600px) {
+    body { padding: 28px 18px 64px; }
+    .head h1 { font-size: 20px; }
+  }
+  @media print {
+    body { background: #fff; color: #0f172a; padding: 0; }
+    .back, .bar a { display: none; }
+    .tile { border-color: #cbd5e1; background: #f1f5f9; color: #0f172a; }
+    .md p, .md li, .md td { color: #0f172a; }
+    .md h3 { color: #0f172a; }
+    .md code, .md pre, .md th { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
+    .md tbody tr:nth-child(even) td { background: #f8fafc; }
+    .md h2 { break-after: avoid; }
+    .md table, .md pre { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="i-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></g>
+    <g id="i-git-fork"><circle cx="12" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><path d="M18 9v2c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1V9"/><path d="M12 12v3"/></g>
+    <g id="i-list-checks"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></g>
+    <g id="i-triangle-alert"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></g>
+    <g id="i-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g>
+    <g id="i-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></g>
+    <g id="i-download"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></g>
+    <g id="i-printer"><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></g>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <a class="back" href="./"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><use href="#i-arrow-left"/></svg>課程講義</a>
+
+  <div class="head">
+    <div class="tile"><svg id="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-file-text"/></svg></div>
+    <h1 id="title">載入中</h1>
+  </div>
+
+  <div class="bar">
+    <span id="file"></span>
+    <a id="raw" href="#" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-download"/></svg>下載 .md</a>
+    <a href="#" onclick="window.print();return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-printer"/></svg>列印這一份</a>
+  </div>
+
+  <article class="md" id="body"><p class="state">載入中⋯</p></article>
+</div>
+
+<script type="module">
+import { marked } from './vendor/marked.esm.js';
+
+const DOCS = {
+  'claude-md-template': { title: 'CLAUDE.md 模板', icon: 'i-file-text' },
+  'routing-card':       { title: '規則歸位判斷卡', icon: 'i-git-fork' },
+  'health-check':       { title: '五步健檢檢查表', icon: 'i-list-checks' },
+  'error-guide':        { title: '錯誤訊息判讀對照表', icon: 'i-triangle-alert' },
+  'ship-check':         { title: '上線前自查卡', icon: 'i-shield-check' },
+};
+
+const key = new URLSearchParams(location.search).get('doc') ?? '';
+const doc = DOCS[key];
+const body = document.getElementById('body');
+
+if (!doc) {
+  document.getElementById('title').textContent = '找不到這一份';
+  body.innerHTML = '<p class="state">網址少了 <code>?doc=</code>，或那個名字不在清單裡。<a href="./">回課程講義</a>挑一份。</p>';
+} else {
+  const file = key + '.md';
+  document.title = doc.title + '｜課程講義';
+  document.getElementById('title').textContent = doc.title;
+  document.getElementById('icon').innerHTML = '<use href="#' + doc.icon + '"/>';
+  document.getElementById('file').textContent = file;
+  document.getElementById('raw').href = './' + file;
+
+  try {
+    const res = await fetch('./' + file);
+    if (!res.ok) throw new Error(res.status);
+    const html = marked.parse(await res.text(), { gfm: true, breaks: false });
+    // disabled 拿掉，螢幕上就勾得動；表格包一層，窄螢幕讓它自己橫捲不要撐破版面
+    body.innerHTML = html.replaceAll(' disabled=""', '').replaceAll('<table>', '<div class="tablewrap"><table>').replaceAll('</table>', '</table></div>');
+  } catch (e) {
+    body.innerHTML = '<p class="state">這一份讀不進來（' + e.message + '）。<a href="./' + file + '">直接開原始檔</a>。</p>';
+  }
+}
+</script>
+</body>
+</html>
