@@ -3,12 +3,32 @@ import { Terminal, Cpu, Share2, Award, AlertCircle, CheckCircle2, Circle } from 
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { OptionalTag } from '../components/OptionalTag';
 import { LiveDemo } from '../components/LiveDemo';
+import { UpdateNote } from '../components/UpdateNote';
 
+/**
+ * 最後查證：2026-11-01，對照 docs.warp.dev。當時的現況與這一頁的差距：
+ *   - `#` 還在，但官方文件已經把那一頁改名叫「Generate (Legacy)」
+ *     （docs.warp.dev/features/warp-ai/ai-command-suggestions）。
+ *   - 現在的主路是 Terminal mode 與 Agent mode 兩種輸入
+ *     （docs.warp.dev/agents/local-agents/interacting-with-agents/terminal-and-agent-modes）：
+ *     新分頁預設是 Terminal mode，打自然語言會被自動判斷（畫面上顯示 autodetected）
+ *     轉給 agent，也可以打 `/agent`、或按 ⌘ + Enter（Windows 與 Linux 是 Ctrl + Shift + Enter）。
+ *     退回終端機按 Esc。
+ *   - Warp 自己現在的說法是「open-source Agentic Development Environment」，
+ *     不只是終端機。畫面上那句「內建 AI 輔助的終端機工具」是影片錄的版本，照 A-5 留著。
+ * 影片裡念的是 `#`，所以那一格不動，現況寫在 `UpdateNote`。
+ * 下次改版前先重查那兩頁，不要憑印象改。
+ */
 export default function SlideWarpTerminal() {
   const [activeTab, setActiveTab] = useState<'agent' | 'features'>('agent');
 
   return (
-    <SlideLayout title="選修：Warp 終端機的三個特點" subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>} icon={Terminal}>
+    <SlideLayout
+      title="選修：Warp 終端機的三個特點"
+      subtitle={<><OptionalTag /> Modern Terminal with Warp AI</>}
+      icon={Terminal}
+      updated={{ date: '2026/11/01' }}
+    >
       <LiveDemo kind="terminal" />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-6xl mx-auto mt-1 items-stretch">
         
@@ -93,6 +113,14 @@ export default function SlideWarpTerminal() {
               </ul>
             </div>
           </AnimatedBlock>
+
+          <UpdateNote>
+            現在不用先按 <code className="font-mono text-slate-200">#</code>：直接把中文打進輸入框，
+            Warp 會自己判斷這是在問問題、轉給它的 agent（也可以打{' '}
+            <code className="font-mono text-slate-200">/agent</code> 或按 ⌘ + Enter，
+            Windows 與 Linux 是 Ctrl + Shift + Enter），要回到打指令按 Esc。
+            <code className="font-mono text-slate-200">#</code> 還能用，官方文件把它標成 Legacy。
+          </UpdateNote>
         </div>
 
         {/* Right column: Interactive high-fidelity Warp mockup (Image 2) */}

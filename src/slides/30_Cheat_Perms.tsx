@@ -30,6 +30,17 @@ import { motion, AnimatePresence } from 'motion/react';
  *   - dontAsk 不在循環裡，要用 --permission-mode dontAsk 指定，跟這一頁一致。
  * 下次改版前先重查那一節，不要憑印象改。
  *
+ * 2026-11-01 重查同兩節，三件事變了：
+ *   - 起始模式那一列不再掛方案：「In a terminal or through the VS Code extension ／
+ *     `auto` with Claude Code v2.1.283 or later」，而 Auto mode availability 的
+ *     Plan 欄位寫「All plans」。畫面上原本寫 Pro、Max 與 Team，那句話還是真的，
+ *     只是不再是條件，所以改成講介面（終端機與 VS Code），沒有跟口白打架，不掛記號。
+ *   - 循環：plan 之後是 auto，不是回 Manual。畫面上那句原本寫「再按回到 Manual」，
+ *     跟同一段下一行自己說的「auto 會插進循環、排在 plan 後面」互相矛盾，
+ *     也跟口白說的「再按一下就繞回 auto」不一樣。以口白與文件為準，改掉。
+ *   - acceptEdits 的免問清單現在是「`mkdir`, `touch`, `mv`, `cp`, `rm`, `rmdir`, `sed`」，
+ *     多了 `rm` 與 `rmdir`。整頁是安全邊界的依據，所以畫面上把 rm 寫出來。
+ *
  * 這一組數值與 11d2_M1_TerminalKeys.tsx 同步，改一邊要改兩邊。
  *
  * 2026-09-22 補桌面版分頁。來源是實機截圖（不是文件）：輸入框左下角那個顯示 Auto 的
@@ -72,10 +83,10 @@ export default function SlideCheatPerms() {
   // Terminal mockup interactive state
   const [terminalMode, setTerminalMode] = useState<'default' | 'auto-accept' | 'plan' | 'auto' | 'dont-ask' | 'bypass'>('default');
 
-  // 這個模擬器演 default → acceptEdits → plan → auto 這四格。實際上 Pro/Max 開機在 auto，
+  // 這個模擬器演 default → acceptEdits → plan → auto 這四格。實際上終端機開機在 auto，
   // 按第一下才進 manual（default 的介面名稱），而且啟用的選用模式會插在 plan 後面。
-  // 循環順序照官方文件（2026-09-20 查證）：default → acceptEdits → plan → auto → 回 default。
-  // 起始狀態刻意停在 default 而不是 auto：Pro/Max 實際開機在 auto，但讓第一眼看到全放行，
+  // 循環順序照官方文件（2026-11-01 查證）：default → acceptEdits → plan → auto → 回 default。
+  // 起始狀態刻意停在 default 而不是 auto：實際開機在 auto，但讓第一眼看到全放行，
   // 這一頁的第一印象就反了。dontAsk 不在循環裡（官方：never appears in the cycle）。
   const cycleTerminalMode = () => {
     if (terminalMode === 'default') {
@@ -162,11 +173,12 @@ export default function SlideCheatPerms() {
                   </div>
                   {/*
                     原本寫「只有檔案編輯自動通過，Bash 指令仍走原本的許可規則」，那是錯的，
-                    而且錯在讓人以為比較安全的那一邊：它同時放行 mkdir、touch、mv、cp 這類
-                    檔案系統指令，mv 會搬走、會覆蓋。整頁是安全邊界的依據，這裡不能寫鬆。
+                    而且錯在讓人以為比較安全的那一邊：它同時放行 mkdir、touch、mv、cp、rm、rmdir、sed
+                    這類檔案系統指令，mv 會搬走、會覆蓋，rm 2026-11-01 查到也在清單裡。
+                    整頁是安全邊界的依據，這裡不能寫鬆。
                   */}
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp 這類搬檔案的指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
+                    改檔案免提問，<strong className="text-slate-100">連 mkdir、mv、cp、rm 這類檔案系統指令也一起放行</strong>。其他指令才會問你。適合你正在盯著看的那種連續小修改。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     監督程度　改檔案不問，跑指令還問
@@ -216,7 +228,7 @@ export default function SlideCheatPerms() {
                     <span className="text-xs font-mono text-slate-500 bg-slate-900 px-1.5 py-0.5 rounded border border-slate-800">終端機的起始模式</span>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed">
-                    多數動作不問你，改由另一個模型在背後檢查它跟你的要求對不對得上。Pro、Max 與 Team 方案<strong>在終端機與 VS Code</strong> 開機就在這一個，按第一下 Shift + Tab 離開。桌面版記的是你上次在那個資料夾選的模式，不一定是 auto。
+                    多數動作不問你，改由另一個模型在背後檢查它跟你的要求對不對得上。<strong>在終端機與 VS Code 擴充套件</strong>開機就在這一個，按第一下 Shift + Tab 離開。桌面版記的是你上次在那個資料夾選的模式，不一定是 auto。
                   </p>
                   <div className="mt-1.5 pt-1.5 border-t border-slate-800 font-mono text-xs text-slate-500">
                     監督程度　都不問，改由程式把關
@@ -369,7 +381,7 @@ export default function SlideCheatPerms() {
                               <div className="text-sky-300">✓ 模式：default：寫入檔案或執行指令前會確認，讀取不打擾</div>
                             )}
                             {terminalMode === 'auto-accept' && (
-                              <div className="text-emerald-400">✓ 模式：acceptEdits：檔案編輯與 mkdir／mv／cp 這類指令免提問，其餘照原本的規則問</div>
+                              <div className="text-emerald-400">✓ 模式：acceptEdits：檔案編輯與 mkdir／mv／cp／rm 這類指令免提問，其餘照原本的規則問</div>
                             )}
                             {terminalMode === 'plan' && (
                               <div className="text-amber-400">✓ 模式：plan：先讀懂再出方案，不寫入任何檔案</div>
@@ -521,7 +533,7 @@ export default function SlideCheatPerms() {
                 </span>
               ) : activeTab === 'terminal' ? (
                 <span>
-                  <code>Shift + Tab</code> 每按一下換一個。Pro、Max 與 Team 方案<strong>開起來在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按回到 Manual。狀態列會顯示目前是哪一個。
+                  <code>Shift + Tab</code> 每按一下換一個。在終端機與 VS Code 擴充套件裡<strong>開起來在 auto</strong>，按第一下切到 <strong>Manual</strong>（設定檔裡的值叫 <code>default</code>），之後是 <strong>acceptEdits → plan</strong>，再按一下繞回 auto。狀態列會顯示目前是哪一個。
                   上面六格裡，<code>auto</code> 與 <code>bypassPermissions</code> 啟用之後會插進循環、排在 <code>plan</code> 後面；
                   <code>dontAsk</code> 永遠不在循環裡，按不到，只能用啟動參數進去。
                   

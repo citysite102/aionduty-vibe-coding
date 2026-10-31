@@ -2,6 +2,7 @@ import { Keyboard, ClipboardCheck, Terminal, Undo2 } from 'lucide-react';
 import { OptionalTag } from '../components/OptionalTag';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
+import { UpdateNote } from '../components/UpdateNote';
 
 /**
  * 最後查證：2026-09-21，逐條對照 code.claude.com/docs/en/permission-modes。
@@ -13,6 +14,22 @@ import { Callout } from '../components/Callout';
  * 原本把 manual 說成「每一步都問你」，但官方寫的是那個模式下 Reads only 不必核准，
  * 所以讀檔不會問；acceptEdits 補上官方一併列出的 mkdir、mv、cp 這類檔案系統指令。
  * 下次改版前先重查那一節，不要憑印象改。
+ *
+ * 2026-11-01 重查 code.claude.com/docs/en/permission-modes 與 .../interactive-mode。
+ * 兩件事跟影片裡講的不一樣了，畫面改掉並掛 `UpdateNote`（A-5）：
+ *   - 起始模式那一列現在是「In a terminal or through the VS Code extension ／
+ *     `auto` with Claude Code v2.1.283 or later」，不再掛方案；舊版才是
+ *     「`auto` on Pro, Max, Ultra, or Team plans ... and `default` otherwise」。
+ *     Auto mode availability 那一節的 Plan 欄位寫的是「All plans」。
+ *   - 循環：interactive-mode 的 `Shift+Tab` 那一列寫「Cycle through `default`
+ *     (labeled Manual in the mode indicator), `acceptEdits`, `plan`, and, when
+ *     available, `bypassPermissions` and then `auto`」，所以按完 plan 會到 auto。
+ *     2026-09 查到的版本寫的是「plan → back to `default`」，那時 auto 只在開場出現。
+ * 同一輪 acceptEdits 的免問清單也變長了，原文是「Reads, file edits, common
+ * filesystem commands (`mkdir`, `touch`, `mv`, `cp`, `rm`, `rmdir`, `sed`)」，
+ * 2026-09 查到的只有 mkdir, touch, mv, cp。**`rm` 進了清單，刪檔案不會問**，
+ * 所以畫面上那一行補了 rm，這一頁最後那個 Callout 的提醒也因此更重要。
+ * 下次改版前先重查那兩節，不要憑印象改。
  *
  * 這一組數值與 30_Cheat_Perms.tsx 同步，改一邊要改兩邊。
  */
@@ -52,15 +69,15 @@ const KEYS: {
     key: 'Shift + Tab',
     body: [
       '按一下換一個模式，狀態列會顯示目前是哪一個',
-      'Pro、Max 與 Team 方案在終端機開起來是 auto，按的順序就是下面這一排',
+      '在終端機或 VS Code 擴充套件裡開起來是 auto，按的順序就是下面這一排',
     ],
     cycle: [
       { k: 'auto', v: '多數動作不問你，背後有另一個模型在檢查' },
       { k: 'manual', v: '讀檔不問，動手前都問你' },
-      { k: 'acceptEdits', v: '檔案編輯與 mkdir、mv、cp 這類指令免問' },
+      { k: 'acceptEdits', v: '檔案編輯與 mkdir、mv、cp、rm 這類檔案系統指令免問' },
       { k: 'plan', v: '只讀不改，先講怎麼做，不動手' },
     ],
-    note: '按完 plan 再按一下回到 manual，auto 只在開場出現一次。',
+    note: '按完 plan 再按一下回到 auto，四個繞一圈。狀態列顯示的那一個才是現況。',
   },
   {
     icon: Terminal,
@@ -90,12 +107,20 @@ export default function SlideTerminalKeys() {
       title="選修：模式切換、Shell 模式、終止執行"
       subtitle={<><OptionalTag /> Terminal-only Moves</>}
       icon={Keyboard}
+      updated={{ date: '2026/11/01' }}
     >
       <div className="max-w-5xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           這三種在終端機裡都是按鍵。<strong className="text-slate-100">換模式桌面版也做得到</strong>，只是改用介面上的選單，不叫 <span className="font-mono text-slate-200">Shift + Tab</span>；Shell 模式那個是終端機獨有的。
         </AnimatedBlock>
+
+        <UpdateNote>
+          auto 現在排在 plan 後面，<strong className="text-slate-100">四個模式繞一圈都會經過</strong>，
+          而且不分方案，終端機與 VS Code 擴充套件開起來都是 auto。
+          acceptEdits 的免問清單現在也列了 <code className="font-mono text-slate-200">rm</code> 與{' '}
+          <code className="font-mono text-slate-200">rmdir</code>，在那個模式下刪檔案不會先問你。
+        </UpdateNote>
 
         {KEYS.map((k, i) => {
           const Icon = k.icon;

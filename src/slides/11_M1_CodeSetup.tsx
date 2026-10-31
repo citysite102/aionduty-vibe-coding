@@ -9,6 +9,17 @@ import { hoverIsolateGrid, hoverIsolateCard } from '../components/hoverIsolate';
  * 標題原本是「手把手操作」，副標「Live Demonstration」。兩個問題：它沒說這一頁在裝什麼，
  * 而課程改成預錄之後也沒有現場示範這回事。這一頁是單元 9-2 的第一格，
  * 也就是那支影片的第一個畫面，第一行字得說得出這一段要幹嘛。
+ *
+ * 最後查證：2026-11-01，對照 code.claude.com/docs/en/setup。當時的現況：
+ * 三組安裝指令與 npm 套件名都還是畫面上這些；npm 那條的要求是「The npm package
+ * requires Node.js 22 or later」，所以 22 那個數字是 npm 那條路線的要求；
+ * 原生安裝器裝的是 binary，執行時不經過 Node。Windows 那一欄文件現在也給了
+ * cmd 的指令（`curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd
+ * && del install.cmd`），所以畫面上不再寫成「不是 cmd」。
+ * 另外文件寫了兩件學員最容易卡住的事，這一頁補上去了：安裝過程不顯示進度，
+ * 以及裝完要「open a new terminal window and run `claude --version`」，
+ * 說找不到 claude 就是安裝路徑還沒進 PATH。
+ * 下次改版前先重查那一頁，不要憑印象改。
  */
 export default function SlideCodeSetup() {
   return (
@@ -54,7 +65,7 @@ export default function SlideCodeSetup() {
             </div>
             <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
               <a href="https://nodejs.org" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Node.js</a>
-              <span className="text-xs text-slate-500">選 LTS 版本，需 22 以上，會一起裝好 npm</span>
+              <span className="text-xs text-slate-500">選 LTS 版本，會一起裝好 npm；走 npm 安裝需要 22 以上</span>
             </div>
             <div className="flex items-baseline gap-2.5 rounded-lg border border-slate-800 bg-slate-950 px-3 py-2">
               <a href="https://git-scm.com/downloads" target="_blank" rel="noreferrer" className="shrink-0 font-bold text-sky-400 hover:underline">Git</a>
@@ -97,12 +108,17 @@ export default function SlideCodeSetup() {
           <div className="bg-black/50 p-3 rounded-lg font-mono text-xs border border-slate-800 space-y-2">
             <div className="text-slate-500"># macOS / Linux（在終端機執行）</div>
             <div className="text-emerald-400">$ curl -fsSL https://claude.ai/install.sh | bash</div>
-            <div className="text-slate-500 pt-1"># Windows（在 PowerShell 執行，不是 cmd）</div>
+            <div className="text-slate-500 pt-1"># Windows（在 PowerShell 執行；用 cmd 的話官方另有一行 install.cmd）</div>
             <div className="text-emerald-400">&gt; irm https://claude.ai/install.ps1 | iex</div>
             <div className="text-slate-500 pt-1"># 兩個平台通用的備案：用 npm（需 Node 22 以上）</div>
             <div className="text-emerald-400">$ npm install -g @anthropic-ai/claude-code</div>
             <div className="text-emerald-400 pt-1">$ claude<span className="text-slate-500">  # 首次啟動會引導登入，或輸入 /login</span></div>
           </div>
+          <p className="text-slate-500 text-xs mt-3 leading-relaxed">
+            安裝那一行跑的時候不會顯示進度，看起來像卡住。跑完開一個<strong className="text-slate-400">新的</strong>終端機視窗打{' '}
+            <code className="text-slate-400">claude --version</code>，印出版本號才算裝好。
+            說找不到 <code className="text-slate-400">claude</code> 的話是安裝路徑還沒進 PATH，重開終端機再試一次。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className={`bg-slate-900 border border-slate-800 p-5 rounded-2xl ${hoverIsolateCard}`}>

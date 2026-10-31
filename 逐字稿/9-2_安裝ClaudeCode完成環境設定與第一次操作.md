@@ -11,13 +11,15 @@ Slide 203-204 ／ 2 頁 ／ 章節九 補充單元：終端機與 Claude Code �
 > 〈選修：模式切換、Shell 模式、終止執行〉的三個按鍵在畫面上是列表，不是模擬器，照 `stepIndex` 走就好（1 到 5）。
 >
 > 三個按鍵的實際行為建議在同一段實機影片裡順手示範，尤其是 `Shift + Tab` 的狀態列變化。
+>
+> **Slide 204 的口白有兩句已經過期**（2026-11-01 重查 permission-modes 與 interactive-mode）：「Pro、Max 跟 Team 方案開起來在 auto」現在不分方案，終端機與 VS Code 擴充套件都開在 auto；「再按回到 manual」現在是按完 plan 繞回 auto。口白留著（已經錄出去了，而且那一段自己有一句「以狀態列上顯示的為準」），現況寫在畫面上的更新記號裡，**要補錄的話照畫面那一條講**，並且順便補一句 acceptEdits 的免問清單現在也包含 `rm`。
 
 ---
 
 ## Slide 203｜Claude Code 終端機版本配置
 
 **畫面**
-sky 的 Callout 說明這一段是選修。中段「前置準備」三個要自己下載安裝的東西，底下三行驗證指令。再來是安裝 Claude Code 的三組指令（Mac、Windows、npm 備案）。最後兩塊：切到專案問它一句話，以及兩邊可以隨時換。
+sky 的 Callout 說明這一段是選修。中段「前置準備」三個要自己下載安裝的東西，底下三行驗證指令。再來是安裝 Claude Code 的三組指令（Mac、Windows、npm 備案），底下一行小字講安裝過程不顯示進度、裝完要開新視窗打 `claude --version`（2026-11-01 補）。最後兩塊：切到專案問它一句話，以及兩邊可以隨時換。
 
 **逐字稿**
 
@@ -77,7 +79,7 @@ sky 的 Callout 說明這一段是選修。中段「前置準備」三個要自�
 ## Slide 204｜選修：模式切換、Shell 模式、終止執行
 
 **畫面**
-開場一句說明哪些桌面版也有。三張卡片：`Shift + Tab` 執行模式切換器、`!` Shell 模式、`Esc` 終止執行，每一張的說明都是條列；第一張底下還有一排四個模式（auto／manual／acceptEdits／plan），各一句它放行什麼。最後一個灰底 Callout 講 `Esc` 退回的限制。
+開場一句說明哪些桌面版也有，底下一條 2026-11-01 的更新記號（`UpdateNote`）：auto 現在排在 plan 後面、四個模式繞一圈都會經過，開機在 auto 也不再分方案，acceptEdits 的免問清單多了 `rm` 與 `rmdir`。再來三張卡片：`Shift + Tab` 執行模式切換器、`!` Shell 模式、`Esc` 終止執行，每一張的說明都是條列；第一張底下還有一排四個模式（auto／manual／acceptEdits／plan），各一句它放行什麼。最後一個灰底 Callout 講 `Esc` 退回的限制。
 
 **逐字稿**
 
