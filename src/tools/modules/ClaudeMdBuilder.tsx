@@ -77,14 +77,14 @@ export default function ClaudeMdBuilder() {
           </div>
         </Panel>
 
-        <Panel title="怎麼跟你合作" desc="這三條是每個專案都適用的，跟你做什麼無關。">
+        <Panel title="怎麼跟你合作" desc="這三條跟你做什麼無關，多數專案都用得到。">
           <div className="space-y-2.5">
             <Toggle checked={zh} onChange={setZh} label="一律用繁體中文回覆" />
             <Toggle
               checked={sayFirst}
               onChange={setSayFirst}
               label="改任何檔案之前，先說要改哪一個"
-              hint="這條是給你煞車的機會，不是禮貌"
+              hint="它先說要改哪一個，你才有機會喊停"
             />
             <Toggle
               checked={verify}
@@ -145,7 +145,7 @@ export default function ClaudeMdBuilder() {
           <>
             <Panel
               title="AGENTS.md 是別家工具讀的檔名"
-              desc="Claude Code 讀 CLAUDE.md，Cursor、Codex 這些多半讀 AGENTS.md。同一個專案兩邊都要有的時候，最容易出事的不是格式，是你改了一份忘了另一份。"
+              desc="Claude Code 讀 CLAUDE.md，Cursor、Codex 這些多半讀 AGENTS.md。同一個專案兩邊都要有的時候，最容易出事的地方是你改了一份、忘了另一份。"
             >
               <div className="space-y-6">
                 <div className="rounded-xl border border-emerald-500/25 bg-emerald-500/5 p-4">
@@ -170,7 +170,7 @@ export default function ClaudeMdBuilder() {
                 </div>
               </div>
               <Note>
-                不建議把同一份內容複製成兩個檔案。當下最快，但三個月後那兩份一定會不一樣，
+                不建議把同一份內容複製成兩個檔案。當下最快，但兩份內容過一陣子就會對不起來，
                 而你不會知道是哪一份在生效。
               </Note>
             </Panel>

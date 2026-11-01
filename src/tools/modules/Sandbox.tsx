@@ -267,7 +267,7 @@ export default function Sandbox() {
       default:
         push([
           { text: `找不到指令：${head}`, tone: 'err' },
-          { text: '真的終端機也會這樣回你。這不是壞掉，是它不認得這個字。打 help 看認得哪些。', tone: 'hint' },
+          { text: '真的終端機也會這樣回你。它不認得這個字，多半是拼錯了。打 help 看認得哪些。', tone: 'hint' },
         ]);
     }
   }
@@ -418,7 +418,7 @@ export default function Sandbox() {
         </div>
       </div>
 
-      <Panel title="這幾個就夠了" desc="課程裡真正會用到的就這些，其他的等你需要再查。">
+      <Panel title="這幾個就夠了" desc="課程裡會用到的就這些，其他的等你需要再查。">
         <div className="divide-y divide-slate-800">
           {HELP.map(([c, d]) => (
             <div key={c} className="grid grid-cols-[9rem_1fr] gap-4 py-2.5 text-sm leading-relaxed">

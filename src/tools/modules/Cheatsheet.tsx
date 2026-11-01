@@ -59,7 +59,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         when: '它改完了，但你想知道下次怎麼避免',
         kind: 'say',
         text: '這次為什麼會發生？下次我要怎麼避免？',
-        watch: '這一句最容易被跳過，但它決定你會不會一直踩同一個坑。',
+        watch: '這一句最容易被跳過。它的答案就是你下次要先避開的那一步。',
         from: '錯誤訊息判讀',
       },
     ],
@@ -79,7 +79,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         when: '確認手冊真的被載入了',
         kind: 'slash',
         text: '/context',
-        watch: '看 CLAUDE.md 有沒有出現在 Memory files 清單裡。沒有就是位置錯了，不是它不聽話。',
+        watch: '看 CLAUDE.md 有沒有出現在 Memory files 清單裡。沒出現就是它沒讀到，先檢查檔案放的位置。',
         from: '動手：四格',
       },
       {
@@ -121,7 +121,7 @@ https://api.open-meteo.com/v1/forecast?latitude=25.03&longitude=121.56&daily=sun
         when: '同一個專案要同時給別家工具讀',
         kind: 'say',
         text: '幫我在這個專案裡把 AGENTS.md 做成 CLAUDE.md 的捷徑（symlink），這樣兩個檔名指到同一份內容，我只要改一份。做完告訴我怎麼確認它成功了。',
-        watch: '不要複製成兩份。當下最快，但三個月後那兩份一定會不一樣。',
+        watch: '不要複製成兩份。當下最快，但兩份過一陣子就會對不起來。',
         from: 'CLAUDE.md 產生器',
       },
     ],
@@ -272,7 +272,7 @@ export default function Cheatsheet() {
         </p>
       )}
 
-      <Panel title="斜線指令另外三個常用的" desc="這幾個不是貼給它的話，是直接打的。">
+      <Panel title="斜線指令另外三個常用的" desc="這幾個直接打在輸入框，不用貼給它。">
         <div className="divide-y divide-slate-800">
           {[
             ['/context', '看這一輪載入了什麼。手冊沒生效的時候第一個要打的就是它。'],

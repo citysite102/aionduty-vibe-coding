@@ -50,7 +50,7 @@ function trimTail(r: string) {
 
 const FALLBACK = {
   place: '先不要寫進任何一份手冊',
-  how: '四題都答「否」，代表這件事只發生過一次，或還沒穩定成規則。等它再發生第二次，你會知道它該進哪一層。多寫一條的成本不是那一行字，是它每一輪都在稀釋其他規則。',
+  how: '四題都答「否」，代表這件事只發生過一次，或還沒穩定成規則。等它再發生第二次，你會知道它該進哪一層。多一條規則，每一輪都會跟著載入，其他規則被讀到的機會就少一點。',
 };
 
 export default function RuleRouter() {
@@ -141,8 +141,8 @@ export default function RuleRouter() {
               </div>
               <CopyButton text={QUESTIONS[hit].prompt(trimTail(rule) || '（把你的規則填在上面）')} label="複製這句" />
               <Note>
-                放進去之後打 <Mono>/context</Mono> 確認它在載入清單裡。看不到就是位置錯了，
-                不是它不聽話。
+                放進去之後打 <Mono>/context</Mono> 確認它在載入清單裡。看不到就是它沒讀到，
+                先檢查位置。
               </Note>
             </Panel>
           )}

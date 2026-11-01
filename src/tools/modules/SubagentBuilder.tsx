@@ -89,7 +89,7 @@ export default function SubagentBuilder() {
             <Field label="要檢查什麼" hint="一行一條">
               <TextArea rows={5} value={p.checks} onChange={(e) => setP({ ...p, checks: e.target.value })} />
             </Field>
-            <Field label="不通過的時候要怎麼回" hint="這一格是整個檔案的重點">
+            <Field label="不通過的時候要怎麼回" hint="這一格決定它會不會把不通過的東西說成通過">
               <TextArea rows={3} value={p.reject} onChange={(e) => setP({ ...p, reject: e.target.value })} />
             </Field>
             <button

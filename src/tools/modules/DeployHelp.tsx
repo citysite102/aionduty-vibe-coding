@@ -75,7 +75,7 @@ export default function DeployHelp() {
     <div className="max-w-4xl mx-auto space-y-6">
       <Panel
         title="部署卡在哪裡"
-        desc="真正花掉時間的不是那句部署指令，是下面這幾件事。找到你的症狀，右邊那句可以直接貼回對話框。"
+        desc="部署卡住的時候，時間多半花在下面這幾件事。找到你的症狀，右邊那句可以直接貼回對話框。"
       >
         <TextInput
           value={q}
@@ -114,7 +114,7 @@ export default function DeployHelp() {
       <Panel title="還沒走到部署" desc={undefined}>
         <p className="text-sm leading-relaxed text-slate-400">
           順序是這樣：先在自己電腦上做出東西 → <Mono>git commit</Mono> 存檔 → 推上 GitHub →
-          接部署平台。中間任何一步卡住，都不要跳過去做下一步，跳過去只會多一層問題。
+          接部署平台。中間任何一步卡住，都不要跳過去做下一步，跳過去會多一層要查的東西。
         </p>
         <Note>
           金鑰、密碼、<Mono>.env</Mono> 這類東西推上去之前要先確認擋掉了。
