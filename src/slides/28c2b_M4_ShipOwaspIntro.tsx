@@ -108,9 +108,14 @@ export default function SlideShipOwaspIntro() {
           ))}
         </div>
 
+        {/*
+          2026-11-01 label 從「兩件」改成「三件」（講師）。2026-10-31 補上「同類的清單
+          不只這一份」那一段之後，標題的數字沒有跟著改（D-6e 的數量宣稱），逐字稿那一段
+          也是「最後兩件」接著念第一、第二、第三。**再加一段進來就要再數一次。**
+        */}
         <Callout
           tone="focus"
-          label="兩件不要誤會的事"
+          label="三件不要誤會的事"
           stepIndex={4}
           footnote={
             <>
