@@ -3,15 +3,22 @@ import { SectionDivider } from '../components/SectionDivider';
 // 這一段從「Loop 是什麼」一路做到「送上線」，所以在分節頁先給路線圖。
 // 2026-10-27：四個完整案例切出去自成一章（29_Div_Cases），所以原本最後兩塊
 // 「三個完整案例」與「回去之後」從這裡拿掉，weight 跟著重算。
+// 2026-11-04：加了一個九頁的單元（理解 Graph Engineering），章節名跟著改成
+// 「Loop 與 Graph Engineering：從自動迭代到工作流程設計」。原本的名字沒有涵蓋
+// 後面那八頁的部署，加了工作圖之後更對不上，所以這一輪一起改。
+// **改分節頁標題等於改課程對外的章節名**：`SECTION_DEFS` 的 label、`LIVE_TITLES` 的那一格、
+// `課程銷售頁_文案.md` 三個地方必須一起改，不能只動一邊（D-5）。
+// 航行日誌那一頁原本算在「送上線」，重算時歸回「放手跑一次」（它是單元 7-3 的最後一頁），
+// 新的那五頁自成一塊。
 // weight 是相對比例，不要改回絕對頁碼：拆頁會讓頁碼一直漂，
 // 而右下角本來就有「Slide N / 總數」，兩邊對不上比沒有更糟。
 export default function SlideDivLoop() {
   return (
     <SectionDivider
       number="MODULE 4"
-      subtitle="建立自動迭代與驗證流程"
-      title="Loop Engineering"
-      // weight 就是各塊實際的頁數（分節頁自己不算），2026-10-27 重算過一次，合計 21。
+      subtitle="從自動迭代到工作流程設計"
+      title="Loop 與 Graph Engineering"
+      // weight 就是各塊實際的頁數（分節頁自己不算），2026-11-04 重算過一次，合計 30。
       // 不要寫絕對頁碼進 note，但 weight 本來就是比例，拿實際頁數當比例最準。
       //
       // **搬頁或拆頁之後一定要回來重算**，這一行漏過一次：10-05 算完之後 10-07 補了案例判斷頁、
@@ -34,8 +41,9 @@ export default function SlideDivLoop() {
         { label: 'Loop 是什麼', weight: 2, note: '從 Prompt 一路走到這裡' },
         { label: '交辦工作', weight: 1, note: '五樣寫齊才跑得完' },
         { label: '出事怎麼辦', weight: 5, note: '踩煞車，和放手前的五道邊界' },
-        { label: '放手跑一次', weight: 4, note: '看它自己改、自己驗' },
-        { label: '送上線', weight: 9, note: '推上去，變成一個網址' },
+        { label: '放手跑一次', weight: 5, note: '看它自己改、自己驗' },
+        { label: '工作怎麼排', weight: 9, note: '哪些同時做，壞了怎麼接' },
+        { label: '送上線', weight: 8, note: '推上去，變成一個網址' },
       ]}
     />
   );

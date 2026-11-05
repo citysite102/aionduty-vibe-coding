@@ -65,7 +65,10 @@ import { CopyAction } from '../components/CopyBlock';
  * **真的要講題目切小，位置是下一頁的卡住三招，不是這裡。**
  *
  * 2026-10-31（講師：擔心這幾種案例和課程內容關聯性有點遠）每一格補一行
- * 「課程裡的哪一段」。四個題目本來就各自有落點，只是畫面上沒寫出來：
+ * 「課程裡的哪一段」。**2026-11-01 整批拿掉**（講師：移除內容中有寫到章節數字的內容），
+ * 改成上面那塊講思考順序的 `ARC`。章節號對學員沒有用：他要的是接下來怎麼走，
+ * 不是這一題在課程目錄的哪一格。**不要再把章節號寫回畫面上。**
+ * 底下這份落點對照留著當維護用的地圖，換題目的時候拿它確認那個題目真的有教過：
  *   報表 → 章節三的自動化工具實作、章節七的驗收條件與停止機制
  *   網站 → 章節八的 Vessel 品牌網站、章節七的部署
  *   回覆 → 章節四的 Skills
@@ -77,24 +80,46 @@ import { CopyAction } from '../components/CopyBlock';
  * 平等的四項一律灰階，Prompt 框統一同一種處理，不要一項一色。
  */
 /**
- * 四段 Prompt 共用的骨架。2026-11-01 從「四段各自重複一次」改成**在上面印一次**。
+ * 2026-11-01（講師：這段好像沒有必要，可以評估移除）〈底下四段話的順序都一樣〉
+ * 那一塊刪掉。它講的是四段 Prompt 的寫法，而四段 Prompt 本身就印在底下，
+ * 學員照著貼就好，不必先讀一次摘要。
  *
- * 為什麼要有這一塊：這一頁的口白第一段就是「先講四段話的共同結構，因為那才是這一頁
- * 真正要留給你的東西」，但畫面上從來沒有把它寫出來，它被拆散在四段 Prompt 裡各出現一次。
- * 結果是**這一頁真正的教學點在畫面上看不見**，而四張卡有六成的字是一樣的。
- *
- * **它不是被刪掉的那幾塊。** 那幾塊（開場的挑題標準、收尾的通則、題目太大的徵兆）
- * 寫的是這一頁以外的事；這一塊寫的就是底下那四段話本身，學員換成自己的題目時照抄的
- * 也是這個順序。
+ * 同一輪（講師：這頁的目標是告訴大家我們的思考邏輯）換成 `ARC`：四個題目只是入口，
+ * 真正要留下的是題目挑好之後往下走的順序。**這一塊講的是順序，不是這門課的目錄**，
+ * 所以不寫章節號（同一輪把四格的「課程裡的哪一段」也拿掉了，理由同一個）。
  *
  * 四段 Prompt 的全文留在卡片裡不動（A-4：複製鈕拿到的要跟畫面上印的是同一份）。
- * **改骨架就要四段一起對**，不然這一塊會變成一個對不上的宣稱。
  */
-const SKELETON = [
-  '先講需求，有材料就附上去（舊報表、舊回覆、部門的規範）',
-  '「先不要寫程式／先不要寫檔案」，擋住它直接動手',
-  '三步：先問我還缺什麼 → 寫成規格給我確認 → 我說可以才動手，一次只做一段',
-  '最後一行是完成條件，寫成當場答得出有或沒有的動作',
+/*
+ * 2026-11-01 第二輪（講師：上面和下面有連貫嗎）補兩件事，缺一個就會被讀成「四條對四格」：
+ *   - 每一條前面加「什麼時候會遇到」的時機標籤，第一條是「現在」，
+ *     讓四步讀起來是一條時間線，不是四個並列的項目。
+ *     **層級那句話靠「現在」這個標籤與第一條的最後半句（底下四段話做的就是這一步）帶**，
+ *     不要寫回小標：小標 2026-11-01 由講師定成「執行脈絡」，那是這一塊的名字（D-5）。
+ *   - 四格各補一行 `next`，把第 2 步落到那個題目上（見 `TOPICS`）。
+ * 第 3、4 步刻意不往下落：學員回去的第一個月走不到那裡，硬要配會變成假的落點。
+ */
+const ARC = [
+  {
+    when: '現在',
+    k: '把規格與驗收條件講清楚',
+    v: '要做什麼、這一輪不做什麼、做完我怎麼驗。確認過才動手，底下四段話做的就是這一步。',
+  },
+  {
+    when: '做第二次的時候',
+    k: '把每次都要重講的規則寫下來',
+    v: '那幾句寫進 CLAUDE.md，會重複驗的那幾件寫成檢查。你的速度與品質是在這一步穩下來的。',
+  },
+  {
+    when: '有別人要照著做的時候',
+    k: '規則從你一個人的，變成大家的',
+    v: '口頭講的那幾條要寫成文件與自動檢查，否則每個人做出來的不一樣。',
+  },
+  {
+    when: '要交給別人用的時候',
+    k: '包成別人叫得動的東西',
+    v: '做法整理成 Skill、腳本或一個網址，對方不用懂你怎麼做的，也不用你在旁邊解釋。',
+  },
 ];
 
 const TOPICS = [
@@ -102,7 +127,6 @@ const TOPICS = [
     icon: FileSpreadsheet,
     title: '每週都要交的那份報表',
     who: '手上有固定要彙整的數字或資料',
-    from: '章節三的自動化工具實作，加上章節七的驗收條件與停止機制',
     prompt:
       '我每週都要把一批原始資料整理成固定格式的報表，想請你幫我做成一支下次還能再跑一次的腳本。\n\n' +
       '先不要寫程式。我附上上週的原始資料，以及我交出去的那份報表。請你：\n' +
@@ -111,12 +135,12 @@ const TOPICS = [
       '3. 我說可以之後再動手，一次只做一段\n\n' +
       '我的完成條件：下個月我把新資料放進同一個資料夾，跑一次就產出同樣格式的報表，而且我抽三筆數字對得起來。',
     get: '一支下次還能再跑一次的腳本',
+    next: '跑第二次的時候，把每次都要重講的那幾句（欄位、單位、怎麼算）寫進 CLAUDE.md。',
   },
   {
     icon: Globe,
     title: '一頁式網站，換成你自己的內容',
     who: '想要一個能傳給別人的網址',
-    from: '章節八的 Vessel 品牌網站，部署照章節七那一段',
     prompt:
       '我想做一個單頁網站，內容附在下面，做完要推上 GitHub 並部署，給我一個可以傳給別人的網址。\n\n' +
       '先不要寫程式。請你：\n' +
@@ -125,12 +149,12 @@ const TOPICS = [
       '3. 我說可以之後再動手，先做出看得到畫面的第一版，我自己點過再往下\n\n' +
       '我的完成條件：用手機打開那個網址，每一個區塊都看得到、字不會擠在一起、連結點得開。',
     get: '一組公開網址，對方不用裝任何東西',
+    next: '改第二版的時候，把配色、字級、不要出現的寫法定成規則，它才不會每改一次就跑掉。',
   },
   {
     icon: MessageSquareQuote,
     title: '你每個月都要重寫一次的那種回覆',
     who: '客服回信、面試邀約、貼文格式',
-    from: '章節四裝過一個 Skill，這次換你自己寫一份',
     prompt:
       '我每個月都要重寫一次同一種回覆，想請你幫我整理成一份我叫一次就展開的 SKILL.md。\n\n' +
       '先不要寫檔案。我貼三則我以前寫過的回覆在下面。請你：\n' +
@@ -139,12 +163,12 @@ const TOPICS = [
       '3. 我說可以之後再寫成 SKILL.md\n\n' +
       '我的完成條件：我說「用這個回」並給你一個新情況，你產出的那一則我改兩句以內就能送出去。',
     get: '一份 SKILL.md，之後叫一次就展開',
+    next: '用過幾次之後，把你每次都要退回重改的那兩三點補進 SKILL.md。',
   },
   {
     icon: BookMarked,
     title: '你部門的用詞與格式規範',
     who: '有一套大家嘴巴上說、但沒寫下來的規則',
-    from: '章節四的第一份 CLAUDE.md，加上章節五的規範維護',
     prompt:
       '我們部門有一套用詞與格式規範，我想讓你每次都照著做。規範貼在下面。\n\n' +
       '先不要寫檔案。請你：\n' +
@@ -153,6 +177,7 @@ const TOPICS = [
       '3. 我說可以之後再寫進檔案，然後用它檢查我附的這篇文章，列出哪幾句不符合\n\n' +
       '我的完成條件：它列出來的每一句，我都指得出是違反哪一條。',
     get: '一份手冊，以後每次對話它都會先讀',
+    next: '它開始照著做之後，把最常被違反的那幾條挑出來寫成檢查，不要只靠它記得。',
   },
 ];
 
@@ -162,23 +187,28 @@ export default function SlidePickTopic() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-4">
-          <h3 className="text-base font-bold text-slate-100 mb-2 flex items-center gap-2">
+          <h3 className="text-base font-bold text-slate-100 mb-3 flex items-center gap-2">
             <ListOrdered aria-hidden="true" size={17} className="shrink-0 text-slate-500" />
-            底下四段話的順序都一樣
+            執行脈絡
           </h3>
-          <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1">
-            {SKELETON.map((s, i) => (
-              <li key={s} className="flex gap-2 text-sm leading-relaxed text-slate-400">
-                <span className="shrink-0 font-mono text-slate-600">{i + 1}</span>
-                <span>{s}</span>
+          <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2.5">
+            {ARC.map((a, i) => (
+              <li key={a.k} className="flex gap-2.5">
+                <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-slate-800 font-mono text-xs text-slate-400">
+                  {i + 1}
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-bold text-slate-200">
+                    <span className="mr-2 rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs font-normal text-slate-400">
+                      {a.when}
+                    </span>
+                    {a.k}
+                  </span>
+                  <span className="block text-sm leading-relaxed text-slate-400">{a.v}</span>
+                </span>
               </li>
             ))}
           </ol>
-          <p className="text-slate-500 text-sm leading-relaxed mt-2.5 border-t border-slate-800 pt-2.5">
-            換成你自己的題目時，照抄的是這個順序。
-            <strong className="text-slate-400">直接丟一句「幫我做一個報表工具」，它會動手，
-            而且會做出一個你驗不動的東西。</strong>
-          </p>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -197,12 +227,6 @@ export default function SlidePickTopic() {
                   <div className="min-w-0">
                     <h3 className="text-base font-bold text-slate-100 leading-snug">{t.title}</h3>
                     <p className="text-sm text-slate-500 mt-0.5">{t.who}</p>
-                    <p className="text-sm text-slate-500 mt-1.5">
-                      <span className="rounded bg-slate-800 px-1.5 py-0.5 text-xs text-slate-400">
-                        課程裡的哪一段
-                      </span>
-                      <span className="ml-2">{t.from}</span>
-                    </p>
                   </div>
                 </div>
 
@@ -214,9 +238,17 @@ export default function SlidePickTopic() {
                   <div className="mt-2 flex justify-end"><CopyAction text={t.prompt} /></div>
                 </div>
 
-                <p className="text-sm text-slate-400 leading-relaxed mt-3 pt-3 border-t border-slate-800">
-                  做完你手上會有：<span className="text-slate-300">{t.get}</span>
-                </p>
+                <div className="mt-3 pt-3 border-t border-slate-800 space-y-1">
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    做完你手上會有：<span className="text-slate-300">{t.get}</span>
+                  </p>
+                  <p className="text-sm text-slate-500 leading-relaxed">
+                    <span className="mr-1.5 rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-slate-400">
+                      第 2 步
+                    </span>
+                    {t.next}
+                  </p>
+                </div>
               </AnimatedBlock>
             );
           })}

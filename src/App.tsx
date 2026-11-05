@@ -129,6 +129,15 @@ import Slide27b5 from './slides/27b5_M4_NoCodeBridge';
 import Slide27b5c from './slides/27b5c_M4_ReadErrors';
 import Slide27b6 from './slides/27b6_M4_FutureEngineering';
 import Slide27b8 from './slides/27b8_M4_MissionLog';
+import Slide27g from './slides/27g_M4_GraphLayer';
+import Slide27g2 from './slides/27g2_M4_GraphWhen';
+import Slide27g2b from './slides/27g2b_M4_GraphShape';
+import Slide27g3 from './slides/27g3_M4_GraphDeps';
+import Slide27g4 from './slides/27g4_M4_GraphNodes';
+import Slide27g5 from './slides/27g5_M4_GraphMap';
+import Slide27g6 from './slides/27g6_M4_GraphFeedback';
+import Slide27g7 from './slides/27g7_M4_GraphLearning';
+import Slide27g8 from './slides/27g8_M4_GraphBuild';
 import SlideTestTypes from './slides/27c_M4_TestTypes';
 import SlideTestWorth from './slides/27c2_M4_TestWorth';
 import SlideTestHooks from './slides/27c3_M4_TestHooks';
@@ -156,6 +165,7 @@ import SlideCase2Cost from './slides/29g_Case2_Cost';
 import SlideCase2Judgements from './slides/29g2_Case2_Judgements';
 import SlideCase3Kiln from './slides/29h_Case3_Kiln';
 import SlideCase3Trust from './slides/29i_Case3_Trust';
+import SlideCase3CountFlow from './slides/29i2_Case3_CountFlow';
 import SlideCase3Race from './slides/29j_Case3_Race';
 import SlideCase3Judgements from './slides/29j2_Case3_Judgements';
 import SlideCase4Shrine from './slides/29k_Case4_Shrine';
@@ -290,7 +300,7 @@ const LIVE_TITLES = [
   "後兩步：商業邏輯與交給子代理審查",
   "中型專案的常見卡點",
   "審查子代理、一次實測、分工不是多開對話",
-  "Loop Engineering",
+  "Loop 與 Graph Engineering",
   "從 Prompt 到 Loop：每個階段解掉的卡點",
   "什麼是 Loop Engineering？",
   "交代一輪工作的五個步驟",
@@ -304,6 +314,15 @@ const LIVE_TITLES = [
   "/goal：條件寫一次，它自己跑到達成",
   "規格驅動與測試驅動",
   "幫計時器加上航行日誌",
+  "從 Loop 到 Graph：工作流程不只有一條路",
+  "40 支影片轉字幕，一句話為什麼不夠？",
+  "從一條直線到一張圖：什麼情況值得畫",
+  "先定義成功與失敗，再排出真正的依賴",
+  "Graph 由哪四種節點組成，壞了怎麼退",
+  "從規格到交付：拆解一張完整的 Graph",
+  "讓失敗成為規則：從錯誤回饋到下一輪執行",
+  "經驗的五個落點，最後一個是流程本身",
+  "怎麼叫 Claude 排出這張圖，排完怎麼跑",
   "把專案推上 GitHub，它才不只在這台電腦",
   "金鑰和客戶資料不能跟著推上去",
   "部署上線：把 GitHub 上的專案接上 Vercel",
@@ -323,6 +342,7 @@ const LIVE_TITLES = [
   "AI 無法幫你決定的事情",
   "案例三：開窯預約",
   "兩把金鑰，兩層權限",
+  "直接查表與呼叫函式：前端各拿得到什麼",
   "兩個人同時搶最後一個名額",
   "AI 無法幫你決定的事情",
   "案例四：海上許願神社",
@@ -473,6 +493,15 @@ const LIVE_SLIDES = [
   Slide28a3,
   Slide27b6,
   Slide27b8,
+  Slide27g,
+  Slide27g2,
+  Slide27g2b,
+  Slide27g3,
+  Slide27g4,
+  Slide27g5,
+  Slide27g6,
+  Slide27g7,
+  Slide27g8,
   Slide27b8b,
   Slide27b8c,
   Slide27b8d,
@@ -492,6 +521,7 @@ const LIVE_SLIDES = [
   SlideCase2Judgements,
   SlideCase3Kiln,
   SlideCase3Trust,
+  SlideCase3CountFlow,
   SlideCase3Race,
   SlideCase3Judgements,
   SlideCase4Shrine,
@@ -547,9 +577,9 @@ const SECTION_DEFS = [
   { start: 47, label: 'Harness 入門：建立 Agent 的工作規範' },
   { start: 77, label: 'Harness 進階：自動化檢查與規範維護' },
   { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
-  { start: 109, label: 'Loop Engineering：建立自動迭代與驗證流程' },
-  { start: 131, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 161, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 109, label: 'Loop 與 Graph Engineering：從自動迭代到工作流程設計' },
+  { start: 140, label: '整合專案實戰：從需求規格到產品上線' },
+  { start: 171, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

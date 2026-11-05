@@ -46,7 +46,7 @@ import { UpdateNote } from '../components/UpdateNote';
  *   金鑰 "should only be used in a secure server-side environment" 且繞過 RLS）
  *   與 supabase.com/docs/guides/functions（Edge Functions 是 server-side）。
  *   下次改版前重查那兩頁，金鑰的名稱 2025 年改過一輪，屬於 C-3 那一類。
- * **逐字稿 7-4 不要跟著改**，那一份記的是影片裡已經念出去的話（A-5）。
+ * **逐字稿 7-5 不要跟著改**，那一份記的是影片裡已經念出去的話（A-5）。
  *
  * 顏色：這一頁原本是 emerald（有／沒有那三格）＋ sky（登入那一塊的 icon），
  * 掛 amber 之後會變三種。sky 那一個只是卡片標題的圖示，沒有掛在任何概念上，

@@ -112,11 +112,12 @@ export const UNIT_DEFS: UnitDef[] = [
   // 7-2 把配置與管控收在一起：五個步驟（怎麼交代）、介入的四個動作、讓它自己驗、
   //     讀錯誤、五道邊界。學員看完這一支才有東西可以貼。
   // 7-3 從貼第一段指令跑到它自己驗完，收在「功能做完了」。
-  // 7-4 從「可是它只在你這台電腦上」開始，每一步卡的都是帳號與授權。
-  { live: 109, title: '認識 Loop Engineering：讓 Agent 持續開發與修正', anchor: 'Loop Engineering' },
+  // 7-5 從「可是它只在你這台電腦上」開始，每一步卡的都是帳號與授權。
+  { live: 109, title: '認識 Loop Engineering：讓 Agent 持續開發與修正', anchor: 'Loop 與 Graph Engineering' },
   { live: 112, title: '設計開發循環：任務拆解、驗收條件與停止機制', anchor: '交代一輪工作的五個步驟' },
   { live: 118, title: 'Loop Engineering 實作：自動執行、測試與錯誤修正', anchor: '試著用 Loop 跑測試流程' },
-  { live: 123, title: '專案部署架構：理解環境配置與上線流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
+  { live: 123, title: '理解 Graph Engineering：設計任務依賴、並行協作與回饋路徑', anchor: '從 Loop 到 Graph：工作流程不只有一條路' },
+  { live: 132, title: '專案部署架構：理解環境配置與上線流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
 
   // ── 第八章 整合專案實戰 ──
   // 四個完整案例。講者會在這裡打開四份教學文件（public/handouts/），
@@ -125,15 +126,15 @@ export const UNIT_DEFS: UnitDef[] = [
   // 案例一這一支多兩頁：規格怎麼寫是案例一到三共用的課前作業，它沒有自己的單元，
   // 掛在第一個案例裡。手冊（case-01-spec-writing.pdf）把它定位成「請在開始案例一之前完成」。
   // 2026-10-27 分節頁補上之後，這一支的起點與 anchor 跟著換成分節頁。
-  { live: 131, title: 'Vessel 品牌網站：從需求規格到網站開發', anchor: '整合專案實戰' },
-  { live: 136, title: '東京環状 24 時：互動設計與策展網站實作', anchor: '案例二：東京環状 24 時' },
-  { live: 140, title: 'Vessel 預約系統：串接資料庫與管理使用者資料', anchor: '案例三：開窯預約' },
-  { live: 144, title: '海上神社：整合信件服務、資料庫、API 與動畫', anchor: '案例四：海上許願神社' },
+  { live: 140, title: 'Vessel 品牌網站：從需求規格到網站開發', anchor: '整合專案實戰' },
+  { live: 145, title: '東京環状 24 時：互動設計與策展網站實作', anchor: '案例二：東京環状 24 時' },
+  { live: 149, title: 'Vessel 預約系統：串接資料庫與管理使用者資料', anchor: '案例三：開窯預約' },
+  { live: 154, title: '海上神社：整合信件服務、資料庫、API 與動畫', anchor: '案例四：海上許願神社' },
   // 結語那一頁（未來的工作者）2026-10-27 併進這一支，不再自成一個單元：
   // 它只有一頁，而這一支講的正是「回去之後做什麼」，結語就是它的收尾。
-  { live: 151, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '接下來可以嘗試的幾個選擇' },
+  { live: 161, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '接下來可以嘗試的幾個選擇' },
 
   // ── 第九章 補充單元：終端機與 Claude Code 操作基礎 ──
-  { live: 161, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
-  { live: 164, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
+  { live: 171, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
+  { live: 174, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
 ];
