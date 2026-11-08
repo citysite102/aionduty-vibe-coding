@@ -96,7 +96,7 @@ const RISKS = [
 export default function SlideShipAiRisk() {
   return (
     <SlideLayout
-      title="Agent 能讀、能判斷、能執行，不代表該放行"
+      title="Agent 能讀、判斷、執行，不代表該放行"
       subtitle="Control the Agent"
       icon={Brain}
     >

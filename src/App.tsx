@@ -185,6 +185,7 @@ import Slide28c3 from './slides/28c3_M4_ShipOwasp';
 import Slide28c3b from './slides/28c3b_M4_ShipScan';
 import Slide28c3c from './slides/28c3c_M4_ShipAiRisk';
 import Slide28d from './slides/28d_M4_ProjectMemory';
+import Slide28d1 from './slides/28d1_M4_LegacyCode';
 import Slide28d2 from './slides/28d2_M4_CodeIndex';
 import Slide28e from './slides/28e_M4_WhenToAdd';
 import Slide28f from './slides/28f_M4_MemoryQuiz';
@@ -363,8 +364,9 @@ const LIVE_TITLES = [
   "網站與 Agent，各有什麼安全風險？",
   "讓 Agent 幫你做第一輪網站安全檢查",
   "Agent 寫完程式，怎麼確認沒有留下問題？",
-  "Agent 能讀、能判斷、能執行，不代表該放行",
+  "Agent 能讀、判斷、執行，不代表該放行",
   "專案變大後，為什麼 Agent 開始忘東忘西？",
+  "接手舊專案：先重構，還是直接重寫",
   "檔案一多，Agent 怎麼找到需要的程式碼？",
   "加記憶或索引工具之前，先確認瓶頸",
   "判斷題：維護三個月的網站，先做哪一件",
@@ -548,6 +550,7 @@ const LIVE_SLIDES = [
   Slide28c3b,
   Slide28c3c,
   Slide28d,
+  Slide28d1,
   Slide28d2,
   Slide28e,
   Slide28f,
@@ -591,7 +594,7 @@ const SECTION_DEFS = [
   { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
   { start: 109, label: 'Loop 與 Graph Engineering：從自動迭代到工作流程設計' },
   { start: 140, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 174, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 175, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

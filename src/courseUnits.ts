@@ -138,9 +138,9 @@ export const UNIT_DEFS: UnitDef[] = [
   // 名字一度叫「專案記憶⋯」，同日改掉（講師）：那個詞跟 4-4、4-5、5-5 那幾支的
   // CLAUDE.md／專案規範撞在一起，學員會以為是同一批內容。**不要改回去。**
   // 這一支真正新的東西是索引與檢索，那是全片第一次出現，也是學員搜得到的字。
-  { live: 169, title: '認識程式碼索引與檢索：大型專案的外部工具評估', anchor: '專案變大後，為什麼 Agent 開始忘東忘西？' },
+  { live: 169, title: '接手大型專案：重構、程式碼索引與工具評估', anchor: '專案變大後，為什麼 Agent 開始忘東忘西？' },
 
   // ── 第九章 補充單元：終端機與 Claude Code 操作基礎 ──
-  { live: 174, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
-  { live: 177, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
+  { live: 175, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
+  { live: 178, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
 ];
