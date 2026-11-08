@@ -9,10 +9,10 @@ import { Callout } from '../components/Callout';
  * 這一頁跟上一頁原本是同一頁，2026-11-04 量過之後拆開（溢出 1049px，要捲兩次）。
  * 上一頁擺問題，這一頁給答案：同一個題目畫成圖長什麼樣，以及值不值得畫。
  *
- * ⚠ 這一頁最不能刪的是「不需要 40 個 Agent」那一塊。
- * 前面整個章節六在講多 Agent 分工，學員很容易把工作圖讀成「開四十個分身」。
+ * ⚠ 這一頁最不能刪的是「流程本身並不需要 40 個 Agent」那一塊。
+ * 前面整個章節六在講多 Agent 分工，學員很容易把Graph讀成「開四十個分身」。
  * 這個例子真正需要的是一個轉錄服務、一個校稿的模型、一段驗格式的程式。
- * 同一塊也點名 n8n 與 Make，因為學員手上可能已經在用，那就是工作圖。
+ * 同一塊也點名 n8n 與 Make，因為學員手上可能已經在用，那就是Graph。
  *
  * 用色：閘門與四個判斷問題 sky，其餘灰階，合計一種（A-1）。
  * **不要給每支影片不同顏色**（A-1：要分組用圖形不要用顏色）。
@@ -28,11 +28,11 @@ const PER_VIDEO = ['語音轉錄', '專有名詞修正', '品質檢查'];
  */
 const FIXFLOW = [
   { t: '第 17 支檢查出一個詞', n: '詞庫裡沒有它' },
-  { t: '補進共用詞庫', n: '補的是上游那份表，不是第 17 支', key: true },
+  { t: '補進共用詞庫', n: '那份表 40 支都在用', key: true },
   { t: '重跑用到那個詞的那幾支', n: '轉錄稿搜一下就知道是哪幾支' },
 ];
 
-/** 上一頁那五題，各由圖上哪一塊回答。順序跟上一頁那五題一致，改那一頁要回來改這裡（B-6）。 */
+/** 上一頁那五題，各由 Graph 上哪一塊回答。順序跟上一頁那五題一致，改那一頁要回來改這裡（B-6）。 */
 const ANSWERS = [
   { q: '第 23 支失敗了，從哪裡接回去', a: '進度表上記著每一支跑到哪，重跑那一支就好' },
   { q: '能不能同時跑，會不會打爆限額', a: '同時最多幾支是你設的上限，進度表排出接下來輪到誰' },
@@ -53,7 +53,7 @@ const SCENARIOS = [
   {
     title: '幫計時器加一個新功能',
     verdict: '不用',
-    why: 'Claude Code 一輪就把規劃、實作、測試、修正做完了。它中間自己派幾個子代理，也不等於你要畫一張圖。',
+    why: 'Claude Code 一輪就把規劃、實作、測試、修正做完了。它中間自己派幾個子代理，也不等於你要畫一張 Graph。',
   },
   {
     title: '同時開發電商的會員、商品、購物車',
@@ -82,7 +82,7 @@ const VERDICT_TONE = {
 export default function SlideGraphShape() {
   return (
     <SlideLayout
-      title="從一條直線到一張圖：什麼情況值得畫"
+      title="從 Loop 到 Graph：什麼情況值得畫"
       subtitle="The Same Job, Drawn"
       icon={Network}
     >
@@ -139,9 +139,9 @@ export default function SlideGraphShape() {
           </div>
         </AnimatedBlock>
 
-        {/* 上一頁那五題，圖上各由哪一塊回答 */}
+        {/* 上一頁那五題，Graph 上各由哪一塊回答 */}
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
-          <h3 className="text-slate-100 text-base font-bold mb-3">那五題，各由圖上哪一塊回答</h3>
+          <h3 className="text-slate-100 text-base font-bold mb-3">那五題，各由 Graph 上哪一塊回答</h3>
           <div className="overflow-x-auto">
             <div className="min-w-[600px]">
               {ANSWERS.map((r) => (
@@ -185,13 +185,13 @@ export default function SlideGraphShape() {
             ))}
           </div>
           <p className="text-slate-400 text-base leading-relaxed mt-3">
-            整批不用重來，但也不能只改那一支。
-            <strong className="text-slate-200">改上游的那一次，下游全部要跟著對一遍</strong>。
+            詞庫一改，先前轉好的字幕就跟新的對不上，
+            <strong className="text-slate-200">用到那個詞的那幾支要重跑</strong>，其他的不用動。
           </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-4">
-          <h3 className="text-slate-100 text-base font-bold mb-1.5">這張圖不需要 40 個 Agent</h3>
+          <h3 className="text-slate-100 text-base font-bold mb-1.5">流程本身並不需要 40 個 Agent</h3>
           <p className="text-slate-400 text-base leading-relaxed">
             只要一個轉錄服務、一個校正專有名詞的模型，加一段驗檔案格式的程式。
             <strong className="text-slate-200">Graph 講的是流程怎麼排、狀態記在哪、壞掉怎麼接回去</strong>，

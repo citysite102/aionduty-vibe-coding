@@ -22,7 +22,7 @@ import { Callout } from '../components/Callout';
  * 而 `24b_M3_Workflows` 已經教過怎麼叫它出來。**改這一頁先看那一頁還說了什麼（B-5）。**
  *
  * ── 這一頁的職務 ────────────────────────────────────────────
- * 只負責把兩層切開：迴圈在一個節點裡面，工作圖在節點之間。
+ * 只負責把兩層切開：迴圈在一個節點裡面，Graph在節點之間。
  * 什麼時候才需要它在第二、三頁，驗收條件與依賴在第四頁，四種節點與退回單在第五頁，
  * 全景圖與兩條回饋路徑在第六頁。**不要在這裡先演一次拆解或退回。**
  *
@@ -58,7 +58,7 @@ const TONE_CLASS = {
 export default function SlideGraphLayer() {
   return (
     <SlideLayout
-      title="從 Loop 到 Graph：工作流程不只有一條路"
+      title="什麼是 Graph Engineering？"
       subtitle="Loop inside a Node, Graph between Nodes"
       icon={Workflow}
     >
@@ -66,8 +66,8 @@ export default function SlideGraphLayer() {
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 px-6 py-5">
           <p className="text-slate-300 text-base leading-relaxed">
-            <strong className="text-slate-100">一個工作節點（Node）就是一件有頭有尾的事</strong>：
-            有人交代、有一套做完的標準、做完會交出一個東西。
+            <strong className="text-slate-100">工作節點（Node）</strong>：
+            有一個講清楚的目標、有一套做完的標準、做完會交出一個東西。
           </p>
           <p className="text-slate-400 text-base leading-relaxed mt-2">
             前面那一套（寫清楚目標、寫出什麼叫做完、讓它自己驗、沒過就改）跑的就是這樣一件事。
@@ -169,7 +169,7 @@ export default function SlideGraphLayer() {
             三份沒人驗過的東西一起交回來，比一塊一塊慢慢做還難收拾。
           </span>
           <span className="block mt-2">
-            <strong className="text-slate-300">只有 Loop，外面沒有圖。</strong>
+            <strong className="text-slate-300">只有 Loop，外面沒有 Graph。</strong>
             購物車做得很乾淨，每一條測試都過，但它排在會員介面後面等了三天，
             而這兩塊其實誰都不用讀誰的東西。
           </span>

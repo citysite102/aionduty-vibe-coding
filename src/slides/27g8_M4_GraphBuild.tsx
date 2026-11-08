@@ -39,7 +39,7 @@ import { Callout } from '../components/Callout';
  *  學員兩邊會讀到兩份清單（B-6）。**改那一頁要回來改這裡。**
  * 3. 進度表那一條原本寫「對話一關就沒了」，**那是錯的**：Claude Code 接得回上一個對話。
  *  真正的問題是換一個對話、換一台電腦就接不回去。
- * 4. workflow 那一段原本寫「自己派出去跑」，跟上一頁的「這張圖不需要 40 個 Agent」打架，
+ * 4. workflow 那一段原本寫「自己派出去跑」，跟上一頁的「流程本身並不需要 40 個 Agent」打架，
  *  改成照 `24c` 的講法「現場寫一支腳本」。
  * 5. Prompt 第 4 條原本寫「用指令或測試判定」，比 `27g3` 的「用程式判定或我看一眼就能確認」
  *  更窄也更工程，改回一致的講法。
@@ -104,7 +104,7 @@ const REVIEW = [
 export default function SlideGraphBuild() {
   return (
     <SlideLayout
-      title="怎麼叫 Claude 排出這張圖，排完怎麼跑"
+      title="怎麼叫 Claude 排出這張 Graph，排完怎麼跑"
       subtitle="Two Prompts and Three Ways to Run It"
       icon={MessageSquare}
     >
@@ -113,7 +113,7 @@ export default function SlideGraphBuild() {
         <AnimatedBlock stepIndex={1}>
           <h3 className="text-slate-100 text-lg font-bold mb-3">如何和 Claude 討論工作流程？</h3>
           <CopyBlock
-            label="第一段　先排圖"
+            label="第一段　先排 Graph"
             note="貼完先停，不要讓它直接開工。題目換成你自己的，七條照抄"
             text={PROMPT_PLAN}
             size="xs"
@@ -139,7 +139,7 @@ export default function SlideGraphBuild() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
-          <CopyBlock label="第二段　照圖開工" note="改完上面那三件事再貼" text={PROMPT_RUN} size="xs" />
+          <CopyBlock label="第二段　照 Graph 開工" note="改完上面那三件事再貼" text={PROMPT_RUN} size="xs" />
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
@@ -159,7 +159,7 @@ export default function SlideGraphBuild() {
               <span className="text-slate-100 text-base font-bold w-28 shrink-0">叫它自己跑</span>
               <span className="text-slate-400 text-sm leading-relaxed">
                 在那句話裡多加一句「用 <code className="font-mono text-orange-300">workflow</code> 跑這件事」。
-                它會照你那張圖現場寫一支腳本，然後自己跑完。分工那一段講過這個。
+                它會照你那張 Graph 現場寫一支腳本，然後自己跑完。分工那一段講過這個。
               </span>
             </div>
             <div className="flex gap-3 items-baseline">
@@ -173,7 +173,7 @@ export default function SlideGraphBuild() {
             <strong className="text-slate-200">跑順了就存起來。</strong>
             打 <code className="font-mono text-orange-300">/workflows</code> 選那一次按{' '}
             <code className="font-mono text-slate-300">s</code>，它會存進這個專案，
-            以後打那個名字就重跑同一張圖。
+            以後打那個名字就重跑同一張 Graph。
             你在前一頁問「這件事會長期重複做嗎」，答是的話，省時間的就是這一步。
           </p>
         </AnimatedBlock>

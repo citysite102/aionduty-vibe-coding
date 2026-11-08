@@ -46,6 +46,7 @@ import Slide10f from './slides/10f_M1_DesktopFirst';
 import Slide11 from './slides/11_M1_CodeSetup';
 import Slide11b from './slides/11b_M1_ClaudeCodeUI';
 import Slide11d2 from './slides/11d2_M1_TerminalKeys';
+import Slide11d3 from './slides/11d3_M1_WarpRichInput';
 import Slide11e from './slides/11e_M1_ClaudeMenuTabs';
 import Slide12 from './slides/12_M1_Example1';
 import Slide12b from './slides/12b_M1_Challenge';
@@ -314,15 +315,15 @@ const LIVE_TITLES = [
   "/goal：條件寫一次，它自己跑到達成",
   "規格驅動與測試驅動",
   "幫計時器加上航行日誌",
-  "從 Loop 到 Graph：工作流程不只有一條路",
+  "什麼是 Graph Engineering？",
   "40 支影片轉字幕，一句話為什麼不夠？",
-  "從一條直線到一張圖：什麼情況值得畫",
+  "從 Loop 到 Graph：什麼情況值得畫",
   "先定義成功與失敗，再排出真正的依賴",
   "Graph 由哪四種節點組成，壞了怎麼退",
   "從規格到交付：拆解一張完整的 Graph",
   "讓失敗成為規則：從錯誤回饋到下一輪執行",
   "經驗的五個落點，最後一個是流程本身",
-  "怎麼叫 Claude 排出這張圖，排完怎麼跑",
+  "怎麼叫 Claude 排出這張 Graph，排完怎麼跑",
   "把專案推上 GitHub，它才不只在這台電腦",
   "金鑰和客戶資料不能跟著推上去",
   "部署上線：把 GitHub 上的專案接上 Vercel",
@@ -367,6 +368,7 @@ const LIVE_TITLES = [
   "選修：Warp 終端機的三個特點",
   "Claude Code 終端機版本配置",
   "選修：模式切換、Shell 模式、終止執行",
+  "選修：Rich Input，在 Warp 裡寫長指示",
 ];
 
 const LIVE_SLIDES = [
@@ -546,6 +548,7 @@ const LIVE_SLIDES = [
   Slide10a,
   Slide11,
   Slide11d2,
+  Slide11d3,
 ];
 
 const PARAMS = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);

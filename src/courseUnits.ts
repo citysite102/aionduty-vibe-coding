@@ -116,7 +116,7 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 109, title: '認識 Loop Engineering：讓 Agent 持續開發與修正', anchor: 'Loop 與 Graph Engineering' },
   { live: 112, title: '設計開發循環：任務拆解、驗收條件與停止機制', anchor: '交代一輪工作的五個步驟' },
   { live: 118, title: 'Loop Engineering 實作：自動執行、測試與錯誤修正', anchor: '試著用 Loop 跑測試流程' },
-  { live: 123, title: '理解 Graph Engineering：設計任務依賴、並行協作與回饋路徑', anchor: '從 Loop 到 Graph：工作流程不只有一條路' },
+  { live: 123, title: '理解 Graph Engineering：設計任務依賴、並行協作與回饋路徑', anchor: '什麼是 Graph Engineering？' },
   { live: 132, title: '專案部署架構：理解環境配置與上線流程', anchor: '把專案推上 GitHub，它才不只在這台電腦' },
 
   // ── 第八章 整合專案實戰 ──

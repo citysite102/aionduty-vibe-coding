@@ -93,7 +93,7 @@ export default function SlideGraphFeedback() {
             第二條靠的是你把驗證過的經驗變成它下次讀得到的東西，模型本身沒有重新訓練。
           </p>
           <p className="text-slate-500 text-sm leading-relaxed">
-            字幕那張圖兩條都有：補一個漏掉的名詞、重跑那幾支，是修正路徑；
+            字幕那張 Graph 兩條都有：補一個漏掉的名詞、重跑那幾支，是修正路徑；
             <strong className="text-slate-400">下一批影片一開始就帶著那份更長的共用詞庫，是學習路徑</strong>。
           </p>
         </AnimatedBlock>

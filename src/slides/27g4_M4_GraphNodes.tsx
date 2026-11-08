@@ -71,7 +71,7 @@ export default function SlideGraphNodes() {
 
         {/* 一、四種節點 */}
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-950 px-6 py-4">
-          <h3 className="text-slate-100 text-base font-bold mb-3">圖上每一格，都是這四種的其中一種</h3>
+          <h3 className="text-slate-100 text-base font-bold mb-3">Graph 上每一格，都是這四種的其中一種</h3>
           <div className="overflow-x-auto">
             <div className="min-w-[620px]">
               <div className="grid grid-cols-[7rem_1.6fr_1.2fr] gap-4 pb-2 border-b border-slate-800 font-mono text-xs text-slate-500">
@@ -96,10 +96,9 @@ export default function SlideGraphNodes() {
             </div>
           </div>
           <p className="text-slate-400 text-base leading-relaxed mt-3 pt-3 border-t border-slate-800">
-            <strong className="text-slate-200">沒有第五種「判斷節點」。</strong>
-            圖上會分岔的地方只有兩個：拆解決定切成幾塊、誰走哪一條，
-            閘門決定這一塊過不過、過了要不要先問你。
-            一塊自己內部怎麼判斷怎麼做，那是它的事，不會畫在圖上。
+            <strong className="text-slate-200">流程往哪走，只有拆解跟閘門決定。</strong>
+            拆解決定切成幾塊、誰等誰；閘門決定這一塊過不過、要不要先問你。
+            節點裡面怎麼判斷是它自己的事，不會改變流程的走向。
           </p>
         </AnimatedBlock>
 
