@@ -23,6 +23,12 @@ import { Callout } from '../components/Callout';
  *
  * ── 這一頁的職務 ────────────────────────────────────────────
  * 只負責把兩層切開：迴圈在一個節點裡面，Graph在節點之間。
+ *
+ * ⚠ 下半那張圖**不要畫成乾淨的三塊並排**。2026-11-08 講師指出原本那版
+ * （拆解 → 三塊同時做 → 整合）會讓 Graph 看起來只是「多塊一起開工」，
+ * 但這個單元接下來整整四頁在講的是依賴：誰非等誰不可。所以現在購物車掛在
+ * 會員登入下面，那條線就是第四頁〈先定義成功與失敗，再排出真正的依賴〉的伏筆。
+ * 並行跟依賴要在同一張圖上同時看得到，少掉任何一邊這一頁就會教歪。
  * 什麼時候才需要它在第二、三頁，驗收條件與依賴在第四頁，四種節點與退回單在第五頁，
  * 全景圖與兩條回饋路徑在第六頁。**不要在這裡先演一次拆解或退回。**
  *
@@ -45,7 +51,7 @@ const COMPARE = [
   {
     layer: 'Graph',
     scope: '節點與節點之間',
-    question: '商品列表、會員登入、購物車，哪幾塊可以同時做？哪一塊非等共用的 API 做完不可？最後怎麼接起來、誰說可以交？',
+    question: '商品列表、會員登入、購物車，哪幾塊可以同時做？哪一塊要等別人做完才能開始？最後怎麼接起來、誰說可以交？',
     tone: 'indigo' as const,
   },
 ];
@@ -123,23 +129,42 @@ export default function SlideGraphLayer() {
             </div>
             <div className="w-px h-4 bg-slate-700" />
             <div className="w-full max-w-xl border-t border-slate-700" />
-            <div className="w-full max-w-xl grid grid-cols-3 gap-4">
-              {['商品列表', '會員登入', '購物車'].map((n) => (
-                <div key={n} className="flex flex-col items-center">
-                  <div className="w-px h-4 bg-slate-700" />
-                  <div className="w-full rounded-xl border border-slate-700 bg-slate-900 px-2 py-3 text-center text-slate-100 text-base font-bold">
-                    {n}
-                  </div>
-                  <div className="w-px h-4 bg-slate-700" />
+
+            <div className="w-full max-w-xl grid grid-cols-2 gap-10 items-stretch">
+              {/* 左欄：商品列表，誰都不用等，直接走到整合 */}
+              <div className="flex flex-col items-center">
+                <div className="w-px h-4 bg-slate-700" />
+                <div className="w-full rounded-xl border border-slate-700 bg-slate-900 px-2 py-3 text-center text-slate-100 text-base font-bold">
+                  商品列表
                 </div>
-              ))}
+                <div className="w-px flex-1 min-h-4 bg-slate-700" />
+              </div>
+
+              {/* 右欄：購物車要等會員登入，這條線就是依賴 */}
+              <div className="flex flex-col items-center">
+                <div className="w-px h-4 bg-slate-700" />
+                <div className="w-full rounded-xl border border-slate-700 bg-slate-900 px-2 py-3 text-center text-slate-100 text-base font-bold">
+                  會員登入
+                </div>
+                <div className="flex items-center gap-2 self-stretch justify-center">
+                  <div className="w-px h-9 bg-slate-700" />
+                  <span className="text-slate-500 text-xs">購物車要等它做完</span>
+                </div>
+                <div className="w-full rounded-xl border border-slate-700 bg-slate-900 px-2 py-3 text-center text-slate-100 text-base font-bold">
+                  購物車
+                </div>
+                <div className="w-px h-4 bg-slate-700" />
+              </div>
             </div>
+
             <div className="w-full max-w-xl border-t border-slate-700" />
             <div className="w-px h-4 bg-slate-700" />
             <div className="rounded-xl border border-emerald-500/40 bg-emerald-500/5 px-6 py-2.5 text-emerald-300 text-base font-bold">
               整合與驗收
             </div>
-            <p className="text-slate-500 text-sm mt-3">三塊各自驗各自的，不用等別人做完</p>
+            <p className="text-slate-500 text-sm mt-3">
+              商品列表跟會員登入可以同時做，購物車要排在會員登入後面
+            </p>
           </div>
         </AnimatedBlock>
 
@@ -162,16 +187,16 @@ export default function SlideGraphLayer() {
           </div>
         </AnimatedBlock>
 
-        <Callout tone="muted" stepIndex={5} label="同一個電商網站，缺哪一層會怎樣">
+        <Callout tone="muted" stepIndex={5} label="同一個電商網站，少了其中一層">
           <span className="block">
-            <strong className="text-slate-300">只有 Graph，節點裡面沒跑那一圈。</strong>
-            三塊同時開工，三塊都回報做完了，接起來才發現購物車根本加不進商品。
-            三份沒人驗過的東西一起交回來，比一塊一塊慢慢做還難收拾。
+            <strong className="text-slate-300">只有 Graph：節點裡面沒有自己測、自己修。</strong>
+            三塊同時開工，三塊都回報做完，接起來才發現購物車加不進商品。
+            三塊都沒驗過，所以三塊都要重看一次。
           </span>
           <span className="block mt-2">
-            <strong className="text-slate-300">只有 Loop，外面沒有 Graph。</strong>
-            購物車做得很乾淨，每一條測試都過，但它排在會員介面後面等了三天，
-            而這兩塊其實誰都不用讀誰的東西。
+            <strong className="text-slate-300">只有 Loop：沒有人排節點之間的順序。</strong>
+            三塊一塊接一塊慢慢做，商品列表排在會員登入後面乾等了三天，
+            而這兩塊誰都不用等誰。購物車又可能在會員登入還沒好的時候就開工，做出來接不上。
           </span>
         </Callout>
 

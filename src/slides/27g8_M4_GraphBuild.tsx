@@ -47,6 +47,24 @@ import { Callout } from '../components/Callout';
  * 7. 收尾原本寫「排錯的成本比做錯高」，那是證明不了的比較級（D-2），改成講機制。
  * 8. 「這一招你在分工那一段看過」是斷言學員看過（D-2 進度安撫），改成「分工那一段講過這個」。
  *
+ * ── 2026-11-08 又改了三處（講師逐句看過）──────────────────────
+ * 1. 第三種跑法原本寫「接到 n8n、Make 這類工具上」。**Claude Code 自己就排得了**，
+ *  不必先把學員推去另一個工具。最後查證：2026-11-08，對照
+ *  code.claude.com/docs/en/routines：「Create and manage them at claude.ai/code/routines,
+ *  or from the CLI with `/schedule`」、「Scheduled tasks execute on Anthropic-managed cloud
+ *  infrastructure ... so they keep working when your laptop is closed」、
+ *  「available on Pro, Max, Ultra, Team, and Enterprise plans」、
+ *  「Scheduled tasks are in research preview」（畫面上寫成「還在測試階段」）。
+ *  比每小時更密的 cron 會被擋，課程用不到所以畫面不寫。下次改版前重查那一頁。
+ * 2. 第二種跑法補一句 workflow 是什麼。原本直接寫「它會照你那張 Graph 寫腳本」，
+ *  但 workflow 與 Graph 的關係沒有人講過，Graph 是突然冒出來的（講師回報）。
+ * 3. 最後那個 Callout 的「拆解那一步寫錯，底下每一塊都會照著錯的走」刪掉，
+ *  同一件事 `27g7` 的「人不只站在最後一步」已經講過一次（B-5）。
+ * 4. 最後那個 Callout 整塊換掉（2026-11-08 講師指定內容）。原本寫「第一次不要排到十個節點」，
+ *  那是操作建議，收在整個單元的最後一塊太小。現在收在「這就是在排一個團隊的工作流程」，
+ *  並用產品團隊那一串（需求蒐集到測試）當例子，因為多數學員在公司看到的就是那條直線。
+ *  **例子不要換成工程味更重的**，這一段的作用正是把 Graph 接回他已經有的經驗。
+ *
  * 用色：兩段 Prompt 的 CopyBlock 自帶 sky，檢查那三件事也是 sky；
  * `workflow` 與 `/workflows` 的 orange 標身分不佔額度，合計一種（A-1）。
  */
@@ -69,42 +87,46 @@ const PROMPT_PLAN = [
   '2. 哪幾塊可以同時做。每一組說明它們為什麼互不相干',
   '3. 哪幾塊必須排前後。每一條指名是哪一個產出傳給下一塊',
   '4. 每一塊各寫一條完成條件，要能用程式判定，或我看一眼就能確認。寫不出來的標成「要人看」',
-  '5. 40 支全部做完、合併之後還要驗什麼，另外列一組條件',
+  '5. 每一塊都做完、合併起來之後還要驗什麼，另外列一組條件',
   '6. 退回規則：沒過的時候要回報哪些欄位、最多重試幾次、超過之後怎麼辦',
-  '7. 進度表：記在哪一個檔案、每一塊會記下哪些狀態、中斷之後怎麼從裡面接回去',
+  '7. 這件事如果會跑很久或分成好幾次做，說明進度表記在哪一個檔案、每一塊記下哪些狀態、中斷之後怎麼接回去。一次就跑得完的話，直接說不需要',
   '',
   '用清單或表格回答，不要寫成一段文章。先給我這份，我看過再開工。',
 ].join('\n');
 
 /** 第二段：照圖開工。三條是前面那幾頁最容易被它忽略的。 */
 const PROMPT_RUN = [
-  '照剛才那張流程做。三件事要遵守：',
+  '就照你剛才排的那張流程開始做，從可以同時做的那幾塊先跑。',
+  '',
+  '過程中這三件事要遵守：',
   '',
   '一、一塊沒過就只退那一塊，不要連旁邊做對的一起重做。',
-  '二、每做完一塊，把狀態寫回那張進度表。',
+  '二、每做完一塊回報現在到哪一塊了，有進度表的話一併寫回去。',
   '三、推上遠端、發信給別人、付款、刪除雲端資料、公開部署，這五種先停下來問我。',
+  '',
+  '開工前先把這張流程寫成專案裡的一個檔案，下次同一件事直接叫你照那份做。',
 ].join('\n');
 
 /** 它交出那份之後，你要自己看的三件事 */
 const REVIEW = [
   {
-    q: '有沒有把「然後」當成依賴',
-    a: '每一條箭頭問一次：下一步讀得到上一步的什麼？說不出是哪個東西傳過去，就叫它拆開同時做。',
+    q: '排成前後的那幾塊，真的有東西要傳嗎',
+    a: '每一條箭頭問一次：下一步讀得到上一步的什麼？說不出是哪個東西傳過去，那只是先後，叫它拆開同時做。',
   },
   {
     q: '驗收條件是不是「看起來如何」',
     a: '「品質良好」「格式正確」這種要退回去重寫，換成數得出來或看一眼就知道的。',
   },
   {
-    q: '有沒有說進度表記在哪一個檔案',
-    a: '沒寫的話狀態就留在對話裡。換一個對話、換一台電腦，它就接不回去，只能整批重來。',
+    q: '會跑很久的那種，有沒有說進度表記在哪一個檔案',
+    a: '40 支影片這種規模才需要。沒寫的話狀態留在對話裡，換一個對話、換一台電腦就接不回去。一次做得完的小事不用。',
   },
 ];
 
 export default function SlideGraphBuild() {
   return (
     <SlideLayout
-      title="怎麼叫 Claude 排出這張 Graph，排完怎麼跑"
+      title="兩段 Prompt：先排 Graph，再照著開工"
       subtitle="Two Prompts and Three Ways to Run It"
       icon={MessageSquare}
     >
@@ -158,14 +180,17 @@ export default function SlideGraphBuild() {
             <div className="flex gap-3 items-baseline">
               <span className="text-slate-100 text-base font-bold w-28 shrink-0">叫它自己跑</span>
               <span className="text-slate-400 text-sm leading-relaxed">
-                在那句話裡多加一句「用 <code className="font-mono text-orange-300">workflow</code> 跑這件事」。
-                它會照你那張 Graph 現場寫一支腳本，然後自己跑完。分工那一段講過這個。
+                <code className="font-mono text-orange-300">workflow</code> 是 Claude Code
+                把一套流程寫成腳本的功能，分工那一段用過。在那句話裡多加一句「用 workflow 跑這件事」，
+                它就會照你排的這張 Graph 現場寫一支腳本，然後自己跑完。
               </span>
             </div>
             <div className="flex gap-3 items-baseline">
-              <span className="text-slate-100 text-base font-bold w-28 shrink-0">接到排程上</span>
+              <span className="text-slate-100 text-base font-bold w-28 shrink-0">讓它定時自己跑</span>
               <span className="text-slate-400 text-sm leading-relaxed">
-                每天要自己跑一次的那種，接到 n8n、Make 這類工具上，或請它寫一段腳本掛排程。
+                每天要跑一次的那種，打 <code className="font-mono text-orange-300">/schedule</code>{' '}
+                講好時間就行，不用另外接排程工具。它跑在雲端，筆電闔上也照跑
+                （Pro 以上的方案，這個功能還在測試階段）。
               </span>
             </div>
           </div>
@@ -173,15 +198,23 @@ export default function SlideGraphBuild() {
             <strong className="text-slate-200">跑順了就存起來。</strong>
             打 <code className="font-mono text-orange-300">/workflows</code> 選那一次按{' '}
             <code className="font-mono text-slate-300">s</code>，它會存進這個專案，
-            以後打那個名字就重跑同一張 Graph。
-            你在前一頁問「這件事會長期重複做嗎」，答是的話，省時間的就是這一步。
+            以後打那個名字就重跑同一張 Graph，同一件事再做一次不用重排。
           </p>
         </AnimatedBlock>
 
-        <Callout tone="muted" stepIndex={5}>
-          第一次不要排到十個節點。挑兩塊可以同時做的先跑，看它的退回單長什麼樣、進度表有沒有真的寫進去，
-          再把其餘的補上。<strong className="text-slate-300">拆解那一步寫錯，底下每一塊都會照著錯的走，
-          而且每一塊都會通過自己的驗收</strong>，所以你要到最後才會發現。
+        <Callout tone="muted" stepIndex={5} label="說到底，就是在排一個團隊的工作流程">
+          一個產品要走過需求蒐集、PRD、Wireframe、設計稿、前後端開發、測試。
+          這幾關通常被排成一條直線，每一關等前一關整個做完才開始。
+          <span className="block mt-2">
+            但裡面有不少其實不用等。
+            <strong className="text-slate-300">Wireframe 一出來，後端就可以開始規劃資料結構</strong>；
+            設計稿還在調顏色的時候，API 要回哪些欄位已經定得下來。
+          </span>
+          <span className="block mt-2">
+            這只是其中一個例子。
+            <strong className="text-slate-300">每一關 AI 自己做得愈完整，留給你的就愈集中在這一層</strong>：
+            哪幾關可以同時走、誰非等誰不可、每一關怎樣算做完。
+          </span>
         </Callout>
 
       </div>

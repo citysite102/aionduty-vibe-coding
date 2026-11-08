@@ -133,8 +133,8 @@ export default function SlideGraphLearning() {
         </AnimatedBlock>
 
         <Callout tone="muted" stepIndex={4}>
-          <strong className="text-slate-300">Claude Code 沒有一個指令叫做這個。</strong>
-          這一整套是 Graph 的設計，沒有對應的指令，也沒有要裝的東西。它給你的是材料：
+          <strong className="text-slate-300">這一整套沒有對應的指令，也沒有要裝的東西。</strong>
+          它給你的是材料：
           <code className="font-mono text-orange-300">CLAUDE.md</code>、
           <code className="font-mono text-orange-300">Skill</code>、Hook、測試，還有你自己寫的那段流程。
           從「每次做完問一句為什麼會錯，然後手動加一條規則」開始就成立。
