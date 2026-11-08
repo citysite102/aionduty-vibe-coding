@@ -9,7 +9,7 @@ import { CopyAction } from '../components/CopyBlock';
  * 這一頁要解的就是那一秒：看哪五個地方、哪些可以直接跳過、看不懂怎麼辦。
  *
  * 所以這一頁的位置是硬的：**一定要在第一個 GitHub 連結出現之後、第二個出現之前**。
- * 後面的 OpenMontage、codebase-memory-mcp、graft 都是叫學員自己去看那一頁，
+ * 後面的 OpenMontage、codebase-memory-mcp、Trail Code 都是叫學員自己去看那一頁，
  * 沒有先教讀法，那三頁就只是三個名字。搬頁之前先確認這件事（B-4）。
  *
  * **主體是左邊那張仿真圖，不是文字。** 2026-10-08 第一版整頁都是五張說明卡，講師指出字太多。

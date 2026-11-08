@@ -1,177 +1,222 @@
-import { ListChecks, Check, ExternalLink } from 'lucide-react';
+import { ListChecks, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { CopyAction } from '../components/CopyBlock';
+import { CopyBlock } from '../components/CopyBlock';
 
 /**
- * 2026-10-10 新增，接在〈三萬個 AI 做的網站，99% 有資安問題〉後面。
+ * 單元 8-5 第五頁。上一頁分出兩種風險來源，這一頁讓 Agent 跑第一輪網站安全檢查。
  *
- * 這一頁換過兩次方向，兩次都記在這裡，免得有人再走一遍：
- *   第一版是「做好了分三級」，依據是三個案例最後各補的那幾步 → 講師退回，
- *     那樣學員檢查的是「我有沒有照課程做」。
- *   第二版是我自己列的八題檢查清單 → 講師再退回，重點應該是讓他累積，
- *     而清單跑完就忘了，不會長大。
- *   現在這一版指向外面那份公認的清單。八題整組搬到講義頁的〈上線前自查卡〉，
- *     **投影片負責判斷，卡片負責照著跑**，跟 routing-card、health-check、
- *     error-guide 是同一個分工。
+ * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
+ * 這一頁的定位要先說清楚：**它產出的是一份有範圍、有證據的初步審查**，
+ * 不是一張安全認證。整頁有三個地方在擋「跑完就安全了」這個誤讀，三個都不要刪：
+ *   1. 每一條的第三行（還需要什麼證據）
+ *   2. 三種結果狀態，其中「未發現明顯問題」明寫不等於證明安全
+ *   3. 頁尾那一句：OWASP Top 10 是風險分類，不是完整的安全測試清單
  *
- * 為什麼是 OWASP 而不是我自己寫一份：
- *   1. 它是學員的 IT 與資安真的在講的話。能說出「我照 OWASP 過一遍了」，
- *      他在審查會議上被對待的方式會不一樣。這是這門課很實際的一個職場報酬。
- *   2. 它是一個塞得進 Prompt 的名字。他驗不動，但他打得出那個指令。
- *   3. **它幾乎不過期。** 2021 → 2025 大約四年一版，而上一頁那三個掃描數字
- *      幾個月就會鬆動。要讓這門課撐久，指向 OWASP 比我寫清單耐放。
+ * 2026-11-08 那一版的四欄表格拿掉了（條目／它在講什麼／可以這樣要求它／不能只靠它），
+ * 它寬到要橫向捲動，而且「它能證明什麼」那個說法會被讀成 AI 給得出證明。
+ * 現在五條各一張卡，固定三行：**問題／要它查什麼／還需要什麼證據**。
+ *
+ * ⚠ **只列五條是刻意的**，十條全列會變成一頁要背的東西。另外五條在頁尾給名字，
+ * 而且要寫明完整審查仍然要涵蓋它們，**不要暗示那五條不重要**。
+ * 底下那段 Prompt 跑的是十條，不是五條。
+ *
+ * ── 那段 Prompt 的順序是講師指定的，不要調 ──────────────────
+ *   1 先辨識專案架構與這次涵蓋的範圍　2 依十項分類逐條初步審查
+ *   3 每項給證據、位置、限制與修正方向　4 列出目前無法確認的
+ *   5 排優先順序，並把已確認的問題與待驗證的疑慮分開
+ * 底下那串安全限制**一條都不要刪**：只讀不改、不裝工具、不部署、不送測試流量、
+ * 不做未經授權的動態測試、不輸出機密值、不推測不存在的東西、需要額外工具先問過你。
+ * A-4：複製鈕吃的字串單獨讀一遍要自己說得通。
  *
  * ── C-1 ──────────────────────────────────────────────
- * 最後查證：2026-10-10，對照 owasp.org/www-project-top-ten/（原話
- * 「The most current released version is the OWASP Top 10 2025」）與 top10.owasp.org/2025。
- * 當時的現況：現行版是 2025，十條依序為 A01 Broken Access Control、
- * A02 Security Misconfiguration、A03 Software Supply Chain Failures、
- * A04 Cryptographic Failures、A05 Injection、A06 Insecure Design、
- * A07 Authentication Failures、A08 Software or Data Integrity Failures、
- * A09 Security Logging and Alerting Failures、A10 Mishandling of Exceptional Conditions。
- * 下次改版前先看 top10.owasp.org 有沒有出新版；出了就要重對這張表的五條，
- * **不要只改年份**，條目的編號與名稱每一版都會動。
- * ─────────────────────────────────────────────────────
+ * 最後查證：2026-11-08，top10.owasp.org/2025。五條的官方英文名稱：
+ *   A01 Broken Access Control／A02 Security Misconfiguration／
+ *   A03 Software Supply Chain Failures／A07 Authentication Failures／
+ *   A09 Security Logging and Alerting Failures。
+ * 另外五條：A04 Cryptographic Failures、A05 Injection、A06 Insecure Design、
+ * A08 Software or Data Integrity Failures、A10 Mishandling of Exceptional Conditions。
+ * 改版時編號與名稱都會動，**整組要重查，不要只改一兩條**。
  *
- * 2026-10-31（講師：交給誰？）另外五條那一句原本寫「現在交給它就好」，
- * 「它」在那一段裡沒有主詞（D-2），前後文也沒有出現過 Claude。
- * 現在改成指到底下那段 Prompt，並寫明是 Claude 把十條一起查過。
- * **不要再寫「交給它」**，這一段跟三格那一塊中間隔著一張表，代名詞接不回去。
+ * 清單本體在講義頁的〈上線前自查卡〉（`public/handouts/ship-check.md`），
+ * 投影片不再印一次網址。改這一頁要回去看那張卡一眼。
  *
- * 只標五條是刻意的。十條全列會變成一頁要背的東西，而這一頁的效果來自
- * 「原來我做的那幾件事有名字，而且排第一名」。**不要為了完整把另外五條也展開。**
- *
- * 強調色只有 emerald（已經做過的那五條）。
- *
- * 2026-10-31（講師：這可以移除）收尾那個指向講義頁的 Callout 拿掉了。
- * 自查卡本身還在 `public/handouts/`，**檔案不要刪**；拿掉的只是這一頁上的指路。
- *
- * 2026-10-31（講師：這段好像和前一頁重複）開場砍掉兩件事：「外面有一份公認的清單在收，
- * 叫 OWASP Top 10」與「現行是 2025 版，大約四年一版」。前一頁（`28c2b`）整頁在講這些，
- * 連成兩頁讀就是同一段講兩次。留下的是前一頁刻意不講、而且**這一頁的口白已經錄過**的
- * 那一句（公司的 IT 與資安照它在看東西），畫面上要有它口白才接得住（A-5）。
- * **不要把 OWASP 的來歷或版本號加回這一頁。**
- *
- * 2026-10-20 前面插了〈OWASP 是什麼〉那一頁，所以開場的「上一頁」改成「前面」：
- * 它原本指的是風險數字那一頁，中間多一頁之後就指錯了（B-4）。影片錄的是舊順序，
- * 但這一句換掉距離詞之後兩邊都成立，所以不掛 `UpdatedMark`。
- *
- * 標題換過四次：「你已經做過 OWASP 十條裡的五條」（D-2 的進度安撫）→
- * 「有五條對得上這門課做的事」→「有五條對得上課程內的提醒」→「五個已知提醒」→
- * 2026-11-01「課程已談過五種」（講師）。現在的版本只給那一頁上有什麼，
- * 不再描述學員的狀態。**不要寫回「你已經⋯」那一類。**
- *
- * 2026-11-01（講師：「前面那份清單」前面哪份？我不知道）開場把名字寫出來。
- * 這一頁 2026-10-31 砍掉重複介紹 OWASP 的那一段之後，第一句變成「都收在前面那份清單裡」，
- * 那是 B-4 那種指不到東西的說法。**寫名字不等於把介紹加回來**：
- * 它是誰出的、十條怎麼排出來的、多久換一版，全部留在前一頁。
- *
- * 2026-10-20 改標題。原本是「你已經做過 OWASP 十條裡的五條」，那是 D-2 的進度安撫：
- * 它講的是學員的狀態（你已經做了多少），不是這一頁有什麼。**好消息的語氣要留**，
- * 但那是內文第一句與口白的工作，不是標題的。現在的標題講表上有什麼：
- * 一份清單，其中五條對得上這門課做過的事。改之前先讀 D-2 的進度安撫那一條。
+ * 用色：sky（要它查什麼）＋ amber（發現疑慮那一個狀態）兩種（A-1）。
  */
-const DONE = [
+
+const RISKS = [
   {
     id: 'A01',
     en: 'Broken Access Control',
-    zh: '該擋的沒擋住',
-    mine: '兩層權限、有人繞過畫面直接送請求、那兩千個沒有登入的工具',
+    zh: '存取控制失效',
+    problem: '網址上的編號改成別人的，就看得到別人的東西。',
+    check: '列出每一個會讀寫資料的入口，各寫出誰可以用，並指出哪些入口沒有檢查身分。',
+    beyond: '誰該看到什麼是你的規則，要你自己確認；實際擋不擋得住要另外測一次。',
   },
   {
     id: 'A02',
     en: 'Security Misconfiguration',
-    zh: '設定沒調好',
-    mine: 'RLS 沒開、權限全放行、金鑰進了版控',
+    zh: '安全設定錯誤',
+    problem: '東西本身沒做錯，但門沒關：權限全放行、金鑰進了版控。',
+    check: '列出設定檔與環境變數的位置，標出哪些目前是全放行、哪些不該進版控。',
+    beyond: '正式環境那一份設定在你手上，原始碼裡看不到。',
   },
   {
     id: 'A03',
     en: 'Software Supply Chain Failures',
-    zh: '別人的東西拖累你',
-    mine: '外部來源掛掉整個作品就不會啟動、裝第三方工具前問的那四題',
+    zh: '軟體供應鏈失效',
+    problem: '你用的套件或外部服務出事，你的作品跟著壞。',
+    check: '列出所有第三方套件與外部服務、各自的版本，標出有已知問題的那幾個。',
+    beyond: '要不要換、換不換得起是成本問題；最新的漏洞資料要靠掃描工具查。',
   },
   {
     id: 'A07',
     en: 'Authentication Failures',
-    zh: '登入這一關做得不夠',
-    mine: '密碼猜錯不會被鎖、把密碼本身存在瀏覽器裡',
+    zh: '身分驗證失效',
+    problem: '鎖是裝了，但誰都可以一直試。',
+    check: '列出登入、改密碼、忘記密碼三條路各自怎麼驗身分，哪一條沒有次數限制。',
+    beyond: '要不要加第二道驗證是你的取捨；擋不擋得住連續嘗試要實際測。',
   },
   {
     id: 'A09',
     en: 'Security Logging and Alerting Failures',
-    zh: '出事了沒有紀錄',
-    mine: '它壞掉的時候你查不查得到、後台那幾個分頁',
+    zh: '安全日誌與告警失效',
+    problem: '東西被動過，你不知道，也查不出是誰。',
+    check: '列出哪些動作有留下紀錄、紀錄裡有沒有時間與操作者，哪些重要動作完全沒記到。',
+    beyond: '告警有沒有真的送到人手上，要在正式環境裡驗。',
   },
 ];
 
-const OWASP_PROMPT =
-  '照 OWASP Top 10 2025 逐條檢查這個專案，不要改任何檔案。' +
-  '每一條都說明這個專案有沒有這個問題、你是從哪個檔案的哪一段看出來的，' +
-  '看不出來就寫「看不出來」，不要用推測的。最後照「被人利用之後收不收得回來」排出處理順序。';
+const STATES = [
+  {
+    k: '發現疑慮',
+    v: '給出可疑的位置、可能的影響，以及為什麼還需要驗證。',
+    hot: true,
+  },
+  {
+    k: '未發現明顯問題',
+    v: '說明實際檢查了哪些範圍。這不等於已經證明安全。',
+  },
+  {
+    k: '無法確認',
+    v: '列出缺少什麼：設定、測試環境，或其他證據。',
+  },
+];
+
+const AUDIT_PROMPT = [
+  '請依 OWASP Top 10:2025 對這個專案做第一輪安全審查。這一輪只讀不改。',
+  '',
+  '順序：',
+  '1. 先看一遍專案結構，說明這是哪一種應用、用到哪些框架與外部服務，並列出這次審查涵蓋與不涵蓋的範圍。',
+  '2. 依 OWASP Top 10:2025 十項分類逐條做初步審查。',
+  '3. 每一條都要給：結論、證據（哪個檔案的哪幾行）、這個結論的限制、以及修正方向。',
+  '4. 另外列出目前無法確認的風險，說明缺少什麼才判斷得了。',
+  '5. 最後排出處理順序，並且把「已確認的問題」與「待驗證的疑慮」分開列。',
+  '',
+  '每一條的結論只能是這四種之一：發現疑慮／未發現明顯問題／無法確認／不適用（要寫理由）。',
+  '「未發現明顯問題」要說明你實際檢查了什麼，不要寫成已經證明安全。',
+  '',
+  '這一輪的限制：',
+  '- 只讀本機這個專案的原始碼與非機密設定。',
+  '- 不修改程式碼、不安裝工具、不部署。',
+  '- 不對外部系統送出任何測試流量，也不做未經授權的動態測試或滲透測試。',
+  '- 不要輸出 API Key、Token、密碼這類機密值，看到只寫出它的位置。',
+  '- 不要推測不存在的檔案、漏洞或測試結果。',
+  '- 需要額外工具或動態測試才判斷得了的，先寫出需求與範圍讓我決定。',
+].join('\n');
 
 export default function SlideShipOwasp() {
   return (
     <SlideLayout
-      title="OWASP Top 10：課程已談過五種"
-      subtitle="OWASP Top 10:2025"
+      title="讓 Agent 幫你做第一輪網站安全檢查"
+      subtitle="OWASP Top 10:2025 · Security Review"
       icon={ListChecks}
     >
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-8">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          沒設登入、權限沒擋住、金鑰外流這幾類，都收在 OWASP Top 10 裡。
-          <strong className="text-slate-100">公司的資訊或資安單位就是照它在看東西</strong>。
+          以 OWASP Top 10 當成風險的參考清單，
+          <strong className="text-slate-100">讓 Agent 指出可能的問題、交出程式碼上的證據，並標示哪幾項還要用別的方式驗證。</strong>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 divide-y divide-slate-800/70">
-          {DONE.map((d) => (
-            <div
-              key={d.id}
-              className="grid grid-cols-1 md:grid-cols-[auto_minmax(0,300px)_minmax(0,1fr)] gap-x-4 gap-y-1 px-5 py-3 items-baseline"
-            >
-              <div className="flex items-center gap-2 shrink-0">
-                <Check aria-hidden="true" size={14} className="text-emerald-400 shrink-0" />
-                <span className="font-mono text-sm text-emerald-300 font-bold">{d.id}</span>
-              </div>
+        <AnimatedBlock stepIndex={2} className="divide-y divide-slate-800 rounded-2xl border border-slate-800 bg-slate-900">
+          {RISKS.map((r) => (
+            <div key={r.id} className="grid grid-cols-1 gap-x-5 gap-y-1 px-5 py-3 md:grid-cols-[11rem_minmax(0,1fr)]">
               <div className="min-w-0">
-                <div className="text-slate-100 text-sm font-bold leading-snug">{d.zh}</div>
-                <div className="font-mono text-xs text-slate-600 leading-tight">{d.en}</div>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-mono text-sm font-bold text-slate-300">{r.id}</span>
+                  <span className="text-sm font-bold text-slate-100">{r.zh}</span>
+                </div>
+                <div className="font-mono text-xs leading-tight text-slate-600">{r.en}</div>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">{d.mine}</p>
+              <dl className="min-w-0 space-y-0.5 text-sm leading-relaxed">
+                <div className="flex gap-2">
+                  <dt className="w-20 shrink-0 text-xs text-slate-600">問題</dt>
+                  <dd className="min-w-0 text-slate-400">{r.problem}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="w-20 shrink-0 text-xs text-sky-400/80">要它查</dt>
+                  <dd className="min-w-0 text-sky-200/90">{r.check}</dd>
+                </div>
+                <div className="flex gap-2">
+                  <dt className="w-20 shrink-0 text-xs text-slate-600">還要別的證據</dt>
+                  <dd className="min-w-0 text-slate-500">{r.beyond}</dd>
+                </div>
+              </dl>
             </div>
           ))}
         </AnimatedBlock>
 
-        {/*
-          另外五條只給名字，不展開。學員現在用不到，而展開會把這一頁
-          從「你已經做過一半」變成「你還差五樣」，那是相反的效果。
-        */}
-        <AnimatedBlock stepIndex={3} as="p" className="text-slate-500 text-sm leading-relaxed px-1">
-          另外五條你現在用不到，知道有這幾條存在就好：A04 加密、A05 注入、A06 設計本身的問題、
-          A08 完整性、A10 例外狀況沒處理好。
-          <strong className="text-slate-400">底下那段 Prompt 會讓 Claude 把十條一起查過</strong>，
-          包含這五條。
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 px-5 py-4">
-          <div className="flex items-center gap-2 mb-2 text-slate-500 font-mono text-xs uppercase tracking-wider">
-            Prompt　十條一起交給它查
+        <AnimatedBlock stepIndex={3}>
+          <h3 className="mb-2 text-base font-bold text-slate-100">每一條的結論只能是這幾種</h3>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+            {STATES.map((s) => (
+              <div
+                key={s.k}
+                className={`rounded-2xl border p-4 ${
+                  s.hot ? 'border-amber-500/30 bg-amber-500/5' : 'border-slate-800 bg-slate-900/40'
+                }`}
+              >
+                <div className={`text-base font-bold ${s.hot ? 'text-amber-300' : 'text-slate-100'}`}>{s.k}</div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">{s.v}</p>
+              </div>
+            ))}
           </div>
-          <p className="text-sky-200 text-sm leading-relaxed">{OWASP_PROMPT}</p>
-          <CopyAction text={OWASP_PROMPT} className="mt-2" />
+          <p className="mt-2 text-sm leading-relaxed text-slate-500">
+            真的用不到的項目另外標「不適用」，而且要寫理由。
+            <strong className="text-slate-400">沒有「通過」這個選項</strong>，它交出來的是一份待確認清單。
+          </p>
         </AnimatedBlock>
 
-        <p className="text-xs text-slate-600 flex flex-wrap items-center gap-x-3 gap-y-1">
-          <span>2026-10-10 查證，現行版是 2025</span>
-          <a
-            href="https://top10.owasp.org/2025"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
-          >
-            OWASP Top 10:2025 官方清單 <ExternalLink size={11} />
-          </a>
-        </p>
+        <AnimatedBlock stepIndex={4}>
+          <CopyBlock
+            label="十條一起交給它查"
+            note="在那個專案的資料夾裡貼，它只讀不改"
+            text={AUDIT_PROMPT}
+            size="xs"
+          />
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={5} as="p" className="px-1 text-sm leading-relaxed text-slate-500">
+          上面只列了五條，另外五條是 A04 加密、A05 注入、A06 設計本身的問題、A08 完整性、
+          A10 例外狀況沒處理好。
+          <strong className="text-slate-400">完整的審查仍然要涵蓋這五條</strong>，底下那段話跑的就是十條。
+          <span className="mt-1.5 block">
+            OWASP Top 10 是網頁應用程式的風險分類，
+            <strong className="text-slate-400">不是一份完整的安全測試清單</strong>。
+            正式環境、外部服務、權限設定、攻擊防護與告警，光讀原始碼都判斷不了。
+          </span>
+          <span className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-600">
+            <span>2026-11-08 查證，現行版是 2025</span>
+            <a
+              href="https://top10.owasp.org/2025"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-slate-500 hover:text-sky-400"
+            >
+              OWASP Top 10:2025 <ExternalLink size={11} />
+            </a>
+          </span>
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>

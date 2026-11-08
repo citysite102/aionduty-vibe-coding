@@ -1,228 +1,202 @@
-import { Brain, MessageSquareWarning, KeyRound, ExternalLink } from 'lucide-react';
+import { Brain, FileInput, Cpu, Send, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 2026-10-20 新增（講師：要補 AI 時代特有的風險）。
+ * 單元 8-5 第七頁。上一頁講怎麼確認程式沒問題，這一頁講它被允許做哪些事。
+ * 兩頁之間的接點是一句話：**驗證結果正確，不等於授權執行**（寫在轉場，見逐字稿）。
  *
- * 使用現場（B-5b）是 `27b8h_M4_NeedBackend`：那一頁叫學員做的就是
- * 「前端把本週的航行日誌送給後端，後端拿金鑰去呼叫 AI 講評」。
- * 所以這兩類風險他的作品真的會有，不是先講一個以後才用得到的東西。
- * **那一頁如果被改掉或搬走，這一頁要跟著重看。**
+ * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
+ * 這一頁的核心：Agent 開始操作真的系統之後，**Prompt 擋不住它**，
+ * 要畫的是資料、決策、行動三種邊界，而且要用系統機制去擋，不是用指示去求。
  *
- * 指回課程做過的東西用「我們前面做的」，不要寫「你做的」。那段程式是帶著學員一起做的，
- * 寫成「你做的」會變成在考他記不記得；「我們前面做的」才接得上這門課的口氣（D-6b）。
+ * 上半三種邊界是這一頁的主要視覺。每一格的結構一樣：一個問題 ＋ 怎麼控制。
+ * **問題那一行不要刪**，它是學員回去要自己回答的那一句。
  *
- * 只講兩類是刻意的：清單上還有別的（輸出處理、模型中毒、向量資料庫⋯），
- * 但那幾類要先有更複雜的架構才碰得到。這門課的作品結構就是「使用者的文字進去、
- * AI 的文字出來、金鑰在後端」，對得上的就是這兩類。
+ * 下半用**同一個情境**講兩種風險（整理一個資料夾裡的專案文件）。
+ * 這個例子跟 `28c2b` 右欄是同一個，刻意的：上一頁用它分清單，這一頁拆開看是哪一段失守。
+ * **不要換成另一個例子**，換掉就少了兩頁之間的接點。
+ * 兩種風險的分工要講準：
+ *   提示注入 = 不可信的資料想跨過信任邊界，去影響它的指令與行為
+ *   過度授權 = 它手上的功能、權限或自主程度超過任務需要，一次失誤的代價就被放大
+ *   **兩者可能連鎖發生，但不是彼此的必要條件**，畫面上那一句就是在擋這個誤讀。
+ *
+ * 標題改過四次，記著每一次被退的理由，不要再繞回去：
+ *   1.「接了 AI 之後：它讀到的指令和它的權限」→ 兩個「它」各指不同的東西。
+ *   2.「接了 AI：內容裡藏的指令、給太大的權限」→ 講師：太抽象。
+ *   3.「使用者填的字會變成 AI 指令，權限決定後果」→ 講師：太奇怪。
+ *   4.「Agent 越能做事，越需要明確的權限邊界」→ 2026-11-09 講師改成現在這句。
+ * 講師原句是「Agent 能讀、能判斷、能執行，不代表都該放行」，量起來 42 寬，超過 D-5 的 40。
+ * 現在這句拿掉一個「該」字，剛好 40，意思不變。**不要再加回去。**
  *
  * ── C-1 ──────────────────────────────────────────────
- * 最後查證：2026-10-20，對照 genai.owasp.org。當時的現況：
- *   - AI 應用的清單叫 OWASP Top 10 for LLM Applications，Agent 系統另有一份
- *     Top 10 for Agentic Applications，以及 2026-09 捐進來的 Agent Control Standard。
- *   - genai.owasp.org/llm-top-10/ 上列的仍是 2025 版十條，第一條是
- *     LLM01:2025 Prompt Injection；而 2026-09-01 的公告說 2026 版已經發布，
- *     只確認了「Excessive Agency 排第三」，沒有列出完整條目。
- *   - **所以畫面上不印編號也不印年份**，只寫這兩類的名字與它們在清單上。
- *     要印條目先回 genai.owasp.org 確認版本與完整清單，不要照公告推測。
+ * 最後查證：2026-11-08，genai.owasp.org/llm-top-10/。那一頁當天列的是 **2025 版**，
+ * 提示注入（Prompt Injection）與過度授權（Excessive Agency）都在十條裡。
+ * **畫面上寫出版本年份、不寫條目編號**，站上換版編號會動。
+ * OWASP 那份是清單，不是安全驗收，也不是法遵認證，畫面上那一句就是在擋這個誤讀。
+ * 真實案例：GMO Flatt Security 2026/01 那一篇，連結在畫面上，2026-11-09 複查仍可開啟。
+ * **不要新增查不到完整出處的事件**，查不到就不要寫成已經證實的案例。
  *
- * 2026-10-30 補兩個真實案例（講師要求）。兩筆都讀到一手報告，不是新聞轉述（C-2）：
- *   - Claude Code GitHub Actions：GMO Flatt Security 的 RyotaK 通報。
- *     flatt.tech/research/posts/poisoning-claude-code-one-github-issue-to-break-the-supply-chain/
- *     2026-01-12 通報、2026-01-16 修掉權限繞過（claude-code-action v1.0.94），
- *     2026-06-01 才公開。CVSS v4.0 7.8。攻擊路徑是 GitHub App 讓 `checkWritePermissions`
- *     回傳 true，接著用注入把 `ACTIONS_ID_TOKEN_REQUEST_TOKEN` 這類環境變數帶走，
- *     換成有寫入權的 App token。另一半是 `allowed_non_write_users: "*"` 配 `issues: write`。
- *   **畫面上不要寫受害台數或 CVSS。** 流傳的「4,000 台／8 小時」在一手報告裡找不到
- *   （D-2 編造的量化數據）。CVSS、OIDC token、postinstall 這些字也不要上畫面，
- *   這門課一半的人不寫程式（D-2）。
- *
- *   **右邊那張卡（Excessive Agency）目前沒有案例，這是已知的缺口。** 換過兩次都沒留下：
- *     - Clinejection（npm 供應鏈）：講師不知道 Cline 是什麼，學員更不會，而且它也是注入，
- *       跟第一筆重複。
- *     - 澳洲健身房候補名單（ABC News 2026-08-10）：題材最好懂，但講師不要。
- *   還沒評估完的候補：2026-07 OpenAI 的測試用 agent 跑出測試環境、攻進 Hugging Face
- *   （aljazeera.com/news/2026/7/22/…，OpenAI 與 Hugging Face 都證實）。事件夠大，
- *   但要先解釋 Hugging Face 與測試環境是什麼，而且跟學員自己做的東西不像。
- *   **補的時候 `kind` 要寫「它的權限」**，跟右邊那張卡的標題對上，這是這一塊的設計。
- * ─────────────────────────────────────────────────────
- *
- * 強調色只有 amber（風險提示）。收尾的 focus 不計入（A-1）。
+ * 用色：sky（三種邊界與收尾）＋ amber（兩種風險）兩種（A-1）。
+ * **三格不要加左側色條**（A-1，2026-08-04 全片已經歸零），方向感交給格子之間那個 ▶。
  */
 
-const RISKS = [
+/** 三種邊界。問題那一行是學員要自己回答的，控制方式是具體做法。 */
+const BOUNDS = [
   {
-    icon: MessageSquareWarning,
-    name: '它讀到的東西裡可能有指令',
-    en: 'Prompt Injection',
-    body: '送進 AI 的那段文字，它分不出哪些是資料、哪些是命令。使用者打的字、它讀到的網頁、上傳的檔案裡都可以藏指令。',
+    icon: FileInput,
+    k: '資料邊界',
+    en: 'Input Boundary',
+    q: '它能讀到什麼資料？那些資料可信嗎？',
     dos: [
-      '使用者的內容當資料看，要做的事寫在你自己的指示裡',
-      '會寄信、付款、刪東西的動作不要讓它自己決定，要回來問你',
-      '內部規則與金鑰不要寫進給它的那段指示裡',
+      '限制它讀得到的資料與檔案範圍',
+      '外部文件、網頁與使用者打的字，裡面寫什麼都不算交代',
+      '機密資料另外用存取控制擋住',
     ],
   },
   {
-    icon: KeyRound,
-    name: '你給它的權限超過它需要的',
-    en: 'Excessive Agency',
-    body: '那支程式能碰到的範圍越大，一次判斷失誤的代價就越大。你的後端只該做一件事，不該順便握著整個資料庫的鑰匙。',
+    icon: Cpu,
+    k: '決策邊界',
+    en: 'Decision Boundary',
+    q: '哪些事情可以讓它自己判斷？',
     dos: [
-      '那支程式只做一件事，不要讓它同時能讀會員資料又能發信',
-      '金鑰放在後端的環境變數，前端只呼叫你自己的網址',
-      '它做了什麼要留得下紀錄，出事才查得到',
+      '把目標、業務規則與驗收條件寫出來',
+      '列出哪些例外一定要人來決定',
+      '模型的判斷不等於正式授權',
+    ],
+  },
+  {
+    icon: Send,
+    k: '行動邊界',
+    en: 'Action Boundary',
+    q: '它實際上能操作哪些系統與功能？',
+    dos: [
+      '權限照這一輪真的需要的給',
+      '寫入、刪除、寄信、付款、部署與改設定要分開管',
+      '影響大的動作要有人核准，而且用系統去擋，不是用指示去求',
     ],
   },
 ];
 
-/**
- * `kind` 要跟上面兩張卡的標題對得起來，那是這一塊唯一的作用。
- * 目前只有左邊那張卡有案例，右邊那張卡還缺一筆，理由與候補寫在檔頭的 C-1。
- * **加第二筆之前先實機量高度**，這一頁 2026-10-30 量過，一行就是一筆的空間。
- */
-const CASES = [
+const RISKS = [
   {
-    when: '2026/01',
-    kind: '它讀到的指令',
-    what: 'Claude Code 的 GitHub 自動化，待辦單標題裡藏一句指令，雲端金鑰被送了出去。',
-    href: 'https://flatt.tech/research/posts/poisoning-claude-code-one-github-issue-to-break-the-supply-chain/',
-    src: 'GMO Flatt Security',
+    name: '提示注入',
+    en: 'Prompt Injection',
+    what: '其中一份文件裡藏著一句指令，要它把資料夾的內容寄到某個信箱。',
+    why: '不可信的資料跨過了信任邊界，去影響它的指令與行為。',
+  },
+  {
+    name: '過度授權',
+    en: 'Excessive Agency',
+    what: '它手上同時有讀取整台機器檔案的權限，以及對外寄信的能力。',
+    why: '它拿到的功能、權限或自主程度超過這個任務需要，一次失誤的代價就被放大。',
   },
 ];
 
 export default function SlideShipAiRisk() {
   return (
     <SlideLayout
-      title="作品接了 AI，會多出哪兩類風險"
-      subtitle="Risks Specific to AI Features"
+      title="Agent 能讀、能判斷、能執行，不代表該放行"
+      subtitle="Control the Agent"
       icon={Brain}
-      updated={{ date: '2026/11/01', kind: '新增' }}
     >
-      <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-2">
-        {/*
-          2026-10-31（講師：標題模糊，而且「兩類」沒寫出是哪兩類）標題與開場一起改。
-          原標題是「接了 AI 之後：它讀到的指令和它的權限」，兩個「它」各指不同的東西
-          （第一個是 AI、第二個也是 AI，但讀起來像在講同一件事的兩面）。
-          開場原本是「它多出兩類一般網站清單上沒有的風險」，數量詞沒有內容（D-2 空心的詞），
-          學員要讀完兩張卡才知道是哪兩類。現在標題直接寫出那兩類，開場講它們為什麼是 AI 才有的。
-          標題改過三次，記著每一次被退的理由，不要再繞回去：
-            1.「接了 AI 之後：它讀到的指令和它的權限」→ 兩個「它」各指不同的東西。
-            2.「接了 AI：內容裡藏的指令、給太大的權限」→ 講師：太抽象。
-               「內容」「指令」都是上位詞，要讀完整頁才知道在講什麼。
-            3.「使用者填的字會變成 AI 指令，權限決定後果」→ 講師：太奇怪。
-               兩個子句硬擠在 40 寬裡，讀起來像標語。
-          2026-10-31 講師選了提問句（D-5 的「承上啟下的一問」）。
-          **它的代價是標題本身不含那兩類是什麼**，所以底下兩張卡的標題要自己說得清楚，
-          而且內文第一段就要把兩類補上（現在那兩條列就是在做這件事）。
-          D-5：提問句同一節最多兩頁。這一節（章節八）目前只有這一個，加上 Slide 171
-          〈專案啟動之前：規格文件怎麼寫？〉，額度用完了。
-        */}
-        <div className="text-slate-300 text-base leading-relaxed mb-2 space-y-1">
-          <p>航行日誌的講評功能就是這種結構：使用者打的字送進去、AI 的回答送出來、金鑰放在後端。</p>
-          <p>一般網站的資安清單上沒有底下這兩類，它們是接了 AI 才有的：</p>
-          <ul className="space-y-0.5">
-            <li className="flex gap-2">
-              <span className="shrink-0 text-slate-600">・</span>
-              <span>
-                AI 分不出讀到的那段字是
-                <strong className="text-slate-100">要處理的資料</strong>，還是
-                <strong className="text-slate-100">叫它去做的命令</strong>
-              </span>
-            </li>
-            <li className="flex gap-2">
-              <span className="shrink-0 text-slate-600">・</span>
-              <span>你給它多大的權限，就決定它判斷錯一次能造成多大的事</span>
-            </li>
-          </ul>
-        </div>
+      <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch mb-3">
-          {RISKS.map((r, i) => (
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
+          Agent 開始操作真的系統之後，
+          <strong className="text-slate-100">光靠指示約束不住它</strong>，
+          要分開設計的是資料、決策與行動這三種邊界。
+        </AnimatedBlock>
+
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+          {BOUNDS.map((b, i) => (
             <AnimatedBlock
-              key={r.en}
-              stepIndex={i + 1}
-              className="bg-slate-900 border border-amber-900/40 rounded-2xl p-4 flex flex-col"
+              key={b.en}
+              stepIndex={i + 2}
+              className="relative rounded-2xl border border-slate-800 bg-slate-900 p-4"
             >
-              <h3 className="text-lg font-bold text-slate-100 flex items-start gap-3 mb-1">
-                <span className="w-9 h-9 shrink-0 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center">
-                  <r.icon size={18} aria-hidden="true" />
-                </span>
-                {r.name}
-              </h3>
-              <p className="text-slate-500 text-xs font-mono mb-3 pl-12">{r.en}</p>
-
-              <p className="text-slate-300 text-base leading-relaxed mb-3">{r.body}</p>
-
-              <div className="mt-auto pt-3 border-t border-slate-800">
-                <div className="text-slate-400 text-sm font-medium mb-2">怎麼做</div>
-                <ul className="space-y-1.5">
-                  {r.dos.map((d) => (
-                    <li key={d} className="text-slate-400 text-sm leading-relaxed flex gap-2">
-                      <span className="text-slate-600 shrink-0">・</span>
-                      {d}
-                    </li>
-                  ))}
-                </ul>
+              <div className="flex items-center gap-2">
+                <b.icon aria-hidden="true" size={16} className="shrink-0 text-sky-400" />
+                <h3 className="text-base font-bold text-slate-100">{b.k}</h3>
+                <span className="font-mono text-xs text-slate-600">{b.en}</span>
               </div>
+              <p className="mt-1.5 text-sm leading-relaxed text-sky-200/90">{b.q}</p>
+              <ul className="mt-2 space-y-1 border-t border-slate-800 pt-2">
+                {b.dos.map((d) => (
+                  <li key={d} className="flex gap-2 text-sm leading-relaxed text-slate-400">
+                    <span className="shrink-0 text-slate-600">・</span>
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              {i < BOUNDS.length - 1 && (
+                <span className="pointer-events-none absolute -right-2 top-1/2 hidden -translate-y-1/2 font-mono text-xs text-slate-600 md:block">
+                  ▶
+                </span>
+              )}
             </AnimatedBlock>
           ))}
         </div>
 
-        {/*
-          放在兩張卡後面、收尾前面：卡講的是風險本身，這一塊是它真的發生過的證據。
-          全灰階，amber 已經被上面兩張卡用掉了（A-1 一頁兩色）。
-        */}
-        <AnimatedBlock
-          stepIndex={3}
-          className="rounded-2xl border border-slate-800 bg-slate-900/60 px-5 py-2.5 mb-2"
-        >
-          <p className="text-slate-300 text-sm leading-relaxed mb-2">
-            <strong className="text-slate-100">這不是假設，2026 年真的出過</strong>。
+        <AnimatedBlock stepIndex={5} className="rounded-2xl border border-amber-500/25 bg-amber-500/5 p-5">
+          <p className="text-sm leading-relaxed text-slate-300">
+            <strong className="text-slate-100">同一個情境，兩種風險：</strong>
+            你叫 Agent 整理某個資料夾裡的專案文件。
           </p>
-          <div className="space-y-1.5">
-            {CASES.map((c) => (
-              <p key={c.kind} className="text-slate-400 text-sm leading-relaxed">
-                <span className="font-mono text-xs text-slate-600 mr-3">{c.when}</span>
-                <strong className="text-slate-200">{c.kind}：</strong>
-                {c.what}
-                <a
-                  href={c.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="ml-2 text-xs text-slate-600 hover:text-slate-300 whitespace-nowrap"
-                >
-                  {c.src} <ExternalLink size={10} className="inline" aria-hidden="true" />
-                </a>
-              </p>
+          <div className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-2">
+            {RISKS.map((r) => (
+              <div key={r.en}>
+                <div className="flex items-baseline gap-2">
+                  <h3 className="text-base font-bold text-amber-300">{r.name}</h3>
+                  <span className="font-mono text-xs text-slate-500">{r.en}</span>
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300">{r.what}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">{r.why}</p>
+              </div>
             ))}
           </div>
+          <p className="mt-3 border-t border-amber-500/20 pt-3 text-sm leading-relaxed text-slate-400">
+            這兩種可能接連發生，但它們不是彼此的必要條件：沒有被注入指令，權限給太大一樣會出事。
+            <span className="ml-1 text-slate-500">
+              真的發生過：2026/01，Claude Code 的 GitHub 自動化，待辦單標題裡藏一句指令，雲端金鑰被送了出去。
+            </span>
+            <a
+              href="https://flatt.tech/research/posts/poisoning-claude-code-one-github-issue-to-break-the-supply-chain/"
+              target="_blank"
+              rel="noreferrer"
+              className="ml-2 whitespace-nowrap text-xs text-slate-600 hover:text-slate-300"
+            >
+              GMO Flatt Security <ExternalLink size={10} className="inline" aria-hidden="true" />
+            </a>
+          </p>
         </AnimatedBlock>
 
         <Callout
           tone="focus"
-          stepIndex={4}
+          stepIndex={6}
           footnote={
             <>
-              前面那份 OWASP Top 10 管的是一般網站，上面這兩類不在裡面。
-              接了 AI 的部分 OWASP 另外出了一份，叫
+              接了 AI 的部分，OWASP 另外出了一份
               <a
                 href="https://genai.owasp.org/llm-top-10/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-sky-400 hover:text-sky-300 inline-flex items-center gap-1"
+                className="inline-flex items-center gap-1 text-sky-400 hover:text-sky-300"
               >
                 {' '}
-                OWASP Top 10 for LLM Applications <ExternalLink size={11} />
+                OWASP Top 10 for LLM Applications（2025 版） <ExternalLink size={11} />
               </a>
-              ，上面這兩類就是從那一份來的。
+              ，上面這兩種都在那一份裡。它是一份檢查清單，不是安全驗收，也不是法遵認證。
             </>
           }
         >
-          判斷的方式還是那兩題：<strong className="text-slate-100">它碰得到多大的範圍，
-          哪些動作要先問過你</strong>。放手讓 Claude 自己跑之前你問過一次，
-          現在管的對象換成你做出來的東西。
+          限制資料來源、降低系統權限、影響大的動作要人核准，而且留得下執行紀錄。
+          <span className="mt-2 block text-slate-400">
+            三件事要分清楚：指示不是權限管理機制；AI Review 通過不等於拿到正式的執行授權；
+            不可信的文件裡寫的東西，不該被當成系統或使用者的指令。
+          </span>
         </Callout>
+
       </div>
     </SlideLayout>
   );

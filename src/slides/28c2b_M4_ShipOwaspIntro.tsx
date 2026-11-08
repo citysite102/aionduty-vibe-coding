@@ -1,152 +1,149 @@
-import { BookOpen, Users, RefreshCw, BarChart3, ExternalLink } from 'lucide-react';
+import { ShieldQuestion, Globe, Bot, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
-import { Callout } from '../components/Callout';
 
 /**
- * 2026-10-20 新增（講師：OWASP 本身也要教）。
+ * 單元 8-5 第四頁。上一頁把驗收拆成功能、品質、安全三個面向，
+ * 這一頁回答其中安全那一面要參考哪些風險分類，下一頁才動手做第一輪審查。
  *
- * 位置是刻意的：排在風險數字（`28c2`）與五條對照（`28c3`）中間。
- * `28c3` 的職務是「我做過的那幾件事有名字」，它需要讀者已經知道 OWASP 是什麼；
- * 原本那一頁只用一句話帶過（「外面有一份公認的清單在收」），
- * 不寫程式的學員聽完還是不知道那是誰出的、憑什麼算數。
+ * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
+ * 這一頁只要讓學員理解三件事：
+ *   1. 網站自身的漏洞，與替你開發的 Agent 被不可信內容誤導，是兩種不同的風險
+ *   2. OWASP 提供可以參考的風險分類與資源
+ *   3. Top 10 是認識風險的起點，不是完整的安全測試，也不是認證
+ * **不要在這一頁教 OWASP 的歷史與研究方法。**
  *
- * **這一頁只講清單本身，不要把十條搬過來。** 十條全列會變成一頁要背的東西，
- * 而對照那五條是下一頁的工作（`28c3` 的檔頭有寫為什麼只標五條）。
+ * ── 整塊拿掉的，不要加回來 ──────────────────────────────
+ *   1. 〈這份清單的來歷〉三欄（誰出的、十條怎麼排出來的、多久換一次），
+ *      連同 2001 年、13 家公司、280 萬個應用、589 種弱點那幾個數字。
+ *      那是組織沿革與研究方法，佔掉整頁一半，而學員在這一頁用不到；
+ *      而且那幾個數字沒有重查就不該再印（C-1）。
+ *   2. 〈三件不要誤會的事〉整塊。它要擋的誤讀改由頁尾那一句承擔。
+ *   3. MITRE CWE Top 25 與 OWASP ASVS。它們是同類清單，放在這裡會讓學員
+ *      以為這一頁在比較清單。要的話放延伸閱讀。
+ * 版本與名稱會改這件事，壓成頁尾一行輔助文字。
  *
- * 跟下一頁的分工要守住（B-5）：下一頁的口白**已經錄過**「公司的 IT 跟資安照它在看東西」
- * 與「能說我照 OWASP 過一遍，被對待的方式會不一樣」這兩句，所以這一頁不要再講一次。
- * 這一頁負責的是影片裡沒有的那幾件：誰出的、免費公開、它講的是類型不是你的 bug 清單、
- * 不是法律也不是證照、AI 應用另有一份。
+ * 兩個對照案例保留，但說法改精準了：
+ *   左邊是**網站本身的安全缺陷**（功能正常，但沒有保護好使用者的資料與功能）
+ *   右邊是 **LLM／Agent 系統處理不可信內容與執行權限時的風險**
+ * **不要寫成「兩份 Top 10 涵蓋了所有 Agent 安全問題」**，它們沒有。
  *
  * ── C-1 ──────────────────────────────────────────────
- * 最後查證：2026-10-20，對照 owasp.org/about/ 與 owasp.org/www-project-top-ten/。
- * 當時的現況：
- *   - owasp.org/about：「a 501(c)(3) nonprofit foundation that works to improve the
- *     security of software」、「All of our projects, tools, documents, forums, and
- *     chapters are free and open to anyone interested in improving application security」。
- *     2001-12-01 啟動，2004-04-21 正式立案。
- *   - Top 10 現行版是 2025（上一版 2021，所以畫面上寫「幾年一次」不寫固定年數）。
- *   - 2026-10-31 補查資料基礎（講師：這些敘述不夠有公信力），來源 top10.owasp.org/2025
- *     的 Introduction：13 家機構提供資料（Accenture、Bugcrowd、Contrast Security、
- *     CryptoNet Labs、Intuitor SoftTech、Orca Security、Probely、Semgrep、Sonar、usd AG、
- *     Veracode、Wallarm 加匿名捐贈者），資料涵蓋 "over 2.8 millions applications"，
- *     分析 589 個 CWE、十類裡收了 248 個，十條中八條來自資料、兩條來自社群問卷。
- *     **畫面上那幾個數字要跟這一段對得上**，改版就要整組重查。
- *   - 同類清單：MITRE 的 CWE Top 25（列個別弱點）、OWASP 自己的 ASVS（逐項查核）。
- *     NIST SP 800-218（SSDF）是流程面的，不是查核清單，所以畫面上不列。
- *   - AI 應用另有一份 Top 10 for LLM Applications（genai.owasp.org），2026-09 發布 2026 版；
- *     Agent 系統還有 Top 10 for Agentic Applications 與 Agent Control Standard。
- *     **那一份的十條內容這一頁不印**，genai 站上的清單頁當時仍停在 2025 版，
- *     而公告只確認了「Excessive Agency 排第三」。要印條目先回站上確認版本。
- * 下次改版前先看 top10.owasp.org 有沒有出新版，新版出來這三張卡的數字全部要重查。
- * ─────────────────────────────────────────────────────
+ * 最後查證：2026-11-08。top10.owasp.org/2025 現行版是 2025；
+ * genai.owasp.org/llm-top-10/ 當天列的也是 2025 版，提示注入與過度授權都在裡面。
+ * **畫面上只寫清單名稱與涵蓋哪幾類風險，不寫條目編號**，改版編號會動。
  *
- * 強調色只有 sky。收尾的 focus 不計入（A-1）。
+ * 四頁的分工（改任何一頁之前先看，B-6）：
+ *   203 這一頁：要參考哪些安全風險分類
+ *   204 怎麼把網站那一邊變成 Agent 跑得了的第一輪審查
+ *   205 除了 AI Review 還有哪些驗證方式
+ *   206 Agent 自己能讀、能判斷、能執行到什麼程度
+ * **這一頁不要先把後面三頁的內容講掉。**
+ *
+ * 用色：只有 sky 一種（A-1）。這一頁是在認識框架，**不要用警告色框**。
  */
 
-const FACTS = [
+const CASES = [
   {
-    icon: Users,
-    title: '誰出的',
-    body: '一個非營利基金會，2001 年開始運作。它不賣產品，做的是把軟體資安的知識整理成文件與工具。',
-    foot: '所有東西免費公開，不用註冊也不用付錢。',
+    icon: Globe,
+    side: '網站本身的安全',
+    k: '會員資料被越權存取',
+    scene: '網站功能都正常，但把網址裡的會員編號改成別人的，就可能看到別人的資料。',
+    q: '這個應用程式有沒有保護好使用者的資料與功能？',
+    list: 'OWASP Top 10 for Web Applications',
   },
   {
-    icon: BarChart3,
-    title: '十條怎麼排出來的',
-    body: '2025 版用 13 家資安公司（Veracode、Sonar、Contrast、Accenture 等）提供的資料，涵蓋超過 280 萬個應用的實測結果，從 589 種弱點類型歸成十類。',
-    foot: '十條裡八條是從這份資料排出來的，另外兩條來自公開問卷。',
+    icon: Bot,
+    side: 'AI Agent 的安全',
+    k: '外部文件裡的指令被執行',
+    scene: 'Agent 正在整理一批外部文件，其中一份要求它忽略原本的規則，把資料寄到另一個信箱。',
+    q: '不可信的資訊會不會改變 Agent 的行為，造成越權的操作？',
+    list: 'OWASP Top 10 for LLM Applications',
+  },
+];
+
+const LISTS = [
+  {
+    k: 'Web Application Top 10 · 2025',
+    v: '涵蓋存取控制、安全設定、身分驗證、供應鏈等網站本身的安全風險。',
+    href: 'https://top10.owasp.org/2025/',
   },
   {
-    icon: RefreshCw,
-    title: '怎麼用、多久換一次',
-    body: '它給的是「類型」，不是你專案裡的具體問題，所以用法是拿每一條回頭問自己的專案。幾年一版，現行是 2025，上一版是 2021。',
-    foot: '改版時條目的編號與名稱都會動，看的時候先確認版本。',
+    k: 'LLM Applications Top 10 · 2025',
+    v: '涵蓋提示注入、敏感資訊揭露、過度授權等 LLM 應用的風險。',
+    href: 'https://genai.owasp.org/llm-top-10/',
   },
 ];
 
 export default function SlideShipOwaspIntro() {
   return (
     <SlideLayout
-      title="OWASP 是什麼：一份免費公開的資安清單"
-      subtitle="Open Worldwide Application Security Project"
-      icon={BookOpen}
-      updated={{ date: '2026/11/01', kind: '新增' }}
+      title="網站與 Agent，各有什麼安全風險？"
+      subtitle="OWASP · Security References"
+      icon={ShieldQuestion}
     >
-      <div className="max-w-6xl mx-auto w-full min-h-full flex flex-col pt-2 pb-4">
-        {/*
-          2026-10-31（講師：談到資安，我們就必須要了解 OWASP）開場改寫。原本是
-          「那幾類資安問題不是只有你會遇到，外面早就有人把它們收成一份清單⋯」，
-          兩個問題：前半是鋪陳（刪掉讀者不少知道什麼），後半把「誰出的／多久換一次／
-          憑什麼算數」三件事寫成一個長句，而那正是底下三張卡的標題。
-          現在第一句直接下定義（講資安就會碰到的那份清單叫 OWASP Top 10），
-          第二句才講為什麼要先認識它。**不要再把三張卡的標題先列一次（D-5 區塊小標那一節）。**
-        */}
-        <p className="text-slate-300 text-base leading-relaxed mb-4">
-          講到資安，不管是公司的 IT、資安廠商還是外面的文章，指的幾乎都是同一份清單：
-          <strong className="text-slate-100">OWASP Top 10</strong>。
-        </p>
+      <div className="max-w-6xl mx-auto w-full space-y-5 pb-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-stretch mb-4">
-          {FACTS.map((f, i) => (
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
+          網站本身可能有安全漏洞，
+          <strong className="text-slate-100">替你開發網站的 Agent 也可能被不可信的內容誤導</strong>。
+          這是兩種不同的風險，要用不同的方式檢查。
+        </AnimatedBlock>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {CASES.map((c, i) => (
             <AnimatedBlock
-              key={f.title}
-              stepIndex={i + 1}
-              className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col"
+              key={c.list}
+              stepIndex={i + 2}
+              className="rounded-2xl border border-slate-800 bg-slate-900 p-5"
             >
-              <h3 className="text-lg font-bold text-slate-100 flex items-center gap-3 mb-3">
-                <span className="w-9 h-9 shrink-0 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center">
-                  <f.icon size={18} aria-hidden="true" />
-                </span>
-                {f.title}
-              </h3>
-              <p className="text-slate-300 text-base leading-relaxed mb-3">{f.body}</p>
-              <p className="mt-auto pt-3 border-t border-slate-800 text-sm leading-relaxed text-slate-500">
-                {f.foot}
+              <div className="flex items-center gap-2">
+                <c.icon aria-hidden="true" size={16} className="shrink-0 text-sky-400" />
+                <span className="font-mono text-xs uppercase tracking-wider text-slate-500">{c.side}</span>
+              </div>
+              <h3 className="mt-1.5 text-base font-bold text-slate-100">{c.k}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate-400">{c.scene}</p>
+              <p className="mt-2.5 border-t border-slate-800 pt-2.5 text-sm leading-relaxed text-sky-200/90">
+                {c.q}
               </p>
+              <div className="mt-1.5 font-mono text-xs leading-relaxed text-slate-500">{c.list}</div>
             </AnimatedBlock>
           ))}
         </div>
 
-        {/*
-          2026-11-01 label 從「兩件」改成「三件」（講師）。2026-10-31 補上「同類的清單
-          不只這一份」那一段之後，標題的數字沒有跟著改（D-6e 的數量宣稱），逐字稿那一段
-          也是「最後兩件」接著念第一、第二、第三。**再加一段進來就要再數一次。**
-        */}
-        <Callout
-          tone="focus"
-          label="三件不要誤會的事"
-          stepIndex={4}
-          footnote={
-            <>
-              網站應用看 Top 10；作品有接 AI 的話，另外有一份 Top 10 for LLM Applications，
-              後面會講到。清單本體在{' '}
-              <a
-                href="https://owasp.org/www-project-top-ten/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-sky-400 hover:text-sky-300 inline-flex items-center gap-1"
-              >
-                owasp.org <ExternalLink size={11} />
-              </a>
-            </>
-          }
-        >
-          <p className="mb-2">
-            <strong className="text-slate-200">它不是法律，也不是證照。</strong>
-            沒有人會來查你有沒有照做，它的份量來自業界都在用它當共同的講法。
+        <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+          <p className="text-sm leading-relaxed text-slate-300">
+            <strong className="text-slate-100">OWASP</strong> 是一個推動軟體安全的非營利組織，
+            提供開放的安全知識、風險分類與實務參考資料。上面那兩種風險，各自有一份清單。
           </p>
-          <p className="mb-2">
-            <strong className="text-slate-200">讓 AI 照著十條讀完，也不等於安全。</strong>
-            它收的是最常見的那幾類，十條之外還是會有問題，只是不會是這十類裡的。
+          <dl className="mt-3 grid grid-cols-1 gap-x-6 gap-y-3 border-t border-slate-800 pt-3 md:grid-cols-2">
+            {LISTS.map((l) => (
+              <div key={l.k}>
+                <dt>
+                  <a
+                    href={l.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 text-sm font-bold text-sky-400 hover:text-sky-300"
+                  >
+                    {l.k} <ExternalLink size={11} aria-hidden="true" />
+                  </a>
+                </dt>
+                <dd className="mt-0.5 text-sm leading-relaxed text-slate-400">{l.v}</dd>
+              </div>
+            ))}
+          </dl>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={5} className="border-t border-slate-800 pt-4">
+          <p className="text-base font-bold leading-relaxed text-slate-100">
+            Top 10 幫你知道該注意哪些風險，但它代替不了完整的安全驗證。
           </p>
-          <p>
-            <strong className="text-slate-200">同類的清單不只這一份。</strong>
-            MITRE 的 CWE Top 25 列的是一個一個的弱點，比十類細；
-            OWASP 自己另有一份 ASVS，是要逐項查核時用的版本。
-            你現在用 Top 10 就夠，知道對方提到別的名字時不是在講不一樣的事。
+          <p className="mt-1 text-sm leading-relaxed text-slate-400">
+            OWASP 的資源不只這兩份，這兩份也沒有涵蓋 Agent 的所有安全問題。
+            <span className="text-slate-500">版本與條目的名稱會更新，看的時候先確認你讀的是哪一版。</span>
           </p>
-        </Callout>
+        </AnimatedBlock>
+
       </div>
     </SlideLayout>
   );

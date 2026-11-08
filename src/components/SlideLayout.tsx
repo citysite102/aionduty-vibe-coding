@@ -100,8 +100,16 @@ export function SlideLayout({
             </span>
           </div>
         )}
-        <h1 className="text-3xl md:text-5xl font-bold text-slate-100 flex items-center gap-4">
-          {Icon && <Icon aria-hidden="true" className="w-10 h-10 md:w-12 md:h-12 text-sky-400" />}
+        {/*
+          字級分三階，**不要改回 `text-3xl md:text-5xl`**（2026-11-09）。
+          原本 md（768px）就跳到 48px，但內容區是 `max-w-6xl` 減掉 `px-16`，
+          視窗一千像素左右時標題只剩約 808px 可用，48px 的字放得下約 34 個半形寬，
+          而 CLAUDE.md D-5 的上限寫的是 40（那是視窗 1152px 以上才成立的數字）。
+          結果是全片二十幾個 37 到 40 寬的標題在那個視窗全部折行，而折行會吃掉內容區的高度。
+          改成 xl（1280px）才用 48px，中間那一段用 36px，兩邊都放得下。
+        */}
+        <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold text-slate-100 flex items-center gap-4">
+          {Icon && <Icon aria-hidden="true" className="w-10 h-10 md:w-11 md:h-11 xl:w-12 xl:h-12 text-sky-400" />}
           {title}
         </h1>
       </div>

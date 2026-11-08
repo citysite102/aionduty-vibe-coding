@@ -130,11 +130,11 @@ export const UNIT_DEFS: UnitDef[] = [
   { live: 145, title: '東京環状 24 時：互動設計與策展網站實作', anchor: '案例二：東京環状 24 時' },
   { live: 149, title: 'Vessel 預約系統：串接資料庫與管理使用者資料', anchor: '案例三：開窯預約' },
   { live: 154, title: '海上神社：整合信件服務、資料庫、API 與動畫', anchor: '案例四：海上許願神社' },
-  // 結語那一頁（未來的工作者）2026-10-27 併進這一支，不再自成一個單元：
+  // 結語那一頁（從做出作品，到建立能反覆交付的工作系統）2026-10-27 併進這一支，不再自成一個單元：
   // 它只有一頁，而這一支講的正是「回去之後做什麼」，結語就是它的收尾。
-  { live: 161, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '接下來可以嘗試的幾個選擇' },
+  { live: 161, title: '規劃你的專案：定義功能、驗收條件與資安要求', anchor: '從自己的工作中，找出值得交給 Agent 的事' },
 
   // ── 第九章 補充單元：終端機與 Claude Code 操作基礎 ──
-  { live: 171, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
-  { live: 174, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
+  { live: 174, title: '認識終端機：理解指令、路徑與檔案操作', anchor: '終端機與 Claude Code 操作基礎' },
+  { live: 177, title: '安裝 Claude Code：完成環境設定與第一次操作', anchor: 'Claude Code 終端機版本配置' },
 ];

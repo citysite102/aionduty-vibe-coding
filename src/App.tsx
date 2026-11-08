@@ -179,12 +179,15 @@ import SlideCase4Judgements from './slides/29n_Case4_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
 import Slide28b from './slides/28b_M4_FirstDay';
 import Slide28c2 from './slides/28c2_M4_ShipRisk';
+import Slide28c1 from './slides/28c1_M4_ShipEvidence';
 import Slide28c2b from './slides/28c2b_M4_ShipOwaspIntro';
 import Slide28c3 from './slides/28c3_M4_ShipOwasp';
 import Slide28c3b from './slides/28c3b_M4_ShipScan';
 import Slide28c3c from './slides/28c3c_M4_ShipAiRisk';
 import Slide28d from './slides/28d_M4_ProjectMemory';
-import Slide28e from './slides/28e_M4_ToolBoundary';
+import Slide28d2 from './slides/28d2_M4_CodeIndex';
+import Slide28e from './slides/28e_M4_WhenToAdd';
+import Slide28f from './slides/28f_M4_MemoryQuiz';
 import Slide33 from './slides/33_Outro';
 import SlideDivCases from './slides/29_Div_Cases';
 import { REPLACEMENTS } from './slides-recorded/registry';
@@ -353,16 +356,19 @@ const LIVE_TITLES = [
   "背景音樂、登入、資料庫、對外 API 與寄信",
   "系統架構：三個入口，權限都在資料庫",
   "AI 無法幫你決定的事情",
-  "接下來可以嘗試的幾個選擇",
-  "新專案的前置作業",
-  "會動了不等於做完：三組掃描數字",
-  "OWASP 是什麼：一份免費公開的資安清單",
-  "OWASP Top 10：課程已談過五種",
-  "三種檢查：自己掃、請 AI 看、外部單位測試",
-  "作品接了 AI，會多出哪兩類風險",
-  "專案規模增加的 Agent 成本",
-  "同樣的命題，不同的解決策略",
-  "未來的工作者",
+  "從自己的工作中，找出值得交給 Agent 的事",
+  "把工作拆成可交辦、可驗收的流程",
+  "AI 說完成了，我們該怎麼驗收？",
+  "安全問題有多常見：三份調查與一個案例",
+  "網站與 Agent，各有什麼安全風險？",
+  "讓 Agent 幫你做第一輪網站安全檢查",
+  "Agent 寫完程式，怎麼確認沒有留下問題？",
+  "Agent 能讀、能判斷、能執行，不代表該放行",
+  "專案變大後，為什麼 Agent 開始忘東忘西？",
+  "檔案一多，Agent 怎麼找到需要的程式碼？",
+  "加記憶或索引工具之前，先確認瓶頸",
+  "判斷題：維護三個月的網站，先做哪一件",
+  "從做出作品，到建立能反覆交付的工作系統",
   "終端機與 Claude Code 操作基礎",
   "選修：終端機基本指令",
   "選修：Warp 終端機的三個特點",
@@ -536,12 +542,15 @@ const LIVE_SLIDES = [
   Slide28b0,
   Slide28b,
   Slide28c2,
+  Slide28c1,
   Slide28c2b,
   Slide28c3,
   Slide28c3b,
   Slide28c3c,
   Slide28d,
+  Slide28d2,
   Slide28e,
+  Slide28f,
   Slide33,
   Slide07b,
   Slide10,
@@ -582,7 +591,7 @@ const SECTION_DEFS = [
   { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
   { start: 109, label: 'Loop 與 Graph Engineering：從自動迭代到工作流程設計' },
   { start: 140, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 171, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 174, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

@@ -1,235 +1,179 @@
-import { Rocket, FolderPlus, FileText, ListChecks, ScrollText, LifeBuoy, Repeat } from 'lucide-react';
+import { Rocket, UserCheck } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
- * 2026-10-31 第 3 步補上「會算數的部分請它寫一支跑得動的檢查」。那一句原本放在
- * 上一頁（`28b0_M4_PickTopic`）一塊叫〈規格談定之後，還有兩件事〉的區塊裡，
- * 但那一塊的另一半跟這一頁第 4 步重複（講師指出），整塊拿掉，這一句搬過來（B-5）。
+ * 單元 8-5 第二頁。上一頁挑好題目，這一頁是第一次把它跑成一套流程。
  *
- * 2026-10-31 四步的說明從散文改成條列（講師：敘述太長）。原本每一步都是三、四句
- * 黏成一段，而這一頁是學員回去照著做的那一頁，他要的是一條一條的動作。
- * **要補東西就加一條，不要接回句尾。**
+ * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
+ * **六個階段的完整說明不在這一頁**（上一版在這裡橫排了六格加兩條回頭的線）。
+ * 那份說明現在只在結語那一頁，這兩頁的職務是把它用到學員自己的工作上：
+ * 上一頁選題，這一頁做第一次。四個步驟右邊標的階段名是索引，不是重新定義。
+ *
+ * ── 黃色那塊〈卡住的時候，三招〉整個拿掉了，不要加回來 ──────────────
+ * 三個理由，講師指定：
+ *   1. 它是特定工具的操作技巧（按 Esc、貼錯誤訊息、開新對話），
+ *      跟這一頁在講的工作管理原則不是同一層級。
+ *   2. 它會讓人以為 Esc 救得回已經發生的修改與外部副作用。**救不回來。**
+ *   3. 它不是 Recover 的完整概念。真正的 Recover 是現在那一塊：
+ *      停在哪裡、怎麼恢復、什麼時候交給人。
+ * 要留那三招的話，放課後的操作指引或 FAQ，不要放回正式投影片。
+ *
+ * ── 文件分工那一塊 ────────────────────────────────────
+ * 上一版只教「每次都要重講的那幾句寫進 `CLAUDE.md`」，學員會把規格、進度、做法全塞進去。
+ * 現在分四種：`CLAUDE.md`（跨任務仍然有效的指引與規則）、規格文件（這一次做什麼）、
+ * 進度文件（現在到哪）、Skill（真的會跨任務重用的做法）。
+ * **只給最小示例**，完整的記憶分層是 Slide 207 的事，不要在這裡重講一遍。
+ *
+ * ── 收尾那一句 ───────────────────────────────────────
+ * 「第一次跑成功，不代表流程已經建立」是講師指定的原句。底下那一行也不要刪：
+ * **再跑一次不是要它輸出一模一樣的字**，是要結果仍然符合你寫的驗收條件。
+ * 少了那一句，學員會拿「輸出不一樣」當成流程壞掉。
+ *
+ * 影響大的動作要先問過的那個虛線框保留（講師 2026-11-08 指定的三件之一），
+ * 它跟 Slide 206 的行動邊界是同一條，**搬頁的時候兩邊一起看**。
+ *
+ * 標題砍過字：講師原句「第一次實作：把一件工作變成可重複執行的流程」量起來 46 寬，
+ * 超過 D-5 的 40。現在這句 38 寬。
+ *
+ * 用色：sky（步驟編號與 Recover）一種。`CLAUDE.md`、`SKILL.md` 的 orange 是專有名詞，不計入。
  */
-const STEPS: {
-  icon: typeof FolderPlus;
-  title: string;
-  body: string[];
-  codeLabel?: string;
-  code: string[] | null;
-}[] = [
+
+const STEPS = [
   {
-    icon: FolderPlus,
-    title: '1. 開一個資料夾，把它叫起來',
-    body: [
-      '題目挑好之後，先開一個空資料夾放它',
-      '桌面版：開 Code 頁籤，選那個資料夾',
-      '終端機：cd 進去，輸入 claude',
-      '兩邊是同一個 Claude Code，挑你順手的那個',
-    ],
-    codeLabel: '走終端機的話：',
-    code: ['$ mkdir my-project && cd my-project', '$ claude']
+    n: '01',
+    k: '建立工作環境',
+    stage: 'Define 之前',
+    v: '開一個專案資料夾，準備一份安全的測試資料，確認這一輪會用到哪些工具、它有哪些權限。',
+    code: ['$ mkdir my-project && cd my-project', '$ claude'],
   },
   {
-    icon: FileText,
-    title: '2. 寫清楚你要什麼',
-    body: [
-      '先寫一份規格再開工，三到五行就夠',
-      '要寫的是：要做什麼、不做什麼、做完要長什麼樣',
-      '案例一那七塊是完整版，第一次寫不出來就先寫底下這三行',
-    ],
-    codeLabel: '貼給它之前，自己先答得出這三行：',
-    code: ['- 要做什麼：給誰用、解決哪一件事', '- 不做什麼：這一輪先不碰的東西', '- 完成條件：做完我會去點哪裡、看到什麼才算過']
+    n: '02',
+    k: '確認規格與執行計畫',
+    stage: 'Define · Plan',
+    v: '請它先整理出工作範圍、輸入、產出、限制與驗收條件，你核准之後才開始執行。',
+    code: null,
   },
   {
-    icon: ListChecks,
-    title: '3. 讓它做出第一版，你自己點一次',
-    body: [
-      '規格給它，請它做一個跑得起來的第一版，一次只交代一件事',
-      '做完先看它改了哪幾行：問它，或打開 VS Code 左側的原始檔控制',
-      '自己點過一次，再交代下一件',
-      '會算數的部分（數字、金額、日期）請它另外寫一支跑得動的檢查，以後改完先跑它',
-    ],
-    code: null
+    n: '03',
+    k: '執行與驗收',
+    stage: 'Execute · Verify',
+    v: '從最小的那一塊開始，自己檢查實際成果，記下改了什麼、哪裡出錯、哪些還沒做完。',
+    code: null,
   },
   {
-    icon: ScrollText,
-    title: '4. 每次都要重講的那幾句，才寫進 CLAUDE.md',
-    body: [
-      '第一版做完，你會發現有幾句話每一輪都在講',
-      '把那幾句寫成 CLAUDE.md，之後每次進來它都會先讀',
-      '三行就可以上場，不用等它寫完整',
-    ],
-    code: ['- 一律用繁體中文回覆（這條之後可以搬去家目錄那一份，每個專案就不用再寫）', '- 改任何檔案前先說你要改什麼', '- 每次改完，把功能自己點過一次再回報']
-  }
+    n: '04',
+    k: '保存並重跑',
+    stage: 'Reuse',
+    v: '把跨次任務仍然有效的規則存進專案文件，換第二批測試資料再跑一次，確認不必把規則重講一遍。',
+    code: null,
+  },
 ];
 
-/**
- * 2026-10-24（講師）：第 2 步原本是「第一件事不是寫功能，是寫規則」，叫學員一開工就建
- * CLAUDE.md。講師說順序不對：**先有規格，試著產出，再搭配 CLAUDE.md**。
- * 這也跟課程自己的案例一致：案例一的課前作業是寫規格，案例四是階段 1 先做出第一版、
- * 階段 2 才盤點並建立 CLAUDE.md。三個動作因此變成四個，標題跟著改。
- * **不要把 CLAUDE.md 搬回第 2 步。** 手冊還沒有東西可以對照的時候，那幾條規則是憑空想的。
- *
- * 2026-10-09：程式碼區塊的字色從 emerald 改成 slate。那個 emerald 沒有語意，
- * 只是「程式碼看起來該是綠的」的慣例，但它讓這一頁變成 sky ＋ amber ＋ emerald 三種強調色
- * （A-1 上限兩種，orange 的 /usage 不計）。**不要改回綠色。**
- */
-
-/**
- * 2026-10-03 換掉第三條。原本是「一直卡同一個問題：不是它笨，是範圍太大。
- * 跟它說『先停，這輪只做某某一件事』」，跟前一頁（Slide 171）的 warn 一字不差，
- * 而且是相鄰兩頁、同一個單元。換成「它說做完了」那一條：
- * 那是全片最強調的驗收動作（Slide 152、153 各講過一次），但回去之後的速查清單裡沒有。
- * 三條現在各對一種失敗：跑歪了、出錯了、它說做完了但沒真的驗。
- */
-const STUCK = [
-  { k: '它跑歪了', v: '按 Esc 停下來。想退回更早的狀態，輸入框空著時連按兩次 Esc。' },
-  { k: '出現紅字', v: '整段複製貼回去，加一句「用白話解釋這在說什麼，我不看程式碼」。' },
-  { k: '它說做完了', v: '自己再點一次。它有可能用講的宣稱驗過了，卻沒有真的跑。' }
+/** 四種文件的分工。**只給最小示例**，完整的記憶分層是 Slide 207 的事。 */
+const DOCS = [
+  { k: 'CLAUDE.md', mono: true, v: '跨次任務仍然有效的專案指引與工作規則', eg: '一律用繁體中文回覆；改任何檔案前先說你要改什麼' },
+  { k: '規格文件', v: '這一次要做什麼、不做什麼，以及驗收條件', eg: '' },
+  { k: '進度文件', v: '現在做到哪、哪些還沒完成、哪些等你確認', eg: '' },
+  { k: 'Skill', mono: true, v: '真的會跨任務重用的那套做法', eg: '' },
 ];
 
-/** 從「一輪」變成「循環」差的頭尾三件。原本是獨立的一頁（`28c_M4_RunItAgain`），
- *  2026-10-10 那一頁刪掉，內容壓成三格搬到這裡。要再加東西就該考慮拆回去。 */
-const LOOPING = [
-  {
-    tag: '輸入',
-    body: (
-      <>
-        要處理的東西固定放同一個資料夾，指令裡寫「讀{' '}
-        <code className="font-mono text-slate-300">data/</code>{' '}
-        底下這個月的檔案」，不要把內容貼進對話。
-      </>
-    ),
-  },
-  {
-    tag: '產物',
-    body: (
-      <>
-        結果固定寫成{' '}
-        <code className="font-mono text-slate-300">reports/2026-09.md</code>{' '}
-        這種檔名。寫在對話裡的東西，關掉視窗就沒了。
-      </>
-    ),
-  },
-  {
-    tag: '再跑一次',
-    body: (
-      <>
-        請它把這一輪的做法整理成一份{' '}
-        <code className="font-mono text-orange-300">SKILL.md</code>
-        ，下次你說「用這個跑這個月的」它就展開。
-      </>
-    ),
-  },
+const RECOVER = [
+  { n: '1', k: '停在哪裡', v: '已經完成了什麼？哪些操作已經生效，收不回來了？' },
+  { n: '2', k: '怎麼恢復', v: '修正、重試、回退，或是確認狀態之後安全地繼續。' },
+  { n: '3', k: '什麼時候交給人', v: '超過重試上限、狀態確認不了，或是需要一個重要決定。' },
 ];
 
 export default function SlideFirstDay() {
   return (
     <SlideLayout
-      title="新專案的前置作業"
-      subtitle="Your First Day After This Course"
+      title="把工作拆成可交辦、可驗收的流程"
+      subtitle="Your First Agent Workflow"
       icon={Rocket}
     >
-      <div className="max-w-6xl mx-auto text-left">
+      <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-5 items-start">
+        <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
+          選一個範圍小、風險低的任務，
+          <strong className="text-slate-100">把一次交辦、一次驗收，加上第二次執行走完。</strong>
+        </AnimatedBlock>
 
-          <div className="grid grid-cols-1 gap-4">
-            {STEPS.map((step, idx) => {
-              const Icon = step.icon;
-              return (
-                <AnimatedBlock
-                  key={step.title}
-                  stepIndex={idx + 1}
-                  className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex gap-4 items-start"
-                >
-                  <div className="p-2.5 bg-sky-500/10 text-sky-400 rounded-xl shrink-0">
-                    <Icon size={20} />
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="text-base font-bold text-slate-100 mb-1.5">{step.title}</h4>
-                    <ul className="space-y-0.5">
-                      {step.body.map((b) => (
-                        <li key={b} className="flex gap-2 text-sm text-slate-400 leading-relaxed">
-                          <span className="shrink-0 text-slate-600">・</span>
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                    {step.codeLabel && (
-                      <div className="text-xs text-slate-500 mt-3">{step.codeLabel}</div>
-                    )}
-                    {step.code && (
-                      <div className={`bg-slate-950 border border-slate-800 rounded-xl px-4 py-2.5 font-mono text-sm text-slate-200 space-y-1 break-all ${step.codeLabel ? 'mt-1.5' : 'mt-3'}`}>
-                        {step.code.map((line) => (
-                          <div key={line}>{line}</div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </AnimatedBlock>
-              );
-            })}
-          </div>
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.15fr_1fr] items-start">
 
-          <div className="space-y-5">
-            <AnimatedBlock stepIndex={4} className="bg-gradient-to-b from-slate-900 to-amber-950/20 border border-slate-800 rounded-2xl p-5">
-              <h4 className="text-base font-bold text-amber-400 mb-4 flex items-center gap-2">
-                <LifeBuoy size={18} />
-                卡住的時候，三招
-              </h4>
-              <div className="space-y-3.5">
-                {STUCK.map((s) => (
-                  <div key={s.k}>
-                    <div className="text-sm font-bold text-slate-200 mb-0.5">{s.k}</div>
-                    <div className="text-sm text-slate-400 leading-relaxed">{s.v}</div>
+          <AnimatedBlock stepIndex={2} className="space-y-3">
+            {STEPS.map((s) => (
+              <div key={s.n} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-mono text-xs text-sky-400">{s.n}</span>
+                  <h3 className="text-base font-bold text-slate-100">{s.k}</h3>
+                  <span className="ml-auto font-mono text-xs uppercase tracking-wider text-slate-600">
+                    {s.stage}
+                  </span>
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">{s.v}</p>
+                {s.code && (
+                  <pre className="mt-2 overflow-x-auto rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-xs leading-relaxed text-slate-400">
+                    {s.code.join('\n')}
+                  </pre>
+                )}
+              </div>
+            ))}
+          </AnimatedBlock>
+
+          <div className="space-y-4">
+
+            <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
+              <h3 className="text-base font-bold text-slate-100">哪一句話該寫進哪一份</h3>
+              <p className="mt-1 text-sm leading-relaxed text-slate-500">
+                不是全部都塞進 <code className="font-mono text-orange-300">CLAUDE.md</code>。四種各有職務：
+              </p>
+              <dl className="mt-2.5 space-y-2 border-t border-slate-800 pt-2.5 text-sm leading-relaxed">
+                {DOCS.map((d) => (
+                  <div key={d.k} className="flex gap-2.5">
+                    <dt className={`w-24 shrink-0 ${d.mono ? 'font-mono text-orange-300' : 'font-medium text-slate-200'}`}>
+                      {d.k}
+                    </dt>
+                    <dd className="min-w-0 text-slate-400">
+                      {d.v}
+                      {d.eg && <span className="mt-0.5 block text-slate-600">例：{d.eg}</span>}
+                    </dd>
                   </div>
                 ))}
-              </div>
+              </dl>
+            </AnimatedBlock>
 
-              <div className="mt-5 pt-4 border-t border-slate-800 space-y-2">
-                <div className="text-sm font-bold text-slate-200">額度好像快用完了</div>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  輸入 <code className="text-orange-300 font-mono">/usage</code> 看還剩多少。
-                  快見底就先把手上這一輪收掉，不要在剩最後一點的時候開新的大工程。
+            <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+              <h3 className="text-base font-bold text-slate-100">失敗的時候，你要知道三件事</h3>
+              <ol className="mt-2.5 space-y-2">
+                {RECOVER.map((r) => (
+                  <li key={r.n} className="flex gap-2.5 text-sm leading-relaxed">
+                    <span className="font-mono text-sm font-bold text-sky-300">{r.n}</span>
+                    <p className="min-w-0 text-slate-400">
+                      <strong className="text-slate-200">{r.k}：</strong>
+                      {r.v}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-sky-500/40 px-3.5 py-2.5">
+                <UserCheck aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-sky-300" />
+                <p className="text-sm leading-relaxed text-slate-300">
+                  會寄出去、會付錢、會刪東西、會公開的那幾個動作，
+                  <strong className="text-slate-100">在流程裡就寫明要先問過你</strong>，不要靠當下記得攔。
                 </p>
               </div>
             </AnimatedBlock>
 
-            {/*
-              2026-10-10：〈輸入放同一個資料夾，產物寫同一個檔名〉整頁刪掉之後，
-              「一輪變循環」那三件事全片就只剩兩個零散的落點（題目那頁的 SKILL.md、
-              結語的「把重複的事寫成流程」），而那是章節七叫「循環」卻只教到「一輪」的缺口。
-              壓成一塊接在這裡。
-
-              **刻意不編進上面那四步。** 那四步是第一天，這一塊是第一次做完之後，不同階段。
-              2026-10-31 標題從〈新專案的前四個動作〉改成〈新專案的前置作業〉（講師），
-              數量詞不在標題上了，但這個分段的理由沒變，還是階段不同，**不要併進去編成第 5 步**。
-
-              2026-10-31（講師：這應該同樣可以放在右側）從整頁寬的最底下搬進右欄，
-              接在〈卡住的時候，三招〉底下。三張卡在 360px 的欄寬裡排不下三欄，改成直排。
-            */}
-            <AnimatedBlock stepIndex={5} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-              <div className="flex items-center gap-2.5 mb-2">
-                <Repeat aria-hidden="true" size={17} className="text-sky-400 shrink-0" />
-                <h4 className="text-base font-bold text-slate-100">四步跑完一次之後，讓它下次還叫得動</h4>
-              </div>
-              <p className="text-sm text-slate-400 leading-relaxed mb-3">
-                下個月同一件事再來，多數人會把整段話重貼一遍，
-                <strong className="text-slate-200">於是每個月都是從頭開始</strong>。差別在這三件：
-              </p>
-              <div className="grid grid-cols-1 gap-3">
-                {LOOPING.map((l) => (
-                  <div key={l.tag} className="rounded-xl border border-slate-800 bg-slate-900 p-4">
-                    <div className="font-mono text-sm font-bold text-sky-300 mb-1.5">【{l.tag}】</div>
-                    <p className="text-sm text-slate-400 leading-relaxed">{l.body}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedBlock>
           </div>
-
         </div>
+
+        <AnimatedBlock stepIndex={5} className="border-t border-slate-800 pt-4">
+          <p className="text-base font-bold leading-relaxed text-slate-100">
+            第一次跑成功，不代表流程已經建立。換一批資料還能照規格完成，才開始有重用的價值。
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-400">
+            再跑一次要確認的是：結果仍然符合你寫下來的驗收條件。輸出的文字可以不一樣。
+          </p>
+        </AnimatedBlock>
 
       </div>
     </SlideLayout>
