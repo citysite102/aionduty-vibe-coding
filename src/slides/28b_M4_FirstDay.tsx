@@ -4,10 +4,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 /**
  * 單元 8-5 第二頁。上一頁挑好題目，這一頁是第一次把它跑成一套流程。
  *
- * 開場那一句管的是「這一段在做的是什麼」：**交辦之前把範圍、產出與驗收條件寫下來，
- * 做完之後真的去對一遍。** 底下四步就是那件事的動作。
+ * 開場那一句就是兩個動作：**交辦之前把範圍、產出與驗收條件寫下來，做完之後真的去對一遍。**
+ * 它前面不要加任何一句交代（2026-11-09 講師退掉兩版）：
+ *   「Agentic Engineering 的重點在交辦與驗收：」← 定義下得太滿，理由見下一段。
+ *   「這一輪要練的動作：」← 後設導覽（D-2），講的是這一頁的職務，不是內容。
+ * **直接從動作那一句開始**，標題已經說過這一頁在做什麼了。
  *
- * **不要寫成「Agentic Engineering 的重點在交辦與驗收」**（2026-11-09 講師退掉）：
+ * 退掉第一版的理由：
  * 這門課自己的定義在 Slide 8，軸線有兩條（需求寫到多細、做完有沒有人檢查），
  * 而 Agentic Engineering 還包含它自己跑迴圈、用工具、失敗接得回來。
  * 把它壓成「交辦與驗收」是拿其中一面當全部。這一句只講這一輪要練的動作就好。
@@ -105,7 +108,6 @@ export default function SlideFirstDay() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這一輪要練的動作：
           <strong className="text-slate-100">交辦之前把範圍、產出與驗收條件寫下來，做完之後真的去對一遍。</strong>
           選一個範圍小、風險低的任務，把一次交辦、一次驗收，加上第二次執行走完。
         </AnimatedBlock>
