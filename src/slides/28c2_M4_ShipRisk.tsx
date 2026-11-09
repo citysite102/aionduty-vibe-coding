@@ -37,7 +37,33 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 三個面向是**這門課用的教學框架**，不是嚴格互斥的軟體品質標準，畫面上那一句要留著：
  * 同一件事可能同時算品質也算安全，重點是三種都要有人看。
  *
- * 用色：只有 sky 一種（A-1）。
+ * ── 2026-11-09 登入那一塊補上三格示意畫面 ────────────────────
+ * 病根：這一頁的論點是「安全那一層畫面上看不出來」，但它本來是用三行字講這件事。
+ * 現在三種驗收要求各配一格示意畫面，演的是**需求只寫了功能**的那個版本：
+ * 功能那一件做得出來，另外兩件沒有人交代，而三格看起來一樣正常。
+ *
+ * **三格一定要同時出現，不要做成一次看一格的切換。** 對照本身就是這一頁的論點，
+ * 一次只看一格就沒有對照了；而且這份投影片會輸出成 PDF 給學員（根目錄那一份），
+ * 預設只顯示一格等於 PDF 掉兩格。
+ *
+ * 三行驗收要求的原文一個字都沒動，只是從上下三列改成左右三欄。收尾那段**只刪了
+ * 開頭那一句**「同一個功能可能通過了功能測試，品質或安全那兩層還是有問題。」，
+ * 因為三格畫面現在在演同一件事，留著是同一句話講兩次。
+ * **「需求裡沒有寫的它不會做」那一句與後面報名頁面的例子沒有動**（見上面那一段）。
+ *
+ * 示意畫面裡**不要放姓名、電話這類假的個資**：1042 換成 1043 加幾條灰色色塊就說得完，
+ * 放了假個資學員要先分辨那是不是真的。`Shot` 是這一頁自己的小元件，不要搬成共用的，
+ * 它的尺寸是照這一頁剩下的高度調的（`SiteMock` 的 `BrowserFrame` 內距放不下）。
+ *
+ * ⚠ 三格讓這一頁長高了 60px，所以同一輪把外層間距收緊了（`space-y-4 pb-6` → `space-y-3 pb-4`、
+ * 三個面向那張表 `py-3.5` → `py-3`、登入那張卡 `p-5` → `p-4`），一個字都沒刪。
+ * 量過的高度（2026-11-09）：內容區 `scrollHeight` 803px，加上頁面自己的 244px
+ * （`pt-12`、標題區與 `pb-20`），**視窗高度低於約 1047px 就會需要捲動**，全螢幕 1080p 放得下。
+ * 改內容之後要再量一次：`document.querySelector('[data-slide-scroll]')` 的
+ * `scrollHeight` 加上 `innerHeight - clientHeight`。
+ *
+ * 用色：sky（三個面向）＋ 成對的 emerald／red（做得出來／沒做出來）兩種（A-1，
+ * 成對的 red 與 emerald 合計算一種）。
  */
 
 const ASPECTS = [
@@ -67,12 +93,81 @@ const ASPECTS = [
   },
 ];
 
-/** 同一個功能，三種驗收要求。**不要換成別的例子**，登入是學員都做過的。 */
+/** 同一個功能，三種驗收要求。**不要換成別的例子**，登入是學員都做過的。
+ *
+ *  `shot` 是「需求只寫了功能」時，那三件事各自長什麼樣：功能那一件寫進需求了所以做得出來，
+ *  另外兩件沒有人交代，所以畫面上看起來一樣正常。**三格一定要同時出現**，
+ *  這一頁的論點是同一個功能的三種結果擺在一起才成立，做成一次只看一格就沒有對照了。
+ *  三格也因此不走互動：預設就是全部，PDF 與講義拿到的是同一份。
+ *
+ *  `ok` 只分過與沒過，用的是 A-1 成對的 emerald／red，合計算一種強調色。
+ *  畫面裡**不要放姓名、電話這類假的個資**：換編號就看得到別人的，用 1042 → 1043
+ *  與灰色資料條就說得完，放了假個資反而要學員先分辨那是不是真的。
+ *
+ *  ⚠ 品質那格的失敗訊息 2026-11-09 改過一次，**不要改回去**。原本寫的是畫面上出現
+ *  「登入失敗」、底下註記「沒說是帳號錯還是密碼錯」，當天由講師退掉：**那是反向的資安建議**。
+ *  登入失敗訊息本來就該是通用的，區分「帳號不存在」與「密碼錯」會讓人可以列舉出
+ *  哪些帳號存在（OWASP 的 Authentication 建議），而這一頁下一頁就要接 OWASP。
+ *  真正的品質問題是**把技術訊息丟給使用者**（401、JSON 錯誤、整頁沒反應），
+ *  也就是「帳密打錯有清楚的提示」裡那個「清楚」沒做到，不是「沒講是哪一個錯」。 */
 const LOGIN = [
-  { k: '功能', v: '帳號密碼正確，可以成功登入。' },
-  { k: '品質', v: '帳密打錯有清楚的提示，手機上也操作得順。' },
-  { k: '安全', v: '登入之後看不到別的會員的私人資料。' },
+  {
+    k: '功能',
+    v: '帳號密碼正確，可以成功登入。',
+    ok: true,
+    shot: { url: '/members/1042', who: '會員 1042', note: '登入成功，資料出得來' },
+  },
+  {
+    k: '品質',
+    v: '帳密打錯有清楚的提示，手機上也操作得順。',
+    ok: false,
+    shot: { url: '/login', form: true, err: '401 Unauthorized', note: '使用者看不懂，也不知道下一步' },
+  },
+  {
+    k: '安全',
+    v: '登入之後看不到別的會員的私人資料。',
+    ok: false,
+    shot: { url: '/members/', hot: '1043', who: '會員 1043', note: '網址換個編號，別人的就出來了' },
+  },
 ];
+
+/**
+ * 示意畫面。只畫瀏覽器殼、網址列與幾條色塊，**不要畫成真的介面**：
+ * 這裡要對比的是三格看起來一樣正常，不是版型好不好看。
+ * 內文色塊走 `SiteMock` 的慣例（不放真字），但網址與那一行紅字是這一格的重點，要印出來。
+ * 註記字級 `text-xs` 是 A-4 允許的「圖表註記」，不要拿它寫成段的句子。
+ */
+function Shot({ s }: { s: (typeof LOGIN)[number]['shot'] }) {
+  return (
+    <div className="overflow-hidden rounded-lg border border-slate-800 bg-slate-950">
+      <div className="flex items-center gap-1.5 border-b border-slate-800 bg-slate-900 px-2 py-1.5">
+        {[0, 1, 2].map((i) => (
+          <span key={i} className="h-1.5 w-1.5 rounded-full bg-slate-700" />
+        ))}
+        <span className="ml-1 min-w-0 flex-1 truncate rounded bg-slate-800 px-1.5 py-0.5 font-mono text-xs text-slate-400">
+          {s.url}
+          {'hot' in s && s.hot && <span className="text-red-400">{s.hot}</span>}
+        </span>
+      </div>
+      {/* 固定高度：三格的內容不一樣高（表單那格有兩個欄位），不固定的話底下那行註記會對不齊 */}
+      <div className="h-16 space-y-1.5 px-3 py-2.5">
+        {'form' in s && s.form ? (
+          <>
+            <div className="h-3.5 rounded border border-slate-800 bg-slate-900" />
+            <div className="h-3.5 rounded border border-slate-800 bg-slate-900" />
+            <div className="font-mono text-xs text-red-400">{s.err}</div>
+          </>
+        ) : (
+          <>
+            <div className="font-mono text-xs text-slate-300">{s.who}</div>
+            <div className="h-1.5 w-full rounded bg-slate-800" />
+            <div className="h-1.5 w-4/6 rounded bg-slate-800" />
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function SlideShipRisk() {
   return (
@@ -81,7 +176,7 @@ export default function SlideShipRisk() {
       subtitle="Functionality / Quality / Security"
       icon={ShieldAlert}
     >
-      <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
+      <div className="max-w-6xl mx-auto w-full space-y-3 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           網站打得開、功能點得動，只代表一部分的檢查通過。
@@ -90,7 +185,7 @@ export default function SlideShipRisk() {
 
         <AnimatedBlock stepIndex={2} className="divide-y divide-slate-800 rounded-2xl border border-slate-800 bg-slate-900">
           {ASPECTS.map((a) => (
-            <div key={a.en} className="grid grid-cols-1 gap-x-5 gap-y-1 px-5 py-3.5 md:grid-cols-[13rem_minmax(0,1fr)]">
+            <div key={a.en} className="grid grid-cols-1 gap-x-5 gap-y-1 px-5 py-3 md:grid-cols-[13rem_minmax(0,1fr)]">
               <div className="min-w-0">
                 <div className="flex items-baseline gap-2">
                   <span className="font-mono text-xs text-slate-600">{a.n}</span>
@@ -113,19 +208,32 @@ export default function SlideShipRisk() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
-          <h3 className="text-base font-bold text-slate-100">同一個會員登入功能，三種驗收要求</h3>
-          <dl className="mt-2.5 space-y-1 text-sm leading-relaxed">
+        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+          <h3 className="text-base font-bold text-slate-100">
+            同一個會員登入功能，三種驗收要求
+            <span className="ml-2 text-sm font-normal text-slate-500">需求只寫了功能的時候，畫面會長成這樣</span>
+          </h3>
+          <dl className="mt-2 grid grid-cols-1 gap-x-5 gap-y-2 text-sm leading-relaxed md:grid-cols-3">
             {LOGIN.map((l) => (
-              <div key={l.k} className="flex gap-3">
-                <dt className="w-10 shrink-0 font-bold text-sky-300">{l.k}</dt>
-                <dd className="min-w-0 text-slate-300">{l.v}</dd>
+              <div key={l.k} className="min-w-0">
+                <dt className="flex items-baseline gap-2">
+                  <span className="font-bold text-sky-300">{l.k}</span>
+                  <span className={`font-mono text-xs ${l.ok ? 'text-emerald-400' : 'text-red-400'}`}>
+                    {l.ok ? '做得出來' : '沒做出來'}
+                  </span>
+                </dt>
+                <dd className="mt-1 min-w-0">
+                  <span className="block text-slate-300">{l.v}</span>
+                  <span className="mt-1.5 block">
+                    <Shot s={l.shot} />
+                  </span>
+                  <span className="mt-1 block text-xs leading-relaxed text-slate-500">{l.shot.note}</span>
+                </dd>
               </div>
             ))}
           </dl>
           <p className="mt-2.5 border-t border-slate-800 pt-2.5 text-sm leading-relaxed text-slate-500">
-            同一個功能可能通過了功能測試，品質或安全那兩層還是有問題。
-            而它們之所以沒被做出來，多半是
+            它們之所以沒被做出來，多半是
             <strong className="text-slate-400">需求裡沒有寫</strong>：
             你說「做一個可以登記報名的頁面」，它就做了一個可以登記報名的頁面；
             沒有人交代「誰能讀、誰能改這些報名資料」，做出來的功能就可能少掉那道檢查。

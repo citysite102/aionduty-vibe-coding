@@ -35,7 +35,26 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   自動檢查含兩種，比對套件版本（不看程式碼）與照固定規則掃原始碼（靜態掃描、金鑰掃描）。
  *   **分界是「照既有名單或規則比對」對上「理解你的規格」**，不是讀不讀原始碼。
  *
- * 用色：sky（欄位標題）一種。三格不分輕重，所以不再有一格染底色。
+ * ── 2026-11-09 三格各補一行「它憑什麼判斷」（`by`）──────────────────
+ * 上面那條 2026-11-08 釐清的分界，原本**只存在於這段註解，以及第一格 `方法` 那一段的
+ * 第二句裡**。讀者要讀完三張卡、各四個欄位，才有機會自己歸納出來，而那正是講師當場
+ * 問錯的那一題。現在三格在同一個位置、用同一個句型各寫一句：
+ *   照既有的名單或規則比對 ／ 拿你的規格逐條去對 ／ 資安人員的判斷，加上實際測出來的結果
+ * 三句是同一個軸：**憑什麼當依據**。現成的名單、你寫的規格、人的判斷與實測結果。
+ * 第三句 2026-11-09 改過（講師：太抽象），原本是「有資格的人，在談好的範圍裡實際測試」，
+ * 那句只說了誰、在哪裡，沒說憑什麼。**不要寫成「實際攻擊」**：滲透測試在那一格是
+ * 「必要時」才做的選項，不是這一種檢查的全部（`方法` 那一欄就是這樣寫的）。
+ * 三句都是從那一格自己的 `方法`、`能發現`、`限制` 裡抽出來的，**沒有新增任何主張**。
+ *
+ * ⚠ 這一頁試過三種圖，三種都在第三格垮掉，**不要再試**：
+ *   1. 涵蓋範圍的重疊圖：文字只寫了各自「能發現」什麼，**沒有寫任何重疊**，
+ *      要畫就得自己判斷哪兩種重疊在哪（D-2 證明不了的斷言）。
+ *   2. 時間軸／頻率：前兩格成立，第三格的「看專案的風險、法遵或客戶要求」是**條件**
+ *      不是頻率，可能一次都不做，擺上時間軸等於替它編一個時機。
+ *   3. 卡片內的刻度條：同第 2 點，第三格的刻度擺在哪都是編的。
+ * 三格平行、結構一樣，本來就是這一頁對的形狀。
+ *
+ * 用色：sky（欄位標題與那一行 `by`）一種。三格不分輕重，所以不再有一格染底色。
  */
 
 const CHECKS = [
@@ -44,6 +63,7 @@ const CHECKS = [
     icon: ScanSearch,
     k: '自動化檢查',
     en: 'Automated Checks',
+    by: '照既有的名單或規則比對',
     when: '每次改完、提交之前，以及 CI 流程裡',
     how: '單元測試、Lint、靜態分析，加上相依套件與金鑰的掃描。共同點是照你寫好的測試、既有的規則或漏洞名單去跑：同一份程式碼、同一組規則與測試資料，結果重現得出來。',
     find: '測試沒過、已經被登記的漏洞，以及規則認得出來的寫法問題。',
@@ -54,6 +74,7 @@ const CHECKS = [
     icon: Bot,
     k: 'AI 輔助審查',
     en: 'AI-assisted Review',
+    by: '拿你的規格逐條去對',
     when: '重要功能做完或改完之後',
     how: '開另一輪沒有參與實作的 AI，拿你的規格、這次的程式碼變更與安全清單逐條去對。',
     find: '可能的邏輯問題、漏掉的情況，以及看起來可疑的寫法。',
@@ -64,6 +85,7 @@ const CHECKS = [
     icon: Swords,
     k: '專業安全驗證',
     en: 'Professional Security Validation',
+    by: '資安人員的判斷，加上實際測出來的結果',
     when: '看專案的風險、法遵或客戶要求',
     how: '專業的程式碼審查與安全測試，必要時做經過授權的滲透測試。',
     find: '在談好的測試範圍裡，真的可以被利用的弱點，以及權限與流程上的漏洞。',
@@ -81,8 +103,8 @@ export default function SlideShipScan() {
       <div className="max-w-6xl mx-auto w-full space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          三種檢查方式找得到的問題不一樣，
-          <strong className="text-slate-100">它們互相補足，照開發進度與專案風險安排就好。</strong>
+          三種檢查互相補足的是涵蓋範圍，
+          <strong className="text-slate-100">照開發進度與專案風險安排就好。</strong>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
@@ -100,7 +122,11 @@ export default function SlideShipScan() {
                 </h3>
               </div>
               <div className="font-mono text-xs leading-tight text-slate-600">{c.en}</div>
-              <dl className="mt-3 space-y-2 text-sm leading-relaxed">
+              {/* 它憑什麼判斷。三格同一個位置、同一個句型，分界才掃得出來（見檔頭）。
+                  樣式跟 `28c2` 的 `q`、`28c3c` 的 `q` 同一個（純 sky 文字），
+                  **不要加左側色條**（A-1，全片 2026-08-04 已經歸零）。 */}
+              <p className="mt-1.5 text-sm leading-relaxed text-sky-200/90">{c.by}</p>
+              <dl className="mt-2.5 space-y-2 text-sm leading-relaxed">
                 {[
                   ['時機', c.when, 'text-slate-400'],
                   ['方法', c.how, 'text-slate-400'],

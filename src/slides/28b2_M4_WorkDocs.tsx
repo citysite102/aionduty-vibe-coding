@@ -21,6 +21,21 @@ import { CopyBlock } from '../components/CopyBlock';
  * 進度進進度文件，真的會重用的做法才整理成 Skill。** 改一邊就要回去看另一邊。
  * Codex 用的是 `AGENTS.md`，畫面上要一起寫，**不要只寫 Claude 那一個**。
  *
+ * ── 2026-11-09 兩份文件補上檔名（講師）─────────────────────────
+ * 病根：底下那段開工指令叫學員「先讀 docs/spec.md 與 docs/progress.md」，但那兩個路徑
+ * **全片沒有任何一頁教過**。`progress.md` 更是只出現在那一段 Prompt 裡；`spec.md` 只在
+ * 單元 8-1 的口白出現過一次（「交出去的是一個叫 spec.md 的檔案」），畫面上沒有。
+ * 而這張表用的是中文類別名，一個檔名都沒給，所以學員讀到那段指令會不知道那兩個檔哪來的。
+ * 這正是 A-4 那條驗收沒過：**把複製鈕吃的那個字串單獨讀一遍，它自己說得通嗎**。
+ *
+ * 現在規格文件與進度文件各掛一個檔名，那段指令才有來源。`docs/` 的寫法跟章節六
+ * （`25d_M3_ProductTeam`、`26d_M3_QuoteSystemStandards`）同一套，學員見過。
+ * **8-1 的口白講的是沒有資料夾的 `spec.md`**，改這裡要順手看一眼那一支對不對得上。
+ *
+ * 檔名**走灰階，不要上橘色**：A-1 的 orange 只標產品專有名詞，而 `docs/spec.md`
+ * 是學員自己專案裡的檔案，不是 Claude 的東西（同一條擋掉 `git commit`、`.env`）。
+ * 四列裡兩個橘（`CLAUDE.md`、Skill）兩個灰，剛好就是「誰家的東西」那個分野。
+ *
  * 失敗三問與那個虛線框原樣搬過來。虛線框跟 8-6 最後一頁的行動邊界是同一條，
  * **搬頁的時候兩邊一起看**。
  *
@@ -37,11 +52,13 @@ const DOCS = [
   },
   {
     k: '規格文件',
+    file: 'docs/spec.md',
     v: '這一次要做什麼、不做什麼，以及驗收條件',
     eg: '只處理上個月的報表；合計要跟人工核對的答案一樣；缺日期的資料列出來，不要自己補',
   },
   {
     k: '進度文件',
+    file: 'docs/progress.md',
     v: '現在做到哪、哪些還沒完成、哪些等你確認',
     eg: '十筆對完八筆；兩筆缺日期，等你回覆要不要排除',
   },
@@ -75,8 +92,11 @@ export default function SlideWorkDocs() {
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          這一輪跑完了。
-          <strong className="text-slate-100">決定下一次還接不接得上的，是你把哪些東西留下來、以及它下次讀不讀得到。</strong>
+          這一輪跑完了。四份文件分屬兩層脈絡：
+          <strong className="text-slate-100">CLAUDE.md 每次開工自動讀進去，規格與進度文件要你叫它讀才會進來。</strong>
+          <span className="mt-1 block text-sm text-slate-500">
+            CLAUDE.md 是運作框架（Harness）裡的規則文件那一塊，另外兩份是這個專案的工作脈絡。
+          </span>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.25fr_1fr] items-start">
@@ -93,6 +113,10 @@ export default function SlideWorkDocs() {
                     {d.k}
                   </dt>
                   <dd className="min-w-0 text-slate-400">
+                    {/* 檔名走灰階等寬，**不要上橘色**：`docs/spec.md` 是你自己專案的檔案，
+                        不是 Claude 的東西（A-1 orange 只標產品專有名詞）。兩個橘的是 Claude 那邊的，
+                        兩個灰的是你自己的，這個對比本身就有用。 */}
+                    {d.file && <code className="mr-2 font-mono text-xs text-slate-300">{d.file}</code>}
                     {d.v}
                     <span className="mt-0.5 block text-slate-600">例：{d.eg}</span>
                   </dd>

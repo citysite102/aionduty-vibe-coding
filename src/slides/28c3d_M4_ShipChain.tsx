@@ -97,8 +97,8 @@ const TOOLS = [
     k: '基礎掃描',
     en: 'Rule-based',
     items: [
-      ['Semgrep', '靜態程式碼安全分析'],
-      ['Snyk', '相依套件、程式碼與設定'],
+      ['Semgrep', '照規則讀你的原始碼，找出常見的不安全寫法'],
+      ['Snyk', '比對你裝的套件與已知漏洞名單，也掃程式碼與設定'],
       ['GitHub Security', 'Dependabot、Code Scanning、Secret Scanning'],
       ['npm audit', 'npm 專案的相依套件'],
     ],
@@ -124,9 +124,8 @@ export default function SlideShipChain() {
       <div className="max-w-6xl mx-auto w-full space-y-2.5 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          把開發、檢查、修復到放行接成一條線，大致是這四關。
-          <strong className="text-slate-100">這是一條建議的順序，不是每個專案都要照著跑完一遍。</strong>
-          第二關與第三關各挑一個能用的，挑之前先確認它涵蓋哪些檢查。
+          開發、檢查、修復到放行，大致是這四關。
+          <strong className="text-slate-100">這是建議的順序，不是每個專案都要跑完一遍。</strong>
         </AnimatedBlock>
 
         <div>

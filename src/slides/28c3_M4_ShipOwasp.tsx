@@ -9,12 +9,19 @@ import { CopyBlock } from '../components/CopyBlock';
  * 這一頁的定位要先說清楚：**它產出的是一份有範圍、有證據的初步審查**，
  * 不是一張安全認證。整頁有三個地方在擋「跑完就安全了」這個誤讀，三個都不要刪：
  *   1. 每一條的第三行（還需要什麼證據）
- *   2. 三種結果狀態，其中「未發現明顯問題」明寫不等於證明安全
+ *   2. 四種結果狀態，其中「未發現明顯問題」明寫不等於證明安全
  *   3. 頁尾那一句：OWASP Top 10 是風險分類，不是完整的安全測試清單
  *
  * 2026-11-08 那一版的四欄表格拿掉了（條目／它在講什麼／可以這樣要求它／不能只靠它），
  * 它寬到要橫向捲動，而且「它能證明什麼」那個說法會被讀成 AI 給得出證明。
  * 現在五條各一張卡，固定三行：**問題／要它查什麼／還需要什麼證據**。
+ *
+ * ── 2026-11-09 結論那一塊改成四格（講師：太武斷，而且看不懂）─────────────
+ * 病根是畫面跟它自己底下那段 Prompt 對不起來：**Prompt 寫的是「只能是這四種之一」**，
+ * 畫面卻只排三格，第四種（不適用）躲在底下那行小字裡，所以小標的「這幾種」數不出來。
+ * 現在四種各一格，小標也從「每一條的結論**只能是**這幾種」改成「**先規定**它只能用這四種結論」：
+ * 那不是一個關於世界的斷言，是**你在 Prompt 裡給它的限制**，寫成前者就變武斷。
+ * **不要改回三格**，也不要把「不適用」塞回頁尾那行小字。
  *
  * ⚠ **只列五條是刻意的**，十條全列會變成一頁要背的東西。另外五條在頁尾給名字，
  * 而且要寫明完整審查仍然要涵蓋它們，**不要暗示那五條不重要**。
@@ -100,6 +107,10 @@ const STATES = [
     k: '無法確認',
     v: '列出缺少什麼：設定、測試環境，或其他證據。',
   },
+  {
+    k: '不適用',
+    v: '這個專案真的用不到的項目，要寫出為什麼用不到。',
+  },
 ];
 
 const AUDIT_PROMPT = [
@@ -167,8 +178,8 @@ export default function SlideShipOwasp() {
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
-          <h3 className="mb-2 text-base font-bold text-slate-100">每一條的結論只能是這幾種</h3>
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
+          <h3 className="mb-2 text-base font-bold text-slate-100">先規定它只能用這四種結論</h3>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
             {STATES.map((s) => (
               <div
                 key={s.k}
@@ -182,7 +193,6 @@ export default function SlideShipOwasp() {
             ))}
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
-            真的用不到的項目另外標「不適用」，而且要寫理由。
             <strong className="text-slate-400">沒有「通過」這個選項</strong>，它交出來的是一份待確認清單。
           </p>
         </AnimatedBlock>

@@ -109,7 +109,7 @@ export default function SlideShipEvidence() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           安全那一層最容易被跳過，因為畫面上看不出來。
-          <strong className="text-slate-100">三個數字各自在量不同的事。</strong>
+          <strong className="text-slate-100">三份調查分別掃了線上的網站、公開的專案，以及公司在用的工具。</strong>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
@@ -181,10 +181,10 @@ export default function SlideShipEvidence() {
         </AnimatedBlock>
 
         <Callout tone="warn" icon={EyeOff} label="部門自己做的小工具，網址丟群組就上線" stepIndex={4}>
-          那 2,000 個研究說它們沒有設基本的身分驗證與存取控制，不用登入就碰得到裡面的資料。過程通常很單純：
-          你把部門每個月要彙整的那份表做成一個網頁，資料貼進去，網址丟到群組請同事用。
-          <strong className="text-slate-100">做到這裡沒有錯，接下來要確認的是：這份資料能不能放上這個平台，以及誰可以讀、誰可以改。</strong>
-          有些連管理者權限都是打開那一頁就有。
+          研究說那 2,000 個工具沒有基本的身分驗證與存取控制，不用登入就看得到裡面的資料。
+          它們多半是這樣來的：你把部門每個月要彙整的那份表做成一個網頁，資料貼進去，網址丟到群組請同事用。
+          <strong className="text-slate-100">做到這裡沒有錯。接下來要確認的是這份資料能不能放上這個平台，以及誰可以讀、誰可以改。</strong>
+          有些工具甚至打開網址就是管理者權限。
           <span className="block mt-2 text-slate-400">
             員工自己建、沒有經過 IT 的 AI 工具，現在叫影子 AI。
             資料是公司的，網址是你開的，出事的時候這兩件會被放在一起看。

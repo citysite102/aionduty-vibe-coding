@@ -55,9 +55,32 @@ import { calloutClass } from '../components/Callout';
  * 同一輪 TASK 裡的「一輪完整的 Application Security Review」也改成「範圍依下面五個步驟」，
  * 標題收斂了內文沒收斂，學員會以為跑完這一段就涵蓋全部。
  *
- * ⚠ Prompt 本體是 `text-xs`，低於 A-4 的「投影片內文最低 text-sm」。這是刻意的取捨：
- * 升到 `text-sm` 就放不下整段，而講師指定 Prompt 不得刪節。要改回 `text-sm` 的話，
- * 得先決定畫面上只放步驟與一筆示例、完整原文只留在講義（`public/handouts/ship-check.md`）。
+ * ⚠ Prompt 本體**預設**是 `text-xs`，低於 A-4 的「投影片內文最低 text-sm」。這是刻意的取捨：
+ * 整段同時攤開就放不下 `text-sm`，而講師指定 Prompt 不得刪節。
+ *
+ * ── 2026-11-09 五格階段卡變成可點的，點開那一段升到 `text-sm` ──────────
+ * 這是上面那個取捨的第三條路。原本只有兩個選項：維持 `text-xs`（A-4 的債），
+ * 或是畫面只放步驟與一筆示例、完整原文退到講義（`public/handouts/ship-check.md`，講師不接受）。
+ * 現在**預設那一屏一個像素都沒變**：`focus` 是 `null` 的時候就是原本的兩欄全文，
+ * 點某一格才把那一段單獨放大成 `text-sm`，再點同一格就回到全文。
+ *
+ * 預設不動是硬要求，三個理由，**不要把預設改成分頁**：
+ *   1. 這份投影片會輸出成 PDF 給學員（根目錄的 `章節八_Slide200-219.pdf`）。
+ *      預設只顯示一段的話，PDF 會掉掉另外四個 STEP，那就是刪節。
+ *   2. `逐字稿/8-6` 的 Slide 210「畫面」欄逐字寫著兩欄各放哪幾段。
+ *      預設維持原樣，那一欄就不必跟著改（B-6c）。
+ *   3. 講義頁〈上線前自查卡〉放的是同一段原文，兩邊要對得起來。
+ * 放大是附加的，不是取代。A-4 那條債因此是「要讀的時候付掉」，不是一直欠著。
+ *
+ * 口白本來就是 STEP 1 到 5 一段一段念（`逐字稿/8-6` Slide 210 那幾段），
+ * 錄的時候念到哪一步就點那一格，所以這個互動不需要新的口白，也**不要在畫面上寫
+ * 「點一下看大字」這種操作說明**（D-2 課務與操作交代）。可點是靠 hover 的 sky 邊框表示。
+ *
+ * A-2：這裡沒有用 `currentStep` 推預設值，因為預設就是全部攤開，沒有東西要推。
+ * 純靠點的互動在這份簡報有先例（`30_Cheat_Perms`、`10c_M1_WebArch`），
+ * A-2 擋的是 `setTimeout` 自己切換畫面，不是講者自己點。
+ * `PHASES` 的 `step` 對應 `SECTIONS` 裡的 `STEP N｜`，**改一邊要改另一邊**；
+ * 對應關係比對標題開頭、不吃陣列位置，所以中間插一段不會指錯。
  *
  * ── C-1 ──────────────────────────────────────────────
  * 最後查證：2026-11-09。STEP 2 寫進畫面的工具名稱與 `28c3d_M4_ShipChain` 同一組，
@@ -173,14 +196,20 @@ function promptText() {
  * 底下那段 Prompt 的五個階段。畫面先讓人看懂順序與每一關的產出，再看完整原文，
  * 否則一上來就是五十幾行規格（講師：文字密度過高）。
  * 五個名字與 `SECTIONS` 的 STEP 1 到 5 一一對應，**改一邊要改另一邊**。
+ * `step` 是點這一格要放大哪一段，比對的是 `SECTIONS` 裡 `STEP N｜` 的開頭。
  */
 const PHASES = [
-  { n: '01', k: '環境盤點', v: '框架、相依套件、資料與權限的流向，以及這次涵蓋的範圍' },
-  { n: '02', k: '執行掃描', v: '先確認手上有哪些工具，只跑實際可用的那幾個' },
-  { n: '03', k: '風險分析', v: '照八類高風險項目逐條看，不適用的要寫理由' },
-  { n: '04', k: '證據驗證', v: '每一條標出位置、成立條件，並分成已驗證、待驗證與可能誤報' },
-  { n: '05', k: '安全報告', v: '分級、證據、修復計畫、怎麼重測，以及這次沒查到的範圍' },
+  { n: '01', step: 1, k: '環境盤點', v: '框架、相依套件、資料與權限的流向，以及這次涵蓋的範圍' },
+  { n: '02', step: 2, k: '執行掃描', v: '先確認手上有哪些工具，只跑實際可用的那幾個' },
+  { n: '03', step: 3, k: '風險分析', v: '照八類高風險項目逐條看，不適用的要寫理由' },
+  { n: '04', step: 4, k: '證據驗證', v: '每一條標出位置、成立條件，並分成已驗證、待驗證與可能誤報' },
+  { n: '05', step: 5, k: '安全報告', v: '分級、證據、修復計畫、怎麼重測，以及這次沒查到的範圍' },
 ];
+
+/** 放大哪一段。對不上就回 `undefined`，呼叫端退回全文，不要讓它變成空白的一屏。 */
+function sectionForStep(step: number) {
+  return SECTIONS.find((s) => s.h.startsWith(`STEP ${step}`));
+}
 
 /** 複製整段 Prompt。行為與 `CopyBlock` 同一套，只是這一頁的版面是兩欄。 */
 function CopyPrompt() {
@@ -220,6 +249,10 @@ function CopyPrompt() {
 }
 
 export default function SlideShipAudit() {
+  /** 放大中的那一段（`PHASES` 的 `step`）。`null` 是預設，也就是原本的兩欄全文。 */
+  const [focus, setFocus] = useState<number | null>(null);
+  const picked = focus === null ? undefined : sectionForStep(focus);
+
   return (
     <SlideLayout
       title="進階安全審查：盤點工具、威脅模型與報告"
@@ -232,6 +265,7 @@ export default function SlideShipAudit() {
           <p className="min-w-0 flex-1 text-sm leading-relaxed text-slate-400">
             比只讀程式碼的那一輪多了
             <strong className="text-slate-200">工具盤點、威脅模型，以及一份交得出去的報告</strong>。
+            它落在四個階段裡 AI 安全審查那一關：功能做完或要上線之前跑一輪，不是每次提交都跑。
           </p>
           <p className={`${calloutClass('warn')} shrink-0 px-4 py-2 text-sm leading-relaxed text-slate-300`}>
             第一次執行，先產出報告再決定修復。
@@ -241,15 +275,28 @@ export default function SlideShipAudit() {
 
         <AnimatedBlock stepIndex={2}>
           <div className="grid grid-cols-1 gap-2 md:grid-cols-5">
-            {PHASES.map((p) => (
-              <div key={p.n} className="rounded-xl border border-slate-800 bg-slate-900 px-3 py-2">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-mono text-xs text-slate-600">{p.n}</span>
-                  <span className="text-sm font-bold text-sky-400">{p.k}</span>
-                </div>
-                <p className="mt-0.5 text-sm leading-snug text-slate-400">{p.v}</p>
-              </div>
-            ))}
+            {PHASES.map((p) => {
+              const on = focus === p.step;
+              return (
+                <button
+                  key={p.n}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => setFocus(on ? null : p.step)}
+                  className={`cursor-pointer rounded-xl border px-3 py-2 text-left transition-colors ${
+                    on
+                      ? 'border-sky-500/50 bg-sky-500/10'
+                      : 'border-slate-800 bg-slate-900 hover:border-sky-500/40'
+                  }`}
+                >
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-mono text-xs text-slate-600">{p.n}</span>
+                    <span className="text-sm font-bold text-sky-400">{p.k}</span>
+                  </div>
+                  <p className="mt-0.5 text-sm leading-snug text-slate-400">{p.v}</p>
+                </button>
+              );
+            })}
           </div>
           <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
             貼之前先把這四件講給它：這是哪一種專案、手上有哪些工具、它碰得到哪些檔案與帳號、
@@ -264,22 +311,35 @@ export default function SlideShipAudit() {
             <span className="min-w-0 truncate text-sm text-slate-500">完整原文，在那個專案的資料夾裡貼</span>
             <CopyPrompt />
           </div>
-          <div className="grid grid-cols-1 gap-x-6 gap-y-2 px-4 py-2 md:grid-cols-2">
-            {[0, 1].map((col) => (
-              <div key={col} className="min-w-0 space-y-1.5">
-                {SECTIONS.filter((s) => s.col === col).map((s) => (
-                  <div key={s.h}>
-                    <div className="font-mono text-xs font-bold tracking-wider text-sky-400">{s.h}</div>
-                    <div className="mt-0.5 space-y-px">
-                      {s.lines.map((l) => (
-                        <p key={l} className="font-mono text-xs leading-tight text-slate-300">{l}</p>
-                      ))}
-                    </div>
-                  </div>
+          {/* 點了某一格就只放大那一段（`text-sm`），沒點就是原本的兩欄全文（`text-xs`）。
+              預設那一屏不能變，理由見檔頭：PDF、逐字稿的畫面欄與講義都對著它。 */}
+          {picked ? (
+            <div className="px-4 py-3">
+              <div className="font-mono text-sm font-bold tracking-wider text-sky-400">{picked.h}</div>
+              <div className="mt-1.5 space-y-1">
+                {picked.lines.map((l) => (
+                  <p key={l} className="font-mono text-sm leading-relaxed text-slate-300">{l}</p>
                 ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-x-6 gap-y-2 px-4 py-2 md:grid-cols-2">
+              {[0, 1].map((col) => (
+                <div key={col} className="min-w-0 space-y-1.5">
+                  {SECTIONS.filter((s) => s.col === col).map((s) => (
+                    <div key={s.h}>
+                      <div className="font-mono text-xs font-bold tracking-wider text-sky-400">{s.h}</div>
+                      <div className="mt-0.5 space-y-px">
+                        {s.lines.map((l) => (
+                          <p key={l} className="font-mono text-xs leading-tight text-slate-300">{l}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
         </AnimatedBlock>
 
       </div>

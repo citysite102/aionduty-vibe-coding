@@ -27,6 +27,12 @@ import { motion } from 'motion/react';
  *   重用的時候 → 規格可能要更新、要重新驗一次
  * 恢復**不是**每次成功執行都要經過的固定站，所以它的線是虛線、而且從執行岔出去。
  *
+ * ⚠ 2026-11-09 之前這三條**只存在於這段註解與底下那句文字裡，畫面上沒有線**。
+ * 現在六格底下真的畫出來了（`LOOPS`），線寬與色跟每一格上緣那條
+ * `border-t-2 border-sky-500/30` 同一組，讀起來才是同一個系統。
+ * 量過的高度（2026-11-09，視窗 1920×873）：內容區 `scrollHeight` 819px
+ * 加上頁面自己的 244px，**視窗低於約 1063px 會需要捲動**，全螢幕 1080p 放得下。
+ *
  * 六個階段的名字與順序跟 Slide 201 綁著（定義／規劃／執行／驗收／恢復／重用），
  * **改一邊就要改另一邊**。講師規格曾經寫 RECOVER｜復原，2026-11-09 統一成「恢復」，
  * 全片只留這一個說法，不要再混用。
@@ -66,6 +72,30 @@ const STAGES = [
   { k: '恢復', en: 'Recover', v: '失敗時能停止、重試、修正，或交給人接管。', from: '停止條件與重試上限' },
   { k: '重用', en: 'Reuse', v: '保存已經驗證過的規則與流程，下次接得上。', from: 'CLAUDE.md 與 Skill' },
 ];
+
+/**
+ * 三條回頭的線。`from`／`to` 是 `STAGES` 的 index，`depth` 決定它走第幾層：
+ * **跨得寬的走外層**，不然前兩條會疊在一起（驗收→規劃 蓋住 執行→恢復）。
+ *
+ * 2026-11-09 之前這三條只存在於底下那句文字裡，檔頭卻寫著「畫面上那三條回頭的線是刻意的」，
+ * 兩邊對不起來。現在真的畫出來了，**那一句文字沒有刪**：六欄排不下的視窗（`lg` 以下）
+ * 不畫線，那時候只剩那一句；而且它後半那兩句（恢復是岔路、這不是業界唯一標準）本來就要留。
+ *
+ * 線上**不掛文字**。三條的深度只差 12px，掛了一定會疊；順序與說法照底下那一句讀就夠了。
+ * 恢復那條是虛線而且從執行岔出去（檔頭：它不是每次都會走到的固定站）。
+ *
+ * ⚠ 每一條是 `border-b-2 border-l-2 border-r-2` 的 ⊔，**那個 `border-l` 不是 A-1 禁止的
+ * 左側色條**。A-1 擋的是拿色條去強調一塊文字（那種要用 `Callout` 的整框染色），
+ * 這裡的三條邊是畫出來的線本身，拿掉就沒有圖了。掃 `border-l-[0-9]` 的時候不要順手清掉。
+ */
+const LOOPS = [
+  { key: 'recover', from: 2, to: 4, depth: 0, dashed: true },
+  { key: 'verify', from: 3, to: 1, depth: 1, dashed: false },
+  { key: 'reuse', from: 5, to: 0, depth: 2, dashed: false },
+];
+
+/** 第 i 格的水平中心，用百分比。六欄等寬等距，所以中心就是 (i + 0.5) / 6。 */
+const cx = (i: number) => ((i + 0.5) / STAGES.length) * 100;
 
 /** 三個自我檢查。這是學員要帶回工作用的框架，**不要再擴回六條**。 */
 const ASK = [
@@ -132,7 +162,41 @@ export default function SlideOutro() {
               </li>
             ))}
           </ol>
-          <p className="mt-3 text-sm leading-relaxed text-slate-400">
+
+          {/*
+            三條回頭的線。每一條是一個 ⊔：兩端的直線往上接回它連的那兩格，底下一條橫線。
+            `▲` 標的是終點那一端。只在六欄並排（`lg`）時畫得準，窄視窗就只留底下那一句。
+          */}
+          <div className="relative mt-1.5 hidden h-10 lg:block" aria-hidden="true">
+            {LOOPS.map((l) => {
+              const a = cx(l.from);
+              const b = cx(l.to);
+              const back = b < a;
+              return (
+                <div
+                  key={l.key}
+                  className={`absolute top-0 border-b-2 border-l-2 border-r-2 border-sky-500/30 ${
+                    l.dashed ? 'border-dashed' : ''
+                  }`}
+                  style={{
+                    left: `${Math.min(a, b)}%`,
+                    width: `${Math.abs(b - a)}%`,
+                    height: 12 + l.depth * 12,
+                  }}
+                >
+                  <span
+                    className={`absolute top-0 font-mono text-xs leading-none text-sky-500/60 ${
+                      back ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'
+                    }`}
+                  >
+                    ▲
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="mt-1.5 text-sm leading-relaxed text-slate-400">
             <span className="font-mono text-slate-600">↻</span>{' '}
             驗收沒過，回到規劃或執行；執行出事，走恢復；重用的時候，規格可能要更新、也要再驗一次。
             <span className="mt-1 block text-slate-500">

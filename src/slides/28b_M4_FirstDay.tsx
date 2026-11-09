@@ -61,6 +61,11 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 影響大的動作要先問過的那個虛線框保留（講師 2026-11-08 指定的三件之一），
  * 它跟 Slide 206 的行動邊界是同一條，**搬頁的時候兩邊一起看**。
  *
+ * 2026-11-09（講師：這段有點冗）開場第二句砍掉後半：
+ * 原本是「選一個範圍小、風險低的任務，**把一次交辦、一次驗收，加上第二次執行走完**。」
+ * 粗體那半句講的就是底下步驟 02、03、04，等於同一件事在同一屏講兩次。
+ * **不要補回來**，要交代順序就看那四張卡。
+ *
  * 標題砍過字：講師原句「第一次實作：把一件工作變成可重複執行的流程」量起來 46 寬，
  * 超過 D-5 的 40。現在這句 38 寬。
  *
@@ -109,7 +114,7 @@ export default function SlideFirstDay() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           <strong className="text-slate-100">交辦之前把範圍、產出與驗收條件寫下來，做完之後真的去對一遍。</strong>
-          選一個範圍小、風險低的任務，把一次交辦、一次驗收，加上第二次執行走完。
+          選一個範圍小、風險低的任務。
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
