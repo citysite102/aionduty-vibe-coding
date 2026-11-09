@@ -30,6 +30,14 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   2. 底下兩欄是可選方案的清單，不是安裝清單
  *   3. 頁尾那一句：方案與使用權限會調整，掃描結果也不等於完整的安全保證
  *
+ * ── 2026-11-09 最後一輪（講師）──────────────────────────
+ * 四關定位成**建議的順序**，不是每個專案都要照著跑完的固定流程；開場那一句不要改回去。
+ * 第二關補了「不必等到開發結束，改完就可以跑，也可以掛進 CI」——原本的四關排法
+ * 會讓人以為規則式掃描要等開發結束才開始。
+ * 每一關的 `role` 從「主要開發 Agent／規則式安全掃描／AI 深度安全分析」改成
+ * **工具的角色**（開發工具／規則式掃描工具／AI 安全審查工具），四格才對得起來。
+ * 頁尾補「範圍會互相重疊，但沒有一個工具涵蓋得了全部」與「有些要另外申請或開通」。
+ *
  * ── 2026-11-09 Codex 審查之後改掉的四處，不要改回去 ─────────────
  *   1.「挑一個手上能用的就夠了」→ 先確認它涵蓋哪些檢查。品牌擇一不等於三類都查到：
  *      `npm audit` 只看相依套件，金鑰與程式碼要另外的工具。
@@ -60,20 +68,20 @@ const STAGES = [
   {
     n: '01',
     k: 'Claude Code／Codex',
-    role: '主要開發 Agent',
+    role: '開發工具',
     v: '開發功能、修改程式碼、執行測試。它寫出來的東西就是後面三關要檢查的對象。',
   },
   {
     n: '02',
     k: 'Semgrep／Snyk（挑一個）',
-    role: '規則式安全掃描',
-    v: '照既有的規則與漏洞名單比對：常見的不安全寫法、第三方套件的已知漏洞、被寫進程式碼的金鑰。',
+    role: '規則式掃描工具',
+    v: '照既有的規則與漏洞名單比對：常見的不安全寫法、第三方套件的已知漏洞、被寫進程式碼的金鑰。這一關不必等到開發結束，改完就可以跑，也可以掛進 CI 每次提交自動跑。',
   },
   {
     n: '03',
     k: 'Codex Security／Claude Code 的 /security-review（挑一個）',
-    role: 'AI 深度安全分析',
-    v: '跨檔案讀程式邏輯、建立威脅模型，並協助驗證可疑的地方。用 OWASP 十條跑的那一輪就落在這一關。',
+    role: 'AI 安全審查工具',
+    v: '跨檔案讀程式邏輯、整理威脅模型，並協助驗證可疑的地方。用 OWASP 十條跑的那一輪就落在這一關。它給的是待確認清單，不是結論。',
   },
   {
     n: '04',
@@ -116,8 +124,8 @@ export default function SlideShipChain() {
       <div className="max-w-6xl mx-auto w-full space-y-2.5 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          把開發、檢查、修復到放行接成一條線，會經過四關，
-          <strong className="text-slate-100">每一關的工具不同，交出來的東西也不同。</strong>
+          把開發、檢查、修復到放行接成一條線，大致是這四關。
+          <strong className="text-slate-100">這是一條建議的順序，不是每個專案都要照著跑完一遍。</strong>
           第二關與第三關各挑一個能用的，挑之前先確認它涵蓋哪些檢查。
         </AnimatedBlock>
 
@@ -170,9 +178,10 @@ export default function SlideShipChain() {
           <strong className="text-slate-400">先確認你挑的那一個涵蓋哪些檢查</strong>，沒涵蓋到的另外補。
           例如 npm audit 只看相依套件，金鑰與程式碼要另外的工具。四個階段不是四筆要先付的錢。
           <span className="mt-1 block">
-            各工具的預設範圍也不同，有的掃整個專案，有的只看這次的變更。
-            <strong className="text-slate-400">掃描跑完不等於完整的安全保證</strong>，第四關那個人才是決定要不要部署的人。
-            工具名稱、方案與使用權限會隨版本調整。
+            各工具的預設範圍也不同，有的掃整個專案，有的只看這次的變更；
+            <strong className="text-slate-400">範圍會互相重疊，但沒有一個工具涵蓋得了全部</strong>。
+            第四關那個人才是決定要不要部署的人。工具名稱、方案與使用權限會隨版本調整，
+            有些還要另外申請或開通，不是裝了就能用。
             <span className="ml-2 font-mono text-xs text-slate-600">2026-11-09 查證</span>
           </span>
         </AnimatedBlock>

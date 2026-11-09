@@ -19,6 +19,10 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   A 把脈絡問題當成容量問題（Slide 207 的第一列：上下文視窗這一輪結束就沒了）
  *   D 把「全部讀一遍」當成解法（Slide 208：那正是沒有索引時最慢的那條路）
  *
+ * 2026-11-09 最後一輪（講師）：解答那一塊掛上「解答」膠囊，而且跟選項之間拉開一段距離。
+ * 分段揭露本來就有（`stepIndex` 1 選項、2 解答、3 另外三個），但簡報輸出成 PDF 或
+ * 一次全展開的時候，三塊會同時出現，**視覺上要看得出來哪裡以下是答案**。
+ *
  * 強調色兩種：emerald（正解）與 sky（接回前面三頁的那幾句）。
  * 這是 A-1 允許的：整頁只有一個正解框，其餘選項維持灰階，沒有做成紅框，
  * **不要為了對照把另外三個改成 red**，它們不是錯誤示範，是順序不對或理解不對。
@@ -57,7 +61,7 @@ export default function SlideMemoryQuiz() {
             都得重新告訴它哪些檔案不能改。你確認過，那幾條限制只講在舊的對話裡，
             專案裡沒有任何一份文件寫著它們。
           </p>
-          <p className="mt-1 text-sm text-slate-500">你會優先採取哪個做法？先選一個，再往下看。</p>
+          <p className="mt-1 text-sm text-slate-500">你會優先採取哪個做法？先選一個，再往下看解答。</p>
           <ol className="mt-3 space-y-2">
             {OPTIONS.map((o) => (
               <li key={o.k} className="flex items-baseline gap-3 text-base leading-relaxed">
@@ -68,8 +72,9 @@ export default function SlideMemoryQuiz() {
           </ol>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 mt-6 border-t-slate-800">
           <div className="flex items-baseline gap-3">
+            <span className="rounded border border-emerald-500/40 px-1.5 font-mono text-xs text-emerald-300">解答</span>
             <span className="font-mono text-sm font-bold text-emerald-400">C</span>
             <h3 className="text-base font-bold text-slate-100">先把限制與架構關係寫進專案文件</h3>
           </div>

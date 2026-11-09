@@ -21,9 +21,12 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 四行的順序（等級／證據／成立條件／驗證狀態）對應 `28c3e` STEP 5 的 Findings 與 Evidence，
  * 兩邊要一起改。刻意挑一條「High 但還沒驗證」的，因為那正是最容易被當成已確認的那一種。
  *
- * ── 收尾那一句 ──────────────────────────────────────
- * 「沒有『報告說沒問題』這個結論」接的是 `28c3` 的「沒有通過這個選項」。
- * 兩頁一前一後各講一次是刻意的：前面講 Agent 不能給「通過」，這裡講人也不要替它給。
+ * ── 收尾那一塊 ──────────────────────────────────────
+ * 接的是 `28c3` 的「沒有通過這個選項」：前面講 Agent 不能給「通過」，這裡講人也不要替它給。
+ * 2026-11-09 改寫過（講師：原本那句「你能交出去的只有：這一次查了哪些、剩下哪些還沒查」
+ * 太抽象）。**現在直接把那句話的樣子寫出來**——十類查了八類、兩類驗不了、三條發現裡
+ * 兩條修好一條待驗證、正式環境沒查。學員要帶走的是這個句型，不是一句原則。
+ * 底下那一行留著，它點名「報告說沒問題」為什麼不算答案。
  *
  * 用色：amber（那筆發現）＋ sky（四個核對動作）兩種（A-1）。
  */
@@ -126,8 +129,17 @@ export default function SlideShipTriage() {
           ))}
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={5} as="p" className="border-t border-slate-800 pt-2.5 text-base font-bold leading-relaxed text-slate-100">
-          沒有「報告說沒問題」這個結論。你能交出去的只有：這一次查了哪些、剩下哪些還沒查。
+        <AnimatedBlock stepIndex={5} className="border-t border-slate-800 pt-2.5">
+          <p className="text-base font-bold leading-relaxed text-slate-100">
+            有人問「這樣可以上線嗎」，你交得出去的是這種句子：
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-300">
+            「十類查了八類，另外兩類沒有工具、驗不了；查出來三條，兩條已經驗過也修好，
+            一條還在待驗證；正式環境的設定與外部服務這一次沒有查。」
+            <span className="mt-1 block text-slate-500">
+              「報告說沒問題」不是這種句子，它沒有說出查了什麼。
+            </span>
+          </p>
         </AnimatedBlock>
 
       </div>

@@ -151,11 +151,11 @@ export default function SlideCodeIndex() {
 
         <AnimatedBlock stepIndex={4} className="border-t border-slate-800 pt-4">
           <p className="text-slate-100 text-lg font-bold leading-relaxed">
-            索引協助定位，理解與驗證仍然要回到原始程式碼。
+            兩種混著用才是常態：先用搜尋找方向，相依關係複雜的時候才需要索引。
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-400">
-            索引不等於理解，也不保證所有相依關係都抓得正確。查到之後還是要打開原始碼讀一遍，
-            並且跑該跑的測試。
+            索引協助定位，理解與驗證仍然要回到原始程式碼：它不保證所有相依關係都抓得正確，
+            程式改了也要跟著更新。查到之後打開原始碼讀一遍，再跑該跑的測試。
             這一類工具很多是一行 <code className="font-mono text-amber-300">curl … | bash</code> 裝完，
             那一行會把網路上的一段程式直接在你的電腦上執行。先把網址在瀏覽器打開，看它有沒有刪檔案、改系統設定、把東西送到外面，還有它會不會再去下載別的東西。貼給 Claude 請它逐行講，是幫你讀懂，不等於它審過了安全；確認不了就先不要跑。
           </p>

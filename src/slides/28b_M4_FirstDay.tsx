@@ -4,8 +4,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 /**
  * 單元 8-5 第二頁。上一頁挑好題目，這一頁是第一次把它跑成一套流程。
  *
- * 開場那一句管的是「這一段在做的是什麼」，所以它講 Agentic Engineering 的重點：
- * **事前把範圍、產出與驗收條件寫下來，事後真的去對一遍。** 底下四步就是那件事的動作。
+ * 開場那一句管的是「這一段在做的是什麼」：**交辦之前把範圍、產出與驗收條件寫下來，
+ * 做完之後真的去對一遍。** 底下四步就是那件事的動作。
+ *
+ * **不要寫成「Agentic Engineering 的重點在交辦與驗收」**（2026-11-09 講師退掉）：
+ * 這門課自己的定義在 Slide 8，軸線有兩條（需求寫到多細、做完有沒有人檢查），
+ * 而 Agentic Engineering 還包含它自己跑迴圈、用工具、失敗接得回來。
+ * 把它壓成「交辦與驗收」是拿其中一面當全部。這一句只講這一輪要練的動作就好。
  *
  * 2026-11-09 這一句改過兩次。先補成「把題目變成第三種做法的樣子，靠的就是這四步」，
  * 當天講師退掉：**單次／重複／系統化那一塊在上一頁的畫面上，這一頁沒有**，
@@ -100,8 +105,8 @@ export default function SlideFirstDay() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          Agentic Engineering 的重點在交辦與驗收：
-          <strong className="text-slate-100">事前把範圍、產出與驗收條件寫下來，事後真的去對一遍。</strong>
+          這一輪要練的動作：
+          <strong className="text-slate-100">交辦之前把範圍、產出與驗收條件寫下來，做完之後真的去對一遍。</strong>
           選一個範圍小、風險低的任務，把一次交辦、一次驗收，加上第二次執行走完。
         </AnimatedBlock>
 

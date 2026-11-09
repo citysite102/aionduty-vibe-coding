@@ -17,6 +17,14 @@ import { calloutClass } from '../components/Callout';
  * 兩段的用途不同，所以畫面左欄第一句就在講這件事，**那一句不要刪**，
  * 否則學員會問「剛才不是已經有一段了嗎」。
  *
+ * ── 2026-11-09 最後一輪（講師：畫面文字密度過高）────────────────
+ * 上半原本是四個操作步驟（打開專案、確認工具、貼上、看完報告），跟底下那段 Prompt
+ * 的結構對不起來，學員一上來就要讀五十幾行規格。現在上半換成 **`PHASES` 五個階段**
+ * （環境盤點、執行掃描、風險分析、證據驗證、安全報告），每一格寫出那一關的產出，
+ * 跟 `SECTIONS` 的 STEP 1 到 5 一一對應。**完整原文一行沒刪**，仍然整段可複製。
+ * 另外補了貼之前要先交代的四件事（專案類型、可用工具、碰得到什麼、涵蓋範圍），
+ * 那是原本沒講、而 Agent 一定會自己猜的東西。
+ *
  * ── 為什麼不是 `CopyBlock`，也不是左欄＋右欄（A-4）──────────────────
  * 這段 Prompt 五十幾行。單欄的 `CopyBlock` 在 16:9 上要捲兩屏；講師原本的規格是
  * 「左欄 32% 放步驟、右欄 68% 放 Prompt」，但那樣 Prompt 只剩約 390px 寬，
@@ -161,12 +169,17 @@ function promptText() {
   return SECTIONS.map((s) => [s.h, ...s.lines].join('\n')).join('\n\n');
 }
 
-/** 四個操作步驟。排成一列而不是一欄，理由見檔頭「為什麼不是側欄」那一段。 */
-const STEPS = [
-  '打開要檢查的那個專案',
-  '確認手上有哪些掃描工具，沒有也可以跑',
-  '貼上底下這一段，只讀不改',
-  '看完報告再決定要不要讓它動程式碼',
+/**
+ * 底下那段 Prompt 的五個階段。畫面先讓人看懂順序與每一關的產出，再看完整原文，
+ * 否則一上來就是五十幾行規格（講師：文字密度過高）。
+ * 五個名字與 `SECTIONS` 的 STEP 1 到 5 一一對應，**改一邊要改另一邊**。
+ */
+const PHASES = [
+  { n: '01', k: '環境盤點', v: '框架、相依套件、資料與權限的流向，以及這次涵蓋的範圍' },
+  { n: '02', k: '執行掃描', v: '先確認手上有哪些工具，只跑實際可用的那幾個' },
+  { n: '03', k: '風險分析', v: '照八類高風險項目逐條看，不適用的要寫理由' },
+  { n: '04', k: '證據驗證', v: '每一條標出位置、成立條件，並分成已驗證、待驗證與可能誤報' },
+  { n: '05', k: '安全報告', v: '分級、證據、修復計畫、怎麼重測，以及這次沒查到的範圍' },
 ];
 
 /** 複製整段 Prompt。行為與 `CopyBlock` 同一套，只是這一頁的版面是兩欄。 */
@@ -226,19 +239,29 @@ export default function SlideShipAudit() {
           </p>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2} as="ol" className="flex flex-wrap gap-x-5 gap-y-1 text-sm leading-relaxed text-slate-400">
-          {STEPS.map((t, i) => (
-            <li key={t} className="flex gap-1.5">
-              <span className="font-mono text-xs text-slate-600">{`0${i + 1}`}</span>
-              <span className="min-w-0">{t}</span>
-            </li>
-          ))}
+        <AnimatedBlock stepIndex={2}>
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-5">
+            {PHASES.map((p) => (
+              <div key={p.n} className="rounded-xl border border-slate-800 bg-slate-900 px-3 py-2">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-mono text-xs text-slate-600">{p.n}</span>
+                  <span className="text-sm font-bold text-sky-400">{p.k}</span>
+                </div>
+                <p className="mt-0.5 text-sm leading-snug text-slate-400">{p.v}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
+            貼之前先把這四件講給它：這是哪一種專案、手上有哪些工具、它碰得到哪些檔案與帳號、
+            這一輪要涵蓋到哪裡。
+            <strong className="text-slate-400">這四件沒講，它會自己猜</strong>。
+          </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden">
           <div className="flex items-baseline gap-3 border-b border-slate-800 bg-slate-900 px-4 py-2">
             <span className="font-mono text-xs uppercase tracking-widest text-sky-400 shrink-0">Prompt</span>
-            <span className="min-w-0 truncate text-sm text-slate-500">在那個專案的資料夾裡貼</span>
+            <span className="min-w-0 truncate text-sm text-slate-500">完整原文，在那個專案的資料夾裡貼</span>
             <CopyPrompt />
           </div>
           <div className="grid grid-cols-1 gap-x-6 gap-y-2 px-4 py-2 md:grid-cols-2">

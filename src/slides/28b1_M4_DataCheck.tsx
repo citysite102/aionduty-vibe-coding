@@ -22,6 +22,18 @@ import { CopyBlock } from '../components/CopyBlock';
  *
  * ── 問句做成填空是刻意的 ────────────────────────────
  * 多數人卡住不是不想問，是不知道要問什麼、問誰、怎麼開口。填空讓他把三件事講清楚：
+ * 中間那個小標 2026-11-09 改過：原本是「要問到一個『可以』，先講得出這條線」，
+ * 講師退掉（「要問到一個可以」是硬湊出來的說法）。現在寫「問之前，先把資料的去向講清楚」。
+ *
+ * ── 2026-11-09 第三版（講師最後一輪精修）──────────────────
+ * 第二版的開場是「第一輪不用等任何人回覆就能開始」，讀起來像**所有專案的第一輪
+ * 都得先用假資料**。現在改成條件句：正式資料還沒到手、要等權限，或裡面有客戶與
+ * 個人資料的時候才適用；手上本來就有可用的測試資料就直接用。
+ * 用詞統一成**模擬資料**（原本寫「假資料」），跟標題一致。
+ * 另外補兩件原本沒講的：模擬資料要跟正式那一份同一套欄位與格式、而且要放代表性的
+ * 異常（缺欄位、日期格式不一樣、金額是零或負數）；以及收尾要分清楚
+ * **「流程站得住」與「可以上線」是兩件事**。
+ *
  * 哪一份資料、去哪個平台、產出放哪裡。**不要寫成法律建議，也不要列法規**：
  * 公司規定、客戶合約與行業要求各自不同，這一頁要他去找那個答得了的人。
  *
@@ -40,7 +52,7 @@ const CHECKS = [
 const FLOW = ['哪一份資料', '去哪個平台', '產出放哪裡'];
 
 const ASK = [
-  '我想用【哪個工具】做【哪一件工作】，已經用自己編的假資料跑過一輪。',
+  '我想用【哪個工具】做【哪一件工作】，已經用模擬資料跑過一輪流程。',
   '正式的那一份會用到【哪些欄位】，資料會送到【哪個平台】，產出存在【哪裡】、給【誰】看。',
   '請問這樣可以嗎？如果不行，哪些欄位要先去掉或換掉？',
   '這件事如果要別人決定，可以告訴我找誰嗎？',
@@ -49,20 +61,23 @@ const ASK = [
 export default function SlideDataCheck() {
   return (
     <SlideLayout
-      title="先用假資料開工，正式資料另外問"
-      subtitle="Start With Fake Data"
+      title="正式資料還沒到手，先用模擬資料驗證流程"
+      subtitle="Validate With Mock Data"
       icon={FlaskConical}
     >
       <div className="max-w-6xl mx-auto w-full space-y-3.5 pb-4">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          題目挑好了，
-          <strong className="text-slate-100">第一輪不用等任何人回覆就能開始</strong>：
-          欄位用一樣的設計，但不要用真實資料。正式資料能不能用，同一時間去問。
+          正式資料還沒到手、要等權限，或是裡面有客戶與個人資料的時候，
+          <strong className="text-slate-100">先用模擬資料把流程驗一輪</strong>：
+          欄位用一樣的設計，值自己編。正式資料能不能用，同一時間去問。
+          <span className="mt-1 block text-sm text-slate-500">
+            手上本來就有一份可以用的測試資料，那就直接用那一份，這一段跳過。
+          </span>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-3.5">
-          <h3 className="text-base font-bold text-slate-100">假資料跑得出這三件事，流程就算站得住</h3>
+          <h3 className="text-base font-bold text-slate-100">模擬資料跑得出這三件事，流程就算站得住</h3>
           <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-1.5 md:grid-cols-3">
             {CHECKS.map((c) => (
               <div key={c.k} className="min-w-0">
@@ -72,14 +87,15 @@ export default function SlideDataCheck() {
             ))}
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
-            客戶名稱、金額這類欄位照原本的設計留著，裡面的值自己編。
-            <strong className="text-slate-400">這一輪本來就不該拿正式資料跑</strong>，跟能不能用是兩件事。
+            模擬資料要跟正式那一份同一套欄位與格式，而且要放幾筆真的會遇到的狀況：
+            缺欄位、日期格式不一樣、金額是零或負數。
+            <strong className="text-slate-400">每一筆都正常的資料驗不出什麼</strong>。
           </p>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={3}>
           <h3 className="mb-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-base font-bold text-slate-100">
-            要問到一個「可以」，先講得出這條線
+            問之前，先把資料的去向講清楚
             <span className="flex items-center gap-1.5 font-normal text-sm text-sky-400">
               {FLOW.map((f, i) => (
                 <span key={f} className="flex items-center gap-1.5">
@@ -98,7 +114,11 @@ export default function SlideDataCheck() {
 
         <AnimatedBlock stepIndex={4} as="p" className="text-sm leading-relaxed text-slate-500">
           回覆通常不是「可以」或「不行」兩種，多半是「哪些欄位可以、要用哪個帳號、存在哪裡」。
-          <strong className="text-slate-400">那幾條回來之後寫進規格文件</strong>，下一輪照著跑。
+          那幾條回來之後寫進規格文件，下一輪照著跑。
+          <span className="mt-1 block">
+            <strong className="text-slate-400">模擬資料跑得過，代表流程站得住，不代表可以上線</strong>：
+            正式資料的欄位、量體與權限都要再驗一次。
+          </span>
         </AnimatedBlock>
 
       </div>
