@@ -65,8 +65,7 @@ export default function Slide01() {
           課程正式名稱是「從 Vibe Coding 到代理工程：打造可重複的 AI 開發流程」，
           這裡拆成三層：上下兩個詞加中間的箭頭就是「從 X 到 Y」，冒號後面那半進底下的膠囊。
           英文不換成中譯「代理工程」：學員要拿這兩個詞去對課程平台與官方文件上的
-          Vibe Coding／Agentic Engineering，而整疊簡報從頭到尾也都用英文原詞
-          （中譯目前只出現在預告片 src/remotion 底下那幾支 Finale.tsx）。
+          Vibe Coding／Agentic Engineering，而整疊簡報從頭到尾也都用英文原詞。
         */}
         <h1 className="flex flex-col items-center mb-10">
           <span className="text-5xl md:text-7xl font-black text-slate-300 italic tracking-wider">

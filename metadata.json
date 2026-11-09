@@ -1,8 +1,0 @@
-{
-  "name": "AI On Duty 系列｜Vibe Coding 實戰：AI 開發流程完整指南（Version 3.0）",
-  "description": "",
-  "requestFramePermissions": [],
-  "majorCapabilities": [
-    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
-  ]
-}

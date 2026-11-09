@@ -46,8 +46,8 @@ node scripts/slide-manifest.mjs --dead       # 看哪些 src/slides/ 的檔案�
 LIVE 頁碼**。插頁、搬頁、拆預錄頁都會讓它整批失效，而檔名本身看不出來。
 
 判斷方式：跑 `node scripts/slide-manifest.mjs --sections`，拿其中一段的標題去對
-`findings/` 裡同一個 P 區間寫的是不是同一頁。對不上就整批歸檔，不要只補新的段落，
+`findings/` 裡同一個 P 區間寫的是不是同一頁。對不上就整批刪掉重跑，不要只補新的段落，
 否則 `handoff.md` 會拿舊頁碼去告訴下一段的講師「前面講過什麼」。
 
-歸檔就是把那四個目錄與 `handoff.md` 移到 `archive/{日期}/`，並在裡面寫一份 README
-說明當時是幾頁、涵蓋到哪、為什麼作廢。已經歸檔的兩輪在 `archive/` 底下。
+那四個目錄與 `handoff.md` 都在 `.gitignore` 裡，重跑就會重生，沒有保留的價值
+（2026-11-09 清掉過兩輪舊歸檔，它們的頁碼已經對不上任何一頁）。

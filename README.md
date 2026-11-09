@@ -14,7 +14,7 @@
 
 ## 本機執行
 
-需要 Node.js 18 以上。
+需要 Node.js 22 以上。
 
 ```bash
 npm install
@@ -25,9 +25,9 @@ npm run lint     # 型別檢查（tsc --noEmit）
 
 ## 這份簡報是怎麼做的
 
-它不是簡報軟體做的，是一個 React + Tailwind 的網頁專案，整份都在終端機裡用 Claude Code 改出來的。做法寫在簡報第 57 頁，規範本身放在 [`CLAUDE.md`](./CLAUDE.md)：畫布、配色、字體、動態原則的負面清單，以及新增或搬動投影片時要走的檢查清單。
+它不是簡報軟體做的，是一個 React + Tailwind 的網頁專案，整份都在終端機裡用 Claude Code 改出來的。規範放在 [`CLAUDE.md`](./CLAUDE.md)：配色、字級、節奏機制、中文寫作規範，以及新增或搬動投影片時要走的檢查清單。
 
-`.claude/settings.json` 裡有一個 PreToolUse hook，會擋掉中文破折號。這類「我一定會忘記提醒」的規則，交給程式擋比較可靠。
+`.claude/settings.json` 裡有一個 PreToolUse hook（`scripts/slide-guard.mjs`），會在寫入前擋掉中文破折號、幾個固定的 AI 句型，以及會靜默失效的 Tailwind class。這類「我一定會忘記提醒」的規則，交給程式擋比較可靠。
 
 ## 專案結構
 
@@ -36,7 +36,7 @@ src/
   App.tsx            投影片順序、標題、鍵盤與下拉選單
   slides/            一頁一個檔案，命名為 編號_模組_主題.tsx
   components/        SlideLayout、AnimatedBlock 等共用元件
-  remotion/          Remotion 動畫元件（目前保留，未被投影片引用）
+  remotion/          課程概念動畫的 Remotion 元件（輸出 mp4，不被投影片引用）
 CLAUDE.md            專案共用規範（AGENTS.md 是它的 symlink）
 ```
 

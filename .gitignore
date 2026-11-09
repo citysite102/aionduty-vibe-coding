@@ -5,7 +5,6 @@ coverage/
 .DS_Store
 *.log
 .env*
-!.env.example
 
 # 課程籌備用的內部文件，留在本機、不對外公開
 審稿報告*.md
@@ -26,11 +25,7 @@ sim/reactions/
 sim/state/
 sim/findings/
 sim/handoff.md
-# 舊輪次的歸檔（頁碼已與現況對不上，只留在本機供對照）
-sim/archive/
-
-# AI Studio / Codex 的本機專案設定
-.openai/
+# Codex 的本機專案設定
 .claude/settings.local.json
 
 # 設計稽核工具的本機狀態。config.json 是共用設定，要進版控；
@@ -48,13 +43,3 @@ sim/archive/
 
 # Remotion 輸出的動畫片段（npm run render:mg）。衍生檔，重算就有，不進版控。
 out/
-
-# 預告片的音訊、影片與字型素材。合計約 570 MB（混音 wav 單檔就 54 MB、
-# 人聲與 SFX 各一份、clips/ 的實作錄影、三套 Noto CJK OTF 共 49 MB）。
-# .git 目前 191 MB，這批進去會翻三倍，而且 wav 沒有 delta 壓縮，
-# 每重算一次混音就多存一整份，之後也砍不掉。
-#
-# 代價要知道：換一台機器 clone 下來渲染不出預告片，素材要自己放回這兩個位置。
-# 哪一版讀哪幾個檔案寫在 src/remotion/CLAUDE.md 的版本紀錄裡。
-public/assets/
-public/fonts/
