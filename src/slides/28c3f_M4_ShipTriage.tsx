@@ -22,12 +22,13 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 四行的順序（等級／證據／成立條件／驗證狀態）對應 `28c3e` STEP 5 的 Findings 與 Evidence，
  * 兩邊要一起改。刻意挑一條「High 但還沒驗證」的，因為那正是最容易被當成已確認的那一種。
  *
- * ── 收尾那一塊 ──────────────────────────────────────
- * 接的是 `28c3` 的「沒有通過這個選項」：前面講 Agent 不能給「通過」，這裡講人也不要替它給。
- * 2026-11-09 改寫過（講師：原本那句「你能交出去的只有：這一次查了哪些、剩下哪些還沒查」
- * 太抽象）。**現在直接把那句話的樣子寫出來**——十類查了八類、兩類驗不了、三條發現裡
- * 兩條修好一條待驗證、正式環境沒查。學員要帶走的是這個句型，不是一句原則。
- * 底下那一行留著，它點名「報告說沒問題」為什麼不算答案。
+ * ── 收尾那一塊 2026-11-09 整個移除（講師），不要加回來 ────────────────
+ * 被移掉的是〈有人問「這樣可以上線嗎」，你交得出去的是這種句子〉那一段示範句
+ * （十類查了八類、三條發現兩條修好一條待驗證、正式環境沒查），以及底下那行
+ * 「『報告說沒問題』不是這種句子」。
+ * 它原本接的是 `28c3` 的「沒有通過這個選項」，**那一句還在 `28c3` 的頁尾**，
+ * 這條線沒有斷，只是不在這一頁收第二次。
+ * 這一頁現在收在三格分流上，職務單純：拿到報告之後人要核對什麼、怎麼分流。
  *
  * ── 2026-11-09 四個核對動作掛回上面那張卡 ─────────────────────
  * 病根：四件事與那張卡是上下兩塊，**核對哪一欄要學員自己對**，而這一頁教的就是核對本身。
@@ -36,12 +37,24 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 第三條〈結論有沒有超出證據〉掛兩欄（等級與成立條件）：等級是結論，成立條件是撐住它的東西，
  * 核對的時候要一起看，分開看就只剩一個級別標籤。
  *
- * ── 2026-11-09 四個核對動作移到示意卡上面（講師）────────────────────
- * 原本是示意卡在上、四個核對在下。**可以點的是四個核對，會變的是那張卡**，
- * 控制項在下、被控制的在上，眼睛要往回看。現在四個核對排在前面，點完往下看那張卡，
- * 順序跟閱讀方向一致。`stepIndex` 跟著位置換成 2（核對）與 3（示意卡），
- * **DOM 順序與 stepIndex 必須一致**（A-2），不要只換其中一邊。
- * 換完之後那張卡剛好貼著底下的三格分流，中間那格的 `tie` 指的就是它，連動更近。
+ * ── 2026-11-09 互動方向整個翻過來：卡片才是控制項（講師）──────────────
+ * 這一塊同日改過兩版，**第二版才是現在這個，不要退回第一版**：
+ *   第一版：卡片在上、四條核對在下，**點的是核對、變的是卡片**。
+ *           控制項在下、被控制的在上，眼睛要往回看。
+ *   第一版半：把四條核對搬到卡片上面。互動方向修好了，**但教學方向反了**——
+ *           「位置對得上嗎」在還沒看到任何一筆發現之前就要先讀，那四條是空的。
+ *   現在：   卡片回到上面，而且**卡片的四行變成可以點的**；四條核對在下面跟著亮。
+ *           對象在上、方法在下，互動方向與閱讀方向同時成立。
+ *
+ * 另外兩件同時解掉的：
+ *   1. 兩塊曾經分在 `stepIndex` 2 與 3，講者按到第一步時畫面上有可以點的東西、
+ *      但被它控制的那一塊還沒出現，那一拍是空的。現在控制項自己就是先出現的那一塊。
+ *   2. 舊版同一個手勢做兩件事（點前三條是某一欄亮起來，點第四條是整張卡暗掉＋跳虛線框），
+ *      第四次點下去會以為壞了。現在第四條的說明是**常駐**的 `note`，沒有驚喜狀態。
+ *
+ * `CHECKS` 的 `fields` 現在是反過來用的：點了卡片上的某一欄，`fields` 包含它的那一條才亮。
+ * `fields` 是空的那一條（哪些沒被涵蓋）因此**點任何一欄都不會亮**，那正是它的教學點：
+ * 一筆發現回答不了「這次沒查什麼」。常駐的 `note` 就是在講這件事，**不要刪**。
  *
  * ── 2026-11-09 中間那格分流掛回那張示意卡（`tie`）─────────────────
  * 病根：那張卡**刻意挑一條「High 但還沒驗證」的**（見上面那一段），所以它的正確分流
@@ -92,6 +105,7 @@ const CHECKS = [
     k: '哪些沒被涵蓋',
     fields: [],
     v: '正式環境的設定、外部服務、實際的權限與告警，都要另外看。這一欄沒寫，就是這份報告還缺一塊。',
+    note: '這一條在單獨一筆發現上找不到對象：這次查了哪些、哪些沒查，要看報告最後那一段（報告裡叫 Coverage & Limitations）。',
   },
 ];
 
@@ -118,11 +132,10 @@ const ACTIONS = [
 ];
 
 export default function SlideShipTriage() {
-  /** 正在核對的那一條（`CHECKS` 的 index）。`null` 是預設，也就是四行全亮的原樣。 */
-  const [pick, setPick] = useState<number | null>(null);
-  const picked = pick === null ? null : CHECKS[pick];
-  /** 這一欄現在要不要保持原本的對比。沒在核對就全亮；`fields` 是空的那一條則全部降灰。 */
-  const lit = (field: string) => picked === null || picked.fields.includes(field);
+  /** 卡片上被點的那一欄（欄名）。`null` 是預設，也就是四條核對全亮的原樣。 */
+  const [pick, setPick] = useState<string | null>(null);
+  /** 這一條核對現在要不要保持原本的對比。沒點就全亮；點了就只留對得上的那一條。 */
+  const lit = (c: (typeof CHECKS)[number]) => pick === null || c.fields.includes(pick);
 
   return (
     <SlideLayout
@@ -137,47 +150,48 @@ export default function SlideShipTriage() {
           <strong className="text-slate-100">先核對證據，再決定要動哪一條。</strong>
         </AnimatedBlock>
 
-        <AnimatedBlock stepIndex={2}>
-          <h3 className="mb-1.5 text-base font-bold text-slate-100">這四件事，你要自己對一遍</h3>
-          <div className="grid grid-cols-1 gap-x-4 gap-y-1 md:grid-cols-2">
-            {CHECKS.map((c, i) => (
-              <button
-                key={c.k}
-                type="button"
-                aria-pressed={pick === i}
-                onClick={() => setPick(pick === i ? null : i)}
-                className={`min-w-0 cursor-pointer rounded-xl border px-3 py-1.5 text-left transition-colors ${
-                  pick === i ? 'border-sky-500/40 bg-sky-500/5' : 'border-transparent hover:border-sky-500/30'
-                }`}
-              >
-                <div className="text-sm font-bold text-sky-400">{c.k}</div>
-                <p className="text-sm leading-relaxed text-slate-400">{c.v}</p>
-              </button>
-            ))}
-          </div>
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={3} className="rounded-2xl border border-amber-500/30 bg-amber-500/5 px-5 py-3.5">
+        {/* 卡片是控制項：讀一筆真的發現，點它的某一欄，底下那四條就告訴你這一欄怎麼核對。 */}
+        <AnimatedBlock stepIndex={2} className="rounded-2xl border border-amber-500/30 bg-amber-500/5 px-5 py-3.5">
           <div className="flex items-baseline gap-2">
             <span className="rounded border border-amber-500/40 px-1.5 font-mono text-xs text-amber-300">示意</span>
             <h3 className="text-base font-bold text-slate-100">一般會員可能讀到其他人的報名資料</h3>
           </div>
-          <dl className="mt-2 grid grid-cols-1 gap-x-8 gap-y-1 text-sm leading-relaxed md:grid-cols-2">
-            {FINDING.map(([k, v]) => (
-              <div key={k} className="flex gap-2 transition-colors">
-                <dt className={`w-16 shrink-0 text-xs ${lit(k) ? 'text-amber-300/80' : 'text-slate-600'}`}>{k}</dt>
-                <dd className={`min-w-0 ${lit(k) ? 'text-slate-300' : 'text-slate-600'}`}>{v}</dd>
-              </div>
+          <div className="mt-2 grid grid-cols-1 gap-x-6 gap-y-0.5 md:grid-cols-2">
+            {FINDING.map(([k, v]) => {
+              const on = pick === k;
+              return (
+                <button
+                  key={k}
+                  type="button"
+                  aria-pressed={on}
+                  onClick={() => setPick(on ? null : k)}
+                  className={`flex cursor-pointer gap-2 rounded-lg border px-2 py-1 text-left text-sm leading-relaxed transition-colors ${
+                    on ? 'border-amber-500/40 bg-amber-500/10' : 'border-transparent hover:border-amber-500/30'
+                  }`}
+                >
+                  <span className="w-16 shrink-0 pt-0.5 text-xs text-amber-300/80">{k}</span>
+                  <span className="min-w-0 text-slate-300">{v}</span>
+                </button>
+              );
+            })}
+          </div>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={3}>
+          <h3 className="mb-1.5 text-base font-bold text-slate-100">這四件事，你要自己對一遍</h3>
+          <ol className="grid grid-cols-1 gap-x-6 gap-y-2 md:grid-cols-2">
+            {CHECKS.map((c, i) => (
+              <li key={c.k} className="flex min-w-0 gap-2.5 text-sm leading-relaxed transition-colors">
+                <span className={`font-mono font-bold ${lit(c) ? 'text-sky-400' : 'text-slate-600'}`}>{i + 1}</span>
+                <p className={`min-w-0 ${lit(c) ? 'text-slate-400' : 'text-slate-600'}`}>
+                  <strong className={lit(c) ? 'text-sky-300' : 'text-slate-600'}>{c.k}：</strong>
+                  {c.v}
+                  {/* 第四條永遠掛著這一句：它在單獨一筆發現上本來就沒有對象（檔頭）。 */}
+                  {c.note && <span className="mt-0.5 block text-slate-500">{c.note}</span>}
+                </p>
+              </li>
             ))}
-          </dl>
-          {/* 第四條核對不到任何一欄，那個「對不到」就是它的教學點（檔頭）。 */}
-          {picked && picked.fields.length === 0 && (
-            <p className="mt-2.5 rounded-xl border border-dashed border-slate-700 px-3.5 py-2 text-sm leading-relaxed text-slate-400">
-              {'單獨一條發現回答不了這一題。'}
-              <strong className="text-slate-200">這次實際查了哪些、哪些沒查，要看報告最後那一段</strong>
-              {'（報告裡叫 Coverage & Limitations）。'}
-            </p>
-          )}
+          </ol>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={4} className="grid grid-cols-1 gap-3 md:grid-cols-3">
@@ -192,19 +206,6 @@ export default function SlideShipTriage() {
               {a.tie && <p className="mt-1.5 text-sm leading-relaxed text-sky-200/90">{a.tie}</p>}
             </div>
           ))}
-        </AnimatedBlock>
-
-        <AnimatedBlock stepIndex={5} className="border-t border-slate-800 pt-2.5">
-          <p className="text-base font-bold leading-relaxed text-slate-100">
-            有人問「這樣可以上線嗎」，你交得出去的是這種句子：
-          </p>
-          <p className="mt-1 text-sm leading-relaxed text-slate-300">
-            「十類查了八類，另外兩類沒有工具、驗不了；查出來三條，兩條已經驗過也修好，
-            一條還在待驗證；正式環境的設定與外部服務這一次沒有查。」
-            <span className="mt-1 block text-slate-500">
-              「報告說沒問題」不是這種句子，它沒有說出查了什麼。
-            </span>
-          </p>
         </AnimatedBlock>
 
       </div>
