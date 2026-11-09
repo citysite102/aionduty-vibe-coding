@@ -11,6 +11,8 @@ import { CopyBlock } from '../components/CopyBlock';
  *   1. **聽起來像萬年老梗**（「資料安全很重要、要先問過公司」每堂課都講，聽完沒有動作）。
  *   2. **它變成在勸退**。整門課都在教怎麼用，這一頁卻像先擋一道。
  * 現在的立場是：**你今天就可以開工，而且不必等答案**。第一輪用假資料跑是更快的路，
+ * 講法 2026-11-09 校過一次（講師）：**「欄位用一樣的設計，但不要用真實資料」**，
+ * 不要寫成「欄位照真的留著」——「照真的」會被讀成照抄真實資料的內容。
  * 問的那一段同時進行；這一頁真正要給的是「怎麼問得到一個可以」。
  * **假資料那一塊要排在問句前面**，順序本身就是這一頁的主張。
  *
@@ -56,7 +58,7 @@ export default function SlideDataCheck() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           題目挑好了，
           <strong className="text-slate-100">第一輪不用等任何人回覆就能開始</strong>：
-          欄位照真的留著，內容自己編一份。正式資料能不能用，同一時間去問。
+          欄位用一樣的設計，但不要用真實資料。正式資料能不能用，同一時間去問。
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2} className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-3.5">
@@ -70,7 +72,7 @@ export default function SlideDataCheck() {
             ))}
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
-            客戶名稱、金額這類欄位，第一輪留著格式就好，值換成你自己編的。
+            客戶名稱、金額這類欄位照原本的設計留著，裡面的值自己編。
             <strong className="text-slate-400">這一輪本來就不該拿正式資料跑</strong>，跟能不能用是兩件事。
           </p>
         </AnimatedBlock>
