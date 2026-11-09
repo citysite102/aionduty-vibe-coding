@@ -34,15 +34,15 @@ const OPTIONS = [
 const WHY_NOT = [
   {
     k: 'A',
-    v: '視窗再大，這一輪結束一樣不見。「哪些檔案不能改」本來就不該靠它記住，那是要寫下來的東西。',
+    v: '視窗大一點裝得下更多當下的東西，但開新對話還是得重講一次。「哪些檔案不能改」是跨次都要用的，那是要寫下來的東西。',
   },
   {
     k: 'B',
-    v: '它是合理的第二步，只是順序反了。限制還沒寫清楚就先建索引，它只會更快找到那些它本來就不該改的檔案。',
+    v: '這一題缺的是還沒被寫下來的限制。先把限制補成文件、確認它讀得到；之後真的卡在找不到檔案，再評估索引工具。',
   },
   {
     k: 'D',
-    v: '那正是沒有索引時最慢的一條路：花掉大半個上下文在探索，真正要做的事反而沒空間。',
+    v: '重新讀一遍也找不回只留在舊對話裡的限制，而且每一輪都要重新花時間探索一次。',
   },
 ];
 
@@ -53,8 +53,9 @@ export default function SlideMemoryQuiz() {
 
         <AnimatedBlock stepIndex={1} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
           <p className="text-slate-100 text-base font-bold leading-relaxed">
-            你用 Claude Code 維護一個開發了三個月的網站。每次修改登入功能，
-            都得重新告訴它哪些檔案不能改。
+            你用 Claude Code 維護一個開發了三個月的網站。每次開新對話修改登入功能，
+            都得重新告訴它哪些檔案不能改。你確認過，那幾條限制只講在舊的對話裡，
+            專案裡沒有任何一份文件寫著它們。
           </p>
           <p className="mt-1 text-sm text-slate-500">你會優先採取哪個做法？先選一個，再往下看。</p>
           <ol className="mt-3 space-y-2">
@@ -73,10 +74,10 @@ export default function SlideMemoryQuiz() {
             <h3 className="text-base font-bold text-slate-100">先把限制與架構關係寫進專案文件</h3>
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-300">
-            這個情境的症狀是「每次都要重講一遍」，代表那幾條限制從來沒有被寫下來，
+            題目已經說了，那幾條限制只留在舊的對話裡，
             <strong className="text-slate-100">它找不到，是因為那份資訊不存在</strong>，
-            不是因為專案太大。哪些檔案不能改、它們跟誰相依，寫進專案文件之後，
-            每一輪對話它都讀得到。
+            不是因為專案太大。哪些檔案不能改、它們跟誰相依，寫成專案文件之後，
+            再開一輪新對話，請它指出文件位置並且把限制複述一次，確認它真的讀到了。
           </p>
         </AnimatedBlock>
 

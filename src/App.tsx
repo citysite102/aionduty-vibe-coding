@@ -177,18 +177,24 @@ import SlideCase4Stack from './slides/29m_Case4_Stack';
 import SlideCase4Arch from './slides/29m2_Case4_Arch';
 import SlideCase4Judgements from './slides/29n_Case4_Judgements';
 import Slide28b0 from './slides/28b0_M4_PickTopic';
+import Slide28b1 from './slides/28b1_M4_DataCheck';
 import Slide28b from './slides/28b_M4_FirstDay';
+import Slide28b2 from './slides/28b2_M4_WorkDocs';
 import Slide28c2 from './slides/28c2_M4_ShipRisk';
 import Slide28c1 from './slides/28c1_M4_ShipEvidence';
 import Slide28c2b from './slides/28c2b_M4_ShipOwaspIntro';
 import Slide28c3 from './slides/28c3_M4_ShipOwasp';
 import Slide28c3b from './slides/28c3b_M4_ShipScan';
+import Slide28c3d from './slides/28c3d_M4_ShipChain';
+import Slide28c3e from './slides/28c3e_M4_ShipAudit';
+import Slide28c3f from './slides/28c3f_M4_ShipTriage';
 import Slide28c3c from './slides/28c3c_M4_ShipAiRisk';
 import Slide28d from './slides/28d_M4_ProjectMemory';
 import Slide28d1 from './slides/28d1_M4_LegacyCode';
 import Slide28d2 from './slides/28d2_M4_CodeIndex';
 import Slide28e from './slides/28e_M4_WhenToAdd';
 import Slide28f from './slides/28f_M4_MemoryQuiz';
+import Slide28f2 from './slides/28f2_M4_Handover';
 import Slide33 from './slides/33_Outro';
 import SlideDivCases from './slides/29_Div_Cases';
 import { REPLACEMENTS } from './slides-recorded/registry';
@@ -358,18 +364,24 @@ const LIVE_TITLES = [
   "系統架構：三個入口，權限都在資料庫",
   "AI 無法幫你決定的事情",
   "從自己的工作中，找出值得交給 Agent 的事",
+  "先用假資料開工，正式資料另外問",
   "把工作拆成可交辦、可驗收的流程",
+  "保存工作文件，讓下次接得上",
   "AI 說完成了，我們該怎麼驗收？",
   "安全問題有多常見：三份調查與一個案例",
   "網站與 Agent，各有什麼安全風險？",
   "讓 Agent 幫你做第一輪網站安全檢查",
   "Agent 寫完程式，怎麼確認沒有留下問題？",
+  "安全檢查的四個階段，各自用什麼工具",
+  "進階安全審查：盤點工具、威脅模型與報告",
+  "怎麼讀 Agent 交回來的安全報告",
   "Agent 能讀、判斷、執行，不代表該放行",
   "專案變大後，為什麼 Agent 開始忘東忘西？",
-  "接手舊專案：先重構，還是直接重寫",
+  "接手舊專案：保留、局部改造或重新開發",
   "檔案一多，Agent 怎麼找到需要的程式碼？",
   "加記憶或索引工具之前，先確認瓶頸",
   "判斷題：維護三個月的網站，先做哪一件",
+  "交給別人之後，誰接手、誰維護",
   "從做出作品，到建立能反覆交付的工作系統",
   "終端機與 Claude Code 操作基礎",
   "選修：終端機基本指令",
@@ -542,18 +554,24 @@ const LIVE_SLIDES = [
   SlideCase4Arch,
   SlideCase4Judgements,
   Slide28b0,
+  Slide28b1,
   Slide28b,
+  Slide28b2,
   Slide28c2,
   Slide28c1,
   Slide28c2b,
   Slide28c3,
   Slide28c3b,
+  Slide28c3d,
+  Slide28c3e,
+  Slide28c3f,
   Slide28c3c,
   Slide28d,
   Slide28d1,
   Slide28d2,
   Slide28e,
   Slide28f,
+  Slide28f2,
   Slide33,
   Slide07b,
   Slide10,
@@ -594,7 +612,7 @@ const SECTION_DEFS = [
   { start: 87, label: 'Multi-Agent 協作：建立分工與品質管理流程' },
   { start: 109, label: 'Loop 與 Graph Engineering：從自動迭代到工作流程設計' },
   { start: 140, label: '整合專案實戰：從需求規格到產品上線' },
-  { start: 175, label: '補充單元：終端機與 Claude Code 操作基礎' },
+  { start: 181, label: '補充單元：終端機與 Claude Code 操作基礎' },
 ];
 
 /** 把拆好的頁面替換進原本的順序。沒拆過的維持原樣。 */

@@ -15,6 +15,12 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * （超過 D-5 的 40），而且 207、208 已經連兩頁是問句，第三頁再問一次就是同一個句型骨架
  * 連三次（D-5 那一節講的模具）。現在這句 32 寬，而且把這一頁的判斷順序直接寫出來。
  *
+ * 2026-11-09（講師）上半從「專案規模三格」換成「三種工作瓶頸」。
+ * 規模不是判斷標準，**撞到哪一種瓶頸才是**；原本第三格寫「大到一定程度才值得評估」，
+ * 會被讀成「專案越大就一定要裝」。三格各自的「先做」是不用裝工具的那一步，
+ * **那一行不能刪**，它是這一頁的論點。四題也跟著換成選工具的四題，第一題問的是
+ * 「現有的做法究竟解決不了什麼」，直接接住上面那三個「先做」。
+ *
  * 這一輪拿掉的，**不要加回來**：
  *   1. 原本那張六列的兩工具逐題對照表。它把兩個工具排成「一個本機安全、一個會送出去」，
  *      但 Trail Code 的結構索引與 learnings 都在本機跑，只有 `trail build --deep` 那一層
@@ -38,35 +44,29 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * 強調色一種：sky（四個問題的編號與第三種情境）。其餘灰階。
  */
 
-/** 上半：三種典型情境。**順序由小到大，不要調**，第一格就收掉大部分學員的情況。 */
-const CASES = [
+/** 上半：三種工作瓶頸。**不要改回專案規模的分類**，規模不是判斷標準，撞到哪一種瓶頸才是。
+ *  每一格的「先做」都是不用裝工具的那一步，**那一行不能刪**，它是這一頁的論點。 */
+const BOTTLENECKS = [
   {
     n: '01',
-    k: '小型專案：先把規則寫清楚',
-    when: '檔案不多、架構清楚、一個人短期在做。',
-    todo: (
-      <>
-        維護好 <code className="font-mono text-orange-300">CLAUDE.md</code>，搭配專案目錄與工具本來就有的搜尋。
-      </>
-    ),
-    note: '不必急著裝索引或記憶工具。',
-    hot: false,
+    k: '常忘記規格與決策',
+    sign: '同一件事每一輪都要重講，昨天談好的做法今天又跑掉。',
+    first: '先改善專案文件與決策紀錄，指定誰負責更新，並且確認它每一輪真的讀得到。',
+    then: '確認它讀到的是正確的版本之後還是接不上，才輪到外部記憶。',
   },
   {
     n: '02',
-    k: '持續開發：開始管理決策與狀態',
-    when: '做的時間跨越很多次對話，需求、架構與做法一直在變。',
-    todo: '建立規格文件、決策紀錄與進度文件，重要的事不要只留在聊天紀錄裡。',
-    note: '先確認那幾份文件有人負責更新。沒人更新的文件，比沒有文件更容易把它帶偏。',
-    hot: false,
+    k: '常找錯程式碼',
+    sign: '它翻了十幾個檔案才回答，或者改到已經不再使用的那一份。',
+    first: '先改善內建搜尋的用法與專案本身的結構（命名、資料夾、職責）。',
+    then: '這兩件做過還是常漏掉，再比較一次：繼續整理結構，跟裝一套索引，哪一個比較省。',
   },
   {
     n: '03',
-    k: '複雜專案：評估索引與外部記憶',
-    when: '檔案多、各部分互相牽連、跨很多次工作，或是好幾個人一起維護。',
-    todo: '內建的搜尋常漏掉相關程式碼、重複探索花掉太多時間、或者需要跨次保存決策，再評估加工具。',
-    note: '規模不是唯一的標準，真正的判斷標準是現在的工作方式有沒有撞到說得出來的瓶頸。',
-    hot: true,
+    k: '中斷之後接不回去',
+    sign: '上一輪做到哪、哪幾步還沒完成、失敗停在哪裡，沒有人說得出來。',
+    first: '先把完成了哪幾步、產物放在哪、失敗停在哪寫成一份進度紀錄。',
+    then: '進度有在寫之後還是接不回去，才評估那些狀態要存在哪裡、由誰更新。',
   },
 ];
 
@@ -82,30 +82,31 @@ const TOOLS = [
     k: 'Trail Code',
     use: '程式碼的關係圖，加上把跨次工作的決策與做法存成專案裡的檔案。',
     fit: '同一批人反覆維護同一個專案，先前的決定需要留得下來。',
-    check: '存下來的範圍、怎麼更新、資料往哪裡去、長期誰在維護。結構索引與那些決策檔在本機；要另外開的模型摘要那一層才牽涉到外部的模型。',
+    check: '存下來的範圍、怎麼更新、資料往哪裡去、長期誰在維護。結構索引與那些決策檔在本機；要送出去的有好幾個地方，不是只有一個開關：模型摘要那一層、初始化時讀進去的歷史紀錄、接上團隊空間之後的同步，還有使用回報。每一項各自確認啟用條件、送出什麼、送給誰。',
   },
 ];
 
-/** 下半：做決定的四題。前一版是「問一個工具」的四題，這一版是「做一個決定」的四題。 */
+/** 下半：選工具的四題。**順序不要調**：先確認現有的做法到底解決不了什麼，再問它要什麼，
+ *  再問什麼離開本機，最後才問值不值得養。 */
 const DECIDE = [
   {
     n: '01',
-    q: '我究竟遇到什麼問題？',
-    v: '是找不到程式碼、忘記決策、文件對不起來，還是缺測試？不是每一種都能靠記憶工具解決。',
+    q: '現有的做法究竟解決不了什麼？',
+    v: '那一格的「先做」做過了嗎？做過之後還留著哪些錯誤與花掉的時間，先記下來，再看工具處不處理得了。',
   },
   {
     n: '02',
-    q: '它會碰到什麼資料與權限？',
-    v: '會掃到哪些檔案，裡面有沒有金鑰、環境變數或個人資料？它能讀、能改、還是能執行？它回傳的內容會進到 Agent 的上下文，而那段文字是別人寫的。',
+    q: '新工具要讀哪些資料與權限？',
+    v: '會掃到哪些檔案，裡面有沒有金鑰、環境變數或個人資料？它能讀、能改、還是能執行？還有：它回傳的內容會進到 Agent 的上下文，而那段文字是別人寫的，裡面要是藏了一句指令，它可能就照做了。',
   },
   {
     n: '03',
-    q: '哪些資料會離開這台機器？',
+    q: '哪些資料可能離開這台機器？',
     v: '分清楚本機索引、外部模型摘要、雲端同步與使用回報，不要只看它有沒有標榜 Local。',
   },
   {
     n: '04',
-    q: '長期用下去要付出什麼？',
+    q: '多出來的效益值得這份維護成本嗎？',
     v: '第一次建索引要多久、之後更新快不快、要不要付 API 的錢、版本相不相容、還有沒有人在維護，以及不用了之後那些資料怎麼辦。',
   },
 ];
@@ -117,28 +118,21 @@ export default function SlideWhenToAdd() {
 
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed mb-3">
-            不是每個專案都需要外部記憶。
-            <strong className="text-slate-100">先把專案文件與工作流程整理好，再看現在的搜尋、記憶與維護能力夠不夠用。</strong>
+            先看你現在卡在哪一種瓶頸。
+            <strong className="text-slate-100">每一種都有一件不用裝工具就能做的事，那件事做完還是卡住，才輪到工具。</strong>
           </p>
           <ol className="grid grid-cols-1 gap-3 md:grid-cols-3">
-            {CASES.map((c) => (
-              <li
-                key={c.n}
-                className={`rounded-2xl border p-4 ${
-                  c.hot ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-900/40'
-                }`}
-              >
+            {BOTTLENECKS.map((b) => (
+              <li key={b.n} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-mono text-xs text-slate-600">{c.n}</span>
-                  <h3 className="text-base font-bold text-slate-100">{c.k}</h3>
+                  <span className="font-mono text-xs text-slate-600">{b.n}</span>
+                  <h3 className="text-base font-bold text-slate-100">{b.k}</h3>
                 </div>
-                <p className="mt-1 text-sm leading-relaxed text-slate-500">{c.when}</p>
-                <p className="mt-2 border-t border-slate-800 pt-2 text-sm leading-relaxed text-slate-300">
-                  {c.todo}
+                <p className="mt-1 text-sm leading-relaxed text-slate-500">{b.sign}</p>
+                <p className="mt-2 border-t border-slate-800 pt-2 text-sm leading-relaxed text-sky-200/90">
+                  先做：{b.first}
                 </p>
-                <p className={`mt-1.5 text-sm leading-relaxed ${c.hot ? 'text-sky-200' : 'text-slate-500'}`}>
-                  {c.note}
-                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-slate-400">{b.then}</p>
               </li>
             ))}
           </ol>
@@ -187,7 +181,7 @@ export default function SlideWhenToAdd() {
 
         <AnimatedBlock stepIndex={4} className="border-t border-slate-800 pt-4">
           <p className="text-slate-100 text-lg font-bold leading-relaxed">
-            先確認工作瓶頸，再決定要不要加工具。
+            工具裝得多不會比較好，每一個都要對得上一個說得出來的瓶頸。
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-400">
             加索引或記憶機制，是為了少做重複的探索、把正確的脈絡找回來、讓維護更可靠，

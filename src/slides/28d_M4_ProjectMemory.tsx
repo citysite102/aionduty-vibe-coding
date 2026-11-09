@@ -20,9 +20,14 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  *   3. codebase-memory-mcp 的實例、`curl` 安裝提醒、四個評估問題、token 對照圖，
  *      這些在拆頁那一輪就搬去下一頁了。
  *
- * **底部那句「有保存，不代表找得到；找得到，也不代表找對版本。」是講師指定的原句**，
- * 形狀上接近 D-2 的收尾金句，但它是這兩頁的論點本身（上半句是這一頁，下半句是下一頁），
- * 不是語氣。**不要在掃對仗的時候把它改掉。**
+ * 2026-11-09 結論改成指示句「讓重要資訊有正式來源，並且確保 Agent 在需要的時候找得到
+ * 正確的版本」（講師）。**講師指定的原句「有保存，不代表找得到；找得到，也不代表找對版本。」
+ * 沒有刪，降成底下那一行的理由**，它仍然是這一頁與下兩頁的論點。不要在掃對仗的時候改掉它。
+ *
+ * 同一輪補了兩句防誤讀（講師）：
+ *   症狀底下那一行：同樣的症狀也可能來自搜尋方式、相依關係或缺測試，**先確認是哪一種**。
+ *     少了它，整頁會被讀成「症狀都是脈絡造成的」，而下一頁講的就是另一種原因。
+ *   四列表底下那一句補上「也不是每個專案都要把四種都裝起來」。
  *
  * 三個症狀要照寫那幾個具體例子（舊版檔案、昨天的決策、共用元件），
  * 每一條底下的「原因」是這一頁真正要教的東西，抽掉就只剩抱怨。
@@ -48,7 +53,7 @@ const SYMPTOMS = [
     n: '03',
     k: '改壞其他功能',
     v: '修好了登入頁面，卻意外影響共用的元件，讓其他頁面一起出問題。',
-    why: '不清楚各個部分之間的相依關係與限制。',
+    why: '不清楚各個部分之間的相依關係：登入用的那段共用程式，其他頁面也在用。',
   },
 ];
 
@@ -89,7 +94,7 @@ export default function SlideProjectMemory() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed">
             同一個專案做久了，Agent 可能改到舊版檔案、忘記先前的決策，甚至把已經修好的功能改壞。
-            <strong className="text-slate-100">這些狀況多半是它沒有拿到正確的專案脈絡。</strong>
+            <strong className="text-slate-100">這些狀況有一個常見的原因：它沒有拿到正確的專案脈絡。</strong>
           </p>
         </AnimatedBlock>
 
@@ -105,10 +110,17 @@ export default function SlideProjectMemory() {
                     <span className="text-base font-bold text-slate-100">{s.k}</span>
                   </div>
                   <p className="mt-1 text-sm leading-relaxed text-slate-300">{s.v}</p>
-                  <p className="mt-1 text-sm leading-relaxed text-slate-500">原因：{s.why}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-500">可能的原因：{s.why}</p>
                 </li>
               ))}
             </ol>
+            <p className="mt-3 border-t border-slate-800 pt-3 text-sm leading-relaxed text-slate-500">
+              同樣的症狀，原因不一定都在脈絡：也可能是
+              <strong className="text-slate-300">程式碼本身的結構讀不懂</strong>、
+              <strong className="text-slate-300">相關的程式碼找不到</strong>，
+              或者沒有測試擋著改壞。
+              <strong className="text-slate-400">先確認是哪一種，再決定要補什麼。</strong>
+            </p>
           </AnimatedBlock>
 
           <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
@@ -126,7 +138,8 @@ export default function SlideProjectMemory() {
               ))}
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-500">
-              這四項不是四種平行的記憶。檢索是取得資訊的方法，它也可能用來讀專案文件與外部記憶。
+這四項不是四種平行的記憶，檢索是取得資訊的方法，它也可能用來讀專案文件與外部記憶。
+              也不是每個專案都要把四種都裝起來。
             </p>
           </AnimatedBlock>
 
@@ -134,10 +147,21 @@ export default function SlideProjectMemory() {
 
         <AnimatedBlock stepIndex={4} className="border-t border-slate-800 pt-4">
           <p className="text-slate-100 text-lg font-bold leading-relaxed">
-            有保存，不代表找得到；找得到，也不代表找對版本。
+            讓重要資訊有正式來源，並且確保 Agent 在需要的時候找得到正確的版本。
+          </p>
+          <p className="mt-1 text-sm leading-relaxed text-slate-500">
+            脈絡沒給到是這三種情況最常見的原因，但不是唯一的原因：程式碼本身讀不懂、檔案多到找不到，
+            後面兩頁各處理一種。
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-400">
-            長期專案需要的是一份持續更新、查得到，而且說得出哪一份才算正式版本的專案資訊。
+            有保存，不代表找得到；找得到，也不代表找對版本。
+            <span className="mt-1 block">
+              做得出來的樣子是：跨任務仍然有效的規則寫進
+              <code className="font-mono text-orange-300">CLAUDE.md</code>（Codex 是
+              <code className="font-mono text-orange-300">AGENTS.md</code>）、這一次的需求與驗收條件寫進規格文件、
+              已完成與待確認的事項寫進進度文件，而且每一份都寫明它最後更新是什麼時候、由誰維護。
+              同一件事在兩個地方寫過，先決定哪一份算數。
+            </span>
           </p>
         </AnimatedBlock>
 

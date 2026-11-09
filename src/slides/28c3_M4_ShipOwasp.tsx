@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { CopyBlock } from '../components/CopyBlock';
 
 /**
- * 單元 8-5 第五頁。上一頁分出兩種風險來源，這一頁讓 Agent 跑第一輪網站安全檢查。
+ * 單元 8-6 第三頁。上一頁分出兩種風險來源，這一頁讓 Agent 跑第一輪網站安全檢查。
  *
  * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
  * 這一頁的定位要先說清楚：**它產出的是一份有範圍、有證據的初步審查**，
@@ -49,7 +49,7 @@ const RISKS = [
     en: 'Broken Access Control',
     zh: '存取控制失效',
     problem: '網址上的編號改成別人的，就看得到別人的東西。',
-    check: '列出每一個會讀寫資料的入口，各寫出誰可以用，並指出哪些入口沒有檢查身分。',
+    check: '列出每一個會讀寫資料的入口，各寫出誰可以用，並檢查後端有沒有同時確認身分、角色，以及這筆資料歸誰。',
     beyond: '誰該看到什麼是你的規則，要你自己確認；實際擋不擋得住要另外測一次。',
   },
   {
@@ -64,9 +64,9 @@ const RISKS = [
     id: 'A03',
     en: 'Software Supply Chain Failures',
     zh: '軟體供應鏈失效',
-    problem: '你用的套件或外部服務出事，你的作品跟著壞。',
+    problem: '你裝的套件本身有漏洞，或是更新的內容被動過手腳，問題就跟著進到你的作品裡。',
     check: '列出所有第三方套件與外部服務、各自的版本，標出有已知問題的那幾個。',
-    beyond: '要不要換、換不換得起是成本問題；最新的漏洞資料要靠掃描工具查。',
+    beyond: '要不要換、換不換得起是成本問題；最新的漏洞公告要靠掃描工具查，查不到就標無法確認。',
   },
   {
     id: 'A07',
@@ -199,7 +199,7 @@ export default function SlideShipOwasp() {
         <AnimatedBlock stepIndex={5} as="p" className="px-1 text-sm leading-relaxed text-slate-500">
           上面只列了五條，另外五條是 A04 加密、A05 注入、A06 設計本身的問題、A08 完整性、
           A10 例外狀況沒處理好。
-          <strong className="text-slate-400">完整的審查仍然要涵蓋這五條</strong>，底下那段話跑的就是十條。
+          <strong className="text-slate-400">完整的審查仍然要涵蓋這五條</strong>，上面那段可複製的 Prompt 要求的就是十條。
           <span className="mt-1.5 block">
             OWASP Top 10 是網頁應用程式的風險分類，
             <strong className="text-slate-400">不是一份完整的安全測試清單</strong>。

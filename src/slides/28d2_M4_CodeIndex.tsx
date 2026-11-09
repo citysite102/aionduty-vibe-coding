@@ -37,10 +37,24 @@ import memoryGraph from '../../assets/tools/codebase-memory-graph.png';
  * 強調色兩種：sky（建立索引之後那一塊）與 amber（沒有索引時的三個代價）。
  */
 
-const WITHOUT = [
-  '花時間把專案結構探索一遍',
-  '漏掉間接相關的程式碼',
-  '改到已經不再使用的檔案',
+/** 兩種工作方式的比較。**不要寫成「沒有索引就不能做事」**，一般搜尋適合大部分日常修改。 */
+const WAYS = [
+  {
+    k: '一般搜尋與探索',
+    en: 'Search & Explore',
+    v: '查目錄、關鍵字、函式名稱，然後打開原始碼看。（函式就是一段負責特定工作的程式，例如檢查帳號密碼的那一段；呼叫就是執行它。）',
+    fit: '適合大部分的日常修改。',
+    cost: '相依關係（哪一段程式碼被誰用到）一複雜，就要來回探索好幾輪。',
+    hot: false,
+  },
+  {
+    k: '結構化索引',
+    en: 'Structured Index',
+    v: '先分析一次程式碼的結構與部分相依關係，存成查得到的資料。',
+    fit: 'Agent 要用的時候，直接查相關的檔案、函式與呼叫關係。',
+    cost: '程式改了索引要跟著更新（有的工具自動、有的要你自己跑），而且它不保證掃得完整。',
+    hot: true,
+  },
 ];
 
 const STEPS = [
@@ -76,33 +90,27 @@ export default function SlideCodeIndex() {
         <div className="grid grid-cols-1 lg:grid-cols-[40fr_60fr] gap-6 items-start">
 
           <AnimatedBlock stepIndex={2} className="space-y-3">
-            <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4">
-              <h3 className="text-slate-100 text-base font-bold mb-1.5">沒有索引的時候</h3>
-              <p className="text-sm leading-relaxed text-slate-300">
-                你說「幫我改一下登入功能」，Agent 要自己搜尋檔案、讀程式碼、
-                確認相關的元件跟呼叫關係。
-              </p>
-              <ul className="mt-2 space-y-1">
-                {WITHOUT.map((w) => (
-                  <li key={w} className="flex gap-2 text-sm leading-relaxed text-slate-400">
-                    <span className="text-slate-600 shrink-0">・</span>
-                    <span>{w}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl border border-sky-500/30 bg-sky-500/10 p-4">
-              <h3 className="text-slate-100 text-base font-bold mb-1.5">建立索引之後</h3>
-              <p className="text-sm leading-relaxed text-slate-300">
-                先分析一次整個專案，建立一份查得到的程式碼結構與關係。
-                再叫它改登入功能時，它先查出相關的檔案與呼叫關係，再打開原始程式碼確認。
-              </p>
-            </div>
-
+            {WAYS.map((w) => (
+              <div
+                key={w.en}
+                className={`rounded-2xl border p-4 ${
+                  w.hot ? 'border-sky-500/30 bg-sky-500/5' : 'border-slate-800 bg-slate-900/40'
+                }`}
+              >
+                <div className="flex items-baseline gap-2">
+                  <h3 className="text-base font-bold text-slate-100">{w.k}</h3>
+                  <span className="font-mono text-xs uppercase tracking-wider text-slate-600">{w.en}</span>
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-slate-300">{w.v}</p>
+                <p className="mt-1 text-sm leading-relaxed text-slate-400">{w.fit}</p>
+                <p className="mt-1.5 border-t border-slate-800 pt-1.5 text-sm leading-relaxed text-slate-500">
+                  {w.cost}
+                </p>
+              </div>
+            ))}
             <p className="text-sm leading-relaxed text-slate-500">
-              索引負責幫它<strong className="text-slate-300">找到</strong>相關的程式碼；
-              讀懂、確認與驗證，還是要回到原始程式碼。
+              <strong className="text-slate-300">不裝額外的索引工具，Agent 一樣搜尋得了程式碼</strong>。
+              索引給的是相關檔案的位置與呼叫關係；讀懂跟驗證還是要回到原始碼。
             </p>
           </AnimatedBlock>
 
@@ -114,8 +122,13 @@ export default function SlideCodeIndex() {
               className="w-full max-w-full rounded-xl border border-slate-800"
             />
             <p className="mt-2 text-sm leading-relaxed text-slate-500">
-              它掃完一個專案之後長這樣：點是檔案與裡面的功能，線是誰呼叫誰。
+              它掃完一個專案之後長這樣：點是檔案與裡面的功能，線是它們之間的關係（定義、使用、呼叫這一類）。
               你不用看懂這張圖，Agent 要找東西的時候查的就是它。
+            </p>
+            <p className="mt-2 rounded-xl border border-slate-800 bg-slate-950 px-3.5 py-2.5 text-sm leading-relaxed text-slate-300">
+              <strong className="text-slate-100">一個具體的任務：</strong>
+              改登入功能之前，先找出相關的驗證函式、它們被呼叫的位置，
+              以及可能跟著受影響的元件。
             </p>
             <ol className="mt-3 space-y-2 border-t border-slate-800 pt-3">
               {STEPS.map((s) => (
@@ -138,12 +151,13 @@ export default function SlideCodeIndex() {
 
         <AnimatedBlock stepIndex={4} className="border-t border-slate-800 pt-4">
           <p className="text-slate-100 text-lg font-bold leading-relaxed">
-            索引讓 Agent 更容易找到相關的程式碼，但不保證它理解正確。
+            索引協助定位，理解與驗證仍然要回到原始程式碼。
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-400">
-            找到相關檔案之後，仍然要確認版本、實際的邏輯、相依關係與測試結果。
+            索引不等於理解，也不保證所有相依關係都抓得正確。查到之後還是要打開原始碼讀一遍，
+            並且跑該跑的測試。
             這一類工具很多是一行 <code className="font-mono text-amber-300">curl … | bash</code> 裝完，
-            那一行會把網路上的一段程式直接在你的電腦上執行，先把網址打開看一遍再跑。
+            那一行會把網路上的一段程式直接在你的電腦上執行。先把網址在瀏覽器打開，看它有沒有刪檔案、改系統設定、把東西送到外面，還有它會不會再去下載別的東西。貼給 Claude 請它逐行講，是幫你讀懂，不等於它審過了安全；確認不了就先不要跑。
           </p>
         </AnimatedBlock>
 

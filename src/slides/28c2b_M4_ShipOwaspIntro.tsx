@@ -2,7 +2,7 @@ import { ShieldQuestion, Globe, Bot, ExternalLink } from 'lucide-react';
 import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 
 /**
- * 單元 8-5 第四頁。上一頁把驗收拆成功能、品質、安全三個面向，
+ * 單元 8-6 第二頁。上一頁把驗收拆成功能、品質、安全三個面向，
  * 這一頁回答其中安全那一面要參考哪些風險分類，下一頁才動手做第一輪審查。
  *
  * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
@@ -32,12 +32,15 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
  * genai.owasp.org/llm-top-10/ 當天列的也是 2025 版，提示注入與過度授權都在裡面。
  * **畫面上只寫清單名稱與涵蓋哪幾類風險，不寫條目編號**，改版編號會動。
  *
- * 四頁的分工（改任何一頁之前先看，B-6）：
- *   203 這一頁：要參考哪些安全風險分類
- *   204 怎麼把網站那一邊變成 Agent 跑得了的第一輪審查
- *   205 除了 AI Review 還有哪些驗證方式
- *   206 Agent 自己能讀、能判斷、能執行到什麼程度
- * **這一頁不要先把後面三頁的內容講掉。**
+ * 這一段的分工（改任何一頁之前先看，B-6。**用檔名不用頁碼**，2026-11-09 插了兩頁之後
+ * 原本寫的 203 到 206 全部指錯，而那種錯不會有任何檢查抓得到）：
+ *   這一頁（`28c2b`）：要參考哪些安全風險分類
+ *   `28c3`   怎麼把網站那一邊變成 Agent 跑得了的第一輪審查
+ *   `28c3b`  除了 AI Review 還有哪些驗證方式
+ *   `28c3d`  那幾種檢查接成一條線之後，每一關有哪些工具
+ *   `28c3e`  一段含工具盤點、威脅模型與報告結構的進階審查 Prompt
+ *   `28c3c`  Agent 自己能讀、能判斷、能執行到什麼程度
+ * **這一頁不要先把後面那幾頁的內容講掉。**
  *
  * 用色：只有 sky 一種（A-1）。這一頁是在認識框架，**不要用警告色框**。
  */
@@ -86,7 +89,8 @@ export default function SlideShipOwaspIntro() {
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           網站本身可能有安全漏洞，
           <strong className="text-slate-100">替你開發網站的 Agent 也可能被不可信的內容誤導</strong>。
-          這是兩種不同的風險，要用不同的方式檢查。
+          這是兩種不同的風險，要用不同的方式檢查；
+          <span className="text-slate-400">你的網站裡如果也接了 AI（客服、摘要、生成），那兩份清單都要看。</span>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -4,6 +4,27 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 /**
  * 單元 8-5 第二頁。上一頁挑好題目，這一頁是第一次把它跑成一套流程。
  *
+ * 開場那一句管的是「這一段在做的是什麼」，所以它講 Agentic Engineering 的重點：
+ * **事前把範圍、產出與驗收條件寫下來，事後真的去對一遍。** 底下四步就是那件事的動作。
+ *
+ * 2026-11-09 這一句改過兩次。先補成「把題目變成第三種做法的樣子，靠的就是這四步」，
+ * 當天講師退掉：**單次／重複／系統化那一塊在上一頁的畫面上，這一頁沒有**，
+ * 「第三種」在這裡是位置代稱，讀者要翻回去才知道指什麼（D-2 空心的詞）。
+ * **不要再用「第三種」「上面那一種」去指上一頁的東西**，要指就把那件事講出來。
+ *
+ * ── 2026-11-09 拆頁（Codex 審查建議，講師同意）────────────────────
+ * 這一頁原本同時裝著四個步驟、四種文件的分工、失敗三問與人工確認框，三套清單搶主角，
+ * 而且四個步驟全部包在同一個 `stepIndex` 裡，一次全出現。
+ * 現在**只留四個步驟**，文件分工與失敗恢復整組搬到下一頁 `28b2_M4_WorkDocs`。
+ * **不要把它們搬回來**；那一頁還多了一句開工時叫 Agent 覆述文件內容的指令，
+ * 補的是 `28b0` 檔頭那句「存成檔案，不等於它就會讀到」。
+ *
+ * 四個步驟改成各自一個 `stepIndex`（2 到 5），講者可以一步一步帶。
+ *
+ * 步驟 02 原本結在「回去看案例一那份規格的七塊」。那七塊是網站題目的模板
+ * （三到五張參考圖、有哪些照片與內容），選報表或知識庫的學員套不上，而且它把這一頁
+ * 綁在另一支影片上。**不要加回來**，現在那一句改成「缺的資料先列成待確認問題」。
+ *
  * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
  * **六個階段的完整說明不在這一頁**（上一版在這裡橫排了六格加兩條回頭的線）。
  * 那份說明現在只在結語那一頁，這兩頁的職務是把它用到學員自己的工作上：
@@ -50,14 +71,14 @@ const STEPS = [
     n: '02',
     k: '確認規格與執行計畫',
     stage: 'Define · Plan',
-    v: '請它先整理出工作範圍、輸入、產出、限制與驗收條件，你核准之後才開始執行。',
+    v: '請它先整理出工作範圍、輸入、產出、限制與驗收條件，缺的資料列成待確認問題，先不要動手。你核准之後才開始執行。',
     code: null,
   },
   {
     n: '03',
     k: '執行與驗收',
     stage: 'Execute · Verify',
-    v: '從最小的那一塊開始，自己檢查實際成果，記下改了什麼、哪裡出錯、哪些還沒做完。',
+    v: '從最小的那一塊開始，自己檢查實際成果，記下改了什麼、哪裡出錯、哪些還沒做完。例：十筆測試資料的合計要跟你人工核對的答案一樣，缺日期的那幾筆要列出來，不要自己補。',
     code: null,
   },
   {
@@ -67,20 +88,6 @@ const STEPS = [
     v: '把跨次任務仍然有效的規則存進專案文件，換第二批測試資料再跑一次，確認不必把規則重講一遍。',
     code: null,
   },
-];
-
-/** 四種文件的分工。**只給最小示例**，完整的記憶分層是 Slide 207 的事。 */
-const DOCS = [
-  { k: 'CLAUDE.md', mono: true, v: '跨次任務仍然有效的專案指引與工作規則', eg: '一律用繁體中文回覆；改任何檔案前先說你要改什麼' },
-  { k: '規格文件', v: '這一次要做什麼、不做什麼，以及驗收條件', eg: '' },
-  { k: '進度文件', v: '現在做到哪、哪些還沒完成、哪些等你確認', eg: '' },
-  { k: 'Skill', mono: true, v: '真的會跨任務重用的那套做法', eg: '' },
-];
-
-const RECOVER = [
-  { n: '1', k: '停在哪裡', v: '已經完成了什麼？哪些操作已經生效，收不回來了？' },
-  { n: '2', k: '怎麼恢復', v: '修正、重試、回退，或是確認狀態之後安全地繼續。' },
-  { n: '3', k: '什麼時候交給人', v: '超過重試上限、狀態確認不了，或是需要一個重要決定。' },
 ];
 
 export default function SlideFirstDay() {
@@ -93,80 +100,40 @@ export default function SlideFirstDay() {
       <div className="max-w-6xl mx-auto space-y-4 pb-6">
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
-          選一個範圍小、風險低的任務，
-          <strong className="text-slate-100">把一次交辦、一次驗收，加上第二次執行走完。</strong>
+          Agentic Engineering 的重點在交辦與驗收：
+          <strong className="text-slate-100">事前把範圍、產出與驗收條件寫下來，事後真的去對一遍。</strong>
+          選一個範圍小、風險低的任務，把一次交辦、一次驗收，加上第二次執行走完。
         </AnimatedBlock>
 
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1.15fr_1fr] items-start">
-
-          <AnimatedBlock stepIndex={2} className="space-y-3">
-            {STEPS.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
-                <div className="flex items-baseline gap-2">
-                  <span className="font-mono text-xs text-sky-400">{s.n}</span>
-                  <h3 className="text-base font-bold text-slate-100">{s.k}</h3>
-                  <span className="ml-auto font-mono text-xs uppercase tracking-wider text-slate-600">
-                    {s.stage}
-                  </span>
-                </div>
-                <p className="mt-1 text-sm leading-relaxed text-slate-400">{s.v}</p>
-                {s.code && (
-                  <pre className="mt-2 overflow-x-auto rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-xs leading-relaxed text-slate-400">
-                    {s.code.join('\n')}
-                  </pre>
-                )}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {STEPS.map((s, i) => (
+            <AnimatedBlock key={s.n} stepIndex={i + 2} className="rounded-2xl border border-slate-800 bg-slate-900/40 p-4">
+              <div className="flex items-baseline gap-2">
+                <span className="font-mono text-xs text-sky-400">{s.n}</span>
+                <h3 className="text-base font-bold text-slate-100">{s.k}</h3>
+                <span className="ml-auto font-mono text-xs uppercase tracking-wider text-slate-600">
+                  {s.stage}
+                </span>
               </div>
-            ))}
-          </AnimatedBlock>
-
-          <div className="space-y-4">
-
-            <AnimatedBlock stepIndex={3} className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-              <h3 className="text-base font-bold text-slate-100">哪一句話該寫進哪一份</h3>
-              <p className="mt-1 text-sm leading-relaxed text-slate-500">
-                不是全部都塞進 <code className="font-mono text-orange-300">CLAUDE.md</code>。四種各有職務：
-              </p>
-              <dl className="mt-2.5 space-y-2 border-t border-slate-800 pt-2.5 text-sm leading-relaxed">
-                {DOCS.map((d) => (
-                  <div key={d.k} className="flex gap-2.5">
-                    <dt className={`w-24 shrink-0 ${d.mono ? 'font-mono text-orange-300' : 'font-medium text-slate-200'}`}>
-                      {d.k}
-                    </dt>
-                    <dd className="min-w-0 text-slate-400">
-                      {d.v}
-                      {d.eg && <span className="mt-0.5 block text-slate-600">例：{d.eg}</span>}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              <p className="mt-1 text-sm leading-relaxed text-slate-400">{s.v}</p>
+              {s.code && (
+                <pre className="mt-2 overflow-x-auto rounded-lg border border-slate-800 bg-slate-950 px-3 py-2 font-mono text-xs leading-relaxed text-slate-400">
+                  {s.code.join('\n')}
+                </pre>
+              )}
             </AnimatedBlock>
-
-            <AnimatedBlock stepIndex={4} className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
-              <h3 className="text-base font-bold text-slate-100">失敗的時候，你要知道三件事</h3>
-              <ol className="mt-2.5 space-y-2">
-                {RECOVER.map((r) => (
-                  <li key={r.n} className="flex gap-2.5 text-sm leading-relaxed">
-                    <span className="font-mono text-sm font-bold text-sky-300">{r.n}</span>
-                    <p className="min-w-0 text-slate-400">
-                      <strong className="text-slate-200">{r.k}：</strong>
-                      {r.v}
-                    </p>
-                  </li>
-                ))}
-              </ol>
-              <div className="mt-3 flex items-start gap-2 rounded-xl border border-dashed border-sky-500/40 px-3.5 py-2.5">
-                <UserCheck aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-sky-300" />
-                <p className="text-sm leading-relaxed text-slate-300">
-                  會寄出去、會付錢、會刪東西、會公開的那幾個動作，
-                  <strong className="text-slate-100">在流程裡就寫明要先問過你</strong>，不要靠當下記得攔。
-                </p>
-              </div>
-            </AnimatedBlock>
-
-          </div>
+          ))}
         </div>
 
-        <AnimatedBlock stepIndex={5} className="border-t border-slate-800 pt-4">
+        <AnimatedBlock stepIndex={6} className="flex items-start gap-2 rounded-xl border border-dashed border-sky-500/40 px-4 py-2.5">
+          <UserCheck aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-sky-300" />
+          <p className="text-sm leading-relaxed text-slate-300">
+            會寄出去、會付錢、會刪東西、會公開的那幾個動作，
+            <strong className="text-slate-100">在流程裡就寫明要先問過你</strong>，不要靠當下記得攔。
+          </p>
+        </AnimatedBlock>
+
+        <AnimatedBlock stepIndex={7} className="border-t border-slate-800 pt-4">
           <p className="text-base font-bold leading-relaxed text-slate-100">
             第一次跑成功，不代表流程已經建立。換一批資料還能照規格完成，才開始有重用的價值。
           </p>

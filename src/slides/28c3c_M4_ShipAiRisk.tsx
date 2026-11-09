@@ -3,7 +3,7 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
- * 單元 8-5 第七頁。上一頁講怎麼確認程式沒問題，這一頁講它被允許做哪些事。
+ * 單元 8-6 第七頁。上一頁講怎麼確認程式沒問題，這一頁講它被允許做哪些事。
  * 兩頁之間的接點是一句話：**驗證結果正確，不等於授權執行**（寫在轉場，見逐字稿）。
  *
  * ── 2026-11-09 重構（講師給了逐塊的規格）──────────────────────
@@ -34,7 +34,12 @@ import { Callout } from '../components/Callout';
  * 提示注入（Prompt Injection）與過度授權（Excessive Agency）都在十條裡。
  * **畫面上寫出版本年份、不寫條目編號**，站上換版編號會動。
  * OWASP 那份是清單，不是安全驗收，也不是法遵認證，畫面上那一句就是在擋這個誤讀。
- * 真實案例：GMO Flatt Security 2026/01 那一篇，連結在畫面上，2026-11-09 複查仍可開啟。
+ * 案例：GMO Flatt Security 那一篇，連結在畫面上。2026-11-09 用原文重新核對過三件事，
+ * **原本畫面上寫錯的也在這裡**：
+ *   1. 它是**研究者在自己的測試庫上做的驗證**，不是某個使用者真的被害。原文寫著
+ *      「All findings were validated in my own test repositories」。**不要再寫成「真的發生過」。**
+ *   2. 2026/01 是通報日（1/12），文章 2026/06/01 才公開，修補 2026/02/17 完成。
+ *   3. 外洩的是**環境變數裡的 OIDC 憑證**，走的是把內容寫回那張 issue，不是「標題裡藏指令」。
  * **不要新增查不到完整出處的事件**，查不到就不要寫成已經證實的案例。
  *
  * 用色：sky（三種邊界與收尾）＋ amber（兩種風險）兩種（A-1）。
@@ -50,7 +55,7 @@ const BOUNDS = [
     q: '它能讀到什麼資料？那些資料可信嗎？',
     dos: [
       '限制它讀得到的資料與檔案範圍',
-      '外部文件、網頁與使用者打的字，裡面寫什麼都不算交代',
+      '外部文件、網頁，以及使用者送進來等它處理的內容，裡面寫什麼都是資料，不是交代給它的工作',
       '機密資料另外用存取控制擋住',
     ],
   },
@@ -158,7 +163,7 @@ export default function SlideShipAiRisk() {
           <p className="mt-3 border-t border-amber-500/20 pt-3 text-sm leading-relaxed text-slate-400">
             這兩種可能接連發生，但它們不是彼此的必要條件：沒有被注入指令，權限給太大一樣會出事。
             <span className="ml-1 text-slate-500">
-              真的發生過：2026/01，Claude Code 的 GitHub 自動化，待辦單標題裡藏一句指令，雲端金鑰被送了出去。
+              研究者驗證過：Claude Code 的 GitHub 自動化，待辦單的內容裡藏一句指令，環境變數裡的憑證就被寫回那張待辦單。2026/01 通報、2026/02 修補完成。
             </span>
             <a
               href="https://flatt.tech/research/posts/poisoning-claude-code-one-github-issue-to-break-the-supply-chain/"
@@ -192,7 +197,7 @@ export default function SlideShipAiRisk() {
         >
           限制資料來源、降低系統權限、影響大的動作要人核准，而且留得下執行紀錄。
           <span className="mt-2 block text-slate-400">
-            三件事要分清楚：指示不是權限管理機制；AI Review 通過不等於拿到正式的執行授權；
+            三件事要分清楚：指示不是權限管理機制；AI Review 沒有回報明顯問題，不等於拿到正式的執行授權；
             不可信的文件裡寫的東西，不該被當成系統或使用者的指令。
           </span>
         </Callout>

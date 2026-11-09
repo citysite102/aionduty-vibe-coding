@@ -3,6 +3,10 @@ import { SlideLayout, AnimatedBlock } from '../components/SlideLayout';
 import { Callout } from '../components/Callout';
 
 /**
+ * 單元 8-6 第一頁，也就是資安那一支的第一個畫面（2026-11-09 切出來，講師）。
+ * 它要自己說得出這一段在做什麼，而且**開場不要重複前一支最後那句轉場**
+ * （`逐字稿/README.md` 開場白那一條）。
+ *
  * 2026-11-09 新增（講師）。這四塊內容原本在 Slide 202 的下半，
  * 那一頁同日改成「驗收的三個面向」之後塞不下，整組搬到這一頁來。
  *
@@ -21,8 +25,20 @@ import { Callout } from '../components/Callout';
  * 不要互相加總，也不要推到所有 AI 寫的程式上。** 我們讀到的是轉述不是原始報告（C-2）。
  * **不要把三個數字合併成一句結論**，那就是把三份不同樣本的研究推成一個通則。
  *
- * ⚠ 數字是 2026-10-10 查到的二手轉述。**連結點不開或數字對不上的時候，
- * 整塊拿掉比改數字安全。** 2026-11-09 複查：Reeve／Symbiotic 那篇與 iThome
+ * ── 2026-11-09 用原始來源複查過兩塊（Codex 審查指出，複查後確認）──────────
+ *   1. Reeve 那個 99%：原文是「99% ⋯ had at least one finding」，而且自己寫著
+ *      「Most of those were moderate, and nearly all of them are missing browser
+ *      security headers」。**少了這個限定，99% 會被讀成九成九都有可被利用的嚴重漏洞。**
+ *      https://reeve.page/research/vibe-coded-app-security-2026
+ *   2. What'Sub 那一段原本有三處在 INSIDE 原文裡查不到，已經換掉，**不要加回來**：
+ *      「2026 年 8 月」（原文沒給外洩的月份，專訪是 2026/09/19 刊出）、
+ *      「兩天破萬註冊」（原文寫的是用量達原先設想的十倍以上）、
+ *      以及「我沒有想到這麼多」——**那句話在原文裡講的是第一個月十萬元的 API 帳單，不是資安**。
+ *      「開發者不寫程式」原文也沒有這樣寫，一併拿掉。
+ *      現在畫面上那段的每一句都在專訪裡找得到，包含最後那句 Codex 紅藍對抗的沙盒測試。
+ *
+ * ⚠ 三個數字仍是 2026-10-10 查到的二手轉述（Reeve 那一條 2026-11-09 已改引原始報告）。
+ * **連結點不開或數字對不上的時候，整塊拿掉比改數字安全。** 2026-11-09 複查：Reeve／Symbiotic 那篇與 iThome
  * 兩個連結都回 200；INSIDE 那一篇 curl 回 403，那是擋自動抓取、不代表文章不在（C-4），
  * **要引用之前自己用瀏覽器開一次**。
  *
@@ -46,7 +62,7 @@ const STATS = [
   {
     n: '99%',
     unit: '的受測網站',
-    what: '至少有一個資安問題',
+    what: '至少有一項掃描發現。多數是中度，而且幾乎都是少了瀏覽器的安全標頭',
     sample: '30,998 個線上的 vibe-coded 網站',
     when: '2026 年 8 月，Reeve 掃描',
   },
@@ -69,7 +85,7 @@ const STATS = [
 const CAUSE = [
   { icon: MessageSquare, k: '你說的', v: '「做一個可以登記報名的頁面」。' },
   { icon: Bot, k: '它做的', v: '一個可以登記報名的頁面，而且做得很好。' },
-  { icon: MessageSquareOff, k: '沒有人說的', v: '擋住不該進來的人。需求裡沒有這一項，所以那件事不會出現。' },
+  { icon: MessageSquareOff, k: '沒有人說的', v: '擋住不該進來的人。需求沒有交代誰能讀寫資料的時候，做出來的功能就可能少掉那道檢查。' },
 ];
 
 export default function SlideShipEvidence() {
@@ -135,12 +151,13 @@ export default function SlideShipEvidence() {
           <div className="mt-3 border-t border-slate-800 pt-3">
             <p className="mb-1 flex items-center gap-2 text-sm font-bold text-slate-200">
               <MapPin aria-hidden="true" size={14} className="shrink-0 text-slate-500" />
-              台灣 2026 年 8 月的案例
+              台灣的案例（INSIDE 專訪，2026/09）
             </p>
             <p className="text-sm leading-relaxed text-slate-400">
-              壹加壹的字幕工具 What&rsquo;Sub 兩天破萬註冊，接著一批使用者的 email 外洩。
-              開發者是剪片出身、不寫程式，他的說法是「我沒有想到這麼多」。白帽把問題寄給他之後，
-              他逐條交給 AI 判斷、修完。
+              壹加壹的字幕工具 What&rsquo;Sub 上線之後用量超出原本設想十倍以上，早期曾有一批使用者的
+              email 外洩。白帽與其他開發者主動測試、把問題寄給他，他把這些回報整理給 AI 判斷哪些成立、
+              怎麼處理，再逐項修改，最後自己審核、決定要不要送出更新。
+              他也用 Codex 做過一次紅藍對抗，複製一份專案在跟正式服務隔離的沙盒裡跑。
             </p>
             <a
               href="https://www.inside.com.tw/article/42420-lean-ai-vibe-coding-whatsub-subtitle-tool"
@@ -154,9 +171,9 @@ export default function SlideShipEvidence() {
         </AnimatedBlock>
 
         <Callout tone="warn" icon={EyeOff} label="部門自己做的小工具，網址丟群組就上線" stepIndex={4}>
-          那 2,000 個從頭到尾就沒有設過登入，沒有人攻破它們。過程通常很單純：
+          那 2,000 個研究說它們沒有設基本的身分驗證與存取控制，不用登入就碰得到裡面的資料。過程通常很單純：
           你把部門每個月要彙整的那份表做成一個網頁，資料貼進去，網址丟到群組請同事用。
-          <strong className="text-slate-100">做到這裡沒有錯，少掉的只是「誰可以打開」這一項。</strong>
+          <strong className="text-slate-100">做到這裡沒有錯，接下來要確認的是：這份資料能不能放上這個平台，以及誰可以讀、誰可以改。</strong>
           有些連管理者權限都是打開那一頁就有。
           <span className="block mt-2 text-slate-400">
             員工自己建、沒有經過 IT 的 AI 工具，現在叫影子 AI。
