@@ -128,7 +128,7 @@ export default function SlideShipRisk() {
             而它們之所以沒被做出來，多半是
             <strong className="text-slate-400">需求裡沒有寫</strong>：
             你說「做一個可以登記報名的頁面」，它就做了一個可以登記報名的頁面；
-            「擋住不該進來的人」沒有人說過，那件事就不會出現。
+            沒有人交代「誰能讀、誰能改這些報名資料」，做出來的功能就可能少掉那道檢查。
           </p>
         </AnimatedBlock>
 

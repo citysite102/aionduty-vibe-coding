@@ -109,7 +109,7 @@ export default function SlideShipEvidence() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           安全那一層最容易被跳過，因為畫面上看不出來。
-          <strong className="text-slate-100">底下三個數字各自在量不同的事，先看它們量了什麼。</strong>
+          <strong className="text-slate-100">三個數字各自在量不同的事。</strong>
         </AnimatedBlock>
 
         <AnimatedBlock stepIndex={2}>
@@ -155,7 +155,7 @@ export default function SlideShipEvidence() {
             ))}
           </ul>
           <p className="mt-2 text-base leading-relaxed text-slate-300">
-            <strong className="text-slate-100">所以你要補的那一項叫「知道該問哪幾題」。</strong>
+            <strong className="text-slate-100">要補的是那幾個沒有人交代的問題：誰能讀這些資料、誰能改、這些權限有沒有實際測過。</strong>
           </p>
 
           <div className="mt-3 border-t border-slate-800 pt-3">

@@ -119,7 +119,7 @@ export default function SlideWhenToAdd() {
         <AnimatedBlock stepIndex={1}>
           <p className="text-slate-300 text-base leading-relaxed mb-3">
             先看你現在卡在哪一種瓶頸。
-            <strong className="text-slate-100">每一種都有一件不用裝工具就能做的事，那件事做完還是卡住，才輪到工具。</strong>
+            <strong className="text-slate-100">先補文件、整理程式結構或記下進度；做完還是卡住，才輪到工具。</strong>
           </p>
           <ol className="grid grid-cols-1 gap-3 md:grid-cols-3">
             {BOTTLENECKS.map((b) => (

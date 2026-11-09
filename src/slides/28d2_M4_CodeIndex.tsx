@@ -151,7 +151,7 @@ export default function SlideCodeIndex() {
 
         <AnimatedBlock stepIndex={4} className="border-t border-slate-800 pt-4">
           <p className="text-slate-100 text-lg font-bold leading-relaxed">
-            兩種混著用才是常態：先用搜尋找方向，相依關係複雜的時候才需要索引。
+            先用搜尋找方向；常漏掉相依關係的時候，再評估索引工具。
           </p>
           <p className="mt-1 text-sm leading-relaxed text-slate-400">
             索引協助定位，理解與驗證仍然要回到原始程式碼：它不保證所有相依關係都抓得正確，

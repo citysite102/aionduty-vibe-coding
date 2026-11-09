@@ -80,8 +80,8 @@ export default function SlideMemoryQuiz() {
           </div>
           <p className="mt-2 text-sm leading-relaxed text-slate-300">
             題目已經說了，那幾條限制只留在舊的對話裡，
-            <strong className="text-slate-100">它找不到，是因為那份資訊不存在</strong>，
-            不是因為專案太大。哪些檔案不能改、它們跟誰相依，寫成專案文件之後，
+            <strong className="text-slate-100">新的那一輪對話讀不到舊對話裡的東西</strong>，
+            跟專案大不大沒有關係。哪些檔案不能改、它們跟誰相依，寫成專案文件之後，
             再開一輪新對話，請它指出文件位置並且把限制複述一次，確認它真的讀到了。
           </p>
         </AnimatedBlock>
@@ -98,7 +98,6 @@ export default function SlideMemoryQuiz() {
           </ul>
           <p className="mt-3 border-t border-slate-800 pt-3 text-sm leading-relaxed text-sky-200">
             寫完文件之後，如果它還是常漏掉相關的程式碼，那時候才輪到索引工具。
-            順序是：先補資訊，再補找資訊的方法。
           </p>
         </AnimatedBlock>
 

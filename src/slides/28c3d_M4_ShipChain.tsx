@@ -176,7 +176,7 @@ export default function SlideShipChain() {
         <AnimatedBlock stepIndex={7} as="p" className="px-1 text-sm leading-snug text-slate-500">
           同一關有好幾個選擇，
           <strong className="text-slate-400">先確認你挑的那一個涵蓋哪些檢查</strong>，沒涵蓋到的另外補。
-          例如 npm audit 只看相依套件，金鑰與程式碼要另外的工具。四個階段不是四筆要先付的錢。
+          例如 npm audit 只看相依套件，金鑰與程式碼要另外的工具。四個階段不代表要買四個工具。
           <span className="mt-1 block">
             各工具的預設範圍也不同，有的掃整個專案，有的只看這次的變更；
             <strong className="text-slate-400">範圍會互相重疊，但沒有一個工具涵蓋得了全部</strong>。

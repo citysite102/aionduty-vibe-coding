@@ -254,7 +254,7 @@ export default function SlideShipAudit() {
           <p className="mt-1.5 text-sm leading-relaxed text-slate-500">
             貼之前先把這四件講給它：這是哪一種專案、手上有哪些工具、它碰得到哪些檔案與帳號、
             這一輪要涵蓋到哪裡。
-            <strong className="text-slate-400">這四件沒講，它會自己猜</strong>。
+            <strong className="text-slate-400">這四件沒講清楚，它只能自己假設一組</strong>，假設出來的範圍跟你要的通常不一樣。
           </p>
         </AnimatedBlock>
 

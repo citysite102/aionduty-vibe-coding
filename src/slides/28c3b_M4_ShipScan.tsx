@@ -45,7 +45,7 @@ const CHECKS = [
     k: '自動化檢查',
     en: 'Automated Checks',
     when: '每次改完、提交之前，以及 CI 流程裡',
-    how: '單元測試、Lint、靜態分析，加上相依套件與金鑰的掃描。共同點是照既有的名單或規則比對：同一份程式碼、同一組規則與漏洞資料，跑幾次結果都一樣。',
+    how: '單元測試、Lint、靜態分析，加上相依套件與金鑰的掃描。共同點是照你寫好的測試、既有的規則或漏洞名單去跑：同一份程式碼、同一組規則與測試資料，結果重現得出來。',
     find: '測試沒過、已經被登記的漏洞，以及規則認得出來的寫法問題。',
     limit: '不在檢查範圍裡的商業邏輯缺陷看不到；套件那一類還受限於已知漏洞的名單，名單上沒有的就查不到。',
   },
@@ -82,7 +82,7 @@ export default function SlideShipScan() {
 
         <AnimatedBlock stepIndex={1} as="p" className="text-slate-300 text-base leading-relaxed">
           三種檢查方式找得到的問題不一樣，
-          <strong className="text-slate-100">它們是互相補的，不是做完一個才做下一個。</strong>
+          <strong className="text-slate-100">它們互相補足，照開發進度與專案風險安排就好。</strong>
         </AnimatedBlock>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">

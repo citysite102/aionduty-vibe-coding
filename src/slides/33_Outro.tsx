@@ -119,9 +119,6 @@ export default function SlideOutro() {
 
         {/* 六個階段。三條回頭的線是這一塊的重點，不要為了整齊拿掉。 */}
         <AnimatedBlock stepIndex={2} className="relative z-10 mt-6 w-full">
-          <p className="mb-3 text-sm leading-relaxed text-slate-400">
-            每一段底下那一行，是這門課裡負責那一段的東西。
-          </p>
           <ol className="grid grid-cols-2 gap-x-5 gap-y-4 md:grid-cols-3 lg:grid-cols-6">
             {STAGES.map((s, i) => (
               <li key={s.en} className="border-t-2 border-sky-500/30 pt-2.5">

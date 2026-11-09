@@ -89,7 +89,7 @@ export default function SlideDataCheck() {
           <p className="mt-2 text-sm leading-relaxed text-slate-500">
             模擬資料要跟正式那一份同一套欄位與格式，而且要放幾筆真的會遇到的狀況：
             缺欄位、日期格式不一樣、金額是零或負數。
-            <strong className="text-slate-400">每一筆都正常的資料驗不出什麼</strong>。
+            <strong className="text-slate-400">只有正常的資料，驗不到缺漏與異常的處理</strong>。
           </p>
         </AnimatedBlock>
 
@@ -116,8 +116,8 @@ export default function SlideDataCheck() {
           回覆通常不是「可以」或「不行」兩種，多半是「哪些欄位可以、要用哪個帳號、存在哪裡」。
           那幾條回來之後寫進規格文件，下一輪照著跑。
           <span className="mt-1 block">
-            <strong className="text-slate-400">模擬資料跑得過，代表流程站得住，不代表可以上線</strong>：
-            正式資料的欄位、量體與權限都要再驗一次。
+            <strong className="text-slate-400">模擬資料驗過的只有欄位、計算與缺漏處理這幾件</strong>：
+            正式資料的欄位、量體與權限要再驗一次，才談得上上線。
           </span>
         </AnimatedBlock>
 
